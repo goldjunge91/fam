@@ -1,65 +1,60 @@
-import type { MMKV } from 'react-native-mmkv';
 import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
-import { getBrochurePostalCode, setBrochurePostalCode } from './preferences';
+import {
+  getBrochurePostalCode,
+  getBrochurePostalCodeSource,
+  markBrochurePostalCodeAsDeviceLocation,
+  setBrochurePostalCode,
+} from './preferences';
 
-const mockValues = new Map<string, string>();
 const mockStorage = {
-  getString: jest.fn((key: string) => mockValues.get(key)),
-  remove: jest.fn((key: string) => mockValues.delete(key)),
-  set: jest.fn((key: string, value: string) => mockValues.set(key, value)),
-} as unknown as MMKV;
+  getString: jest.fn(),
+  set: jest.fn(),
+  remove: jest.fn(),
+};
 
 jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: jest.fn(),
 }));
 
-describe('account preferences', () => {
+describe('brochure postal-code preferences', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    mockValues.clear();
-    jest.mocked(getEncryptedAccountStorage).mockResolvedValue(mockStorage);
+    jest.mocked(getEncryptedAccountStorage).mockResolvedValue(mockStorage as never);
   });
 
-  it('liest die Postleitzahl ausschließlich aus dem Speicher des angegebenen Nutzers', async () => {
-    mockValues.set('brochures.postal-code', '22043');
+  test('returns valid postal codes and removes malformed stored values', async () => {
+    mockStorage.getString.mockReturnValueOnce('10115').mockReturnValueOnce('10A15');
 
-    await expect(getBrochurePostalCode('user-a')).resolves.toBe('22043');
-    expect(getEncryptedAccountStorage).toHaveBeenCalledWith('user-a');
-  });
-
-  it('entfernt ungültige gespeicherte Postleitzahlen', async () => {
-    mockValues.set('brochures.postal-code', '1234');
-
-    await expect(getBrochurePostalCode('user-a')).resolves.toBeNull();
+    await expect(getBrochurePostalCode('user-1')).resolves.toBe('10115');
+    await expect(getBrochurePostalCode('user-1')).resolves.toBeNull();
     expect(mockStorage.remove).toHaveBeenCalledWith('brochures.postal-code');
   });
 
-  it('weist ungültige Postleitzahlen vor einem Schreibzugriff zurück', async () => {
-    await expect(setBrochurePostalCode('user-a', '12A45')).rejects.toThrow('genau fünf Ziffern');
+  test('returns recognized sources and treats unknown values as missing', async () => {
+    mockStorage.getString
+      .mockReturnValueOnce('manual')
+      .mockReturnValueOnce('gps')
+      .mockReturnValueOnce('other');
+
+    await expect(getBrochurePostalCodeSource('user-1')).resolves.toBe('manual');
+    await expect(getBrochurePostalCodeSource('user-1')).resolves.toBe('gps');
+    await expect(getBrochurePostalCodeSource('user-1')).resolves.toBeNull();
+  });
+
+  test('validates before storage and records the selected source', async () => {
+    await expect(setBrochurePostalCode('user-1', '1011')).rejects.toThrow(/fünf Ziffern/);
     expect(getEncryptedAccountStorage).not.toHaveBeenCalled();
+
+    await setBrochurePostalCode('user-1', '10115');
+    await setBrochurePostalCode('user-1', '80331', 'manual');
+    expect(mockStorage.set).toHaveBeenNthCalledWith(1, 'brochures.postal-code', '10115');
+    expect(mockStorage.set).toHaveBeenNthCalledWith(2, 'brochures.postal-code-source', 'gps');
+    expect(mockStorage.set).toHaveBeenNthCalledWith(4, 'brochures.postal-code-source', 'manual');
   });
 
-  it('speichert eine gültige Postleitzahl im Account-Speicher', async () => {
-    await setBrochurePostalCode('user-a', '10115');
+  test('marks the current postal code as coming from device location', async () => {
+    await markBrochurePostalCodeAsDeviceLocation('user-1');
 
-    expect(mockStorage.set).toHaveBeenCalledWith('brochures.postal-code', '10115');
-  });
-
-  it('zeigt Nutzer B nach einem Wert von Nutzer A keine Postleitzahl von A', async () => {
-    const valuesByUser = new Map<string, Map<string, string>>();
-    jest.mocked(getEncryptedAccountStorage).mockImplementation(async (userId) => {
-      const values = valuesByUser.get(userId) ?? new Map<string, string>();
-      valuesByUser.set(userId, values);
-      return {
-        getString: (key: string) => values.get(key),
-        set: (key: string, value: string) => values.set(key, value),
-        remove: (key: string) => values.delete(key),
-      } as unknown as MMKV;
-    });
-
-    await setBrochurePostalCode('user-a', '10115');
-
-    await expect(getBrochurePostalCode('user-a')).resolves.toBe('10115');
-    await expect(getBrochurePostalCode('user-b')).resolves.toBeNull();
+    expect(mockStorage.set).toHaveBeenCalledWith('brochures.postal-code-source', 'gps');
   });
 });

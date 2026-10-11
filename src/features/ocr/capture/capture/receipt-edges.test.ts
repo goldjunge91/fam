@@ -1,6 +1,10 @@
-import { detectReceiptSectionQuad, needsReceiptPerspectiveCorrection } from './receipt-edges';
+import {
+  detectReceiptSection,
+  detectReceiptSectionQuad,
+  needsReceiptPerspectiveCorrection,
+} from './receipt-edges';
 
-function partialReceipt(): {
+function partialReceipt(topOffset = 20): {
   buffer: ArrayBuffer;
   width: number;
   height: number;
@@ -14,7 +18,7 @@ function partialReceipt(): {
     const left = 80 - (20 * y) / (height - 1);
     const right = 320 + (25 * y) / (height - 1);
     for (let x = 0; x < width; x += 1) {
-      const top = 20 - (15 * (x - 80)) / 240;
+      const top = topOffset - (15 * (x - 80)) / 240;
       const brightness = x >= left && x <= right && y >= top ? 220 : 20;
       const offset = (y * width + x) * 4;
       pixels[offset] = brightness;
@@ -50,6 +54,44 @@ describe('detectReceiptSectionQuad', () => {
 
     expect(detectReceiptSectionQuad(image)).toBeNull();
   });
+
+  it('estimates the top edge when the paper starts above the probe range', () => {
+    expect(detectReceiptSection(partialReceipt(180))?.topEdge).toBe('estimated');
+  });
+
+  it.each(['BGRA', 'ARGB', 'ABGR'] as const)(
+    'detects the same receipt in %s pixel layout',
+    (pixelFormat) => {
+      const sourceImage = partialReceipt();
+      const source = new Uint8Array(sourceImage.buffer);
+      const buffer = new ArrayBuffer(sourceImage.width * sourceImage.height * 4);
+      const output = new Uint8Array(buffer);
+
+      for (let index = 0; index < source.length; index += 4) {
+        const red = source[index] ?? 0;
+        const green = source[index + 1] ?? 0;
+        const blue = source[index + 2] ?? 0;
+        const alpha = source[index + 3] ?? 255;
+        const offset = index;
+        if (pixelFormat === 'BGRA') {
+          output.set([blue, green, red, alpha], offset);
+        } else if (pixelFormat === 'ARGB') {
+          output.set([alpha, red, green, blue], offset);
+        } else {
+          output.set([alpha, blue, green, red], offset);
+        }
+      }
+
+      expect(
+        detectReceiptSectionQuad({
+          buffer,
+          width: sourceImage.width,
+          height: sourceImage.height,
+          pixelFormat,
+        }),
+      ).not.toBeNull();
+    },
+  );
 });
 
 describe('needsReceiptPerspectiveCorrection', () => {

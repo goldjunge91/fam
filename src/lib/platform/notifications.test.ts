@@ -1,12 +1,28 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ExpoNotifications from 'expo-notifications';
+import { Platform } from 'react-native';
 import {
   cancelLocalReminder,
   cancelUserNotificationReminders,
+  DEFAULT_NOTIFICATION_SETTINGS,
   disableNotificationReminders,
   EXPIRY_NOTIFICATION_IDENTIFIER,
+  getNotificationPermissionStatus,
+  getNotificationSettings,
+  type NotificationSettings,
+  requestNotificationPermissions,
+  saveNotificationSettings,
   scheduleExpiryNotificationReminder,
   scheduleLocalReminder,
+  sendTestNotification,
 } from './notifications';
+
+jest.mock('@react-native-async-storage/async-storage', () => {
+  const storage = jest.requireActual(
+    '@react-native-async-storage/async-storage/jest/async-storage-mock',
+  );
+  return { ...storage, __esModule: true, default: storage };
+});
 
 const notifications = jest.mocked(
   jest.requireMock('expo-notifications') as typeof ExpoNotifications,
@@ -35,8 +51,9 @@ function scheduledNotification(identifier: string): ExpoNotifications.Notificati
   };
 }
 
-beforeEach(() => {
+beforeEach(async () => {
   jest.clearAllMocks();
+  await AsyncStorage.clear();
   getAllScheduledNotificationsAsync.mockResolvedValue([]);
   notifications.getPermissionsAsync.mockResolvedValue({
     status: ExpoNotifications.PermissionStatus.GRANTED,
@@ -175,4 +192,133 @@ it('plant bei fehlender Berechtigung nichts und nutzt den bestehenden Adapter-Fa
     }),
   ).resolves.toBe(false);
   expect(notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
+});
+
+it('speichert und lädt die vollständigen Benachrichtigungseinstellungen', async () => {
+  const settings: NotificationSettings = {
+    enabled: false,
+    daysThreshold: 5,
+    reminderHour: 8,
+    reminderMinute: 30,
+  };
+
+  await saveNotificationSettings(settings);
+
+  await expect(getNotificationSettings()).resolves.toEqual(settings);
+  expect(AsyncStorage.setItem).toHaveBeenCalledWith(
+    'fam_notification_settings_v1',
+    JSON.stringify(settings),
+  );
+});
+
+it('uses safe defaults for malformed stored settings and permission lookup failures', async () => {
+  await AsyncStorage.setItem('fam_notification_settings_v1', '{not-json');
+  await expect(getNotificationSettings()).resolves.toEqual(DEFAULT_NOTIFICATION_SETTINGS);
+
+  notifications.getPermissionsAsync.mockRejectedValueOnce(new Error('permission lookup failed'));
+  await expect(getNotificationPermissionStatus()).resolves.toEqual({
+    granted: false,
+    canAskAgain: true,
+  });
+});
+
+it('returns the current notification permission without opening a system prompt', async () => {
+  notifications.getPermissionsAsync.mockResolvedValueOnce({
+    status: ExpoNotifications.PermissionStatus.DENIED,
+    canAskAgain: false,
+    expires: 'never',
+    granted: false,
+    ios: undefined,
+    android: undefined,
+  });
+
+  await expect(getNotificationPermissionStatus()).resolves.toEqual({
+    granted: false,
+    canAskAgain: false,
+  });
+  expect(notifications.requestPermissionsAsync).not.toHaveBeenCalled();
+});
+
+it('returns granted when existing iOS authorization is provisional', async () => {
+  notifications.getPermissionsAsync.mockResolvedValueOnce({
+    status: ExpoNotifications.PermissionStatus.UNDETERMINED,
+    canAskAgain: true,
+    expires: 'never',
+    granted: false,
+    ios: {
+      status: ExpoNotifications.IosAuthorizationStatus.PROVISIONAL,
+      allowsAlert: false,
+      allowsBadge: false,
+      allowsSound: false,
+      allowsCriticalAlerts: false,
+      allowsDisplayInCarPlay: false,
+      allowsAnnouncements: false,
+      providesAppNotificationSettings: false,
+      allowsDisplayInNotificationCenter: false,
+      allowsDisplayOnLockScreen: false,
+      alertStyle: 0,
+      allowsPreviews: 0,
+    },
+    android: undefined,
+  });
+
+  await expect(requestNotificationPermissions()).resolves.toBe(true);
+  expect(notifications.requestPermissionsAsync).not.toHaveBeenCalled();
+});
+
+it('sends the immediate test notification and reports provider failures', async () => {
+  await expect(sendTestNotification()).resolves.toEqual({
+    success: true,
+    message: 'Test-Benachrichtigung wurde erfolgreich gesendet!',
+  });
+  expect(notifications.scheduleNotificationAsync).toHaveBeenCalledWith(
+    expect.objectContaining({ trigger: null }),
+  );
+
+  notifications.scheduleNotificationAsync.mockRejectedValueOnce(new Error('scheduler offline'));
+  await expect(sendTestNotification()).resolves.toEqual({
+    success: false,
+    message: 'scheduler offline',
+  });
+});
+
+it('returns false when scheduling or cancelling a local reminder fails', async () => {
+  notifications.scheduleNotificationAsync.mockRejectedValueOnce(new Error('scheduler offline'));
+  await expect(
+    scheduleLocalReminder({
+      identifier: 'fam.glp1.injection-due.v1.user-1',
+      date: new Date('2099-09-01T08:00:00.000Z'),
+      title: 'Injektion fällig',
+      body: 'Deine Injektion ist fällig.',
+    }),
+  ).resolves.toBe(false);
+
+  notifications.cancelScheduledNotificationAsync.mockRejectedValueOnce(
+    new Error('notifications unavailable'),
+  );
+  await expect(cancelLocalReminder('fam.glp1.injection-due.v1.user-1')).resolves.toBeUndefined();
+});
+
+it('does not schedule expiry reminders when there are no expiring items', async () => {
+  await scheduleExpiryNotificationReminder(0, DEFAULT_NOTIFICATION_SETTINGS);
+
+  expect(notifications.cancelScheduledNotificationAsync).toHaveBeenCalledWith(
+    EXPIRY_NOTIFICATION_IDENTIFIER,
+  );
+  expect(notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
+});
+
+it('creates an Android notification channel before requesting permission', async () => {
+  const originalDescriptor = Object.getOwnPropertyDescriptor(Platform, 'OS');
+  Object.defineProperty(Platform, 'OS', { configurable: true, value: 'android' });
+
+  try {
+    await expect(requestNotificationPermissions()).resolves.toBe(true);
+    expect(notifications.setNotificationChannelAsync).toHaveBeenCalledWith('reminders', {
+      name: 'Erinnerungen',
+      importance: ExpoNotifications.AndroidImportance.DEFAULT,
+    });
+  } finally {
+    if (originalDescriptor) Object.defineProperty(Platform, 'OS', originalDescriptor);
+  }
 });

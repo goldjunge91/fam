@@ -18,4 +18,18 @@ describe('GLP-1-Verlauf', () => {
     expect(sortGlp1History(items).map(({ log }) => log)).toEqual(['Symptome', 'Injektion']);
     expect(items[0].log).toBe('Injektion');
   });
+
+  it('ordnet ungültige Zeitstempel hinter gültige Einträge und behält deren Reihenfolge', () => {
+    const items: Glp1HistoryItem<string, string>[] = [
+      { kind: 'injection', timestamp: 'kein Datum', log: 'Ungültig zuerst' },
+      { kind: 'symptom', timestamp: '2026-08-30T07:30:00Z', log: 'Gültig' },
+      { kind: 'injection', timestamp: 'ebenfalls ungültig', log: 'Ungültig danach' },
+    ];
+
+    expect(sortGlp1History(items).map(({ log }) => log)).toEqual([
+      'Gültig',
+      'Ungültig zuerst',
+      'Ungültig danach',
+    ]);
+  });
 });

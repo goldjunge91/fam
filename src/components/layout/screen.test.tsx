@@ -1,7 +1,8 @@
 import { fireEvent, render } from '@testing-library/react-native';
+import { Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { Screen } from '@/components/layout/screen';
+import { Screen, ScreenHeader } from '@/components/layout/screen';
 import { Txt } from '@/constants/ui';
 
 /**
@@ -125,5 +126,28 @@ describe('Screen — Zurueck-Knopf', () => {
       </Screen>,
     );
     expect(mit.getByText('‹ Haushalte')).toBeTruthy();
+  });
+});
+
+describe('Screen layout variants', () => {
+  beforeEach(() => {
+    mockBack.mockClear();
+    mockReplace.mockClear();
+  });
+
+  it('renders ScreenHeader options and routes its back action', async () => {
+    const header = await renderScreen(
+      <ScreenHeader title="Einkauf" subtitle="Diese Woche" back right={<Text>Bearbeiten</Text>} />,
+    );
+
+    expect(header.getByText('Einkauf')).toBeTruthy();
+    expect(header.getByText('Diese Woche')).toBeTruthy();
+    expect(header.getByText('Bearbeiten')).toBeTruthy();
+    fireEvent.press(header.getByLabelText('Zurück'));
+    expect(mockBack).toHaveBeenCalledTimes(1);
+
+    const plain = await renderScreen(<ScreenHeader title="Profil" />);
+    expect(plain.getByText('Profil')).toBeTruthy();
+    expect(plain.queryByLabelText('Zurück')).toBeNull();
   });
 });

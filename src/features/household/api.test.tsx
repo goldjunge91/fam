@@ -365,6 +365,48 @@ describe('household api', () => {
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.join.completed');
   });
 
+  it('führt mutations ohne Nutzer-ID ohne Haushalts-Pull aus und behält UUID-Einladungen', async () => {
+    mockUserId = null;
+    mockRpc.mockResolvedValue({ data: 'hh-result', error: null });
+
+    const createMutation = await renderHook(() => useCreateHouseholdMutation(), {
+      wrapper: HouseholdApiProviders,
+    });
+    await act(async () => {
+      await createMutation.result.current.mutateAsync('Neuer Haushalt');
+    });
+
+    const leaveMutation = await renderHook(() => useLeaveHouseholdMutation(), {
+      wrapper: HouseholdApiProviders,
+    });
+    await act(async () => {
+      await leaveMutation.result.current.mutateAsync('hh-leave');
+    });
+
+    const deleteMutation = await renderHook(() => useDeleteHouseholdMutation(), {
+      wrapper: HouseholdApiProviders,
+    });
+    await act(async () => {
+      await deleteMutation.result.current.mutateAsync('hh-delete');
+    });
+
+    const redeemMutation = await renderHook(() => useRedeemInviteMutation(), {
+      wrapper: HouseholdApiProviders,
+    });
+    await act(async () => {
+      await redeemMutation.result.current.mutateAsync('123e4567-e89b-12d3-a456-426614174000');
+    });
+
+    expect(mockRpc).toHaveBeenCalledWith('redeem_invite', {
+      invite_code: '123e4567-e89b-12d3-a456-426614174000',
+    });
+    expect(triggerHouseholdsPull).not.toHaveBeenCalled();
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.create.completed');
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.leave.completed');
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.delete.completed');
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.join.completed');
+  });
+
   it('weist einen fehlgeschlagenen Codeversuch mit leerem RPC-Ergebnis als ungültig zurück', async () => {
     mockRpc.mockResolvedValueOnce({ data: null, error: null });
     const redeemMutation = await renderHook(() => useRedeemInviteMutation(), {

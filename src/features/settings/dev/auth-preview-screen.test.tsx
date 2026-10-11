@@ -4,13 +4,19 @@ import type { ReactNode } from 'react';
 
 import { AuthPreviewScreen } from './auth-preview-screen';
 
+let mockHasAccess = true;
+
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
-  Redirect: () => null,
+  Redirect: ({ href }: { href: string }) => {
+    const React = require('react');
+    const { Text: MockText } = require('react-native');
+    return React.createElement(MockText, null, `Redirect: ${href}`);
+  },
 }));
 
 jest.mock('@/hooks/use-dev-tools-access', () => ({
-  useDevToolsAccess: () => true,
+  useDevToolsAccess: () => mockHasAccess,
 }));
 
 jest.mock('@/components/layout/screen', () => {
@@ -58,6 +64,11 @@ jest.mock('@/constants/ui', () => {
 });
 
 describe('AuthPreviewScreen', () => {
+  beforeEach(() => {
+    mockHasAccess = true;
+    jest.mocked(router.push).mockClear();
+  });
+
   it('öffnet alle echten Auth-Routen', async () => {
     const user = userEvent.setup();
     await render(<AuthPreviewScreen />);
@@ -73,5 +84,13 @@ describe('AuthPreviewScreen', () => {
       await user.press(screen.getByRole('button', { name: new RegExp(title) }));
       expect(router.push).toHaveBeenLastCalledWith(route);
     }
+  });
+
+  it('leitet ohne Entwickler-Zugriff zu den Einstellungen um', async () => {
+    mockHasAccess = false;
+    await render(<AuthPreviewScreen />);
+
+    expect(screen.getByText('Redirect: /settings')).toBeOnTheScreen();
+    expect(router.push).not.toHaveBeenCalled();
   });
 });

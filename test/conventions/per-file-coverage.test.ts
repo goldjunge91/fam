@@ -32,7 +32,7 @@ describe('per-file coverage policy', () => {
 
   afterEach(() => rmSync(tempDir, { recursive: true, force: true }));
 
-  it('discovers every runtime source extension and platform variant, excluding tests and declarations', () => {
+  it('discovers runtime sources and platform variants while excluding test support, declarations and generated database types', () => {
     for (const file of [
       'src/index.ts',
       'src/screen.tsx',
@@ -41,12 +41,15 @@ describe('per-file coverage policy', () => {
       'src/native/screen.ios.tsx',
       'src/native/screen.android.tsx',
       'src/generated/runtime.ts',
+      'src/lib/database.types.ts',
+      'src/use-inventory-mutations.harness.tsx',
       'src/helper.test.ts',
       'src/helper.spec.tsx',
       'src/types.d.ts',
     ]) {
       writeFixture(tempDir, file);
     }
+    writeFileSync(join(tempDir, 'src/lib/database.types.ts'), 'export type Database = {};\n');
 
     const sourceFiles = collectProductiveSourceFiles(join(tempDir, 'src'));
     const relativeFiles = sourceFiles.map((file) => relative(tempDir, file).replaceAll('\\', '/'));

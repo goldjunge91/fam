@@ -37,9 +37,40 @@ jest.mock('@/features/auth/oauth-provider-actions', () => ({
 }));
 
 jest.mock('@/features/auth/components/email-verification-panel', () => ({
-  EmailVerificationPanel: ({ email }: { email: string }) => {
-    const { Text } = require('react-native');
-    return <Text>Warteraum: {email}</Text>;
+  EmailVerificationPanel: ({
+    email,
+    onConfirmed,
+    onChangeEmail,
+  }: {
+    email: string;
+    onConfirmed: () => void;
+    onChangeEmail: () => void;
+  }) => {
+    const React = require('react');
+    const { Pressable, Text, View } = require('react-native');
+    return React.createElement(
+      View,
+      null,
+      React.createElement(Text, null, `Warteraum: ${email}`),
+      React.createElement(
+        Pressable,
+        {
+          accessibilityRole: 'button',
+          accessibilityLabel: 'E-Mail bestätigt',
+          onPress: onConfirmed,
+        },
+        React.createElement(Text, null, 'Bestätigt'),
+      ),
+      React.createElement(
+        Pressable,
+        {
+          accessibilityRole: 'button',
+          accessibilityLabel: 'E-Mail ändern',
+          onPress: onChangeEmail,
+        },
+        React.createElement(Text, null, 'E-Mail ändern'),
+      ),
+    );
   },
 }));
 
@@ -85,6 +116,19 @@ describe('SignUpScreen', () => {
 
     expect(await screen.findByText('Warteraum: family@example.com')).toBeTruthy();
     expect(router.replace).not.toHaveBeenCalled();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'E-Mail ändern' }));
+    expect(screen.getByRole('button', { name: 'Konto erstellen' })).toBeOnTheScreen();
+  });
+
+  it('navigiert nach bestaetigter E-Mail zum Onboarding', async () => {
+    mockSignUp.mockResolvedValue({ data: { session: null }, error: null });
+
+    await renderScreen();
+    await fillAndSubmit();
+    await fireEvent.press(await screen.findByRole('button', { name: 'E-Mail bestätigt' }));
+
+    expect(router.replace).toHaveBeenCalledWith('/onboarding');
   });
 
   it('kann Passwort und Bestätigung beim Erstellen eines Kontos anzeigen', async () => {

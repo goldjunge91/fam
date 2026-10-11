@@ -2,11 +2,15 @@ import { renderHook } from '@testing-library/react-native';
 
 import { useAdsConsentStore } from '../ads-consent';
 import { useInterstitialAd } from './use-interstitial-ad';
+import { useInterstitialAd as useAndroidInterstitialAd } from './use-interstitial-ad.android';
+import { useInterstitialAd as useWebInterstitialAd } from './use-interstitial-ad.web';
 
 let mockHasPlus = false;
 let mockHasAI = false;
 let mockIsLoaded = false;
+let mockIsOpened = false;
 let mockIsClosed = false;
+let mockAdError: Error | undefined;
 const mockRawShow = jest.fn();
 const mockRawLoad = jest.fn();
 
@@ -27,9 +31,9 @@ jest.mock('react-native-google-mobile-ads', () => ({
   },
   useInterstitialAd: (adUnitId: string | null) => ({
     isLoaded: adUnitId ? mockIsLoaded : false,
-    isOpened: false,
+    isOpened: mockIsOpened,
     isClosed: mockIsClosed,
-    error: undefined,
+    error: mockAdError,
     load: mockRawLoad,
     show: mockRawShow,
   }),
@@ -43,7 +47,9 @@ describe('useInterstitialAd', () => {
     mockHasPlus = false;
     mockHasAI = false;
     mockIsLoaded = false;
+    mockIsOpened = false;
     mockIsClosed = false;
+    mockAdError = undefined;
     useAdsConsentStore.getState().setReady(true);
     jest.clearAllMocks();
   });
@@ -128,5 +134,80 @@ describe('useInterstitialAd', () => {
     await renderHook(() => useInterstitialAd());
 
     expect(mockRawLoad).not.toHaveBeenCalled();
+  });
+
+  it('deckt den Android-Adapter mit Auto-Load, explizitem Laden und Anzeigen ab', async () => {
+    const hook = await renderHook(() => useAndroidInterstitialAd({ autoLoad: false }));
+    expect(mockRawLoad).not.toHaveBeenCalled();
+
+    mockIsLoaded = true;
+    await hook.rerender({});
+    expect(hook.result.current.isLoaded).toBe(true);
+
+    hook.result.current.load();
+    hook.result.current.show();
+
+    expect(mockRawLoad).toHaveBeenCalledTimes(1);
+    expect(mockRawShow).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    [
+      'Plus entitlement',
+      () => {
+        mockHasPlus = true;
+      },
+    ],
+    [
+      'AI entitlement',
+      () => {
+        mockHasAI = true;
+      },
+    ],
+    [
+      'global ads switch',
+      () => {
+        process.env.EXPO_PUBLIC_ADS_ENABLED = 'false';
+      },
+    ],
+    [
+      'unfinished consent',
+      () => {
+        useAdsConsentStore.getState().setReady(false);
+      },
+    ],
+  ])('keeps Android interstitials disabled for %s', async (_case, disable) => {
+    disable();
+    const { result } = await renderHook(() => useAndroidInterstitialAd());
+
+    expect(result.current.isLoaded).toBe(false);
+    expect(mockRawLoad).not.toHaveBeenCalled();
+    result.current.show();
+    expect(mockRawShow).not.toHaveBeenCalled();
+  });
+
+  it('does not preload an Android interstitial while it is open and warns if show is early', async () => {
+    mockIsOpened = true;
+    mockAdError = new Error('not ready');
+    const { result } = await renderHook(() => useAndroidInterstitialAd({ autoLoad: true }));
+
+    expect(mockRawLoad).not.toHaveBeenCalled();
+    result.current.show();
+    expect(mockRawShow).not.toHaveBeenCalled();
+  });
+
+  it('provides a no-op web interstitial adapter', async () => {
+    const { result } = await renderHook(() => useWebInterstitialAd());
+
+    expect(result.current).toEqual({
+      isLoaded: false,
+      isOpened: false,
+      isClosed: false,
+      error: undefined,
+      load: expect.any(Function),
+      show: expect.any(Function),
+    });
+    result.current.load();
+    result.current.show();
   });
 });

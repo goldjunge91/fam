@@ -6,6 +6,7 @@ import {
 } from '@/features/premium/force-premium-override';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { getDatabase } from '@/lib/db/local-client';
+import { debugWarn } from '@/lib/observability/debug-log';
 import { devResetHouseholdPremium } from './dev-reset-premium';
 
 jest.mock('react-native-purchases', () => ({
@@ -21,6 +22,10 @@ jest.mock('@/lib/db/local-client', () => ({
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(),
+}));
+
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugWarn: jest.fn(),
 }));
 
 describe('devResetHouseholdPremium', () => {
@@ -86,5 +91,29 @@ describe('devResetHouseholdPremium', () => {
     expect(mockQueryClient.invalidateQueries).toHaveBeenCalledWith({
       queryKey: ['households', 'by-user', 'user-test-1'],
     });
+  });
+
+  it('setzt lokale Overrides zurück und fährt bei Backendfehlern fort', async () => {
+    useForcePremiumOverrideStore.getState().setOverride(true);
+    useForceAiOverrideStore.getState().setOverride(true);
+    jest.mocked(getSupabase).mockImplementation(() => {
+      throw new Error('remote unavailable');
+    });
+    jest.mocked(getDatabase).mockRejectedValue(new Error('local unavailable'));
+    jest
+      .mocked(Purchases.invalidateCustomerInfoCache)
+      .mockRejectedValue(new Error('cache unavailable'));
+
+    await expect(
+      devResetHouseholdPremium({
+        householdId: 'hh-offline',
+        queryClient: mockQueryClient as unknown as QueryClient,
+      }),
+    ).resolves.toBeUndefined();
+
+    expect(useForcePremiumOverrideStore.getState().override).toBeNull();
+    expect(useForceAiOverrideStore.getState().override).toBeNull();
+    expect(debugWarn).toHaveBeenCalledTimes(3);
+    expect(mockQueryClient.invalidateQueries).not.toHaveBeenCalled();
   });
 });

@@ -1,7 +1,38 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import type React from 'react';
+import type { TimeWheelField } from '@/components/forms/time-wheel-field';
 import { i18n } from '@/i18n';
 import { getNotificationSettings, saveNotificationSettings } from '@/lib/platform/notifications';
 import { NotificationSettingsCard } from './notification-settings-card';
+
+type TimeWheelFieldProps = React.ComponentProps<typeof TimeWheelField>;
+
+jest.mock('@/components/forms/time-wheel-field', () => {
+  const React = require('react');
+  const { Pressable, Text } = require('react-native');
+  const actual = jest.requireActual<typeof import('@/components/forms/time-wheel-field')>(
+    '@/components/forms/time-wheel-field',
+  );
+
+  return {
+    ...actual,
+    TimeWheelField: (props: TimeWheelFieldProps) =>
+      React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(actual.TimeWheelField, props),
+        React.createElement(
+          Pressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'Ungültige Erinnerungszeit testen',
+            onPress: () => props.onChange('25:99'),
+          },
+          React.createElement(Text, null, 'Ungültige Erinnerungszeit testen'),
+        ),
+      ),
+  };
+});
 
 jest.mock('@expo/ui/community/datetime-picker', () => {
   const { Pressable } = jest.requireActual('react-native') as typeof import('react-native');
@@ -90,5 +121,14 @@ describe('NotificationSettingsCard', () => {
     expect(saveNotificationSettings).toHaveBeenCalledWith(
       expect.objectContaining({ reminderHour: 10, reminderMinute: 12 }),
     );
+  });
+
+  it('ignoriert ungültige Erinnerungszeiten', async () => {
+    const user = userEvent.setup();
+    await render(<NotificationSettingsCard />);
+
+    await user.press(screen.getByRole('button', { name: 'Ungültige Erinnerungszeit testen' }));
+
+    expect(saveNotificationSettings).not.toHaveBeenCalled();
   });
 });

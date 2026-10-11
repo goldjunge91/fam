@@ -44,6 +44,39 @@ describe('ReceiptReviewModal', () => {
     expect(onConfirm).not.toHaveBeenCalled();
   });
 
+  it('publishes the initial review state to its owner when requested', async () => {
+    const onStateChange = jest.fn();
+    await render(
+      <ReceiptReviewModal
+        visible
+        draft={parseGermanReceipt(REWE_RECEIPT_LINES)}
+        stores={[]}
+        onCancel={jest.fn()}
+        onConfirm={jest.fn()}
+        onStateChange={onStateChange}
+      />,
+    );
+
+    expect(onStateChange).toHaveBeenCalledWith(
+      expect.objectContaining({ market: 'REWE', storeId: null, items: expect.any(Array) }),
+    );
+  });
+
+  it('does not render hidden content when owned by a parent modal', async () => {
+    const { toJSON } = await render(
+      <ReceiptReviewModal
+        visible={false}
+        embedded
+        draft={parseGermanReceipt(REWE_RECEIPT_LINES)}
+        stores={[]}
+        onCancel={jest.fn()}
+        onConfirm={jest.fn()}
+      />,
+    );
+
+    expect(toJSON()).toBeNull();
+  });
+
   it('passes the explicitly selected existing store to confirmation', async () => {
     const onConfirm = jest.fn();
     await render(

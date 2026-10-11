@@ -11,6 +11,11 @@ const mockRequestPermissions = jest.mocked(ImagePicker.requestMediaLibraryPermis
 const mockLaunchPicker = jest.mocked(ImagePicker.launchImageLibraryAsync);
 
 describe('pickRecipeImage', () => {
+  const pickers = [
+    ['iOS', pickRecipeImage],
+    ['Android', pickAndroidRecipeImage],
+  ] as const;
+
   beforeEach(() => {
     jest.clearAllMocks();
     mockRequestPermissions.mockResolvedValue({ granted: true } as never);
@@ -38,4 +43,32 @@ describe('pickRecipeImage', () => {
       quality: 0.8,
     });
   });
+
+  it.each(pickers)(
+    'returns no image on %s when library permission is denied',
+    async (_platform, pick) => {
+      mockRequestPermissions.mockResolvedValue({ granted: false } as never);
+
+      await expect(pick()).resolves.toBeNull();
+      expect(mockLaunchPicker).not.toHaveBeenCalled();
+    },
+  );
+
+  it.each(pickers)(
+    'returns no image on %s when the picker is canceled',
+    async (_platform, pick) => {
+      mockLaunchPicker.mockResolvedValue({ canceled: true, assets: [] } as never);
+
+      await expect(pick()).resolves.toBeNull();
+    },
+  );
+
+  it.each(pickers)(
+    'returns no image on %s when the picker has no assets',
+    async (_platform, pick) => {
+      mockLaunchPicker.mockResolvedValue({ canceled: false, assets: [] } as never);
+
+      await expect(pick()).resolves.toBeNull();
+    },
+  );
 });

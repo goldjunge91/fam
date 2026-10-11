@@ -132,6 +132,21 @@ describe('fam theme tokens', () => {
     expect(getWidgetTheme('dark').colors.accent).toBe(colorsDark.accent);
     expect(getWidgetTheme(undefined).colors.accent).toBe(colorsLight.accent);
   });
+
+  it('keeps the public runtime helpers usable from an isolated module context', () => {
+    let runtime: typeof theme | undefined;
+    jest.isolateModules(() => {
+      runtime = jest.requireActual<typeof import('./index')>('./index');
+    });
+    if (!runtime) throw new Error('Theme module did not load.');
+
+    expect(runtime.makeAccent(runtime.colorsDark).protein.main).toBe(
+      runtime.colorsDark.premiumGradientStart,
+    );
+    expect(runtime.rs(12)).toBeGreaterThan(0);
+    expect(runtime.getWidgetTheme('dark').colors.background).toBe(runtime.colorsDark.background);
+    expect(runtime.withAlpha('#2A3B4C', 0.5)).toBe('rgba(42, 59, 76, 0.5)');
+  });
 });
 
 describe('Fam theme provider', () => {

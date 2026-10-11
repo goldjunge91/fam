@@ -1,9 +1,9 @@
 const setupFiles = [
   "<rootDir>/test/setup.js",
-  // Unistyles v3 stubs — muss vor der App-Konfiguration stehen,
-  // damit StyleSheet.configure in theme/index.ts auf den Mock trifft.
+  // Unistyles v3 stubs must load before the app theme config.
   "react-native-unistyles/mocks",
-  "<rootDir>/src/components/theme/index.ts",
+  // Require through a test helper so Jest coverage instruments the runtime module.
+  "<rootDir>/test/setup-theme.js",
 ];
 
 /** @type {import('jest').Config} */
@@ -84,6 +84,8 @@ module.exports = {
   // React-Native-Tests einsammeln.
   testPathIgnorePatterns: [
     "/node_modules/",
+    "/\\.push-clean-worktree/",
+    "/\\.tmp/",
     "/tools/",
     "\\.integration\\.test\\.tsx?$",
     "\\.bun\\.test\\.ts$",
@@ -100,7 +102,9 @@ module.exports = {
   // `build/` ist der lokale Bun-/Prebuild-Cache: er enthaelt entpackte
   // Paketquellen mit package.json, die sonst mehrfach als Haste-Kandidaten
   // auftauchen und die Modulaufloesung mit "several different files" brechen.
-  modulePathIgnorePatterns: ["<rootDir>/(?:tools|\\.agents|\\.claude|build)/"],
+  modulePathIgnorePatterns: [
+    "<rootDir>/(?:tools|\\.agents|\\.claude|build|\\.push-clean-worktree|\\.tmp)/",
+  ],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
   // ~2x Laufzeit. Fuer gezielte Coverage-Reports gibt es `bun run test:coverage`.

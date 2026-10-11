@@ -51,4 +51,32 @@ describe('CorrelationSection', () => {
     expect(screen.getByRole('tab', { name: '30 Tage' })).toBeSelected();
     expect(screen.getByText('777 kcal')).toBeOnTheScreen();
   });
+
+  it('zeigt fehlende Injektions- und Messwerte ohne leere Zeilen', async () => {
+    await render(
+      <CorrelationSection
+        series={[
+          {
+            ...POINT,
+            daysSinceInjection: null,
+            calories: null,
+            weightKg: null,
+            injection: {
+              administeredAt: '2026-08-24T10:00:00.000Z',
+              medicationName: 'Mounjaro',
+              dose: null,
+              unit: 'mg',
+            },
+            doseChanged: false,
+          },
+        ]}
+      />,
+    );
+
+    expect(screen.getByText('Noch keine Injektion')).toBeOnTheScreen();
+    expect(screen.getByText('Injektion – mg')).toBeOnTheScreen();
+    expect(screen.getByText('Keine Kalorien')).toBeOnTheScreen();
+    expect(screen.getByText('Kein Gewicht')).toBeOnTheScreen();
+    expect(screen.queryByText('Dosis geändert')).toBeNull();
+  });
 });

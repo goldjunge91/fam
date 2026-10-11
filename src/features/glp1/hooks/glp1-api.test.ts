@@ -14,6 +14,7 @@ import {
   type CreateMedicationLogInput,
   fetchLatestMedicationLog,
   fetchMedicationLogsForLogicalDay,
+  fetchRecentMedicationLogs,
   fetchRecentSymptomLogs,
   fetchSymptomLogsForLogicalDay,
   latestMedicationLogQueryKey,
@@ -150,6 +151,24 @@ it('trennt die all-time letzten Injektionen vom ausgewählten logischen Tag', as
   expect(params).toEqual(['user-1', null, 3]);
 });
 
+it('fragt ohne angemeldetes Konto keine lokalen Injektionsdaten ab', async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+  });
+  const { result, unmount } = await renderHook(
+    () => useMedicationLogs(undefined, null, '2026-08-18'),
+    {
+      wrapper: ({ children }: { children: React.ReactNode }) =>
+        React.createElement(QueryClientProvider, { client: queryClient }, children),
+    },
+  );
+
+  expect(result.current.fetchStatus).toBe('idle');
+  expect(mockGetAllAsync).not.toHaveBeenCalled();
+  await unmount();
+  queryClient.clear();
+});
+
 it('liest Symptome offline und fällt bei ungültigen Legacy-Nebenwirkungen sicher zurück', async () => {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
@@ -169,6 +188,7 @@ it('liest Symptome offline und fällt bei ungültigen Legacy-Nebenwirkungen sich
   mockGetAllAsync.mockResolvedValue([
     { ...baseSymptom, id: 'symptom-1', side_effects: '["Kopfschmerz"]' },
     { ...baseSymptom, id: 'symptom-legacy', side_effects: '{kaputt' },
+    { ...baseSymptom, id: 'symptom-legacy-object', side_effects: '{"unexpected":"shape"}' },
   ]);
   onlineManager.setOnline(false);
 
@@ -181,7 +201,7 @@ it('liest Symptome offline und fällt bei ungültigen Legacy-Nebenwirkungen sich
   );
 
   await waitFor(() =>
-    expect(result.current.data?.map((row) => row.side_effects)).toEqual([['Kopfschmerz'], []]),
+    expect(result.current.data?.map((row) => row.side_effects)).toEqual([['Kopfschmerz'], [], []]),
   );
   const [sql, params] = mockGetAllAsync.mock.calls[0];
   expect(sql).toContain('user_id = ? and child_profile_id is ? and deleted_at is null');
@@ -645,6 +665,17 @@ it('liest die letzte Medikation all-time und filtert optional nach dem Plan-Medi
   expect(sql).toContain('medication_name = ? collate nocase');
   expect(sql).not.toContain('administered_at >=');
   expect(params).toEqual(['user-1', null, 'Semaglutid', 1]);
+});
+
+it('begrenzt Recent-Abfragen und liefert null, wenn keine letzte Medikation existiert', async () => {
+  mockGetAllAsync.mockResolvedValue([]);
+
+  await fetchRecentMedicationLogs({ userId: 'user-1', limit: Number.NaN });
+  await fetchRecentMedicationLogs({ userId: 'user-1', limit: 0 });
+  await fetchRecentMedicationLogs({ userId: 'user-1', limit: 101 });
+
+  expect(mockGetAllAsync.mock.calls.map(([, params]) => params?.at(-1))).toEqual([10, 1, 100]);
+  await expect(fetchLatestMedicationLog({ userId: 'user-1' })).resolves.toBeNull();
 });
 
 it('trennt GLP-1 Tagesabfragen im Cache nach logischem Datum und Tagesstart', () => {

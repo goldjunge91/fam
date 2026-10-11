@@ -6,6 +6,7 @@ import { updatePassword } from '@/features/auth/api';
 import { useSession } from '@/features/auth/session-provider';
 import { updateProfile, useProfile } from '@/features/profile/api';
 import { EditProfileScreen } from '@/features/profile/edit-profile-screen';
+import { EditProfileScreen as EditProfileScreenAndroid } from '@/features/profile/edit-profile-screen.android';
 import { saveProfileFoodRules, useProfileFoodRules } from '@/features/profile/food-rules-api';
 import { i18n } from '@/i18n';
 
@@ -56,7 +57,10 @@ jest.mock('@/features/profile/avatar-uploader', () => ({
   uploadAvatarImage: jest.fn().mockResolvedValue('https://example.com/avatar.jpg'),
 }));
 
-async function renderScreen(avatarUrl: string | null = null) {
+async function renderScreen(
+  avatarUrl: string | null = null,
+  Screen: typeof EditProfileScreen = EditProfileScreen,
+) {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -100,7 +104,7 @@ async function renderScreen(avatarUrl: string | null = null) {
         insets: { top: 47, left: 0, right: 0, bottom: 34 },
       }}>
       <QueryClientProvider client={queryClient}>
-        <EditProfileScreen />
+        <Screen />
       </QueryClientProvider>
     </SafeAreaProvider>,
   );
@@ -241,5 +245,59 @@ describe('EditProfileScreen', () => {
 
     expect(updateProfile).toHaveBeenCalledWith('user-1', { avatarUrl: null });
     expect(mockRemoveAvatar).toHaveBeenCalledWith(['user-1/avatar.jpg']);
+  });
+});
+
+describe('EditProfileScreen Android', () => {
+  beforeEach(async () => {
+    jest.clearAllMocks();
+    mockRemoveAvatar.mockResolvedValue({ error: null });
+    mockCaloriesTrackingEnabled = true;
+    await i18n.changeLanguage('de');
+  });
+
+  it('rendert Profil- und Körperdaten nach dem Laden', async () => {
+    await renderScreen(null, EditProfileScreenAndroid);
+
+    expect(screen.getByText('MM')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: /Allergien bearbeiten/ })).toBeOnTheScreen();
+    expect(screen.getByText('80 kg')).toBeOnTheScreen();
+    expect(screen.getByText('180 cm')).toBeOnTheScreen();
+  });
+
+  it('speichert Profil- und Lebensmittelregeln über die Android-Ansicht', async () => {
+    const user = userEvent.setup();
+    await renderScreen(null, EditProfileScreenAndroid);
+
+    await user.press(screen.getByRole('button', { name: 'Änderungen speichern' }));
+
+    await waitFor(() =>
+      expect(updateProfile).toHaveBeenCalledWith('user-1', {
+        displayName: 'Max Mustermann',
+        avatarUrl: null,
+        birthDate: '1990-01-01',
+        heightCm: 180,
+        weightKg: 80,
+        sex: 'male',
+        activityLevel: 'moderate',
+      }),
+    );
+    expect(saveProfileFoodRules).toHaveBeenCalledWith('user-1', {
+      allergies: [{ source: 'preset', code: 'peanuts' }],
+      intolerances: [{ source: 'preset', code: 'lactose' }],
+      dislikedFoods: [{ source: 'custom', label: 'Oliven', normalizedLabel: 'oliven' }],
+    });
+  });
+
+  it('speichert ein neues Passwort aus dem Android-Passwort-Sheet', async () => {
+    const user = userEvent.setup();
+    await renderScreen(null, EditProfileScreenAndroid);
+
+    await user.press(screen.getByRole('button', { name: 'Passwort ändern' }));
+    await user.paste(screen.getByLabelText('Neues Passwort'), 'sicheres-passwort');
+    await user.paste(screen.getByLabelText('Neues Passwort bestätigen'), 'sicheres-passwort');
+    await user.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+
+    await waitFor(() => expect(updatePassword).toHaveBeenCalledWith('sicheres-passwort'));
   });
 });

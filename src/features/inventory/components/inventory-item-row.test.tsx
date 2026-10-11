@@ -5,6 +5,10 @@ import type { LocalInventoryItem } from '../use-inventory-items';
 import { InventoryItemRow } from './inventory-item-row';
 import { InventoryItemRow as InventoryItemRowIOS } from './inventory-item-row.ios';
 
+const { InventoryItemRow: FallbackInventoryItemRow } = jest.requireActual(
+  './inventory-item-row.tsx',
+) as typeof import('./inventory-item-row');
+
 const mockSwipeableClose = jest.fn();
 
 jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
@@ -219,5 +223,103 @@ describe('InventoryItemRow', () => {
 
     expect(onRemove).toHaveBeenCalledTimes(1);
     expect(mockSwipeableClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('covers fallback-row presses, long presses, and removal', async () => {
+    const user = userEvent.setup();
+    const onPress = jest.fn();
+    const onLongPress = jest.fn();
+    const onRemove = jest.fn();
+
+    await render(
+      <FallbackInventoryItemRow
+        item={dummyItem}
+        onPress={onPress}
+        onLongPress={onLongPress}
+        onRemove={onRemove}
+      />,
+    );
+
+    const row = screen.getByRole('button', { name: 'Vollmilch, 1 L' });
+    await user.press(row);
+    await user.longPress(row);
+    await user.press(screen.getByRole('button', { name: 'Vollmilch entfernen' }));
+
+    expect(onPress).toHaveBeenCalledTimes(1);
+    expect(onLongPress).toHaveBeenCalledTimes(1);
+    expect(onRemove).toHaveBeenCalledTimes(1);
+    expect(mockSwipeableClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('covers grouped fallback metadata and the detail action for expired lots', async () => {
+    const user = userEvent.setup();
+    const groupedItem: InventoryItemGroup = {
+      id: 'name:vollmilch|l||',
+      name: 'Vollmilch',
+      product_id: null,
+      quantity: 3,
+      unit: 'l',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: '2026-10-01',
+      expiry: {
+        bucket: 'expired',
+        daysLeft: -10,
+        label: 'abgelaufen',
+        themeColor: 'danger',
+      },
+      lots: [
+        { ...dummyItem, expiry_date: '2026-10-01' },
+        { ...dummyItem, id: 'f-2', quantity: 2, expiry_date: '2026-10-02' },
+      ],
+    };
+    const onRemove = jest.fn();
+
+    await render(
+      <FallbackInventoryItemRow
+        item={groupedItem}
+        onPress={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={onRemove}
+      />,
+    );
+
+    expect(screen.getByText('abgelaufen · 2 MHD-Einträge')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Vollmilch mhds anzeigen' }));
+    expect(onRemove).toHaveBeenCalledTimes(1);
+  });
+
+  it('formats same-day and next-day expiry labels in the fallback row', async () => {
+    const item: InventoryItemGroup = {
+      id: 'name:vollmilch|l||',
+      name: 'Vollmilch',
+      product_id: null,
+      quantity: 1,
+      unit: 'l',
+      package_size: null,
+      package_size_unit: null,
+      expiry_date: '2026-10-11',
+      expiry: { bucket: 'critical', daysLeft: 0, label: 'heute', themeColor: 'danger' },
+      lots: [dummyItem],
+    };
+    const renderRow = (group: InventoryItemGroup) =>
+      render(
+        <FallbackInventoryItemRow
+          item={group}
+          onPress={jest.fn()}
+          onLongPress={jest.fn()}
+          onRemove={jest.fn()}
+        />,
+      );
+
+    const sameDay = await renderRow(item);
+    expect(screen.getByText('heute')).toBeOnTheScreen();
+    await sameDay.unmount();
+
+    await renderRow({
+      ...item,
+      expiry: { bucket: 'soon', daysLeft: 1, label: 'morgen', themeColor: 'warning' },
+    });
+    expect(screen.getByText('morgen')).toBeOnTheScreen();
   });
 });

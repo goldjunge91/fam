@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { CONTENT_MAX_WIDTH } from '@/components/theme/index';
 import { SettingsScreen } from '@/features/settings/settings-screen';
@@ -25,6 +26,10 @@ let mockHouseholds: { id: string; name: string }[] = [{ id: 'hh-1', name: 'Famil
 let mockActiveHousehold: { id: string; name: string } | null = mockHouseholds[0];
 let mockAvatarUrl: string | null = null;
 let mockCaloriesTrackingEnabled = true;
+let mockFabPosition: 'left' | 'right' = 'right';
+const mockSetFabPosition = jest.fn((position: 'left' | 'right') => {
+  mockFabPosition = position;
+});
 const mockSignOutAndClearLocalData = jest.fn();
 const mockPersistOnboardingCompleted = jest.fn();
 
@@ -86,8 +91,8 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
 // Der synchrone Mock verhindert eine nach dem Rendern eintreffende Query-Aktualisierung.
 jest.mock('@/features/navigation/fab-position-settings', () => ({
   DEFAULT_FAB_POSITION: 'right',
-  useFabPosition: () => ({ data: 'right' }),
-  useSetFabPosition: () => jest.fn(),
+  useFabPosition: () => ({ data: mockFabPosition }),
+  useSetFabPosition: () => mockSetFabPosition,
 }));
 
 jest.mock('@/features/profile/api', () => ({
@@ -106,13 +111,14 @@ jest.mock('expo-router', () => ({
   router: { push: jest.fn(), replace: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
 
-function renderScreen() {
-  const queryClient = new QueryClient({
+function createQueryClient() {
+  return new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
-  // `Screen` liest die Safe-Area-Insets; ohne Provider und ohne gemessene
-  // Rahmenwerte wirft der Hook.
-  return render(
+}
+
+function settingsTree(queryClient: QueryClient) {
+  return (
     <SafeAreaProvider
       initialMetrics={{
         frame: { x: 0, y: 0, width: 390, height: 844 },
@@ -121,8 +127,15 @@ function renderScreen() {
       <QueryClientProvider client={queryClient}>
         <SettingsScreen />
       </QueryClientProvider>
-    </SafeAreaProvider>,
+    </SafeAreaProvider>
   );
+}
+
+function renderScreen() {
+  const queryClient = createQueryClient();
+  // `Screen` liest die Safe-Area-Insets; ohne Provider und ohne gemessene
+  // Rahmenwerte wirft der Hook.
+  return render(settingsTree(queryClient));
 }
 
 describe('SettingsScreen', () => {
@@ -136,8 +149,10 @@ describe('SettingsScreen', () => {
     mockActiveHousehold = mockHouseholds[0];
     mockAvatarUrl = null;
     mockCaloriesTrackingEnabled = true;
+    mockFabPosition = 'right';
     jest.mocked(router.push).mockClear();
     jest.mocked(router.replace).mockClear();
+    mockSetFabPosition.mockClear();
     mockSignOutAndClearLocalData.mockClear();
     mockPersistOnboardingCompleted.mockClear();
     mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
@@ -341,5 +356,56 @@ describe('SettingsScreen', () => {
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledTimes(1);
     expect(mockPersistOnboardingCompleted).toHaveBeenCalledTimes(1);
     expect(router.replace).toHaveBeenCalledWith('/sign-in');
+  });
+
+  it('öffnet alle Settings-Unterseiten und wechselt die FAB-Position in beide Richtungen', async () => {
+    process.env.EXPO_PUBLIC_DEV_TOOLS = 'true';
+    const user = userEvent.setup();
+    const queryClient = createQueryClient();
+    const view = await render(settingsTree(queryClient));
+
+    const menuRoutes = [
+      ['Mitglieder: Familie Tozzi', '/household/members'],
+      ['Lagerorte', '/household/storage-locations'],
+      ['Einkaufsliste', '/household/stores'],
+      ['Bon-Historie', '/household/receipt-history'],
+      ['Produktsuche', '/settings/product-search'],
+      ['Berechtigungen', '/settings/permissions'],
+      ['Benachrichtigungen', '/settings/notifications'],
+      ['Module', '/settings/modules'],
+      ['Gamification', '/gamification'],
+      ['Spracheingabe', '/settings/speech-to-text'],
+      ['Feedback geben', '/settings/feedback'],
+      ['Export', '/settings/export'],
+      ['Datenschutz', '/settings/privacy'],
+      ['Konto löschen', '/settings/delete-account'],
+      ['Entwickler-Werkzeuge: Lokal', '/settings/dev'],
+      [/Marco Müller/, '/profile/edit'],
+      ['Mein Tracking', '/profile/tracking'],
+    ] as const;
+
+    for (const [label, route] of menuRoutes) {
+      await user.press(screen.getByRole('button', { name: label }));
+      expect(router.push).toHaveBeenLastCalledWith(route);
+    }
+
+    await user.press(screen.getByRole('button', { name: /Plus-Button/ }));
+    expect(mockSetFabPosition).toHaveBeenLastCalledWith('left');
+    await view.rerender(settingsTree(queryClient));
+    await user.press(screen.getByRole('button', { name: /Plus-Button/ }));
+    expect(mockSetFabPosition).toHaveBeenLastCalledWith('right');
+  });
+
+  it('zeigt einen Fehler, wenn der lokale Abmeldevorgang fehlschlägt', async () => {
+    mockSignOutAndClearLocalData.mockResolvedValue({ error: new Error('logout failed') });
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Abmelden' }));
+
+    expect(alert).toHaveBeenCalledWith('Abmelden fehlgeschlagen', 'logout failed');
+    expect(mockPersistOnboardingCompleted).not.toHaveBeenCalled();
+    expect(router.replace).not.toHaveBeenCalled();
   });
 });

@@ -36,6 +36,32 @@ describe('CategoryField', () => {
     expect(screen.queryByText('bewusst „Sonstiges“')).not.toBeOnTheScreen();
   });
 
+  it('ordnet Auswahloptionen nach der gespeicherten Store-Reihenfolge', async () => {
+    const user = userEvent.setup();
+    await render(
+      <CategoryField
+        categoryOrder="cold_drinks,meat_poultry"
+        categoryId={null}
+        source={null}
+        onSelectCategory={jest.fn()}
+        onReset={jest.fn()}
+      />,
+    );
+
+    await user.press(screen.getByRole('button', { name: /Einkaufsbereich:/ }));
+
+    const options = screen.getAllByRole('button');
+    const coldDrinksIndex = options.findIndex(
+      (option) => option.props.accessibilityLabel === 'Wasser, Saft & Softdrinks',
+    );
+    const meatIndex = options.findIndex(
+      (option) => option.props.accessibilityLabel === 'Fleisch & Geflügel',
+    );
+    expect(coldDrinksIndex).toBeGreaterThan(-1);
+    expect(meatIndex).toBeGreaterThan(-1);
+    expect(coldDrinksIndex).toBeLessThan(meatIndex);
+  });
+
   it('öffnet die Liste und ruft onSelectCategory bei Auswahl einer Kategorie auf', async () => {
     const user = userEvent.setup();
     const onSelectCategory = jest.fn();

@@ -358,6 +358,19 @@ describe('EmailVerificationPanel', () => {
       expect(onConfirmedMock).not.toHaveBeenCalled();
       expect(screen.getByText('Token has expired or is invalid')).toBeTruthy();
     });
+
+    it('meldet, wenn der bestätigte Code keine Sitzung zurückgibt', async () => {
+      const { confirmSignUpWithCode } = require('@/features/auth/api');
+      confirmSignUpWithCode.mockResolvedValueOnce({ data: { session: null }, error: null });
+
+      await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
+      await fireEvent.changeText(screen.getByTestId('email-verification-code'), '472913');
+      await fireEvent.press(screen.getByText('Bestätigen'));
+
+      expect(
+        await screen.findByText('Der Code wurde akzeptiert, aber es kam keine Sitzung zurück.'),
+      ).toBeOnTheScreen();
+    });
   });
 
   describe('Manueller "Jetzt prüfen"-Knopf', () => {
@@ -419,6 +432,23 @@ describe('EmailVerificationPanel', () => {
       expect(onConfirmedMock).not.toHaveBeenCalled();
       expect(screen.getByText('Deine E-Mail-Adresse ist noch nicht bestätigt.')).toBeTruthy();
     });
+
+    it('zeigt einen Serverfehler beim manuellen Prüfen an', async () => {
+      const { signIn } = require('@/features/auth/api');
+      signIn.mockResolvedValueOnce({ data: { session: null }, error: new Error('Netzwerkfehler') });
+
+      await render(
+        <VerificationPanel
+          email="test@example.com"
+          password="geheim-genug"
+          onConfirmed={jest.fn()}
+        />,
+      );
+
+      await fireEvent.press(screen.getByText('Jetzt prüfen'));
+
+      expect(await screen.findByText('Netzwerkfehler')).toBeOnTheScreen();
+    });
   });
 
   it('sollte nach dem Erneut-Senden nicht behaupten, eine Mail sei verschickt worden', async () => {
@@ -447,5 +477,25 @@ describe('EmailVerificationPanel', () => {
     expect(screen.getByText('Resend (60s)')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  it('zeigt beim fehlgeschlagenen erneuten Senden die Servermeldung', async () => {
+    const { resendConfirmationEmail } = require('@/features/auth/api');
+    resendConfirmationEmail.mockResolvedValueOnce({ error: new Error('Versand abgelehnt') });
+
+    await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
+    await fireEvent.press(screen.getByText('Bestätigungs-E-Mail erneut senden'));
+
+    expect(await screen.findByText('Versand abgelehnt')).toBeOnTheScreen();
+  });
+
+  it('zeigt bei einem unerwarteten Versandfehler die lokale Fehlermeldung', async () => {
+    const { resendConfirmationEmail } = require('@/features/auth/api');
+    resendConfirmationEmail.mockRejectedValueOnce('offline');
+
+    await render(<VerificationPanel email="test@example.com" onConfirmed={jest.fn()} />);
+    await fireEvent.press(screen.getByText('Bestätigungs-E-Mail erneut senden'));
+
+    expect(await screen.findByText('Fehler beim Senden.')).toBeOnTheScreen();
   });
 });

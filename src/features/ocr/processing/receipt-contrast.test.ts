@@ -1,6 +1,24 @@
 import { enhanceReceiptSection } from './receipt-contrast';
 
 describe('receipt section contrast', () => {
+  it.each(['RGBA', 'RGBX', 'RGB', 'BGRA', 'BGRX', 'BGR', 'ARGB', 'XRGB', 'ABGR', 'XBGR'])(
+    'enhances the supported %s pixel layout',
+    (pixelFormat) => {
+      const stride = pixelFormat === 'RGB' || pixelFormat === 'BGR' ? 3 : 4;
+      const buffer = new ArrayBuffer(2 * stride);
+      const source = new Uint8Array(buffer);
+      source.fill(30, 0, stride);
+      source.fill(230, stride);
+
+      const enhanced = enhanceReceiptSection({ buffer, width: 2, height: 1, pixelFormat });
+
+      expect(enhanced?.pixelFormat).toBe('RGBA');
+      expect([...new Uint8Array(enhanced?.buffer ?? new ArrayBuffer(0))]).toEqual([
+        0, 0, 0, 255, 255, 255, 255, 255,
+      ]);
+    },
+  );
+
   it('keeps faint ink on both dark and bright paper readable', () => {
     const width = 64;
     const height = 32;
@@ -47,6 +65,17 @@ describe('receipt section contrast', () => {
         width: 2,
         height: 2,
         pixelFormat: 'RGBA',
+      }),
+    ).toBeNull();
+  });
+
+  it('rejects an unsupported pixel layout before reading its bytes', () => {
+    expect(
+      enhanceReceiptSection({
+        buffer: new ArrayBuffer(16),
+        width: 2,
+        height: 2,
+        pixelFormat: 'GRAY',
       }),
     ).toBeNull();
   });
