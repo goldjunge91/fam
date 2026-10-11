@@ -69,14 +69,13 @@ describe('Supabase Native Lifecycle', () => {
     // ausloest und nicht vom Laufzeit-Zustand des anderen Tests abhaengt.
     jest.resetModules();
     // eslint-disable-next-line @typescript-eslint/no-require-imports -- jest.resetModules verlangt require statt dynamic import
-    const { getSupabase: freshGetSupabase } =
+    const { getSupabase: freshGetSupabase, serverClock: freshServerClock } =
       require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
     freshGetSupabase();
 
     const options = mockCreateClient.mock.calls[0]?.[2] as { global?: { fetch?: unknown } };
-    // Der globale fetch ist der XHR-Polyfill, der binaere Upload-Bodies
-    // mit "Network request failed" brechen kann (harness/storage-upload-matrix).
-    expect(options.global?.fetch).not.toBe(globalThis.fetch);
+    // Der native Supabase-Client muss den begrenzten Expo-Fetch-Wrapper nutzen.
+    expect(options.global?.fetch).toBe(freshServerClock.fetch);
     // Der serverClock-Wrapper kapselt expo/fetch: ein Aufruf muss durchreichen.
     expect(mockExpoFetch).not.toHaveBeenCalled();
   });
