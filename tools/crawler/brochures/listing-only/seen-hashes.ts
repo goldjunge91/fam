@@ -28,8 +28,10 @@ export class SeenHashAssetCorruptError extends Error {
 }
 
 export type OpenSeenHashIndexOptions = { indexPath: string; assetsDir: string };
+export type SeenHashRecordInput = { sha256: string; assetPath: string; use: SeenHashUse };
 export type SeenHashIndex = {
-  record(input: { sha256: string; assetPath: string; use: SeenHashUse }): Promise<boolean>;
+  record(input: SeenHashRecordInput): Promise<boolean>;
+  recordMany(inputs: readonly SeenHashRecordInput[]): Promise<boolean>;
   snapshot(): Promise<SeenHashSnapshot>;
 };
 
@@ -151,40 +153,62 @@ export async function openSeenHashIndex({ indexPath, assetsDir }: OpenSeenHashIn
     await rename(temporaryPath, indexPath);
   }
 
-  return {
-    record: ({ sha256, assetPath, use }) => serialize(async () => {
+  const recordMany = (inputs: readonly SeenHashRecordInput[]) => serialize(async () => {
+    const assets = new Map<string, string>();
+    const usesByHash = new Map<string, SeenHashUse[]>();
+    for (const { sha256, assetPath, use } of inputs) {
       assertHash(sha256, 'Asset SHA-256');
       if (!use.brochureId || !Number.isSafeInteger(use.pageNumber) || use.pageNumber < 1) {
         throw new Error('A seen-hash use needs a brochure ID and positive page number.');
       }
-      const path = assetFilePath(assetsDir, assetPath);
-      let bytes: Buffer;
-      try {
-        bytes = await readFile(path);
-      } catch {
-        throw new SeenHashAssetCorruptError(assetPath);
+      const priorPath = assets.get(sha256) ?? state.entries[sha256]?.assetPath;
+      if (priorPath && priorPath !== assetPath) {
+        throw new SeenHashIndexCorruptError(`Byte hash ${sha256} already points to ${priorPath}.`);
       }
-      if (hashBytes(bytes) !== sha256) throw new SeenHashAssetCorruptError(assetPath);
+      assets.set(sha256, assetPath);
+      const uses = usesByHash.get(sha256) ?? [];
+      uses.push(use);
+      usesByHash.set(sha256, uses);
+    }
 
+    const assetEntries = [...assets];
+    for (let index = 0; index < assetEntries.length; index += 16) {
+      await Promise.all(assetEntries.slice(index, index + 16).map(async ([sha256, assetPath]) => {
+        const path = assetFilePath(assetsDir, assetPath);
+        let bytes: Buffer;
+        try {
+          bytes = await readFile(path);
+        } catch {
+          throw new SeenHashAssetCorruptError(assetPath);
+        }
+        if (hashBytes(bytes) !== sha256) throw new SeenHashAssetCorruptError(assetPath);
+      }));
+    }
+
+    let changed = false;
+    const entries = { ...state.entries };
+    for (const [sha256, uses] of usesByHash) {
+      const assetPath = assets.get(sha256)!;
       const current = state.entries[sha256];
-      if (current && current.assetPath !== assetPath) {
-        throw new SeenHashIndexCorruptError(`Byte hash ${sha256} already points to ${current.assetPath}.`);
-      }
-      const nextUses = sortUses([...(current?.uses ?? []), use]);
-      const changed = !current || nextUses.length !== current.uses.length;
-      if (!changed) return false;
-      const next: SeenHashSnapshot = {
-        version: INDEX_VERSION,
-        revision: state.revision + 1,
-        entries: Object.fromEntries(Object.entries({
-          ...state.entries,
-          [sha256]: { sha256, assetPath, uses: nextUses },
-        }).sort(([left], [right]) => left.localeCompare(right))),
-      };
-      await persist(next);
-      state = next;
-      return true;
-    }),
+      const nextUses = sortUses([...(current?.uses ?? []), ...uses]);
+      if (!current || nextUses.length !== current.uses.length) changed = true;
+      entries[sha256] = { sha256, assetPath, uses: nextUses };
+    }
+    if (!changed) return false;
+
+    const next: SeenHashSnapshot = {
+      version: INDEX_VERSION,
+      revision: state.revision + 1,
+      entries: Object.fromEntries(Object.entries(entries).sort(([left], [right]) => left.localeCompare(right))),
+    };
+    await persist(next);
+    state = next;
+    return true;
+  });
+
+  return {
+    record: (input) => recordMany([input]),
+    recordMany,
     snapshot: () => serialize(async () => ({
       version: state.version,
       revision: state.revision,

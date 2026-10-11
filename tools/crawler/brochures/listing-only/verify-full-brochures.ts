@@ -22,7 +22,7 @@ import {
 } from './full-brochure-signature';
 import { createOriginalPageAssetStore, type OriginalPageAssetStore } from './original-page-asset-store';
 import { createBrochurePageHashingSession } from './original-page-hashes';
-import { openSeenHashIndex, type SeenHashIndex } from './seen-hashes';
+import { openSeenHashIndex, type SeenHashIndex, type SeenHashRecordInput } from './seen-hashes';
 
 const defaultPaths = {
   inputPath: 'tools/crawler/data/listing-only/all-stores-full.json',
@@ -736,6 +736,7 @@ export async function verifyAllBrochurePages(options: {
 
   const failures: Array<{ brn: string; error: string }> = [];
   const referencesInOrder = [...references].sort((left, right) => left.brn.localeCompare(right.brn));
+  const hashRecords: SeenHashRecordInput[] = [];
 
   for (let index = 0; index < referencesInOrder.length; index += concurrency) {
     const batch = referencesInOrder.slice(index, index + concurrency);
@@ -762,13 +763,11 @@ export async function verifyAllBrochurePages(options: {
         if (signature.pageHashes.length !== pageCount) {
           throw new Error(`Expected ${pageCount} page hashes; received ${signature.pageHashes.length}.`);
         }
-        for (const pageHash of signature.pageHashes) {
-          await seenHashIndex.record({
-            sha256: pageHash.sha256,
-            assetPath: `${pageHash.sha256}.bin`,
-            use: { brochureId: brn, pageNumber: pageHash.pageNumber },
-          });
-        }
+        hashRecords.push(...signature.pageHashes.map((pageHash) => ({
+          sha256: pageHash.sha256,
+          assetPath: `${pageHash.sha256}.bin`,
+          use: { brochureId: brn, pageNumber: pageHash.pageNumber },
+        })));
         progress.byBrn[brn] = {
           ...pageMetadata,
           pageHashes: signature.pageHashes,
@@ -790,6 +789,10 @@ export async function verifyAllBrochurePages(options: {
     console.log(
       `${Math.min(index + batch.length, referencesInOrder.length)}/${referencesInOrder.length} BRNs | ${progress.stats.pageDownloads} Originalseiten geladen | ${failures.length} Fehler`,
     );
+  }
+
+  if (failures.length === 0 && hashRecords.length > 0) {
+    await seenHashIndex.recordMany(hashRecords);
   }
 
   return { failures, offersByBrn, zipCodesByBrn };

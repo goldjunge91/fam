@@ -79,6 +79,51 @@ describe('local seen-hash index', () => {
     expect(await readdir(directory)).not.toContain('seen-hashes.json.tmp');
   });
 
+  it('persists one atomic revision for a batch while retaining every distinct use', async () => {
+    const directory = await createTestDirectory();
+    const assetsDir = join(directory, 'assets');
+    const bytes = Buffer.from('shared page bytes');
+    const assetHash = sha256(bytes);
+    await mkdir(assetsDir, { recursive: true });
+    await writeFile(join(assetsDir, `${assetHash}.bin`), bytes);
+    const index = await openSeenHashIndex({ indexPath: join(directory, 'seen-hashes.json'), assetsDir });
+
+    await expect(index.recordMany([
+      { sha256: assetHash, assetPath: `${assetHash}.bin`, use: { brochureId: 'brn-a', pageNumber: 1 } },
+      { sha256: assetHash, assetPath: `${assetHash}.bin`, use: { brochureId: 'brn-b', pageNumber: 2 } },
+      { sha256: assetHash, assetPath: `${assetHash}.bin`, use: { brochureId: 'brn-a', pageNumber: 1 } },
+    ])).resolves.toBe(true);
+
+    const snapshot = await index.snapshot();
+    expect(snapshot.revision).toBe(1);
+    expect(snapshot.entries[assetHash]?.uses).toEqual([
+      { brochureId: 'brn-a', pageNumber: 1 },
+      { brochureId: 'brn-b', pageNumber: 2 },
+    ]);
+    await expect(index.recordMany([
+      { sha256: assetHash, assetPath: `${assetHash}.bin`, use: { brochureId: 'brn-b', pageNumber: 2 } },
+    ])).resolves.toBe(false);
+    await expect(index.snapshot()).resolves.toMatchObject({ revision: 1 });
+  });
+
+  it('does not persist a partial batch when one asset fails validation', async () => {
+    const directory = await createTestDirectory();
+    const assetsDir = join(directory, 'assets');
+    const validBytes = Buffer.from('valid page bytes');
+    const validHash = sha256(validBytes);
+    await mkdir(assetsDir, { recursive: true });
+    await writeFile(join(assetsDir, `${validHash}.bin`), validBytes);
+    const indexPath = join(directory, 'seen-hashes.json');
+    const index = await openSeenHashIndex({ indexPath, assetsDir });
+
+    await expect(index.recordMany([
+      { sha256: validHash, assetPath: `${validHash}.bin`, use: { brochureId: 'brn-ok', pageNumber: 1 } },
+      { sha256: 'f'.repeat(64), assetPath: 'missing.bin', use: { brochureId: 'brn-bad', pageNumber: 1 } },
+    ])).rejects.toBeInstanceOf(SeenHashAssetCorruptError);
+    await expect(index.snapshot()).resolves.toMatchObject({ revision: 0, entries: {} });
+    await expect(readFile(indexPath, 'utf8')).rejects.toMatchObject({ code: 'ENOENT' });
+  });
+
   it('is idempotent after reopening and validates every indexed asset against its hash', async () => {
     const directory = await createTestDirectory();
     const assetsDir = join(directory, 'assets');
