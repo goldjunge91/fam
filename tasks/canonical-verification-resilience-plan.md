@@ -23,6 +23,20 @@ existing per-page progress checkpoint remains the recovery source for a
 resumed local run; an incomplete verification continues to fail closed and
 cannot reach publication.
 
+The follow-up run completed page verification and report generation, then hit
+the same six-hour limit during R2 publication. Separate the verification and
+publication jobs so each receives its own runner window. Transfer only the
+verified inputs the publisher consumes and the byte-checked page assets in a
+short-lived GitHub artifact; keep the diagnostic report artifact on its
+existing longer retention. Use no compression or minimal compression for page
+images, and a stable artifact name per run so GitHub's "rerun failed jobs"
+behavior can retry only publication without repeating the full crawl.
+
+The publication bundle is short-lived because it contains up to the configured
+7.25 GB image budget. GitHub documents per-account included artifact storage
+and hourly usage billing, so the one-day artifact lifetime minimizes storage
+while keeping the publisher retryable.
+
 ## Acceptance evidence
 
 - Focused tests prove batched uses are complete, duplicate-safe, atomic, and
@@ -30,7 +44,7 @@ cannot reach publication.
 - Focused verifier tests prove successful full-page verification still writes
   the complete seen-hash index and resumes from already verified local assets.
 - Biome, TypeScript, and workflow YAML checks pass for changed files.
-- A newly dispatched full run completes before the runner limit and publishes
-  only after complete verification. Until that live run completes, recurrence
-  prevention is an evidence-based performance fix, not a measured runtime
-  guarantee.
+- The verification and publication jobs each have their own six-hour runner
+  limit; publication depends on successful verification and downloads the
+  matching run's verified bundle.
+- A newly dispatched full run completes both jobs before either runner limit.
