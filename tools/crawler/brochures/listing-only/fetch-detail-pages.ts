@@ -4,15 +4,26 @@ import { existsSync, readFileSync } from 'node:fs';
 import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { loadTargetLocations } from '../locations';
-import type { BrochureLocation } from '../types';
+import { transformLiveBrochure } from '../sources/live-offers';
+import type { BrochureLocation, CrawlerPage } from '../types';
 
 const inputPath = 'tools/crawler/data/listing-only/all-stores-full.json';
 const outputPath = 'tools/crawler/data/listing-only/detail-pages.json';
+const pageMetadataOutputPath = 'tools/crawler/data/listing-only/detail-page-metadata.json';
 const progressPath = 'tools/crawler/data/listing-only/.detail-pages-progress.json';
 const concurrency = 8;
 
+type FullScanOffer = {
+  brn: string;
+  storeName?: string;
+  title?: string;
+  validFrom?: string;
+  validUntil?: string;
+};
+type OfferMetadata = Required<FullScanOffer>;
+
 export type FullScan = {
-  byZipCode: Record<string, Array<{ brn: string }>>;
+  byZipCode: Record<string, FullScanOffer[]>;
 };
 
 export type BrnReference = Pick<BrochureLocation, 'zipCode' | 'latitude' | 'longitude'> & {
@@ -23,7 +34,15 @@ export type BringTokens = { authToken: string; apiKey: string; userUuid: string 
 
 type Progress = {
   completed: Record<string, number>;
+  metadata: Record<string, CachedPageMetadata>;
   failures: Record<string, string>;
+};
+
+export type CachedPageMetadata = {
+  title: string;
+  storeId: string;
+  pageUrls: string[];
+  pages: CrawlerPage[];
 };
 
 export function buildBrnReferences(
@@ -65,6 +84,33 @@ export function pageCountFromDetail(value: unknown): number {
   }
 
   return pages.length;
+}
+
+function pageMetadataFromDetail(offer: OfferMetadata, detail: unknown): CachedPageMetadata {
+  const transformed = transformLiveBrochure({
+    brn: offer.brn,
+    title: offer.title,
+    company: { title: offer.storeName },
+    activeFrom: offer.validFrom,
+    activeTo: offer.validUntil,
+  }, detail);
+  const pageCount = pageCountFromDetail(detail);
+  if (!transformed) throw new Error('Bring-Detailantwort enthält keine nutzbaren Prospektseiten.');
+
+  const pages = [...transformed.brochure.pages].sort((left, right) => left.number - right.number);
+  if (pages.length !== pageCount || pages.some((page, index) => page.number !== index + 1)) {
+    throw new Error(`Erwartet wurden ${pageCount} geordnete Seiten; Bring lieferte ${pages.length}.`);
+  }
+  if (pages.some((page) => page.imageUrl.trim().length === 0)) {
+    throw new Error('Bring-Detailantwort enthält eine Seite ohne Bild-URL.');
+  }
+
+  return {
+    title: offer.title,
+    storeId: transformed.brochure.storeId,
+    pageUrls: pages.map((page) => page.imageUrl),
+    pages,
+  };
 }
 
 export function summarizeDetailPages(detailPages: Record<string, number>) {
@@ -182,18 +228,44 @@ function asPageCounts(value: unknown): Record<string, number> {
   ) as Record<string, number>;
 }
 
+function asPageMetadata(value: unknown): Record<string, CachedPageMetadata> {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).filter(([, entry]) => {
+      if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) return false;
+      const candidate = entry as Partial<CachedPageMetadata>;
+      return Boolean(
+        typeof candidate.title === 'string' &&
+        candidate.title.length > 0 &&
+        typeof candidate.storeId === 'string' &&
+        candidate.storeId.length > 0 &&
+        Array.isArray(candidate.pageUrls) &&
+        Array.isArray(candidate.pages) &&
+        candidate.pageUrls.length === candidate.pages.length &&
+        candidate.pages.every((page, index) =>
+          page?.number === index + 1 &&
+          typeof page.imageUrl === 'string' &&
+          page.imageUrl === candidate.pageUrls?.[index] &&
+          Array.isArray(page.hotspots),
+        ),
+      );
+    }),
+  ) as Record<string, CachedPageMetadata>;
+}
+
 async function readProgress(path: string): Promise<Progress> {
   try {
     const parsed = JSON.parse(await readFile(path, 'utf8')) as Partial<Progress>;
     return {
       completed: asPageCounts(parsed.completed),
+      metadata: asPageMetadata(parsed.metadata),
       failures:
         typeof parsed.failures === 'object' && parsed.failures !== null
           ? (parsed.failures as Record<string, string>)
           : {},
     };
   } catch {
-    return { completed: {}, failures: {} };
+    return { completed: {}, metadata: {}, failures: {} };
   }
 }
 
@@ -202,6 +274,12 @@ async function main(): Promise<void> {
   const locations = await loadTargetLocations({ all: true });
   const references = buildBrnReferences(fullScan, locations);
   if (references.length === 0) throw new Error('Im Voll-Scan wurden keine BRNs gefunden.');
+  const offersByBrn = new Map<string, FullScanOffer>();
+  for (const offers of Object.values(fullScan.byZipCode)) {
+    for (const offer of offers) {
+      if (!offersByBrn.has(offer.brn)) offersByBrn.set(offer.brn, offer);
+    }
+  }
 
   const headers = buildBringHeaders(loadBringTokens());
   const progress = await readProgress(progressPath);
@@ -211,7 +289,7 @@ async function main(): Promise<void> {
     // The final output is optional while an interrupted run resumes from progress.
   }
 
-  const pending = references.filter(({ brn }) => progress.completed[brn] === undefined);
+  const pending = references.filter(({ brn }) => progress.metadata[brn] === undefined);
   console.log(
     `Detail-Seitenzahlen: ${pending.length} von ${references.length} BRNs ausstehend | Concurrency: ${concurrency}`,
   );
@@ -222,7 +300,21 @@ async function main(): Promise<void> {
       batch.map(async (reference) => {
         try {
           const detail = await fetchJsonWithRetry(buildDetailUrl(reference), headers);
-          progress.completed[reference.brn] = pageCountFromDetail(detail);
+          const offer = offersByBrn.get(reference.brn);
+          if (
+            !offer || !offer.storeName || !offer.title || !offer.validFrom || !offer.validUntil
+          ) {
+            throw new Error(`Voll-Scan-Metadaten für ${reference.brn} fehlen.`);
+          }
+          const metadata = pageMetadataFromDetail({
+            brn: offer.brn,
+            storeName: offer.storeName,
+            title: offer.title,
+            validFrom: offer.validFrom,
+            validUntil: offer.validUntil,
+          }, detail);
+          progress.completed[reference.brn] = metadata.pages.length;
+          progress.metadata[reference.brn] = metadata;
           delete progress.failures[reference.brn];
         } catch (error) {
           progress.failures[reference.brn] = error instanceof Error ? error.message : String(error);
@@ -250,6 +342,7 @@ async function main(): Promise<void> {
   const detailPages = Object.fromEntries(references.map(({ brn }) => [brn, progress.completed[brn]!]));
   const summary = summarizeDetailPages(detailPages);
   await writeJsonAtomic(outputPath, detailPages);
+  await writeJsonAtomic(pageMetadataOutputPath, progress.metadata);
   await unlink(progressPath).catch(() => undefined);
   console.log(
     `Fertig: ${summary.totalBrns} BRNs, ${summary.multiplePageBrns} mit mehr als einer Seite (${summary.multiplePagePercent} %), 0 Hard-Failures.`,

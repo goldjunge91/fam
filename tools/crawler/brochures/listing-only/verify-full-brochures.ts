@@ -14,6 +14,7 @@ import {
   buildDetailUrl,
   fetchJsonWithRetry,
   loadBringTokens,
+  type CachedPageMetadata,
   type BrnReference,
 } from './fetch-detail-pages';
 import {
@@ -27,6 +28,7 @@ import { openSeenHashIndex, type SeenHashIndex, type SeenHashRecordInput } from 
 const defaultPaths = {
   inputPath: 'tools/crawler/data/listing-only/all-stores-full.json',
   detailPagesPath: 'tools/crawler/data/listing-only/detail-pages.json',
+  detailPageMetadataPath: 'tools/crawler/data/listing-only/detail-page-metadata.json',
   groupsPath: 'tools/crawler/data/listing-only/canonical-groups.json',
   outputPath: 'tools/crawler/data/listing-only/canonical-page-verification.json',
   progressPath: 'tools/crawler/data/listing-only/.canonical-page-verification-progress.json',
@@ -149,6 +151,7 @@ export type VerifyFullBrochuresArguments = typeof defaultPaths & {
 type VerificationInputs = {
   fullScan: { byZipCode: Record<string, FullScanOffer[]> };
   detailPages: Record<string, number>;
+  detailPageMetadata?: Record<string, CachedPageMetadata>;
   groups: CanonicalGroup[];
 };
 
@@ -353,6 +356,7 @@ export function parseVerifyFullBrochuresArguments(args: readonly string[]): Veri
   const flags: Record<string, keyof VerifyFullBrochuresArguments> = {
     '--input': 'inputPath',
     '--details': 'detailPagesPath',
+    '--detail-page-metadata': 'detailPageMetadataPath',
     '--groups': 'groupsPath',
     '--output': 'outputPath',
     '--progress': 'progressPath',
@@ -385,6 +389,7 @@ export function parseVerifyFullBrochuresArguments(args: readonly string[]): Veri
       switch (field) {
         case 'inputPath': result.inputPath = value; break;
         case 'detailPagesPath': result.detailPagesPath = value; break;
+        case 'detailPageMetadataPath': result.detailPageMetadataPath = value; break;
         case 'groupsPath': result.groupsPath = value; break;
         case 'outputPath': result.outputPath = value; break;
         case 'progressPath': result.progressPath = value; break;
@@ -510,6 +515,30 @@ function parseProgress(value: unknown, inputFingerprint: string): FullPageVerifi
   }
 
   return { version: 1, inputFingerprint, pageHashesByUrl, byBrn, stats };
+}
+
+function parseDetailPageMetadata(value: unknown): Record<string, CachedPageMetadata> {
+  if (!isRecord(value)) throw new Error('Detail page metadata must be an object.');
+  const metadata: Record<string, CachedPageMetadata> = {};
+  for (const [brn, entry] of Object.entries(value)) {
+    if (
+      !isRecord(entry) ||
+      typeof entry.title !== 'string' ||
+      typeof entry.storeId !== 'string' ||
+      !Array.isArray(entry.pageUrls) ||
+      !entry.pageUrls.every((url) => typeof url === 'string') ||
+      !Array.isArray(entry.pages)
+    ) {
+      throw new Error(`Cached detail page metadata for ${brn} is invalid.`);
+    }
+    metadata[brn] = {
+      title: entry.title,
+      storeId: entry.storeId,
+      pageUrls: entry.pageUrls,
+      pages: entry.pages as CrawlerPage[],
+    };
+  }
+  return metadata;
 }
 
 async function readProgress(path: string, inputFingerprint: string): Promise<FullPageVerificationProgress> {
@@ -650,7 +679,7 @@ function validateInputs(
 }
 
 function pageMetadataFromProgress(
-  entry: BrnPageProgress | undefined,
+  entry: Partial<Pick<BrnPageProgress, 'title' | 'storeId' | 'pageUrls' | 'pages'>> | undefined,
   expectedPageCount: number,
 ): { title: string; storeId: string; pageUrls: string[]; pages: CrawlerPage[] } | undefined {
   if (
@@ -700,6 +729,7 @@ export async function verifyAllBrochurePages(options: {
   assetStore: OriginalPageAssetStore;
   seenHashIndex: SeenHashIndex;
   progress: FullPageVerificationProgress;
+  detailPageMetadata?: Record<string, CachedPageMetadata>;
   checkpoint: () => Promise<void>;
   fetchDetail: (reference: BrnReference, headers: Record<string, string>) => Promise<unknown>;
   fetchOriginalBytes: (url: string) => Promise<ArrayBuffer | Uint8Array>;
@@ -749,7 +779,8 @@ export async function verifyAllBrochurePages(options: {
         return;
       }
 
-      let pageMetadata = pageMetadataFromProgress(progress.byBrn[brn], pageCount);
+      let pageMetadata = pageMetadataFromProgress(progress.byBrn[brn], pageCount)
+        ?? pageMetadataFromProgress(options.detailPageMetadata?.[brn], pageCount);
       try {
         if (!pageMetadata) {
           const detail = await options.fetchDetail(reference, headers);
@@ -759,7 +790,20 @@ export async function verifyAllBrochurePages(options: {
           await checkpoint();
         }
 
-        const signature = await pageHashSession.hashBrochurePages(pageMetadata.pageUrls);
+        let signature: Awaited<ReturnType<typeof pageHashSession.hashBrochurePages>>;
+        try {
+          signature = await pageHashSession.hashBrochurePages(pageMetadata.pageUrls);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          if (!/^Bild-Download (?:403|404)\b/.test(message)) throw error;
+
+          const detail = await options.fetchDetail(reference, headers);
+          progress.stats.detailRequests += 1;
+          pageMetadata = pageMetadataFromDetail(offer, detail, pageCount);
+          progress.byBrn[brn] = pageMetadata;
+          await checkpoint();
+          signature = await pageHashSession.hashBrochurePages(pageMetadata.pageUrls);
+        }
         if (signature.pageHashes.length !== pageCount) {
           throw new Error(`Expected ${pageCount} page hashes; received ${signature.pageHashes.length}.`);
         }
@@ -904,9 +948,13 @@ export function buildFullPageVerificationReport(options: {
 
 async function main(): Promise<void> {
   const args = parseVerifyFullBrochuresArguments(process.argv.slice(2));
-  const [inputBytes, detailBytes, groupBytes] = await Promise.all([
+  const [inputBytes, detailBytes, detailPageMetadataBytes, groupBytes] = await Promise.all([
     readFile(args.inputPath),
     readFile(args.detailPagesPath),
+    readFile(args.detailPageMetadataPath).catch((error: unknown) => {
+      if (isRecord(error) && error.code === 'ENOENT') return undefined;
+      throw error;
+    }),
     readFile(args.groupsPath),
   ]);
   const candidateReportBytes = args.candidateReportPath
@@ -915,6 +963,9 @@ async function main(): Promise<void> {
   const inputFiles = [
     { path: args.inputPath, bytes: inputBytes },
     { path: args.detailPagesPath, bytes: detailBytes },
+    ...(detailPageMetadataBytes
+      ? [{ path: args.detailPageMetadataPath, bytes: detailPageMetadataBytes }]
+      : []),
     { path: args.groupsPath, bytes: groupBytes },
     ...(candidateReportBytes && args.candidateReportPath
       ? [{ path: args.candidateReportPath, bytes: candidateReportBytes }]
@@ -927,6 +978,9 @@ async function main(): Promise<void> {
   const inputs: VerificationInputs = {
     fullScan: parseFullScan(JSON.parse(inputBytes.toString('utf8')) as unknown),
     detailPages: parseDetailPages(JSON.parse(detailBytes.toString('utf8')) as unknown),
+    detailPageMetadata: detailPageMetadataBytes
+      ? parseDetailPageMetadata(JSON.parse(detailPageMetadataBytes.toString('utf8')) as unknown)
+      : {},
     groups: parseGroups(JSON.parse(groupBytes.toString('utf8')) as unknown),
   };
   const locations = await loadTargetLocations({ all: true });
@@ -1030,6 +1084,7 @@ async function main(): Promise<void> {
       assetStore,
       seenHashIndex,
       progress,
+      detailPageMetadata: verificationInputs.detailPageMetadata,
       checkpoint: progressWriter.checkpoint,
       fetchDetail: async (reference) => fetchJsonWithRetry(buildDetailUrl(reference), getHeaders()),
       fetchOriginalBytes: downloadOriginalImageBytes,
