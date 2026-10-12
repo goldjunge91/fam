@@ -4,6 +4,7 @@ describe('Unit-Test-Umgebung', () => {
   it('laedt den Vertrag bereits im Jest-Setup', () => {
     expect(process.env.EXPO_PUBLIC_SUPABASE_URL).toBe('http://127.0.0.1:54321');
     expect(process.env.EXPO_PUBLIC_SUPABASE_KEY).toBe('test-supabase-anon-key');
+    expect(process.env.EXPO_PUBLIC_USE_RN_FETCH).toBe('1');
     expect(process.env.EXPO_PUBLIC_FORCE_PREMIUM).toBe('false');
     expect(process.env.EXPO_PUBLIC_DEBUG_LOGS).toBe('false');
   });
