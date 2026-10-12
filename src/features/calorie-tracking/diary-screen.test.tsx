@@ -14,6 +14,13 @@ let mockProfile: {
   tracking_day_start_time: '00:00',
   tracking_method: 'standard',
 };
+let mockCurrentGoal: {
+  daily_kcal: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
+} | null = { daily_kcal: 2000, protein_g: 150, carbs_g: 200, fat_g: 67 };
+let mockEntriesLoading = false;
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -29,6 +36,15 @@ jest.mock('@/features/profile/api', () => ({
 jest.mock('@/features/glp1/components/glp1-card', () => ({
   Glp1Card: (props: unknown) => mockGlp1Card(props),
 }));
+
+jest.mock('@/features/calorie-tracking/components/fasting-card', () => {
+  const React = require('react') as typeof import('react');
+  const { Text } = require('react-native') as typeof import('react-native');
+
+  return {
+    FastingCard: () => React.createElement(Text, null, 'Fasten-Testkarte'),
+  };
+});
 
 jest.mock('@/features/settings/module-preferences', () => ({
   useModulePreferences: () => ({ data: { glp1: false, fasting: false }, isLoading: false }),
@@ -52,10 +68,11 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/features/calorie-tracking/api', () => ({
-  useCurrentGoal: () => ({
-    data: { daily_kcal: 2000, protein_g: 150, carbs_g: 200, fat_g: 67 },
+  useCurrentGoal: () => ({ data: mockCurrentGoal }),
+  useFoodEntries: (...args: unknown[]) => ({
+    ...mockUseFoodEntries(...args),
+    isLoading: mockEntriesLoading,
   }),
-  useFoodEntries: (...args: unknown[]) => mockUseFoodEntries(...args),
   useFoodEntriesForDateRange: (...args: unknown[]) => mockUseFoodEntriesForDateRange(...args),
 }));
 
@@ -86,6 +103,8 @@ function renderScreen() {
 
 beforeEach(() => {
   mockProfile = { tracking_day_start_time: '00:00', tracking_method: 'standard' };
+  mockCurrentGoal = { daily_kcal: 2000, protein_g: 150, carbs_g: 200, fat_g: 67 };
+  mockEntriesLoading = false;
   mockGlp1Card.mockClear();
   mockUseFoodEntries.mockReset();
   mockUseFoodEntriesForDateRange.mockReset();
@@ -170,6 +189,42 @@ describe('DiaryScreen', () => {
     // 190 + 450 = 640 gegessen, Ziel 2000 -> 1360 uebrig
     expect(screen.getByText('1.360')).toBeTruthy();
     expect(screen.getByText('kcal übrig · von 2.000')).toBeTruthy();
+  });
+
+  it('zeigt den Verbrauch ohne Ziel und markiert überschrittene Kalorien- und Makroziele', async () => {
+    mockCurrentGoal = null;
+    const rendered = await renderScreen();
+
+    expect(screen.getByText('640')).toBeOnTheScreen();
+    expect(screen.getByText('kcal gegessen · kein Tagesziel')).toBeOnTheScreen();
+    expect(screen.getByText('42 / – g')).toBeOnTheScreen();
+
+    mockCurrentGoal = { daily_kcal: 200, protein_g: 10, carbs_g: 20, fat_g: 10 };
+    await rendered.rerender(<ScreenUnderTest />);
+
+    expect(screen.getByText('440')).toBeOnTheScreen();
+    expect(screen.getByText('kcal über Ziel · von 200')).toBeOnTheScreen();
+    expect(screen.getByText('42 / 10 g')).toBeOnTheScreen();
+  });
+
+  it('zeigt den leeren Zustand und bleibt beim Laden bei der Ladeanzeige', async () => {
+    mockUseFoodEntries.mockReturnValue({ data: [] });
+    const rendered = await renderScreen();
+    expect(screen.getByText('Keine Einträge an diesem Tag')).toBeOnTheScreen();
+
+    mockEntriesLoading = true;
+    await rendered.rerender(<ScreenUnderTest />);
+    expect(screen.getByText('Lade Tagebuch...')).toBeOnTheScreen();
+    expect(screen.queryByText('Keine Einträge an diesem Tag')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Frühstück')).not.toBeOnTheScreen();
+  });
+
+  it('rendert die Intervallfasten-Karte, wenn das Tracking dafür aktiviert ist', async () => {
+    mockProfile = { tracking_day_start_time: '00:00', tracking_method: 'fasting' };
+
+    await renderScreen();
+
+    expect(screen.getByText('Fasten-Testkarte')).toBeOnTheScreen();
   });
 
   it('oeffnet die Lebensmittelsuche vorbelegt mit der Mahlzeit', async () => {

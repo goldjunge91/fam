@@ -29,6 +29,20 @@ describe('RecipeBottomSheet', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
+  it('schließt nicht, wenn der Sheet-Inhalt angetippt wird', async () => {
+    const user = userEvent.setup();
+    const onClose = jest.fn();
+    await render(
+      <RecipeBottomSheet visible onClose={onClose} title="Zutaten">
+        <Text>Inhalt</Text>
+      </RecipeBottomSheet>,
+    );
+
+    await user.press(screen.getByText('Inhalt'));
+
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
   // fam-7ndw: der sichtbare 32er-Kreis sitzt in einem 44er-Container. Die
   // Mindestflaeche wird am antippbaren Pressable geprueft, nicht am Wrapper.
   it('haelt den Schliessen-Knopf auf mindestens 44 Punkten Touchflaeche', async () => {

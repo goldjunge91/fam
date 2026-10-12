@@ -1,14 +1,17 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Alert } from 'react-native';
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
 import type { RecipeDetail } from '../hooks/use-recipes';
 import { RecipeLogScreen } from './recipe-log-screen';
 
 let mockDetail: RecipeDetail | null = null;
+let mockRouteParams: { id: string; mode?: string } = { id: 'recipe-1' };
+const mockUpdateComponentMutateAsync = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
-  useLocalSearchParams: () => ({ id: 'recipe-1' }),
+  useLocalSearchParams: () => mockRouteParams,
 }));
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
@@ -24,7 +27,10 @@ jest.mock('../hooks/use-recipes', () => ({
 }));
 
 jest.mock('../hooks/use-recipe-components', () => ({
-  useUpdateComponentMutation: () => ({ mutateAsync: jest.fn(), isPending: false }),
+  useUpdateComponentMutation: () => ({
+    mutateAsync: mockUpdateComponentMutateAsync,
+    isPending: false,
+  }),
 }));
 
 function makeDetail(): RecipeDetail {
@@ -118,7 +124,10 @@ function makeDetail(): RecipeDetail {
 
 beforeEach(() => {
   mockDetail = makeDetail();
+  mockRouteParams = { id: 'recipe-1' };
+  mockUpdateComponentMutateAsync.mockReset().mockResolvedValue(undefined);
   (router.push as jest.Mock).mockClear();
+  (router.back as jest.Mock).mockClear();
 });
 
 describe('RecipeLogScreen', () => {
@@ -171,5 +180,43 @@ describe('RecipeLogScreen', () => {
         kcal: '780',
       }),
     });
+  });
+
+  it('speichert nur die Top-Level-Gewichte im Wiegen-Modus', async () => {
+    const user = userEvent.setup();
+    mockRouteParams = { id: 'recipe-1', mode: 'weigh' };
+    await render(<RecipeLogScreen />);
+
+    expect(screen.queryByText('Mahlzeit')).not.toBeOnTheScreen();
+    expect(screen.getByText('Zubereitete Gewichte')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Gewichte speichern' }));
+
+    await waitFor(() => expect(mockUpdateComponentMutateAsync).toHaveBeenCalledTimes(2));
+    expect(mockUpdateComponentMutateAsync).toHaveBeenNthCalledWith(1, {
+      id: 'nudeln',
+      recipe_id: 'recipe-1',
+      household_id: 'hh-1',
+      name: 'Nudeln',
+      serving_grams: 300,
+    });
+    expect(router.back).toHaveBeenCalledTimes(1);
+  });
+
+  it('zeigt einen verständlichen Fehler, wenn sich Gewichte nicht speichern lassen', async () => {
+    const user = userEvent.setup();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    mockRouteParams = { id: 'recipe-1', mode: 'weigh' };
+    mockUpdateComponentMutateAsync.mockRejectedValue(new Error('Verbindung verloren'));
+    await render(<RecipeLogScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Gewichte speichern' }));
+
+    await waitFor(() =>
+      expect(alert).toHaveBeenCalledWith(
+        'Gewichte konnten nicht gespeichert werden',
+        'Verbindung verloren',
+      ),
+    );
+    expect(router.back).not.toHaveBeenCalled();
   });
 });

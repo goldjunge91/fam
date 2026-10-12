@@ -13,9 +13,11 @@ const mockSaveModulePreferences = jest.fn();
 const mockTriggerHouseholdsPull = jest.fn();
 const mockHouseholdLimit = jest.fn();
 const mockTrackAnalyticsEvent = jest.fn();
+const mockUseSession = jest.fn();
+const mockRpc = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+  useSession: () => mockUseSession(),
 }));
 
 jest.mock('@/features/calorie-tracking/api', () => ({
@@ -68,6 +70,7 @@ jest.mock('@/lib/backend/supabase/remote-client', () => ({
     from: jest.fn(() => ({
       select: jest.fn(() => ({ limit: mockHouseholdLimit })),
     })),
+    rpc: (...args: unknown[]) => mockRpc(...args),
   }),
 }));
 
@@ -86,6 +89,7 @@ describe('completeOnboarding', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     useOnboardingStore.getState().reset();
+    mockUseSession.mockReturnValue({ session: { user: { id: 'user-1' } } });
     mockCreateWeightEntry.mockResolvedValue({ id: 'weight-1' });
     mockMarkOnboardingCompleted.mockResolvedValue({ error: null });
     mockPersistOnboardingCompleted.mockResolvedValue(undefined);
@@ -93,6 +97,25 @@ describe('completeOnboarding', () => {
     mockSaveModulePreferences.mockResolvedValue({ error: null });
     mockTriggerHouseholdsPull.mockResolvedValue(undefined);
     mockHouseholdLimit.mockResolvedValue({ data: [{ id: 'household-1' }], error: null });
+    mockRpc.mockResolvedValue({ data: 'household-2', error: null });
+  });
+
+  it('requires a signed-in user before starting completion', async () => {
+    mockUseSession.mockReturnValue({ session: null });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = true;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(false);
+    expect(useOnboardingStore.getState()).toMatchObject({
+      isLoading: false,
+      error: 'Du bist nicht angemeldet. Bitte melde dich zuerst an.',
+    });
+    expect(mockSaveModulePreferences).not.toHaveBeenCalled();
   });
 
   it('überführt Körperdaten und Onboarding-Gewicht in die bestehenden privaten Owner', async () => {
@@ -153,5 +176,94 @@ describe('completeOnboarding', () => {
     expect(invalidateQueries).toHaveBeenCalledWith({
       queryKey: latestWeightEntryQueryKey('user-1'),
     });
+  });
+
+  it('creates and trims a household when the user has none', async () => {
+    mockHouseholdLimit.mockResolvedValue({ data: [], error: null });
+    useOnboardingStore.getState().updateHouseholdData({ choice: 'create', name: '  Zuhause  ' });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = false;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(true);
+
+    expect(mockRpc).toHaveBeenCalledWith('create_household', {
+      household_name: 'Zuhause',
+    });
+  });
+
+  it('redeems an invite code when joining a household', async () => {
+    mockHouseholdLimit.mockResolvedValue({ data: [], error: null });
+    useOnboardingStore.getState().updateHouseholdData({ choice: 'join', inviteCode: ' ABC123 ' });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = false;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(true);
+
+    expect(mockRpc).toHaveBeenCalledWith('redeem_invite', { invite_code: 'ABC123' });
+  });
+
+  it('reports an invalid invite when the redeem request returns no household', async () => {
+    mockHouseholdLimit.mockResolvedValue({ data: [], error: null });
+    mockRpc.mockResolvedValue({ data: null, error: null });
+    useOnboardingStore.getState().updateHouseholdData({ choice: 'join', inviteCode: 'ABC123' });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = true;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(false);
+    expect(useOnboardingStore.getState()).toMatchObject({
+      isLoading: false,
+      error: 'Einladungs-Code ungültig oder zu viele Versuche.',
+    });
+  });
+
+  it('keeps going when household lookup has an error but returned household data', async () => {
+    mockHouseholdLimit.mockResolvedValue({
+      data: [{ id: 'household-1' }],
+      error: new Error('lookup warning'),
+    });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = false;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(true);
+    expect(mockRpc).not.toHaveBeenCalled();
+    expect(mockMarkOnboardingCompleted).toHaveBeenCalledWith('user-1');
+  });
+
+  it('clears the loading state and exposes module-save failures', async () => {
+    mockSaveModulePreferences.mockResolvedValue({ error: new Error('preferences failed') });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = true;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(false);
+    expect(useOnboardingStore.getState()).toMatchObject({
+      isLoading: false,
+      error: 'preferences failed',
+    });
+    expect(mockHouseholdLimit).not.toHaveBeenCalled();
   });
 });
