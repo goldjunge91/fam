@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
+import { appendFile, mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { loadTargetLocations } from '../locations';
 import { transformLiveBrochure } from '../sources/live-offers';
@@ -11,6 +11,7 @@ const inputPath = 'tools/crawler/data/listing-only/all-stores-full.json';
 const outputPath = 'tools/crawler/data/listing-only/detail-pages.json';
 const pageMetadataOutputPath = 'tools/crawler/data/listing-only/detail-page-metadata.json';
 const progressPath = 'tools/crawler/data/listing-only/.detail-pages-progress.json';
+const pageMetadataProgressPath = 'tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl';
 const concurrency = 8;
 
 type FullScanOffer = {
@@ -34,7 +35,7 @@ export type BringTokens = { authToken: string; apiKey: string; userUuid: string 
 
 type Progress = {
   completed: Record<string, number>;
-  metadata: Record<string, CachedPageMetadata>;
+  legacyMetadata?: Record<string, CachedPageMetadata>;
   failures: Record<string, string>;
 };
 
@@ -255,17 +256,40 @@ function asPageMetadata(value: unknown): Record<string, CachedPageMetadata> {
 
 async function readProgress(path: string): Promise<Progress> {
   try {
-    const parsed = JSON.parse(await readFile(path, 'utf8')) as Partial<Progress>;
+    const parsed = JSON.parse(await readFile(path, 'utf8')) as Partial<Progress> & { metadata?: unknown };
     return {
       completed: asPageCounts(parsed.completed),
-      metadata: asPageMetadata(parsed.metadata),
+      legacyMetadata: asPageMetadata(parsed.metadata),
       failures:
         typeof parsed.failures === 'object' && parsed.failures !== null
           ? (parsed.failures as Record<string, string>)
           : {},
     };
   } catch {
-    return { completed: {}, metadata: {}, failures: {} };
+    return { completed: {}, failures: {} };
+  }
+}
+
+async function readPageMetadataProgress(path: string): Promise<Record<string, CachedPageMetadata>> {
+  try {
+    const content = await readFile(path, 'utf8');
+    const metadata: Record<string, CachedPageMetadata> = {};
+    for (const line of content.split(/\r?\n/)) {
+      if (!line) continue;
+      try {
+        const entry = JSON.parse(line) as unknown;
+        if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) continue;
+        const record = entry as { brn?: unknown; metadata?: unknown };
+        if (typeof record.brn !== 'string' || !record.brn) continue;
+        const parsed = asPageMetadata({ [record.brn]: record.metadata });
+        if (parsed[record.brn]) metadata[record.brn] = parsed[record.brn]!;
+      } catch {
+        // An interrupted append can leave one incomplete trailing line; missing entries are refetched.
+      }
+    }
+    return metadata;
+  } catch {
+    return {};
   }
 }
 
@@ -283,19 +307,28 @@ async function main(): Promise<void> {
 
   const headers = buildBringHeaders(loadBringTokens());
   const progress = await readProgress(progressPath);
+  const pageMetadata = {
+    ...progress.legacyMetadata,
+    ...(await readPageMetadataProgress(pageMetadataProgressPath)),
+  };
+  delete progress.legacyMetadata;
+  for (const [brn, metadata] of Object.entries(pageMetadata)) {
+    progress.completed[brn] = metadata.pages.length;
+  }
   try {
     Object.assign(progress.completed, asPageCounts(JSON.parse(await readFile(outputPath, 'utf8'))));
   } catch {
     // The final output is optional while an interrupted run resumes from progress.
   }
 
-  const pending = references.filter(({ brn }) => progress.metadata[brn] === undefined);
+  const pending = references.filter(({ brn }) => pageMetadata[brn] === undefined);
   console.log(
     `Detail-Seitenzahlen: ${pending.length} von ${references.length} BRNs ausstehend | Concurrency: ${concurrency}`,
   );
 
   for (let index = 0; index < pending.length; index += concurrency) {
     const batch = pending.slice(index, index + concurrency);
+    const newMetadata: Array<{ brn: string; metadata: CachedPageMetadata }> = [];
     await Promise.all(
       batch.map(async (reference) => {
         try {
@@ -314,7 +347,8 @@ async function main(): Promise<void> {
             validUntil: offer.validUntil,
           }, detail);
           progress.completed[reference.brn] = metadata.pages.length;
-          progress.metadata[reference.brn] = metadata;
+          pageMetadata[reference.brn] = metadata;
+          newMetadata.push({ brn: reference.brn, metadata });
           delete progress.failures[reference.brn];
         } catch (error) {
           progress.failures[reference.brn] = error instanceof Error ? error.message : String(error);
@@ -322,6 +356,13 @@ async function main(): Promise<void> {
       }),
     );
 
+    if (newMetadata.length > 0) {
+      await appendFile(
+        pageMetadataProgressPath,
+        `${newMetadata.map((entry) => JSON.stringify(entry)).join('\n')}\n`,
+        'utf8',
+      );
+    }
     await writeJsonAtomic(progressPath, progress);
     if (index % (concurrency * 10) === 0 || index + batch.length === pending.length) {
       console.log(
@@ -342,8 +383,9 @@ async function main(): Promise<void> {
   const detailPages = Object.fromEntries(references.map(({ brn }) => [brn, progress.completed[brn]!]));
   const summary = summarizeDetailPages(detailPages);
   await writeJsonAtomic(outputPath, detailPages);
-  await writeJsonAtomic(pageMetadataOutputPath, progress.metadata);
+  await writeJsonAtomic(pageMetadataOutputPath, pageMetadata);
   await unlink(progressPath).catch(() => undefined);
+  await unlink(pageMetadataProgressPath).catch(() => undefined);
   console.log(
     `Fertig: ${summary.totalBrns} BRNs, ${summary.multiplePageBrns} mit mehr als einer Seite (${summary.multiplePagePercent} %), 0 Hard-Failures.`,
   );
