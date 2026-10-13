@@ -104,6 +104,7 @@ async function main(): Promise<void> {
   const { loadTargetLocations } = await import("../locations");
   const locations: BrochureLocation[] = await loadTargetLocations({ all: true });
   await mkdir(OUT_DIR, { recursive: true });
+  const expectedZipCodes = new Set(locations.map((location) => location.zipCode));
 
   let state: FullResult = {
     generatedAt: new Date().toISOString(),
@@ -115,7 +116,15 @@ async function main(): Promise<void> {
     try {
       const previous = JSON.parse(await readFile(OUT_FILE, "utf8")) as FullResult;
       if (previous.byZipCode) {
-        state = { ...previous, totalLocations: locations.length };
+        const byZipCode = Object.fromEntries(
+          Object.entries(previous.byZipCode).filter(([zipCode]) => expectedZipCodes.has(zipCode)),
+        );
+        state = {
+          ...previous,
+          totalLocations: locations.length,
+          completedLocations: Object.keys(byZipCode).length,
+          byZipCode,
+        };
         console.log("Fortsetzung: " + Object.keys(state.byZipCode).length + " PLZ bereits geladen.");
       }
     } catch {
@@ -205,6 +214,9 @@ async function main(): Promise<void> {
   await writeJsonAtomic(OUT_FILE, state);
   console.log("Fertig: " + state.completedLocations + "/" + state.totalLocations + " PLZ | Fehler: " + failed);
   console.log("Report: " + OUT_FILE);
+  if (failed > 0 || state.completedLocations !== locations.length) {
+    throw new Error(`PLZ-Vollscan unvollständig: ${state.completedLocations}/${locations.length}; ${failed} Abfragen fehlgeschlagen.`);
+  }
 }
 
 if (process.argv[1]?.endsWith("all-stores-full.ts")) {

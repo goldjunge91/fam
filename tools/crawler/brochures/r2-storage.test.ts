@@ -325,4 +325,19 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
       expect.objectContaining({ 'if-none-match': '*' }),
     );
   });
+
+  it('speichert den Medientyp signiert für private Bildabrufe', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(null));
+
+    await uploadToR2(
+      mockR2Config,
+      'brochures/dumps/assets/sha256/page.jpg',
+      new ArrayBuffer(1),
+      'image/jpeg',
+    );
+
+    expect(fetchMock.mock.calls[0][1]?.headers).toEqual(
+      expect.objectContaining({ 'content-type': 'image/jpeg' }),
+    );
+  });
 });

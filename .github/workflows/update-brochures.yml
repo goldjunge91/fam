@@ -2,31 +2,14 @@ name: Canonical Brochure Catalog Update
 
 on:
   workflow_dispatch:
-    inputs:
-      zone_group:
-        description: "PLZ-Zonengruppe (z. B. '2,3' für Norddeutschland oder 'all' für alle 5 Etappen)"
-        type: choice
-        options:
-          - all
-          - "0,1"
-          - "2,3"
-          - "4,5"
-          - "6,7"
-          - "8,9"
-        default: all
-      sample_percent:
-        description: "Optionaler Prozent-Stichprobenfilter (z. B. 100 für alle oder 20 für 20%)"
-        type: string
-        default: "100"
 
   schedule:
-    # 1. Montag 04:17 UTC: Start der regulären Wochenangebote
+    # Montag und Donnerstag: Bring-Wochenangebote vollständig aktualisieren.
     - cron: "17 4 * * 1"
-    # 2. Donnerstag 04:17 UTC: Start der Wochenend- & Zweit-Prospekte
     - cron: "17 4 * * 4"
 
 concurrency:
-  # A single writer protects the shared R2 storage budget across all refs.
+  # A single writer protects the shared R2 storage budget and app catalog.
   group: brochure-dump-update-${{ github.workflow }}
   cancel-in-progress: false
 
@@ -51,86 +34,60 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
         run: |
-          # 1. Bring-Authentifizierung prüfen
           if [ -n "${BRING_EMAIL:-}" ] && [ -n "${BRING_PASSWORD:-}" ]; then
-            echo "✅ Bring-Zugangsdaten konfiguriert (automatischer Headless-Login vor dem Crawl)."
+            echo "Bring headless login is configured."
           elif [ -n "${BRING_AUTH_TOKEN:-}" ] && [ -n "${BRING_API_KEY:-}" ] && [ -n "${BRING_USER_UUID:-}" ]; then
-            echo "✅ Statische Bring-Tokens konfiguriert."
+            echo "Static Bring credentials are configured."
           else
-            printf '::error::Fehlende Bring-Zugangsdaten: Entweder (BRING_EMAIL & BRING_PASSWORD) oder statische Tokens (BRING_AUTH_TOKEN, BRING_API_KEY, BRING_USER_UUID) müssen gesetzt sein.\n'
+            printf '::error::Configure Bring email/password or all three static Bring tokens.\n'
             exit 1
           fi
 
-          # 2. Übrige Backend-Secrets prüfen
-          required=(
-            SUPABASE_URL
-            SUPABASE_SECRET_KEY
-            R2_ACCOUNT_ID
-            R2_ACCESS_KEY_ID
-            R2_SECRET_ACCESS_KEY
-          )
+          required=(SUPABASE_URL SUPABASE_SECRET_KEY R2_ACCOUNT_ID R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY R2_BUCKET)
           missing=()
           for name in "${required[@]}"; do
-            if [ -z "${!name:-}" ]; then
-              missing+=("$name")
-            fi
+            if [ -z "${!name:-}" ]; then missing+=("$name"); fi
           done
           if [ "${#missing[@]}" -gt 0 ]; then
-            printf '::error::Fehlende Crawler-Secrets: %s\n' "${missing[*]}"
+            printf '::error::Missing publication secrets: %s\n' "${missing[*]}"
             exit 1
           fi
 
-  crawl-stage:
-    name: "Etappe ${{ matrix.zone_group }} (${{ matrix.region_name }})"
+  full-scan-and-publish:
+    name: Vollständige Verifikation und Veröffentlichung
     needs: validate-secrets
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        include:
-          - zone_group: "0,1"
-            region_name: "Ost / Berlin / Sachsen / Thüringen"
-          - zone_group: "2,3"
-            region_name: "Nord / Hamburg / Hannover / Bremen"
-          - zone_group: "4,5"
-            region_name: "West / NRW / Ruhrgebiet / Köln"
-          - zone_group: "6,7"
-            region_name: "Südwest / Hessen / Frankfurt / BaWü"
-          - zone_group: "8,9"
-            region_name: "Süd / Bayern / München / Franken"
+    timeout-minutes: 360
+    env:
+      BROCHURE_R2_STORAGE_BUDGET_GB: "7"
 
     steps:
       - name: Checkout repository
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         uses: actions/checkout@v4
 
       - name: Set up Bun environment
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         uses: ./.github/actions/setup-bun-env
 
       - name: Cache GeoNames postal codes
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
         id: cache-geonames
         uses: actions/cache@v4
         with:
-          path: /tmp/geonames-DE.txt
+          path: ${{ runner.temp }}/geonames-DE.txt
           key: geonames-de-postal-codes-v1
 
-      - name: Download German postal codes (falls nicht im Cache)
-        if: ${{ (github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group) && steps.cache-geonames.outputs.cache-hit != 'true' }}
+      - name: Download German postal codes
+        if: ${{ steps.cache-geonames.outputs.cache-hit != 'true' }}
         run: |
           curl --fail --silent --show-error --location \
             https://download.geonames.org/export/zip/DE.zip \
-            --output /tmp/geonames-DE.zip
-          unzip -p /tmp/geonames-DE.zip DE.txt > /tmp/geonames-DE.txt
-          test -s /tmp/geonames-DE.txt
+            --output "${RUNNER_TEMP}/geonames-DE.zip"
+          unzip -p "${RUNNER_TEMP}/geonames-DE.zip" DE.txt > "${RUNNER_TEMP}/geonames-DE.txt"
+          test -s "${RUNNER_TEMP}/geonames-DE.txt"
 
-      - name: Authenticate with Bring (Headless Login)
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
+      - name: Authenticate with Bring
         env:
           BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
           BRING_PASSWORD: ${{ secrets.BRING_PASSWORD }}
@@ -139,46 +96,65 @@ jobs:
           BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
         run: |
           if [ -n "$BRING_EMAIL" ] && [ -n "$BRING_PASSWORD" ]; then
-            echo "Melde bei Bring! API an..."
             bun run scripts/bring-auth.ts
-          elif [ -n "$BRING_AUTH_TOKEN" ]; then
-            echo "Verwende statische Bring-Tokens aus GitHub Secrets."
-            echo "BRING_AUTH_TOKEN=$BRING_AUTH_TOKEN" >> $GITHUB_ENV
-            echo "BRING_API_KEY=$BRING_API_KEY" >> $GITHUB_ENV
-            echo "BRING_USER_UUID=$BRING_USER_UUID" >> $GITHUB_ENV
+          else
+            {
+              echo "BRING_AUTH_TOKEN=$BRING_AUTH_TOKEN"
+              echo "BRING_API_KEY=$BRING_API_KEY"
+              echo "BRING_USER_UUID=$BRING_USER_UUID"
+            } >> "$GITHUB_ENV"
           fi
 
-      - name: Run Brochure Crawler (Zone ${{ matrix.zone_group }})
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group }}
-        run: |
-          EXTRA_ARGS=""
-          if [ "${{ inputs.sample_percent }}" != "" ] && [ "${{ inputs.sample_percent }}" != "100" ]; then
-            EXTRA_ARGS="--sample=${{ inputs.sample_percent }}%"
-          fi
-
-          bun run crawler:brochures \
-            --zone="${{ matrix.zone_group }}" \
-            --concurrency=12 \
-            --storage-budget-gb=7 \
-            --report-dir="${RUNNER_TEMP}/brochure-reports/${{ matrix.zone_group }}" \
-            $EXTRA_ARGS
+      - name: Scan all German postal codes
         env:
-          BRING_AUTH_TOKEN: ${{ env.BRING_AUTH_TOKEN || secrets.BRING_AUTH_TOKEN }}
-          BRING_API_KEY: ${{ env.BRING_API_KEY || secrets.BRING_API_KEY }}
-          BRING_USER_UUID: ${{ env.BRING_USER_UUID || secrets.BRING_USER_UUID }}
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
+        run: bun run tools/crawler/brochures/listing-only/all-stores-full.ts
+
+      - name: Load exact page counts for every BRN
+        env:
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
+        run: bun run tools/crawler/brochures/listing-only/fetch-detail-pages.ts
+
+      - name: Clear Bring credentials after API collection
+        run: |
+          printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
+
+      - name: Group exact metadata
+        run: bun run tools/crawler/brochures/listing-only/group-canonical.ts
+
+      - name: Download and verify every ordered page vector
+        run: >-
+          bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
+          --all-brns
+          --budget-bytes=7000000000
+
+      - name: Persist verified canonical catalog
+        run: bun run tools/crawler/brochures/listing-only/persist-canonical.ts
+
+      - name: Build coverage and consistency report
+        run: bun run tools/crawler/brochures/listing-only/canonical-report.ts
+
+      - name: Publish verified pages to private R2 and catalog to Supabase
+        env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
-          BROCHURE_LOCATIONS_FILE: /tmp/geonames-DE.txt
+        run: bun run tools/crawler/brochures/listing-only/publish-full-canonical.ts
 
-      - name: Archive storage and crawl reports
-        if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.zone_group == 'all' || inputs.zone_group == matrix.zone_group) }}
+      - name: Archive full-scan verification reports
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: brochure-reports-${{ matrix.zone_group }}-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/brochure-reports/${{ matrix.zone_group }}/
+          name: brochure-full-scan-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            tools/crawler/data/listing-only/all-stores-full.json
+            tools/crawler/data/listing-only/detail-pages.json
+            tools/crawler/data/listing-only/canonical-groups.json
+            tools/crawler/data/listing-only/canonical-page-verification.json
+            tools/crawler/data/listing-only/canonical-brochures.json
+            tools/crawler/data/listing-only/canonical-report.json
           if-no-files-found: ignore
           retention-days: 30

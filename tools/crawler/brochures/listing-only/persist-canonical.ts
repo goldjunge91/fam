@@ -203,6 +203,9 @@ export function buildPersistedCanonicalBrochures(value: unknown): PersistedCanon
   if (!isRecord(value) || value.version !== 1 || !Array.isArray(value.groups)) {
     throw new Error('Canonical page verification must contain version 1 and a groups array');
   }
+  if (!isRecord(value.scope) || value.scope.mode !== 'all-brns' || value.scope.complete !== true) {
+    throw new Error('Only a complete all-BRN page verification can be persisted for publication');
+  }
 
   const brochures: PersistedCanonicalBrochure[] = [];
   const canonicalBrns = new Set<string>();
