@@ -95,7 +95,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: build/cache/docker/supabase-docker-images.tar
-          key: supabase-docker-${{ env.SUPABASE_CLI_VERSION }}
+          key: supabase-docker-${{ env.SUPABASE_CLI_VERSION }}-complete-v2
 
       - name: Geladene Docker-Images wiederherstellen
         if: steps.cache-supabase-docker.outputs.cache-hit == 'true'
@@ -103,6 +103,33 @@ jobs:
 
       - name: Lokalen Supabase-Stack starten
         run: supabase start
+
+      - uses: ./.github/actions/setup-bun-env
+
+      - name: DB-Typen generieren
+        shell: bash
+        run: |
+          set -euo pipefail
+          attempt=1
+          max_attempts=3
+          while true; do
+            if output="$(bun run db:types 2>&1)"; then
+              printf '%s\n' "$output"
+              break
+            else
+              exit_code=$?
+            fi
+
+            printf '%s\n' "$output"
+            if ((attempt >= max_attempts)) || ! grep -Eiq 'toomanyrequests|rate exceeded|too many requests' <<<"$output"; then
+              exit "$exit_code"
+            fi
+
+            delay=$((attempt * 15))
+            echo "ECR rate limit beim Laden der Supabase-Images; neuer Versuch in ${delay}s ($((attempt + 1))/${max_attempts})..."
+            sleep "$delay"
+            attempt=$((attempt + 1))
+          done
 
       - name: Supabase Docker-Images fuer Cache speichern
         if: steps.cache-supabase-docker.outputs.cache-hit != 'true'
@@ -114,7 +141,13 @@ jobs:
             docker save "${images[@]}" -o build/cache/docker/supabase-docker-images.tar
           fi
 
-      - uses: ./.github/actions/setup-bun-env
+      - name: Generierte DB-Typen duerfen nicht abweichen (#31)
+        run: |
+          if ! git diff --exit-code -- src/lib/database.types.ts; then
+            echo
+            echo "src/lib/database.types.ts ist veraltet. Neu generieren mit 'bun run db:types' und committen."
+            exit 1
+          fi
 
       - name: pgTAP-Suite (RLS gegen echtes Postgres, #43)
         run: bun run test:db
@@ -134,15 +167,6 @@ jobs:
             echo
             echo "supabase/schemas/ und die angewendeten Migrationen weichen voneinander ab."
             echo "Neue Migration mit 'bun run db:diff -- -f <name>' erzeugen und committen."
-            exit 1
-          fi
-
-      - name: Generierte DB-Typen duerfen nicht abweichen (#31)
-        run: |
-          bun run db:types
-          if ! git diff --exit-code -- src/lib/database.types.ts; then
-            echo
-            echo "src/lib/database.types.ts ist veraltet. Neu generieren mit 'bun run db:types' und committen."
             exit 1
           fi
 

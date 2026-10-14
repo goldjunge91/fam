@@ -185,6 +185,32 @@ describe('TrackingScreen', () => {
     });
   });
 
+  it('begrenzt den Stepper auf 24 Stunden und validiert manuelle Uhrzeiten', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByLabelText('Eine Stunde früher'));
+    expect(mockMutateStartTime).toHaveBeenCalledWith({ userId: 'user-1', time: '23:00' });
+
+    await user.press(screen.getByLabelText('Uhrzeit für Tagesstart manuell anpassen'));
+    const timeField = screen.getByLabelText('Uhrzeit (HH:MM)');
+    await user.clear(timeField);
+    await user.type(timeField, '25:00');
+    await user.press(screen.getByText('Uhrzeit übernehmen'));
+
+    expect(
+      screen.getByText(
+        'Bitte gib eine gültige Uhrzeit im Format HH:MM ein (z. B. 06:00 oder 23:00).',
+      ),
+    ).toBeOnTheScreen();
+
+    await user.clear(timeField);
+    await user.type(timeField, '6:05');
+    await user.press(screen.getByText('Uhrzeit übernehmen'));
+
+    expect(mockMutateStartTime).toHaveBeenLastCalledWith({ userId: 'user-1', time: '06:05' });
+  });
+
   it('erklaert die Wirkung auf alle Tracking-Bereiche ohne Bestandsdaten umzuschreiben', async () => {
     await renderScreen();
 

@@ -60,6 +60,7 @@ describe('ScreenshotDriver', () => {
 
   afterEach(() => {
     jest.useRealTimers();
+    jest.restoreAllMocks();
   });
 
   it('bleibt ohne shots.json vollständig inaktiv', async () => {
@@ -146,6 +147,40 @@ describe('ScreenshotDriver', () => {
     await settleWithFakeTimers(tour);
 
     expect(mockAnnounce).toHaveBeenCalledWith('01-home');
+  });
+
+  it('bricht die Beruhigungszeit ab, wenn der Driver während der Route-Navigation schließt', async () => {
+    const controller = new AbortController();
+    let firstPathRead = true;
+    const tour = runScreenshotTour(
+      controller.signal,
+      { enabled: true, armedAt: Date.now(), settleMs: 0 },
+      'recipe-1',
+      () => {
+        if (firstPathRead) {
+          firstPathRead = false;
+          controller.abort();
+        }
+        return '/';
+      },
+    );
+
+    await expect(tour).rejects.toThrow('Screenshot tour aborted');
+    expect(mockAnnounce).not.toHaveBeenCalledWith('01-home');
+  });
+
+  it('fails without capturing when the expected route never becomes active', async () => {
+    jest.spyOn(Date, 'now').mockReturnValueOnce(0).mockReturnValueOnce(10_001);
+
+    await expect(
+      runScreenshotTour(
+        new AbortController().signal,
+        { enabled: true, armedAt: 0, settleMs: 0 },
+        'recipe-1',
+        () => '/pending-route',
+      ),
+    ).rejects.toThrow('Screenshot route did not become active: /');
+    expect(mockAnnounce).not.toHaveBeenCalledWith('01-home');
   });
 });
 

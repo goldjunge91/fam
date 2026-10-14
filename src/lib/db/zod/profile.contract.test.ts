@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { firstFieldErrors } from '@/lib/db/zod/errors';
-import { onboardingProfileSchema } from '@/lib/db/zod/onboarding.zod';
+import { onboardingProfileFormSchema, onboardingProfileSchema } from '@/lib/db/zod/onboarding.zod';
 import {
   ACTIVITY_LEVEL_VALUES,
   profileUpdateSchema,
@@ -18,6 +18,63 @@ describe('profile validation contracts', () => {
       }),
     ).toEqual({ displayName: 'Marco', birthDate: '1991-04-12', heightCm: 178 });
     expect(onboardingProfileSchema.safeParse({ heightCm: 300 }).success).toBe(false);
+  });
+
+  test('normalizes optional onboarding fields and localized decimal input', () => {
+    expect(
+      onboardingProfileFormSchema.parse({
+        displayName: '  ',
+        birthDate: '',
+        heightCm: '',
+        weightKg: '  ',
+      }),
+    ).toEqual({
+      displayName: undefined,
+      birthDate: undefined,
+      heightCm: undefined,
+      weightKg: undefined,
+    });
+
+    expect(
+      onboardingProfileFormSchema.parse({
+        displayName: '  Ana  ',
+        birthDate: '12.04.1991',
+        heightCm: '178,5',
+        weightKg: '70',
+        sex: 'female',
+        activityLevel: 'moderate',
+        weightGoal: 'maintain',
+      }),
+    ).toEqual({
+      displayName: 'Ana',
+      birthDate: '1991-04-12',
+      heightCm: 178.5,
+      weightKg: 70,
+      sex: 'female',
+      activityLevel: 'moderate',
+      weightGoal: 'maintain',
+    });
+  });
+
+  test('rejects invalid onboarding dates, measurements and enum values', () => {
+    const invalidProfiles = [
+      { displayName: 'A'.repeat(81), birthDate: '' },
+      { displayName: 'Ana', birthDate: 'not-a-date' },
+      { displayName: 'Ana', birthDate: '31.12.2999' },
+      { displayName: 'Ana', birthDate: '', heightCm: 'nope' },
+      { displayName: 'Ana', birthDate: '', heightCm: '0' },
+      { displayName: 'Ana', birthDate: '', heightCm: '300' },
+      { displayName: 'Ana', birthDate: '', weightKg: 'Infinity' },
+      { displayName: 'Ana', birthDate: '', weightKg: '19.9' },
+      { displayName: 'Ana', birthDate: '', weightKg: '301' },
+      { displayName: 'Ana', birthDate: '', sex: 'divers' },
+      { displayName: 'Ana', birthDate: '', activityLevel: 'extrem' },
+      { displayName: 'Ana', birthDate: '', weightGoal: 'stay' },
+    ];
+
+    for (const profile of invalidProfiles) {
+      expect(onboardingProfileFormSchema.safeParse(profile).success).toBe(false);
+    }
   });
 
   test('matches the values allowed by public.profiles', () => {
@@ -74,6 +131,18 @@ describe('profile validation contracts', () => {
       .safeParse({ name: '' });
     expect(result.success).toBe(false);
     if (!result.success) expect(firstFieldErrors(result.error)).toEqual({ name: 'zu kurz' });
+  });
+
+  test('ignores root-level and empty field messages', () => {
+    const rootError = z
+      .string()
+      .refine(() => false, 'form error')
+      .safeParse('value');
+    const emptyFieldError = new z.ZodError([{ code: 'custom', path: ['name'], message: '' }]);
+
+    expect(rootError.success).toBe(false);
+    if (!rootError.success) expect(firstFieldErrors(rootError.error)).toEqual({});
+    expect(firstFieldErrors(emptyFieldError)).toEqual({});
   });
 });
 

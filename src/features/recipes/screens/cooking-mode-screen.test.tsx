@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
@@ -296,5 +296,41 @@ describe('CookingModeScreen', () => {
     await fireEvent.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
 
     expect(celebrate).toHaveBeenCalledTimes(1);
+  });
+
+  it('geht im Premium-Kochmodus zum vorherigen Schritt zurück', async () => {
+    const user = userEvent.setup();
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
+    expect(screen.getByText('SCHRITT 2 VON 2')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Vorheriger Schritt' }));
+
+    expect(screen.getByText('SCHRITT 1 VON 2')).toBeOnTheScreen();
+  });
+
+  it('schließt Rezepte ohne Einzelschritte ab und kehrt zur Anleitung zurück', async () => {
+    const user = userEvent.setup();
+    const detail = makeDetail();
+    detail.recipe.instructions = null;
+    detail.steps = [];
+    mockDetail = detail;
+    mockIsPremium = true;
+    await renderScreen();
+
+    expect(
+      screen.getByText('Für dieses Rezept sind noch keine Schritte hinterlegt.'),
+    ).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+    expect(await screen.findByText('Guten Appetit!')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Zurück zum letzten Schritt' }));
+
+    expect(
+      screen.getByText('Für dieses Rezept sind noch keine Schritte hinterlegt.'),
+    ).toBeOnTheScreen();
   });
 });

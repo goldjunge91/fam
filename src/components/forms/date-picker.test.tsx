@@ -20,6 +20,22 @@ describe('DatePicker', () => {
       // 3. Prüfe, ob das Standard-Label angezeigt wird
       expect(screen.getByText('Geburtsdatum')).toBeOnTheScreen();
     });
+
+    it('accepts a custom label and placeholder and shows validation copy', async () => {
+      await render(
+        <DatePicker
+          label="Startdatum"
+          value=""
+          placeholder="Datum eingeben"
+          error="Datum ist erforderlich"
+          onChangeText={jest.fn()}
+        />,
+      );
+
+      expect(screen.getByText('Startdatum')).toBeOnTheScreen();
+      expect(screen.getByPlaceholderText('Datum eingeben')).toBeOnTheScreen();
+      expect(screen.getByText('Datum ist erforderlich')).toBeOnTheScreen();
+    });
   });
 
   describe('Texteingabe', () => {
@@ -46,6 +62,39 @@ describe('DatePicker', () => {
       await user.type(input, '2023');
       // Erwartung: Unsere Mock-Funktion wurde aufgerufen, da der User getippt hat
       expect(onChangeTextMock).toHaveBeenCalled();
+    });
+
+    it('applies changed date parts and resets each picker at its upper boundary', async () => {
+      const onChangeText = jest.fn();
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      await render(<DatePicker value="1900-01-01" onChangeText={onChangeText} />);
+      await user.press(screen.getByRole('button', { name: 'Datum auswählen' }));
+
+      await user.press(screen.getByRole('button', { name: 'Jahr verringern' }));
+      await user.press(screen.getByRole('button', { name: 'Monat verringern' }));
+      await user.press(screen.getByRole('button', { name: 'Tag verringern' }));
+      await user.press(screen.getByRole('button', { name: 'Monat erhöhen' }));
+      await user.press(screen.getByRole('button', { name: 'Tag erhöhen' }));
+      await user.press(screen.getByRole('button', { name: 'Jahr erhöhen' }));
+      await user.press(screen.getByRole('button', { name: 'Übernehmen' }));
+
+      expect(onChangeText).toHaveBeenLastCalledWith('1901-01-01');
+      expect(screen.queryByRole('button', { name: 'Übernehmen' })).not.toBeOnTheScreen();
+    });
+
+    it('caps the year at 2100 and lets the user cancel without changing the value', async () => {
+      const onChangeText = jest.fn();
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+
+      await render(<DatePicker value="2100-12-31" onChangeText={onChangeText} />);
+      await user.press(screen.getByRole('button', { name: 'Datum auswählen' }));
+      await user.press(screen.getByRole('button', { name: 'Jahr erhöhen' }));
+      await user.press(screen.getByRole('button', { name: 'Jahr verringern' }));
+      await user.press(screen.getByRole('button', { name: 'Abbrechen' }));
+
+      expect(onChangeText).not.toHaveBeenCalled();
+      expect(screen.queryByRole('button', { name: 'Abbrechen' })).not.toBeOnTheScreen();
     });
   });
 

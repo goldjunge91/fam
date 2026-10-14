@@ -106,7 +106,6 @@ export function useBrochureSync(zipCode: string | null) {
       } catch (e) {
         debugLog('[brochures] sync failed', e);
         reportError(e, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
-        console.error('Brochure sync failed', e);
       } finally {
         if (isMounted) {
           setIsSyncing(false);

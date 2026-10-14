@@ -16,10 +16,12 @@ describe('Unistyles Expo entry convention', () => {
   it('loads the Unistyles Jest mock before the app configuration', () => {
     const source = fs.readFileSync(path.join(REPO_ROOT, 'jest.config.js'), 'utf8');
     const mocksEntry = source.indexOf('react-native-unistyles/mocks');
-    const configEntry = source.indexOf('<rootDir>/src/components/theme/index.ts');
+    const configEntry = source.indexOf('<rootDir>/test/setup-theme.js');
+    const setupTheme = fs.readFileSync(path.join(REPO_ROOT, 'test/setup-theme.js'), 'utf8');
 
     expect(mocksEntry).toBeGreaterThanOrEqual(0);
     expect(configEntry).toBeGreaterThan(mocksEntry);
+    expect(setupTheme).toContain("require('../src/components/theme/index');");
   });
 
   it('enables Unistyles debug through Babel development mode', () => {

@@ -48,7 +48,7 @@ jest.mock('@/features/inventory/barcode-scanner-modal', () => ({
   BarcodeScannerModal: () => null,
 }));
 
-async function renderScreen() {
+async function renderScreen(expectedHistoryItem = 'Apfel') {
   await render(
     <SafeAreaProvider
       initialMetrics={{
@@ -61,7 +61,7 @@ async function renderScreen() {
 
   // Synchronize with the first actual list result. This also lets RNTL
   // flush VirtualizedList's deferred cell update without timing assumptions.
-  await screen.findByText('Apfel');
+  await screen.findByText(expectedHistoryItem);
 }
 
 beforeEach(() => {
@@ -198,6 +198,54 @@ describe('FoodSearchScreen', () => {
     jest.useRealTimers();
   });
 
+  it('zeigt Produktbilder und lädt weitere Suchtreffer über den Cursor nach', async () => {
+    mockCatalogSearch
+      .mockResolvedValueOnce({
+        products: [
+          {
+            barcode: 'image-1',
+            name: 'Mandelmilch',
+            brand: 'Almond',
+            imageUrl: 'https://example.test/almond-milk.png',
+            caloriesPer100g: 42,
+            categoryTags: [],
+          },
+        ],
+        hasMore: true,
+        nextCursor: 'cursor-1',
+        failed: false,
+      })
+      .mockResolvedValueOnce({
+        products: [
+          {
+            barcode: 'image-2',
+            name: 'Cashewmilch',
+            imageUrl: 'https://example.test/cashew-milk.png',
+            categoryTags: [],
+          },
+        ],
+        hasMore: false,
+        nextCursor: undefined,
+        failed: false,
+      });
+
+    await renderScreen();
+    jest.useFakeTimers();
+    fireEvent.changeText(screen.getByPlaceholderText('Wonach suchst du?'), 'milch');
+    await jest.advanceTimersByTimeAsync(800);
+
+    expect(screen.getByText('Almond · 42 kcal/100g')).toBeTruthy();
+    await fireEvent.press(screen.getByRole('button', { name: 'Mehr anzeigen' }));
+
+    expect(await screen.findByText('Cashewmilch')).toBeTruthy();
+    expect(mockCatalogSearch).toHaveBeenLastCalledWith(
+      'milch',
+      expect.objectContaining({ cursor: 'cursor-1', allowApi: false }),
+    );
+
+    jest.useRealTimers();
+  });
+
   it('erkennt eine abgetippte Zahlenfolge als Barcode und nutzt den exakten Lookup', async () => {
     mockCatalogSearch.mockResolvedValue({
       products: [
@@ -282,5 +330,40 @@ describe('FoodSearchScreen', () => {
         params: expect.objectContaining({ name: 'Banane', kcal: '89', quantity: '100', unit: 'g' }),
       }),
     );
+  });
+
+  it('serialisiert fehlende Nährwerte als leere Parameter beim Auswählen eines Verlaufseintrags', async () => {
+    mockUseLocalFoodUsage.mockReturnValue({
+      data: [
+        {
+          name: 'Dinkelbrot',
+          kcal: null,
+          proteinG: null,
+          carbsG: null,
+          fatG: null,
+          quantity: 2,
+          unit: 'Scheibe',
+        },
+      ],
+      isLoading: false,
+    });
+
+    await renderScreen('Dinkelbrot');
+    await fireEvent.press(screen.getByText('Dinkelbrot'));
+
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: '/add-food-entry',
+      params: {
+        date: '2026-08-10',
+        mealType: 'breakfast',
+        name: 'Dinkelbrot',
+        quantity: '2',
+        unit: 'Scheibe',
+        kcal: '',
+        proteinG: '',
+        carbsG: '',
+        fatG: '',
+      },
+    });
   });
 });

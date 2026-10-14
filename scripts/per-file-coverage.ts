@@ -3,7 +3,9 @@ import { extname, relative, resolve } from 'node:path';
 
 const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.jsx']);
 const EXCLUDED_SOURCE_NAME = /(?:\.test|\.spec)\.(?:ts|tsx|js|jsx)$/u;
+const TEST_HARNESS_FILE = /\.harness\.(?:ts|tsx|js|jsx)$/u;
 const DECLARATION_FILE = /\.d\.ts$/u;
+const GENERATED_TYPE_FILE = 'lib/database.types.ts';
 
 const COVERAGE_METRICS = ['statements', 'branches', 'functions', 'lines'] as const;
 
@@ -18,7 +20,7 @@ export type CoverageViolation = {
   minimum: 70;
 };
 
-/** Lists runtime source files without filtering platform or generated paths. */
+/** Lists runtime source files without filtering platform variants. */
 export function collectProductiveSourceFiles(sourceRoot: string): string[] {
   const files: string[] = [];
 
@@ -34,7 +36,9 @@ export function collectProductiveSourceFiles(sourceRoot: string): string[] {
         !entry.isFile() ||
         !SOURCE_EXTENSIONS.has(extname(entry.name)) ||
         EXCLUDED_SOURCE_NAME.test(entry.name) ||
-        DECLARATION_FILE.test(entry.name)
+        TEST_HARNESS_FILE.test(entry.name) ||
+        DECLARATION_FILE.test(entry.name) ||
+        relative(sourceRoot, path).replaceAll('\\', '/') === GENERATED_TYPE_FILE
       ) {
         continue;
       }

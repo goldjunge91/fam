@@ -167,6 +167,19 @@ describe('applyRemoteRow — bestätigte Remote-Aktualität', () => {
     });
   });
 
+  it('meldet einen fehlenden Remote-Zeitstempel mit dem erwarteten Spaltennamen', async () => {
+    await expect(
+      applyRemoteRow(
+        db,
+        'storage_locations',
+        storageLocationRow({ updated_at: undefined }),
+        Date.now(),
+      ),
+    ).rejects.toThrow(
+      'Remote-Zeile fuer storage_locations hat keinen gültigen updated_at-Zeitstempel.',
+    );
+  });
+
   it('behält Dirty-Reconciliation und append-only-Duplikat-Upserts bei', async () => {
     await db.runAsync(
       `insert into storage_locations

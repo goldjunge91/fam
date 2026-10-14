@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddFoodEntryScreen } from '@/features/calorie-tracking/add-food-entry-screen';
@@ -13,9 +14,11 @@ const mockUpdateMutateAsync = jest.fn().mockResolvedValue({});
 const mockDeleteMutateAsync = jest.fn().mockResolvedValue({});
 const mockRestoreMutate = jest.fn();
 const mockShowUndoSnackbar = jest.fn();
+const mockGetDatabase = jest.fn().mockResolvedValue({});
+const mockRecordProductUsage = jest.fn().mockResolvedValue(undefined);
 
 jest.mock('expo-router', () => ({
-  router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
+  router: { push: jest.fn(), back: jest.fn(), dismiss: jest.fn(), canGoBack: () => false },
   useLocalSearchParams: () => mockParams,
   useNavigation: () => ({ canGoBack: () => false, addListener: () => () => {} }),
 }));
@@ -32,16 +35,95 @@ jest.mock('@/features/calorie-tracking/api', () => ({
   useRestoreFoodEntryMutation: () => ({ mutate: mockRestoreMutate, isPending: false }),
 }));
 
-jest.mock('@/features/calorie-tracking/food-search-dropdown', () => ({
-  FoodSearchDropdown: () => null,
-}));
+jest.mock('@/features/calorie-tracking/food-search-dropdown', () => {
+  const React = require('react') as typeof import('react');
+  const { Pressable, Text, TextInput, View } =
+    require('react-native') as typeof import('react-native');
+
+  return {
+    FoodSearchDropdown: ({
+      value,
+      onChangeText,
+      onProductSelect,
+      onHistorySelect,
+    }: {
+      value: string;
+      onChangeText: (value: string) => void;
+      onProductSelect: (product: {
+        barcode: string;
+        name: string;
+        brand: string;
+        imageUrl: string;
+        nutriScore: 'a';
+        kcalPer100g: number;
+        nutrientLevels: { fat: 'low'; sugars: 'high' };
+        categoryTags: string[];
+      }) => void;
+      onHistorySelect: (entry: {
+        name: string;
+        quantity: number;
+        unit: string;
+        kcal: number | null;
+        proteinG: number | null;
+        carbsG: number | null;
+        fatG: number | null;
+      }) => void;
+    }) =>
+      React.createElement(
+        View,
+        null,
+        React.createElement(TextInput, {
+          accessibilityLabel: 'Lebensmittel suchen',
+          value,
+          onChangeText,
+        }),
+        React.createElement(
+          Pressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'Historie verwenden',
+            onPress: () =>
+              onHistorySelect({
+                name: 'Haferbrei aus Verlauf',
+                quantity: 2,
+                unit: 'portion',
+                kcal: null,
+                proteinG: null,
+                carbsG: null,
+                fatG: null,
+              }),
+          },
+          React.createElement(Text, null, 'Historie verwenden'),
+        ),
+        React.createElement(
+          Pressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'Produkt auswählen',
+            onPress: () =>
+              onProductSelect({
+                barcode: '400123',
+                name: 'Ausgewähltes Lebensmittel',
+                brand: 'Beispielmarke',
+                imageUrl: 'https://example.com/food.png',
+                nutriScore: 'a',
+                kcalPer100g: 80,
+                nutrientLevels: { fat: 'low', sugars: 'high' },
+                categoryTags: [],
+              }),
+          },
+          React.createElement(Text, null, 'Produkt auswählen'),
+        ),
+      ),
+  };
+});
 
 jest.mock('@/lib/db/local-client', () => ({
-  getDatabase: async () => ({}),
+  getDatabase: () => mockGetDatabase(),
 }));
 
 jest.mock('@/lib/db/product-usage', () => ({
-  recordProductUsage: jest.fn().mockResolvedValue(undefined),
+  recordProductUsage: (...args: unknown[]) => mockRecordProductUsage(...args),
 }));
 
 jest.mock('@/components/ui/snackbar', () => ({
@@ -113,6 +195,11 @@ beforeEach(() => {
   mockDeleteMutateAsync.mockClear();
   mockRestoreMutate.mockClear();
   mockShowUndoSnackbar.mockClear();
+  mockGetDatabase.mockReset().mockResolvedValue({});
+  mockRecordProductUsage.mockReset().mockResolvedValue(undefined);
+  jest.mocked(router.back).mockClear();
+  jest.mocked(router.dismiss).mockClear();
+  jest.mocked(router.push).mockClear();
 });
 
 describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
@@ -270,5 +357,89 @@ describe('AddFoodEntryScreen — bestehenden Eintrag bearbeiten', () => {
       userId: 'user-1',
       loggedOn: '2026-08-10',
     });
+  });
+
+  it('aktualisiert einen bestehenden Eintrag', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Speichern'));
+
+    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 'entry-1',
+        userId: 'user-1',
+        name: 'Reis',
+        loggedOn: '2026-08-10',
+        mealType: 'dinner',
+      }),
+    );
+    expect(mockAddMutateAsync).not.toHaveBeenCalled();
+  });
+
+  it('zeigt einen Fehler, wenn das Löschen fehlschlägt', async () => {
+    const alert = jest.spyOn(Alert, 'alert');
+    mockDeleteMutateAsync.mockRejectedValueOnce(new Error('Löschen fehlgeschlagen'));
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Löschen'));
+
+    expect(alert).toHaveBeenCalledWith('Fehler', 'Löschen fehlgeschlagen');
+    expect(router.back).not.toHaveBeenCalled();
+    alert.mockRestore();
+  });
+});
+
+describe('AddFoodEntryScreen — Auswahl und Speichern', () => {
+  beforeEach(() => {
+    mockParams = { date: '2026-08-10', mealType: 'breakfast', closeStackCount: '3' };
+  });
+
+  it('übernimmt einen gespeicherten Verlaufseintrag in das Formular', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+    await user.press(screen.getByRole('button', { name: 'Historie verwenden' }));
+
+    expect(screen.getByDisplayValue('Haferbrei aus Verlauf')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Einheit auswählen' })).toHaveTextContent('Portion');
+  });
+
+  it('übernimmt Produktbild und Produktdetails und schließt den aufrufenden Stack', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+    await user.press(screen.getByRole('button', { name: 'Produkt auswählen' }));
+
+    expect(screen.getByDisplayValue('Ausgewähltes Lebensmittel')).toBeOnTheScreen();
+    expect(screen.getByText('Beispielmarke')).toBeOnTheScreen();
+    expect(screen.getByText('A')).toBeOnTheScreen();
+    expect(screen.getByText(/Fettarm/)).toBeOnTheScreen();
+
+    await user.press(screen.getByText('Speichern'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalled();
+    expect(router.dismiss).toHaveBeenCalledWith(3);
+    expect(router.back).not.toHaveBeenCalled();
+  });
+
+  it('lässt den Eintrag gespeichert, wenn das Protokollieren des Verlaufs fehlschlägt', async () => {
+    const user = userEvent.setup();
+    mockRecordProductUsage.mockRejectedValueOnce(new Error('History unavailable'));
+    await renderScreen();
+    await user.press(screen.getByRole('button', { name: 'Produkt auswählen' }));
+    await user.press(screen.getByText('Speichern'));
+
+    expect(mockAddMutateAsync).toHaveBeenCalled();
+    expect(router.dismiss).toHaveBeenCalledWith(3);
+  });
+
+  it('zeigt den Speicherfehler statt zu navigieren', async () => {
+    const alert = jest.spyOn(Alert, 'alert');
+    const user = userEvent.setup();
+    mockAddMutateAsync.mockRejectedValueOnce('Speichern fehlgeschlagen');
+    await renderScreen();
+    await user.press(screen.getByRole('button', { name: 'Produkt auswählen' }));
+    await user.press(screen.getByText('Speichern'));
+
+    expect(alert).toHaveBeenCalledWith('Fehler', 'Fehler beim Speichern');
+    expect(router.dismiss).not.toHaveBeenCalled();
+    alert.mockRestore();
   });
 });

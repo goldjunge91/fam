@@ -53,6 +53,17 @@ describe('DeleteAccountScreen', () => {
     );
   }
 
+  async function confirmAccountDeletion() {
+    await renderScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Account löschen' }));
+    const actions = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    const confirm = actions?.find((action) => action.text === 'Endgültig löschen');
+
+    await act(async () => {
+      await confirm?.onPress?.();
+    });
+  }
+
   beforeEach(async () => {
     jest.clearAllMocks();
     mockInvoke.mockResolvedValue({ data: { success: true }, error: null });
@@ -114,5 +125,58 @@ describe('DeleteAccountScreen', () => {
 
     expect(mockReplace).not.toHaveBeenCalled();
     expect(Alert.alert).toHaveBeenLastCalledWith('Löschen fehlgeschlagen', 'local wipe failed');
+  });
+
+  it('erklärt eine noch nicht mögliche Account-Löschung anhand des Serverstatus', async () => {
+    mockInvoke.mockResolvedValue({
+      data: null,
+      error: { message: 'subscription remains active', context: { status: 409 } },
+    });
+
+    await confirmAccountDeletion();
+
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      i18n.t('settings.groups.data.deleteAccount.notYetPossibleTitle'),
+      i18n.t('settings.groups.data.deleteAccount.notYetPossibleBody'),
+    );
+    expect(mockSignOutAndClearLocalData).not.toHaveBeenCalled();
+    expect(mockReplace).not.toHaveBeenCalled();
+  });
+
+  it('zeigt Serverfehler und Fehlerdetails aus der Antwort', async () => {
+    mockInvoke.mockResolvedValueOnce({ data: null, error: { message: 'server unavailable' } });
+    await confirmAccountDeletion();
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      i18n.t('settings.groups.data.deleteAccount.failedTitle'),
+      'server unavailable',
+    );
+
+    mockInvoke.mockResolvedValueOnce({
+      data: { error: 'deletion_failed', message: 'account is protected' },
+      error: null,
+    });
+    await confirmAccountDeletion();
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      i18n.t('settings.groups.data.deleteAccount.failedTitle'),
+      'account is protected',
+    );
+
+    mockInvoke.mockResolvedValueOnce({ data: { error: 'deletion_failed' }, error: null });
+    await confirmAccountDeletion();
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      i18n.t('settings.groups.data.deleteAccount.failedTitle'),
+      i18n.t('settings.groups.data.deleteAccount.unknownError'),
+    );
+  });
+
+  it('meldet Ablehnungen beim Aufruf und beim lokalen Abmelden', async () => {
+    mockInvoke.mockRejectedValueOnce(new Error('request failed'));
+    await confirmAccountDeletion();
+    expect(Alert.alert).toHaveBeenLastCalledWith('Löschen fehlgeschlagen', 'request failed');
+
+    mockSignOutAndClearLocalData.mockResolvedValueOnce({ error: new Error('sign out failed') });
+    await confirmAccountDeletion();
+    expect(Alert.alert).toHaveBeenLastCalledWith('Löschen fehlgeschlagen', 'sign out failed');
+    expect(mockReplace).not.toHaveBeenCalled();
   });
 });

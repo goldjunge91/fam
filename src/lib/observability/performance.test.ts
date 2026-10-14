@@ -5,6 +5,10 @@ type MockPerformanceEntry = {
   duration?: number;
 };
 
+import { debugWarn } from '@/lib/observability/debug-log';
+
+jest.mock('@/lib/observability/debug-log', () => ({ debugWarn: jest.fn() }));
+
 const mockPerformance = {
   now: jest.fn(() => 100),
   mark: jest.fn(),
@@ -103,5 +107,98 @@ describe('performance instrumentation', () => {
     expect(mockPerformance.clearMeasures).toHaveBeenCalledTimes(1);
     expect(mockPerformance.clearMetrics).toHaveBeenCalledTimes(1);
     expect(mockPerformance.clearResourceTimings).toHaveBeenCalledTimes(1);
+  });
+
+  it('handles optional marks, measures, metrics, and empty snapshots', () => {
+    const {
+      getPerformanceMeasureDuration,
+      getPerformanceMonitorSnapshot,
+      markPerformance,
+      measurePerformance,
+      metricPerformance,
+    } = require('./performance');
+    mockPerformance.getEntries.mockReturnValue([]);
+    mockPerformance.getEntriesByType.mockReturnValue([]);
+    mockPerformance.getEntriesByName.mockImplementation((name: string, type?: string) =>
+      type === 'mark' && name === 'startup.start'
+        ? [{ entryType: 'mark', name, startTime: 100 }]
+        : [],
+    );
+
+    markPerformance('plain.mark');
+    measurePerformance('startup.measure', 'startup.start');
+    metricPerformance('empty.value', '', { source: 'test' });
+    metricPerformance('plain.value', 12);
+
+    expect(mockPerformance.mark).toHaveBeenCalledWith('plain.mark', undefined);
+    expect(mockPerformance.measure).toHaveBeenCalledWith('startup.measure', {
+      start: 'startup.start',
+      end: undefined,
+    });
+    expect(mockPerformance.metric).toHaveBeenNthCalledWith(1, 'empty.value', '');
+    expect(mockPerformance.metric).toHaveBeenNthCalledWith(2, 'plain.value', 12);
+    expect(getPerformanceMonitorSnapshot()).toEqual({
+      available: true,
+      enabled: true,
+      totalEntries: 0,
+      markCount: 0,
+      measureCount: 0,
+      metricCount: 0,
+      nativeMarkCount: 0,
+      latestEntry: null,
+    });
+    expect(getPerformanceMeasureDuration('missing.measure')).toBeNull();
+  });
+
+  it('does no instrumentation while disabled and finishes a span only once', () => {
+    const {
+      isPerformanceInstrumentationEnabled,
+      setPerformanceInstrumentationEnabled,
+      startPerformanceSpan,
+    } = require('./performance');
+    setPerformanceInstrumentationEnabled(false);
+    expect(isPerformanceInstrumentationEnabled()).toBe(false);
+
+    const disabledFinish = startPerformanceSpan('disabled.span');
+    disabledFinish();
+    expect(mockPerformance.mark).not.toHaveBeenCalled();
+
+    setPerformanceInstrumentationEnabled(true);
+    mockPerformance.getEntriesByName.mockReturnValue([
+      { entryType: 'mark', name: 'default.span.start', startTime: 100 },
+      { entryType: 'mark', name: 'default.span.end', startTime: 120 },
+    ]);
+    const finish = startPerformanceSpan('default.span');
+    finish();
+    finish('failed', { reason: 'duplicate finish' });
+
+    expect(mockPerformance.mark).toHaveBeenCalledTimes(2);
+    expect(mockPerformance.mark).toHaveBeenNthCalledWith(2, 'default.span.end', {
+      detail: { outcome: 'completed' },
+    });
+    expect(mockPerformance.measure).toHaveBeenCalledTimes(1);
+    expect(mockPerformance.metric).toHaveBeenCalledTimes(1);
+  });
+
+  it('logs and suppresses errors raised by the performance API', () => {
+    const { markPerformance, measurePerformance, metricPerformance } = require('./performance');
+    mockPerformance.getEntriesByName.mockReturnValue([
+      { entryType: 'mark', name: 'start', startTime: 0 },
+      { entryType: 'mark', name: 'end', startTime: 1 },
+    ]);
+    mockPerformance.mark.mockImplementationOnce(() => {
+      throw new Error('mark failed');
+    });
+    mockPerformance.measure.mockImplementationOnce(() => {
+      throw new Error('measure failed');
+    });
+    mockPerformance.metric.mockImplementationOnce(() => {
+      throw new Error('metric failed');
+    });
+
+    expect(() => markPerformance('broken.mark')).not.toThrow();
+    expect(() => measurePerformance('broken.measure', 'start', 'end')).not.toThrow();
+    expect(() => metricPerformance('broken.metric', 1)).not.toThrow();
+    expect(debugWarn).toHaveBeenCalledTimes(3);
   });
 });
