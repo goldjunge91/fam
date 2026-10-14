@@ -47,8 +47,7 @@ export function InventorySummaryCard({
           displayMode="none"
           animated={false}
           progressColor={color}
-          trackColor={withAlpha(color, 0.2)}
-          label={typeof label === 'string' ? label : undefined}>
+          trackColor={withAlpha(color, 0.2)}>
           <Txt variant="title" weight="700" center>
             {value}
           </Txt>
