@@ -1,5 +1,6 @@
 export const UNIT_TEST_ENV = {
   EXPO_NO_DOTENV: '1',
+  EXPO_PUBLIC_USE_RN_FETCH: '1',
   FAM_HARNESS_UI: '0',
   EXPO_PUBLIC_SUPABASE_URL: 'http://127.0.0.1:54321',
   EXPO_PUBLIC_SUPABASE_KEY: 'test-supabase-anon-key',

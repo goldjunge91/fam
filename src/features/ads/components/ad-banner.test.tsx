@@ -2,6 +2,7 @@ import { act, render, screen } from '@testing-library/react-native';
 
 import { useAdsConsentStore } from '../ads-consent';
 import { AdBanner } from './ad-banner';
+import { AdBanner as AndroidAdBanner } from './ad-banner.android';
 
 let mockHasPlus = false;
 let mockHasAI = false;
@@ -95,6 +96,57 @@ describe('AdBanner', () => {
     });
 
     expect(onFailed).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
+  });
+
+  it('rendert den Android-Banner und reicht Erfolgs-, Paid- und Fehler-Callbacks weiter', async () => {
+    const onLoaded = jest.fn();
+    const onFailed = jest.fn();
+    await render(<AndroidAdBanner onAdLoaded={onLoaded} onAdFailedToLoad={onFailed} />);
+
+    const banner = screen.getByTestId('admob-banner-ad');
+    expect(screen.getByTestId('admob-banner-container')).toBeOnTheScreen();
+    expect(banner.props.unitId).toBe('ca-app-pub-3940256099942544/6300978111');
+    banner.props.onAdLoaded({ width: 320, height: 50 });
+    banner.props.onPaid({ currency: 'EUR', precision: 3, value: 0.05 });
+    expect(onLoaded).toHaveBeenCalledWith({ width: 320, height: 50 });
+
+    await act(async () => {
+      banner.props.onAdFailedToLoad(new Error('No fill'));
+    });
+    expect(onFailed).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
+  });
+
+  it.each([
+    [
+      'Plus entitlement',
+      () => {
+        mockHasPlus = true;
+      },
+    ],
+    [
+      'AI entitlement',
+      () => {
+        mockHasAI = true;
+      },
+    ],
+    [
+      'global ads switch',
+      () => {
+        process.env.EXPO_PUBLIC_ADS_ENABLED = 'false';
+      },
+    ],
+    [
+      'unfinished consent',
+      () => {
+        useAdsConsentStore.getState().setReady(false);
+      },
+    ],
+  ])('hides the Android banner for %s', async (_case, disable) => {
+    disable();
+    await render(<AndroidAdBanner />);
+
     expect(screen.queryByTestId('admob-banner-container')).not.toBeOnTheScreen();
   });
 });

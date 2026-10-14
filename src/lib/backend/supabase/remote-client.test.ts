@@ -1,4 +1,9 @@
-import { AppState, type AppStateStatus, type NativeEventSubscription } from 'react-native';
+import {
+  AppState,
+  type AppStateStatus,
+  type NativeEventSubscription,
+  Platform,
+} from 'react-native';
 
 const mockStartAutoRefresh = jest.fn().mockResolvedValue(undefined);
 const mockStopAutoRefresh = jest.fn().mockResolvedValue(undefined);
@@ -29,6 +34,11 @@ jest.mock('expo-secure-store', () => ({
 const mockExpoFetch = jest.fn();
 jest.mock('expo/fetch', () => ({ fetch: (...args: unknown[]) => mockExpoFetch(...args) }));
 
+const mockDebugWarn = jest.fn();
+jest.mock('@/lib/observability/debug-log', () => ({
+  debugWarn: (...args: unknown[]) => mockDebugWarn(...args),
+}));
+
 import {
   getSupabase,
   serverClock,
@@ -38,6 +48,7 @@ import {
 describe('Supabase Native Lifecycle', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;
   const remove = jest.fn();
+  const originalPlatform = Platform.OS;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -50,6 +61,7 @@ describe('Supabase Native Lifecycle', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: originalPlatform });
   });
 
   it('nutzt expo/fetch als Transport, nicht den globalen RN-fetch', () => {
@@ -57,14 +69,13 @@ describe('Supabase Native Lifecycle', () => {
     // ausloest und nicht vom Laufzeit-Zustand des anderen Tests abhaengt.
     jest.resetModules();
     // eslint-disable-next-line @typescript-eslint/no-require-imports -- jest.resetModules verlangt require statt dynamic import
-    const { getSupabase: freshGetSupabase } =
+    const { getSupabase: freshGetSupabase, serverClock: freshServerClock } =
       require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
     freshGetSupabase();
 
     const options = mockCreateClient.mock.calls[0]?.[2] as { global?: { fetch?: unknown } };
-    // Der globale fetch ist der XHR-Polyfill, der binaere Upload-Bodies
-    // mit "Network request failed" brechen kann (harness/storage-upload-matrix).
-    expect(options.global?.fetch).not.toBe(globalThis.fetch);
+    // Der native Supabase-Client muss den begrenzten Expo-Fetch-Wrapper nutzen.
+    expect(options.global?.fetch).toBe(freshServerClock.fetch);
     // Der serverClock-Wrapper kapselt expo/fetch: ein Aufruf muss durchreichen.
     expect(mockExpoFetch).not.toHaveBeenCalled();
   });
@@ -118,6 +129,29 @@ describe('Supabase Native Lifecycle', () => {
     expect(remove).toHaveBeenCalledTimes(1);
     expect(mockStopAutoRefresh.mock.invocationCallOrder.at(-1)).toBeGreaterThan(
       mockStartAutoRefresh.mock.invocationCallOrder.at(-1) ?? 0,
+    );
+  });
+
+  it('skips native lifecycle listeners on web', () => {
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: 'web' });
+    const stopLifecycle = startSupabaseAutoRefresh();
+    stopLifecycle();
+
+    expect(AppState.addEventListener).not.toHaveBeenCalled();
+  });
+
+  it('logs native auto-refresh transitions that reject', async () => {
+    mockStartAutoRefresh.mockRejectedValueOnce(new Error('refresh failed'));
+    getSupabase();
+    const stopLifecycle = startSupabaseAutoRefresh();
+    appStateListener?.('active');
+    await flushMicrotasks();
+    stopLifecycle();
+    await flushMicrotasks();
+
+    expect(mockDebugWarn).toHaveBeenCalledWith(
+      '[supabase] Auto-Refresh-Zustandswechsel fehlgeschlagen:',
+      expect.any(Error),
     );
   });
 });

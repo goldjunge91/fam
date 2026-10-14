@@ -1,6 +1,6 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { ResetPasswordScreen } from '@/features/auth/screens/reset-password-screen';
 import { i18n } from '@/i18n';
 
@@ -16,7 +16,7 @@ jest.mock('@/features/auth/api', () => ({
 }));
 
 jest.mock('@/features/auth/domain/auth-error-message', () => ({
-  authErrorMessage: (error: { message: string }) => error.message,
+  authErrorMessage: jest.fn((error: { message: string }) => error.message),
 }));
 
 describe('ResetPasswordScreen', () => {
@@ -100,5 +100,30 @@ describe('ResetPasswordScreen', () => {
       expect(mockUpdatePassword).toHaveBeenCalledWith('geheim1234');
       expect(mockReplace).toHaveBeenCalledWith('/');
     });
+  });
+
+  it('zeigt Serverfehler und Fallback an und erlaubt den erneuten Versuch', async () => {
+    mockUpdatePassword
+      .mockResolvedValueOnce({ error: new Error('Passwort wurde abgelehnt') })
+      .mockResolvedValueOnce({ error: new Error('Link abgelaufen') })
+      .mockResolvedValueOnce({ error: null });
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.type(screen.getByLabelText('Neues Passwort'), 'geheim1234');
+    await user.type(screen.getByLabelText('Passwort wiederholen'), 'geheim1234');
+    const save = screen.getByRole('button', { name: 'Passwort speichern' });
+
+    await user.press(save);
+    expect(await screen.findByText('Passwort wurde abgelehnt')).toBeOnTheScreen();
+
+    jest.mocked(authErrorMessage).mockReturnValueOnce(null);
+    await user.press(save);
+    expect(
+      await screen.findByText('Der Link ist abgelaufen. Fordere einen neuen an.'),
+    ).toBeOnTheScreen();
+
+    await user.press(save);
+    await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/'));
   });
 });

@@ -43,6 +43,35 @@ describe('createLocalProductSource.search', () => {
     ]);
   });
 
+  it('lässt fehlende Barcode-, Nährwert- und Open-Food-Felder weg', async () => {
+    mockGetAllAsync.mockResolvedValue([
+      {
+        ...row,
+        barcode: null,
+        brand: null,
+        kcal_per_100: null,
+        protein_g_per_100: null,
+        carbs_g_per_100: null,
+        fat_g_per_100: null,
+        off_category_tags: null,
+        off_last_modified_at: null,
+      },
+    ]);
+
+    const result = await createLocalProductSource().search('Hafermilch', { offset: 0, limit: 20 });
+
+    expect(result.products[0]).toMatchObject({
+      barcode: '',
+      brand: undefined,
+      caloriesPer100g: undefined,
+      proteinsPer100g: undefined,
+      carbsPer100g: undefined,
+      fatPer100g: undefined,
+      categoryTags: [],
+      offLastModifiedAt: undefined,
+    });
+  });
+
   it('reicht Offset und Limit an die Abfrage durch', async () => {
     await createLocalProductSource().search('Hafer Milch', { offset: 40, limit: 20 });
 
@@ -86,6 +115,11 @@ describe('createLocalProductSource.findByBarcode', () => {
 
   it('liefert null, wenn der Barcode unbekannt ist', async () => {
     await expect(createLocalProductSource().findByBarcode('999')).resolves.toBeNull();
+  });
+
+  it('überspringt eine Barcode-Abfrage mit leerer Eingabe', async () => {
+    await expect(createLocalProductSource().findByBarcode('  ')).resolves.toBeNull();
+    expect(mockGetFirstAsync).not.toHaveBeenCalled();
   });
 
   it('liefert bei einem Datenbankfehler null', async () => {

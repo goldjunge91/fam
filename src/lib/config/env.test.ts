@@ -271,3 +271,81 @@ describe('env.aptabaseAppKey', () => {
     expect(env.aptabaseAppKey).toBe('A-EU-5721393654');
   });
 });
+
+describe('remaining environment settings', () => {
+  const adMobKeys = [
+    'EXPO_PUBLIC_ADMOB_BANNER_ID_IOS',
+    'EXPO_PUBLIC_ADMOB_INTERSTITIAL_ID_IOS',
+    'EXPO_PUBLIC_ADMOB_BANNER_ID_ANDROID',
+    'EXPO_PUBLIC_ADMOB_INTERSTITIAL_ID_ANDROID',
+  ] as const;
+  const keys = [
+    'EXPO_PUBLIC_SUPABASE_URL',
+    'EXPO_PUBLIC_SUPABASE_KEY',
+    'EXPO_PUBLIC_DEBUG_LOGS',
+    'EXPO_PUBLIC_FORCE_PREMIUM',
+    'EXPO_PUBLIC_REVENUECAT_IOS_API_KEY',
+    'EXPO_PUBLIC_REVENUECAT_ANDROID_API_KEY',
+    'EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY',
+    ...adMobKeys,
+    'EXPO_PUBLIC_ADS_ENABLED',
+  ] as const;
+  const originalValues = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+
+  afterEach(() => {
+    for (const key of keys) {
+      const value = originalValues[key];
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  });
+
+  it('reads and validates Supabase values through the public getters', () => {
+    process.env.EXPO_PUBLIC_SUPABASE_URL = ' https://example.supabase.co ';
+    process.env.EXPO_PUBLIC_SUPABASE_KEY = ' sb_publishable_test ';
+
+    expect(env.supabaseUrl).toBe('https://example.supabase.co');
+    expect(env.supabaseKey).toBe('sb_publishable_test');
+
+    delete process.env.EXPO_PUBLIC_SUPABASE_URL;
+    expect(() => env.supabaseUrl).toThrow(MissingEnvError);
+  });
+
+  it('reads the debug and premium flags independently', () => {
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = '1';
+    process.env.EXPO_PUBLIC_FORCE_PREMIUM = 'true';
+    expect(env.debugLogsEnabled).toBe(true);
+    expect(env.forcePremium).toBe(true);
+
+    process.env.EXPO_PUBLIC_DEBUG_LOGS = 'false';
+    process.env.EXPO_PUBLIC_FORCE_PREMIUM = '0';
+    expect(env.debugLogsEnabled).toBe(false);
+    expect(env.forcePremium).toBe(false);
+  });
+
+  it('trims RevenueCat keys and omits blank values', () => {
+    process.env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY = ' ios_key ';
+    process.env.EXPO_PUBLIC_REVENUECAT_ANDROID_API_KEY = ' android_key ';
+    process.env.EXPO_PUBLIC_REVENUECAT_TEST_STORE_API_KEY = '  ';
+
+    expect(env.revenueCatApiKeyIos).toBe('ios_key');
+    expect(env.revenueCatApiKeyAndroid).toBe('android_key');
+    expect(env.revenueCatTestStoreApiKey).toBeUndefined();
+  });
+
+  it('uses default AdMob IDs unless a platform value is configured', () => {
+    for (const key of adMobKeys) delete process.env[key];
+    expect(env.adMobBannerIdIos).toMatch(/^ca-app-pub-/);
+    expect(env.adMobInterstitialIdIos).toMatch(/^ca-app-pub-/);
+    expect(env.adMobBannerIdAndroid).toMatch(/^ca-app-pub-/);
+    expect(env.adMobInterstitialIdAndroid).toMatch(/^ca-app-pub-/);
+
+    process.env.EXPO_PUBLIC_ADMOB_BANNER_ID_IOS = ' custom-ios-banner ';
+    expect(env.adMobBannerIdIos).toBe('custom-ios-banner');
+  });
+
+  it('keeps ads enabled when the explicit setting is blank', () => {
+    process.env.EXPO_PUBLIC_ADS_ENABLED = '';
+    expect(env.adsEnabled).toBe(true);
+  });
+});

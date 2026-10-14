@@ -123,4 +123,50 @@ describe('enqueueMutations', () => {
     expect(await db.getAllAsync('select id from storage_locations')).toEqual([]);
     expect(await db.getAllAsync('select * from outbox')).toEqual([]);
   });
+
+  it('serializes concurrent mutations on the same database', async () => {
+    let releaseFirstMutation!: () => void;
+    let firstMutationStarted!: () => void;
+    const firstStarted = new Promise<void>((resolve) => {
+      firstMutationStarted = resolve;
+    });
+    const firstCanFinish = new Promise<void>((resolve) => {
+      releaseFirstMutation = resolve;
+    });
+
+    const first = enqueueMutations(db, [
+      {
+        entity: 'storage_locations',
+        entityId: 'a',
+        op: 'insert',
+        payload: { id: 'a' },
+        now: 10,
+        applyLocally: async (txn) => {
+          await insertStorageLocation(txn as TestDatabase, 'a');
+          firstMutationStarted();
+          await firstCanFinish;
+        },
+      },
+    ]);
+    await firstStarted;
+
+    const second = enqueueMutations(db, [
+      {
+        entity: 'storage_locations',
+        entityId: 'b',
+        op: 'insert',
+        payload: { id: 'b' },
+        now: 11,
+        applyLocally: (txn) => insertStorageLocation(txn as TestDatabase, 'b'),
+      },
+    ]);
+
+    releaseFirstMutation();
+    await Promise.all([first, second]);
+
+    expect(await db.getAllAsync('select entity_id from outbox order by id')).toEqual([
+      { entity_id: 'a' },
+      { entity_id: 'b' },
+    ]);
+  });
 });

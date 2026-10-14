@@ -1,15 +1,20 @@
 import { onlineManager, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { renderHook, waitFor } from '@testing-library/react-native';
+import { act, renderHook, waitFor } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
 
 import {
   INITIAL_MODULE_PREFERENCES,
   type ModulePreferences,
   modulePreferencesQueryKey,
+  saveModulePreferences,
   useModulePreferences,
+  useUpdateModulePreferencesMutation,
 } from '@/features/settings/module-preferences';
 
 const mockMaybeSingle = jest.fn();
+const mockUpdate = jest.fn();
+const mockUpdateEq = jest.fn();
+let mockUpdateError: { message: string } | null = null;
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: jest.fn(() => ({
@@ -17,6 +22,15 @@ jest.mock('@/lib/backend/supabase/remote-client', () => ({
       select: () => ({
         eq: () => ({ maybeSingle: mockMaybeSingle }),
       }),
+      update: (values: unknown) => {
+        mockUpdate(values);
+        return {
+          eq: (column: string, userId: string) => {
+            mockUpdateEq(column, userId);
+            return { error: mockUpdateError };
+          },
+        };
+      },
     }),
   })),
 }));
@@ -31,6 +45,7 @@ function createTestQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: { gcTime: Infinity, retry: false },
+      mutations: { gcTime: Infinity, retry: false },
     },
   });
 }
@@ -46,6 +61,7 @@ const remotePreferences = {
 describe('useModulePreferences', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockUpdateError = null;
     onlineManager.setOnline(true);
     mockMaybeSingle.mockResolvedValue({ data: remotePreferences, error: null });
   });
@@ -66,7 +82,7 @@ describe('useModulePreferences', () => {
     expect(result.current.isPlaceholderData).toBe(true);
     expect(mockMaybeSingle).not.toHaveBeenCalled();
     expect(queryClient.getQueryData(modulePreferencesQueryKey('user-1'))).toBeUndefined();
-    unmount();
+    await unmount();
     await queryClient.cancelQueries();
     queryClient.clear();
   });
@@ -88,7 +104,7 @@ describe('useModulePreferences', () => {
 
     expect(result.current.data).toEqual(snapshot);
     expect(result.current.isPlaceholderData).toBe(false);
-    unmount();
+    await unmount();
     await queryClient.cancelQueries();
     queryClient.clear();
   });
@@ -111,7 +127,7 @@ describe('useModulePreferences', () => {
 
     await waitFor(() => expect(result.current.isError).toBe(true));
     expect(result.current.data).toEqual(snapshot);
-    unmount();
+    await unmount();
     await queryClient.cancelQueries();
     queryClient.clear();
   });
@@ -147,7 +163,7 @@ describe('useModulePreferences', () => {
       recipes: false,
       mealPlanner: false,
     });
-    unmount();
+    await unmount();
     await queryClient.cancelQueries();
     queryClient.clear();
   });
@@ -161,7 +177,7 @@ describe('useModulePreferences', () => {
 
     expect(result.current.data).toEqual(INITIAL_MODULE_PREFERENCES);
     expect(mockMaybeSingle).not.toHaveBeenCalled();
-    unmount();
+    await unmount();
     queryClient.clear();
   });
 
@@ -179,8 +195,157 @@ describe('useModulePreferences', () => {
 
     expect(result.current.data).toEqual(INITIAL_MODULE_PREFERENCES);
     expect(queryClient.getQueryData(modulePreferencesQueryKey('user-2'))).toBeUndefined();
-    unmount();
+    await unmount();
     await queryClient.cancelQueries();
     queryClient.clear();
+  });
+
+  it('verwendet Startwerte fuer ein fehlendes Profil und null gespeicherte Werte', async () => {
+    const queryClient = createTestQueryClient();
+    mockMaybeSingle.mockResolvedValueOnce({ data: null, error: null });
+
+    const missingProfile = await renderHook(() => useModulePreferences('user-1'), {
+      wrapper: createWrapper(queryClient),
+    });
+
+    await waitFor(() => expect(mockMaybeSingle).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(missingProfile.result.current.isFetching).toBe(false));
+    expect(missingProfile.result.current.data).toEqual(INITIAL_MODULE_PREFERENCES);
+    await missingProfile.unmount();
+
+    mockMaybeSingle.mockResolvedValueOnce({
+      data: {
+        module_fridge: null,
+        module_shopping_list: null,
+        module_calories: null,
+        module_recipes: null,
+        module_meal_planner: null,
+      },
+      error: null,
+    });
+    const nullValues = await renderHook(() => useModulePreferences('user-2'), {
+      wrapper: createWrapper(queryClient),
+    });
+
+    await waitFor(() => expect(mockMaybeSingle).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(nullValues.result.current.isFetching).toBe(false));
+    expect(nullValues.result.current.data).toEqual({
+      fridge: true,
+      shoppingList: true,
+      calories: true,
+      recipes: true,
+      mealPlanner: true,
+    });
+    await nullValues.unmount();
+    await queryClient.cancelQueries();
+    queryClient.clear();
+  });
+});
+
+describe('useUpdateModulePreferencesMutation', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockUpdateError = null;
+  });
+
+  it('optimistically saves each supplied module and invalidates that account', async () => {
+    const queryClient = createTestQueryClient();
+    const queryKey = modulePreferencesQueryKey('user-1');
+    const previous: ModulePreferences = {
+      fridge: true,
+      shoppingList: false,
+      calories: false,
+      recipes: true,
+      mealPlanner: true,
+    };
+    const updated: ModulePreferences = {
+      fridge: false,
+      shoppingList: true,
+      calories: true,
+      recipes: false,
+      mealPlanner: false,
+    };
+    queryClient.setQueryData(queryKey, previous);
+    const invalidateQueries = jest.spyOn(queryClient, 'invalidateQueries');
+    const { result, unmount } = await renderHook(() => useUpdateModulePreferencesMutation(), {
+      wrapper: createWrapper(queryClient),
+    });
+
+    await act(async () => {
+      await result.current.mutateAsync({ userId: 'user-1', modules: updated });
+    });
+
+    expect(queryClient.getQueryData(queryKey)).toEqual(updated);
+    expect(mockUpdate).toHaveBeenCalledWith({
+      module_fridge: false,
+      module_shopping_list: true,
+      module_calories: true,
+      module_recipes: false,
+      module_meal_planner: false,
+    });
+    expect(mockUpdateEq).toHaveBeenCalledWith('id', 'user-1');
+    expect(invalidateQueries).toHaveBeenCalledWith({ queryKey });
+    await unmount();
+    queryClient.clear();
+  });
+
+  it('uses initial values without a prior snapshot and rolls back a failed write', async () => {
+    const queryClient = createTestQueryClient();
+    const queryKey = modulePreferencesQueryKey('user-2');
+    const { result, unmount } = await renderHook(() => useUpdateModulePreferencesMutation(), {
+      wrapper: createWrapper(queryClient),
+    });
+
+    await act(async () => {
+      await result.current.mutateAsync({ userId: 'user-2', modules: {} });
+    });
+    expect(queryClient.getQueryData(queryKey)).toEqual(INITIAL_MODULE_PREFERENCES);
+    expect(mockUpdate).toHaveBeenCalledWith({});
+
+    const previous = { ...INITIAL_MODULE_PREFERENCES, recipes: true };
+    queryClient.setQueryData(queryKey, previous);
+    mockUpdateError = { message: 'write failed' };
+
+    await act(async () => {
+      await expect(
+        result.current.mutateAsync({ userId: 'user-2', modules: { recipes: false } }),
+      ).rejects.toThrow('write failed');
+    });
+
+    expect(queryClient.getQueryData(queryKey)).toEqual(previous);
+    await unmount();
+    queryClient.clear();
+  });
+});
+
+describe('saveModulePreferences', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockUpdateError = null;
+  });
+
+  it('writes the complete preference set and returns the Supabase error', async () => {
+    const modules: ModulePreferences = {
+      fridge: true,
+      shoppingList: false,
+      calories: true,
+      recipes: false,
+      mealPlanner: true,
+    };
+
+    await expect(saveModulePreferences('user-3', modules)).resolves.toEqual({ error: null });
+    expect(mockUpdate).toHaveBeenCalledWith({
+      module_fridge: true,
+      module_shopping_list: false,
+      module_calories: true,
+      module_recipes: false,
+      module_meal_planner: true,
+    });
+    expect(mockUpdateEq).toHaveBeenCalledWith('id', 'user-3');
+
+    mockUpdateError = { message: 'save rejected' };
+    await expect(saveModulePreferences('user-3', modules)).resolves.toEqual({
+      error: mockUpdateError,
+    });
   });
 });

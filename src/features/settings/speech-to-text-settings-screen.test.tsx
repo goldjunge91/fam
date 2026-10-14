@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { i18n } from '@/i18n';
@@ -44,6 +45,12 @@ function renderScreen() {
 }
 
 describe('SpeechToTextSettingsScreen', () => {
+  const originalPlatform = Platform.OS;
+
+  afterEach(() => {
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: originalPlatform });
+  });
+
   beforeEach(async () => {
     await i18n.changeLanguage('de');
     mockGetAutoAssign.mockReset();
@@ -72,5 +79,15 @@ describe('SpeechToTextSettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Sprachkorrekturen' }));
 
     expect(router.push).toHaveBeenCalledWith('/settings/speech-corrections');
+  });
+
+  it('zeigt die iOS-Spracherkennungsberechtigung nicht auf Android', async () => {
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: 'android' });
+    await renderScreen();
+
+    expect(screen.getByText('Intelligente Zuordnung')).toBeOnTheScreen();
+    expect(
+      screen.queryByRole('button', { name: /Sprachdaten zur Transkription/ }),
+    ).not.toBeOnTheScreen();
   });
 });

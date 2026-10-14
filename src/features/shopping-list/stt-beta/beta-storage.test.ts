@@ -2,6 +2,7 @@ import type { MMKV } from 'react-native-mmkv';
 import {
   BETA_STORAGE_KEY,
   clearNaturalLanguageAdditionBetaState,
+  createEmptyNaturalLanguageAdditionBetaState,
   getNaturalLanguageAdditionBetaState,
   saveNaturalLanguageAdditionBetaState,
 } from './beta-storage';
@@ -127,6 +128,80 @@ describe('natural-language addition beta storage', () => {
       autoAssign: 'unset',
     });
     expect(removeCalls).toEqual([]);
+  });
+
+  it('migrates granted and revoked legacy consent while preferring an explicit value', async () => {
+    for (const [userId, automaticApplication, expected] of [
+      ['user-granted', 'granted', 'on'],
+      ['user-revoked', 'revoked', 'off'],
+      ['user-explicit', 'granted', 'unset'],
+    ] as const) {
+      const state = {
+        ...storedState,
+        autoAssign: userId === 'user-explicit' ? 'unset' : undefined,
+        consent: { automaticApplication },
+      };
+      createStorage(userId).set(BETA_STORAGE_KEY, JSON.stringify(state));
+
+      await expect(getNaturalLanguageAdditionBetaState(userId)).resolves.toMatchObject({
+        autoAssign: expected,
+      });
+    }
+  });
+
+  it('discards snapshots with invalid versions or nested records', async () => {
+    const validRule = storedState.learningRules[0];
+    const invalidSnapshots: unknown[] = [
+      null,
+      { ...storedState, version: 2 },
+      { ...storedState, session: { ...storedState.session, source: 'camera' } },
+      { ...storedState, learningRules: [{ ...validRule, confirmationCount: 'two' }] },
+      {
+        ...storedState,
+        confirmations: [
+          {
+            id: 'event-1',
+            sessionId: 'session-1',
+            itemName: 'Hafermilch',
+            brand: null,
+            targetListId: null,
+            result: 'ignored',
+            createdAt: '2026-09-16T10:00:00.000Z',
+          },
+        ],
+      },
+      { ...storedState, autoAssign: 'always' },
+      { ...storedState, consent: 'invalid' },
+      { ...storedState, autoAssign: undefined, consent: { automaticApplication: 'maybe' } },
+    ];
+
+    for (const [index, snapshot] of invalidSnapshots.entries()) {
+      const userId = `user-corrupt-${index}`;
+      createStorage(userId).set(BETA_STORAGE_KEY, JSON.stringify(snapshot));
+
+      await expect(getNaturalLanguageAdditionBetaState(userId)).resolves.toEqual(
+        createEmptyNaturalLanguageAdditionBetaState(),
+      );
+    }
+  });
+
+  it('keeps a normalized legacy state usable when persistence fails', async () => {
+    const legacyState = {
+      ...storedState,
+      autoAssign: undefined,
+      consent: { automaticApplication: 'granted' },
+    };
+    mockGetEncryptedAccountStorage.mockResolvedValueOnce({
+      getString: () => JSON.stringify(legacyState),
+      set: () => {
+        throw new Error('storage unavailable');
+      },
+      remove: jest.fn(),
+    });
+
+    await expect(getNaturalLanguageAdditionBetaState('user-write-failure')).resolves.toMatchObject({
+      autoAssign: 'on',
+    });
   });
 
   it('clears only the selected account state', async () => {

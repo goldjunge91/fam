@@ -26,6 +26,8 @@ const mockResetCategoryPreferenceMutateAsync = jest.fn().mockResolvedValue({
   source: null,
   classifierVersion: '1',
 });
+let mockUserId: string | null = 'user-1';
+let mockFeedbackEnabled = false;
 let mockStores: Array<{
   id: string;
   household_id: string;
@@ -44,6 +46,12 @@ let mockProduct: {
 jest.mock('@/features/inventory/use-product', () => ({
   useProduct: () => ({ data: mockProduct, isLoading: false }),
 }));
+
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: mockUserId ? { user: { id: mockUserId } } : null }),
+}));
+
+jest.mock('expo-crypto', () => ({ randomUUID: () => 'feedback-event-1' }));
 
 jest.mock('@/components/forms/wheel-picker-field', () => {
   const { Pressable, Text, View } =
@@ -119,7 +127,7 @@ jest.mock('../preferences/api', () => ({
 }));
 
 jest.mock('@/lib/observability/providers/posthog', () => ({
-  useFeatureFlag: () => false,
+  useFeatureFlag: () => mockFeedbackEnabled,
 }));
 
 describe('EditItemForm', () => {
@@ -171,6 +179,8 @@ describe('EditItemForm', () => {
     await i18n.changeLanguage('de');
     mockStores = [];
     mockProduct = null;
+    mockUserId = 'user-1';
+    mockFeedbackEnabled = false;
     mockUpdateMutateAsync.mockResolvedValue({});
     mockResolvePlacementForItem.mockResolvedValue({
       ...defaultGlobalClassification,
@@ -277,6 +287,7 @@ describe('EditItemForm', () => {
   });
 
   it('speichert eine Präferenz nur bei einer echten manuellen Kategorieänderung', async () => {
+    mockFeedbackEnabled = true;
     const user = userEvent.setup();
     await renderForm();
 
@@ -299,6 +310,17 @@ describe('EditItemForm', () => {
           }),
         }),
       ),
+    );
+    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        feedback: expect.objectContaining({
+          actorUserId: 'user-1',
+          eventId: 'feedback-event-1',
+          eventType: 'manual_reassign',
+          preferenceScope: 'household',
+          storeId: null,
+        }),
+      }),
     );
   });
 
@@ -352,6 +374,7 @@ describe('EditItemForm', () => {
   });
 
   it('"Automatisch" ruft Reset erst beim Speichern auf', async () => {
+    mockFeedbackEnabled = true;
     const user = userEvent.setup();
     await renderForm({
       ...mockItem,
@@ -381,6 +404,17 @@ describe('EditItemForm', () => {
           }),
         }),
       ),
+    );
+    expect(mockUpdateMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        feedback: expect.objectContaining({
+          actorUserId: 'user-1',
+          eventId: 'feedback-event-1',
+          eventType: 'reset_to_automatic',
+          preferenceScope: 'household',
+          storeId: null,
+        }),
+      }),
     );
   });
 

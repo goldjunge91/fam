@@ -8,6 +8,7 @@ import {
   getRememberedLocalAccountUserId,
   rememberLocalAccountUserId,
 } from './local-account-storage';
+import * as browserAccountStorage from './local-account-storage.web';
 
 const mockDigestString = jest.fn();
 const mockRandomBytes = jest.fn();
@@ -39,6 +40,18 @@ function createStorage(id: string) {
   return {
     id,
     clearAll: jest.fn(),
+    dispose: jest.fn(),
+  };
+}
+
+function createBrowserStorage(id: string) {
+  const values = new Map<string, string>();
+  return {
+    id,
+    set: jest.fn((key: string, value: string) => values.set(key, value)),
+    getString: jest.fn((key: string) => values.get(key)),
+    remove: jest.fn((key: string) => values.delete(key)),
+    clearAll: jest.fn(() => values.clear()),
     dispose: jest.fn(),
   };
 }
@@ -233,5 +246,80 @@ describe('encrypted account storage', () => {
 
     await forgetLocalAccountUserId('user-f');
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('fam.local-account-user.v1');
+  });
+});
+
+describe('browser account storage', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('keeps a separate browser store for each normalized user id', async () => {
+    const firstStorage = createBrowserStorage('account-a');
+    const secondStorage = createBrowserStorage('account-b');
+    jest
+      .mocked(createMMKV)
+      .mockReturnValueOnce(firstStorage as never)
+      .mockReturnValueOnce(secondStorage as never);
+
+    const first = await browserAccountStorage.getEncryptedAccountStorage(' user/a ');
+    const firstAgain = await browserAccountStorage.getEncryptedAccountStorage('user/a');
+    const second = await browserAccountStorage.getEncryptedAccountStorage('user-b');
+
+    expect(first).toBe(firstStorage);
+    expect(firstAgain).toBe(firstStorage);
+    expect(second).toBe(secondStorage);
+    expect(createMMKV).toHaveBeenNthCalledWith(1, {
+      id: 'fam-account-web-v1-user%2Fa',
+      mode: 'single-process',
+    });
+    expect(createMMKV).toHaveBeenNthCalledWith(2, {
+      id: 'fam-account-web-v1-user-b',
+      mode: 'single-process',
+    });
+  });
+
+  it('locks a deleted account until activation and removes its browser storage', async () => {
+    const storage = createBrowserStorage('account-delete');
+    jest.mocked(createMMKV).mockReturnValue(storage as never);
+
+    await browserAccountStorage.getEncryptedAccountStorage('user-delete');
+    await browserAccountStorage.deleteEncryptedAccountStorage('user-delete');
+
+    expect(storage.clearAll).toHaveBeenCalledTimes(1);
+    expect(storage.dispose).toHaveBeenCalledTimes(1);
+    expect(deleteMMKV).toHaveBeenCalledWith('fam-account-web-v1-user-delete');
+    await expect(browserAccountStorage.getEncryptedAccountStorage('user-delete')).rejects.toThrow(
+      /gesperrt/,
+    );
+
+    browserAccountStorage.activateEncryptedAccountStorage('user-delete');
+    const restoredStorage = createBrowserStorage('account-restored');
+    jest.mocked(createMMKV).mockReturnValueOnce(restoredStorage as never);
+    await expect(browserAccountStorage.getEncryptedAccountStorage('user-delete')).resolves.toBe(
+      restoredStorage,
+    );
+  });
+
+  it('remembers and forgets only the matching browser account marker', async () => {
+    const metadata = createBrowserStorage('account-metadata');
+    jest.mocked(createMMKV).mockReturnValue(metadata as never);
+
+    await browserAccountStorage.rememberLocalAccountUserId('user-web');
+
+    expect(metadata.set).toHaveBeenCalledWith('fam.local-account-user.v1', 'user-web');
+    await expect(browserAccountStorage.getRememberedLocalAccountUserId()).resolves.toBe('user-web');
+    await browserAccountStorage.forgetLocalAccountUserId('another-user');
+    expect(metadata.remove).not.toHaveBeenCalled();
+
+    await browserAccountStorage.forgetLocalAccountUserId('user-web');
+    expect(metadata.remove).toHaveBeenCalledWith('fam.local-account-user.v1');
+  });
+
+  it('rejects blank user ids before creating a store', async () => {
+    await expect(browserAccountStorage.getEncryptedAccountStorage('  ')).rejects.toThrow(
+      /userId erforderlich/,
+    );
+    expect(createMMKV).not.toHaveBeenCalled();
   });
 });

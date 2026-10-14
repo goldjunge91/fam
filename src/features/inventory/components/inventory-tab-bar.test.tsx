@@ -4,6 +4,10 @@ import type { StorageLocation } from '@/features/inventory/use-storage-locations
 import { InventoryTabBar } from './inventory-tab-bar';
 import { InventoryTabBar as InventoryTabBarIOS } from './inventory-tab-bar.ios';
 
+const { InventoryTabBar: FallbackInventoryTabBar } = jest.requireActual(
+  './inventory-tab-bar.tsx',
+) as typeof import('./inventory-tab-bar');
+
 const mockLocations: StorageLocation[] = [
   { id: 'loc-1', name: 'Kühlschrank', kind: 'fridge', household_id: 'hh-1', sort_order: 0 },
   { id: 'loc-2', name: 'Tiefkühltruhe', kind: 'freezer', household_id: 'hh-1', sort_order: 1 },
@@ -117,5 +121,38 @@ describe('InventoryTabBar Component', () => {
     expect(screen.getByRole('menuitem', { name: 'Kühlschrank', selected: true })).toHaveStyle({
       backgroundColor: colorsLight.accent,
     });
+  });
+
+  it('covers fallback selection, unknown tabs, and menu toggling', async () => {
+    const user = userEvent.setup();
+    const onTabChange = jest.fn();
+    const rendered = await render(
+      <FallbackInventoryTabBar
+        activeTab="all"
+        onTabChange={onTabChange}
+        locations={mockLocations}
+      />,
+    );
+
+    await user.press(screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Alle' }));
+    await user.press(screen.getByRole('menuitem', { name: 'Alle', selected: true }));
+    expect(onTabChange).not.toHaveBeenCalled();
+
+    await rendered.rerender(
+      <FallbackInventoryTabBar
+        activeTab="missing"
+        onTabChange={onTabChange}
+        locations={mockLocations}
+      />,
+    );
+    await user.press(screen.getByRole('button', { name: 'Lagerort auswählen, aktuell keiner' }));
+    await user.press(screen.getByRole('menuitem', { name: 'Tiefkühltruhe' }));
+    expect(onTabChange).toHaveBeenCalledWith('loc-2');
+
+    await user.press(screen.getByRole('button', { name: 'Lagerort auswählen, aktuell keiner' }));
+    await user.press(screen.getByRole('button', { name: 'Lagerort auswählen, aktuell keiner' }));
+
+    expect(onTabChange).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole('menuitem', { name: 'Tiefkühltruhe' })).not.toBeOnTheScreen();
   });
 });

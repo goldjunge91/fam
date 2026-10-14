@@ -74,6 +74,36 @@ describe('native speech recognition adapter', () => {
     });
   });
 
+  it('normalizes omitted metadata and fails closed when permission calls reject', async () => {
+    speechModule.getSpeechRecognizerPermissionsAsync.mockResolvedValueOnce({ granted: true });
+    speechModule.requestSpeechRecognizerPermissionsAsync.mockResolvedValueOnce({ granted: false });
+
+    await expect(getSpeechRecognizerPermissions()).resolves.toEqual({
+      granted: true,
+      canAskAgain: true,
+    });
+    await expect(requestSpeechRecognizerPermissions()).resolves.toEqual({
+      granted: false,
+      canAskAgain: true,
+    });
+
+    speechModule.getSpeechRecognizerPermissionsAsync.mockRejectedValueOnce(
+      new Error('unavailable'),
+    );
+    speechModule.requestSpeechRecognizerPermissionsAsync.mockRejectedValueOnce(
+      new Error('unavailable'),
+    );
+
+    await expect(getSpeechRecognizerPermissions()).resolves.toEqual({
+      granted: false,
+      canAskAgain: false,
+    });
+    await expect(requestSpeechRecognizerPermissions()).resolves.toEqual({
+      granted: false,
+      canAskAgain: false,
+    });
+  });
+
   it('allows network recognition and requests both iOS permissions', async () => {
     const session = nativeSpeechRecognitionAdapter.start();
 

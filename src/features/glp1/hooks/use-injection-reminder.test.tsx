@@ -184,6 +184,33 @@ it('serialisiert eine laufende Planung vor einer nachfolgenden Deaktivierung', a
   );
 });
 
+it('setzt die Reminder-Abstimmung nach einem Fehler beim Terminieren fort', async () => {
+  mockPlan = {
+    id: 'plan-1',
+    user_id: 'user-1',
+    medication_name: 'Semaglutid',
+    dose: 0.5,
+    unit: 'mg',
+    cadence_days: 7,
+    anchor_at: '2099-09-01T08:00:00.000Z',
+    reminder_enabled: true,
+    created_at: '2026-08-01T08:00:00.000Z',
+    updated_at: '2026-08-01T08:00:00.000Z',
+  };
+  mockScheduleLocalReminder.mockRejectedValueOnce(new Error('Notifications unavailable'));
+
+  const { rerender } = await renderHook(() => useInjectionReminder('user-1'));
+  await waitFor(() => expect(mockScheduleLocalReminder).toHaveBeenCalledTimes(1));
+
+  mockPlan = { ...mockPlan, anchor_at: '2099-09-02T08:00:00.000Z' };
+  await rerender({});
+
+  await waitFor(() => expect(mockScheduleLocalReminder).toHaveBeenCalledTimes(2));
+  expect(mockScheduleLocalReminder).toHaveBeenLastCalledWith(
+    expect.objectContaining({ date: new Date('2099-09-02T08:00:00.000Z') }),
+  );
+});
+
 it('entfernt die accountgebundene Erinnerung beim Account-Wechsel', async () => {
   mockPlan = {
     id: 'plan-1',
