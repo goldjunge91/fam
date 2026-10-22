@@ -55,14 +55,16 @@ jobs:
             exit 1
           fi
 
-  full-scan-and-publish:
-    name: Vollständige Verifikation und Veröffentlichung
+  full-scan-and-verify:
+    name: Vollständige Prospektverifikation
     needs: validate-secrets
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
-      BROCHURE_R2_STORAGE_BUDGET_GB: "7"
+      BROCHURE_R2_STORAGE_BUDGET_GB: "7.25"
+    outputs:
+      manifest_sha256: ${{ steps.create-publication-handoff.outputs.manifest_sha256 }}
 
     steps:
       - name: Checkout repository
@@ -115,18 +117,20 @@ jobs:
           BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
         run: bun run tools/crawler/brochures/listing-only/fetch-detail-pages.ts
 
-      - name: Clear Bring credentials after API collection
-        run: |
-          printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
-
       - name: Group exact metadata
         run: bun run tools/crawler/brochures/listing-only/group-canonical.ts
 
       - name: Download and verify every ordered page vector
+        env:
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
         run: >-
           bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
           --all-brns
-          --budget-bytes=7000000000
+          --budget-bytes=7250000000
+
+      - name: Clear Bring credentials after page verification
+        run: |
+          printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
 
       - name: Persist verified canonical catalog
         run: bun run tools/crawler/brochures/listing-only/persist-canonical.ts
@@ -134,15 +138,21 @@ jobs:
       - name: Build coverage and consistency report
         run: bun run tools/crawler/brochures/listing-only/canonical-report.ts
 
-      - name: Publish verified pages to private R2 and catalog to Supabase
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
-          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
-        run: bun run tools/crawler/brochures/listing-only/publish-full-canonical.ts
+      - name: Create integrity-bound publication handoff
+        id: create-publication-handoff
+        run: >-
+          bun run tools/crawler/brochures/listing-only/publication-handoff.ts create
+          --source-dir=tools/crawler/data/listing-only
+          --bundle-dir="${RUNNER_TEMP}/brochure-publication-handoff"
+
+      - name: Upload verified publication handoff
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-publication-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-publication-handoff/
+          if-no-files-found: error
+          retention-days: 1
+          overwrite: true
 
       - name: Archive full-scan verification reports
         if: ${{ always() }}
@@ -158,3 +168,43 @@ jobs:
             tools/crawler/data/listing-only/canonical-report.json
           if-no-files-found: ignore
           retention-days: 30
+
+  publish-canonical:
+    name: Verifizierte Prospekte veröffentlichen
+    needs: full-scan-and-verify
+    if: >-
+      ${{ needs.full-scan-and-verify.result == 'success' &&
+          github.ref == 'refs/heads/main' &&
+          needs.full-scan-and-verify.outputs.manifest_sha256 != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      BROCHURE_R2_STORAGE_BUDGET_GB: "7.25"
+
+    steps:
+      - name: Checkout verified commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download verified publication handoff
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-publication-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-publication-handoff
+
+      - name: Publish verified pages to private R2 and catalog to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
+        run: >-
+          bun run tools/crawler/brochures/listing-only/publish-full-canonical.ts
+          --bundle-dir="${RUNNER_TEMP}/brochure-publication-handoff"
+          --manifest-sha256="${{ needs.full-scan-and-verify.outputs.manifest_sha256 }}"
