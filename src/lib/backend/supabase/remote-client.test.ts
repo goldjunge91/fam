@@ -68,7 +68,6 @@ describe('Supabase Native Lifecycle', () => {
     // Modul-Singleton zuruecksetzen, damit dieser Test createClient selbst
     // ausloest und nicht vom Laufzeit-Zustand des anderen Tests abhaengt.
     jest.resetModules();
-    // eslint-disable-next-line @typescript-eslint/no-require-imports -- jest.resetModules verlangt require statt dynamic import
     const { getSupabase: freshGetSupabase, serverClock: freshServerClock } =
       require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
     freshGetSupabase();
