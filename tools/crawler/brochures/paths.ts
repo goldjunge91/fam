@@ -21,6 +21,5 @@ export function crawlerGeoNamesCandidatePaths(
     join(cwd, ...LEGACY_DATA_DIRECTORY, 'geonames-DE.txt'),
     join(moduleDirectory, 'geonames-DE.txt'),
     join(moduleDirectory, '..', 'data', 'geonames-DE.txt'),
-    '/tmp/geonames-DE.txt',
   ];
 }
