@@ -6,7 +6,7 @@
  *   bun tools/product-search-lab/search.ts "1l coca ccola"
  *   bun tools/product-search-lab/search.ts "haferflocken kernig" --market rewe
  *   bun tools/product-search-lab/search.ts "cola" --compare --limit 20
- *   bun tools/product-search-lab/search.ts "cola" --json > /tmp/cola.json
+ *   bun tools/product-search-lab/search.ts "cola" --json > /Volumes/Programme/github/family_app/fam/build/test-tmp/product-search/cola.json
  */
 
 import { Database } from 'bun:sqlite';

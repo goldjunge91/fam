@@ -94,8 +94,8 @@ test('parses CLI options for a CSV to WAV and MP3 run', () => {
 
 test('builds safe macOS conversion commands', () => {
   const options: AudioGeneratorOptions = {
-    inputPath: '/tmp/lists.json',
-    outputDir: '/tmp/audio',
+    inputPath: '/Volumes/Programme/github/family_app/fam/build/test-tmp/speech-to-text/lists.json',
+    outputDir: '/Volumes/Programme/github/family_app/fam/build/test-tmp/speech-to-text/audio',
     formats: ['wav', 'mp3'],
     voice: 'Anna',
     rate: 175,

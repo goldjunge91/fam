@@ -39,8 +39,8 @@ id;text;market
 Nur WAV für BlackHole beziehungsweise die Simulator-Eingabe:
 
 ```bash
-bun run tools/speech-to-text/index.ts /private/tmp/eigenmarken.json \
-  --output-dir /private/tmp/eigenmarken-audio \
+bun run tools/speech-to-text/index.ts /Volumes/Programme/github/family_app/fam/build/test-tmp/speech-to-text/eigenmarken.json \
+  --output-dir /Volumes/Programme/github/family_app/fam/build/test-tmp/speech-to-text/audio \
   --voice Anna \
   --rate 175 \
   --formats wav \

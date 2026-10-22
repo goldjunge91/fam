@@ -10,7 +10,7 @@ bun tools/product-search-lab/server.ts
 bun tools/product-search-lab/search.ts "1l coca ccola"
 bun tools/product-search-lab/search.ts "haferflocken kernig" --market rewe
 bun tools/product-search-lab/search.ts "cola" --compare --limit 20
-bun tools/product-search-lab/search.ts "cola" --json > /tmp/cola-search.json
+bun tools/product-search-lab/search.ts "cola" --json > /Volumes/Programme/github/family_app/fam/build/test-tmp/product-search/cola-search.json
 ```
 
 Standard-Dump: `scripts/dump_data/products_de.db`.
