@@ -39,10 +39,19 @@ echo "--> Pre-Push: Whitespace und Konfliktmarker..."
 # stdin zuerst lesen, danach die Pruefungen: sonst blockiert der read unten
 # auf einer Pipe, die nie zu Ende kommt.
 pushed_ranges=()
+saw_ref_update=0
 while read -r _local_ref local_sha _remote_ref remote_sha; do
+  saw_ref_update=1
   [ -n "${local_sha:-}" ] || continue
+
+  # Geloeschte Branches besitzen keinen lokalen Commitumfang. Git uebergibt
+  # dafuer den Null-OID als local_sha; ein Diff dorthin ist ungueltig.
+  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+
   # Neuer Branch: remote_sha ist alles Nullen, es gibt also nichts zu
-  # vergleichen. In dem Fall der erste Push-Umfang als Bereich merken.
+  # vergleichen. In dem Fall den ersten Push-Umfang als Bereich merken.
   if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
     pushed_ranges+=("$local_sha")
   else
@@ -51,13 +60,19 @@ while read -r _local_ref local_sha _remote_ref remote_sha; do
 done
 
 # Ohne stdin-Inhalt (etwa bei manueller Ausfuehrung) faellt der Check auf
-# den Arbeitsbaum zurueck, statt still nichts zu tun.
+# den Arbeitsbaum zurueck. Reine Ref-Loeschungen enthalten dagegen keinen
+# Commitumfang, der auf Whitespace oder Schema-Aenderungen zu pruefen waere.
 if [ ${#pushed_ranges[@]} -eq 0 ]; then
-  echo "Hinweis: keine Ref-Updates auf stdin, pruefe den Arbeitsbaum."
-  pushed_ranges=("HEAD")
+  if [ "$saw_ref_update" -eq 0 ]; then
+    echo "Hinweis: keine Ref-Updates auf stdin, pruefe den Arbeitsbaum."
+    pushed_ranges=("HEAD")
+  else
+    echo "Hinweis: nur Ref-Loeschungen, kein Commitumfang zu pruefen."
+  fi
 fi
 
 whitespace_failed=0
+schema_changed=0
 
 check_markdown_whitespace() {
   local range="$1"
@@ -93,15 +108,20 @@ check_markdown_whitespace() {
   fi
 }
 
-for range in "${pushed_ranges[@]}"; do
-  echo "  Bereich: $range"
-  if ! git diff --check "$range" -- . ':(exclude,glob)**/*.md'; then
-    whitespace_failed=1
-  fi
-  if ! check_markdown_whitespace "$range"; then
-    whitespace_failed=1
-  fi
-done
+if [ ${#pushed_ranges[@]} -gt 0 ]; then
+  for range in "${pushed_ranges[@]}"; do
+    echo "  Bereich: $range"
+    if ! git diff --check "$range" -- . ':(exclude,glob)**/*.md'; then
+      whitespace_failed=1
+    fi
+    if ! check_markdown_whitespace "$range"; then
+      whitespace_failed=1
+    fi
+    if git diff --name-only "$range" | grep -qE '^supabase/schemas/'; then
+      schema_changed=1
+    fi
+  done
+fi
 
 if [ "$whitespace_failed" -ne 0 ]; then
   echo ""
@@ -111,10 +131,10 @@ if [ "$whitespace_failed" -ne 0 ]; then
 fi
 echo "Keine Whitespace- oder Konfliktfehler."
 
-# Das generierte Artefakt nur pruefen, wenn sein Erzeuger im Push liegt. Ein
-# reiner UI-Commit soll nicht an einer bereits vorhandenen, aber noch nicht
-# nachgezogenen Datei scheitern.
-if git diff --name-only "$range" | grep -qE '^supabase/schemas/'; then
+# Das generierte Artefakt nur pruefen, wenn sein Erzeuger in mindestens einem
+# echten Commitbereich des Pushes liegt. Reine Ref-Loeschungen besitzen keinen
+# solchen Bereich.
+if [ "$schema_changed" -ne 0 ]; then
   echo ""
   echo "--> Pre-Push: Supabase-Schema im Push -- generierte Typen werden verifiziert..."
   if ! command -v supabase >/dev/null 2>&1; then
