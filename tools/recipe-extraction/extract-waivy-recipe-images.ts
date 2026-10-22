@@ -290,7 +290,15 @@ function argumentValue(args: readonly string[], name: string, fallback: string):
 
 if (import.meta.main) {
   const args = process.argv.slice(2);
-  const root = resolve(argumentValue(args, '--waivy-root', '/private/tmp/waivy-source'));
+  const defaultWaivyRoot = resolve(
+    import.meta.dir,
+    '..',
+    '..',
+    'build',
+    'test-tmp',
+    'waivy-source',
+  );
+  const root = resolve(argumentValue(args, '--waivy-root', defaultWaivyRoot));
   const output = resolve(
     argumentValue(args, '--output', 'docs/recipe-extraction/waivy-recipe-images.json'),
   );

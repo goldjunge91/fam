@@ -39,7 +39,14 @@ type TaskManifest = {
   instructions: string;
 };
 
-const defaultWorkDir = "/tmp/fam-recipe-translation";
+const defaultWorkDir = path.resolve(
+  import.meta.dir,
+  '..',
+  '..',
+  'build',
+  'test-tmp',
+  'recipe-translation',
+);
 const visibleTextKeys = new Set([
   "title",
   "instructions",

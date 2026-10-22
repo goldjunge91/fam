@@ -1,6 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import os from "node:os";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 type TestCatalog = {
@@ -19,6 +18,7 @@ type TestCatalog = {
 };
 
 const repositoryRoot = path.resolve(__dirname, "..", "..");
+const testTempRoot = path.join(repositoryRoot, "build", "test-tmp", "recipe-extraction");
 const workflowScript = path.join(__dirname, "recipe-translation-workflow.ts");
 
 const sourceCatalog: TestCatalog = {
@@ -83,9 +83,8 @@ describe("recipe translation workflow", () => {
   let temporaryDirectory: string;
 
   beforeEach(() => {
-    temporaryDirectory = mkdtempSync(
-      path.join(os.tmpdir(), "fam-recipe-translation-test-"),
-    );
+    mkdirSync(testTempRoot, { recursive: true });
+    temporaryDirectory = mkdtempSync(path.join(testTempRoot, "workflow-"));
   });
 
   afterEach(() => {
