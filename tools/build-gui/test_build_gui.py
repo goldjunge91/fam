@@ -22,6 +22,14 @@ from build_gui import (
 )
 
 
+TEST_TEMP_ROOT = PROJECT_ROOT / "build" / "test-tmp" / "build-gui"
+
+
+def temporary_directory():
+    TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+    return tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT)
+
+
 class BuildGuiCommandTest(unittest.TestCase):
     def test_local_simulator_build_prebuilds_without_cleaning_then_runs_expo(self) -> None:
         commands = commands_for(
@@ -69,7 +77,7 @@ class BuildGuiCommandTest(unittest.TestCase):
         self.assertIn("preview", command)
 
     def test_eas_upload_submits_the_ipa_from_the_latest_local_archive(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
+        with temporary_directory() as directory:
             root = Path(directory)
             build = root / "build-1"
             ipa = build / "export" / "fam.ipa"
@@ -87,7 +95,7 @@ class BuildGuiCommandTest(unittest.TestCase):
         self.assertIn("preview-testflight", command)
 
     def test_xcode_upload_opens_the_latest_archive_in_organizer(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
+        with temporary_directory() as directory:
             root = Path(directory)
             archive = root / "build-1" / "fam.xcarchive"
             archive.mkdir(parents=True)
@@ -115,7 +123,7 @@ class BuildGuiCommandTest(unittest.TestCase):
             commands_for("iOS TestFlight", "OTA-Update veröffentlichen")
 
     def test_preparing_a_testflight_build_keeps_prior_archives_and_cache(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
+        with temporary_directory() as directory:
             root = Path(directory)
             local_ios = root / "local" / "ios"
             cache = root / "cache" / "ios"

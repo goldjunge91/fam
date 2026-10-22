@@ -3,6 +3,11 @@ import json
 import os
 import sys
 import tempfile
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+TEMP_ROOT = PROJECT_ROOT / "build" / "test-tmp" / "category-debugger"
 
 
 def fail(message: str) -> None:
@@ -15,7 +20,8 @@ def fasttext_run(payload: dict) -> list[dict]:
         import fasttext
     except ImportError:
         fail("fasttext fehlt in der ML-Python-Umgebung.")
-    with tempfile.TemporaryDirectory(prefix="category-fasttext-") as temp_dir:
+    TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="category-fasttext-", dir=TEMP_ROOT) as temp_dir:
         train_path = os.path.join(temp_dir, "train.txt")
         with open(train_path, "w", encoding="utf-8") as handle:
             for row in payload["train"]:
