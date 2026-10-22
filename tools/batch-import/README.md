@@ -5,7 +5,7 @@ Lokales redaktionelles Tool fuer den globalen Katalog.
 Vom Projektverzeichnis aus starten:
 
 ```bash
-EXPO_NO_DOTENV=1 dotenv -o -e .env.development.local bun run tools:recipe-catalog
+bun --env-file=.env.development.local tools/batch-import/server.ts
 ```
 
 Danach `http://localhost:8787` im Browser oeffnen. Eine `catalog.json` der

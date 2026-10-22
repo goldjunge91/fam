@@ -99,7 +99,7 @@ Im Ordner `tools/brochure-viewer/` befindet sich der voll funktionsfähige Web-V
 
 ### Starten:
 ```bash
-bun --env-file=.env run tools:brochures
+bun --env-file=.env tools/brochure-viewer/server.ts
 # Öffnet http://localhost:3333 im Browser
 ```
 

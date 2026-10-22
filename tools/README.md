@@ -1,23 +1,50 @@
-# Fam Entwickler- & Pipeline-Tools
+# Experimente und Prototypen
 
-Dieser Ordner enthält alle eigenständigen Entwickler- und Daten-Tools des Projekts. Alle Tools hier sind **strikt vom Mobile-App-Code getrennt** und dienen ausschließlich der Offline-Datenbeschaffung, Inspektion und Pipelines.
+`tools/` enthält unfertige Experimente und lokale Prototypen. Diese Programme
+sind nicht Teil der App-Runtime, besitzen keine Stabilitätszusage und können
+andere Voraussetzungen als die Expo-App haben.
 
----
+## Grenze zum Produktcode
 
-## 🛠️ Verfügbare Tools
+- App- und Runtime-Code darf nie aus `tools/` importieren. Das gilt für
+  `src/`, `modules/`, `plugins/`, `targets/`, `supabase/functions/` und
+  `app.config.ts`.
+- Experimente dürfen App-Code importieren, wenn sie damit das echte Verhalten
+  untersuchen. Der Category Debugger und `tools/classify.ts` nutzen diese
+  Richtung bewusst.
+- `package.json` und `justfile` dürfen lokale Einstiegspunkte anbieten. Dadurch
+  wird das jeweilige Experiment nicht Teil der App-Runtime.
+- Sobald ein Tool eigenständig nutzbar und nicht mehr experimentell ist, wird
+  es in ein eigenes Repository ausgelagert. Es wird nicht in die App-Struktur
+  verschoben.
 
-### 1. [Prospekte- & Supermarkt-Crawler](file:///Users/marco/Github.tmp/family_app/fam/tools/crawler/brochures/README.md) (`tools/crawler/brochures/`)
-- **Aufgabe:** Automatisches Crawlen aller deutschen Wochenprospekte (Lidl, Aldi, Kaufland, Rewe, Netto, Edeka, Rossmann, dm etc.).
-- **Features:** Private Cloudflare-R2-Bilder, SHA-256-Bild-Cluster, ZIP-Verfügbarkeiten und atomarer Katalogtausch über fünf GitHub-Actions-Zonen.
-- **Befehl:** `bun run crawler:brochures`
+Diese einseitige Grenze wird durch
+`test/conventions/app-tools-boundary.test.ts` geprüft.
 
-### 2. Prospekte-Viewer (`tools/brochure-viewer/`)
-- **Aufgabe:** Lokaler Web-Server zum visuellen Durchblättern und Testen gecrawlter Prospekte und Hotspots im Browser.
-- **Befehl:** `bun run tools:brochures`
+## Aktuelle Experimente
 
-### 3. Category Debugger (`tools/category-debugger/`)
-- **Aufgabe:** Test- und Debugging-Umgebung für den Lebensmittel-Kategorisierungs-Algorithmus (OFF-Taxonomie).
-- **Befehl:** `bun run debugger:category`
+| Pfad | Zweck | Einstieg oder Prüfung | Verwendet App-Code |
+| --- | --- | --- | --- |
+| `tools/batch-import/` | Lokaler redaktioneller Import für den Rezeptkatalog | `bun --env-file=.env.development.local tools/batch-import/server.ts` | Nein |
+| `tools/brochure-viewer/` | Lokaler Browser-Viewer für Prospekte und Hotspots | `bun --env-file=.env tools/brochure-viewer/server.ts` | Nein |
+| `tools/build-gui/` | Lokale Oberfläche für Expo-, EAS- und native Build-Abläufe | `python3 tools/build-gui/build_gui.py` | Nein |
+| `tools/category-debugger/` | Vite-Evaluationsumgebung für den Einkaufslisten-Classifier | `just debugger-category` | Ja, Classifier aus `src/` |
+| `tools/classify.ts` | Ad-hoc-Trace für einzelne Classifier-Eingaben | `just classify "Haferdrink"` | Ja, Classifier aus `src/` |
+| `tools/crawler/` | Unfertige Prospekt- und dm-Datenpipeline | `bun run crawler:brochures` | Nein |
+| `tools/llm-test-platform/` | Isolierte Promptfoo- und ChainForge-Evaluation | `bun run --cwd tools/llm-test-platform eval` | Nein |
+| `tools/product-search-lab/` | Experimentelle Suche im lokalen Open-Food-Facts-Dump | `bun tools/product-search-lab/server.ts` | Nein |
+| `tools/receipt-ocr-tesseract/` | Lokaler Tesseract-Vergleich für Kassenbons | `bun run --cwd tools/receipt-ocr-tesseract web` | Nein |
+| `tools/recipe-extraction/` | Konvertierung und Übersetzungsprüfung externer Rezeptdaten | Tests und Einstiegspunkte liegen direkt im Ordner | Nein |
+| `tools/recipe-suggestion-prototype/` | Deterministischer Prototyp für Rezeptvorschlagsverträge | `node --test tools/recipe-suggestion-prototype/recipe-suggestion.test.mjs` | Nein |
+| `tools/speech-to-text/` | macOS-Audiogenerator für Speech-to-Text-Versuche | `bun run tools/speech-to-text/core.test.ts` | Nein |
 
-### 4. Product Search Lab (`tools/product-search-lab/`)
-- **Aufgabe:** Test-Tool zur Validierung von Barcode- und Volltextsuche im Offline-Produktkatalog.
+## Lokale Daten und Zugangsdaten
+
+Experimente dürfen ihre eigenen ignorierten Abhängigkeiten, Caches, Reports und
+Laufzeitdaten besitzen. Nicht reproduzierbare Daten werden nicht allein wegen
+ihres Alters gelöscht. `.env`-Dateien, Tokens und Zugangsdaten bleiben lokal
+und dürfen weder dokumentiert noch committed werden.
+
+Die jeweilige Unterordner-Dokumentation beschreibt Voraussetzungen und
+spezifische Befehle. Bei einem Widerspruch gelten der aktuelle Quellcode,
+`package.json`, `justfile` und die zugehörigen Tests.
