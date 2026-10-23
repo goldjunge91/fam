@@ -26,11 +26,14 @@ jobs:
       EXPO_PUBLIC_POSTHOG_HOST: ${{ vars.EXPO_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com' }}
       EXPO_PUBLIC_SENTRY_DSN: ${{ vars.EXPO_PUBLIC_SENTRY_DSN }}
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-      EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
       FAM_HARNESS_UI: "1"
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Configure EAS local build root
+        shell: bash
+        run: echo "EAS_LOCAL_BUILD_ROOT=$RUNNER_TEMP/eas-local" >> "$GITHUB_ENV"
 
       - name: Build and upload simulator app
         uses: ./.github/actions/ios-simulator-build
