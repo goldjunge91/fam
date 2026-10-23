@@ -284,7 +284,7 @@ export async function acquireBuildRunLock(
   }
 }
 
-function createRedactor(environment: NodeJS.ProcessEnv): (chunk: string, final?: boolean) => string {
+export function createRedactor(environment: NodeJS.ProcessEnv): (chunk: string, final?: boolean) => string {
   const secrets = Object.entries(environment)
     .filter(([name, value]) => /TOKEN|KEY|PASSWORD|SECRET|PRIVATE/i.test(name) && value)
     .map(([, value]) => value as string)

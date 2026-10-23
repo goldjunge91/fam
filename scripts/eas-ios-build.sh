@@ -9,7 +9,7 @@ fail() {
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$script_dir/local-build-env.sh"
 
-[[ $# -ge 1 ]] || fail 'Verwendung: scripts/eas-ios-build.sh local|cloud <Profil> [--output build/local/... ]'
+[[ $# -ge 1 ]] || fail 'Verwendung: scripts/eas-ios-build.sh local|cloud <Profil> [--output build/local/... ] [--non-interactive]'
 mode=$1
 case "$mode" in
 local | cloud) ;;
@@ -24,12 +24,17 @@ else
 fi
 
 output_path=
+non_interactive=false
 while [[ $# -gt 0 ]]; do
   case "$1" in
   --output)
     [[ $# -ge 2 && -z "$output_path" ]] || fail 'Verwendung: --output build/local/<Pfad>/<Datei>'
     output_path=$2
     shift 2
+    ;;
+  --non-interactive)
+    non_interactive=true
+    shift
     ;;
   *) fail "Unbekanntes Argument: $1" ;;
   esac
@@ -62,6 +67,9 @@ fi
 
 cd "$local_build_env_project_root"
 args=(build --platform ios --profile "$profile")
+if [[ "$non_interactive" == true ]]; then
+  args+=(--non-interactive)
+fi
 if [[ "$mode" == local ]]; then
   mkdir -p "$local_build_env_project_root/build/local/eas/$profile"
   # eas-cli legt den shallow-clone der Projektkopie im TMPDIR an
