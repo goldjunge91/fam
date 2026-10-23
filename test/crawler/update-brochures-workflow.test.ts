@@ -38,6 +38,18 @@ describe('restartable brochure workflow contract', () => {
     expect(workflow).toContain('--manifest-sha256="${{ needs.publication-handoff.outputs.manifest_sha256 }}"');
   });
 
+  it('passes detail phase digests from its step to downstream jobs', async () => {
+    const workflow = await readFile(workflowPath, 'utf8');
+    const detailPagesJob = workflow.match(/\n  detail-pages:\n([\s\S]*?)\n  grouping:/)?.[1] ?? '';
+
+    expect(detailPagesJob).not.toBe('');
+    expect(detailPagesJob).toContain(
+      '    outputs:\n' +
+        '      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}\n' +
+        '      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}',
+    );
+  });
+
   it('documents native rerun operation and the domain-atomic verification limit', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
 

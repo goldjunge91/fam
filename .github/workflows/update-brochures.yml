@@ -305,6 +305,9 @@ jobs:
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    outputs:
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
