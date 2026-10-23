@@ -36,30 +36,47 @@ runs:
     - name: Setup Bun environment
       uses: ./.github/actions/setup-bun-env
 
-    - name: Build iOS app and Watch target
-      shell: bash
-      run: bun run ios:watch
-
-    - name: Package simulator app
-      id: package
+    - name: Build iOS simulator app
+      id: build
       shell: bash
       run: |
         set -Eeuo pipefail
 
-        app_path="build/cache/ios/watch-build/Products/Debug-iphonesimulator/fam.app"
-        if [[ ! -d "$app_path" ]]; then
-          echo "The Watch build did not produce $app_path." >&2
-          exit 1
-        fi
-        if [[ ! -d "$app_path/Watch/watch.app" ]]; then
-          echo "The simulator app does not contain the Watch app." >&2
+        build_log="build/local/ci-artifacts/build-simulator.log"
+        mkdir -p "$(dirname "$build_log")"
+        bun run build:simulator 2>&1 | tee "$build_log"
+
+        artifact_count="$(grep -c '^Artefakt: ' "$build_log" || true)"
+        if [[ "$artifact_count" != "1" ]]; then
+          echo "Expected exactly one artifact path from build:simulator, found $artifact_count." >&2
           exit 1
         fi
 
+        app_path="$(sed -n 's/^Artefakt: //p' "$build_log")"
+        if [[ "$app_path" != build/local/eas/development-local/*/fam.app ]]; then
+          echo "Unexpected simulator app path from build:simulator: $app_path" >&2
+          exit 1
+        fi
+        if [[ ! -d "$app_path" || ! -f "$app_path/Info.plist" ]]; then
+          echo "The simulator build did not produce a usable app at $app_path." >&2
+          exit 1
+        fi
+
+        printf 'app_path=%s\n' "$app_path" >> "$GITHUB_OUTPUT"
+
+    - name: Package simulator app
+      id: package
+      shell: bash
+      env:
+        APP_PATH: ${{ steps.build.outputs.app_path }}
+      run: |
+        set -Eeuo pipefail
+        : "${APP_PATH:?APP_PATH is required}"
+
         mkdir -p build/local/ci-artifacts
         artifact_path="build/local/ci-artifacts/fam-watch-simulator.app.tar.gz"
-        tar -C "$(dirname "$app_path")" -czf "$artifact_path" "$(basename "$app_path")"
-        echo "artifact_path=$artifact_path" >> "$GITHUB_OUTPUT"
+        tar -C "$(dirname "$APP_PATH")" -czf "$artifact_path" "$(basename "$APP_PATH")"
+        printf 'artifact_path=%s\n' "$artifact_path" >> "$GITHUB_OUTPUT"
 
     - name: Upload simulator app artifact
       id: upload
