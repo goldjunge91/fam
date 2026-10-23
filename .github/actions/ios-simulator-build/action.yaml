@@ -64,6 +64,15 @@ runs:
 
         printf 'app_path=%s\n' "$app_path" >> "$GITHUB_OUTPUT"
 
+    - name: Upload simulator build diagnostics
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}-diagnostics
+        path: build/local/ci-artifacts/build-simulator.log
+        retention-days: ${{ inputs.artifact-retention-days }}
+        if-no-files-found: ignore
+
     - name: Package simulator app
       id: package
       shell: bash

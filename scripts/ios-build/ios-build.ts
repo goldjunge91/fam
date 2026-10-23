@@ -347,7 +347,9 @@ export async function runIosBuild(spec: BuildSpec): Promise<number> {
     exitCode = 0;
   } catch (error) {
     exitCode = error instanceof BuildCommandError ? error.exitCode : 1;
-    log.write(`\nFehler: ${errorMessage(error)}\n`);
+    const formattedError = `\nFehler: ${errorMessage(error)}\n`;
+    log.write(formattedError);
+    process.stderr.write(formattedError);
   }
 
   const durationMs = Date.now() - startedAt.getTime();
