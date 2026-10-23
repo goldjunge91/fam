@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "agent-device": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "agent-device@0.20.10",
+        "mcp"
+      ],
+      "disabled": false
+    },
+  
+    "jev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@goldjunge91/jev-code",
+        "mcp"
+      ],
+      "env": {
+        "OPENROUTER_API_KEY": "${OPENROUTER_API_KEY}"
+      },
+      "disabled": false
+    }
+  }
+}

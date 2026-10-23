@@ -11,14 +11,14 @@
     "win32-arm64": "./node_modules/@biomejs/cli-win32-arm64/biome.exe",
     "win32-x64": "./node_modules/@biomejs/cli-win32-x64/biome.exe"
   },
-  "[javascript][javascriptreact][typescript][typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biome": "explicit",
-      "source.organizeImports.biome": "explicit"
-    }
-  },
+  // "[javascript][javascriptreact][typescript][typescriptreact]": {
+  //   "editor.defaultFormatter": "biomejs.biome",
+  //   "editor.formatOnSave": true,
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll.biome": "explicit",
+  //     "source.organizeImports.biome": "explicit"
+  //   }
+  // },
   "tailwindCSS.classAttributes": [
     "class",
     "className",
