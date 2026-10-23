@@ -88,6 +88,12 @@ Ergebnis vor dem Fix: Exit-Code `1`; der Test `passes detail phase digests from 
 
 Bei einer parallelen ersten Ausführung der beiden fokussierten Tests meldete der äußere Runner Exit-Code `-1`, obwohl die erzeugten Test-Logs beide vollständige erfolgreiche Jest-Läufe enthielten. Die beiden Befehle wurden danach seriell erneut ausgeführt; beide endeten direkt mit Exit-Code `0` und sind die maßgebliche Validierung.
 
+## Commit, Push und Remote-Lauf
+
+- `git commit -m "fix: forward detail brochure artifact digests"` erstellte Commit `1d43b810140863a1b4ef8b3a199a894fb298fc8a`. Der Pre-Commit-Hook meldete Biome, Typecheck und den betroffenen Jest-Test erfolgreich.
+- `git push origin main` war erfolgreich. Das Pre-Push-Gate für Typecheck sowie Whitespace-/Konfliktprüfung war erfolgreich; `origin/main` wurde von `d174c271` auf `1d43b810` aktualisiert.
+- `gh workflow run update-brochures.yml --ref main` meldete erfolgreich `Created workflow_dispatch event` und startete Run [39887196288](https://github.com/goldjunge91/fam/actions/runs/39887196288) auf `main`.
+
 ## Geänderte Dateien und Arbeitsbaum
 
 Durch diese Arbeit geändert:
@@ -98,10 +104,10 @@ Durch diese Arbeit geändert:
 
 Keine Broschüren-Scan-, Verify- oder Publish-Skripte wurden geändert. Bereits vorhandene Änderungen an `.github/actions/ios-simulator-build/action.yaml`, `.github/actions/setup-bun-env/action.yaml`, `.github/workflows/ios-simulator.yml`, `.vscode/settings.json` sowie vorhandene untracked Verzeichnisse wurden nicht verändert oder entfernt.
 
-Es wurde kein Commit erstellt, kein Push ausgeführt und kein Reset/Revert vorgenommen.
+Kein Reset oder Revert wurde ausgeführt.
 
 ## Unsicherheit und Remote-Fortsetzung
 
 Die Ursache ist durch den erfolgreichen Detailseiten-Step mit nicht leerem Digest, den erfolgreichen Artefakt-Download und die beiden nachgelagerten Validator-Aufrufe mit leeren `needs.detail-pages.outputs.*`-Werten belegt. Eine lokale Ausführung der GitHub-Ausdrucksauswertung ist nicht möglich; die isolierte Workflow-Prüfung und die YAML-Strukturprüfung decken die Job-Output-Kette ab.
 
-Ein neuer Remote-Testlauf ist erforderlich, sobald diese lokale Änderung in einen neuen Commit übernommen und gepusht wurde. Ein Rerun des alten Runs `39882364078` würde weiterhin Commit `e10d46f25c167ab70f9a80d79a61bfccb75a5aae` ohne das Job-Output-Mapping verwenden. In diesem Auftrag wurde kein Remote-Lauf gestartet.
+Der neue Remote-Lauf `39887196288` wurde auf dem Fix-Commit gestartet. Zum Zeitpunkt dieses Berichts liegt noch kein abschließendes Ergebnis vor. Der alte Run `39882364078` soll nicht erneut ausgeführt werden, da er weiterhin Commit `e10d46f25c167ab70f9a80d79a61bfccb75a5aae` ohne das Job-Output-Mapping verwendet.
