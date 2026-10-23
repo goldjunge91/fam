@@ -75,7 +75,7 @@ Ergebnis: Exit-Code `1`, `Phase artifact failed: --manifest-sha256 must be a non
 
 ## Änderung und Scope
 
-- `.github/workflows/update-brochures.yml`: Der Job `detail-pages` enthält nun die beiden Job-Output-Mappings aus `steps.create-manifest.outputs.*`. Diese Änderung ist bereits im vorhandenen Commit `1d43b810140863a1b4ef8b3a199a894fb298fc8a` enthalten; in dieser Iteration wurde kein Commit erzeugt und kein Push ausgeführt.
+- `.github/workflows/update-brochures.yml`: Der Job `detail-pages` enthält nun die beiden Job-Output-Mappings aus `steps.create-manifest.outputs.*`. Diese Änderung war bereits im vorhandenen Commit `1d43b810140863a1b4ef8b3a199a894fb298fc8a` enthalten.
 - `test/crawler/update-brochures-workflow.test.ts`: Der fokussierte Regressionstest isoliert den Abschnitt zwischen `detail-pages:` und `grouping:` und prüft beide Mappings samt ihrer Quelle. Zusätzlich wurde nur die vorhandene Datei so formatiert, dass die fokussierte Biome-Prüfung den Test tatsächlich verarbeitet.
 - `.agents/tasks/fix-brochure-workflow-run-39882364078.md`: Dieser evidenzbasierte Diagnose- und Validierungsbericht.
 - Keine Scan-, Verify- oder Publish-Skripte wurden geändert. `tools/crawler/brochures/listing-only/phase-artifact.ts` und `test/crawler/phase-artifact.test.ts` blieben unverändert.
@@ -143,9 +143,27 @@ git diff --check -- .github/workflows/update-brochures.yml test/crawler/update-b
 
 Ergebnis: Exit-Code `0`.
 
-## Remote-Fortsetzung und Unsicherheit
+Der Commit-Hook lief beim Commit `1b5045a95e3e4a25c442b8ca38e44d234b05d1a5` erfolgreich:
 
-Ein vollständiger erfolgreicher Remote-Nachweis liegt noch nicht vor. Der frühere Fix-Lauf wurde nur lesend geprüft:
+- Biome: 1436 Dateien geprüft, keine Fixes.
+- Betroffener Jest-Test: bestanden.
+- Typecheck laut Hook: bestanden.
+
+```bash
+git commit -m "fix: complete brochure workflow handoff"
+```
+
+Ergebnis: Commit `1b5045a95e3e4a25c442b8ca38e44d234b05d1a5` erstellt.
+
+```bash
+git push origin main
+```
+
+Ergebnis: Push erfolgreich, `main` wurde von `a36145c3` auf `1b5045a9` aktualisiert. Das Pre-Push-Gate für Typecheck sowie Whitespace- und Konfliktmarkerprüfung war erfolgreich.
+
+## Remote-Fortsetzung
+
+Der frühere Fix-Lauf wurde zunächst nur lesend geprüft:
 
 ```bash
 gh api repos/goldjunge91/fam/actions/runs/39887196288 --jq '{id,head_sha,status,conclusion,html_url}'
@@ -153,10 +171,22 @@ gh api repos/goldjunge91/fam/actions/runs/39887196288 --jq '{id,head_sha,status,
 
 Ergebnis: Run `39887196288` auf `1d43b810140863a1b4ef8b3a199a894fb298fc8a` ist `completed` mit `conclusion=cancelled`.
 
-Die lokale Prüfung kann die GitHub-Auswertung von `needs.*.outputs` nicht ausführen. Die historische Gegenprobe, der Remote-Step-Output, die isolierte Regression und die YAML-Strukturprüfung decken die gesamte konkrete Output-Kette ab.
+Danach wurde der neue Lauf auf dem gepushten Commit gestartet:
 
-Ja, ein neuer Remote-Testlauf ist noch erforderlich, um den behobenen Workflow end-to-end zu bestätigen. Run `39882364078` darf dafür nicht einfach wiederholt werden, weil er weiterhin den historischen Commit `e10d46f25c167ab70f9a80d79a61bfccb75a5aae` ohne das Mapping verwendet. Wegen des ausdrücklichen Verbots von Commit, Push und neuem Remote-Lauf wurde hier kein neuer Lauf gestartet. Die vorhandenen Commits und der Remote-Status wurden nicht zurückgesetzt, revertiert oder gelöscht.
+```bash
+gh workflow run update-brochures.yml --ref main
+```
+
+Ergebnis: Workflow-Dispatch erfolgreich angelegt, Run [40012064552](https://github.com/goldjunge91/fam/actions/runs/40012064552).
+
+```bash
+gh api repos/goldjunge91/fam/actions/runs/40012064552 --jq '{id,head_sha,head_branch,status,conclusion,event,html_url,created_at}'
+```
+
+Ergebnis zum Prüfzeitpunkt: `status=queued`, `conclusion=null`, `event=workflow_dispatch`, `head_sha=1b5045a95e3e4a25c442b8ca38e44d234b05d1a5`.
+
+Die lokale Prüfung kann die GitHub-Auswertung von `needs.*.outputs` nicht ausführen. Die historische Gegenprobe, der Remote-Step-Output, die isolierte Regression und die YAML-Strukturprüfung decken die konkrete Output-Kette ab. Der neue Remote-Lauf muss noch bis zum Abschluss beobachtet werden; besonders relevant sind nicht leere Detailseiten-Digests in `grouping` und `page-verification` sowie der anschließende Weg bis zum Veröffentlichungs-Handoff.
 
 ## Arbeitsbaum und Prozessgrenzen
 
-`git status --short --branch` zeigte neben dem bestehenden Stand auf `main` bereits die unbeteiligte Änderung `.vscode/settings.json` sowie vorhandene untracked `.agents`-, `.kiro`- und `semantic-review`-Pfade. Diese wurden nicht verändert, zurückgesetzt oder gelöscht. Der aktuelle Branch zeigte `HEAD` und `origin/main` auf `a36145c3`; der Fix-Commit `1d43b810` liegt darin enthalten. In dieser Iteration gab es keinen `git commit`, keinen `git push`, keinen Reset und keinen Revert.
+Die unbeteiligten Änderungen `.github/actions/ios-simulator-build/action.yaml`, `scripts/ios-build/ios-build.ts`, `.vscode/settings.json` sowie vorhandene untracked `.agents`-, `.kiro`- und `semantic-review`-Pfade wurden nicht verändert, zurückgesetzt oder gelöscht. Der aktuelle Branch zeigt den gepushten Commit `1b5045a95e3e4a25c442b8ca38e44d234b05d1a5`; in dieser Iteration gab es keinen Reset und keinen Revert.
