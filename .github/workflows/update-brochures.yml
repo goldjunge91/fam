@@ -16,6 +16,18 @@ concurrency:
 permissions:
   contents: read
 
+# Operator instructions:
+# - After a scan-leg failure, use GitHub's "Re-run failed jobs". The failed ZIP
+#   legs and merge gates retry while successful scan shards remain available.
+# - After detail loading, grouping, verification, persistence, reporting, or
+#   handoff fails, use the same action. Successful predecessor phases stay put.
+# - After publish-canonical fails, use "Re-run failed jobs". The publisher
+#   downloads the unchanged same-run handoff and must not rerun scan or verification.
+# - If a required artifact is missing, expired, foreign, changed, or unverifiable,
+#   stop and start a fresh workflow run. Never manually reuse an old artifact.
+# Detail loading, grouping, and full page verification remain domain-atomic because
+# their current contracts require complete cross-ZIP and aggregate-budget inputs.
+
 jobs:
   validate-secrets:
     name: Crawler-Zugangsdaten prüfen
@@ -55,17 +67,17 @@ jobs:
             exit 1
           fi
 
-  full-scan-and-verify:
-    name: Vollständige Prospektverifikation
+  prepare-inputs:
+    name: Eingaben vorbereiten
     needs: validate-secrets
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: >-
+      ${{ github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 360
-    env:
-      BROCHURE_R2_STORAGE_BUDGET_GB: "7.25"
+    timeout-minutes: 10
     outputs:
-      manifest_sha256: ${{ steps.create-publication-handoff.outputs.manifest_sha256 }}
-
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -87,7 +99,63 @@ jobs:
             https://download.geonames.org/export/zip/DE.zip \
             --output "${RUNNER_TEMP}/geonames-DE.zip"
           unzip -p "${RUNNER_TEMP}/geonames-DE.zip" DE.txt > "${RUNNER_TEMP}/geonames-DE.txt"
-          test -s "${RUNNER_TEMP}/geonames-DE.txt"
+
+      - name: Verify postal-code input
+        run: test -s "${RUNNER_TEMP}/geonames-DE.txt"
+
+      - name: Create input phase artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-prepare-inputs"
+          mkdir -p "$artifact_dir"
+          cp "${RUNNER_TEMP}/geonames-DE.txt" "$artifact_dir/geonames-DE.txt"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=prepare-inputs \
+            --artifact-dir="$artifact_dir" \
+            --files=geonames-DE.txt
+
+      - name: Upload input phase artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-prepare-inputs-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-prepare-inputs/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  scan-locations:
+    name: PLZ-Scan Shard ${{ matrix.shard }}
+    needs: [validate-secrets, prepare-inputs]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download prepared inputs
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-prepare-inputs-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-prepare-inputs
+
+      - name: Validate prepared input artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=prepare-inputs
+          --artifact-dir="${RUNNER_TEMP}/brochure-prepare-inputs"
+          --files=geonames-DE.txt
+          --manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
 
       - name: Authenticate with Bring
         env:
@@ -107,80 +175,725 @@ jobs:
             } >> "$GITHUB_ENV"
           fi
 
-      - name: Scan all German postal codes
+      - name: Scan assigned German postal codes
         env:
-          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
-        run: bun run tools/crawler/brochures/listing-only/all-stores-full.ts
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
+        run: >-
+          bun run tools/crawler/brochures/listing-only/all-stores-full.ts
+          --shard-index=${{ matrix.shard }}
+          --shard-count=4
+          --output="${RUNNER_TEMP}/all-stores-full.json"
+
+      - name: Create scan shard artifact
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-scan-${{ matrix.shard }}"
+          mkdir -p "$artifact_dir"
+          cp "${RUNNER_TEMP}/all-stores-full.json" "$artifact_dir/all-stores-full.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=scan-locations \
+            --artifact-dir="$artifact_dir" \
+            --files=all-stores-full.json \
+            --predecessor-manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}" \
+            --shard-index=${{ matrix.shard }} \
+            --shard-count=4
+
+      - name: Upload scan shard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-scan-locations-${{ github.run_id }}-${{ matrix.shard }}
+          path: ${{ runner.temp }}/brochure-scan-${{ matrix.shard }}/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  scan-merge:
+    # The scan merge requires all four shard artifacts and a successful matrix result.
+    name: PLZ-Scan zusammenführen
+    needs: [validate-secrets, prepare-inputs, scan-locations]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' &&
+          needs.scan-locations.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download prepared inputs
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-prepare-inputs-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-prepare-inputs
+
+      - name: Validate prepared input artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=prepare-inputs
+          --artifact-dir="${RUNNER_TEMP}/brochure-prepare-inputs"
+          --files=geonames-DE.txt
+          --manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
+
+      - name: Download scan shard 0
+        continue-on-error: true
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-locations-${{ github.run_id }}-0
+          path: ${{ runner.temp }}/brochure-scan-shards/0
+
+      - name: Download scan shard 1
+        continue-on-error: true
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-locations-${{ github.run_id }}-1
+          path: ${{ runner.temp }}/brochure-scan-shards/1
+
+      - name: Download scan shard 2
+        continue-on-error: true
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-locations-${{ github.run_id }}-2
+          path: ${{ runner.temp }}/brochure-scan-shards/2
+
+      - name: Download scan shard 3
+        continue-on-error: true
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-locations-${{ github.run_id }}-3
+          path: ${{ runner.temp }}/brochure-scan-shards/3
+
+      - name: Merge and verify the four scan shards
+        id: merge-shards
+        run: >-
+          bun run tools/crawler/brochures/listing-only/scan-shard-artifact.ts merge
+          --shards-dir="${RUNNER_TEMP}/brochure-scan-shards"
+          --output="${RUNNER_TEMP}/all-stores-full.json"
+          --predecessor-manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
+
+      - name: Create scan merge artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-scan-merge"
+          mkdir -p "$artifact_dir"
+          cp "${RUNNER_TEMP}/all-stores-full.json" "$artifact_dir/all-stores-full.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=scan-merge \
+            --artifact-dir="$artifact_dir" \
+            --files=all-stores-full.json \
+            --predecessor-manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }},${{ steps.merge-shards.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Upload scan merge artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-scan-merge-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  detail-pages:
+    name: Detailseiten laden
+    needs: [validate-secrets, prepare-inputs, scan-merge]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download prepared inputs
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-prepare-inputs-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-prepare-inputs
+
+      - name: Validate prepared input artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=prepare-inputs
+          --artifact-dir="${RUNNER_TEMP}/brochure-prepare-inputs"
+          --files=geonames-DE.txt
+          --manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
+
+      - name: Download scan merge artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-merge-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge
+
+      - name: Validate scan merge artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=scan-merge
+          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
+          --files=all-stores-full.json
+          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Copy scan input
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
+
+      - name: Authenticate with Bring
+        env:
+          BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
+          BRING_PASSWORD: ${{ secrets.BRING_PASSWORD }}
+          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
+          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
+          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
+        run: |
+          if [ -n "$BRING_EMAIL" ] && [ -n "$BRING_PASSWORD" ]; then
+            bun run scripts/bring-auth.ts
+          else
+            {
+              echo "BRING_AUTH_TOKEN=$BRING_AUTH_TOKEN"
+              echo "BRING_API_KEY=$BRING_API_KEY"
+              echo "BRING_USER_UUID=$BRING_USER_UUID"
+            } >> "$GITHUB_ENV"
+          fi
 
       - name: Load exact page counts for every BRN
         env:
-          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
         run: bun run tools/crawler/brochures/listing-only/fetch-detail-pages.ts
+
+      - name: Create detail phase artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-detail-pages"
+          mkdir -p "$artifact_dir"
+          cp tools/crawler/data/listing-only/detail-pages.json "$artifact_dir/detail-pages.json"
+          cp tools/crawler/data/listing-only/detail-page-metadata.json "$artifact_dir/detail-page-metadata.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=detail-pages \
+            --artifact-dir="$artifact_dir" \
+            --files=detail-pages.json,detail-page-metadata.json \
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+
+      - name: Upload detail phase artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-detail-pages-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-detail-pages/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  grouping:
+    name: Prospekte gruppieren
+    needs: [validate-secrets, scan-merge, detail-pages]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download scan merge artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-merge-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge
+
+      - name: Validate scan merge artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=scan-merge
+          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
+          --files=all-stores-full.json
+          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download detail phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-detail-pages-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-detail-pages
+
+      - name: Validate detail phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=detail-pages
+          --artifact-dir="${RUNNER_TEMP}/brochure-detail-pages"
+          --files=detail-pages.json,detail-page-metadata.json
+          --manifest-sha256="${{ needs.detail-pages.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Copy grouping inputs
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
+          cp "${RUNNER_TEMP}/brochure-detail-pages/detail-pages.json" tools/crawler/data/listing-only/detail-pages.json
 
       - name: Group exact metadata
         run: bun run tools/crawler/brochures/listing-only/group-canonical.ts
 
+      - name: Create grouping phase artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-grouping"
+          mkdir -p "$artifact_dir"
+          cp tools/crawler/data/listing-only/canonical-groups.json "$artifact_dir/canonical-groups.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=grouping \
+            --artifact-dir="$artifact_dir" \
+            --files=canonical-groups.json \
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }}"
+
+      - name: Upload grouping phase artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-grouping-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-grouping/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  page-verification:
+    name: Vollständige Prospektverifikation
+    needs: [validate-secrets, prepare-inputs, scan-merge, detail-pages, grouping]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      BROCHURE_R2_STORAGE_BUDGET_GB: "8"
+    outputs:
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download prepared inputs
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-prepare-inputs-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-prepare-inputs
+
+      - name: Validate prepared input artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=prepare-inputs
+          --artifact-dir="${RUNNER_TEMP}/brochure-prepare-inputs"
+          --files=geonames-DE.txt
+          --manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
+
+      - name: Download scan merge artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-merge-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge
+
+      - name: Validate scan merge artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=scan-merge
+          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
+          --files=all-stores-full.json
+          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download detail phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-detail-pages-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-detail-pages
+
+      - name: Validate detail phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=detail-pages
+          --artifact-dir="${RUNNER_TEMP}/brochure-detail-pages"
+          --files=detail-pages.json,detail-page-metadata.json
+          --manifest-sha256="${{ needs.detail-pages.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download grouping phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-grouping-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-grouping
+
+      - name: Validate grouping phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=grouping
+          --artifact-dir="${RUNNER_TEMP}/brochure-grouping"
+          --files=canonical-groups.json
+          --manifest-sha256="${{ needs.grouping.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.grouping.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Copy verification inputs
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
+          cp "${RUNNER_TEMP}/brochure-detail-pages/detail-pages.json" tools/crawler/data/listing-only/detail-pages.json
+          cp "${RUNNER_TEMP}/brochure-detail-pages/detail-page-metadata.json" tools/crawler/data/listing-only/detail-page-metadata.json
+          cp "${RUNNER_TEMP}/brochure-grouping/canonical-groups.json" tools/crawler/data/listing-only/canonical-groups.json
+
+      - name: Authenticate with Bring
+        env:
+          BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
+          BRING_PASSWORD: ${{ secrets.BRING_PASSWORD }}
+          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
+          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
+          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
+        run: |
+          if [ -n "$BRING_EMAIL" ] && [ -n "$BRING_PASSWORD" ]; then
+            bun run scripts/bring-auth.ts
+          else
+            {
+              echo "BRING_AUTH_TOKEN=$BRING_AUTH_TOKEN"
+              echo "BRING_API_KEY=$BRING_API_KEY"
+              echo "BRING_USER_UUID=$BRING_USER_UUID"
+            } >> "$GITHUB_ENV"
+          fi
+
       - name: Download and verify every ordered page vector
         env:
-          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/geonames-DE.txt
+          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
         run: >-
           bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
           --all-brns
-          --budget-bytes=7250000000
+          --budget-bytes=8000000000
 
       - name: Clear Bring credentials after page verification
         run: |
           printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
 
+      - name: Create page verification phase artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-page-verification"
+          mkdir -p "$artifact_dir"
+          cp tools/crawler/data/listing-only/canonical-page-verification.json "$artifact_dir/canonical-page-verification.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=page-verification \
+            --artifact-dir="$artifact_dir" \
+            --files=canonical-page-verification.json \
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }},${{ needs.grouping.outputs.manifest_sha256 }}"
+
+      - name: Upload page verification phase artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-page-verification-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-page-verification/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  persistence:
+    name: Verifizierten Katalog persistieren
+    needs: [validate-secrets, page-verification]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download page verification phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-page-verification-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-page-verification
+
+      - name: Validate page verification phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=page-verification
+          --artifact-dir="${RUNNER_TEMP}/brochure-page-verification"
+          --files=canonical-page-verification.json
+          --manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.page-verification.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Copy verification input
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          cp "${RUNNER_TEMP}/brochure-page-verification/canonical-page-verification.json" tools/crawler/data/listing-only/canonical-page-verification.json
+
       - name: Persist verified canonical catalog
         run: bun run tools/crawler/brochures/listing-only/persist-canonical.ts
 
+      - name: Create persistence phase artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-persistence"
+          mkdir -p "$artifact_dir"
+          cp tools/crawler/data/listing-only/canonical-brochures.json "$artifact_dir/canonical-brochures.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=persistence \
+            --artifact-dir="$artifact_dir" \
+            --files=canonical-brochures.json \
+            --predecessor-manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
+
+      - name: Upload persistence phase artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-persistence-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-persistence/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  report:
+    name: Konsistenzbericht erstellen
+    needs: [validate-secrets, scan-merge, page-verification, persistence]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
+      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download scan merge artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-merge-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge
+
+      - name: Validate scan merge artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=scan-merge
+          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
+          --files=all-stores-full.json
+          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download page verification phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-page-verification-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-page-verification
+
+      - name: Validate page verification phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=page-verification
+          --artifact-dir="${RUNNER_TEMP}/brochure-page-verification"
+          --files=canonical-page-verification.json
+          --manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.page-verification.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download persistence phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-persistence-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-persistence
+
+      - name: Validate persistence phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=persistence
+          --artifact-dir="${RUNNER_TEMP}/brochure-persistence"
+          --files=canonical-brochures.json
+          --manifest-sha256="${{ needs.persistence.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.persistence.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Copy report inputs
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
+          cp "${RUNNER_TEMP}/brochure-page-verification/canonical-page-verification.json" tools/crawler/data/listing-only/canonical-page-verification.json
+          cp "${RUNNER_TEMP}/brochure-persistence/canonical-brochures.json" tools/crawler/data/listing-only/canonical-brochures.json
+
       - name: Build coverage and consistency report
         run: bun run tools/crawler/brochures/listing-only/canonical-report.ts
+
+      - name: Create report phase artifact
+        id: create-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-report"
+          mkdir -p "$artifact_dir"
+          cp tools/crawler/data/listing-only/canonical-report.json "$artifact_dir/canonical-report.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=report \
+            --artifact-dir="$artifact_dir" \
+            --files=canonical-report.json \
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.page-verification.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }}"
+
+      - name: Upload report phase artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: brochure-report-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-report/
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+
+  publication-handoff:
+    name: Veröffentlichungs-Handoff erstellen
+    needs: [validate-secrets, scan-merge, page-verification, persistence, report]
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.validate-secrets.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      manifest_sha256: ${{ steps.create-publication-handoff.outputs.manifest_sha256 }}
+      phase_manifest_sha256: ${{ steps.create-phase-manifest.outputs.manifest_sha256 }}
+      phase_predecessor_manifest_sha256: ${{ steps.create-phase-manifest.outputs.predecessor_manifest_sha256 }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Download scan merge artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-merge-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge
+
+      - name: Validate scan merge artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=scan-merge
+          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
+          --files=all-stores-full.json
+          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download page verification phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-page-verification-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-page-verification
+
+      - name: Validate page verification phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=page-verification
+          --artifact-dir="${RUNNER_TEMP}/brochure-page-verification"
+          --files=canonical-page-verification.json
+          --manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.page-verification.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download persistence phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-persistence-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-persistence
+
+      - name: Validate persistence phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=persistence
+          --artifact-dir="${RUNNER_TEMP}/brochure-persistence"
+          --files=canonical-brochures.json
+          --manifest-sha256="${{ needs.persistence.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.persistence.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Download report phase artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-report-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-report
+
+      - name: Validate report phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=report
+          --artifact-dir="${RUNNER_TEMP}/brochure-report"
+          --files=canonical-report.json
+          --manifest-sha256="${{ needs.report.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.report.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Copy handoff inputs
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
+          cp "${RUNNER_TEMP}/brochure-page-verification/canonical-page-verification.json" tools/crawler/data/listing-only/canonical-page-verification.json
+          cp "${RUNNER_TEMP}/brochure-persistence/canonical-brochures.json" tools/crawler/data/listing-only/canonical-brochures.json
 
       - name: Create integrity-bound publication handoff
         id: create-publication-handoff
         run: >-
           bun run tools/crawler/brochures/listing-only/publication-handoff.ts create
           --source-dir=tools/crawler/data/listing-only
-          --bundle-dir="${RUNNER_TEMP}/brochure-publication-handoff"
+          --bundle-dir="${RUNNER_TEMP}/brochure-publication/handoff"
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SHA: ${{ github.sha }}
+        shell: bash
 
-      - name: Upload verified publication handoff
+      - name: Create publication phase artifact
+        id: create-phase-manifest
+        run: |
+          artifact_dir="${RUNNER_TEMP}/brochure-publication/phase"
+          mkdir -p "$artifact_dir"
+          cp "${RUNNER_TEMP}/brochure-publication/handoff/publication-handoff.json" "$artifact_dir/publication-handoff.json"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
+            --phase=publication-handoff \
+            --artifact-dir="$artifact_dir" \
+            --files=publication-handoff.json \
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.page-verification.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }},${{ needs.report.outputs.manifest_sha256 }}"
+
+      - name: Upload verified publication handoff and phase manifest
         uses: actions/upload-artifact@v4
         with:
           name: brochure-publication-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-publication-handoff/
+          path: ${{ runner.temp }}/brochure-publication/
           if-no-files-found: error
-          retention-days: 1
-          overwrite: true
-
-      - name: Archive full-scan verification reports
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: brochure-full-scan-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            tools/crawler/data/listing-only/all-stores-full.json
-            tools/crawler/data/listing-only/detail-pages.json
-            tools/crawler/data/listing-only/canonical-groups.json
-            tools/crawler/data/listing-only/canonical-page-verification.json
-            tools/crawler/data/listing-only/canonical-brochures.json
-            tools/crawler/data/listing-only/canonical-report.json
-          if-no-files-found: ignore
           retention-days: 30
+          overwrite: false
 
   publish-canonical:
     name: Verifizierte Prospekte veröffentlichen
-    needs: full-scan-and-verify
+    needs: publication-handoff
     if: >-
-      ${{ needs.full-scan-and-verify.result == 'success' &&
+      ${{ needs.publication-handoff.result == 'success' &&
           github.ref == 'refs/heads/main' &&
-          needs.full-scan-and-verify.outputs.manifest_sha256 != '' }}
+          needs.publication-handoff.outputs.manifest_sha256 != '' &&
+          needs.publication-handoff.outputs.phase_manifest_sha256 != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
-      BROCHURE_R2_STORAGE_BUDGET_GB: "7.25"
-
+      BROCHURE_R2_STORAGE_BUDGET_GB: "8"
     steps:
       - name: Checkout verified commit
         uses: actions/checkout@v4
@@ -190,11 +903,20 @@ jobs:
       - name: Set up Bun environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Download verified publication handoff
+      - name: Download verified publication handoff and phase manifest
         uses: actions/download-artifact@v5
         with:
           name: brochure-publication-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-publication-handoff
+          path: ${{ runner.temp }}/brochure-publication
+
+      - name: Validate publication phase artifact
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=publication-handoff
+          --artifact-dir="${RUNNER_TEMP}/brochure-publication/phase"
+          --files=publication-handoff.json
+          --manifest-sha256="${{ needs.publication-handoff.outputs.phase_manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.publication-handoff.outputs.phase_predecessor_manifest_sha256 }}"
 
       - name: Publish verified pages to private R2 and catalog to Supabase
         env:
@@ -206,5 +928,5 @@ jobs:
           R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
         run: >-
           bun run tools/crawler/brochures/listing-only/publish-full-canonical.ts
-          --bundle-dir="${RUNNER_TEMP}/brochure-publication-handoff"
-          --manifest-sha256="${{ needs.full-scan-and-verify.outputs.manifest_sha256 }}"
+          --bundle-dir="${RUNNER_TEMP}/brochure-publication/handoff"
+          --manifest-sha256="${{ needs.publication-handoff.outputs.manifest_sha256 }}"

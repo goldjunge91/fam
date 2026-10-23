@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
 import { createHash } from 'node:crypto';
-import { appendFile, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { appendFile, lstat, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
 export const PUBLICATION_HANDOFF_MANIFEST = 'publication-handoff.json';
@@ -159,6 +159,24 @@ export async function validatePublicationHandoff(options: {
 }> {
   if (!SHA256_PATTERN.test(options.manifestSha256)) {
     throw new Error('Expected publication manifest SHA-256 is invalid');
+  }
+
+  const expectedEntries = new Set([PUBLICATION_HANDOFF_MANIFEST, ...PUBLICATION_INPUT_FILES]);
+  const actualEntries = await readdir(options.bundleDir);
+  if (
+    actualEntries.length !== expectedEntries.size ||
+    actualEntries.some((entry) => !expectedEntries.has(entry))
+  ) {
+    const missing = [...expectedEntries].filter((entry) => !actualEntries.includes(entry));
+    const extra = actualEntries.filter((entry) => !expectedEntries.has(entry));
+    throw new Error(
+      `Publication handoff bundle must contain the exact file allowlist; missing: ${missing.join(', ') || 'none'}; extra: ${extra.join(', ') || 'none'}`,
+    );
+  }
+  for (const entry of expectedEntries) {
+    if (!(await lstat(join(options.bundleDir, entry))).isFile()) {
+      throw new Error(`Publication handoff entry ${entry} is not a regular file`);
+    }
   }
 
   const manifestPath = join(options.bundleDir, PUBLICATION_HANDOFF_MANIFEST);

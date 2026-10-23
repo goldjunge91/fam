@@ -70,7 +70,7 @@ async function fetchJsonWithRetry(url: string, headers: Record<string, string>):
   throw new Error("Unerreichbar: " + url);
 }
 
-type BrochureLocation = {
+export type BrochureLocation = {
   zipCode: string;
   latitude: number;
   longitude: number;
@@ -91,7 +91,77 @@ type FullResult = {
   totalLocations: number;
   completedLocations: number;
   byZipCode: Record<string, OfferEntry[]>;
+  shard?: {
+    index: number;
+    count: number;
+    zipCodes: string[];
+  };
 };
+
+export type AllStoresFullArguments = {
+  shardIndex?: number;
+  shardCount?: number;
+  outputPath: string;
+};
+
+export function parseAllStoresFullArguments(args: readonly string[]): AllStoresFullArguments {
+  const result: AllStoresFullArguments = { outputPath: OUT_FILE };
+  const values = new Map<string, string>();
+  for (let index = 0; index < args.length; index++) {
+    const argument = args[index];
+    if (!argument) continue;
+    const equalsIndex = argument.indexOf("=");
+    const flag = equalsIndex < 0 ? argument : argument.slice(0, equalsIndex);
+    if (!["--shard-index", "--shard-count", "--output"].includes(flag)) {
+      throw new Error(`Unknown argument: ${argument}`);
+    }
+    const value = equalsIndex < 0 ? args[++index] : argument.slice(equalsIndex + 1);
+    if (!value || value.startsWith("--")) throw new Error(`Expected a value after ${flag}`);
+    values.set(flag, value);
+  }
+
+  const shardIndexValue = values.get("--shard-index");
+  const shardCountValue = values.get("--shard-count");
+  if ((shardIndexValue === undefined) !== (shardCountValue === undefined)) {
+    throw new Error("--shard-index and --shard-count are required together");
+  }
+  if (shardIndexValue !== undefined && shardCountValue !== undefined) {
+    const shardIndex = Number(shardIndexValue);
+    const shardCount = Number(shardCountValue);
+    if (
+      !Number.isSafeInteger(shardIndex) ||
+      !Number.isSafeInteger(shardCount) ||
+      shardCount < 1 ||
+      shardIndex < 0 ||
+      shardIndex >= shardCount
+    ) {
+      throw new Error("Shard index and count must describe a valid shard");
+    }
+    result.shardIndex = shardIndex;
+    result.shardCount = shardCount;
+  }
+  if (values.has("--output")) result.outputPath = values.get("--output")!;
+  return result;
+}
+
+export function partitionLocations(
+  locations: readonly BrochureLocation[],
+  shardIndex: number,
+  shardCount: number,
+): BrochureLocation[] {
+  if (
+    !Number.isSafeInteger(shardIndex) ||
+    !Number.isSafeInteger(shardCount) ||
+    shardCount < 1 ||
+    shardIndex < 0 ||
+    shardIndex >= shardCount
+  ) {
+    throw new Error("Shard index and count must describe a valid shard");
+  }
+  return [...locations]
+    .sort((left, right) => left.zipCode.localeCompare(right.zipCode))
+    .filter((_, index) => index % shardCount === shardIndex);
+}
 
 async function writeJsonAtomic(path: string, value: unknown): Promise<void> {
   await mkdir(dirname(path), { recursive: true });
@@ -100,21 +170,110 @@ async function writeJsonAtomic(path: string, value: unknown): Promise<void> {
   await rename(temporaryPath, path);
 }
 
+async function fetchLocationEntries(
+  location: BrochureLocation,
+  headers: Record<string, string>,
+): Promise<OfferEntry[]> {
+  const params = new URLSearchParams({
+    type: "brochure",
+    providerId: "bring-de",
+    lat: String(location.latitude),
+    long: String(location.longitude),
+    zipCode: location.zipCode,
+  });
+  const url = "https://production.bringapi.app/offers/rest/v1/offers?" + params;
+  const value = await fetchJsonWithRetry(url, headers);
+  const list = value as { offers?: unknown[] };
+  const offers = Array.isArray(list.offers) ? list.offers : [];
+  const entries: OfferEntry[] = [];
+  for (const raw of offers) {
+    const offer = raw as Record<string, unknown>;
+    const brn = typeof offer.brn === "string" ? offer.brn : undefined;
+    if (!brn) continue;
+    const company = (offer.company ?? offer.retailer) as Record<string, unknown> | undefined;
+    const storeName =
+      typeof company?.title === "string"
+        ? company.title
+        : typeof company?.name === "string"
+          ? company.name
+          : "";
+    const offerPages = Array.isArray(offer.pages) ? offer.pages : [];
+    entries.push({
+      brn,
+      storeName,
+      title: typeof offer.title === "string" ? offer.title : "",
+      validFrom:
+        typeof offer.activeFrom === "string"
+          ? offer.activeFrom
+          : typeof offer.validFrom === "string"
+            ? offer.validFrom
+            : "",
+      validUntil:
+        typeof offer.activeTo === "string"
+          ? offer.activeTo
+          : typeof offer.validUntil === "string"
+            ? offer.validUntil
+            : "",
+      pageCount: offerPages.length,
+    });
+  }
+  return entries;
+}
+
 async function main(): Promise<void> {
+  const args = parseAllStoresFullArguments(process.argv.slice(2));
   const { loadTargetLocations } = await import("../locations");
   const locations: BrochureLocation[] = await loadTargetLocations({ all: true });
   await mkdir(OUT_DIR, { recursive: true });
-  const expectedZipCodes = new Set(locations.map((location) => location.zipCode));
+  const headers = liveHeaders(envTokens());
+  const concurrency = 8;
 
+  if (args.shardIndex !== undefined && args.shardCount !== undefined) {
+    const shardLocations = partitionLocations(locations, args.shardIndex, args.shardCount);
+    const byZipCode: Record<string, OfferEntry[]> = {};
+    console.log(
+      `Voll-Scan-Shard ${args.shardIndex + 1}/${args.shardCount}: ${shardLocations.length} PLZ | Concurrency: ${concurrency}`,
+    );
+
+    for (let index = 0; index < shardLocations.length; index += concurrency) {
+      const chunk = shardLocations.slice(index, index + concurrency);
+      const results = await Promise.all(
+        chunk.map(async (location) => [
+          location.zipCode,
+          await fetchLocationEntries(location, headers),
+        ] as const),
+      );
+      for (const [zipCode, entries] of results) byZipCode[zipCode] = entries;
+    }
+
+    const state: FullResult = {
+      generatedAt: new Date().toISOString(),
+      totalLocations: shardLocations.length,
+      completedLocations: shardLocations.length,
+      byZipCode: Object.fromEntries(
+        Object.entries(byZipCode).sort(([left], [right]) => left.localeCompare(right)),
+      ),
+      shard: {
+        index: args.shardIndex,
+        count: args.shardCount,
+        zipCodes: shardLocations.map(({ zipCode }) => zipCode),
+      },
+    };
+    await writeJsonAtomic(args.outputPath, state);
+    console.log(`Shard fertig: ${state.completedLocations}/${state.totalLocations} PLZ | Report: ${args.outputPath}`);
+    return;
+  }
+
+  const expectedZipCodes = new Set(locations.map((location) => location.zipCode));
   let state: FullResult = {
     generatedAt: new Date().toISOString(),
     totalLocations: locations.length,
     completedLocations: 0,
     byZipCode: {},
   };
-  if (existsSync(OUT_FILE)) {
+  if (existsSync(args.outputPath)) {
     try {
-      const previous = JSON.parse(await readFile(OUT_FILE, "utf8")) as FullResult;
+      const previous = JSON.parse(await readFile(args.outputPath, "utf8")) as FullResult;
       if (previous.byZipCode) {
         const byZipCode = Object.fromEntries(
           Object.entries(previous.byZipCode).filter(([zipCode]) => expectedZipCodes.has(zipCode)),
@@ -132,9 +291,7 @@ async function main(): Promise<void> {
     }
   }
 
-  const headers = liveHeaders(envTokens());
   const remaining = locations.filter((location) => !state.byZipCode[location.zipCode]);
-  const concurrency = 8;
   console.log("Voll-Scan: " + remaining.length + " von " + locations.length + " PLZ verbleibend | Concurrency: " + concurrency);
 
   let processed = 0;
@@ -142,56 +299,13 @@ async function main(): Promise<void> {
   let lastFlush = Date.now();
 
   async function processLocation(location: BrochureLocation): Promise<void> {
-    const params = new URLSearchParams({
-      type: "brochure",
-      providerId: "bring-de",
-      lat: String(location.latitude),
-      long: String(location.longitude),
-      zipCode: location.zipCode,
-    });
-    const url = "https://production.bringapi.app/offers/rest/v1/offers?" + params;
-    const value = await fetchJsonWithRetry(url, headers);
-    const list = value as { offers?: unknown[] };
-    const offers = Array.isArray(list.offers) ? list.offers : [];
-    const entries: OfferEntry[] = [];
-    for (const raw of offers) {
-      const offer = raw as Record<string, unknown>;
-      const brn = typeof offer.brn === "string" ? offer.brn : undefined;
-      if (!brn) continue;
-      const company = (offer.company ?? offer.retailer) as Record<string, unknown> | undefined;
-      const storeName =
-        typeof company?.title === "string"
-          ? company.title
-          : typeof company?.name === "string"
-            ? company.name
-            : "";
-      const offerPages = Array.isArray(offer.pages) ? offer.pages : [];
-      entries.push({
-        brn,
-        storeName,
-        title: typeof offer.title === "string" ? offer.title : "",
-        validFrom:
-          typeof offer.activeFrom === "string"
-            ? offer.activeFrom
-            : typeof offer.validFrom === "string"
-              ? offer.validFrom
-              : "",
-        validUntil:
-          typeof offer.activeTo === "string"
-            ? offer.activeTo
-            : typeof offer.validUntil === "string"
-              ? offer.validUntil
-              : "",
-        pageCount: offerPages.length,
-      });
-    }
-    state.byZipCode[location.zipCode] = entries;
+    state.byZipCode[location.zipCode] = await fetchLocationEntries(location, headers);
     state.completedLocations = Object.keys(state.byZipCode).length;
     processed++;
     const now = Date.now();
     if (now - lastFlush > 30000 || processed === remaining.length) {
       lastFlush = now;
-      await writeJsonAtomic(OUT_FILE, state);
+      await writeJsonAtomic(args.outputPath, state);
       const percent = ((processed / remaining.length) * 100).toFixed(1);
       console.log(percent + "% | " + processed + "/" + remaining.length + " PLZ | gespeichert");
     }
@@ -211,9 +325,9 @@ async function main(): Promise<void> {
     );
   }
 
-  await writeJsonAtomic(OUT_FILE, state);
+  await writeJsonAtomic(args.outputPath, state);
   console.log("Fertig: " + state.completedLocations + "/" + state.totalLocations + " PLZ | Fehler: " + failed);
-  console.log("Report: " + OUT_FILE);
+  console.log("Report: " + args.outputPath);
   if (failed > 0 || state.completedLocations !== locations.length) {
     throw new Error(`PLZ-Vollscan unvollständig: ${state.completedLocations}/${locations.length}; ${failed} Abfragen fehlgeschlagen.`);
   }

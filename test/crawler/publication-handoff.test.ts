@@ -109,11 +109,12 @@ describe('publication handoff', () => {
     manifest.files.push({ name: 'unverified.json', sha256: 'f'.repeat(64), bytes: 1 });
     const manifestBytes = `${JSON.stringify(manifest, null, 2)}\n`;
     await writeFile(manifestPath, manifestBytes, 'utf8');
+    await writeFile(join(extra.bundleDir, 'unverified.json'), '{}', 'utf8');
 
     await expect(validatePublicationHandoff({
       bundleDir: extra.bundleDir,
       manifestSha256: sha256(manifestBytes),
       binding,
-    })).rejects.toThrow('exact publisher input allowlist');
+    })).rejects.toThrow('exact file allowlist');
   });
 });
