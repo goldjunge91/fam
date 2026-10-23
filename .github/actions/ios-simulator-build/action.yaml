@@ -57,15 +57,40 @@ runs:
           echo "Unexpected simulator app path from build:simulator: $app_path" >&2
           exit 1
         fi
-        if [[ ! -d "$app_path" || ! -f "$app_path/Info.plist" ]]; then
-          echo "The simulator build did not produce a usable app at $app_path." >&2
+        if [[ ! -f "$app_path" || -L "$app_path" ]]; then
+          echo "The simulator build did not produce the expected app archive at $app_path." >&2
           exit 1
         fi
+
+        expected_root="$(cd build/local/eas/development-local && pwd -P)"
+        resolved_app_parent="$(cd "$(dirname "$app_path")" && pwd -P)"
+        resolved_app_path="$resolved_app_parent/$(basename "$app_path")"
+        run_id="${resolved_app_parent#"$expected_root"/}"
+        if [[ "$(basename "$resolved_app_path")" != fam.app || -z "$run_id" || "$run_id" == */* ]]; then
+          echo "Simulator app archive is outside build/local/eas/development-local/<run-id>/fam.app: $app_path" >&2
+          exit 1
+        fi
+
+        required_members=(
+          "Debug-iphonesimulator/fam.app/Info.plist"
+          "Debug-watchsimulator/watch.app/Info.plist"
+          "Debug-iphonesimulator/fam.app/Watch/watch.app/Info.plist"
+        )
+        if ! archive_members="$(tar -tzf "$app_path")"; then
+          echo "The simulator app artifact is not a valid gzip tarball: $app_path" >&2
+          exit 1
+        fi
+        for required_member in "${required_members[@]}"; do
+          if ! grep -Fqx "$required_member" <<<"$archive_members"; then
+            echo "Missing required simulator archive member $required_member in $app_path." >&2
+            exit 1
+          fi
+        done
 
         printf 'app_path=%s\n' "$app_path" >> "$GITHUB_OUTPUT"
 
     - name: Upload simulator build diagnostics
-      if: always()
+      if: failure()
       uses: actions/upload-artifact@v4
       with:
         name: ${{ inputs.artifact-name }}-diagnostics
@@ -84,7 +109,7 @@ runs:
 
         mkdir -p build/local/ci-artifacts
         artifact_path="build/local/ci-artifacts/fam-watch-simulator.app.tar.gz"
-        tar -C "$(dirname "$APP_PATH")" -czf "$artifact_path" "$(basename "$APP_PATH")"
+        cp "$APP_PATH" "$artifact_path"
         printf 'artifact_path=%s\n' "$artifact_path" >> "$GITHUB_OUTPUT"
 
     - name: Upload simulator app artifact

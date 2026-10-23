@@ -197,6 +197,13 @@ describe('artifact path resolution', () => {
     expect(artifactInfoPlistPath('app', appPath)).toBe(path.join(appPath, 'Info.plist'));
   });
 
+  it('resolves an EAS simulator archive file with an app suffix', () => {
+    const appArchivePath = path.join(temporaryRoot, 'fam.app');
+    fs.writeFileSync(appArchivePath, 'archive bytes');
+
+    expect(resolveArtifactPath('app', appArchivePath, temporaryRoot)).toBe(appArchivePath);
+  });
+
   it('resolves a single IPA from the artifact directory', () => {
     const ipaPath = path.join(temporaryRoot, 'build-123.ipa');
     fs.writeFileSync(ipaPath, 'ipa');

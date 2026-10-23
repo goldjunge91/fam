@@ -215,7 +215,9 @@ export function testflightSubmitCommand(profile: string, ipaPath: string): Comma
 
 function isArtifactEntry(entry: fs.Dirent, kind: ArtifactKind): boolean {
   if (kind === 'ipa') return entry.isFile() && entry.name.endsWith('.ipa');
-  if (kind === 'app') return entry.isDirectory() && entry.name.endsWith('.app');
+  if (kind === 'app') {
+    return (entry.isDirectory() || entry.isFile()) && entry.name.endsWith('.app');
+  }
   return entry.isDirectory() && entry.name.endsWith('.xcarchive');
 }
 
@@ -238,7 +240,9 @@ function assertExpectedArtifact(pathValue: string, kind: ArtifactKind): boolean 
   if (!fs.existsSync(pathValue)) return false;
   const stat = fs.statSync(pathValue);
   if (kind === 'ipa') return stat.isFile() && pathValue.endsWith('.ipa');
-  if (kind === 'app') return stat.isDirectory() && pathValue.endsWith('.app');
+  if (kind === 'app') {
+    return (stat.isDirectory() || stat.isFile()) && pathValue.endsWith('.app');
+  }
   return stat.isDirectory() && pathValue.endsWith('.xcarchive');
 }
 

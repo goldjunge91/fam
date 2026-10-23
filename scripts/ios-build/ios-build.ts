@@ -50,6 +50,7 @@ async function runCommand(
   step: CommandStep,
   log: IosBuildLog,
   captureStdout = false,
+  input?: Buffer,
 ): Promise<CommandResult> {
   log.write(`\n$ ${formatCommand(step)}\n`);
   const stdoutChunks: Buffer[] = [];
@@ -57,7 +58,7 @@ async function runCommand(
   const child = spawn(step.command, step.args, {
     cwd: projectRoot,
     env: process.env,
-    stdio: ['inherit', 'pipe', 'pipe'],
+    stdio: [input === undefined ? 'inherit' : 'pipe', 'pipe', 'pipe'],
   });
 
   child.stdout?.on('data', (chunk: Buffer) => {
@@ -70,6 +71,7 @@ async function runCommand(
   child.once('error', (error) => {
     executionError.value = error;
   });
+  if (input !== undefined) child.stdin?.end(input);
 
   const result = await new Promise<{ code: number | null; signal: NodeJS.Signals | null }>(
     (resolve) => {
@@ -120,6 +122,19 @@ async function readPlistMetadata(plistPath: string, log: IosBuildLog): Promise<B
     args: ['-convert', 'json', '-o', '-', plistPath],
   };
   const result = await runCommand(step, log, true);
+  requireSuccess(result, step);
+  return parseInfoPlistJson(result.stdout.trim());
+}
+
+async function readPlistMetadataFromBytes(
+  plistBytes: Buffer,
+  log: IosBuildLog,
+): Promise<BuildMetadata> {
+  const step: CommandStep = {
+    command: 'plutil',
+    args: ['-convert', 'json', '-o', '-', '-'],
+  };
+  const result = await runCommand(step, log, true, plistBytes);
   requireSuccess(result, step);
   return parseInfoPlistJson(result.stdout.trim());
 }
@@ -191,6 +206,39 @@ async function readIpaMetadata(
   return readPlistMetadata(plistPath, log);
 }
 
+const simulatorHostInfoPlistEntry = 'Debug-iphonesimulator/fam.app/Info.plist';
+
+async function readSimulatorArchiveMetadata(
+  archivePath: string,
+  log: IosBuildLog,
+): Promise<BuildMetadata> {
+  const listStep: CommandStep = {
+    command: 'tar',
+    args: ['-tzf', archivePath],
+  };
+  const listResult = await runCommand(listStep, log, true);
+  requireSuccess(listResult, listStep);
+
+  const archiveEntries = new Set(
+    listResult.stdout
+      .split(/\r?\n/)
+      .map((entry) => entry.trim())
+      .filter(Boolean),
+  );
+  if (!archiveEntries.has(simulatorHostInfoPlistEntry)) {
+    throw new Error(`Keine Host-Info.plist im Simulator-Archiv gefunden: ${archivePath}`);
+  }
+
+  const plistBytes = await captureBinaryCommand(
+    {
+      command: 'tar',
+      args: ['-xOzf', archivePath, simulatorHostInfoPlistEntry],
+    },
+    log,
+  );
+  return readPlistMetadataFromBytes(plistBytes, log);
+}
+
 async function readArtifactMetadata(
   spec: BuildSpec,
   artifactPath: string,
@@ -198,6 +246,9 @@ async function readArtifactMetadata(
   log: IosBuildLog,
 ): Promise<BuildMetadata> {
   if (spec.artifactKind === 'ipa') return readIpaMetadata(artifactPath, runId, log);
+  if (spec.artifactKind === 'app' && fs.statSync(artifactPath).isFile()) {
+    return readSimulatorArchiveMetadata(artifactPath, log);
+  }
   return readPlistMetadata(artifactInfoPlistPath(spec.artifactKind, artifactPath), log);
 }
 
