@@ -32,9 +32,23 @@ jobs:
           set -euo pipefail
           artifact_path="$(sed -n 's/^Artefakt: //p' "${{ runner.temp }}/ios-simulator-build.log" | tail -n 1)"
           [[ -n "$artifact_path" ]]
-          tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
-            -C "$(dirname "$artifact_path")" \
-            "$(basename "$artifact_path")"
+
+          if [[ -f "$artifact_path" ]]; then
+            extract_dir="${{ runner.temp }}/ios-simulator-artifact"
+            mkdir -p "$extract_dir"
+            tar -xzf "$artifact_path" -C "$extract_dir"
+            simulator_app="$extract_dir/Debug-iphonesimulator/fam.app"
+            [[ -d "$simulator_app" ]]
+            tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
+              -C "$extract_dir/Debug-iphonesimulator" \
+              fam.app
+          elif [[ -d "$artifact_path" && "$artifact_path" == *.app ]]; then
+            tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
+              -C "$(dirname "$artifact_path")" \
+              "$(basename "$artifact_path")"
+          else
+            exit 1
+          fi
 
       - name: Upload iOS simulator app
         uses: actions/upload-artifact@v4
