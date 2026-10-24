@@ -1,0 +1,45 @@
+name: iOS Simulator Build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build iOS Simulator App
+    runs-on: macos-26
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Build iOS simulator app
+        shell: bash
+        run: |
+          set -o pipefail
+          bun run build:simulator 2>&1 | tee "${{ runner.temp }}/ios-simulator-build.log"
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
+
+      - name: Package iOS simulator app
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_path="$(sed -n 's/^Artefakt: //p' "${{ runner.temp }}/ios-simulator-build.log" | tail -n 1)"
+          [[ -n "$artifact_path" ]]
+          tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
+            -C "$(dirname "$artifact_path")" \
+            "$(basename "$artifact_path")"
+
+      - name: Upload iOS simulator app
+        uses: actions/upload-artifact@v4
+        with:
+          name: fam-ios-simulator
+          path: ${{ runner.temp }}/fam-ios-simulator.tar.gz
+          if-no-files-found: error
+          retention-days: 7
