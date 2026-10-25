@@ -1,0 +1,72 @@
+{
+  "verdict": "APPROVED",
+  "implementationStatus": "COMPLETED",
+  "findings": [
+    {
+      "id": "EVIDENCE-001",
+      "status": "closed",
+      "evidence": ".agents/tasks/codex-hook-portierung-evidence/simplify-ignore.jsonl",
+      "summary": "Independently closed: all 14 records declare expected and actual source/target exit codes for Read, Write, and Stop; null marks non-invocation, exit_code_rule records adapter/tool-limit rules, and cleanup is present."
+    },
+    {
+      "id": "EVIDENCE-002",
+      "status": "closed",
+      "evidence": ".agents/tasks/codex-hook-portierung-evidence/runtime-change-record.md",
+      "summary": "Independently closed: the existing simplify-ignore.sh parity movement is recorded with before/after SHA-256, bounded control-flow evidence, the missing-hash-stop-after-read case, and eleven byte-identical runtime files."
+    },
+    {
+      "id": "EVIDENCE-003",
+      "status": "closed",
+      "evidence": ".agents/tasks/codex-hook-portierung-evidence/commands.log",
+      "summary": "Independently closed: the final focused validation sequence records UTC timestamps, absolute cwd, and relevant Python, Bash, jq, curl, shasum, perl, and Git metadata."
+    }
+  ],
+  "priorIndependentReview": {
+    "verdict": "CHANGES_REQUESTED",
+    "findings": ["EVIDENCE-001", "EVIDENCE-002", "EVIDENCE-003"],
+    "reviewDoc": ".agents/tasks/codex-hook-paritaet-review.md"
+  },
+  "evidence": {
+    "gateReportPresent": true,
+    "targetGroups": [
+      "session-start",
+      "beads-context",
+      "bash-guards",
+      "sdd-cache",
+      "simplify-ignore"
+    ],
+    "targetRuntimeFiles": 12,
+    "staticValidation": {
+      "json": "5/5 passed",
+      "shell": "5/5 passed",
+      "pythonAst": "2/2 passed",
+      "structureAndInventory": "passed"
+    },
+    "sessionAndBeadsValidation": "passed",
+    "guardValidation": {
+      "gitResetAllow": 5,
+      "gitResetDeny": 9,
+      "bdNotesAllow": 5,
+      "bdNotesDeny": 7,
+      "failClosedPerGuard": 11,
+      "payloadCommandsExecuted": false
+    },
+    "sddCacheValidation": "18-record local 200/304 validator and response matrix passed; three existing host cache entries refreshed by required docs fetches",
+    "simplifyIgnoreValidation": "read/write/stop/recovery matrix passed",
+    "runtimeArtifactsCleaned": true,
+    "runtimeChangeRecord": ".agents/tasks/codex-hook-portierung-evidence/runtime-change-record.md",
+    "preexistingSddCacheEntries": 12,
+    "sddCacheEntriesRefreshedByRequiredDocsFetch": 3,
+    "simplifyIgnoreCacheAfterTest": "absent",
+    "runtimeFilesChanged": true,
+    "runtimeChange": ".kiro/hooks/simplify-ignore.sh hash-tool precheck moved below Stop restore for demonstrated source parity",
+    "runtimeChangedInThisEvidenceRound": false,
+    "codexPathsUnchanged": true,
+    "codexChangedInThisEvidenceRound": false,
+    "evidenceOnlyRemediation": true,
+    "evidenceDirectory": ".agents/tasks/codex-hook-portierung-evidence",
+    "kiroIdeActivation": "partial real host dispatch observed: web_fetch PostToolUse target-cache side effect; remaining requested triggers opaque or not observable",
+    "independentReview": "APPROVED; EVIDENCE-001, EVIDENCE-002, and EVIDENCE-003 independently rechecked and closed; partial REAL KIRO HOST dispatch observed for web_fetch PostToolUse, remaining requested triggers opaque or not observable"
+  },
+  "reviewDoc": ".agents/tasks/codex-hook-paritaet-review.md"
+}
