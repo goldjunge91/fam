@@ -39,6 +39,22 @@ export function getSupabase(): TypedSupabaseClient {
   return client;
 }
 
+/**
+ * Keeps recovery OTP sessions separate from the app session until the password
+ * has been changed. This avoids booting account storage for a recovered user.
+ */
+export function createPasswordRecoveryClient(): TypedSupabaseClient {
+  return createClient<Database>(env.supabaseUrl, env.supabaseKey, {
+    global: { fetch: serverClock.fetch },
+    auth: {
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+      persistSession: false,
+      storageKey: 'fam-password-recovery',
+    },
+  });
+}
+
 export function startSupabaseAutoRefresh(): () => void {
   if (Platform.OS === 'web') return () => {};
 

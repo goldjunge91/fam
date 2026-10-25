@@ -1,3 +1,5 @@
+import { getPasswordRecoveryUrl, normalizeAccountDomain } from './account-domain';
+
 export class MissingEnvError extends Error {
   constructor(readonly variableName: string) {
     super(
@@ -25,6 +27,13 @@ export function isFlagEnabled(value: string | undefined | null): boolean {
 }
 
 export const env = {
+  get accountDomain(): string | undefined {
+    return normalizeAccountDomain(process.env.EXPO_PUBLIC_ACCOUNT_DOMAIN);
+  },
+  get passwordRecoveryUrl(): string | undefined {
+    const domain = this.accountDomain;
+    return domain ? getPasswordRecoveryUrl(domain) : undefined;
+  },
   get supabaseUrl(): string {
     return requireEnv('EXPO_PUBLIC_SUPABASE_URL', process.env.EXPO_PUBLIC_SUPABASE_URL);
   },

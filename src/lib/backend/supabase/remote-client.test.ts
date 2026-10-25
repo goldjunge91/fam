@@ -40,6 +40,7 @@ jest.mock('@/lib/observability/debug-log', () => ({
 }));
 
 import {
+  createPasswordRecoveryClient,
   getSupabase,
   serverClock,
   startSupabaseAutoRefresh,
@@ -128,6 +129,23 @@ describe('Supabase Native Lifecycle', () => {
     expect(remove).toHaveBeenCalledTimes(1);
     expect(mockStopAutoRefresh.mock.invocationCallOrder.at(-1)).toBeGreaterThan(
       mockStartAutoRefresh.mock.invocationCallOrder.at(-1) ?? 0,
+    );
+  });
+
+  it('creates a non-persistent recovery client without auth timers', () => {
+    createPasswordRecoveryClient();
+
+    expect(mockCreateClient).toHaveBeenCalledWith(
+      'https://example.supabase.co',
+      'test-key',
+      expect.objectContaining({
+        auth: expect.objectContaining({
+          autoRefreshToken: false,
+          detectSessionInUrl: false,
+          persistSession: false,
+          storageKey: 'fam-password-recovery',
+        }),
+      }),
     );
   });
 

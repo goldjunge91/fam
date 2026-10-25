@@ -15,6 +15,10 @@ export function RootNavigator() {
   const { session, accountReady, isLoading, seenOnboarding, error, retry } = useSession();
   const { markInteractive } = useObserve();
   const pathname = usePathname();
+  const isRecoveryEntryPath =
+    pathname === '/forgot-password' ||
+    pathname === '/password-recovery' ||
+    pathname === '/reset-password';
   const [forceOnboardingRouted, setForceOnboardingRouted] = useState(
     () => !env.forceOnboarding || pathname === '/onboarding',
   );
@@ -50,8 +54,8 @@ export function RootNavigator() {
       });
   }, [accountReady, error, isLoading, session?.user.id]);
 
-  if (isLoading) return null;
-  if (error) return <CrashFallback resetError={retry} />;
+  if (isLoading && !isRecoveryEntryPath) return null;
+  if (error && !isRecoveryEntryPath) return <CrashFallback resetError={retry} />;
 
   // Der Dev-Override gilt nur bis zum Abschluss in dieser App-Sitzung:
   // Neustarts erzwingen den Flow erneut, der Dashboard-Übergang bleibt möglich.
@@ -60,7 +64,12 @@ export function RootNavigator() {
   // Developer tools may exercise the real auth screens without changing the production guard.
   const authPreviewEnabled = __DEV__ && env.devTools;
 
-  if (env.forceOnboarding && !forceOnboardingRouted && pathname !== '/onboarding') {
+  if (
+    env.forceOnboarding &&
+    !forceOnboardingRouted &&
+    pathname !== '/onboarding' &&
+    !isRecoveryEntryPath
+  ) {
     return <Redirect href="/onboarding" />;
   }
 
@@ -93,6 +102,11 @@ export function RootNavigator() {
       <Stack.Protected guard={(!session && !isNewUser) || authPreviewEnabled}>
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
+
+      {/* Recovery links stay reachable without changing the app's default route order. */}
+      <Stack.Screen name="forgot-password" options={{ gestureEnabled: false }} />
+      <Stack.Screen name="password-recovery" options={{ gestureEnabled: false }} />
+      <Stack.Screen name="reset-password" options={{ gestureEnabled: false }} />
     </Stack>
   );
 }

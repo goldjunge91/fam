@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ForgotPasswordScreen } from '@/features/auth/screens/forgot-password-screen';
 import { i18n } from '@/i18n';
 
-const mockRequestPasswordReset = jest.fn();
+const mockRequestCode = jest.fn();
 const mockBack = jest.fn();
 const mockReplace = jest.fn();
 const mockCanGoBack = jest.fn(() => false);
@@ -19,8 +19,10 @@ jest.mock('expo-router', () => ({
   useLocalSearchParams: () => mockSearchParams,
 }));
 
-jest.mock('@/features/auth/api', () => ({
-  requestPasswordReset: (...args: unknown[]) => mockRequestPasswordReset(...args),
+jest.mock('@/features/auth/recovery-store', () => ({
+  usePasswordRecoveryStore: {
+    getState: () => ({ requestCode: (...args: unknown[]) => mockRequestCode(...args) }),
+  },
 }));
 
 jest.mock('@/features/auth/domain/auth-error-message', () => ({
@@ -42,6 +44,7 @@ describe('ForgotPasswordScreen', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    mockRequestCode.mockResolvedValue({ status: 'ok' });
     mockSearchParams = {};
     mockCanGoBack.mockReturnValue(false);
     await i18n.changeLanguage('de');
@@ -51,7 +54,7 @@ describe('ForgotPasswordScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Passwort zurücksetzen')).toBeTruthy();
-    expect(screen.getByRole('button', { name: 'Link anfordern' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Code anfordern' })).toBeTruthy();
   });
 
   it('rendert die Passwort-Reset-Anfrage auf Englisch', async () => {
@@ -60,49 +63,53 @@ describe('ForgotPasswordScreen', () => {
 
     expect(screen.getByText('Reset password')).toBeTruthy();
     expect(screen.getByLabelText('Email')).toBeTruthy();
-    expect(screen.getByRole('button', { name: 'Request link' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Request code' })).toBeTruthy();
   });
 
-  it('sendet Reset-Link und wechselt zur Bestätigungsansicht', async () => {
-    mockRequestPasswordReset.mockResolvedValue({ error: null });
-
+  it('sendet einen Code und wechselt zur Bestätigungsansicht', async () => {
     await renderScreen();
 
     const input = screen.getByLabelText('E-Mail');
     await fireEvent.changeText(input, 'anna@test.fam');
 
-    const submitBtn = screen.getByRole('button', { name: 'Link anfordern' });
+    const submitBtn = screen.getByRole('button', { name: 'Code anfordern' });
     await fireEvent.press(submitBtn);
 
     await waitFor(() => {
-      expect(mockRequestPasswordReset).toHaveBeenCalledWith('anna@test.fam');
+      expect(mockRequestCode).toHaveBeenCalledWith('anna@test.fam');
     });
     expect(await screen.findByText('E-Mail unterwegs')).toBeOnTheScreen();
   });
 
   it('setzt die E-Mail-Adresse in den neutralen englischen Hinweis ein', async () => {
     await i18n.changeLanguage('en');
-    mockRequestPasswordReset.mockResolvedValue({ error: null });
-
     await renderScreen();
     await fireEvent.changeText(screen.getByLabelText('Email'), 'anna@test.fam');
-    await fireEvent.press(screen.getByRole('button', { name: 'Request link' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Request code' }));
 
     expect(
       await screen.findByText(
-        'If an account exists for anna@test.fam, an email with a reset link is on its way.',
+        'If an account exists for anna@test.fam, an email with a six-digit code is on its way.',
       ),
     ).toBeOnTheScreen();
+  });
+
+  it('behauptet bei einer bereits laufenden Anfrage nicht, der Code sei gesendet', async () => {
+    mockRequestCode.mockResolvedValue({ status: 'busy' });
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'anna@test.fam');
+    await fireEvent.press(screen.getByRole('button', { name: 'Code anfordern' }));
+
+    expect(screen.queryByText('E-Mail unterwegs')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Code anfordern' })).toBeOnTheScreen();
   });
 
   it('kehrt aus dem Onboarding nach der Anfrage zum Account-Schritt zurück', async () => {
     mockSearchParams = { from: 'onboarding' };
     mockCanGoBack.mockReturnValue(true);
-    mockRequestPasswordReset.mockResolvedValue({ error: null });
-
     await renderScreen();
     await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'anna@test.fam');
-    await fireEvent.press(screen.getByRole('button', { name: 'Link anfordern' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Code anfordern' }));
     await fireEvent.press(await screen.findByRole('button', { name: 'Zurück zum Onboarding' }));
 
     expect(mockBack).toHaveBeenCalledTimes(1);

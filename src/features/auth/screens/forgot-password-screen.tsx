@@ -8,8 +8,8 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
-import { requestPasswordReset } from '@/features/auth/api';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
+import { usePasswordRecoveryStore } from '@/features/auth/recovery-store';
 import {
   type PasswordResetRequestInput,
   passwordResetRequestSchema,
@@ -55,13 +55,12 @@ export function ForgotPasswordScreen() {
 
   async function submit(values: PasswordResetRequestInput) {
     setFormError(null);
-    const { error } = await requestPasswordReset(values.email);
-
-    if (error) {
-      setFormError(authErrorMessage(error, t));
+    const result = await usePasswordRecoveryStore.getState().requestCode(values.email);
+    if (result.status === 'error') {
+      setFormError(authErrorMessage(result.error, t));
       return;
     }
-    setSent(true);
+    if (result.status === 'ok') setSent(true);
   }
 
   if (sent) {
@@ -75,6 +74,10 @@ export function ForgotPasswordScreen() {
             {t('auth.passwordReset.sentBody', { email: email.trim().toLowerCase() })}
           </Txt>
         </ContentCard>
+        <Button
+          title={t('auth.passwordReset.enterCode')}
+          onPress={() => router.push('/password-recovery')}
+        />
         {/* Zurück-Aktion */}
         <Button
           title={
@@ -122,7 +125,7 @@ export function ForgotPasswordScreen() {
 
           {/* Absende-Button */}
           <Button
-            title={t('auth.passwordReset.requestLink')}
+            title={t('auth.passwordReset.requestCode')}
             onPress={() => void handleSubmit(submit)()}
             loading={isSubmitting}
           />

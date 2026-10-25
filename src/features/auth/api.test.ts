@@ -1,14 +1,19 @@
+import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import {
   confirmSignUpWithCode,
+  discardPasswordRecoverySession,
   requestPasswordReset,
   resendConfirmationEmail,
   signIn,
   signOut,
   signUp,
+  transferPasswordRecoverySession,
   updatePassword,
+  updatePasswordWithRecoveryClient,
+  verifyPasswordRecoveryCode,
 } from './api';
 
-const mockAuth = {
+const mockPrimaryAuth = {
   signUp: jest.fn(),
   verifyOtp: jest.fn(),
   resend: jest.fn(),
@@ -16,10 +21,29 @@ const mockAuth = {
   signOut: jest.fn(),
   resetPasswordForEmail: jest.fn(),
   updateUser: jest.fn(),
+  getSession: jest.fn(),
+  setSession: jest.fn(),
 };
+const mockRecoveryAuth = {
+  verifyOtp: jest.fn(),
+  updateUser: jest.fn(),
+  getSession: jest.fn(),
+  signOut: jest.fn(),
+};
+const mockRecoveryClient = { auth: mockRecoveryAuth };
+let mockRecoveryUrl: string | undefined;
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
-  getSupabase: () => ({ auth: mockAuth }),
+  createPasswordRecoveryClient: () => mockRecoveryClient,
+  getSupabase: () => ({ auth: mockPrimaryAuth }),
+}));
+
+jest.mock('@/lib/config/env', () => ({
+  env: {
+    get passwordRecoveryUrl() {
+      return mockRecoveryUrl;
+    },
+  },
 }));
 
 jest.mock('expo-linking', () => ({
@@ -29,15 +53,16 @@ jest.mock('expo-linking', () => ({
 describe('auth API', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockRecoveryUrl = undefined;
   });
 
   it('forwards signup, verification, resend, password sign-in and sign-out', async () => {
     const data = { user: { id: 'user-1' } };
-    mockAuth.signUp.mockResolvedValue({ data, error: null });
-    mockAuth.verifyOtp.mockResolvedValue({ data, error: null });
-    mockAuth.resend.mockResolvedValue({ error: null });
-    mockAuth.signInWithPassword.mockResolvedValue({ data, error: null });
-    mockAuth.signOut.mockResolvedValue({ error: null });
+    mockPrimaryAuth.signUp.mockResolvedValue({ data, error: null });
+    mockPrimaryAuth.verifyOtp.mockResolvedValue({ data, error: null });
+    mockPrimaryAuth.resend.mockResolvedValue({ error: null });
+    mockPrimaryAuth.signInWithPassword.mockResolvedValue({ data, error: null });
+    mockPrimaryAuth.signOut.mockResolvedValue({ error: null });
 
     await expect(signUp('person@example.test', 'secret')).resolves.toEqual({ data, error: null });
     await expect(confirmSignUpWithCode('person@example.test', '123456')).resolves.toEqual({
@@ -48,37 +73,133 @@ describe('auth API', () => {
     await expect(signIn('person@example.test', 'secret')).resolves.toEqual({ data, error: null });
     await expect(signOut()).resolves.toEqual({ error: null });
 
-    expect(mockAuth.signUp).toHaveBeenCalledWith({
+    expect(mockPrimaryAuth.signUp).toHaveBeenCalledWith({
       email: 'person@example.test',
       password: 'secret',
     });
-    expect(mockAuth.verifyOtp).toHaveBeenCalledWith({
+    expect(mockPrimaryAuth.verifyOtp).toHaveBeenCalledWith({
       email: 'person@example.test',
       token: '123456',
       type: 'signup',
     });
-    expect(mockAuth.resend).toHaveBeenCalledWith({ type: 'signup', email: 'person@example.test' });
-    expect(mockAuth.signInWithPassword).toHaveBeenCalledWith({
+    expect(mockPrimaryAuth.resend).toHaveBeenCalledWith({
+      type: 'signup',
+      email: 'person@example.test',
+    });
+    expect(mockPrimaryAuth.signInWithPassword).toHaveBeenCalledWith({
       email: 'person@example.test',
       password: 'secret',
     });
-    expect(mockAuth.signOut).toHaveBeenCalledTimes(1);
+    expect(mockPrimaryAuth.signOut).toHaveBeenCalledTimes(1);
   });
 
   it('returns reset and password update errors from Supabase', async () => {
     const error = new Error('request failed');
-    mockAuth.resetPasswordForEmail.mockResolvedValue({ error });
-    mockAuth.updateUser.mockResolvedValue({ error });
+    mockPrimaryAuth.resetPasswordForEmail.mockResolvedValue({ error });
+    mockPrimaryAuth.updateUser.mockResolvedValue({ error });
 
-    await expect(requestPasswordReset('person@example.test')).resolves.toEqual({
-      error,
-      redirectTo: 'fam:///reset-password',
-    });
+    await expect(requestPasswordReset('person@example.test')).resolves.toEqual({ error });
     await expect(updatePassword('new-secret')).resolves.toEqual({ error });
 
-    expect(mockAuth.resetPasswordForEmail).toHaveBeenCalledWith('person@example.test', {
-      redirectTo: 'fam:///reset-password',
+    expect(mockPrimaryAuth.resetPasswordForEmail).toHaveBeenCalledWith('person@example.test', {
+      redirectTo: 'fam:///password-recovery',
     });
-    expect(mockAuth.updateUser).toHaveBeenCalledWith({ password: 'new-secret' });
+    expect(mockPrimaryAuth.updateUser).toHaveBeenCalledWith({ password: 'new-secret' });
+  });
+
+  it('uses the configured HTTPS recovery URL when available', async () => {
+    mockRecoveryUrl = 'https://account.example.test/password-recovery';
+    mockPrimaryAuth.resetPasswordForEmail.mockResolvedValue({ error: null });
+
+    await requestPasswordReset('person@example.test');
+
+    expect(mockPrimaryAuth.resetPasswordForEmail).toHaveBeenCalledWith('person@example.test', {
+      redirectTo: 'https://account.example.test/password-recovery',
+    });
+  });
+
+  it('verifies the recovery code on the isolated client and updates there', async () => {
+    const session = { user: { id: 'recovered-user' } };
+    mockRecoveryAuth.verifyOtp.mockResolvedValue({ data: { session }, error: null });
+    mockRecoveryAuth.updateUser.mockResolvedValue({ error: null });
+
+    await expect(
+      verifyPasswordRecoveryCode(
+        mockRecoveryClient as unknown as TypedSupabaseClient,
+        'person@example.test',
+        '123456',
+      ),
+    ).resolves.toEqual({
+      data: { session },
+      error: null,
+    });
+    await expect(
+      updatePasswordWithRecoveryClient(
+        mockRecoveryClient as unknown as TypedSupabaseClient,
+        'new-secret',
+      ),
+    ).resolves.toEqual({ error: null });
+
+    expect(mockRecoveryAuth.verifyOtp).toHaveBeenCalledWith({
+      email: 'person@example.test',
+      token: '123456',
+      type: 'recovery',
+    });
+    expect(mockRecoveryAuth.updateUser).toHaveBeenCalledWith({ password: 'new-secret' });
+    expect(mockPrimaryAuth.verifyOtp).not.toHaveBeenCalled();
+    expect(mockPrimaryAuth.updateUser).not.toHaveBeenCalled();
+  });
+
+  it('transfers only into an empty primary session and preserves an existing account', async () => {
+    const session = {
+      access_token: 'access',
+      refresh_token: 'refresh',
+      user: { id: 'recovered-user' },
+    };
+    mockPrimaryAuth.getSession.mockResolvedValue({ data: { session: null }, error: null });
+    mockRecoveryAuth.getSession.mockResolvedValue({ data: { session }, error: null });
+    mockPrimaryAuth.setSession.mockResolvedValue({ data: { session }, error: null });
+
+    await expect(
+      transferPasswordRecoverySession(mockRecoveryClient as unknown as TypedSupabaseClient, null),
+    ).resolves.toBe('transferred');
+    expect(mockPrimaryAuth.setSession).toHaveBeenCalledWith({
+      access_token: 'access',
+      refresh_token: 'refresh',
+    });
+
+    jest.clearAllMocks();
+    mockPrimaryAuth.getSession.mockResolvedValue({
+      data: { session: { user: { id: 'existing-user' } } },
+      error: null,
+    });
+    await expect(
+      transferPasswordRecoverySession(mockRecoveryClient as unknown as TypedSupabaseClient, null),
+    ).resolves.toBe('primary-session-preserved');
+    expect(mockPrimaryAuth.setSession).not.toHaveBeenCalled();
+  });
+
+  it('does not transfer after the primary account was signed out during recovery', async () => {
+    mockPrimaryAuth.getSession.mockResolvedValue({ data: { session: null }, error: null });
+
+    await expect(
+      transferPasswordRecoverySession(
+        mockRecoveryClient as unknown as TypedSupabaseClient,
+        'initial-user',
+      ),
+    ).resolves.toBe('sign-in-required');
+    expect(mockRecoveryAuth.getSession).not.toHaveBeenCalled();
+    expect(mockPrimaryAuth.setSession).not.toHaveBeenCalled();
+  });
+
+  it('discards only the recovery client local session', async () => {
+    mockRecoveryAuth.signOut.mockResolvedValue({ error: null });
+
+    await expect(
+      discardPasswordRecoverySession(mockRecoveryClient as unknown as TypedSupabaseClient),
+    ).resolves.toEqual({ error: null });
+
+    expect(mockRecoveryAuth.signOut).toHaveBeenCalledWith({ scope: 'local' });
+    expect(mockPrimaryAuth.signOut).not.toHaveBeenCalled();
   });
 });

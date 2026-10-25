@@ -87,6 +87,41 @@ describe('RootNavigator', () => {
 
     expect(screen.getByText('onboarding')).toBeOnTheScreen();
     expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+    expect(screen.getByText('forgot-password')).toBeOnTheScreen();
+    expect(screen.getByText('password-recovery')).toBeOnTheScreen();
+    expect(screen.getByText('reset-password')).toBeOnTheScreen();
+  });
+
+  it('keeps a cold recovery route available during session bootstrap', async () => {
+    mockPathname = '/password-recovery';
+    mockSessionState = {
+      session: null,
+      accountReady: false,
+      isLoading: true,
+      seenOnboarding: true,
+    };
+
+    await render(<RootNavigator />);
+
+    expect(screen.getByText('password-recovery')).toBeOnTheScreen();
+    expect(screen.getByText('reset-password')).toBeOnTheScreen();
+  });
+
+  it('keeps forgot-password reachable from first-user onboarding during bootstrap', async () => {
+    mockForceOnboarding = true;
+    mockPathname = '/forgot-password';
+    mockSessionState = {
+      session: null,
+      accountReady: false,
+      isLoading: true,
+      seenOnboarding: false,
+    };
+
+    await render(<RootNavigator />);
+
+    expect(screen.getByText('forgot-password')).toBeOnTheScreen();
+    expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+    expect(screen.queryByText('redirect:/onboarding')).not.toBeOnTheScreen();
   });
 
   it('registriert private Root-Routen ausschließlich mit einer Session', async () => {

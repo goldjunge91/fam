@@ -2,9 +2,10 @@ import { act, renderHook, waitFor } from '@testing-library/react-native';
 import { useAppDeepLinks } from './use-app-deep-links';
 
 const mockGetInitialURL = jest.fn();
-const mockSetSession = jest.fn();
+const mockOpenLegacyRecoveryLink = jest.fn();
 const mockParseAuthTokensFromUrl = jest.fn();
 const mockParseAuthErrorFromUrl = jest.fn();
+const mockMarkLegacyRecoveryLinkFailed = jest.fn();
 const mockSavePendingInviteToken = jest.fn();
 const mockSetAuthDeepLinkError = jest.fn();
 const mockReportError = jest.fn();
@@ -37,8 +38,13 @@ jest.mock('@/features/auth/pending-invite', () => ({
   savePendingInviteToken: (...args: unknown[]) => mockSavePendingInviteToken(...args),
 }));
 
-jest.mock('@/lib/backend/supabase/remote-client', () => ({
-  getSupabase: () => ({ auth: { setSession: (...args: unknown[]) => mockSetSession(...args) } }),
+jest.mock('@/features/auth/recovery-store', () => ({
+  usePasswordRecoveryStore: {
+    getState: () => ({
+      openLegacyRecoveryLink: (...args: unknown[]) => mockOpenLegacyRecoveryLink(...args),
+      markLegacyRecoveryLinkFailed: () => mockMarkLegacyRecoveryLinkFailed(),
+    }),
+  },
 }));
 
 jest.mock('@/lib/observability/debug-log', () => ({
@@ -59,41 +65,40 @@ describe('useAppDeepLinks', () => {
     mockGetInitialURL.mockResolvedValue(null);
     mockParseAuthTokensFromUrl.mockReturnValue(null);
     mockParseAuthErrorFromUrl.mockReturnValue(null);
-    mockSetSession.mockResolvedValue({ error: null });
+    mockOpenLegacyRecoveryLink.mockResolvedValue('opened');
   });
 
-  it('applies auth tokens from the initial URL and removes the listener on cleanup', async () => {
+  it('opens legacy recovery tokens without changing the primary session and removes the listener', async () => {
     mockGetInitialURL.mockResolvedValue('fam://auth/callback');
     mockParseAuthTokensFromUrl.mockReturnValue({ accessToken: 'access', refreshToken: 'refresh' });
     const { unmount } = await renderHook(() => useAppDeepLinks());
 
     await waitFor(() =>
-      expect(mockSetSession).toHaveBeenCalledWith({
-        access_token: 'access',
-        refresh_token: 'refresh',
+      expect(mockOpenLegacyRecoveryLink).toHaveBeenCalledWith({
+        accessToken: 'access',
+        refreshToken: 'refresh',
       }),
     );
+    expect(mockOpenLegacyRecoveryLink).toHaveBeenCalledTimes(1);
     expect(mockSavePendingInviteToken).not.toHaveBeenCalled();
 
     await unmount();
     expect(mockRemoveListener).toHaveBeenCalledTimes(1);
   });
 
-  it('reports an error when applying an auth session fails', async () => {
+  it('reports a warning when a legacy recovery session cannot be opened', async () => {
     mockParseAuthTokensFromUrl.mockReturnValue({ accessToken: 'a', refreshToken: 'r' });
-    mockSetSession.mockRejectedValue(new Error('offline'));
+    mockOpenLegacyRecoveryLink.mockResolvedValue('failed');
     mockGetInitialURL.mockResolvedValue('fam://auth/callback');
     await renderHook(() => useAppDeepLinks());
 
     await waitFor(() =>
-      expect(mockReportError).toHaveBeenCalledWith(expect.any(Error), {
+      expect(mockReportWarning).toHaveBeenCalledWith('Legacy recovery link could not be applied', {
         operation: 'auth.deep_link_session',
         error_code: 'deep_link_session_failed',
       }),
     );
-    expect(mockSetAuthDeepLinkError).toHaveBeenCalledWith(
-      expect.stringContaining('6-stelligen Code'),
-    );
+    expect(mockSetAuthDeepLinkError).not.toHaveBeenCalled();
   });
 
   it('stores a parsed auth error and reports it as a warning', async () => {
@@ -108,6 +113,15 @@ describe('useAppDeepLinks', () => {
       }),
     );
     expect(mockSetAuthDeepLinkError).toHaveBeenCalledWith('Der Link ist abgelaufen.');
+  });
+
+  it('shows expired legacy reset links in the recovery route instead of sign-in', async () => {
+    mockGetInitialURL.mockResolvedValue('fam:///reset-password#error=access_denied');
+    mockParseAuthErrorFromUrl.mockReturnValue('Der Link ist abgelaufen.');
+    await renderHook(() => useAppDeepLinks());
+
+    await waitFor(() => expect(mockMarkLegacyRecoveryLinkFailed).toHaveBeenCalledTimes(1));
+    expect(mockSetAuthDeepLinkError).not.toHaveBeenCalled();
   });
 
   it('stores a trimmed invite token from the initial URL', async () => {

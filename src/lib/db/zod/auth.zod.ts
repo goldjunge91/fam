@@ -74,6 +74,11 @@ export const confirmationCodeSchema = z.object({
     .regex(/^\d{6}$/, AUTH_VALIDATION_KEYS.codeInvalid),
 });
 
+export const passwordRecoveryVerificationSchema = z.object({
+  email: emailSchema,
+  code: confirmationCodeSchema.shape.code,
+});
+
 export const newPasswordSchema = z
   .object({ password: newPasswordValueSchema, passwordConfirmation: z.string() })
   .refine(({ password, passwordConfirmation }) => password === passwordConfirmation, {
@@ -82,6 +87,7 @@ export const newPasswordSchema = z
   });
 
 export type ConfirmationCodeInput = z.output<typeof confirmationCodeSchema>;
+export type PasswordRecoveryVerificationInput = z.output<typeof passwordRecoveryVerificationSchema>;
 export type SignInInput = z.output<typeof signInSchema>;
 export type SignUpInput = z.output<typeof signUpSchema>;
 export type PasswordResetRequestInput = z.output<typeof passwordResetRequestSchema>;

@@ -81,6 +81,8 @@ const variables = [
 const optionalVariables = [
   // Ohne diesen Wert bleibt Werbung in der App aus Kompatibilitätsgründen aktiviert.
   { name: 'EXPO_PUBLIC_ADS_ENABLED', visibility: 'plaintext' },
+  // Erzeugt HTTPS-Recovery-Links und native App-Link-Allowlists für den Account-Host.
+  { name: 'EXPO_PUBLIC_ACCOUNT_DOMAIN', visibility: 'plaintext' },
 ];
 
 const missing = variables.filter(({ name, defaultValue }) => !defaultValue && !values[name]?.trim());
