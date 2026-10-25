@@ -1,4 +1,5 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { requiredBringImageUrl } from './bring-image-url';
 import type { CanonicalCatalogRecord } from './listing-only/canonical-catalog';
 import type { CrawlerStore } from './types';
 
@@ -11,6 +12,7 @@ export type UploaderConfig = {
 type CanonicalCatalogRpcRecord = {
   id: string;
   canonical_brn: string;
+  source_zip_code: string;
   store_id: string;
   title: string;
   valid_from: string;
@@ -18,7 +20,6 @@ type CanonicalCatalogRpcRecord = {
   page_count: number;
   cover_image: string;
   pages: CanonicalCatalogRecord['pages'];
-  verified_sha256: string;
   available_zip_codes: string[];
 };
 
@@ -48,7 +49,7 @@ export function createSupabaseUploaderClient(config: UploaderConfig): SupabaseCl
   });
 }
 
-/** Writes store metadata, then atomically replaces availability within the completed ZIP scope. */
+/** Writes metadata, then atomically replaces availability inside the completed ZIP scope. */
 export async function publishCanonicalCatalog(
   supabase: SupabaseClient,
   catalog: readonly CanonicalCatalogRecord[],
@@ -56,15 +57,24 @@ export async function publishCanonicalCatalog(
   scopedZipCodes: readonly string[],
 ): Promise<{ uploadedCount: number; storesCount: number }> {
   const zipScope = [...new Set(scopedZipCodes)].sort();
-  if (zipScope.some((zipCode) => zipCode.length === 0)) {
-    throw new Error('Katalog-Scope enthält eine leere PLZ.');
+  if (zipScope.some((zipCode) => !/^\d{5}$/.test(zipCode))) {
+    throw new Error('Katalog-Scope enthält eine ungültige PLZ.');
   }
   if (zipScope.length === 0) return { uploadedCount: 0, storesCount: 0 };
 
   const zipScopeSet = new Set(zipScope);
   for (const record of catalog) {
-    if (record.availableZipCodes.some((zipCode) => !zipScopeSet.has(zipCode))) {
-      throw new Error(`Prospekt ${record.id} enthält PLZ außerhalb des Crawl-Scopes.`);
+    if (!zipScopeSet.has(record.sourceZipCode) ||
+        record.availableZipCodes.length !== 1 ||
+        record.availableZipCodes[0] !== record.sourceZipCode) {
+      throw new Error(`Prospekt ${record.id} enthält keine ausschließlich belegte regionale PLZ.`);
+    }
+    requiredBringImageUrl(record.coverImage, `Prospekt ${record.id} Cover`);
+    for (const page of record.pages) {
+      requiredBringImageUrl(page.imageUrl, `Prospekt ${record.id} Seite ${page.number}`);
+      for (const hotspot of page.hotspots) {
+        if (hotspot.imageUrl) requiredBringImageUrl(hotspot.imageUrl, `Prospekt ${record.id} Hotspot`);
+      }
     }
   }
 
@@ -82,7 +92,9 @@ export async function publishCanonicalCatalog(
       .map((store) => ({
         id: store.id,
         name: store.name,
-        ...(store.logoUrl === undefined ? {} : { logo_url: store.logoUrl }),
+        ...(store.logoUrl === undefined || store.logoUrl === null
+          ? {}
+          : { logo_url: requiredBringImageUrl(store.logoUrl, `Store ${store.id} Logo`) }),
         active: true,
       })),
   );
@@ -99,6 +111,7 @@ export async function publishCanonicalCatalog(
   const records: CanonicalCatalogRpcRecord[] = catalog.map((record) => ({
     id: record.id,
     canonical_brn: record.canonicalBrn,
+    source_zip_code: record.sourceZipCode,
     store_id: record.storeId,
     title: record.title,
     valid_from: record.validFrom,
@@ -106,7 +119,6 @@ export async function publishCanonicalCatalog(
     page_count: record.pageCount,
     cover_image: record.coverImage,
     pages: record.pages,
-    verified_sha256: record.verifiedSha256,
     available_zip_codes: record.availableZipCodes,
   }));
   const { error } = await (supabase as unknown as CanonicalCatalogRpcClient).rpc(
@@ -114,7 +126,7 @@ export async function publishCanonicalCatalog(
     { p_records: sanitizeJsonForPostgres(records), p_scoped_zip_codes: zipScope },
   );
   if (error) {
-    throw new Error(`Kanonischer Prospektkatalog konnte nicht ersetzt werden: ${error.message}`);
+    throw new Error(`Prospektkatalog konnte nicht ersetzt werden: ${error.message}`);
   }
 
   return { uploadedCount: catalog.length, storesCount: storeById.size };

@@ -1,6 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { getDatabase } from '@/lib/db/local-client';
 import { debugLog } from '@/lib/observability/debug-log';
+import {
+  type BrochureImagePrefetchReference,
+  MAX_BROCHURE_PREFETCH_IMAGES,
+} from '../lib/brochure-image-prefetch';
 import type { LocalBrochure, LocalBrochurePage, LocalBrochureStore } from '../types';
 
 export function useBrochures() {
@@ -72,11 +76,44 @@ export function useBrochures() {
         }),
       );
 
+      const now = Date.now();
+      const activeBrochures = mappedBrochures.filter(
+        (brochure) => Date.parse(brochure.validUntil) > now,
+      );
+      const activeStoreIds = new Set(activeBrochures.map((brochure) => brochure.storeId));
+      const pageRows = await db.getAllAsync<{
+        brochure_id: string;
+        page_number: number;
+        valid_until: string;
+      }>(
+        `SELECT p.brochure_id, p.page_number, b.valid_until
+         FROM local_brochure_pages p
+         JOIN local_brochures b ON b.id = p.brochure_id
+         WHERE p.page_number >= 1 AND b.valid_until > ?
+         ORDER BY b.valid_until ASC, b.id ASC, p.page_number ASC`,
+        [new Date(now).toISOString()],
+      );
+      const imageReferences: BrochureImagePrefetchReference[] = [
+        ...activeBrochures.map((brochure) => ({
+          reference: { brochureId: brochure.id, kind: 'cover' as const },
+          validUntil: brochure.validUntil,
+        })),
+        ...pageRows.map((page) => ({
+          reference: {
+            brochureId: page.brochure_id,
+            kind: 'page' as const,
+            pageNumber: page.page_number,
+          },
+          validUntil: page.valid_until,
+        })),
+      ].slice(0, MAX_BROCHURE_PREFETCH_IMAGES);
+
       return {
         cacheZip: cache?.zip_code ?? null,
         stores: mappedStores,
-        brochures: mappedBrochures,
-        favorites: mappedStores.filter((s) => s.isFavorite),
+        brochures: activeBrochures,
+        favorites: mappedStores.filter((store) => store.isFavorite && activeStoreIds.has(store.id)),
+        imageReferences,
       };
     },
   });

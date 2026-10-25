@@ -41,9 +41,13 @@ describe('brochure queries', () => {
           store_id: 'rewe',
           title: 'Wochenangebote',
           valid_from: '2026-10-10',
-          valid_until: '2026-10-16',
+          valid_until: '2099-10-16',
           cover_image: 'cover.jpg',
         },
+      ])
+      .mockResolvedValueOnce([
+        { brochure_id: 'brochure-1', page_number: 1, valid_until: '2099-10-16' },
+        { brochure_id: 'brochure-1', page_number: 2, valid_until: '2099-10-16' },
       ]);
 
     const { result } = await renderHook(() => useBrochures(), { wrapper: createWrapper() });
@@ -61,11 +65,25 @@ describe('brochure queries', () => {
           storeId: 'rewe',
           title: 'Wochenangebote',
           validFrom: '2026-10-10',
-          validUntil: '2026-10-16',
+          validUntil: '2099-10-16',
           coverImage: 'cover.jpg',
         },
       ],
       favorites: [{ id: 'rewe', name: 'REWE', logoUrl: null, active: true, isFavorite: true }],
+      imageReferences: [
+        {
+          reference: { brochureId: 'brochure-1', kind: 'cover' },
+          validUntil: '2099-10-16',
+        },
+        {
+          reference: { brochureId: 'brochure-1', kind: 'page', pageNumber: 1 },
+          validUntil: '2099-10-16',
+        },
+        {
+          reference: { brochureId: 'brochure-1', kind: 'page', pageNumber: 2 },
+          validUntil: '2099-10-16',
+        },
+      ],
     });
   });
 
@@ -81,6 +99,7 @@ describe('brochure queries', () => {
       stores: [],
       brochures: [],
       favorites: [],
+      imageReferences: [],
     });
   });
 

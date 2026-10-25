@@ -2,11 +2,13 @@
 
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
-import { hashOrderedPageSet, type PageContentHash } from './full-brochure-signature';
+import { regionalReferenceKey, type CachedPageMetadata } from './fetch-detail-pages';
+import { requiredBringImageUrl } from '../bring-image-url';
 import type { CrawlerHotspot, CrawlerPage } from '../types';
 
 export type PersistedCanonicalBrochure = {
   canonicalBrn: string;
+  sourceZipCode: string;
   storeName: string;
   storeId: string;
   title: string;
@@ -14,31 +16,29 @@ export type PersistedCanonicalBrochure = {
   validUntil: string;
   pageCount: number;
   availableZipCodes: string[];
-  verifiedSha256: string;
-  verifiedPageHashes: PageContentHash[];
   coverImage: string;
   pageUrls: string[];
   pages: CrawlerPage[];
 };
 
 export type PersistCanonicalArguments = {
-  verificationPath: string;
+  inputPath: string;
+  detailPageMetadataPath: string;
   outputPath: string;
 };
 
 const defaultArguments: PersistCanonicalArguments = {
-  verificationPath: 'tools/crawler/data/listing-only/canonical-page-verification.json',
+  inputPath: 'tools/crawler/data/listing-only/all-stores-full.json',
+  detailPageMetadataPath: 'tools/crawler/data/listing-only/detail-page-metadata.json',
   outputPath: 'tools/crawler/data/listing-only/canonical-brochures.json',
 };
-
-const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
 function requiredString(value: unknown, field: string): string {
-  if (typeof value !== 'string' || value.length === 0) {
+  if (typeof value !== 'string' || value.trim().length === 0) {
     throw new Error(`${field} must be a non-empty string`);
   }
   return value;
@@ -51,184 +51,138 @@ function positiveInteger(value: unknown, field: string): number {
   return value;
 }
 
-function stringArray(value: unknown, field: string, allowDuplicates = false): string[] {
-  if (!Array.isArray(value)) throw new Error(`${field} must be an array`);
-  const values = value.map((entry) => requiredString(entry, field));
-  if (!allowDuplicates && new Set(values).size !== values.length) {
-    throw new Error(`${field} must not contain duplicates`);
-  }
-  return values;
-}
-
-function isOptionalString(record: Record<string, unknown>, field: string): boolean {
-  return record[field] === undefined || typeof record[field] === 'string';
-}
-
-function isOptionalFiniteNumber(record: Record<string, unknown>, field: string): boolean {
-  return record[field] === undefined ||
-    (typeof record[field] === 'number' && Number.isFinite(record[field]));
-}
-
 function isCrawlerHotspot(value: unknown): value is CrawlerHotspot {
   if (!isRecord(value)) return false;
-  if (value.kind !== 'discount' && value.kind !== 'linkout' && value.kind !== 'unknown') {
-    return false;
-  }
-  if (
-    typeof value.id !== 'string' ||
-    typeof value.title !== 'string' ||
-    !['x', 'y', 'width', 'height'].every(
+  if (value.kind !== 'discount' && value.kind !== 'linkout' && value.kind !== 'unknown') return false;
+  return typeof value.id === 'string' && typeof value.title === 'string' &&
+    ['x', 'y', 'width', 'height'].every(
       (field) => typeof value[field] === 'number' && Number.isFinite(value[field]),
-    )
-  ) {
-    return false;
-  }
-
-  return [
-    'description',
-    'discount',
-    'priceLabel',
-    'currency',
-    'imageUrl',
-    'linkoutUrl',
-  ].every((field) => isOptionalString(value, field)) &&
-    ['priceCents', 'oldPriceCents'].every((field) => isOptionalFiniteNumber(value, field));
+    );
 }
 
-function parsePageHashes(value: unknown, pageCount: number, variantLabel: string): PageContentHash[] {
-  if (!Array.isArray(value)) throw new Error(`${variantLabel} pageHashes must be an array`);
-  if (value.length !== pageCount) {
-    throw new Error(`${variantLabel} expected ${pageCount} page hashes, received ${value.length}`);
-  }
-
-  const pageHashes = value.map((entry, index) => {
-    if (!isRecord(entry)) throw new Error(`${variantLabel} page hash ${index + 1} must be an object`);
-    const pageNumber = positiveInteger(entry.pageNumber, `${variantLabel} page hash number`);
-    if (pageNumber !== index + 1) {
-      throw new Error(`${variantLabel} page hashes must be ordered from page 1 to ${pageCount}`);
-    }
-    const sha256 = requiredString(entry.sha256, `${variantLabel} page hash`);
-    if (!SHA256_PATTERN.test(sha256)) {
-      throw new Error(`${variantLabel} page ${pageNumber} has an invalid SHA-256 hash`);
-    }
-    return { pageNumber, sha256 };
-  });
-
-  return pageHashes;
-}
-
-function parsePages(
-  value: unknown,
-  pageUrls: string[],
-  pageCount: number,
-  variantLabel: string,
-): CrawlerPage[] {
-  if (!Array.isArray(value)) throw new Error(`${variantLabel} pages must be an array`);
-  if (value.length !== pageCount) {
-    throw new Error(`${variantLabel} expected ${pageCount} pages, received ${value.length}`);
-  }
-
+function parsePages(value: unknown, label: string): CrawlerPage[] {
+  if (!Array.isArray(value) || value.length === 0) throw new Error(`${label} must contain pages`);
   return value.map((entry, index) => {
-    if (!isRecord(entry)) throw new Error(`${variantLabel} page ${index + 1} must be an object`);
-    const number = positiveInteger(entry.number, `${variantLabel} page number`);
-    const imageUrl = requiredString(entry.imageUrl, `${variantLabel} page image URL`);
-    if (number !== index + 1 || imageUrl !== pageUrls[index]) {
-      throw new Error(`${variantLabel} pages must match the ordered page URLs from page 1`);
+    if (!isRecord(entry) || entry.number !== index + 1) {
+      throw new Error(`${label} pages must be ordered from page 1`);
     }
+    const imageUrl = requiredBringImageUrl(entry.imageUrl, `${label} page ${index + 1}`);
     if (!Array.isArray(entry.hotspots) || !entry.hotspots.every(isCrawlerHotspot)) {
-      throw new Error(`${variantLabel} page ${number} has invalid hotspots`);
+      throw new Error(`${label} page ${index + 1} has invalid hotspots`);
     }
-    return { number, imageUrl, hotspots: entry.hotspots };
+    return {
+      number: index + 1,
+      imageUrl,
+      hotspots: entry.hotspots.map((hotspot) => ({
+        ...hotspot,
+        ...(hotspot.imageUrl
+          ? { imageUrl: requiredBringImageUrl(hotspot.imageUrl, `${label} hotspot`) }
+          : {}),
+      })),
+    };
   });
 }
 
-function parseVariant(
-  value: unknown,
-  group: Record<string, unknown>,
-  groupIndex: number,
-  variantIndex: number,
-): PersistedCanonicalBrochure {
-  const label = `Group ${groupIndex + 1} variant ${variantIndex + 1}`;
-  if (!isRecord(value)) throw new Error(`${label} must be an object`);
-
-  const canonicalBrn = requiredString(value.canonicalBrn, `${label} canonicalBrn`);
-  const storeName = requiredString(group.storeName, `Group ${groupIndex + 1} storeName`);
-  const validFrom = requiredString(group.validFrom, `Group ${groupIndex + 1} validFrom`);
-  const validUntil = requiredString(group.validUntil, `Group ${groupIndex + 1} validUntil`);
-  const storeId = requiredString(value.storeId, `${label} storeId`);
-  const title = requiredString(value.title, `${label} title`);
-  const pageCount = positiveInteger(value.pageCount, `${label} pageCount`);
-  const groupPageCount = positiveInteger(group.detailPageCount, `Group ${groupIndex + 1} detailPageCount`);
-  if (pageCount !== groupPageCount) {
-    throw new Error(`${label} pageCount does not match its metadata group`);
+function parseMetadata(value: unknown): Record<string, CachedPageMetadata> {
+  if (!isRecord(value)) throw new Error('Detail page metadata must be an object');
+  const result: Record<string, CachedPageMetadata> = {};
+  for (const [referenceKey, entry] of Object.entries(value)) {
+    if (!isRecord(entry)) throw new Error(`Detail metadata ${referenceKey} must be an object`);
+    const brn = requiredString(entry.brn, `${referenceKey} BRN`);
+    const sourceZipCode = requiredString(entry.zipCode, `${referenceKey} ZIP code`);
+    if (!/^\d{5}$/.test(sourceZipCode) || regionalReferenceKey(sourceZipCode, brn) !== referenceKey) {
+      throw new Error(`Detail metadata ${referenceKey} has an invalid regional identity`);
+    }
+    const pages = parsePages(entry.pages, `Detail metadata ${referenceKey}`);
+    const coverImage = requiredBringImageUrl(entry.coverImage, `${referenceKey} cover image`);
+    const pageUrls = Array.isArray(entry.pageUrls)
+      ? entry.pageUrls.map((url, index) => requiredBringImageUrl(url, `${referenceKey} page URL ${index + 1}`))
+      : [];
+    if (pageUrls.length !== pages.length || pageUrls.some((url, index) => url !== pages[index]?.imageUrl)) {
+      throw new Error(`Detail metadata ${referenceKey} page URLs disagree with its pages`);
+    }
+    result[referenceKey] = {
+      referenceKey,
+      brn,
+      zipCode: sourceZipCode,
+      title: requiredString(entry.title, `${referenceKey} title`),
+      storeId: requiredString(entry.storeId, `${referenceKey} storeId`),
+      validFrom: requiredString(entry.validFrom, `${referenceKey} validFrom`),
+      validUntil: requiredString(entry.validUntil, `${referenceKey} validUntil`),
+      coverImage,
+      pageUrls,
+      pages,
+    };
   }
-
-  const availableZipCodes = stringArray(value.availableZipCodes, `${label} availableZipCodes`);
-  const pageUrls = stringArray(value.pageUrls, `${label} pageUrls`, true);
-  if (pageUrls.length !== pageCount) {
-    throw new Error(`${label} expected ${pageCount} page URLs, received ${pageUrls.length}`);
-  }
-
-  const pages = parsePages(value.pages, pageUrls, pageCount, label);
-  const pageHashes = parsePageHashes(value.pageHashes, pageCount, label);
-  const brochureSha256 = requiredString(value.brochureSha256, `${label} brochureSha256`);
-  if (!SHA256_PATTERN.test(brochureSha256)) {
-    throw new Error(`${label} brochureSha256 must be a valid SHA-256 hash`);
-  }
-  if (hashOrderedPageSet(pageHashes, pageCount) !== brochureSha256) {
-    throw new Error(`${label} brochureSha256 does not match its ordered page hashes`);
-  }
-
-  const coverImage = pages[0]?.imageUrl;
-  if (!coverImage) throw new Error(`${label} has no page 1 image URL`);
-
-  return {
-    canonicalBrn,
-    storeName,
-    storeId,
-    title,
-    validFrom,
-    validUntil,
-    pageCount,
-    availableZipCodes,
-    verifiedSha256: brochureSha256,
-    verifiedPageHashes: pageHashes,
-    coverImage,
-    pageUrls,
-    pages,
-  };
+  return result;
 }
 
 export function buildPersistedCanonicalBrochures(value: unknown): PersistedCanonicalBrochure[] {
-  if (!isRecord(value) || value.version !== 1 || !Array.isArray(value.groups)) {
-    throw new Error('Canonical page verification must contain version 1 and a groups array');
+  if (!isRecord(value) || !isRecord(value.fullScan) || !isRecord(value.detailPageMetadata)) {
+    throw new Error('Persistence input must contain fullScan and detailPageMetadata');
   }
-  if (!isRecord(value.scope) || value.scope.mode !== 'all-brns' || value.scope.complete !== true) {
-    throw new Error('Only a complete all-BRN page verification can be persisted for publication');
+  const fullScan = value.fullScan;
+  if (!isRecord(fullScan.byZipCode)) throw new Error('Full scan must contain a byZipCode object');
+  const metadata = parseMetadata(value.detailPageMetadata);
+  const brochures: PersistedCanonicalBrochure[] = [];
+  const seenReferences = new Set<string>();
+
+  for (const zipCode of Object.keys(fullScan.byZipCode).sort()) {
+    if (!/^\d{5}$/.test(zipCode)) throw new Error(`Invalid full-scan ZIP code ${zipCode}`);
+    const offers = fullScan.byZipCode[zipCode];
+    if (!Array.isArray(offers)) throw new Error(`Offers for ZIP ${zipCode} must be an array`);
+    for (const [index, rawOffer] of offers.entries()) {
+      if (!isRecord(rawOffer)) throw new Error(`Offer ${index + 1} for ZIP ${zipCode} must be an object`);
+      const brn = requiredString(rawOffer.brn, `BRN for ZIP ${zipCode}`);
+      const referenceKey = regionalReferenceKey(zipCode, brn);
+      if (seenReferences.has(referenceKey)) continue;
+      seenReferences.add(referenceKey);
+      const detail = metadata[referenceKey];
+      if (!detail) throw new Error(`Missing complete detail metadata for ${referenceKey}`);
+
+      const storeName = requiredString(rawOffer.storeName, `${referenceKey} storeName`);
+      const title = requiredString(rawOffer.title, `${referenceKey} title`);
+      const validFrom = requiredString(rawOffer.validFrom, `${referenceKey} validFrom`);
+      const validUntil = requiredString(rawOffer.validUntil, `${referenceKey} validUntil`);
+      if (detail.title !== title) throw new Error(`Detail metadata ${referenceKey} title differs from listing`);
+      if (detail.validFrom !== validFrom || detail.validUntil !== validUntil) {
+        throw new Error(`Detail metadata ${referenceKey} validity differs from listing`);
+      }
+      if (typeof rawOffer.pageCount === 'number' && rawOffer.pageCount > 0 && detail.pages.length !== rawOffer.pageCount) {
+        throw new Error(`Detail metadata ${referenceKey} page count differs from listing`);
+      }
+      if (typeof rawOffer.coverImage === 'string' &&
+          requiredBringImageUrl(rawOffer.coverImage, `${referenceKey} listing cover`) !== detail.coverImage) {
+        throw new Error(`Detail metadata ${referenceKey} cover differs from listing`);
+      }
+      const pages = detail.pages.map((page) => ({ ...page, hotspots: [...page.hotspots] }));
+      brochures.push({
+        canonicalBrn: brn,
+        sourceZipCode: zipCode,
+        storeName,
+        storeId: detail.storeId,
+        title,
+        validFrom,
+        validUntil,
+        pageCount: pages.length,
+        availableZipCodes: [zipCode],
+        coverImage: detail.coverImage,
+        pageUrls: pages.map(({ imageUrl }) => imageUrl),
+        pages,
+      });
+    }
   }
 
-  const brochures: PersistedCanonicalBrochure[] = [];
-  const canonicalBrns = new Set<string>();
-  for (const [groupIndex, group] of value.groups.entries()) {
-    if (!isRecord(group) || !Array.isArray(group.variants)) {
-      throw new Error(`Verification group ${groupIndex + 1} must contain a variants array`);
-    }
-    for (const [variantIndex, variant] of group.variants.entries()) {
-      const brochure = parseVariant(variant, group, groupIndex, variantIndex);
-      if (canonicalBrns.has(brochure.canonicalBrn)) {
-        throw new Error(`Canonical BRN ${brochure.canonicalBrn} appears more than once`);
-      }
-      canonicalBrns.add(brochure.canonicalBrn);
-      brochures.push(brochure);
-    }
-  }
-  return brochures;
+  return brochures.sort(
+    (left, right) => left.sourceZipCode.localeCompare(right.sourceZipCode) || left.canonicalBrn.localeCompare(right.canonicalBrn),
+  );
 }
 
 export function parsePersistCanonicalArguments(args: readonly string[]): PersistCanonicalArguments {
   const result = { ...defaultArguments };
   const flags: Record<string, keyof PersistCanonicalArguments> = {
-    '--verification': 'verificationPath',
+    '--input': 'inputPath',
+    '--detail-page-metadata': 'detailPageMetadataPath',
     '--output': 'outputPath',
   };
 
@@ -248,8 +202,11 @@ export function parsePersistCanonicalArguments(args: readonly string[]): Persist
 
 async function main(): Promise<void> {
   const args = parsePersistCanonicalArguments(process.argv.slice(2));
-  const verification = JSON.parse(await readFile(args.verificationPath, 'utf8')) as unknown;
-  const brochures = buildPersistedCanonicalBrochures(verification);
+  const [fullScan, detailPageMetadata] = await Promise.all([
+    readFile(args.inputPath, 'utf8').then((contents) => JSON.parse(contents) as unknown),
+    readFile(args.detailPageMetadataPath, 'utf8').then((contents) => JSON.parse(contents) as unknown),
+  ]);
+  const brochures = buildPersistedCanonicalBrochures({ fullScan, detailPageMetadata });
   const output = { generatedAt: new Date().toISOString(), brochures };
 
   await mkdir(dirname(args.outputPath), { recursive: true });

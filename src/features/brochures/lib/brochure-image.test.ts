@@ -1,42 +1,49 @@
-import { describe, expect } from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 import { brochureImageSource, brochureImageUrl } from './brochure-image';
 
 describe('brochureImageUrl', () => {
   const token = 'jwt-token';
 
-  it('keeps access tokens out of private image urls', () => {
-    expect(brochureImageUrl('brochures/dumps/assets/abc.jpg')).toBe(
-      'http://127.0.0.1:54321/functions/v1/brochure-image?key=brochures%2Fdumps%2Fassets%2Fabc.jpg',
-    );
+  it('builds a stable page request from its regional brochure id', () => {
+    const value = brochureImageUrl({
+      brochureId: 'canonical:["10115","brn-1"]',
+      kind: 'page',
+      pageNumber: 3,
+    });
+    if (!value) throw new Error('Expected a brochure image URL');
+    const url = new URL(value);
+
+    expect(url.origin).toBe('http://127.0.0.1:54321');
+    expect(url.pathname).toBe('/functions/v1/brochure-image');
+    expect(url.searchParams.get('brochure_id')).toBe('canonical:["10115","brn-1"]');
+    expect(url.searchParams.get('asset')).toBe('page');
+    expect(url.searchParams.get('page_number')).toBe('3');
   });
 
-  it('adds the session token as an Authorization header for private image requests', () => {
-    expect(brochureImageSource('brochures/dumps/assets/abc.jpg', token)).toEqual({
-      uri: 'http://127.0.0.1:54321/functions/v1/brochure-image?key=brochures%2Fdumps%2Fassets%2Fabc.jpg',
-      headers: { Authorization: 'Bearer jwt-token' },
+  it('sends the app key and session token only to the authenticated backend path', () => {
+    expect(brochureImageSource({ brochureId: 'regional-id', kind: 'cover' }, token)).toEqual({
+      uri: 'http://127.0.0.1:54321/functions/v1/brochure-image?asset=cover&brochure_id=regional-id',
+      headers: {
+        apikey: 'test-supabase-anon-key',
+        Authorization: 'Bearer jwt-token',
+      },
     });
   });
 
-  it('routes previously stored r2.dev links through the authenticated endpoint', () => {
-    expect(
-      brochureImageSource('https://pub-example.r2.dev/brochures/dumps/assets/abc.jpg', token),
-    ).toEqual({
-      uri: 'http://127.0.0.1:54321/functions/v1/brochure-image?key=brochures%2Fdumps%2Fassets%2Fabc.jpg',
-      headers: { Authorization: 'Bearer jwt-token' },
-    });
+  it('creates a shared logo request by store identity', () => {
+    const value = brochureImageUrl({ kind: 'store-logo', storeId: 'store-1' });
+    if (!value) throw new Error('Expected a store logo URL');
+    const url = new URL(value);
+
+    expect(url.searchParams.get('asset')).toBe('store-logo');
+    expect(url.searchParams.get('store_id')).toBe('store-1');
   });
 
-  it('passes external urls through unchanged', () => {
-    expect(brochureImageSource('https://cdn.example.test/cover.jpg', token)).toEqual({
-      uri: 'https://cdn.example.test/cover.jpg',
-    });
+  it('does not create an image source without a session token', () => {
+    expect(brochureImageSource({ brochureId: 'regional-id', kind: 'cover' }, null)).toBeNull();
   });
 
-  it('returns null for a private key without an access token', () => {
-    expect(brochureImageSource('brochures/dumps/assets/abc.jpg', null)).toBeNull();
-  });
-
-  it('returns null for a missing value', () => {
+  it('returns null for a missing reference', () => {
     expect(brochureImageSource(null, token)).toBeNull();
     expect(brochureImageSource(undefined, token)).toBeNull();
   });

@@ -126,6 +126,16 @@ export class StorageBudget {
     return new StorageReservation(this, key, bytes, true);
   }
 
+  /** Returns no reservation when this next write does not fit the remaining budget. */
+  tryReserve(key: string, bytes: number): StorageReservation | undefined {
+    try {
+      return this.reserve(key, bytes);
+    } catch (error) {
+      if (error instanceof StorageBudgetExceededError) return undefined;
+      throw error;
+    }
+  }
+
   snapshot(): StorageBudgetSnapshot {
     const occupiedBytes = this.occupiedBytes;
     const reservedBytes = this.reservedBytes;

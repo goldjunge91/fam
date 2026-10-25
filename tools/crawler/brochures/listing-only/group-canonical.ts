@@ -37,6 +37,7 @@ export type GroupCanonicalArguments = {
 };
 
 type MutableCanonicalGroup = {
+  sourceZipCode: string;
   storeName: string;
   validFrom: string;
   validUntil: string;
@@ -133,37 +134,40 @@ export function groupCanonicalBrochures(
 
   for (const [zipCode, entries] of Object.entries(fullScan.byZipCode)) {
     for (const entry of entries) {
-      if (!Object.hasOwn(detailPages, entry.brn)) {
-        throw new Error(`Missing detail page count for BRN ${entry.brn}`);
+      const referenceKey = `${zipCode}:${encodeURIComponent(entry.brn)}`;
+      if (!Object.hasOwn(detailPages, referenceKey)) {
+        throw new Error(`Missing detail page count for regional reference ${referenceKey}`);
       }
 
-      const detailPageCount = detailPages[entry.brn];
+      const detailPageCount = detailPages[referenceKey];
       if (detailPageCount === undefined) {
-        throw new Error(`Missing detail page count for BRN ${entry.brn}`);
+        throw new Error(`Missing detail page count for regional reference ${referenceKey}`);
       }
 
-      const groupKey = JSON.stringify([
-        entry.storeName,
-        entry.validFrom,
-        entry.validUntil,
-        detailPageCount,
-      ]);
+      const groupKey = JSON.stringify([zipCode, entry.brn]);
       let group = grouped.get(groupKey);
       if (!group) {
         group = {
+          sourceZipCode: zipCode,
           storeName: entry.storeName,
           validFrom: entry.validFrom,
           validUntil: entry.validUntil,
           detailPageCount,
           brns: new Set(),
-          availableZipCodes: new Set(),
+          availableZipCodes: new Set([zipCode]),
           sightingCount: 0,
         };
         grouped.set(groupKey, group);
+      } else if (
+        group.storeName !== entry.storeName ||
+        group.validFrom !== entry.validFrom ||
+        group.validUntil !== entry.validUntil ||
+        group.detailPageCount !== detailPageCount
+      ) {
+        throw new Error(`Regional reference ${referenceKey} has conflicting listing metadata`);
       }
 
       group.brns.add(entry.brn);
-      group.availableZipCodes.add(zipCode);
       group.sightingCount++;
       naiveSightingCount++;
     }
@@ -180,7 +184,11 @@ export function groupCanonicalBrochures(
       availableZipCodes: Array.from(group.availableZipCodes).sort(compareStrings),
       sightingCount: group.sightingCount,
     }),
-  ).sort(compareGroups);
+  ).sort((left, right) =>
+    compareStrings(left.availableZipCodes[0] ?? '', right.availableZipCodes[0] ?? '') ||
+    compareStrings(left.brns[0] ?? '', right.brns[0] ?? '') ||
+    compareGroups(left, right),
+  );
 
   const groupedSightingCount = groups.reduce((sum, group) => sum + group.sightingCount, 0);
   if (groupedSightingCount !== naiveSightingCount) {

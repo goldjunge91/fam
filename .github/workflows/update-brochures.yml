@@ -1,10 +1,10 @@
-name: Canonical Brochure Catalog Update
+name: Brochure Metadata Catalog Update
 
 on:
   workflow_dispatch:
     inputs:
       resume_run_id:
-        description: 'Only retry publication from a completed source run in this repository'
+        description: 'Only retry Supabase metadata publication from a completed source run in this repository'
         required: false
         type: string
         default: ''
@@ -15,8 +15,8 @@ on:
     - cron: "17 4 * * 4"
 
 concurrency:
-  # A single writer protects the shared R2 storage budget and app catalog.
-  group: brochure-dump-update-${{ github.workflow }}
+  # A single writer protects the shared app catalog.
+  group: brochure-catalog-update-${{ github.workflow }}
   cancel-in-progress: false
 
 permissions:
@@ -26,18 +26,17 @@ permissions:
 # Operator instructions:
 # - After a scan-leg failure, use GitHub's "Re-run failed jobs". The failed ZIP
 #   legs and merge gates retry while successful scan shards remain available.
-# - After detail loading, grouping, verification, persistence, reporting, or
-#   handoff fails, use the same action. Successful predecessor phases stay put.
-# - After publish-canonical fails, use workflow_dispatch with resume_run_id set to
-#   the failed source run. The publisher downloads that unchanged handoff and must
-#   not rerun scan or verification. GitHub's same-run "Re-run failed jobs" remains
-#   available for failures before publication.
+# - Detail metadata progress is cached per run and attempt. Re-running the failed
+#   detail job resumes completed regional references and retries failures.
+# - After persistence, reporting, or handoff fails, use "Re-run failed jobs".
+#   Successful predecessor phases and their immutable artifacts stay in place.
+# - After Supabase metadata publication fails, use workflow_dispatch with
+#   resume_run_id set to the failed source run. The publisher consumes that
+#   source's unchanged metadata handoff and does not repeat any Bring calls.
 # - A resume source must be a completed run of this repository and workflow with
-#   every verify/handoff job successful and only publish-canonical unsuccessful.
+#   every producer job successful and only the Supabase publisher unsuccessful.
 # - If a required artifact is missing, expired, foreign, changed, or unverifiable,
 #   stop. The resume path fails closed and never falls back to a new scan.
-# Detail loading, grouping, and full page verification remain domain-atomic because
-# their current contracts require complete cross-ZIP and aggregate-budget inputs.
 
 jobs:
   validate-secrets:
@@ -55,10 +54,6 @@ jobs:
           BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
         run: |
           if [ -n "${BRING_EMAIL:-}" ] && [ -n "${BRING_PASSWORD:-}" ]; then
             echo "Bring headless login is configured."
@@ -69,13 +64,13 @@ jobs:
             exit 1
           fi
 
-          required=(SUPABASE_URL SUPABASE_SECRET_KEY R2_ACCOUNT_ID R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY R2_BUCKET)
+          required=(SUPABASE_URL SUPABASE_SECRET_KEY)
           missing=()
           for name in "${required[@]}"; do
             if [ -z "${!name:-}" ]; then missing+=("$name"); fi
           done
           if [ "${#missing[@]}" -gt 0 ]; then
-            printf '::error::Missing publication secrets: %s\n' "${missing[*]}"
+            printf '::error::Missing Supabase metadata publication secrets: %s\n' "${missing[*]}"
             exit 1
           fi
 
@@ -83,7 +78,7 @@ jobs:
     name: Eingaben vorbereiten
     needs: validate-secrets
     if: >-
-      ${{ inputs.resume_run_id == '' &&
+      ${{ always() && inputs.resume_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
@@ -140,7 +135,8 @@ jobs:
     name: PLZ-Scan Shard ${{ matrix.shard }}
     needs: [validate-secrets, prepare-inputs]
     if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.prepare-inputs.result == 'success' }}
     runs-on: ubuntu-latest
@@ -221,11 +217,12 @@ jobs:
           overwrite: false
 
   scan-merge:
-    # The scan merge requires all four shard artifacts and a successful matrix result.
+    # The merge requires all four exact ZIP shards and rejects gaps or overlap.
     name: PLZ-Scan zusammenführen
     needs: [validate-secrets, prepare-inputs, scan-locations]
     if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.prepare-inputs.result == 'success' &&
           needs.scan-locations.result == 'success' }}
@@ -313,10 +310,11 @@ jobs:
           overwrite: false
 
   detail-pages:
-    name: Detailseiten laden
+    name: Detail-Metadaten laden
     needs: [validate-secrets, prepare-inputs, scan-merge]
     if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.prepare-inputs.result == 'success' &&
           needs.scan-merge.result == 'success' }}
@@ -366,6 +364,20 @@ jobs:
           mkdir -p tools/crawler/data/listing-only
           cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
 
+      - name: Restore detail metadata progress
+        id: restore-detail-progress
+        uses: actions/cache/restore@v4
+        with:
+          path: tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl
+          key: brochure-detail-progress-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            brochure-detail-progress-${{ github.run_id }}-
+
+      - name: Initialize detail metadata progress
+        run: |
+          mkdir -p tools/crawler/data/listing-only
+          touch tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl
+
       - name: Authenticate with Bring
         env:
           BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
@@ -384,10 +396,21 @@ jobs:
             } >> "$GITHUB_ENV"
           fi
 
-      - name: Load exact page counts for every BRN
+      - name: Fetch or reuse regional detail metadata
+        id: fetch-details
         env:
           BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: bun run tools/crawler/brochures/listing-only/fetch-detail-pages.ts
+
+      - name: Save detail metadata progress for a retry
+        if: ${{ always() && steps.fetch-details.outcome != 'success' }}
+        uses: actions/cache/save@v4
+        continue-on-error: true
+        with:
+          path: tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl
+          key: brochure-detail-progress-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Create detail phase artifact
         id: create-manifest
@@ -411,16 +434,17 @@ jobs:
           retention-days: 30
           overwrite: false
 
-  grouping:
-    name: Prospekte gruppieren
+  persistence:
+    name: Regionale Metadaten persistieren
     needs: [validate-secrets, scan-merge, detail-pages]
     if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.scan-merge.result == 'success' &&
           needs.detail-pages.result == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     outputs:
       manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
       predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
@@ -461,218 +485,13 @@ jobs:
           --manifest-sha256="${{ needs.detail-pages.outputs.manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.predecessor_manifest_sha256 }}"
 
-      - name: Copy grouping inputs
+      - name: Copy persistence inputs
         run: |
           mkdir -p tools/crawler/data/listing-only
           cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
-          cp "${RUNNER_TEMP}/brochure-detail-pages/detail-pages.json" tools/crawler/data/listing-only/detail-pages.json
-
-      - name: Group exact metadata
-        run: bun run tools/crawler/brochures/listing-only/group-canonical.ts
-
-      - name: Create grouping phase artifact
-        id: create-manifest
-        run: |
-          artifact_dir="${RUNNER_TEMP}/brochure-grouping"
-          mkdir -p "$artifact_dir"
-          cp tools/crawler/data/listing-only/canonical-groups.json "$artifact_dir/canonical-groups.json"
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
-            --phase=grouping \
-            --artifact-dir="$artifact_dir" \
-            --files=canonical-groups.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }}"
-
-      - name: Upload grouping phase artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: brochure-grouping-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-grouping/
-          if-no-files-found: error
-          retention-days: 30
-          overwrite: false
-
-  page-verification:
-    name: Vollständige Prospektverifikation
-    needs: [validate-secrets, prepare-inputs, scan-merge, detail-pages, grouping]
-    if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' &&
-          needs.prepare-inputs.result == 'success' &&
-          needs.scan-merge.result == 'success' &&
-          needs.detail-pages.result == 'success' &&
-          needs.grouping.result == 'success' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 360
-    env:
-      BROCHURE_R2_STORAGE_BUDGET_GB: "8"
-    outputs:
-      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
-      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Bun environment
-        uses: ./.github/actions/setup-bun-env
-
-      - name: Download prepared inputs
-        uses: actions/download-artifact@v5
-        with:
-          name: brochure-prepare-inputs-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-prepare-inputs
-
-      - name: Validate prepared input artifact
-        run: >-
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=prepare-inputs
-          --artifact-dir="${RUNNER_TEMP}/brochure-prepare-inputs"
-          --files=geonames-DE.txt
-          --manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
-
-      - name: Download scan merge artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: brochure-scan-merge-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-scan-merge
-
-      - name: Validate scan merge artifact
-        run: >-
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=scan-merge
-          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
-          --files=all-stores-full.json
-          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
-
-      - name: Download detail phase artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: brochure-detail-pages-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-detail-pages
-
-      - name: Validate detail phase artifact
-        run: >-
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=detail-pages
-          --artifact-dir="${RUNNER_TEMP}/brochure-detail-pages"
-          --files=detail-pages.json,detail-page-metadata.json
-          --manifest-sha256="${{ needs.detail-pages.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.predecessor_manifest_sha256 }}"
-
-      - name: Download grouping phase artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: brochure-grouping-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-grouping
-
-      - name: Validate grouping phase artifact
-        run: >-
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=grouping
-          --artifact-dir="${RUNNER_TEMP}/brochure-grouping"
-          --files=canonical-groups.json
-          --manifest-sha256="${{ needs.grouping.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.grouping.outputs.predecessor_manifest_sha256 }}"
-
-      - name: Copy verification inputs
-        run: |
-          mkdir -p tools/crawler/data/listing-only
-          cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
-          cp "${RUNNER_TEMP}/brochure-detail-pages/detail-pages.json" tools/crawler/data/listing-only/detail-pages.json
           cp "${RUNNER_TEMP}/brochure-detail-pages/detail-page-metadata.json" tools/crawler/data/listing-only/detail-page-metadata.json
-          cp "${RUNNER_TEMP}/brochure-grouping/canonical-groups.json" tools/crawler/data/listing-only/canonical-groups.json
 
-      - name: Authenticate with Bring
-        env:
-          BRING_EMAIL: ${{ secrets.BRING_EMAIL }}
-          BRING_PASSWORD: ${{ secrets.BRING_PASSWORD }}
-          BRING_AUTH_TOKEN: ${{ secrets.BRING_AUTH_TOKEN }}
-          BRING_API_KEY: ${{ secrets.BRING_API_KEY }}
-          BRING_USER_UUID: ${{ secrets.BRING_USER_UUID }}
-        run: |
-          if [ -n "$BRING_EMAIL" ] && [ -n "$BRING_PASSWORD" ]; then
-            bun run scripts/bring-auth.ts
-          else
-            {
-              echo "BRING_AUTH_TOKEN=$BRING_AUTH_TOKEN"
-              echo "BRING_API_KEY=$BRING_API_KEY"
-              echo "BRING_USER_UUID=$BRING_USER_UUID"
-            } >> "$GITHUB_ENV"
-          fi
-
-      - name: Download and verify every ordered page vector
-        env:
-          BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
-        run: >-
-          bun run tools/crawler/brochures/listing-only/verify-full-brochures.ts
-          --all-brns
-          --budget-bytes=8000000000
-
-      - name: Clear Bring credentials after page verification
-        run: |
-          printf 'BRING_AUTH_TOKEN=\nBRING_API_KEY=\nBRING_USER_UUID=\n' >> "$GITHUB_ENV"
-
-      - name: Create page verification phase artifact
-        id: create-manifest
-        run: |
-          artifact_dir="${RUNNER_TEMP}/brochure-page-verification"
-          mkdir -p "$artifact_dir"
-          cp tools/crawler/data/listing-only/canonical-page-verification.json "$artifact_dir/canonical-page-verification.json"
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts create \
-            --phase=page-verification \
-            --artifact-dir="$artifact_dir" \
-            --files=canonical-page-verification.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }},${{ needs.grouping.outputs.manifest_sha256 }}"
-
-      - name: Upload page verification phase artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: brochure-page-verification-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-page-verification/
-          if-no-files-found: error
-          retention-days: 30
-          overwrite: false
-
-  persistence:
-    name: Verifizierten Katalog persistieren
-    needs: [validate-secrets, page-verification]
-    if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' &&
-          needs.page-verification.result == 'success' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    outputs:
-      manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
-      predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Bun environment
-        uses: ./.github/actions/setup-bun-env
-
-      - name: Download page verification phase artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: brochure-page-verification-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-page-verification
-
-      - name: Validate page verification phase artifact
-        run: >-
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=page-verification
-          --artifact-dir="${RUNNER_TEMP}/brochure-page-verification"
-          --files=canonical-page-verification.json
-          --manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.page-verification.outputs.predecessor_manifest_sha256 }}"
-
-      - name: Copy verification input
-        run: |
-          mkdir -p tools/crawler/data/listing-only
-          cp "${RUNNER_TEMP}/brochure-page-verification/canonical-page-verification.json" tools/crawler/data/listing-only/canonical-page-verification.json
-
-      - name: Persist verified canonical catalog
+      - name: Persist regional metadata catalog
         run: bun run tools/crawler/brochures/listing-only/persist-canonical.ts
 
       - name: Create persistence phase artifact
@@ -685,7 +504,7 @@ jobs:
             --phase=persistence \
             --artifact-dir="$artifact_dir" \
             --files=canonical-brochures.json \
-            --predecessor-manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }}"
 
       - name: Upload persistence phase artifact
         uses: actions/upload-artifact@v4
@@ -698,12 +517,12 @@ jobs:
 
   report:
     name: Konsistenzbericht erstellen
-    needs: [validate-secrets, scan-merge, page-verification, persistence]
+    needs: [validate-secrets, scan-merge, persistence]
     if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.scan-merge.result == 'success' &&
-          needs.page-verification.result == 'success' &&
           needs.persistence.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -732,21 +551,6 @@ jobs:
           --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
 
-      - name: Download page verification phase artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: brochure-page-verification-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-page-verification
-
-      - name: Validate page verification phase artifact
-        run: >-
-          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=page-verification
-          --artifact-dir="${RUNNER_TEMP}/brochure-page-verification"
-          --files=canonical-page-verification.json
-          --manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.page-verification.outputs.predecessor_manifest_sha256 }}"
-
       - name: Download persistence phase artifact
         uses: actions/download-artifact@v5
         with:
@@ -766,7 +570,6 @@ jobs:
         run: |
           mkdir -p tools/crawler/data/listing-only
           cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
-          cp "${RUNNER_TEMP}/brochure-page-verification/canonical-page-verification.json" tools/crawler/data/listing-only/canonical-page-verification.json
           cp "${RUNNER_TEMP}/brochure-persistence/canonical-brochures.json" tools/crawler/data/listing-only/canonical-brochures.json
 
       - name: Build coverage and consistency report
@@ -782,7 +585,7 @@ jobs:
             --phase=report \
             --artifact-dir="$artifact_dir" \
             --files=canonical-report.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.page-verification.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }}"
 
       - name: Upload report phase artifact
         uses: actions/upload-artifact@v4
@@ -795,12 +598,13 @@ jobs:
 
   publication-handoff:
     name: Veröffentlichungs-Handoff erstellen
-    needs: [validate-secrets, scan-merge, page-verification, persistence, report]
+    needs: [validate-secrets, scan-merge, detail-pages, persistence, report]
     if: >-
-      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.scan-merge.result == 'success' &&
-          needs.page-verification.result == 'success' &&
+          needs.detail-pages.result == 'success' &&
           needs.persistence.result == 'success' &&
           needs.report.result == 'success' }}
     runs-on: ubuntu-latest
@@ -831,20 +635,20 @@ jobs:
           --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
 
-      - name: Download page verification phase artifact
+      - name: Download detail phase artifact
         uses: actions/download-artifact@v5
         with:
-          name: brochure-page-verification-${{ github.run_id }}
-          path: ${{ runner.temp }}/brochure-page-verification
+          name: brochure-detail-pages-${{ github.run_id }}
+          path: ${{ runner.temp }}/brochure-detail-pages
 
-      - name: Validate page verification phase artifact
+      - name: Validate detail phase artifact
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
-          --phase=page-verification
-          --artifact-dir="${RUNNER_TEMP}/brochure-page-verification"
-          --files=canonical-page-verification.json
-          --manifest-sha256="${{ needs.page-verification.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.page-verification.outputs.predecessor_manifest_sha256 }}"
+          --phase=detail-pages
+          --artifact-dir="${RUNNER_TEMP}/brochure-detail-pages"
+          --files=detail-pages.json,detail-page-metadata.json
+          --manifest-sha256="${{ needs.detail-pages.outputs.manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.predecessor_manifest_sha256 }}"
 
       - name: Download persistence phase artifact
         uses: actions/download-artifact@v5
@@ -880,10 +684,9 @@ jobs:
         run: |
           mkdir -p tools/crawler/data/listing-only
           cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
-          cp "${RUNNER_TEMP}/brochure-page-verification/canonical-page-verification.json" tools/crawler/data/listing-only/canonical-page-verification.json
           cp "${RUNNER_TEMP}/brochure-persistence/canonical-brochures.json" tools/crawler/data/listing-only/canonical-brochures.json
 
-      - name: Create integrity-bound publication handoff
+      - name: Create integrity-bound metadata handoff
         id: create-publication-handoff
         run: >-
           bun run tools/crawler/brochures/listing-only/publication-handoff.ts create
@@ -893,7 +696,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_SHA: ${{ github.sha }}
-        shell: bash
 
       - name: Create publication phase artifact
         id: create-phase-manifest
@@ -905,9 +707,9 @@ jobs:
             --phase=publication-handoff \
             --artifact-dir="$artifact_dir" \
             --files=publication-handoff.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.page-verification.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }},${{ needs.report.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }},${{ needs.report.outputs.manifest_sha256 }}"
 
-      - name: Upload verified publication handoff and phase manifest
+      - name: Upload metadata handoff and phase manifest
         uses: actions/upload-artifact@v4
         with:
           name: brochure-publication-${{ github.run_id }}
@@ -917,7 +719,7 @@ jobs:
           overwrite: false
 
   publish-canonical:
-    name: Verifizierte Prospekte veröffentlichen
+    name: Supabase-Metadatenkatalog aktualisieren
     needs: publication-handoff
     if: >-
       ${{ always() && github.ref == 'refs/heads/main' &&
@@ -926,10 +728,7 @@ jobs:
             needs.publication-handoff.outputs.manifest_sha256 != '' &&
             needs.publication-handoff.outputs.phase_manifest_sha256 != '')) }}
     runs-on: ubuntu-latest
-    timeout-minutes: 360
-    env:
-      BROCHURE_R2_STORAGE_BUDGET_GB: "8"
-      BROCHURE_VERIFY_BUDGET_BYTES: "8000000000"
+    timeout-minutes: 90
     steps:
       - name: Validate resume source run
         if: ${{ inputs.resume_run_id != '' }}
@@ -966,10 +765,8 @@ jobs:
             "PLZ-Scan Shard 2"
             "PLZ-Scan Shard 3"
             "PLZ-Scan zusammenführen"
-            "Detailseiten laden"
-            "Prospekte gruppieren"
-            "Vollständige Prospektverifikation"
-            "Verifizierten Katalog persistieren"
+            "Detail-Metadaten laden"
+            "Regionale Metadaten persistieren"
             "Konsistenzbericht erstellen"
             "Veröffentlichungs-Handoff erstellen"
           )
@@ -982,11 +779,11 @@ jobs:
             fi
           done
 
-          publish_conclusion="$(jq -r '[.jobs[] | select(.name == "Verifizierte Prospekte veröffentlichen") | .conclusion][0] // ""' <<<"$jobs_json")"
+          publish_conclusion="$(jq -r '[.jobs[] | select(.name == "Supabase-Metadatenkatalog aktualisieren") | .conclusion][0] // ""' <<<"$jobs_json")"
           if [[ "$publish_conclusion" != "failure" &&
                 "$publish_conclusion" != "cancelled" &&
                 "$publish_conclusion" != "timed_out" ]]; then
-            printf '::error::Resume source must have failed only in publish-canonical.\n'
+            printf '::error::Resume source must have failed only in the Supabase publisher.\n'
             exit 1
           fi
 
@@ -995,7 +792,7 @@ jobs:
           artifact_count="$(jq --arg name "$artifact_name" '[.artifacts[] | select(.name == $name)] | length' <<<"$artifacts_json")"
           artifact_valid="$(jq --arg name "$artifact_name" '[.artifacts[] | select(.name == $name and .expired == false and .size_in_bytes > 0)] | length' <<<"$artifacts_json")"
           if [[ "$artifact_count" != "1" || "$artifact_valid" != "1" ]]; then
-            printf '::error::Resume publication handoff is missing, expired, duplicated, or empty.\n'
+            printf '::error::Resume metadata handoff is missing, expired, duplicated, or empty.\n'
             exit 1
           fi
 
@@ -1009,14 +806,14 @@ jobs:
       - name: Set up Bun environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Download same-run publication handoff
+      - name: Download same-run metadata handoff
         if: ${{ inputs.resume_run_id == '' }}
         uses: actions/download-artifact@v5
         with:
           name: brochure-publication-${{ github.run_id }}
           path: ${{ runner.temp }}/brochure-publication
 
-      - name: Download publication handoff from source run
+      - name: Download metadata handoff from source run
         if: ${{ inputs.resume_run_id != '' }}
         uses: actions/download-artifact@v5
         with:
@@ -1051,7 +848,7 @@ jobs:
           printf 'handoff_manifest_sha256=%s\n' "$(sha256sum "$handoff_manifest" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
           printf 'predecessor_manifest_sha256=%s\n' "$(jq -er '.predecessorManifestSha256 | join(",")' "$phase_manifest")" >> "$GITHUB_OUTPUT"
 
-      - name: Validate same-run publication phase artifact
+      - name: Validate same-run metadata phase artifact
         if: ${{ inputs.resume_run_id == '' }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
@@ -1061,7 +858,7 @@ jobs:
           --manifest-sha256="${{ needs.publication-handoff.outputs.phase_manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ needs.publication-handoff.outputs.phase_predecessor_manifest_sha256 }}"
 
-      - name: Validate cross-run publication phase artifact
+      - name: Validate cross-run metadata phase artifact
         if: ${{ inputs.resume_run_id != '' }}
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -1075,17 +872,36 @@ jobs:
           --manifest-sha256="${{ steps.resume-handoff.outputs.phase_manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ steps.resume-handoff.outputs.predecessor_manifest_sha256 }}"
 
-      - name: Publish verified pages to private R2 and catalog to Supabase
+      - name: Publish regional brochure metadata to Supabase
         env:
           GITHUB_RUN_ID: ${{ inputs.resume_run_id != '' && steps.resume-source.outputs.source_run_id || github.run_id }}
           GITHUB_SHA: ${{ inputs.resume_run_id != '' && steps.resume-source.outputs.source_commit_sha || github.sha }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
         run: >-
           bun run tools/crawler/brochures/listing-only/publish-full-canonical.ts
           --bundle-dir="${RUNNER_TEMP}/brochure-publication/handoff"
           --manifest-sha256="${{ inputs.resume_run_id != '' && steps.resume-handoff.outputs.handoff_manifest_sha256 || needs.publication-handoff.outputs.manifest_sha256 }}"
+
+  cleanup-demand-cache:
+    name: Optional demand-cache cleanup
+    needs: publish-canonical
+    if: >-
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          needs.publish-canonical.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun environment
+        uses: ./.github/actions/setup-bun-env
+
+      - name: Clean up the image demand cache when R2 is configured
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET || 'r2-broschure' }}
+        run: bun run tools/crawler/brochures/cleanup-demand-cache.ts

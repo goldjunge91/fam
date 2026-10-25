@@ -33,6 +33,19 @@ describe('Storage-Budget und Aufbewahrung', () => {
     expect(budget.snapshot()).toMatchObject({ occupiedBytes: 10, reservedBytes: 0 });
   });
 
+  it('beendet den Asset-Lauf kontrolliert, wenn das nächste Asset nicht mehr passt', () => {
+    const budget = createStorageBudget({ budgetBytes: 10 });
+    const first = budget.tryReserve('first', 10);
+    const second = budget.tryReserve('second', 1);
+
+    expect(first).toBeDefined();
+    expect(second).toBeUndefined();
+    expect(budget.snapshot()).toMatchObject({
+      reservedBytes: 10,
+      remainingBudgetBytes: 0,
+    });
+  });
+
   it('behält eine Reservation bei einem unklaren Write-Ergebnis', () => {
     const budget = createStorageBudget({ budgetBytes: 10 });
     budget.reserve('uncertain', 7);

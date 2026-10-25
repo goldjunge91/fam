@@ -151,9 +151,11 @@ export type VerifyFullBrochuresArguments = typeof defaultPaths & {
 type VerificationInputs = {
   fullScan: { byZipCode: Record<string, FullScanOffer[]> };
   detailPages: Record<string, number>;
-  detailPageMetadata?: Record<string, CachedPageMetadata>;
+  detailPageMetadata?: Record<string, ReusableDetailMetadata>;
   groups: CanonicalGroup[];
 };
+
+type ReusableDetailMetadata = Pick<CachedPageMetadata, 'title' | 'storeId' | 'pageUrls' | 'pages'>;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -517,9 +519,9 @@ function parseProgress(value: unknown, inputFingerprint: string): FullPageVerifi
   return { version: 1, inputFingerprint, pageHashesByUrl, byBrn, stats };
 }
 
-function parseDetailPageMetadata(value: unknown): Record<string, CachedPageMetadata> {
+function parseDetailPageMetadata(value: unknown): Record<string, ReusableDetailMetadata> {
   if (!isRecord(value)) throw new Error('Detail page metadata must be an object.');
-  const metadata: Record<string, CachedPageMetadata> = {};
+  const metadata: Record<string, ReusableDetailMetadata> = {};
   for (const [brn, entry] of Object.entries(value)) {
     if (
       !isRecord(entry) ||
@@ -729,7 +731,7 @@ export async function verifyAllBrochurePages(options: {
   assetStore: OriginalPageAssetStore;
   seenHashIndex: SeenHashIndex;
   progress: FullPageVerificationProgress;
-  detailPageMetadata?: Record<string, CachedPageMetadata>;
+  detailPageMetadata?: Record<string, ReusableDetailMetadata>;
   checkpoint: () => Promise<void>;
   fetchDetail: (reference: BrnReference, headers: Record<string, string>) => Promise<unknown>;
   fetchOriginalBytes: (url: string) => Promise<ArrayBuffer | Uint8Array>;

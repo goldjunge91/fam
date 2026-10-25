@@ -10,12 +10,7 @@ export type Database = {
     };
     Functions: {
       graphql: {
-        Args: {
-          extensions?: Json;
-          operationName?: string;
-          query?: string;
-          variables?: Json;
-        };
+        Args: { extensions?: Json; operationName?: string; query?: string; variables?: Json };
         Returns: Json;
       };
     };
@@ -113,36 +108,36 @@ export type Database = {
           cover_image: string;
           id: string;
           page_count: number;
-          pages: Json;
+          pages: NonNullable<Json>;
+          source_zip_code: string;
           store_id: string;
           title: string;
           valid_from: string;
           valid_until: string;
-          verified_sha256: string;
         };
         Insert: {
           canonical_brn: string;
           cover_image: string;
           id: string;
           page_count: number;
-          pages: Json;
+          pages: NonNullable<Json>;
+          source_zip_code: string;
           store_id: string;
           title: string;
           valid_from: string;
           valid_until: string;
-          verified_sha256: string;
         };
         Update: {
           canonical_brn?: string;
           cover_image?: string;
           id?: string;
           page_count?: number;
-          pages?: Json;
+          pages?: NonNullable<Json>;
+          source_zip_code?: string;
           store_id?: string;
           title?: string;
           valid_from?: string;
           valid_until?: string;
-          verified_sha256?: string;
         };
         Relationships: [
           {
@@ -483,7 +478,7 @@ export type Database = {
           source_url: string | null;
           status: string;
           storage_instructions: string | null;
-          substitutions: Json;
+          substitutions: NonNullable<Json>;
           title: string;
           updated_at: string;
           variant_group: string | null;
@@ -518,7 +513,7 @@ export type Database = {
           source_url?: string | null;
           status?: string;
           storage_instructions?: string | null;
-          substitutions?: Json;
+          substitutions?: NonNullable<Json>;
           title: string;
           updated_at?: string;
           variant_group?: string | null;
@@ -553,7 +548,7 @@ export type Database = {
           source_url?: string | null;
           status?: string;
           storage_instructions?: string | null;
-          substitutions?: Json;
+          substitutions?: NonNullable<Json>;
           title?: string;
           updated_at?: string;
           variant_group?: string | null;
@@ -1337,7 +1332,7 @@ export type Database = {
         Row: {
           created_at: string;
           created_by: string | null;
-          custom_ingredients: Json;
+          custom_ingredients: NonNullable<Json>;
           custom_title: string | null;
           deleted_at: string | null;
           entry_date: string;
@@ -1354,7 +1349,7 @@ export type Database = {
         Insert: {
           created_at?: string;
           created_by?: string | null;
-          custom_ingredients?: Json;
+          custom_ingredients?: NonNullable<Json>;
           custom_title?: string | null;
           deleted_at?: string | null;
           entry_date: string;
@@ -1371,7 +1366,7 @@ export type Database = {
         Update: {
           created_at?: string;
           created_by?: string | null;
-          custom_ingredients?: Json;
+          custom_ingredients?: NonNullable<Json>;
           custom_title?: string | null;
           deleted_at?: string | null;
           entry_date?: string;
@@ -2420,7 +2415,7 @@ export type Database = {
           prep_time_minutes: number | null;
           reheating_instructions: string | null;
           storage_instructions: string | null;
-          substitutions: Json;
+          substitutions: NonNullable<Json>;
           title: string;
           updated_at: string;
           variant_group: string | null;
@@ -2453,7 +2448,7 @@ export type Database = {
           prep_time_minutes?: number | null;
           reheating_instructions?: string | null;
           storage_instructions?: string | null;
-          substitutions?: Json;
+          substitutions?: NonNullable<Json>;
           title: string;
           updated_at?: string;
           variant_group?: string | null;
@@ -2486,7 +2481,7 @@ export type Database = {
           prep_time_minutes?: number | null;
           reheating_instructions?: string | null;
           storage_instructions?: string | null;
-          substitutions?: Json;
+          substitutions?: NonNullable<Json>;
           title?: string;
           updated_at?: string;
           variant_group?: string | null;
@@ -3534,11 +3529,7 @@ export type Database = {
       };
       create_household: { Args: { household_name: string }; Returns: string };
       deactivate_ai_household: {
-        Args: {
-          p_event_id?: string;
-          p_event_timestamp_ms?: number;
-          p_subscriber_user_id: string;
-        };
+        Args: { p_event_id?: string; p_event_timestamp_ms?: number; p_subscriber_user_id: string };
         Returns: boolean;
       };
       get_ai_credit_status: {
@@ -3585,7 +3576,7 @@ export type Database = {
         };
         Returns: string;
       };
-      prepare_account_deletion: { Args: never; Returns: undefined };
+      prepare_account_deletion: { Args: Record<PropertyKey, never>; Returns: undefined };
       redeem_invite:
         | { Args: { invite_code: string }; Returns: string }
         | { Args: { invite_token: string }; Returns: string };
@@ -3659,9 +3650,7 @@ export type Tables<
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never) = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals;
-}
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof DatabaseWithoutInternals }
   ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
       DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R;
@@ -3685,9 +3674,7 @@ export type TablesInsert<
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never) = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals;
-}
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof DatabaseWithoutInternals }
   ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Insert: infer I;
     }
@@ -3710,9 +3697,7 @@ export type TablesUpdate<
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never) = never,
-> = DefaultSchemaTableNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals;
-}
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof DatabaseWithoutInternals }
   ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U;
     }
@@ -3735,9 +3720,7 @@ export type Enums<
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never) = never,
-> = DefaultSchemaEnumNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals;
-}
+> = DefaultSchemaEnumNameOrOptions extends { schema: keyof DatabaseWithoutInternals }
   ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
@@ -3752,9 +3735,7 @@ export type CompositeTypes<
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never) = never,
-> = PublicCompositeTypeNameOrOptions extends {
-  schema: keyof DatabaseWithoutInternals;
-}
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof DatabaseWithoutInternals }
   ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
     ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]

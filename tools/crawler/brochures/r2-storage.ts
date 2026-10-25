@@ -77,7 +77,7 @@ export function legacyImageKeyFor(
 }
 
 type R2RequestOptions = {
-  method?: 'GET' | 'HEAD' | 'PUT';
+  method?: 'DELETE' | 'GET' | 'HEAD' | 'PUT';
   headers?: Record<string, string>;
   query?: Record<string, string | undefined>;
 };
@@ -342,6 +342,25 @@ export async function uploadToR2(
   throw new Error(`R2 Upload für ${key} ohne Ergebnis beendet.`);
 }
 
+/** Deletes a single object. A missing key already satisfies the cleanup goal. */
+export async function deleteR2Object(config: R2Config, key: string): Promise<void> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const signed = signR2Request(config, key, { method: 'DELETE' });
+    const response = await fetch(signed.url, {
+      method: 'DELETE',
+      headers: signed.headers,
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (response.ok || response.status === 404) return;
+
+    const retryable = response.status === 429 || response.status >= 500;
+    if (!retryable || attempt === 2) {
+      throw new Error(`R2 object delete failed with ${response.status} for ${key}`);
+    }
+    await retryDelay(attempt);
+  }
+}
+
 async function fetchImage(originalUrl: string): Promise<ArrayBuffer> {
   for (let attempt = 0; attempt < 4; attempt++) {
     try {
@@ -539,8 +558,15 @@ export async function mirrorBrochureImagesToR2(
             ? await optimizeImage(verifiedOriginalBytes)
             : await downloadOptimizedImage(task.originalUrl);
           const reservation = storageBudget?.reserve(key, storedImage.byteLength);
-          await uploadToR2(config, key, storedImage);
-          reservation?.commit(storedImage.byteLength);
+          const uploadResult = await uploadToR2(config, key, storedImage);
+          if (uploadResult === 'uploaded') {
+            reservation?.commit(storedImage.byteLength);
+          } else if (uploadResult === 'already-existed') {
+            reservation?.release();
+            storageBudget?.markExisting(key, storedImage.byteLength);
+          } else {
+            throw new Error(`R2 Upload für ${key} endete mit einem unbekannten Ergebnis.`);
+          }
 
           return r2Url;
         })();

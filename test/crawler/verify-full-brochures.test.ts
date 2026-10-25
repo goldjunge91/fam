@@ -3,7 +3,7 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import { createStorageBudget } from '../../tools/crawler/brochures/storage-policy';
-import type { BrnReference } from '../../tools/crawler/brochures/listing-only/fetch-detail-pages';
+import { regionalReferenceKey, type BrnReference } from '../../tools/crawler/brochures/listing-only/fetch-detail-pages';
 import type { CanonicalGroup } from '../../tools/crawler/brochures/listing-only/group-canonical';
 import { hashOrderedPageSet } from '../../tools/crawler/brochures/listing-only/full-brochure-signature';
 import { createOriginalPageAssetStore } from '../../tools/crawler/brochures/listing-only/original-page-asset-store';
@@ -249,7 +249,8 @@ describe('full brochure page verification', () => {
       groups: [group],
     };
     const reference: BrnReference = {
-      brn: 'brn-a', zipCode: '10115', latitude: 52.53, longitude: 13.4,
+      brn: 'brn-a', referenceKey: regionalReferenceKey('10115', 'brn-a'),
+      zipCode: '10115', latitude: 52.53, longitude: 13.4,
     };
     const progress = createFullPageVerificationProgress('same-input');
     const fetchDetail = jest.fn(async () => ({
@@ -335,7 +336,8 @@ describe('full brochure page verification', () => {
       groups: [group],
     };
     const reference: BrnReference = {
-      brn: 'brn-a', zipCode: '10115', latitude: 52.53, longitude: 13.4,
+      brn: 'brn-a', referenceKey: regionalReferenceKey('10115', 'brn-a'),
+      zipCode: '10115', latitude: 52.53, longitude: 13.4,
     };
     const progress = createFullPageVerificationProgress('same-input');
     const fetchDetail = async () => ({ pages: [

@@ -92,26 +92,30 @@ function canonicalRow(
     brochure: {
       id: brochureId,
       canonical_brn: `brn-${brochureId}`,
+      source_zip_code: zipCode,
       store_id: 'store-1',
       title: `Brochure ${brochureId}`,
       valid_from: '2026-10-01T00:00:00.000Z',
       valid_until: '2026-10-07T23:59:59.000Z',
       page_count: 2,
-      cover_image: `brochures/${brochureId}/cover.jpg`,
+      cover_image: `https://cdn.bringapi.app/content/${brochureId}/cover.jpg`,
       pages: [
         {
           number: 1,
-          imageUrl: `brochures/${brochureId}/1.jpg`,
+          imageUrl: `https://cdn.bringapi.app/content/${brochureId}/1.jpg`,
           hotspots: [],
         },
         {
           number: 2,
-          imageUrl: `brochures/${brochureId}/2.jpg`,
+          imageUrl: `https://cdn.bringapi.app/content/${brochureId}/2.jpg`,
           hotspots: [],
         },
       ],
-      verified_sha256: 'a'.repeat(64),
-      store: { id: 'store-1', name: 'Fresh Market', logo_url: 'brochures/store/logo.png' },
+      store: {
+        id: 'store-1',
+        name: 'Fresh Market',
+        logo_url: 'https://cdn.bringapi.app/content/store/logo.png',
+      },
       ...overrides,
     },
   };
@@ -126,7 +130,11 @@ describe('mapCanonicalAvailabilityRows', () => {
 
     expect(dump.brochures?.map(({ id }) => id)).toEqual(['local']);
     expect(dump.stores).toEqual([
-      { id: 'store-1', name: 'Fresh Market', logoUrl: 'brochures/store/logo.png' },
+      {
+        id: 'store-1',
+        name: 'Fresh Market',
+        logoUrl: 'https://cdn.bringapi.app/content/store/logo.png',
+      },
     ]);
   });
 
@@ -145,13 +153,17 @@ describe('mapCanonicalAvailabilityRows', () => {
       priceCents: 199,
       oldPriceCents: 249,
       currency: 'EUR',
-      imageUrl: 'brochures/offer/apple.jpg',
+      imageUrl: 'https://cdn.bringapi.app/content/offer/apple.jpg',
       linkoutUrl: 'https://example.com/apples',
     };
     const row = canonicalRow('10000', 'full', {
       pages: [
-        { number: 1, imageUrl: 'brochures/full/1.jpg', hotspots: [hotspot] },
-        { number: 2, imageUrl: 'brochures/full/2.jpg', hotspots: [{ ...hotspot, id: 'offer-2' }] },
+        { number: 1, imageUrl: 'https://cdn.bringapi.app/content/full/1.jpg', hotspots: [hotspot] },
+        {
+          number: 2,
+          imageUrl: 'https://cdn.bringapi.app/content/full/2.jpg',
+          hotspots: [{ ...hotspot, id: 'offer-2' }],
+        },
       ],
     });
 
@@ -159,12 +171,12 @@ describe('mapCanonicalAvailabilityRows', () => {
 
     expect(dump.brochures?.[0]).toMatchObject({
       id: 'full',
-      coverImage: 'brochures/full/cover.jpg',
+      coverImage: 'https://cdn.bringapi.app/content/full/cover.jpg',
       pages: [
-        { number: 1, imageUrl: 'brochures/full/1.jpg', hotspots: [hotspot] },
+        { number: 1, imageUrl: 'https://cdn.bringapi.app/content/full/1.jpg', hotspots: [hotspot] },
         {
           number: 2,
-          imageUrl: 'brochures/full/2.jpg',
+          imageUrl: 'https://cdn.bringapi.app/content/full/2.jpg',
           hotspots: [{ ...hotspot, id: 'offer-2' }],
         },
       ],
@@ -183,7 +195,7 @@ describe('mapCanonicalAvailabilityRows', () => {
 
   it('rejects malformed page payloads instead of silently dropping pages', () => {
     const row = canonicalRow('10000', 'bad-pages', {
-      pages: [{ number: 1, imageUrl: 'brochures/bad-pages/1.jpg' }],
+      pages: [{ number: 1, imageUrl: 'https://cdn.bringapi.app/content/bad-pages/1.jpg' }],
     });
 
     expect(() => mapCanonicalAvailabilityRows([row], '10000')).toThrow(

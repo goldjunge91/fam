@@ -1,4 +1,5 @@
 import type { SqlDatabase } from '@/lib/db/types';
+import { bringImageUrl } from '../../../supabase/functions/_shared/bring-image-url';
 
 export type BrochureDump = {
   stores?: Array<{ id: string; name: string; logoUrl?: string }>;
@@ -28,6 +29,7 @@ export type CanonicalAvailabilityRow = {
   brochure: {
     id: string;
     canonical_brn: string;
+    source_zip_code: string;
     store_id: string;
     title: string;
     valid_from: string;
@@ -35,7 +37,6 @@ export type CanonicalAvailabilityRow = {
     page_count: number;
     cover_image: string;
     pages: unknown;
-    verified_sha256: string;
     store: { id: string; name: string; logo_url: string | null };
   };
 };
@@ -59,47 +60,27 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 function requiredString(value: unknown, field: string): string {
-  if (typeof value !== 'string' || value.trim().length === 0) {
+  if (typeof value !== 'string' || value.trim().length === 0)
     throw new Error(`Invalid canonical brochure ${field}`);
-  }
-
   return value;
 }
 
-function privateImageKey(value: unknown, field: string): string {
-  const key = requiredString(value, field);
-  if (!key.startsWith('brochures/') || key.length === 'brochures/'.length) {
-    throw new Error(`Invalid canonical brochure ${field}`);
-  }
-
-  return key;
+function bringSourceImageUrl(value: unknown, field: string): string {
+  const source = bringImageUrl(value);
+  if (!source) throw new Error(`Invalid canonical brochure ${field}`);
+  return source.toString();
 }
 
 function canonicalPages(value: unknown, expectedCount: number): CanonicalBrochurePage[] {
-  if (!Array.isArray(value) || value.length !== expectedCount) {
+  if (!Array.isArray(value) || value.length !== expectedCount)
     throw new Error('Invalid canonical brochure pages');
-  }
-
-  const pageNumbers = new Set<number>();
-  return value.map((page): CanonicalBrochurePage => {
-    if (!isRecord(page)) throw new Error('Invalid canonical brochure pages');
-
-    const number = page.number;
-    if (
-      typeof number !== 'number' ||
-      !Number.isInteger(number) ||
-      number < 1 ||
-      number > expectedCount ||
-      pageNumbers.has(number) ||
-      !Array.isArray(page.hotspots)
-    ) {
+  return value.map((page, index): CanonicalBrochurePage => {
+    if (!isRecord(page) || page.number !== index + 1 || !Array.isArray(page.hotspots)) {
       throw new Error('Invalid canonical brochure pages');
     }
-    pageNumbers.add(number);
-
     return {
-      number,
-      imageUrl: privateImageKey(page.imageUrl, 'pages'),
+      number: index + 1,
+      imageUrl: bringSourceImageUrl(page.imageUrl, 'pages'),
       hotspots: page.hotspots,
     };
   });
@@ -114,13 +95,16 @@ export function mapCanonicalAvailabilityRows(value: unknown, zipCode: string): B
   const brochures: NonNullable<BrochureDump['brochures']> = [];
 
   for (const row of value) {
-    if (!isRecord(row) || typeof row.zip_code !== 'string' || !/^\d{5}$/.test(row.zip_code)) {
-      throw new Error('Invalid brochure availability ZIP code');
+    if (!isRecord(row) || row.zip_code !== zipCode) {
+      if (!isRecord(row) || typeof row.zip_code !== 'string' || !/^\d{5}$/.test(row.zip_code)) {
+        throw new Error('Invalid brochure availability ZIP code');
+      }
+      continue;
     }
-    if (row.zip_code !== zipCode) continue;
-
     const brochure = row.brochure;
     if (!isRecord(brochure)) throw new Error('Invalid canonical brochure row');
+    const sourceZipCode = requiredString(brochure.source_zip_code, 'source_zip_code');
+    if (sourceZipCode !== zipCode) throw new Error('Invalid canonical brochure regional identity');
 
     const id = requiredString(brochure.id, 'id');
     requiredString(brochure.canonical_brn, 'canonical_brn');
@@ -129,13 +113,10 @@ export function mapCanonicalAvailabilityRows(value: unknown, zipCode: string): B
     if (!isRecord(store)) throw new Error('Invalid canonical brochure store');
 
     let logoUrl: string | undefined;
-    if (store.logo_url === null) {
-      logoUrl = undefined;
-    } else if (typeof store.logo_url === 'string') {
-      logoUrl = store.logo_url.trim().length > 0 ? store.logo_url : undefined;
-    } else {
-      throw new Error('Invalid canonical brochure store logo_url');
-    }
+    if (store.logo_url === null) logoUrl = undefined;
+    else if (typeof store.logo_url === 'string')
+      logoUrl = bringSourceImageUrl(store.logo_url, 'store logo_url');
+    else throw new Error('Invalid canonical brochure store logo_url');
 
     const storeRecord = {
       id: requiredString(store.id, 'store id'),
@@ -162,19 +143,10 @@ export function mapCanonicalAvailabilityRows(value: unknown, zipCode: string): B
     if (typeof pageCount !== 'number' || !Number.isInteger(pageCount) || pageCount < 1) {
       throw new Error('Invalid canonical brochure page_count');
     }
-    if (!/^[a-f0-9]{64}$/.test(requiredString(brochure.verified_sha256, 'verified_sha256'))) {
-      throw new Error('Invalid canonical brochure verified_sha256');
-    }
+    const pages = canonicalPages(brochure.pages, pageCount);
+    const coverImage = bringSourceImageUrl(brochure.cover_image, 'cover_image');
 
-    brochures.push({
-      id,
-      storeId,
-      title,
-      validFrom,
-      validUntil,
-      coverImage: privateImageKey(brochure.cover_image, 'cover_image'),
-      pages: canonicalPages(brochure.pages, pageCount),
-    });
+    brochures.push({ id, storeId, title, validFrom, validUntil, coverImage, pages });
   }
 
   return { stores: [...stores.values()], brochures };
@@ -216,7 +188,6 @@ export async function writeBrochureDump(
         [store.id, store.name, store.logoUrl || null],
       );
     }
-
     for (const brochure of brochures) {
       await txn.runAsync(
         'INSERT INTO local_brochures (id, store_id, title, valid_from, valid_until, cover_image) VALUES (?, ?, ?, ?, ?, ?)',
@@ -229,9 +200,7 @@ export async function writeBrochureDump(
           brochure.coverImage,
         ],
       );
-
       if (!Array.isArray(brochure.pages)) continue;
-
       for (const page of brochure.pages) {
         await txn.runAsync(
           'INSERT INTO local_brochure_pages (id, brochure_id, page_number, image_url, hotspots_json) VALUES (?, ?, ?, ?, ?)',
@@ -245,7 +214,6 @@ export async function writeBrochureDump(
         );
       }
     }
-
     await txn.runAsync(
       `INSERT INTO local_brochure_cache (id, zip_code, updated_at)
        VALUES (1, ?, ?)

@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { appendFile, mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { loadTargetLocations } from '../locations';
+import { bringImageUrl, requiredBringImageUrl } from '../bring-image-url';
 import { transformLiveBrochure } from '../sources/live-offers';
 import type { BrochureLocation, CrawlerPage } from '../types';
 
@@ -20,15 +21,24 @@ type FullScanOffer = {
   title?: string;
   validFrom?: string;
   validUntil?: string;
+  pageCount?: number;
+  coverImage?: string;
 };
-type OfferMetadata = Required<FullScanOffer>;
+type OfferMetadata = Required<Pick<FullScanOffer, 'brn' | 'storeName' | 'title' | 'validFrom' | 'validUntil'>> &
+  Pick<FullScanOffer, 'pageCount' | 'coverImage'>;
 
 export type FullScan = {
   byZipCode: Record<string, FullScanOffer[]>;
 };
 
+/** Stable identity for a Bring request before a location-independent identity is proven. */
+export function regionalReferenceKey(zipCode: string, brn: string): string {
+  return `${zipCode}:${encodeURIComponent(brn)}`;
+}
+
 export type BrnReference = Pick<BrochureLocation, 'zipCode' | 'latitude' | 'longitude'> & {
   brn: string;
+  referenceKey: string;
 };
 
 export type BringTokens = { authToken: string; apiKey: string; userUuid: string };
@@ -40,8 +50,14 @@ type Progress = {
 };
 
 export type CachedPageMetadata = {
+  referenceKey: string;
+  brn: string;
+  zipCode: string;
   title: string;
   storeId: string;
+  validFrom: string;
+  validUntil: string;
+  coverImage: string;
   pageUrls: string[];
   pages: CrawlerPage[];
 };
@@ -61,9 +77,12 @@ export function buildBrnReferences(
     if (!location) throw new Error(`Keine Koordinaten für PLZ ${zipCode}`);
 
     for (const offer of offers) {
-      if (!offer.brn || references.has(offer.brn)) continue;
-      references.set(offer.brn, {
+      if (!offer.brn) continue;
+      const referenceKey = regionalReferenceKey(zipCode, offer.brn);
+      if (references.has(referenceKey)) continue;
+      references.set(referenceKey, {
         brn: offer.brn,
+        referenceKey,
         zipCode,
         latitude: location.latitude,
         longitude: location.longitude,
@@ -71,7 +90,24 @@ export function buildBrnReferences(
     }
   }
 
-  return [...references.values()].sort((left, right) => left.brn.localeCompare(right.brn));
+  return [...references.values()].sort(
+    (left, right) => left.zipCode.localeCompare(right.zipCode) || left.brn.localeCompare(right.brn),
+  );
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isBringImageUrl(value: unknown): value is string {
+  return typeof value === 'string' && bringImageUrl(value) !== null;
+}
+
+function sameTimestamp(left: unknown, right: unknown): boolean {
+  if (typeof left !== 'string' || typeof right !== 'string') return false;
+  const leftTime = Date.parse(left);
+  const rightTime = Date.parse(right);
+  return Number.isFinite(leftTime) && leftTime === rightTime;
 }
 
 export function pageCountFromDetail(value: unknown): number {
@@ -87,16 +123,24 @@ export function pageCountFromDetail(value: unknown): number {
   return pages.length;
 }
 
-function pageMetadataFromDetail(offer: OfferMetadata, detail: unknown): CachedPageMetadata {
+function pageMetadataFromDetail(
+  reference: BrnReference,
+  offer: OfferMetadata,
+  detail: unknown,
+): CachedPageMetadata {
   const transformed = transformLiveBrochure({
     brn: offer.brn,
     title: offer.title,
     company: { title: offer.storeName },
     activeFrom: offer.validFrom,
     activeTo: offer.validUntil,
+    ...(offer.coverImage ? { pages: [{ image: offer.coverImage }] } : {}),
   }, detail);
   const pageCount = pageCountFromDetail(detail);
   if (!transformed) throw new Error('Bring-Detailantwort enthält keine nutzbaren Prospektseiten.');
+  if (offer.pageCount !== undefined && offer.pageCount !== pageCount) {
+    throw new Error(`Erwartet wurden ${offer.pageCount} Seiten aus dem Listing; Bring lieferte ${pageCount}.`);
+  }
 
   const pages = [...transformed.brochure.pages].sort((left, right) => left.number - right.number);
   if (pages.length !== pageCount || pages.some((page, index) => page.number !== index + 1)) {
@@ -106,11 +150,28 @@ function pageMetadataFromDetail(offer: OfferMetadata, detail: unknown): CachedPa
     throw new Error('Bring-Detailantwort enthält eine Seite ohne Bild-URL.');
   }
 
+  const validatedPages = pages.map((page) => ({
+    ...page,
+    imageUrl: requiredBringImageUrl(page.imageUrl, `Seite ${page.number}`),
+    hotspots: page.hotspots.map((hotspot) => ({
+      ...hotspot,
+      ...(hotspot.imageUrl
+        ? { imageUrl: requiredBringImageUrl(hotspot.imageUrl, `Hotspot ${hotspot.id}`) }
+        : {}),
+    })),
+  }));
+
   return {
+    referenceKey: reference.referenceKey,
+    brn: reference.brn,
+    zipCode: reference.zipCode,
     title: offer.title,
     storeId: transformed.brochure.storeId,
-    pageUrls: pages.map((page) => page.imageUrl),
-    pages,
+    validFrom: offer.validFrom,
+    validUntil: offer.validUntil,
+    coverImage: requiredBringImageUrl(transformed.brochure.coverImage, 'Prospektcover'),
+    pageUrls: validatedPages.map((page) => page.imageUrl),
+    pages: validatedPages,
   };
 }
 
@@ -236,10 +297,18 @@ function asPageMetadata(value: unknown): Record<string, CachedPageMetadata> {
       if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) return false;
       const candidate = entry as Partial<CachedPageMetadata>;
       return Boolean(
+        typeof candidate.referenceKey === 'string' &&
+        typeof candidate.brn === 'string' &&
+        typeof candidate.zipCode === 'string' &&
+        /^\d{5}$/.test(candidate.zipCode) &&
+        candidate.referenceKey === regionalReferenceKey(candidate.zipCode, candidate.brn) &&
         typeof candidate.title === 'string' &&
         candidate.title.length > 0 &&
         typeof candidate.storeId === 'string' &&
         candidate.storeId.length > 0 &&
+        typeof candidate.validFrom === 'string' &&
+        typeof candidate.validUntil === 'string' &&
+        isBringImageUrl(candidate.coverImage) &&
         Array.isArray(candidate.pageUrls) &&
         Array.isArray(candidate.pages) &&
         candidate.pageUrls.length === candidate.pages.length &&
@@ -279,10 +348,10 @@ async function readPageMetadataProgress(path: string): Promise<Record<string, Ca
       try {
         const entry = JSON.parse(line) as unknown;
         if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) continue;
-        const record = entry as { brn?: unknown; metadata?: unknown };
-        if (typeof record.brn !== 'string' || !record.brn) continue;
-        const parsed = asPageMetadata({ [record.brn]: record.metadata });
-        if (parsed[record.brn]) metadata[record.brn] = parsed[record.brn]!;
+        const record = entry as { referenceKey?: unknown; metadata?: unknown };
+        if (typeof record.referenceKey !== 'string' || !record.referenceKey) continue;
+        const parsed = asPageMetadata({ [record.referenceKey]: record.metadata });
+        if (parsed[record.referenceKey]) metadata[record.referenceKey] = parsed[record.referenceKey]!;
       } catch {
         // An interrupted append can leave one incomplete trailing line; missing entries are refetched.
       }
@@ -293,27 +362,206 @@ async function readPageMetadataProgress(path: string): Promise<Record<string, Ca
   }
 }
 
+export function reusableDetailMetadataFromCatalog(options: {
+  reference: BrnReference;
+  offer: OfferMetadata;
+  row: unknown;
+  now?: Date;
+}): CachedPageMetadata | undefined {
+  if (!isRecord(options.row)) return undefined;
+  if (
+    options.row.canonical_brn !== options.reference.brn ||
+    options.row.source_zip_code !== options.reference.zipCode ||
+    options.row.title !== options.offer.title ||
+    !sameTimestamp(options.row.valid_from, options.offer.validFrom) ||
+    !sameTimestamp(options.row.valid_until, options.offer.validUntil) ||
+    typeof options.row.store_id !== 'string'
+  ) return undefined;
+  if (
+    isRecord(options.row.store) &&
+    typeof options.row.store.name === 'string' &&
+    options.row.store.name !== options.offer.storeName
+  ) return undefined;
+
+  const validUntil = Date.parse(String(options.row.valid_until));
+  if (!Number.isFinite(validUntil) || validUntil < (options.now ?? new Date()).getTime()) return undefined;
+
+  const pageCount = options.row.page_count;
+  if (
+    typeof pageCount !== 'number' || !Number.isSafeInteger(pageCount) || pageCount < 1 ||
+    (options.offer.pageCount !== undefined && options.offer.pageCount > 0 && options.offer.pageCount !== pageCount)
+  ) return undefined;
+  if (!Array.isArray(options.row.pages) || options.row.pages.length !== pageCount) return undefined;
+
+  try {
+    const pages = options.row.pages.map((value, index): CrawlerPage => {
+      if (!isRecord(value) || value.number !== index + 1 || !Array.isArray(value.hotspots)) {
+        throw new Error('invalid pages');
+      }
+      return {
+        number: index + 1,
+        imageUrl: requiredBringImageUrl(value.imageUrl, `Katalogseite ${index + 1}`),
+        hotspots: value.hotspots.map((hotspot) => {
+          if (!isRecord(hotspot)) throw new Error('invalid hotspot');
+          return {
+            ...hotspot,
+            ...(hotspot.imageUrl
+              ? { imageUrl: requiredBringImageUrl(hotspot.imageUrl, 'Katalog-Hotspot') }
+              : {}),
+          } as CrawlerPage['hotspots'][number];
+        }),
+      };
+    });
+    const coverImage = requiredBringImageUrl(options.row.cover_image, 'Katalogcover');
+    if (options.offer.coverImage && coverImage !== requiredBringImageUrl(options.offer.coverImage, 'Listingcover')) return undefined;
+    return {
+      referenceKey: options.reference.referenceKey,
+      brn: options.reference.brn,
+      zipCode: options.reference.zipCode,
+      title: options.offer.title,
+      storeId: options.row.store_id,
+      validFrom: options.offer.validFrom,
+      validUntil: options.offer.validUntil,
+      coverImage,
+      pageUrls: pages.map((page) => page.imageUrl),
+      pages,
+    };
+  } catch {
+    return undefined;
+  }
+}
+
+export async function loadReusableDetailMetadata(options: {
+  references: readonly BrnReference[];
+  offersByReference: ReadonlyMap<string, FullScanOffer>;
+  supabaseUrl?: string;
+  supabaseSecretKey?: string;
+  fetcher?: typeof fetch;
+  now?: Date;
+}): Promise<Record<string, CachedPageMetadata>> {
+  const supabaseUrl = options.supabaseUrl?.trim();
+  const supabaseSecretKey = options.supabaseSecretKey?.trim();
+  if (!supabaseUrl || !supabaseSecretKey) return {};
+
+  const fetcher = options.fetcher ?? fetch;
+  const reusable: Record<string, CachedPageMetadata> = {};
+  const referencesByZip = new Map<string, BrnReference[]>();
+  for (const reference of options.references) {
+    const references = referencesByZip.get(reference.zipCode) ?? [];
+    references.push(reference);
+    referencesByZip.set(reference.zipCode, references);
+  }
+
+  const referenceBatches = [...referencesByZip.entries()].flatMap(([zipCode, references]) =>
+    Array.from({ length: Math.ceil(references.length / 100) }, (_, batchIndex) => ({
+      zipCode,
+      references: references.slice(batchIndex * 100, (batchIndex + 1) * 100),
+    })),
+  );
+
+  for (const batch of referenceBatches) {
+    const query = new URLSearchParams({
+      select: 'canonical_brn,source_zip_code,title,store_id,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(name)',
+      canonical_brn: `in.(${batch.references.map(({ brn }) => `"${brn.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`).join(',')})`,
+      source_zip_code: `eq.${batch.zipCode}`,
+      valid_until: `gte.${(options.now ?? new Date()).toISOString()}`,
+      limit: '100',
+    });
+    const response = await fetcher(
+      `${supabaseUrl.replace(/\/+$/, '')}/rest/v1/canonical_brochures?${query.toString()}`,
+      {
+        headers: {
+          apikey: supabaseSecretKey,
+          Authorization: `Bearer ${supabaseSecretKey}`,
+          Accept: 'application/json',
+        },
+      },
+    );
+    if (!response.ok) throw new Error(`Katalogdetails konnten nicht gelesen werden (${response.status}).`);
+    const rows = await response.json() as unknown;
+    if (!Array.isArray(rows)) throw new Error('Katalogdetails haben kein gültiges Listenformat.');
+
+    const rowsByBrn = new Map<string, unknown[]>();
+    for (const row of rows) {
+      if (!isRecord(row) || typeof row.canonical_brn !== 'string') continue;
+      const matchingRows = rowsByBrn.get(row.canonical_brn) ?? [];
+      matchingRows.push(row);
+      rowsByBrn.set(row.canonical_brn, matchingRows);
+    }
+
+    for (const reference of batch.references) {
+      const offer = options.offersByReference.get(reference.referenceKey);
+      const matchingRows = rowsByBrn.get(reference.brn);
+      if (!offer || !offer.title || !offer.validFrom || !offer.validUntil || matchingRows?.length !== 1) continue;
+      const metadata = reusableDetailMetadataFromCatalog({
+        reference,
+        offer: {
+          brn: reference.brn,
+          title: offer.title,
+          storeName: offer.storeName ?? '',
+          validFrom: offer.validFrom,
+          validUntil: offer.validUntil,
+          pageCount: offer.pageCount,
+          coverImage: offer.coverImage,
+        },
+        row: matchingRows[0],
+        now: options.now,
+      });
+      if (metadata) reusable[reference.referenceKey] = metadata;
+    }
+  }
+  return reusable;
+}
+
 async function main(): Promise<void> {
   const fullScan = JSON.parse(await readFile(inputPath, 'utf8')) as FullScan;
   const locations = await loadTargetLocations({ all: true });
   const references = buildBrnReferences(fullScan, locations);
   if (references.length === 0) throw new Error('Im Voll-Scan wurden keine BRNs gefunden.');
-  const offersByBrn = new Map<string, FullScanOffer>();
-  for (const offers of Object.values(fullScan.byZipCode)) {
+
+  const offersByReference = new Map<string, FullScanOffer>();
+  for (const [zipCode, offers] of Object.entries(fullScan.byZipCode)) {
     for (const offer of offers) {
-      if (!offersByBrn.has(offer.brn)) offersByBrn.set(offer.brn, offer);
+      const referenceKey = regionalReferenceKey(zipCode, offer.brn);
+      if (!offersByReference.has(referenceKey)) offersByReference.set(referenceKey, offer);
     }
   }
 
   const headers = buildBringHeaders(loadBringTokens());
   const progress = await readProgress(progressPath);
+  const reusableCatalogMetadata = await loadReusableDetailMetadata({
+    references,
+    offersByReference,
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseSecretKey: process.env.SUPABASE_SECRET_KEY,
+  });
   const pageMetadata = {
+    ...reusableCatalogMetadata,
     ...progress.legacyMetadata,
     ...(await readPageMetadataProgress(pageMetadataProgressPath)),
   };
   delete progress.legacyMetadata;
-  for (const [brn, metadata] of Object.entries(pageMetadata)) {
-    progress.completed[brn] = metadata.pages.length;
+  for (const reference of references) {
+    const offer = offersByReference.get(reference.referenceKey);
+    const cached = pageMetadata[reference.referenceKey];
+    if (!cached) continue;
+    const listingCover = offer?.coverImage
+      ? requiredBringImageUrl(offer.coverImage, `Listingcover ${reference.referenceKey}`)
+      : undefined;
+    if (
+      !offer ||
+      cached.title !== offer.title ||
+      cached.validFrom !== offer.validFrom ||
+      cached.validUntil !== offer.validUntil ||
+      (offer.pageCount !== undefined && offer.pageCount > 0 && cached.pages.length !== offer.pageCount) ||
+      (listingCover !== undefined && cached.coverImage !== listingCover)
+    ) {
+      delete pageMetadata[reference.referenceKey];
+      delete progress.completed[reference.referenceKey];
+    }
+  }
+  for (const [referenceKey, metadata] of Object.entries(pageMetadata)) {
+    progress.completed[referenceKey] = metadata.pages.length;
   }
   try {
     Object.assign(progress.completed, asPageCounts(JSON.parse(await readFile(outputPath, 'utf8'))));
@@ -321,37 +569,39 @@ async function main(): Promise<void> {
     // The final output is optional while an interrupted run resumes from progress.
   }
 
-  const pending = references.filter(({ brn }) => pageMetadata[brn] === undefined);
+  const pending = references.filter(({ referenceKey }) => pageMetadata[referenceKey] === undefined);
   console.log(
-    `Detail-Seitenzahlen: ${pending.length} von ${references.length} BRNs ausstehend | Concurrency: ${concurrency}`,
+    `Detail-Seitenzahlen: ${pending.length} von ${references.length} regionalen Referenzen ausstehend | Concurrency: ${concurrency}`,
   );
 
   for (let index = 0; index < pending.length; index += concurrency) {
     const batch = pending.slice(index, index + concurrency);
-    const newMetadata: Array<{ brn: string; metadata: CachedPageMetadata }> = [];
+    const newMetadata: Array<{ referenceKey: string; metadata: CachedPageMetadata }> = [];
     await Promise.all(
       batch.map(async (reference) => {
         try {
           const detail = await fetchJsonWithRetry(buildDetailUrl(reference), headers);
-          const offer = offersByBrn.get(reference.brn);
+          const offer = offersByReference.get(reference.referenceKey);
           if (
             !offer || !offer.storeName || !offer.title || !offer.validFrom || !offer.validUntil
           ) {
-            throw new Error(`Voll-Scan-Metadaten für ${reference.brn} fehlen.`);
+            throw new Error(`Voll-Scan-Metadaten für ${reference.referenceKey} fehlen.`);
           }
-          const metadata = pageMetadataFromDetail({
+          const metadata = pageMetadataFromDetail(reference, {
             brn: offer.brn,
             storeName: offer.storeName,
             title: offer.title,
             validFrom: offer.validFrom,
             validUntil: offer.validUntil,
+            pageCount: offer.pageCount,
+            coverImage: offer.coverImage,
           }, detail);
-          progress.completed[reference.brn] = metadata.pages.length;
-          pageMetadata[reference.brn] = metadata;
-          newMetadata.push({ brn: reference.brn, metadata });
-          delete progress.failures[reference.brn];
+          progress.completed[reference.referenceKey] = metadata.pages.length;
+          pageMetadata[reference.referenceKey] = metadata;
+          newMetadata.push({ referenceKey: reference.referenceKey, metadata });
+          delete progress.failures[reference.referenceKey];
         } catch (error) {
-          progress.failures[reference.brn] = error instanceof Error ? error.message : String(error);
+          progress.failures[reference.referenceKey] = error instanceof Error ? error.message : String(error);
         }
       }),
     );
@@ -366,28 +616,30 @@ async function main(): Promise<void> {
     await writeJsonAtomic(progressPath, progress);
     if (index % (concurrency * 10) === 0 || index + batch.length === pending.length) {
       console.log(
-        `${Math.min(index + batch.length, pending.length)}/${pending.length} BRNs verarbeitet | ${Object.keys(progress.failures).length} Hard-Failures`,
+        `${Math.min(index + batch.length, pending.length)}/${pending.length} Referenzen verarbeitet | ${Object.keys(progress.failures).length} Hard-Failures`,
       );
     }
   }
 
-  const missingBrns = references.filter(({ brn }) => progress.completed[brn] === undefined);
-  const failures = missingBrns.map(({ brn }) => `${brn}: ${progress.failures[brn] ?? 'keine Detailantwort'}`);
+  const missingReferences = references.filter(({ referenceKey }) => pageMetadata[referenceKey] === undefined);
+  const failures = missingReferences.map(({ referenceKey }) => `${referenceKey}: ${progress.failures[referenceKey] ?? 'keine Detailantwort'}`);
   if (failures.length > 0) {
-    console.error(`${failures.length} BRNs ohne Detail-Seitenzahl; Fortschritt bleibt in ${progressPath}.`);
+    console.error(`${failures.length} regionale Referenzen ohne Detail-Seitenzahl; Fortschritt bleibt in ${progressPath}.`);
     for (const failure of failures) console.error(failure);
     process.exitCode = 1;
     return;
   }
 
-  const detailPages = Object.fromEntries(references.map(({ brn }) => [brn, progress.completed[brn]!]));
+  const detailPages = Object.fromEntries(
+    references.map(({ referenceKey }) => [referenceKey, progress.completed[referenceKey]!]),
+  );
   const summary = summarizeDetailPages(detailPages);
   await writeJsonAtomic(outputPath, detailPages);
   await writeJsonAtomic(pageMetadataOutputPath, pageMetadata);
   await unlink(progressPath).catch(() => undefined);
   await unlink(pageMetadataProgressPath).catch(() => undefined);
   console.log(
-    `Fertig: ${summary.totalBrns} BRNs, ${summary.multiplePageBrns} mit mehr als einer Seite (${summary.multiplePagePercent} %), 0 Hard-Failures.`,
+    `Fertig: ${summary.totalBrns} regionale Referenzen, ${summary.multiplePageBrns} mit mehr als einer Seite (${summary.multiplePagePercent} %), 0 Hard-Failures.`,
   );
   console.log(`Report: ${outputPath}`);
 }

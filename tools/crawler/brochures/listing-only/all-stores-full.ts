@@ -84,6 +84,7 @@ type OfferEntry = {
   validFrom: string;
   validUntil: string;
   pageCount: number;
+  coverImage?: string;
 };
 
 type FullResult = {
@@ -198,6 +199,21 @@ async function fetchLocationEntries(
           ? company.name
           : "";
     const offerPages = Array.isArray(offer.pages) ? offer.pages : [];
+    const firstOfferPage = offerPages[0];
+    const firstSummaryPage = typeof firstOfferPage === "object" && firstOfferPage !== null && !Array.isArray(firstOfferPage)
+      ? firstOfferPage as Record<string, unknown>
+      : undefined;
+    const cover = firstSummaryPage?.image;
+    const coverRecord = typeof cover === "object" && cover !== null && !Array.isArray(cover)
+      ? cover as Record<string, unknown>
+      : undefined;
+    const coverImage = typeof cover === "string"
+      ? cover
+      : typeof coverRecord?.imageUrl === "string"
+        ? coverRecord.imageUrl
+        : typeof coverRecord?.url === "string"
+          ? coverRecord.url
+          : undefined;
     entries.push({
       brn,
       storeName,
@@ -215,6 +231,7 @@ async function fetchLocationEntries(
             ? offer.validUntil
             : "",
       pageCount: offerPages.length,
+      ...(coverImage ? { coverImage } : {}),
     });
   }
   return entries;

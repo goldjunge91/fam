@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { createHash } from 'node:crypto';
 import {
+  deleteR2Object,
   ensureR2StorageBudget,
   imageKeyFor,
   listR2Objects,
@@ -83,6 +84,17 @@ describe('Cloudflare R2 Storage & Hash-based Image Keys', () => {
     expect(signed.headers['x-amz-content-sha256']).toBe('UNSIGNED-PAYLOAD');
     expect(signed.headers.Authorization).toMatch(
       /^AWS4-HMAC-SHA256 Credential=mock_key_456\/\d{8}\/auto\/s3\/aws4_request/,
+    );
+  });
+
+  it('deletes a scoped R2 object and treats an absent key as cleaned', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(testResponse(null, 204));
+
+    await expect(deleteR2Object(mockR2Config, 'brochures/demand/2026-10-24/image.img')).resolves.toBeUndefined();
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining('/fam-brochures/brochures/demand/2026-10-24/image.img'),
+      expect.objectContaining({ method: 'DELETE' }),
     );
   });
 

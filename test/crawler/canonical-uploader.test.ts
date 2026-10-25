@@ -4,23 +4,23 @@ import { publishCanonicalCatalog } from '../../tools/crawler/brochures/uploader'
 import type { CanonicalCatalogRecord } from '../../tools/crawler/brochures/listing-only/canonical-catalog';
 
 const record: CanonicalCatalogRecord = {
-  id: 'canonical:one',
+  id: `canonical:${JSON.stringify(['10000', 'brn-1'])}`,
   canonicalBrn: 'brn-1',
+  sourceZipCode: '10000',
   storeId: 'lidl',
   title: 'Lidl Woche',
   validFrom: '2026-10-01T00:00:00Z',
   validUntil: '2026-10-07T23:59:59Z',
   pageCount: 1,
-  coverImage: 'brochures/dumps/assets/page-1.jpg',
+  coverImage: 'https://cdn.bringapi.app/content/brn-1/cover.jpg',
   pages: [
     {
       number: 1,
-      imageUrl: 'brochures/dumps/assets/page-1.jpg',
+      imageUrl: 'https://cdn.bringapi.app/content/brn-1/page-1.jpg',
       hotspots: [{ kind: 'discount', id: 'offer-1', x: 1, y: 2, width: 3, height: 4, title: 'Kaffee' }],
     },
   ],
-  verifiedSha256: 'a'.repeat(64),
-  availableZipCodes: ['10000', '10100'],
+  availableZipCodes: ['10000'],
 };
 
 describe('canonical brochure publication', () => {
@@ -41,23 +41,23 @@ describe('canonical brochure publication', () => {
 
     expect(from).toHaveBeenCalledWith('brochure_stores');
     expect(storeUpsert).toHaveBeenCalledWith(
-      [{ id: 'lidl', name: 'Lidl', logo_url: null, active: true }],
+      [{ id: 'lidl', name: 'Lidl', active: true }],
       { onConflict: 'id' },
     );
     expect(rpc).toHaveBeenCalledWith('replace_canonical_brochure_catalog', {
       p_records: [
         {
-          id: 'canonical:one',
+          id: `canonical:${JSON.stringify(['10000', 'brn-1'])}`,
           canonical_brn: 'brn-1',
+          source_zip_code: '10000',
           store_id: 'lidl',
           title: 'Lidl Woche',
           valid_from: '2026-10-01T00:00:00Z',
           valid_until: '2026-10-07T23:59:59Z',
           page_count: 1,
-          cover_image: 'brochures/dumps/assets/page-1.jpg',
+          cover_image: 'https://cdn.bringapi.app/content/brn-1/cover.jpg',
           pages: record.pages,
-          verified_sha256: 'a'.repeat(64),
-          available_zip_codes: ['10000', '10100'],
+          available_zip_codes: ['10000'],
         },
       ],
       p_scoped_zip_codes: ['10000', '10100'],
@@ -79,7 +79,7 @@ describe('canonical brochure publication', () => {
     expect(rpc).not.toHaveBeenCalled();
   });
 
-  it('preserves an existing store logo when a verified full-page scan has no logo value', async () => {
+  it('does not overwrite a store logo when a scan has no logo value', async () => {
     const storeUpsert = jest.fn(async () => ({ error: null }));
     const from = jest.fn(() => ({ upsert: storeUpsert }));
     const rpc = jest.fn(async () => ({ data: null, error: null }));
@@ -108,21 +108,21 @@ describe('canonical brochure publication', () => {
         [{ id: 'lidl', name: 'Lidl' }],
         ['10000', '10100'],
       ),
-    ).rejects.toThrow('Kanonischer Prospektkatalog konnte nicht ersetzt werden');
+    ).rejects.toThrow('Prospektkatalog konnte nicht ersetzt werden');
   });
 
-  it('rejects ZIP availability outside the completely crawled scope', async () => {
+  it('rejects availability that includes a ZIP beyond the source ZIP', async () => {
     const from = jest.fn(() => ({ upsert: async () => ({ error: null }) }));
     const rpc = jest.fn(async () => ({ data: null, error: null }));
 
     await expect(
       publishCanonicalCatalog(
         { from, rpc } as unknown as SupabaseClient,
-        [record],
+        [{ ...record, availableZipCodes: ['10000', '10100'] }],
         [{ id: 'lidl', name: 'Lidl' }],
         ['10000'],
       ),
-    ).rejects.toThrow('Prospekt canonical:one enthält PLZ außerhalb des Crawl-Scopes');
+    ).rejects.toThrow('enthält keine ausschließlich belegte regionale PLZ');
     expect(rpc).not.toHaveBeenCalled();
   });
 });

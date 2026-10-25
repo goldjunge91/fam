@@ -41,6 +41,7 @@ const brochureData = {
       coverImage: 'aldi-cover.jpg',
     },
   ],
+  imageReferences: [],
 };
 
 jest.mock('expo-router', () => ({
@@ -65,7 +66,10 @@ jest.mock('../hooks/use-brochure-postal-code', () => ({
 jest.mock('../hooks/use-brochure-sync', () => ({ useBrochureSync: () => mockSync }));
 jest.mock('../hooks/use-brochures', () => ({ useBrochures: () => mockBrochureQuery }));
 jest.mock('../lib/brochure-image', () => ({
-  useBrochureImageSourceFactory: () => (path: string) => ({ uri: path }),
+  useBrochureImageSourceFactory:
+    () => (reference: { kind: string; brochureId?: string; storeId?: string }) => ({
+      uri: `https://images.example/${reference.kind}/${reference.brochureId ?? reference.storeId}`,
+    }),
 }));
 
 const { default: SharedBrochuresOverviewScreen } = jest.requireActual(

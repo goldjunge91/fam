@@ -10,10 +10,13 @@ import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { PostalCodeEditor } from '../components/postal-code-editor';
+import { useBrochureImagePrefetch } from '../hooks/use-brochure-image-prefetch';
 import { useBrochurePostalCode } from '../hooks/use-brochure-postal-code';
 import { useBrochureSync } from '../hooks/use-brochure-sync';
 import { useBrochures } from '../hooks/use-brochures';
 import { useBrochureImageSourceFactory } from '../lib/brochure-image';
+
+const EMPTY_IMAGE_REFERENCES: [] = [];
 
 export default function BrochuresOverviewScreen() {
   const router = useRouter();
@@ -30,6 +33,9 @@ export default function BrochuresOverviewScreen() {
   const { isSyncing, hasSynced } = useBrochureSync(postalCode);
   const { data, isLoading } = useBrochures();
   const getBrochureImageSource = useBrochureImageSourceFactory();
+  const imageReferences =
+    data?.cacheZip === postalCode ? data.imageReferences : EMPTY_IMAGE_REFERENCES;
+  useBrochureImagePrefetch(imageReferences, data?.cacheZip === postalCode ? postalCode : null);
 
   const postalCodeSettings = isEditingPostalCode ? (
     <View style={styles.postalCodeEditRow}>
@@ -183,7 +189,10 @@ export default function BrochuresOverviewScreen() {
                 <View key={store.id} style={styles.favoriteStore}>
                   {store.logoUrl ? (
                     <Image
-                      source={{ uri: store.logoUrl }}
+                      source={
+                        getBrochureImageSource({ kind: 'store-logo', storeId: store.id }) ??
+                        undefined
+                      }
                       style={[
                         styles.storeLogo,
                         { backgroundColor: colors.backgroundElement, borderColor: colors.border },
@@ -270,7 +279,9 @@ export default function BrochuresOverviewScreen() {
                 ]}
                 onPress={() => router.push(`/brochures/${brochure.id}`)}>
                 <Image
-                  source={getBrochureImageSource(brochure.coverImage) ?? undefined}
+                  source={
+                    getBrochureImageSource({ brochureId: brochure.id, kind: 'cover' }) ?? undefined
+                  }
                   style={[styles.brochureCover, { backgroundColor: colors.backgroundSoft }]}
                   contentFit="cover"
                 />
