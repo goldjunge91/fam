@@ -33,22 +33,40 @@ jobs:
           artifact_path="$(sed -n 's/^Artefakt: //p' "${{ runner.temp }}/ios-simulator-build.log" | tail -n 1)"
           [[ -n "$artifact_path" ]]
 
+          packaging_dir="${{ runner.temp }}/fam-ios-simulator-packaging"
+          rm -rf "$packaging_dir"
+          mkdir -p "$packaging_dir"
+
           if [[ -f "$artifact_path" ]]; then
             extract_dir="${{ runner.temp }}/ios-simulator-artifact"
             mkdir -p "$extract_dir"
             tar -xzf "$artifact_path" -C "$extract_dir"
-            simulator_app="$extract_dir/Debug-iphonesimulator/fam.app"
-            [[ -d "$simulator_app" ]]
-            tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
-              -C "$extract_dir/Debug-iphonesimulator" \
-              fam.app
+            iphone_app="$extract_dir/Debug-iphonesimulator/fam.app"
+            watch_app="$extract_dir/Debug-watchsimulator/watch.app"
+            [[ -d "$iphone_app" ]]
+            [[ -d "$watch_app" ]]
           elif [[ -d "$artifact_path" && "$artifact_path" == *.app ]]; then
-            tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
-              -C "$(dirname "$artifact_path")" \
-              "$(basename "$artifact_path")"
+            iphone_app="$artifact_path"
+            watch_app="$(find \
+              "$(dirname "$artifact_path")" \
+              "$(dirname "$(dirname "$artifact_path")")" \
+              -type d \
+              -path '*/Debug-watchsimulator/watch.app' \
+              -print -quit 2>/dev/null)"
+            if [[ -z "$watch_app" ]]; then
+              echo "Missing Debug-watchsimulator/watch.app for directory artifact: $artifact_path" >&2
+              exit 1
+            fi
           else
             exit 1
           fi
+
+          ditto "$iphone_app" "$packaging_dir/fam.app"
+          ditto "$watch_app" "$packaging_dir/watch.app"
+          tar -czf "${{ runner.temp }}/fam-ios-simulator.tar.gz" \
+            -C "$packaging_dir" \
+            fam.app \
+            watch.app
 
       - name: Upload iOS simulator app
         uses: actions/upload-artifact@v4
