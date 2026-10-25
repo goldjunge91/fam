@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -27,11 +28,15 @@ const styles = StyleSheet.create((theme) => ({
 
 export function PasswordRecoveryScreen() {
   const { t } = useTranslation();
+  const { token_hash: tokenHashParam, type: linkTypeParam } = useLocalSearchParams<{
+    token_hash?: string | string[];
+    type?: string | string[];
+  }>();
   const phase = usePasswordRecoveryStore((state) => state.phase);
   const emailFromStore = usePasswordRecoveryStore((state) => state.email);
   const codeFromStore = usePasswordRecoveryStore((state) => state.code);
   const cooldownUntil = usePasswordRecoveryStore((state) => state.cooldownUntil);
-  const legacyLinkFailed = usePasswordRecoveryStore((state) => state.legacyLinkFailed);
+  const recoveryLinkFailed = usePasswordRecoveryStore((state) => state.recoveryLinkFailed);
   const operation = usePasswordRecoveryStore((state) => state.operation);
   const [requestError, setRequestError] = useState<string | null>(null);
   const [codeError, setCodeError] = useState<string | null>(null);
@@ -51,6 +56,22 @@ export function PasswordRecoveryScreen() {
   const email = watch('email');
   const code = watch('code');
   const secondsLeft = cooldownUntil ? Math.max(0, Math.ceil((cooldownUntil - now) / 1000)) : 0;
+
+  useEffect(() => {
+    if (tokenHashParam === undefined) return;
+
+    router.setParams({ token_hash: undefined, type: undefined });
+    if (
+      typeof tokenHashParam !== 'string' ||
+      tokenHashParam.trim() === '' ||
+      linkTypeParam !== 'recovery'
+    ) {
+      usePasswordRecoveryStore.getState().markRecoveryLinkFailed();
+      return;
+    }
+
+    void usePasswordRecoveryStore.getState().openRecoveryTokenHash(tokenHashParam);
+  }, [linkTypeParam, tokenHashParam]);
 
   useEffect(() => {
     if (!cooldownUntil || secondsLeft <= 0) return;
@@ -106,11 +127,11 @@ export function PasswordRecoveryScreen() {
     return <RecoveryPasswordForm onCancel={() => void cancel()} />;
   }
 
-  if (phase === 'legacy-verifying') {
+  if (phase === 'link-verifying') {
     return (
       <Screen title={t('auth.passwordReset.title')}>
         <ContentCard>
-          <Txt variant="body">{t('auth.passwordReset.legacyChecking')}</Txt>
+          <Txt variant="body">{t('auth.passwordReset.linkChecking')}</Txt>
         </ContentCard>
         <Button
           title={t('auth.passwordReset.cancel')}
@@ -213,9 +234,9 @@ export function PasswordRecoveryScreen() {
         onPress={() => void cancel()}
         disabled={isSaving}
       />
-      {legacyLinkFailed ? (
+      {recoveryLinkFailed ? (
         <Txt variant="body" tone="danger">
-          {t('auth.passwordReset.legacyInvalid')}
+          {t('auth.passwordReset.linkInvalid')}
         </Txt>
       ) : null}
     </Screen>

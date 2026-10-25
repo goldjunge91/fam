@@ -46,6 +46,17 @@ export async function verifyPasswordRecoveryCode(
   return { data, error };
 }
 
+export async function verifyPasswordRecoveryTokenHash(
+  client: TypedSupabaseClient,
+  tokenHash: string,
+) {
+  const { data, error } = await client.auth.verifyOtp({
+    token_hash: tokenHash,
+    type: 'recovery',
+  });
+  return { data, error };
+}
+
 export async function updatePasswordWithRecoveryClient(
   client: TypedSupabaseClient,
   password: string,

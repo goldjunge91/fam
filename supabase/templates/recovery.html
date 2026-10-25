@@ -1,15 +1,11 @@
 <h2>Setze dein Passwort zurück</h2>
 
-<p>Gib diesen sechsstelligen Code in der fam-App ein:</p>
+<p>Tippe auf den Link, um fam zu öffnen und direkt ein neues Passwort festzulegen:</p>
+
+<p><a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=recovery">Passwort in fam zurücksetzen</a></p>
+
+<p>Wenn du die E-Mail auf einem anderen Gerät geöffnet hast, öffne fam dort und gib deine E-Mail-Adresse zusammen mit diesem Code ein:</p>
 
 <p style="font-size:28px;letter-spacing:6px;font-weight:700;font-family:monospace">{{ .Token }}</p>
 
-<p>Der Code ist eine Stunde gültig.</p>
-
-<hr>
-
-<p>Oder öffne die App direkt bei der Code-Eingabe:</p>
-
-<p><a href="{{ .RedirectTo }}">fam-App öffnen</a></p>
-
-<p>Über diesen Link kannst du dein Passwort nicht ändern. Dafür brauchst du den Code in der App.</p>
+<p>Link und Code sind eine Stunde gültig. Verwende nur einen davon.</p>

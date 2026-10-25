@@ -5,7 +5,7 @@ const mockGetInitialURL = jest.fn();
 const mockOpenLegacyRecoveryLink = jest.fn();
 const mockParseAuthTokensFromUrl = jest.fn();
 const mockParseAuthErrorFromUrl = jest.fn();
-const mockMarkLegacyRecoveryLinkFailed = jest.fn();
+const mockMarkRecoveryLinkFailed = jest.fn();
 const mockSavePendingInviteToken = jest.fn();
 const mockSetAuthDeepLinkError = jest.fn();
 const mockReportError = jest.fn();
@@ -42,7 +42,7 @@ jest.mock('@/features/auth/recovery-store', () => ({
   usePasswordRecoveryStore: {
     getState: () => ({
       openLegacyRecoveryLink: (...args: unknown[]) => mockOpenLegacyRecoveryLink(...args),
-      markLegacyRecoveryLinkFailed: () => mockMarkLegacyRecoveryLinkFailed(),
+      markRecoveryLinkFailed: () => mockMarkRecoveryLinkFailed(),
     }),
   },
 }));
@@ -120,7 +120,7 @@ describe('useAppDeepLinks', () => {
     mockParseAuthErrorFromUrl.mockReturnValue('Der Link ist abgelaufen.');
     await renderHook(() => useAppDeepLinks());
 
-    await waitFor(() => expect(mockMarkLegacyRecoveryLinkFailed).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockMarkRecoveryLinkFailed).toHaveBeenCalledTimes(1));
     expect(mockSetAuthDeepLinkError).not.toHaveBeenCalled();
   });
 

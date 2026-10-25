@@ -7,6 +7,7 @@ import {
   transferPasswordRecoverySession,
   updatePasswordWithRecoveryClient,
   verifyPasswordRecoveryCode,
+  verifyPasswordRecoveryTokenHash,
 } from '@/features/auth/api';
 import type { AuthDeepLinkTokens } from '@/features/auth/domain/auth-deep-link';
 import {
@@ -17,9 +18,10 @@ import { confirmationCodeSchema, emailSchema, newPasswordValueSchema } from '@/l
 
 const RESEND_COOLDOWN_MS = 60_000;
 
-type RecoveryPhase = 'entry' | 'legacy-verifying' | 'verified' | 'updated' | 'sign-in-required';
+type RecoveryPhase = 'entry' | 'link-verifying' | 'verified' | 'updated' | 'sign-in-required';
 type RecoveryOperation = 'sending' | 'verifying' | 'saving' | null;
 type RecoveryOutcome = 'signed-in' | 'existing-session' | 'sign-in-required';
+type RecoveryLinkResult = 'opened' | 'failed' | 'ignored';
 
 type RecoveryActionResult =
   | { status: 'ok'; outcome?: RecoveryOutcome }
@@ -30,7 +32,7 @@ interface RecoveryState {
   phase: RecoveryPhase;
   email: string;
   code: string;
-  legacyLinkFailed: boolean;
+  recoveryLinkFailed: boolean;
   operation: RecoveryOperation;
   cooldownUntil: number | null;
   recoveryClient: TypedSupabaseClient | null;
@@ -40,11 +42,12 @@ interface RecoveryState {
   generation: number;
   setEmail: (email: string) => void;
   setCode: (code: string) => void;
-  markLegacyRecoveryLinkFailed: () => void;
+  markRecoveryLinkFailed: () => void;
   requestCode: (email?: string) => Promise<RecoveryActionResult>;
   verifyCode: () => Promise<RecoveryActionResult>;
   savePassword: (password: string) => Promise<RecoveryActionResult>;
-  openLegacyRecoveryLink: (tokens: AuthDeepLinkTokens) => Promise<'opened' | 'failed' | 'ignored'>;
+  openRecoveryTokenHash: (tokenHash: string) => Promise<RecoveryLinkResult>;
+  openLegacyRecoveryLink: (tokens: AuthDeepLinkTokens) => Promise<RecoveryLinkResult>;
   changeEmail: () => Promise<boolean>;
   cancel: () => Promise<boolean>;
 }
@@ -56,7 +59,7 @@ function initialState(
   | 'phase'
   | 'email'
   | 'code'
-  | 'legacyLinkFailed'
+  | 'recoveryLinkFailed'
   | 'operation'
   | 'cooldownUntil'
   | 'recoveryClient'
@@ -69,7 +72,7 @@ function initialState(
     phase: 'entry',
     email: '',
     code: '',
-    legacyLinkFailed: false,
+    recoveryLinkFailed: false,
     operation: null,
     cooldownUntil: null,
     recoveryClient: null,
@@ -119,7 +122,7 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
       return { email, code: '', cooldownUntil: null };
     }),
   setCode: (code) => set({ code: code.replace(/\D/g, '').slice(0, 6) }),
-  markLegacyRecoveryLinkFailed: () => set({ legacyLinkFailed: true }),
+  markRecoveryLinkFailed: () => set({ recoveryLinkFailed: true }),
 
   requestCode: async (inputEmail) => {
     const current = get();
@@ -147,7 +150,7 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
       generation,
       email: parsedEmail.data,
       code: '',
-      legacyLinkFailed: false,
+      recoveryLinkFailed: false,
     });
 
     const primaryUserId = current.primaryUserId ?? (await capturePrimaryUserId());
@@ -197,7 +200,7 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
       generation,
       email: parsedEmail.data,
       code: parsedCode.data.code,
-      legacyLinkFailed: false,
+      recoveryLinkFailed: false,
     });
 
     const primaryUserId = current.primaryUserId ?? (await capturePrimaryUserId());
@@ -235,7 +238,7 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
         recoveryClient: client,
         recoveryUserId: data.session.user.id,
         cooldownUntil: null,
-        legacyLinkFailed: false,
+        recoveryLinkFailed: false,
       });
       return { status: 'ok' };
     } catch (error) {
@@ -338,11 +341,55 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
       recoveryUserId: null,
       cooldownUntil: null,
       outcome: null,
-      legacyLinkFailed: false,
+      recoveryLinkFailed: false,
       generation,
     });
     await discard(current.recoveryClient);
     return true;
+  },
+
+  openRecoveryTokenHash: async (tokenHash) => {
+    const current = get();
+    if (current.operation || current.phase !== 'entry' || tokenHash.trim() === '') {
+      return 'ignored';
+    }
+
+    const generation = current.generation + 1;
+    set({ phase: 'link-verifying', operation: 'verifying', generation, recoveryLinkFailed: false });
+    const primaryUserId = current.primaryUserId ?? (await capturePrimaryUserId());
+    if (!isCurrent(generation)) return 'ignored';
+    set({ primaryUserId });
+
+    let client: TypedSupabaseClient | null = null;
+    try {
+      client = createPasswordRecoveryClient();
+      const { data, error } = await verifyPasswordRecoveryTokenHash(client, tokenHash);
+      if (!isCurrent(generation)) {
+        await discard(client);
+        return 'ignored';
+      }
+      if (error || !data.session) {
+        await discard(client);
+        if (!isCurrent(generation)) return 'ignored';
+        set({ phase: 'entry', operation: null, recoveryLinkFailed: true });
+        return 'failed';
+      }
+
+      set({
+        phase: 'verified',
+        operation: null,
+        recoveryClient: client,
+        recoveryUserId: data.session.user.id,
+        cooldownUntil: null,
+        recoveryLinkFailed: false,
+      });
+      return 'opened';
+    } catch {
+      await discard(client);
+      if (!isCurrent(generation)) return 'ignored';
+      set({ phase: 'entry', operation: null, recoveryLinkFailed: true });
+      return 'failed';
+    }
   },
 
   openLegacyRecoveryLink: async (tokens) => {
@@ -357,7 +404,7 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
     }
 
     const generation = current.generation + 1;
-    set({ phase: 'legacy-verifying', operation: 'verifying', generation });
+    set({ phase: 'link-verifying', operation: 'verifying', generation, recoveryLinkFailed: false });
     const primaryUserId = current.primaryUserId ?? (await capturePrimaryUserId());
     if (!isCurrent(generation)) return 'ignored';
     set({ primaryUserId });
@@ -376,7 +423,7 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
       if (error || !data.session) {
         await discard(client);
         if (!isCurrent(generation)) return 'ignored';
-        set({ phase: 'entry', operation: null, legacyLinkFailed: true });
+        set({ phase: 'entry', operation: null, recoveryLinkFailed: true });
         return 'failed';
       }
 
@@ -385,13 +432,13 @@ export const usePasswordRecoveryStore = create<RecoveryState>((set, get) => ({
         operation: null,
         recoveryClient: client,
         recoveryUserId: data.session.user.id,
-        legacyLinkFailed: false,
+        recoveryLinkFailed: false,
       });
       return 'opened';
     } catch {
       await discard(client);
       if (!isCurrent(generation)) return 'ignored';
-      set({ phase: 'entry', operation: null, legacyLinkFailed: true });
+      set({ phase: 'entry', operation: null, recoveryLinkFailed: true });
       return 'failed';
     }
   },

@@ -1,8 +1,10 @@
 # Password recovery hosting
 
-This folder contains the static HTTPS fallback and association-file source for
-the password-recovery route. The HTTPS URL only opens the app at code entry;
-the password is changed after a six-digit email code is verified in the app.
+This folder contains the HTTPS app-link redirect and association-file source
+for password recovery. The email link carries Supabase's recovery token hash to
+the app, where it is verified before the new-password form appears. The email
+also contains the six-digit code for manual entry when it is opened on a
+different device.
 
 ## Domain and app configuration
 
@@ -21,19 +23,19 @@ allow-list in `supabase/config.toml` and the hosted Supabase redirect allow-list
 in sync with the selected hostname. The hosted project configuration is
 separate from this repository and is not changed by editing local files.
 
-## Static files
+## Worker routes
 
-The test Worker serves `password-recovery/index.html` at `/password-recovery`;
-it contains no password form or app bundle. It serves
-`/.well-known/apple-app-site-association` with no redirect. The AASA file uses
-the existing iOS Team ID and bundle ID from `app.json`.
+The test Worker responds to `/password-recovery` with a no-store 302 redirect to
+`fam:///password-recovery`, forwarding `token_hash` and `type=recovery` when
+present. There is no browser recovery page. It serves
+`/.well-known/apple-app-site-association` without a redirect. The AASA file
+uses the existing iOS Team ID and bundle ID from `app.json`.
 
-`worker.mjs` is the small Cloudflare Worker entry point for those files. Its
-multipart upload uses `worker.mjs` as the `main_module`, with content type
-`application/javascript+module`. Add two `text/plain` module parts:
-`password-recovery.html` from `password-recovery/index.html`, and
+`worker.mjs` is the small Cloudflare Worker entry point. Its multipart upload
+uses `worker.mjs` as the `main_module`, with content type
+`application/javascript+module`. Add one `text/plain` module part:
 `apple-app-site-association.txt` from `.well-known/apple-app-site-association`.
-The Worker returns the HTML and AASA content types at their public paths, and
+The Worker returns a 302 for the app-link path, serves the AASA file, and
 currently returns 404 for Android's asset-links path. Use compatibility date
 `2026-10-25` in the upload metadata.
 
@@ -46,12 +48,11 @@ The test Worker `fam-password-recovery-test` is deployed in Cloudflare account
 `account.test-tozzi.de` is attached with ID
 `id05963fd681b92253827f0c4fbb302ae830f3652`.
 
-Live checks passed for the [recovery page](https://account.test-tozzi.de/password-recovery)
-and [AASA file](https://account.test-tozzi.de/.well-known/apple-app-site-association):
-GET and HEAD return 200 with the expected content types and no redirect, and
-the page includes the `fam://` app link. The live AASA response matches the
-repository source. Android's asset-links URL returns 404 as expected because
-no real signing fingerprint is available yet. Cloudflare's default Python
+The redirect-only Worker is deployed. A probe to the recovery endpoint
+returned `302` with the token hash forwarded to the app scheme, and the [AASA
+file](https://account.test-tozzi.de/.well-known/apple-app-site-association)
+returned `200`. Android's asset-links URL returns 404 because no real signing
+fingerprint is available yet. Cloudflare's default Python
 `urllib` probe received BIC error 1010; the verification User-Agent
 `fam-recovery-verification/1.0` passed. No Cloudflare security settings or
 rules were changed.
@@ -76,20 +77,16 @@ Worker with the generated asset-links content as a text module.
 ## Supabase recovery email
 
 The local template is `supabase/templates/recovery.html`; the local Supabase
-config points its recovery template at that file. It displays `{{ .Token }}`
-and links `{{ .RedirectTo }}`, the value passed by
-`resetPasswordForEmail(email, { redirectTo })`. The redirect opens the code
-entry screen and carries no recovery credentials. Copy the subject and
-template into the hosted project's Authentication > Email Templates > Reset
-Password, and configure the hosted SMTP provider before release. Local
-`supabase/config.toml` does not update hosted Supabase settings or SMTP.
+config points its recovery template at that file. The email link combines
+`{{ .RedirectTo }}` with `{{ .TokenHash }}` and `type=recovery`. The app verifies
+that token hash on an isolated recovery client. The same email contains
+`{{ .Token }}` for manual code entry on another device; either credential can
+be used once. The hosted recovery subject and template were updated through a
+scoped Supabase CLI config push. The hosted redirect allow-list includes the
+HTTPS recovery URL. Existing Resend SMTP settings were not changed.
 
 ## Remaining release work
 
-- The hosted Supabase project `ivvebtqasotqpikuydov` is still unchanged; dev
-  and preview both point to it. Add the exact HTTPS recovery URL to its redirect
-  allow-list, install the recovery template, and configure SMTP before testing
-  the complete email flow.
 - Retrieve real Android signing fingerprints, generate `assetlinks.json`, add
   it as a Worker text module and route, then deploy the updated Worker.
 - Before production release, switch from the test hostname to the production

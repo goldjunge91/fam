@@ -11,6 +11,7 @@ import {
   updatePassword,
   updatePasswordWithRecoveryClient,
   verifyPasswordRecoveryCode,
+  verifyPasswordRecoveryTokenHash,
 } from './api';
 
 const mockPrimaryAuth = {
@@ -148,6 +149,24 @@ describe('auth API', () => {
     expect(mockRecoveryAuth.updateUser).toHaveBeenCalledWith({ password: 'new-secret' });
     expect(mockPrimaryAuth.verifyOtp).not.toHaveBeenCalled();
     expect(mockPrimaryAuth.updateUser).not.toHaveBeenCalled();
+  });
+
+  it('verifies the recovery token hash on the isolated client', async () => {
+    const session = { user: { id: 'recovered-user' } };
+    mockRecoveryAuth.verifyOtp.mockResolvedValue({ data: { session }, error: null });
+
+    await expect(
+      verifyPasswordRecoveryTokenHash(
+        mockRecoveryClient as unknown as TypedSupabaseClient,
+        'single-use-token-hash',
+      ),
+    ).resolves.toEqual({ data: { session }, error: null });
+
+    expect(mockRecoveryAuth.verifyOtp).toHaveBeenCalledWith({
+      token_hash: 'single-use-token-hash',
+      type: 'recovery',
+    });
+    expect(mockPrimaryAuth.verifyOtp).not.toHaveBeenCalled();
   });
 
   it('transfers only into an empty primary session and preserves an existing account', async () => {

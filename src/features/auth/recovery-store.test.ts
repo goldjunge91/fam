@@ -5,6 +5,7 @@ const mockCreatePasswordRecoveryClient = jest.fn();
 const mockGetPrimarySessionUserId = jest.fn();
 const mockRequestPasswordReset = jest.fn();
 const mockVerifyPasswordRecoveryCode = jest.fn();
+const mockVerifyPasswordRecoveryTokenHash = jest.fn();
 const mockUpdatePasswordWithRecoveryClient = jest.fn();
 const mockTransferPasswordRecoverySession = jest.fn();
 const mockDiscardPasswordRecoverySession = jest.fn();
@@ -19,6 +20,8 @@ jest.mock('@/features/auth/api', () => ({
   updatePasswordWithRecoveryClient: (...args: unknown[]) =>
     mockUpdatePasswordWithRecoveryClient(...args),
   verifyPasswordRecoveryCode: (...args: unknown[]) => mockVerifyPasswordRecoveryCode(...args),
+  verifyPasswordRecoveryTokenHash: (...args: unknown[]) =>
+    mockVerifyPasswordRecoveryTokenHash(...args),
 }));
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
@@ -46,7 +49,7 @@ describe('password recovery store', () => {
       phase: 'entry',
       email: '',
       code: '',
-      legacyLinkFailed: false,
+      recoveryLinkFailed: false,
       operation: null,
       cooldownUntil: null,
       recoveryClient: null,
@@ -63,6 +66,10 @@ describe('password recovery store', () => {
     mockGetPrimarySessionUserId.mockResolvedValue(null);
     mockRequestPasswordReset.mockResolvedValue({ error: null });
     mockVerifyPasswordRecoveryCode.mockResolvedValue({
+      data: { session: { user: { id: 'recovered-user' } } },
+      error: null,
+    });
+    mockVerifyPasswordRecoveryTokenHash.mockResolvedValue({
       data: { session: { user: { id: 'recovered-user' } } },
       error: null,
     });
@@ -143,6 +150,26 @@ describe('password recovery store', () => {
       code: '123456',
     });
     expect(mockClient.auth.setSession).not.toHaveBeenCalled();
+  });
+
+  it('verifies a token-hash link on the isolated client and preserves the primary account', async () => {
+    enterCode();
+    mockGetPrimarySessionUserId.mockResolvedValue('existing-user');
+    mockTransferPasswordRecoverySession.mockResolvedValue('primary-session-preserved');
+
+    await expect(
+      usePasswordRecoveryStore.getState().openRecoveryTokenHash('single-use-token-hash'),
+    ).resolves.toBe('opened');
+
+    expect(mockVerifyPasswordRecoveryTokenHash).toHaveBeenCalledWith(
+      mockClient,
+      'single-use-token-hash',
+    );
+    expect(usePasswordRecoveryStore.getState().phase).toBe('verified');
+    await expect(
+      usePasswordRecoveryStore.getState().savePassword('StrongPassword123!'),
+    ).resolves.toEqual({ status: 'ok', outcome: 'existing-session' });
+    expect(mockTransferPasswordRecoverySession).toHaveBeenCalledWith(mockClient, 'existing-user');
   });
 
   it('handles old token links on the isolated client and can clean them up locally', async () => {

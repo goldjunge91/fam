@@ -8,12 +8,18 @@ const mockClient = { auth: { signOut: jest.fn() } };
 const mockRequestPasswordReset = jest.fn();
 const mockGetPrimarySessionUserId = jest.fn();
 const mockVerifyPasswordRecoveryCode = jest.fn();
+const mockVerifyPasswordRecoveryTokenHash = jest.fn();
 const mockUpdatePasswordWithRecoveryClient = jest.fn();
 const mockTransferPasswordRecoverySession = jest.fn();
 const mockDiscardPasswordRecoverySession = jest.fn();
 const mockRouterBack = jest.fn();
 const mockRouterReplace = jest.fn();
+const mockRouterSetParams = jest.fn();
 const mockNavigationDispatch = jest.fn();
+let mockRecoveryLinkParams: {
+  token_hash?: string | string[];
+  type?: string | string[];
+} = {};
 
 jest.mock('expo-router', () => {
   const React = jest.requireActual<typeof import('react')>('react');
@@ -22,7 +28,9 @@ jest.mock('expo-router', () => {
       back: (...args: unknown[]) => mockRouterBack(...args),
       canGoBack: () => false,
       replace: (...args: unknown[]) => mockRouterReplace(...args),
+      setParams: (...args: unknown[]) => mockRouterSetParams(...args),
     },
+    useLocalSearchParams: () => mockRecoveryLinkParams,
     useFocusEffect: (effect: () => undefined | (() => void)) => React.useEffect(effect, [effect]),
     useNavigation: () => ({ dispatch: (...args: unknown[]) => mockNavigationDispatch(...args) }),
   };
@@ -40,6 +48,8 @@ jest.mock('@/features/auth/api', () => ({
   updatePasswordWithRecoveryClient: (...args: unknown[]) =>
     mockUpdatePasswordWithRecoveryClient(...args),
   verifyPasswordRecoveryCode: (...args: unknown[]) => mockVerifyPasswordRecoveryCode(...args),
+  verifyPasswordRecoveryTokenHash: (...args: unknown[]) =>
+    mockVerifyPasswordRecoveryTokenHash(...args),
 }));
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
@@ -65,11 +75,12 @@ describe('PasswordRecoveryScreen', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    mockRecoveryLinkParams = {};
     usePasswordRecoveryStore.setState({
       phase: 'entry',
       email: '',
       code: '',
-      legacyLinkFailed: false,
+      recoveryLinkFailed: false,
       operation: null,
       cooldownUntil: null,
       recoveryClient: null,
@@ -81,6 +92,10 @@ describe('PasswordRecoveryScreen', () => {
     mockGetPrimarySessionUserId.mockResolvedValue(null);
     mockRequestPasswordReset.mockResolvedValue({ error: null });
     mockVerifyPasswordRecoveryCode.mockResolvedValue({
+      data: { session: { user: { id: 'recovered-user' } } },
+      error: null,
+    });
+    mockVerifyPasswordRecoveryTokenHash.mockResolvedValue({
       data: { session: { user: { id: 'recovered-user' } } },
       error: null,
     });
@@ -122,7 +137,7 @@ describe('PasswordRecoveryScreen', () => {
   });
 
   it('shows a localized error for an expired legacy reset link', async () => {
-    usePasswordRecoveryStore.setState({ legacyLinkFailed: true });
+    usePasswordRecoveryStore.setState({ recoveryLinkFailed: true });
 
     await renderScreen();
 
@@ -131,5 +146,24 @@ describe('PasswordRecoveryScreen', () => {
         'Dieser Reset-Link ist abgelaufen oder ungültig. Fordere einen neuen Code an.',
       ),
     ).toBeOnTheScreen();
+  });
+
+  it('verifies a recovery link and opens the new-password form', async () => {
+    mockRecoveryLinkParams = {
+      token_hash: 'single-use-token-hash',
+      type: 'recovery',
+    };
+
+    await renderScreen();
+
+    expect(await screen.findByTestId('recovery-new-password')).toBeOnTheScreen();
+    expect(mockVerifyPasswordRecoveryTokenHash).toHaveBeenCalledWith(
+      mockClient,
+      'single-use-token-hash',
+    );
+    expect(mockRouterSetParams).toHaveBeenCalledWith({
+      token_hash: undefined,
+      type: undefined,
+    });
   });
 });

@@ -46,7 +46,7 @@ export function useAppDeepLinks(): void {
               parsed.hostname === '' &&
               parsed.pathname === '/reset-password'
             ) {
-              usePasswordRecoveryStore.getState().markLegacyRecoveryLinkFailed();
+              usePasswordRecoveryStore.getState().markRecoveryLinkFailed();
               return;
             }
           } catch {
