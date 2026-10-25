@@ -1,0 +1,31 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "simplify-ignore-before-read",
+      "trigger": "PreToolUse",
+      "matcher": "read",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/simplify-ignore.sh\""
+      }
+    },
+    {
+      "name": "simplify-ignore-after-write",
+      "trigger": "PostToolUse",
+      "matcher": "write",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/simplify-ignore.sh\""
+      }
+    },
+    {
+      "name": "simplify-ignore-stop-restore",
+      "trigger": "Stop",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/simplify-ignore.sh\""
+      }
+    }
+  ]
+}

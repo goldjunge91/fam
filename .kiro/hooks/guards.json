@@ -1,0 +1,23 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "block-git-reset",
+      "trigger": "PreToolUse",
+      "matcher": "shell",
+      "action": {
+        "type": "command",
+        "command": "root=\"$(git rev-parse --show-toplevel 2>/dev/null)\" || { printf '%s\\n' 'Repository root could not be determined for the blocking hook.' >&2; exit 2; }; if command -v python3 >/dev/null 2>&1; then python=python3; elif [ -x /usr/bin/python3 ]; then python=/usr/bin/python3; else printf '%s\\n' 'Python 3 is required by the blocking hook.' >&2; exit 2; fi; exec \"$python\" \"$root/.kiro/hooks/block-git-reset.py\""
+      }
+    },
+    {
+      "name": "block-bd-update-notes",
+      "trigger": "PreToolUse",
+      "matcher": "shell",
+      "action": {
+        "type": "command",
+        "command": "root=\"$(git rev-parse --show-toplevel 2>/dev/null)\" || { printf '%s\\n' 'Repository root could not be determined for the blocking hook.' >&2; exit 2; }; if command -v python3 >/dev/null 2>&1; then python=python3; elif [ -x /usr/bin/python3 ]; then python=/usr/bin/python3; else printf '%s\\n' 'Python 3 is required by the blocking hook.' >&2; exit 2; fi; exec \"$python\" \"$root/.kiro/hooks/block-bd-update-notes.py\""
+      }
+    }
+  ]
+}

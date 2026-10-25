@@ -1,0 +1,21 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "beads-context-session-start",
+      "trigger": "SessionStart",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/beads-context.sh\""
+      }
+    },
+    {
+      "name": "beads-context-prompt-submit",
+      "trigger": "UserPromptSubmit",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/beads-context.sh\""
+      }
+    }
+  ]
+}

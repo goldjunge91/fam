@@ -1,0 +1,23 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "sdd-cache-before-web-fetch",
+      "trigger": "PreToolUse",
+      "matcher": "web_fetch",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/sdd-cache-pre.sh\""
+      }
+    },
+    {
+      "name": "sdd-cache-after-web-fetch",
+      "trigger": "PostToolUse",
+      "matcher": "web_fetch",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/sdd-cache-post.sh\""
+      }
+    }
+  ]
+}

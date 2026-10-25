@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "session-start-agent-skills",
+      "trigger": "SessionStart",
+      "action": {
+        "type": "command",
+        "command": "bash \"$PWD/.kiro/hooks/session-start.sh\""
+      }
+    }
+  ]
+}
