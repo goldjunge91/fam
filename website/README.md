@@ -1,28 +1,33 @@
-# Scrappy Web & Legal Pages
+# Scrappy Website
 
-Dieses Verzeichnis enthält die statische Website für Scrappy (Landingpage, Datenschutzerklärung, AGB und Support/Impressum), optimiert für **Cloudflare Pages**.
+Statische, responsive Website ohne Build-Schritt, JavaScript-Runtime oder externe Schriftarten. Die vorherige warme Creme-/Orange-Palette bleibt auf Marcos Wunsch erhalten; das Betriebssystem steuert Hell-/Dunkeldarstellung.
 
-## Dateien
+| Datei | Inhalt |
+| --- | --- |
+| `index.html` | Produkt und Funktionen |
+| `faq.html` | Häufige Fragen mit nativen, per Tastatur bedienbaren Aufklappelementen |
+| `support.html` | Kontakt, Fehlerberichte, Kontolöschung und Kaufhilfe |
+| `impressum.html` | Anbieterkennzeichnung, derzeit ausdrücklich mit Musterangaben |
+| `datenschutz.html` | Datenschutzerklärung für App, Website und Kontakt |
+| `agb.html` | Nutzungsbedingungen, keine als Apple-EULA ausgegebene Vereinbarung |
+| `styles.css` | Gemeinsames Layout, Hell-/Dunkelmodus, Druckdarstellung |
+| `favicon.svg` | Lokales Website-Icon |
+| `RELEASE-CHECK.md` | Geprüfte Apple-Webanforderungen und offene Veröffentlichungsnachweise |
 
-* `index.html` — Moderne, responsive Landingpage im warmen Scrappy-Look.
-* `datenschutz.html` — DSGVO- und Apple-konforme Datenschutzerklärung (deckt Supabase, AdMob, RevenueCat, Sentry, PostHog, Open Food Facts ab).
-* `agb.html` — Allgemeine Geschäftsbedingungen & EULA (inkl. Haftungsausschluss für Haltbarkeitsdaten und In-App-Abo-Klauseln).
-* `support.html` — Support-Kontakt, FAQ und Impressum nach § 5 DDG.
-* `styles.css` — Leichtgewichtiges CSS ohne externe Abhängigkeiten.
+## Veröffentlichung auf Cloudflare Pages
 
-## Cloudflare Pages Deployment (Schritt-für-Schritt)
+Im bestehenden Pages-Projekt den Ordner `website` als Website-Quelle bzw. Root Directory verwenden, ohne Build-Befehl; Ausgabeordner `.`. Bestehende `.html`-Adressen bleiben erhalten. Die FAQ ist zusätzlich unter `faq.html` erreichbar. Es wurden keine Cloudflare-Einstellungen verändert und kein Deployment ausgelöst.
 
-1. Im **Cloudflare Dashboard** einloggen.
-2. Zu **Workers & Pages** ➔ **Create application** ➔ **Pages** ➔ **Connect to Git** navigieren.
-3. Dieses Repository (`family_app` / `fam`) auswählen.
-4. **Build-Einstellungen festlegen:**
-   * **Project name:** `scrappy-app`
-   * **Production branch:** `main` (bzw. dein aktueller Branch)
-   * **Framework preset:** `None`
-   * **Root directory:** `/website`
-   * **Build command:** *(leer lassen)*
-   * **Build output directory:** `.` *(oder leer lassen)*
-5. Auf **Save and Deploy** klicken.
-6. Unter **Custom Domains**:
-   * Zunächst z. B. `scrappy.tozzi-test.de` hinzufügen zum Testen.
-   * Später `scrappy-app.de` als primäre Domain hinzufügen.
+Die Navigation ist absichtlich einfach und auf jeder HTML-Seite enthalten. Änderungen an Navigation oder Footer auf allen Seiten nachziehen. Es ist kein Framework oder Generator nötig.
+
+## App Store Connect
+
+Erst nach Bestätigung der Produktionsdomain und erfolgreicher öffentlicher HTTPS-Prüfung diese Seiten eintragen:
+
+| Feld | Pfad auf der bestätigten Domain |
+| --- | --- |
+| Marketing URL | `/` |
+| Support URL | `/support.html` |
+| Privacy Policy URL | `/datenschutz.html` |
+
+Die bisher verwendete Domain `scrappy-app.de` und die Support-Adresse `support@scrappy-app.de` sind noch nicht als betriebsbereit bestätigt. Mustermann-Anbieterangaben müssen vor Veröffentlichung ersetzt werden. Die Website ist deshalb noch nicht zur Store-Einreichung freigegeben. Weitere Nachweise stehen im Prüfbericht.

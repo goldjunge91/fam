@@ -1,185 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datenschutzerklärung – Scrappy</title>
-  <meta name="description" content="Datenschutzerklärung für die mobile App Scrappy und die zugehörigen Webdienste.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand">
-        <span>🥫 Scrappy</span>
-        <span class="brand-badge">App</span>
-      </a>
-      <nav class="main-nav">
-        <a href="index.html">Startseite</a>
-        <a href="datenschutz.html" class="active">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="support.html">Support</a>
-        <a href="impressum.html">Impressum</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="page-header">
-      <h1>Datenschutzerklärung</h1>
-      <p class="meta">Stand: 25. Oktober 2026 • Gültig für die mobile iOS-App „Scrappy“ und diese Website</p>
-    </div>
-
-    <article class="prose">
-      <div class="callout">
-        <strong>Transparenz-Versprechen:</strong> Wir erheben nur Daten, die für den Betrieb und die Kernfunktionen der App (Vorratsverwaltung, gemeinsame Einkaufslisten, Essensplanung und optionales persönliches Tracking) erforderlich sind. Es findet kein Verkauf deiner Daten statt.
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Datenschutz | Scrappy</title>
+    <meta name="description" content="Datenschutz für die Scrappy App und ihre Website.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="Scrappy Startseite"
+          ><span class="brand-mark" aria-hidden="true">s.</span>scrappy<span
+            class="brand-dot"
+            aria-hidden="true"
+            >.</span
+          ></a
+        >
+        <nav class="main-nav" aria-label="Hauptnavigation">
+          <a href="index.html">Die App</a><a href="faq.html">FAQ</a
+          ><a href="support.html">Support</a>
+        </nav>
       </div>
-
-      <h2>1. Verantwortlicher</h2>
-      <p>
-        Verantwortlich für die Datenverarbeitung im Sinne der Datenschutz-Grundverordnung (DSGVO) und sonstiger nationaler Datenschutzgesetze ist:<br><br>
-        <strong>Marco Tozzi</strong><br>
-        E-Mail: <a href="mailto:support@scrappy-app.de">support@scrappy-app.de</a><br>
-        Website: <a href="https://scrappy-app.de">https://scrappy-app.de</a><br>
-        (Vollständige Anschrift siehe <a href="support.html">Impressum</a>)
-      </p>
-
-      <h2>2. Grundsätze & Wie deine Daten geschützt werden</h2>
-      <p>
-        Deine Daten werden nach dem aktuellen Stand der Technik geschützt:
-      </p>
-      <ul>
-        <li><strong>Transportverschlüsselung (TLS/HTTPS):</strong> Jede Verbindung zwischen deinem Gerät und unseren Servern erfolgt ausnahmslos verschlüsselt.</li>
-        <li><strong>Verschlüsselung at rest:</strong> Auf unseren Datenbankservern werden Daten verschlüsselt gespeichert.</li>
-        <li><strong>Strikte Zugriffstrennung (Row Level Security / RLS):</strong> Persönliche Daten (wie dein privates Ernährungstagebuch oder dein Gewicht) sind auf Datenbankebene so geschützt, dass nur dein eigener Account Zugriff darauf hat. Andere Haushaltsmitglieder oder Administratoren können diese Daten nicht einsehen.</li>
-        <li><strong>Sichere Speicherung auf dem Gerät:</strong> Authentifizierungs-Token werden auf iOS im geschützten Apple Keychain via <code>expo-secure-store</code> hinterlegt.</li>
-      </ul>
-
-      <h2>3. Welche Daten verarbeitet werden</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Kategorie</th>
-            <th>Beispiele & Datenfelder</th>
-            <th>Zweck</th>
-            <th>Geteilt mit Haushalt?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Kontodaten</strong></td>
-            <td>E-Mail-Adresse, verschlüsselter Passwort-Hash</td>
-            <td>Anmeldung, Kontosicherheit, Passwort-Reset</td>
-            <td>Nein</td>
-          </tr>
-          <tr>
-            <td><strong>Profildaten</strong></td>
-            <td>Anzeigename, Avatar, Geburtsdatum, biologisches Geschlecht, Größe, Aktivitätslevel</td>
-            <td>Berechnung des Energiebedarfs (Kalorienformel), Personalisierung</td>
-            <td>Nein</td>
-          </tr>
-          <tr>
-            <td><strong>Haushaltsdaten</strong></td>
-            <td>Haushaltsname, Mitgliederliste, Rollen</td>
-            <td>Gemeinsame Verwaltung von Kühlschrank & Listen</td>
-            <td>Ja (nur im jeweiligen Haushalt)</td>
-          </tr>
-          <tr>
-            <td><strong>Vorrat & Einkaufsliste</strong></td>
-            <td>Produktname, Menge, Mindesthaltbarkeitsdatum, Lagerort, Notizen</td>
-            <td>Vorratsmanagement, Ablauf-Erinnerungen, Einkaufsplanung</td>
-            <td>Ja (nur im jeweiligen Haushalt)</td>
-          </tr>
-          <tr>
-            <td><strong>Gesundheitsdaten (optional)</strong></td>
-            <td>Mahlzeiten, Kalorien, Nährwerte, Gewichtshistorie</td>
-            <td>Persönliches Ernährungstagebuch</td>
-            <td><strong>Nein (streng privat)</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Kinderprofile (optional)</strong></td>
-            <td>Name, Geburtsdatum (verwaltet durch Erziehungsberechtigte)</td>
-            <td>Mahlzeitenzuordnung innerhalb der Familie</td>
-            <td>Ja (innerhalb des Haushalts)</td>
-          </tr>
-          <tr>
-            <td><strong>Diagnose- & Nutzungsdaten</strong></td>
-            <td>App-Version, Absturzberichte, Geräte-Modell, anonymisierte Klicks</td>
-            <td>Fehlerbehebung, Stabilitätsanalyse, App-Verbesserung</td>
-            <td>Nein (an Analysedienste)</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. Eingebundene Drittanbieter & Dienstleister</h2>
-      <p>Für den Betrieb der App nutzen wir spezialisierte Dienstleister, mit denen Auftragsverarbeitungsverträge (AVV) nach Art. 28 DSGVO geschlossen wurden:</p>
-
-      <h3>Supabase (Backend, Auth & Datenbank)</h3>
-      <p>
-        Wir nutzen Supabase (Supabase Inc.) für Benutzerverwaltung, Datenbank und Echtzeit-Synchronisation. Unsere Datenbank wird in Rechenzentren innerhalb der Europäischen Union (Frankfurt am Main) gehostet.
-      </p>
-
-      <h3>Open Food Facts (Produktdatenbank)</h3>
-      <p>
-        Beim Scannen eines Barcodes oder bei der Produktsuche wird der Barcode an die öffentliche API von Open Food Facts (openfoodfacts.org) übertragen, um Produktname und Nährwerte abzurufen. Hierbei werden keinerlei persönliche Nutzer- oder Kontodaten übermittelt.
-      </p>
-
-      <h3>Google AdMob (Werbung in der kostenlosen Version)</h3>
-      <p>
-        In der kostenlosen Version von Scrappy wird Werbung über Google AdMob (Google Ireland Limited) eingeblendet. Google kann Werbe-IDs und Nutzungsdaten erheben. Die Ausspielung personalisierter Werbung erfolgt ausschließlich nach deiner ausdrücklichen Einwilligung über den vorgeschalteten Google UMP-Consent-Dialog sowie die iOS App Tracking Transparency (ATT) Abfrage. In der werbefreien Premium-Version ist AdMob deaktiviert.
-      </p>
-
-      <h3>RevenueCat (Abonnement- & Kaufverwaltung)</h3>
-      <p>
-        Für die Abwicklung und Überprüfung von In-App-Käufen und Abonnements nutzen wir RevenueCat (RevenueCat Inc.). Es werden pseudonyme App-User-IDs und Kaufbelege von Apple verarbeitet, um deinen Premium-Status geräteübergreifend freizuschalten.
-      </p>
-
-      <h3>Sentry & PostHog / Aptabase (Fehlerdiagnose & App-Qualität)</h3>
-      <p>
-        Um Abstürze schnell zu beheben und die App zu verbessern, nutzen wir Sentry (Functional Software Inc.) für Fehlerberichte sowie PostHog und Aptabase für datensparsame Produktmetriken. Diese Daten werden aggregiert und enthalten keine personenbezogenen Klardaten.
-      </p>
-
-      <h2>5. Berechtigungen auf deinem mobilen Gerät</h2>
-      <p>Um bestimmte Funktionen nutzen zu können, fordert Scrappy bei Bedarf Gerätezugriffe an:</p>
-      <ul>
-        <li><strong>Kamera:</strong> Zum Scannen von Barcodes auf Verpackungen oder QR-Codes zum Beitreten eines Haushalts. (Optional – Produkte können jederzeit manuell erfasst werden).</li>
-        <li><strong>Mitteilungen / Push-Benachrichtigungen:</strong> Um dich rechtzeitig zu warnen, bevor Lebensmittel in deinem Vorrat ablaufen. (Optional).</li>
-        <li><strong>Fotos / Mediathek:</strong> Um eigene Rezeptfotos oder Kassenbon-Bilder auszuwählen. (Optional).</li>
-        <li><strong>Standort (ungefähr):</strong> Um dir Angebote und Prospekte von Märkten in deiner Umgebung anzuzeigen. (Optional).</li>
-        <li><strong>App-Tracking (iOS ATT):</strong> Erlaubt nach Zustimmung personalisierte Werbeanzeigen in der Gratisversion.</li>
-      </ul>
-
-      <h2>6. Deine Rechte nach der DSGVO</h2>
-      <p>Du hast jederzeit das Recht auf:</p>
-      <ul>
-        <li><strong>Auskunft & Datenübertragbarkeit (Art. 15, 20 DSGVO):</strong> Du kannst deine Daten direkt in der App unter <em>Einstellungen ➔ Datenexport</em> im maschinenlesbaren JSON-Format exportieren.</li>
-        <li><strong>Vollständige Kontolöschung (Art. 17 DSGVO):</strong> Du kannst deinen Account samt aller privaten Daten jederzeit selbstständig in der App unter <em>Einstellungen ➔ Konto löschen</em> unwiderruflich entfernen. Geteilte Vorrats- und Einkaufslisten verbleiben für die weiteren Haushaltsmitglieder.</li>
-        <li><strong>Berichtigung (Art. 16 DSGVO):</strong> Fehlerhafte Profildaten können direkt in der App angepasst werden.</li>
-        <li><strong>Widerruf von Einwilligungen:</strong> Erteilte Berechtigungen (Kamera, Push, Tracking) können jederzeit in den iOS-Systemeinstellungen widerrufen werden.</li>
-      </ul>
-
-      <h2>7. Kontakt bei Datenschutzfragen</h2>
-      <p>
-        Bei Fragen zur Verarbeitung deiner personenbezogenen Daten oder zur Ausübung deiner Rechte wende dich bitte an:<br>
-        <strong>E-Mail:</strong> <a href="mailto:support@scrappy-app.de">support@scrappy-app.de</a>
-      </p>
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div class="footer-copy">
-        &copy; 2026 Scrappy. Alle Rechte vorbehalten.
+    </header>
+    <main id="inhalt" class="container legal-page">
+      <div class="page-header">
+        <p class="eyebrow">Rechtliches</p>
+        <h1>Datenschutz</h1>
+        <p class="lead">Welche Daten Scrappy verarbeitet und welche Möglichkeiten du hast.</p>
       </div>
-      <div class="footer-links">
-        <a href="datenschutz.html">Datenschutzerklärung</a>
-        <a href="agb.html">Nutzungsbedingungen (AGB)</a>
-        <a href="support.html">Support</a>
-        <a href="impressum.html">Impressum</a>
-      </div>
-    </div>
-  </footer>
+      <p class="document-date">Stand: 25. Oktober 2026</p>
+      <article class="prose">
+        <div class="callout">
+          <strong>Haushalt und persönliche Daten</strong>
+          <p>
+            Vorräte und Listen teilt ihr im Haushalt. Persönliche Tracking-Daten erwachsener
+            Accounts bleiben für andere Haushaltsmitglieder gesperrt.
+          </p>
+        </div>
 
-</body>
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Verantwortlich für die Datenverarbeitung im Sinne der Datenschutz-Grundverordnung (DSGVO)
+          und sonstiger nationaler Datenschutzgesetze ist:<br><br>
+          <strong>Max Mustermann (Musterangabe, siehe Impressum)</strong><br>
+          E-Mail: <a href="mailto:support@scrappy-app.de">support@scrappy-app.de</a><br>
+          Website: <a href="https://scrappy-app.de">https://scrappy-app.de</a><br>
+          (Vollständige Anschrift siehe <a href="impressum.html">Impressum</a>)
+        </p>
+
+        <h2>2. Grundsätze & Wie deine Daten geschützt werden</h2>
+        <p>Deine Daten werden nach dem aktuellen Stand der Technik geschützt:</p>
+        <ul>
+          <li>
+            <strong>Transportverschlüsselung (TLS/HTTPS):</strong>
+            Jede Verbindung zwischen deinem Gerät und unseren Servern erfolgt ausnahmslos
+            verschlüsselt.
+          </li>
+
+          <li>
+            <strong>Strikte Zugriffstrennung (Row Level Security / RLS):</strong>
+            Persönliche Daten (wie dein privates Ernährungstracking oder dein Gewicht) sind auf
+            Datenbankebene so geschützt, dass nur dein eigener Account Zugriff darauf hat. Andere
+            Haushaltsmitglieder oder Haushaltsadmins können diese Daten nicht einsehen.
+          </li>
+          <li>
+            <strong>Zugriffsschutz:</strong>
+            Persönliche und geteilte Daten werden nach Account und Haushaltsberechtigung getrennt.
+            Es besteht keine Ende-zu-Ende-Verschlüsselung; die Server verarbeiten Daten für die
+            bereitgestellten Funktionen.
+          </li>
+        </ul>
+
+        <h2>3. Welche Daten verarbeitet werden</h2>
+        <!-- biome-ignore lint/a11y/noNoninteractiveTabindex: Der horizontal scrollbare Datenbereich muss per Tastatur erreichbar sein. -->
+        <section class="table-scroll" aria-label="Verarbeitete Daten" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Kategorie</th>
+                <th>Beispiele & Datenfelder</th>
+                <th>Zweck</th>
+                <th>Geteilt mit Haushalt?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Kontodaten</strong></td>
+                <td>E-Mail-Adresse, verschlüsselter Passwort-Hash</td>
+                <td>Anmeldung, Kontosicherheit, Passwort-Reset</td>
+                <td>Nein</td>
+              </tr>
+              <tr>
+                <td><strong>Profildaten</strong></td>
+                <td>
+                  Anzeigename, Avatar, Geburtsdatum, biologisches Geschlecht, Größe, Aktivitätslevel
+                </td>
+                <td>Berechnung des Energiebedarfs (Kalorienformel), Personalisierung</td>
+                <td>
+                  Anzeigename und Avatar können im Haushalt sichtbar sein; weitere Profildaten sind
+                  privat.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Haushaltsdaten</strong></td>
+                <td>Haushaltsname, Mitgliederliste, Rollen</td>
+                <td>Gemeinsame Verwaltung von Kühlschrank & Listen</td>
+                <td>Ja (nur im jeweiligen Haushalt)</td>
+              </tr>
+              <tr>
+                <td><strong>Vorrat & Einkaufsliste</strong></td>
+                <td>Produktname, Menge, Mindesthaltbarkeitsdatum, Lagerort, Notizen</td>
+                <td>Vorratsmanagement, Ablauf-Erinnerungen, Einkaufsplanung</td>
+                <td>Ja (nur im jeweiligen Haushalt)</td>
+              </tr>
+              <tr>
+                <td><strong>Gesundheitsdaten (optional)</strong></td>
+                <td>Mahlzeiten, Kalorien, Nährwerte, Gewichtshistorie</td>
+                <td>Persönliches Ernährungstracking</td>
+                <td><strong>Nein (streng privat)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Kinderprofile (optional)</strong></td>
+                <td>Name, Geburtsdatum (verwaltet durch Erziehungsberechtigte)</td>
+                <td>Verwaltung eines Kinderprofils ohne eigenen Login</td>
+                <td>Ja (innerhalb des Haushalts)</td>
+              </tr>
+              <tr>
+                <td><strong>Diagnose- & Nutzungsdaten</strong></td>
+                <td>
+                  App-Version, Absturzberichte, Geräte-Modell, Nutzungsereignisse, IP-Adresse,
+                  Konto-ID und bei PostHog auch E-Mail-Adresse
+                </td>
+                <td>Fehlerbehebung, Stabilitätsanalyse, App-Verbesserung</td>
+                <td>Nein (an Analysedienste)</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <h2>4. Eingebundene Drittanbieter & Dienstleister</h2>
+        <p>
+          Für den Betrieb der App nutzen wir spezialisierte Dienstleister, die je nach Dienst Daten
+          für Authentifizierung, Synchronisation, Käufe, Werbung oder Diagnose verarbeiten:
+        </p>
+
+        <h3>Supabase (Backend, Auth & Datenbank)</h3>
+        <p>
+          Wir nutzen Supabase (Supabase Inc.) für Benutzerverwaltung, Datenbank und
+          Echtzeit-Synchronisation.
+        </p>
+
+        <h3>Open Food Facts (Produktdatenbank)</h3>
+        <p>
+          Wenn die lokal verfügbaren Produktdaten nicht ausreichen, wird der Barcode oder
+          Suchbegriff an die öffentliche API von Open Food Facts (openfoodfacts.org) übertragen, um
+          Produktname und Nährwerte abzurufen. Der Abruf über das Internet übermittelt technisch
+          auch die IP-Adresse des anfragenden Geräts. Konto- oder Gesundheitsdaten sind nicht Teil
+          der Suchanfrage.
+        </p>
+
+        <h3>Google AdMob (Werbung in der kostenlosen Version)</h3>
+        <p>
+          In der kostenlosen Version von Scrappy wird Werbung über Google AdMob (Google Ireland
+          Limited) eingeblendet. Google kann Werbe-IDs und Nutzungsdaten erheben. Die Ausspielung
+          personalisierter Werbung erfolgt ausschließlich nach deiner ausdrücklichen Einwilligung
+          über den vorgeschalteten Google UMP-Consent-Dialog sowie die iOS App Tracking Transparency
+          (ATT) Abfrage. Die Anzeige von Werbung richtet sich nach deinem Tarif und den verfügbaren
+          Datenschutzeinstellungen.
+        </p>
+
+        <h3>RevenueCat (Abonnement- & Kaufverwaltung)</h3>
+        <p>
+          Für die Abwicklung und Überprüfung von In-App-Käufen und Abonnements nutzen wir RevenueCat
+          (RevenueCat Inc.). Es werden Account- bzw. App-Nutzerkennungen und Kaufdaten verarbeitet,
+          um deinen Premium-Status zuzuordnen. Auch Werbeumsatzdaten können für die
+          Monetarisierungsanalyse an RevenueCat übermittelt werden.
+        </p>
+
+        <h3>Sentry & PostHog / Aptabase (Fehlerdiagnose & App-Qualität)</h3>
+        <p>
+          Um Abstürze schnell zu beheben und die App zu verbessern, nutzen wir Sentry (Functional
+          Software Inc.) für Fehlerberichte sowie PostHog und Aptabase für datensparsame
+          Produktmetriken. Die Daten sind nicht durchgehend anonym: PostHog erhält nach Anmeldung
+          auch Konto-ID und E-Mail-Adresse. Bei Sentry ist die Übermittlung von IP-Adresse und
+          erweitertem Gerätekontext aktiviert. Die tatsächliche Erfassung hängt von der
+          Konfiguration der jeweiligen App-Version ab.
+        </p>
+
+        <h2>5. Berechtigungen auf deinem mobilen Gerät</h2>
+        <p>
+          Um bestimmte Funktionen nutzen zu können, fordert Scrappy bei Bedarf Gerätezugriffe an:
+        </p>
+        <ul>
+          <li>
+            <strong>Kamera:</strong>
+            Zum Scannen von Barcodes auf Verpackungen oder QR-Codes zum Beitreten eines Haushalts.
+            (Optional · Produkte können jederzeit manuell erfasst werden).
+          </li>
+          <li>
+            <strong>Mitteilungen / Push-Benachrichtigungen:</strong>
+            Um dich rechtzeitig zu warnen, bevor Lebensmittel in deinem Vorrat ablaufen. (Optional).
+          </li>
+          <li>
+            <strong>Fotos / Mediathek:</strong>
+            Um eigene Rezeptfotos oder Kassenbon-Bilder auszuwählen. (Optional).
+          </li>
+          <li>
+            <strong>Standort (ungefähr):</strong>
+            Um dir Angebote und Prospekte von Märkten in deiner Umgebung anzuzeigen. (Optional).
+          </li>
+          <li>
+            <strong>App-Tracking (iOS ATT):</strong>
+            Erlaubt nach Zustimmung personalisierte Werbeanzeigen in der Gratisversion.
+          </li>
+        </ul>
+
+        <h2>6. Deine Rechte nach der DSGVO</h2>
+        <p>Du hast jederzeit das Recht auf:</p>
+        <ul>
+          <li>
+            <strong>Auskunft & Datenübertragbarkeit (Art. 15, 20 DSGVO):</strong>
+            Du kannst deine Daten direkt in der App unter <em>Einstellungen ➔ Datenexport</em> im
+            maschinenlesbaren JSON-Format exportieren.
+          </li>
+          <li>
+            <strong>Vollständige Kontolöschung (Art. 17 DSGVO):</strong>
+            Du kannst deinen Account samt aller privaten Daten in der App unter
+            <em>Einstellungen ➔ Konto löschen</em>
+            unwiderruflich entfernen. Geteilte Vorrats- und Einkaufslisten verbleiben für die
+            weiteren Haushaltsmitglieder.
+          </li>
+          <li>
+            <strong>Berichtigung (Art. 16 DSGVO):</strong>
+            Fehlerhafte Profildaten können direkt in der App angepasst werden.
+          </li>
+          <li>
+            <strong>Widerruf von Einwilligungen:</strong>
+            Erteilte Berechtigungen (Kamera, Push, Tracking) können in den iOS-Systemeinstellungen
+            widerrufen werden. Werbeeinwilligungen verwaltest du außerdem über die verfügbaren
+            Werbe-Datenschutzoptionen unter Einstellungen → Datenschutz. Für weitere Einwilligungs-
+            und Löschanfragen kontaktiere uns per E-Mail.
+          </li>
+        </ul>
+
+        <h2>7. Kontakt bei Datenschutzfragen</h2>
+        <p>
+          Bei Fragen zur Verarbeitung deiner personenbezogenen Daten oder zur Ausübung deiner Rechte
+          wende dich bitte an:<br>
+          <strong>E-Mail:</strong>
+          <a href="mailto:support@scrappy-app.de">support@scrappy-app.de</a>
+        </p>
+        <h2>8. Speicherung und Löschung</h2>
+        <p>
+          Kontodaten und private Inhalte werden für die Bereitstellung deines Accounts verarbeitet.
+          Du kannst die Kontolöschung in der App unter Einstellungen → Konto löschen anstoßen.
+          Geteilte Haushaltsinhalte können für verbleibende Mitglieder bestehen bleiben. Die
+          Löschung deines Accounts kündigt ein Abo im App Store nicht automatisch.
+        </p>
+        <p>
+          Bei Fragen zu Speicherfristen, Sicherungskopien oder Daten bei eingebundenen
+          Dienstleistern schreibe an
+          <a href="mailto:support@scrappy-app.de">support@scrappy-app.de</a>.
+        </p>
+        <h2>9. Website und Kontaktaufnahme</h2>
+        <p>
+          Diese statische Website bindet selbst keine Analyse-Skripte, Werbe-SDKs oder externen
+          Schriftarten ein. Beim Aufruf verarbeitet der Hosting-Anbieter technische Verbindungsdaten
+          wie IP-Adresse, Zeitpunkt und angefragte Seite, um die Website auszuliefern. Wenn du uns
+          per E-Mail kontaktierst, verarbeiten wir deine Nachricht und Kontaktangaben zur
+          Bearbeitung deiner Anfrage.
+        </p>
+        <h2>10. Weitere Datenschutzrechte</h2>
+        <p>
+          Du kannst im Rahmen der gesetzlichen Voraussetzungen die Einschränkung der Verarbeitung
+          verlangen, einer Verarbeitung widersprechen und dich bei einer Datenschutzaufsichtsbehörde
+          beschweren. Eine erteilte Einwilligung kannst du mit Wirkung für die Zukunft widerrufen.
+        </p>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <a href="index.html" class="brand">scrappy.</a>
+          <p>Mehr aus dem machen, was schon da ist.</p>
+        </div>
+        <div class="footer-bottom">
+          <small>© 2026 Scrappy</small>
+          <nav class="footer-links" aria-label="Weitere Seiten">
+            <a href="faq.html">FAQ</a><a href="support.html">Support</a
+            ><a href="impressum.html">Impressum</a
+            ><a href="datenschutz.html" aria-current="page">Datenschutz</a
+            ><a href="agb.html">Nutzungsbedingungen</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

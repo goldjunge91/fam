@@ -1,203 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrappy – Lebensmittel retten, Vorrat organisieren & Reste verkochen</title>
-  <meta name="description" content="Scrappy hilft Familien und Haushalten, Lebensmittelverschwendung zu reduzieren, Vorräte im Blick zu behalten und Einkäufe gemeinsam zu planen.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand">
-        <span>🥫 Scrappy</span>
-        <span class="brand-badge">App</span>
-      </a>
-      <nav class="main-nav">
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="support.html">Support</a>
-        <a href="impressum.html">Impressum</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-pill">🌱 Schluss mit Lebensmittelverschwendung</div>
-        <h1>Mehr Überblick im Kühlschrank.<br>Weniger Essen in der Tonne.</h1>
-        <p class="lead">
-          Scrappy verbindet intelligentes Vorratsmanagement, geteilte Einkaufslisten und clevere Resteverwertung in einer schnellen, familienfreundlichen iOS-App.
-        </p>
-        <div class="cta-group">
-          <a href="#anti-waste" class="btn btn-primary">Warum Anti-Waste?</a>
-          <a href="support.html" class="btn btn-secondary">Hilfe & Support</a>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Vorrat im Blick. Alltag leichter. | Scrappy</title>
+    <meta
+      name="description"
+      content="Vorräte organisieren, Einkäufe teilen und die Woche planen. Scrappy verbindet euren Haushalt und lässt persönliches Tracking privat."
+    >
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="Scrappy Startseite"
+          ><span class="brand-mark" aria-hidden="true">s.</span>scrappy<span
+            class="brand-dot"
+            aria-hidden="true"
+            >.</span
+          ></a
+        >
+        <nav class="main-nav" aria-label="Hauptnavigation">
+          <a href="index.html" aria-current="page">Die App</a><a href="faq.html">FAQ</a
+          ><a href="support.html">Support</a>
+        </nav>
       </div>
-    </section>
-
-    <!-- Deep Dive: Anti-Waste Mission -->
-    <section id="anti-waste" class="anti-waste-deep">
-      <div class="container">
-        <div class="section-head">
-          <span style="font-size: 2.2rem; display: block; margin-bottom: 12px;">🌍</span>
-          <h2>Lebensmittel retten beginnt im eigenen Haushalt</h2>
-          <p style="max-width: 680px; margin: 0 auto;">
-            Die größte Menge an weggeworfener Nahrung entsteht nicht im Handel oder in Restaurants – sondern in unseren eigenen vier Wänden. Nicht aus böser Absicht, sondern weil im Alltagsstress der Überblick verloren geht.
+    </header>
+    <main id="inhalt">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Weniger verschwenden. Gemeinsam planen.</p>
+          <h1 id="hero-title">Schon da.<br>Mach was <em>draus.</em></h1>
+          <p class="lead">
+            Ein voller Kühlschrank. Und trotzdem keine Idee? Bring Vorrat, Einkauf und Wochenplan
+            zusammen. Mit Scrappy.
+          </p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="#so-funktionierts"
+              >Scrappy kennenlernen <span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="faq.html"
+              >Du hast Fragen? <span aria-hidden="true">→</span></a
+            >
+          </div>
+          <p class="hero-note">Für Familien, WGs und alle, die ihren Alltag teilen.</p>
+        </div>
+        <figure class="product-scene">
+          <div class="scene-heading">
+            <span>Ein Blick. Alles da.</span><span aria-hidden="true">↗</span>
+          </div>
+          <div class="preview">
+            <div class="preview-top">
+              <span class="preview-logo">scrappy.</span><span>Unser Haushalt</span>
+            </div>
+            <div class="preview-title">Was ist noch da?</div>
+            <div class="preview-subtitle">Erst aufbrauchen, dann nachkaufen.</div>
+            <div class="food-row">
+              <span class="food-icon" aria-hidden="true">🥑</span>
+              <div>
+                <strong>Avocado</strong><span class="food-meta">2 Stück · Obst & Gemüse</span>
+              </div>
+              <span class="status">Bald aufbrauchen</span>
+            </div>
+            <div class="food-row">
+              <span class="food-icon" aria-hidden="true">🥛</span>
+              <div>
+                <strong>Haferdrink</strong><span class="food-meta">1 Liter · Kühlschrank</span>
+              </div>
+              <span class="food-label">Vorrätig</span>
+            </div>
+            <div class="food-row">
+              <span class="food-icon" aria-hidden="true">🍅</span>
+              <div>
+                <strong>Tomaten</strong><span class="food-meta">500 g · Obst & Gemüse</span>
+              </div>
+              <span class="food-label">Vorrätig</span>
+            </div>
+            <div class="meal-preview">
+              <span>Die Idee für heute</span><strong>Pasta mit Ofentomaten</strong>
+              <p>Dein Vorrat. Dein nächstes Abendessen.</p>
+            </div>
+            <div class="preview-nav" aria-hidden="true">
+              <span>Vorrat</span><span>Einkauf</span><span>Wochenplan</span>
+            </div>
+          </div>
+          <figcaption>So kann euer Alltag aussehen. Vereinfachte Produktillustration.</figcaption>
+        </figure>
+      </section>
+      <section class="intro-band">
+        <div class="container intro-grid">
+          <h2>Gutes Essen gehört<br>auf den Tisch.</h2>
+          <p>
+            Was hinten im Kühlschrank steht, gerät schnell in Vergessenheit. Scrappy hilft euch,
+            Vorhandenes im Blick zu behalten und eure nächsten Mahlzeiten darum zu planen.
           </p>
         </div>
-
-        <!-- Facts & Figures -->
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number">~78 kg</div>
-            <div class="stat-label">genießbare Lebensmittel wirft jede Person in Deutschland durchschnittlich pro Jahr weg.</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">58 %</div>
-            <div class="stat-label">der gesamten Lebensmittelverschwendung in der EU entfällt auf Privathaushalte.</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Bis zu 400 €</div>
-            <div class="stat-label">spart ein durchschnittlicher Haushalt pro Person und Jahr durch gezieltes Aufbrauchen.</div>
-          </div>
+      </section>
+      <section class="container section" id="so-funktionierts" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <p class="eyebrow">Vom Vorrat bis auf den Teller</p>
+          <h2 id="workflow-title">Weniger Kopf voll.<br>Mehr Alltag im Griff.</h2>
         </div>
-
-        <!-- Problem vs. Solution -->
-        <div class="comparison-grid">
-          <div class="comparison-box problem">
-            <h3><span style="color: #D32F2F;">⚠️</span> Die Ursachen im Alltag</h3>
-            <ul>
-              <li><strong>Aus den Augen, aus dem Sinn:</strong> Was in der hintersten Ecke des Kühlschranks oder im Vorratsschrank steht, wird vergessen, bis es schimmelt.</li>
-              <li><strong>Doppelkäufe ohne Absprache:</strong> Jemand kauft auf dem Heimweg Joghurt oder Sahne, ohne zu wissen, dass zu Hause schon zwei Becher stehen.</li>
-              <li><strong>Das Reste-Dilemma:</strong> Eine halbe Paprika, ein Rest Reis – oft fehlt die spontane Idee, wie man geöffnete Packungen sinnvoll verkochen kann.</li>
-              <li><strong>MHD-Fehlinterpretation:</strong> Viele Lebensmittel werden weggeworfen, sobald das Mindesthaltbarkeitsdatum erreicht ist, obwohl sie noch völlig einwandfrei sind.</li>
-            </ul>
-          </div>
-
-          <div class="comparison-box solution">
-            <h3><span style="color: var(--green);">✨</span> Wie Scrappy das löst</h3>
-            <ul>
-              <li><strong>Visuelle Frische-Ampel:</strong> Ein Blick genügt, um zu sehen, was grün (haltbar), gelb (bald fällig) oder rot (dringend verbrauchen) ist.</li>
-              <li><strong>Echtzeit-Familiensynchronisation:</strong> Schreibt jemand Milch auf die Liste, sehen es alle Haushaltsmitglieder sofort – im Laden wird nichts doppelt gekauft.</li>
-              <li><strong>Kochen mit Vorhandenem:</strong> Plane Mahlzeiten gezielt um die Zutaten herum, die als Erstes verbraucht werden müssen.</li>
-              <li><strong>Bewusstes Prüfen:</strong> Scrappy erinnert dich rechtzeitig vor Ablauf, damit du Lebensmittel sensorisch prüfen und rechtzeitig verwerten kannst.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 3 Pillars of Scrappy -->
-        <div style="margin-top: 60px; text-align: center;">
-          <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 12px;">Die 3 Säulen von Scrappy gegen Verschwendung</h3>
-          <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto;">Ein geschlossener Kreislauf, der vom Supermarkt über den Vorratsschrank bis auf den Teller reicht.</p>
-        </div>
-
-        <div class="pillar-steps">
-          <div class="pillar-step">
-            <span class="pillar-number">1</span>
-            <h4>Wissen, was da ist</h4>
+        <div class="steps">
+          <article>
+            <span class="step-number">01 / Vorrat</span>
+            <h3>Wissen, was da ist.</h3>
             <p>
-              Scanne Barcodes oder Kassenbons in Sekunden. Dein digitaler Vorratsspeicher zeigt dir jederzeit auf dem Smartphone, welche Bestände zu Hause lagern.
+              Kühlschrank, Gefrierfach oder Vorratsschrank: Lebensmittel und Mengen an einem Ort.
+              Mit Haltbarkeitsdaten als Erinnerung zum rechtzeitigen Aufbrauchen.
             </p>
-          </div>
-
-          <div class="pillar-step">
-            <span class="pillar-number">2</span>
-            <h4>Kochen statt wegwerfen</h4>
+          </article>
+          <article>
+            <span class="step-number">02 / Wochenplan</span>
+            <h3>Aus Zutaten wird ein Plan.</h3>
             <p>
-              Plane deine Woche mit dem integrierten Essensplaner. Verwerte angebrochene Zutaten in leckeren Rezepten, bevor neues Essen gekauft wird.
+              Rezepte sammeln und Mahlzeiten für die Woche planen. So wird aus dem, was ihr schon
+              habt, eine Idee fürs Abendessen.
             </p>
-          </div>
-
-          <div class="pillar-step">
-            <span class="pillar-number">3</span>
-            <h4>Bedarfsgerecht einkaufen</h4>
+          </article>
+          <article>
+            <span class="step-number">03 / Einkauf</span>
+            <h3>Zusammen auf einer Liste.</h3>
             <p>
-              Die smarte Einkaufsliste ist nach Supermarkt-Kategorien sortiert. Du kaufst nur das, was tatsächlich fehlt – per Siri-Sprachbefehl sogar freihändig beim Kochen.
+              Eintragen, ergänzen, abhaken. Euer Haushalt nutzt eine gemeinsame Einkaufsliste und
+              kauft gezielter ein.
             </p>
-          </div>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <!-- Key Features Grid -->
-    <section class="features-section">
+      </section>
+      <section class="container detail-section" aria-labelledby="details-title">
+        <div>
+          <p class="eyebrow">Passt in euren Alltag</p>
+          <h2 id="details-title">Gemeinsam organisiert.<br>Persönlich bleibt persönlich.</h2>
+          <p class="lead">Haushalt teilen heißt nicht, alles zu teilen.</p>
+        </div>
+        <div class="detail-list">
+          <article>
+            <span class="detail-symbol" aria-hidden="true">↗</span>
+            <div>
+              <h3>Schneller erfassen</h3>
+              <p>Lebensmittel per Barcode erfassen oder Einkäufe von einem Kassenbon übernehmen.</p>
+            </div>
+          </article>
+          <article>
+            <span class="detail-symbol" aria-hidden="true">↔</span>
+            <div>
+              <h3>Auch ohne Empfang</h3>
+              <p>
+                Vorrat und Einkaufsliste lokal nutzen. Änderungen werden bei bestehender
+                Internetverbindung mit eurem Haushalt abgeglichen.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="detail-symbol" aria-hidden="true">⌁</span>
+            <div>
+              <h3>Dein Tracking. Deine Daten.</h3>
+              <p>
+                Persönliches Ernährungs- und Gewichtstracking bleibt von geteilten Haushaltsdaten
+                getrennt. Andere Haushaltsmitglieder haben darauf keinen Zugriff.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="container help-strip">
+        <div>
+          <p class="eyebrow">Noch etwas offen?</p>
+          <h2>Wir helfen dir weiter.</h2>
+        </div>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="faq.html"
+            >Antworten finden <span aria-hidden="true">→</span></a
+          ><a class="text-link" href="support.html">Support kontaktieren</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
       <div class="container">
-        <div class="section-head">
-          <h2>Alle Funktionen im Überblick</h2>
-          <p>Entwickelt für reibungslose mobile Workflows im Familienalltag.</p>
+        <div class="footer-top">
+          <a href="index.html" class="brand">scrappy.</a>
+          <p>Mehr aus dem machen, was schon da ist.</p>
         </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <span class="card-icon">⏱️</span>
-            <h3>Haltbarkeit & Vorrat</h3>
-            <p>
-              Verwalte Kühlschrank, Gefriertruhe und Speisekammer. Unser Ampelsystem und Push-Erinnerungen informieren dich rechtzeitig vor dem Ablauf.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="card-icon">🛒</span>
-            <h3>Geteilte Einkaufsliste</h3>
-            <p>
-              Nie wieder doppelt einkaufen: Die Liste synchronisiert sich in Echtzeit zwischen allen Haushaltsmitgliedern – sortiert nach Markt oder Regal.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="card-icon">🍳</span>
-            <h3>Reste-Rezepte & Essensplan</h3>
-            <p>
-              Plane Mahlzeiten für die ganze Woche und finde Rezepte passend zu den Lebensmitteln, die du schon zu Hause hast.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="card-icon">🎙️</span>
-            <h3>Siri Sprachbefehle</h3>
-            <p>
-              „Hey Siri, setze Milch auf Scrappy!“ Schreibe Artikel freihändig auf die Liste, während du gerade am Herd stehst oder die Hände voll hast.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="card-icon">📷</span>
-            <h3>Barcode- & Beleg-Scan</h3>
-            <p>
-              Erfasse Lebensmittel blitzschnell über den Barcode-Scanner oder übernehme Einkäufe direkt von deinem Kassenbon in deinen digitalen Vorrat.
-            </p>
-          </div>
-
-          <div class="card">
-            <span class="card-icon">🔒</span>
-            <h3>Strikte Datentrennung</h3>
-            <p>
-              Haushaltslisten und Vorräte werden gemeinsam genutzt – persönliche Daten wie Kalorientracking und Gewicht bleiben privat auf deinem Account.
-            </p>
-          </div>
+        <div class="footer-bottom">
+          <small>© 2026 Scrappy</small>
+          <nav class="footer-links" aria-label="Weitere Seiten">
+            <a href="faq.html">FAQ</a><a href="support.html">Support</a
+            ><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a
+            ><a href="agb.html">Nutzungsbedingungen</a>
+          </nav>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div class="footer-copy">
-        &copy; 2026 Scrappy. Alle Rechte vorbehalten.
-      </div>
-      <div class="footer-links">
-        <a href="datenschutz.html">Datenschutzerklärung</a>
-        <a href="agb.html">Nutzungsbedingungen (AGB)</a>
-        <a href="support.html">Support</a>
-        <a href="impressum.html">Impressum</a>
-      </div>
-    </div>
-  </footer>
-
-</body>
+    </footer>
+  </body>
 </html>
