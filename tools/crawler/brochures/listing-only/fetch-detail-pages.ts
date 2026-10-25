@@ -472,7 +472,6 @@ export async function loadReusableDetailMetadata(options: {
       {
         headers: {
           apikey: supabaseSecretKey,
-          Authorization: `Bearer ${supabaseSecretKey}`,
           Accept: 'application/json',
         },
       },
