@@ -56,6 +56,19 @@ function parseInputFingerprint(verificationBytes: Uint8Array): string {
   return String(verification.inputFingerprint);
 }
 
+function parseVerificationBudgetBytes(verificationBytes: Uint8Array): number {
+  const verification = JSON.parse(Buffer.from(verificationBytes).toString('utf8')) as unknown;
+  const summary = isRecord(verification) && isRecord(verification.summary)
+    ? verification.summary
+    : undefined;
+  const assetBudget = summary && isRecord(summary.assetBudget) ? summary.assetBudget : undefined;
+  const budgetBytes = assetBudget?.budgetBytes;
+  if (typeof budgetBytes !== 'number' || !Number.isSafeInteger(budgetBytes) || budgetBytes < 1) {
+    throw new Error('Verification asset budget must be a positive safe integer');
+  }
+  return budgetBytes;
+}
+
 function parseManifest(value: unknown): PublicationHandoffManifest {
   if (!isRecord(value) || value.version !== 1 || !Array.isArray(value.files)) {
     throw new Error('Publication handoff manifest must be version 1 with a files array');
@@ -153,6 +166,7 @@ export async function validatePublicationHandoff(options: {
   bundleDir: string;
   manifestSha256: string;
   binding: PublicationBinding;
+  expectedBudgetBytes?: number;
 }): Promise<{
   manifest: PublicationHandoffManifest;
   paths: Record<PublicationInputName, string>;
@@ -201,6 +215,15 @@ export async function validatePublicationHandoff(options: {
   const verificationBytes = await readFile(paths['canonical-page-verification.json']);
   if (parseInputFingerprint(verificationBytes) !== manifest.inputFingerprint) {
     throw new Error('Publication verification inputFingerprint does not match the handoff manifest');
+  }
+  const verificationBudgetBytes = parseVerificationBudgetBytes(verificationBytes);
+  if (options.expectedBudgetBytes !== undefined) {
+    if (!Number.isSafeInteger(options.expectedBudgetBytes) || options.expectedBudgetBytes < 1) {
+      throw new Error('Expected verification budget must be a positive safe integer');
+    }
+    if (verificationBudgetBytes !== options.expectedBudgetBytes) {
+      throw new Error('Publication verification budget does not match the expected budget');
+    }
   }
 
   return { manifest, paths };

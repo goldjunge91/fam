@@ -29,6 +29,23 @@ async function createFixture() {
   return { artifactDir, manifestSha256: result.manifestSha256 };
 }
 
+async function createDetailFixture() {
+  const root = await mkdtemp(join(process.cwd(), '.test-phase-artifact-detail-'));
+  roots.push(root);
+  const artifactDir = join(root, 'artifact');
+  await mkdir(artifactDir);
+  await writeFile(join(artifactDir, 'detail-pages.json'), '{"brn-a":8}\n');
+  await writeFile(join(artifactDir, 'detail-page-metadata.json'), '{"brn-a":{"pages":[]}}\n');
+  const result = await createPhaseArtifact({
+    artifactDir,
+    phase: 'detail-pages',
+    files: ['detail-pages.json', 'detail-page-metadata.json'],
+    binding,
+    predecessorManifestSha256: ['b'.repeat(64)],
+  });
+  return { artifactDir, manifestSha256: result.manifestSha256 };
+}
+
 afterEach(async () => {
   await Promise.all(roots.splice(0).map((root) => rm(root, { recursive: true, force: true })));
 });
@@ -51,6 +68,55 @@ describe('phase artifacts', () => {
       phase: 'detail-pages',
       predecessorManifestSha256: ['b'.repeat(64)],
     });
+  });
+
+  it('binds and validates the exact two-file detail manifest', async () => {
+    const fixture = await createDetailFixture();
+    expect(fixture.manifestSha256).toMatch(/^[a-f0-9]{64}$/);
+
+    const result = await validatePhaseArtifact({
+      ...fixture,
+      phase: 'detail-pages',
+      files: ['detail-pages.json', 'detail-page-metadata.json'],
+      binding,
+      predecessorManifestSha256: ['b'.repeat(64)],
+    });
+
+    expect(result.manifest.files.map(({ name }) => name)).toEqual([
+      'detail-page-metadata.json',
+      'detail-pages.json',
+    ]);
+
+    for (const file of ['detail-pages.json', 'detail-page-metadata.json']) {
+      const changed = await createDetailFixture();
+      await writeFile(join(changed.artifactDir, file), '{"changed":true}\n');
+      await expect(validatePhaseArtifact({
+        ...changed,
+        phase: 'detail-pages',
+        files: ['detail-pages.json', 'detail-page-metadata.json'],
+        binding,
+        predecessorManifestSha256: ['b'.repeat(64)],
+      })).rejects.toThrow('SHA-256');
+    }
+
+    for (const manifestSha256 of [undefined, '']) {
+      await expect(validatePhaseArtifact({
+        ...fixture,
+        manifestSha256,
+        phase: 'detail-pages',
+        files: ['detail-pages.json', 'detail-page-metadata.json'],
+        binding,
+        predecessorManifestSha256: ['b'.repeat(64)],
+      })).rejects.toThrow('Expected phase artifact manifest SHA-256');
+    }
+
+    await expect(validatePhaseArtifact({
+      ...fixture,
+      phase: 'detail-pages',
+      files: ['detail-pages.json', 'detail-page-metadata.json'],
+      binding,
+      predecessorManifestSha256: ['c'.repeat(64)],
+    })).rejects.toThrow('predecessor manifest digest');
   });
 
   it('rejects a wrong run, commit, phase, or predecessor binding', async () => {

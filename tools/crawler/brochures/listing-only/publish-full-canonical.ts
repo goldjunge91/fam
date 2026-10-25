@@ -387,10 +387,15 @@ async function main(): Promise<void> {
   if (!bundleDir || !manifestSha256) {
     throw new Error('--bundle-dir and --manifest-sha256 are required');
   }
+  const expectedBudgetBytes = Number(process.env.BROCHURE_VERIFY_BUDGET_BYTES ?? '');
+  if (!Number.isSafeInteger(expectedBudgetBytes) || expectedBudgetBytes < 1) {
+    throw new Error('BROCHURE_VERIFY_BUDGET_BYTES must be a positive safe integer');
+  }
 
   const handoff = await validatePublicationHandoff({
     bundleDir,
     manifestSha256,
+    expectedBudgetBytes,
     binding: {
       repository: requiredString(process.env.GITHUB_REPOSITORY, 'GITHUB_REPOSITORY'),
       runId: requiredString(process.env.GITHUB_RUN_ID, 'GITHUB_RUN_ID'),

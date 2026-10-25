@@ -35,9 +35,31 @@ describe('restartable brochure workflow contract', () => {
     expect(workflow).toContain('--artifact-dir="${RUNNER_TEMP}/brochure-publication/phase"');
     expect(workflow).toContain('--bundle-dir="${RUNNER_TEMP}/brochure-publication/handoff"');
     expect(workflow).not.toContain('brochure-publication-phase-');
-    expect(workflow).toContain(
-      '--manifest-sha256="${{ needs.publication-handoff.outputs.manifest_sha256 }}"',
-    );
+    expect(workflow).toContain('needs.publication-handoff.outputs.manifest_sha256');
+  });
+  it('offers a publisher-only cross-run resume contract with fail-closed source checks', async () => {
+    const workflow = await readFile(workflowPath, 'utf8');
+    expect(workflow).toContain('resume_run_id:');
+    expect(workflow).toContain('actions: read');
+    expect(workflow).toContain('Download publication handoff from source run');
+    expect(workflow).toContain('github-token: ${{ secrets.GITHUB_TOKEN }}');
+    expect(workflow).toContain('repository: ${{ github.repository }}');
+    expect(workflow).toContain('run-id: ${{ inputs.resume_run_id }}');
+    expect(workflow).toContain('digest-mismatch: error');
+    expect(workflow).toContain('Veröffentlichungs-Handoff erstellen');
+    expect(workflow).toContain('Vollständige Prospektverifikation');
+    expect(workflow).toContain('only publish-canonical unsuccessful');
+    expect(workflow).toContain('BROCHURE_VERIFY_BUDGET_BYTES: "8000000000"');
+    expect(workflow).toContain('source_commit_sha');
+    expect(workflow).toContain('predecessorManifestSha256 | type == "array" and length == 4');
+    expect(workflow).toContain('inputs.resume_run_id == \'\'');
+    expect(workflow).toContain('inputs.resume_run_id != \'\'');
+  });
+  it('keeps the eight-gigabyte verification and publication budgets aligned', async () => {
+    const workflow = await readFile(workflowPath, 'utf8');
+    expect(workflow.match(/BROCHURE_R2_STORAGE_BUDGET_GB: "8"/g)).toHaveLength(2);
+    expect(workflow).toContain('--budget-bytes=8000000000');
+    expect(workflow).toContain('BROCHURE_VERIFY_BUDGET_BYTES: "8000000000"');
   });
   it('passes detail phase digests from its step to downstream jobs', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
@@ -54,8 +76,8 @@ describe('restartable brochure workflow contract', () => {
     const workflow = await readFile(workflowPath, 'utf8');
     expect(workflow).toContain('Re-run failed jobs');
     expect(workflow).toContain('successful scan shards remain available');
-    expect(workflow).toContain('must not rerun scan or verification');
-    expect(workflow).toContain('start a fresh workflow run');
+    expect(workflow).toContain('not rerun scan or verification');
+    expect(workflow).toContain('fails closed and never falls back to a new scan');
     expect(workflow).toContain(
       'Detail loading, grouping, and full page verification remain domain-atomic',
     );

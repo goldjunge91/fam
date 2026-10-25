@@ -14,6 +14,7 @@ const binding = {
   runId: '38116213100',
   commitSha: 'a'.repeat(40),
 };
+const expectedBudgetBytes = 8000000000;
 
 function sha256(bytes: Uint8Array | string): string {
   return createHash('sha256').update(bytes).digest('hex');
@@ -25,7 +26,10 @@ async function createSourceFiles(root: string): Promise<string> {
   await writeFile(join(sourceDir, 'all-stores-full.json'), JSON.stringify({ byZipCode: {} }));
   await writeFile(
     join(sourceDir, 'canonical-page-verification.json'),
-    JSON.stringify({ inputFingerprint: 'c'.repeat(64) }),
+    JSON.stringify({
+      inputFingerprint: 'c'.repeat(64),
+      summary: { assetBudget: { budgetBytes: expectedBudgetBytes } },
+    }),
   );
   await writeFile(join(sourceDir, 'canonical-brochures.json'), JSON.stringify({ brochures: [] }));
   return sourceDir;
@@ -51,7 +55,7 @@ describe('publication handoff', () => {
   it('copies only the verified publisher inputs and validates their complete binding', async () => {
     const { bundleDir, manifestSha256 } = await createFixture();
 
-    const result = await validatePublicationHandoff({ bundleDir, manifestSha256, binding });
+    const result = await validatePublicationHandoff({ bundleDir, manifestSha256, binding, expectedBudgetBytes });
 
     expect(result.manifest).toMatchObject({
       version: 1,
@@ -70,6 +74,17 @@ describe('publication handoff', () => {
     ]);
   });
 
+  it('rejects a verification payload from a different budget', async () => {
+    const { bundleDir, manifestSha256 } = await createFixture();
+
+    await expect(validatePublicationHandoff({
+      bundleDir,
+      manifestSha256,
+      binding,
+      expectedBudgetBytes: 7000000000,
+    })).rejects.toThrow('budget');
+  });
+
   it('rejects a wrong manifest digest or run, repository, and commit binding', async () => {
     const { bundleDir, manifestSha256 } = await createFixture();
 
@@ -77,6 +92,7 @@ describe('publication handoff', () => {
       bundleDir,
       manifestSha256: '0'.repeat(64),
       binding,
+      expectedBudgetBytes,
     })).rejects.toThrow('manifest SHA-256');
 
     for (const changedBinding of [
@@ -88,6 +104,7 @@ describe('publication handoff', () => {
         bundleDir,
         manifestSha256,
         binding: changedBinding,
+        expectedBudgetBytes,
       })).rejects.toThrow('binding');
     }
   });
@@ -95,11 +112,11 @@ describe('publication handoff', () => {
   it('rejects changed, missing, and additionally named publisher inputs', async () => {
     const changed = await createFixture();
     await writeFile(join(changed.bundleDir, 'all-stores-full.json'), '{}', 'utf8');
-    await expect(validatePublicationHandoff({ ...changed, binding })).rejects.toThrow('failed SHA-256');
+    await expect(validatePublicationHandoff({ ...changed, binding, expectedBudgetBytes })).rejects.toThrow('failed SHA-256');
 
     const missing = await createFixture();
     await unlink(join(missing.bundleDir, 'canonical-brochures.json'));
-    await expect(validatePublicationHandoff({ ...missing, binding })).rejects.toThrow('canonical-brochures.json');
+    await expect(validatePublicationHandoff({ ...missing, binding, expectedBudgetBytes })).rejects.toThrow('canonical-brochures.json');
 
     const extra = await createFixture();
     const manifestPath = join(extra.bundleDir, PUBLICATION_HANDOFF_MANIFEST);
@@ -115,6 +132,7 @@ describe('publication handoff', () => {
       bundleDir: extra.bundleDir,
       manifestSha256: sha256(manifestBytes),
       binding,
+      expectedBudgetBytes,
     })).rejects.toThrow('exact file allowlist');
   });
 });

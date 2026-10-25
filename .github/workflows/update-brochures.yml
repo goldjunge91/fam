@@ -2,6 +2,12 @@ name: Canonical Brochure Catalog Update
 
 on:
   workflow_dispatch:
+    inputs:
+      resume_run_id:
+        description: 'Only retry publication from a completed source run in this repository'
+        required: false
+        type: string
+        default: ''
 
   schedule:
     # Montag und Donnerstag: Bring-Wochenangebote vollständig aktualisieren.
@@ -14,6 +20,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: read
   contents: read
 
 # Operator instructions:
@@ -21,16 +28,21 @@ permissions:
 #   legs and merge gates retry while successful scan shards remain available.
 # - After detail loading, grouping, verification, persistence, reporting, or
 #   handoff fails, use the same action. Successful predecessor phases stay put.
-# - After publish-canonical fails, use "Re-run failed jobs". The publisher
-#   downloads the unchanged same-run handoff and must not rerun scan or verification.
+# - After publish-canonical fails, use workflow_dispatch with resume_run_id set to
+#   the failed source run. The publisher downloads that unchanged handoff and must
+#   not rerun scan or verification. GitHub's same-run "Re-run failed jobs" remains
+#   available for failures before publication.
+# - A resume source must be a completed run of this repository and workflow with
+#   every verify/handoff job successful and only publish-canonical unsuccessful.
 # - If a required artifact is missing, expired, foreign, changed, or unverifiable,
-#   stop and start a fresh workflow run. Never manually reuse an old artifact.
+#   stop. The resume path fails closed and never falls back to a new scan.
 # Detail loading, grouping, and full page verification remain domain-atomic because
 # their current contracts require complete cross-ZIP and aggregate-budget inputs.
 
 jobs:
   validate-secrets:
     name: Crawler-Zugangsdaten prüfen
+    if: ${{ inputs.resume_run_id == '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
@@ -71,7 +83,8 @@ jobs:
     name: Eingaben vorbereiten
     needs: validate-secrets
     if: >-
-      ${{ github.ref == 'refs/heads/main' &&
+      ${{ inputs.resume_run_id == '' &&
+          github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -127,7 +140,7 @@ jobs:
     name: PLZ-Scan Shard ${{ matrix.shard }}
     needs: [validate-secrets, prepare-inputs]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -211,7 +224,7 @@ jobs:
     name: PLZ-Scan zusammenführen
     needs: [validate-secrets, prepare-inputs, scan-locations]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.scan-locations.result == 'success' }}
     runs-on: ubuntu-latest
@@ -301,7 +314,7 @@ jobs:
     name: Detailseiten laden
     needs: [validate-secrets, prepare-inputs, scan-merge]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
@@ -398,7 +411,7 @@ jobs:
     name: Prospekte gruppieren
     needs: [validate-secrets, scan-merge, detail-pages]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -476,7 +489,7 @@ jobs:
     name: Vollständige Prospektverifikation
     needs: [validate-secrets, prepare-inputs, scan-merge, detail-pages, grouping]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
@@ -614,7 +627,7 @@ jobs:
     name: Verifizierten Katalog persistieren
     needs: [validate-secrets, page-verification]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -676,7 +689,7 @@ jobs:
     name: Konsistenzbericht erstellen
     needs: [validate-secrets, scan-merge, page-verification, persistence]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -770,7 +783,7 @@ jobs:
     name: Veröffentlichungs-Handoff erstellen
     needs: [validate-secrets, scan-merge, page-verification, persistence, report]
     if: >-
-      ${{ always() && github.ref == 'refs/heads/main' &&
+      ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -889,16 +902,88 @@ jobs:
     name: Verifizierte Prospekte veröffentlichen
     needs: publication-handoff
     if: >-
-      ${{ needs.publication-handoff.result == 'success' &&
-          github.ref == 'refs/heads/main' &&
-          needs.publication-handoff.outputs.manifest_sha256 != '' &&
-          needs.publication-handoff.outputs.phase_manifest_sha256 != '' }}
+      ${{ always() && github.ref == 'refs/heads/main' &&
+          (inputs.resume_run_id != '' ||
+           (needs.publication-handoff.result == 'success' &&
+            needs.publication-handoff.outputs.manifest_sha256 != '' &&
+            needs.publication-handoff.outputs.phase_manifest_sha256 != '')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
       BROCHURE_R2_STORAGE_BUDGET_GB: "8"
+      BROCHURE_VERIFY_BUDGET_BYTES: "8000000000"
     steps:
-      - name: Checkout verified commit
+      - name: Validate resume source run
+        if: ${{ inputs.resume_run_id != '' }}
+        id: resume-source
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESUME_RUN_ID: ${{ inputs.resume_run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          run_id="$RESUME_RUN_ID"
+          if [[ ! "$run_id" =~ ^[1-9][0-9]{0,19}$ ]]; then
+            printf '::error::resume_run_id must be a positive numeric run ID.\n'
+            exit 1
+          fi
+
+          run_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}")"
+          read -r status conclusion branch commit_sha workflow_path < <(
+            jq -r '[.status, .conclusion, .head_branch, .head_sha, .path] | @tsv' <<<"$run_json"
+          )
+          if [[ "$status" != "completed" || "$branch" != "main" ||
+                "$workflow_path" != ".github/workflows/update-brochures.yml" ||
+                ! "$commit_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            printf '::error::Resume source is not a completed main run of this repository workflow.\n'
+            exit 1
+          fi
+
+          jobs_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100")"
+          required_jobs=(
+            "Crawler-Zugangsdaten prüfen"
+            "Eingaben vorbereiten"
+            "PLZ-Scan Shard 0"
+            "PLZ-Scan Shard 1"
+            "PLZ-Scan Shard 2"
+            "PLZ-Scan Shard 3"
+            "PLZ-Scan zusammenführen"
+            "Detailseiten laden"
+            "Prospekte gruppieren"
+            "Vollständige Prospektverifikation"
+            "Verifizierten Katalog persistieren"
+            "Konsistenzbericht erstellen"
+            "Veröffentlichungs-Handoff erstellen"
+          )
+          for job_name in "${required_jobs[@]}"; do
+            job_count="$(jq --arg name "$job_name" '[.jobs[] | select(.name == $name)] | length' <<<"$jobs_json")"
+            job_conclusion="$(jq -r --arg name "$job_name" '[.jobs[] | select(.name == $name) | .conclusion][0] // ""' <<<"$jobs_json")"
+            if [[ "$job_count" != "1" || "$job_conclusion" != "success" ]]; then
+              printf '::error::Resume source job is not exactly one successful %s job.\n' "$job_name"
+              exit 1
+            fi
+          done
+
+          publish_conclusion="$(jq -r '[.jobs[] | select(.name == "Verifizierte Prospekte veröffentlichen") | .conclusion][0] // ""' <<<"$jobs_json")"
+          if [[ "$publish_conclusion" != "failure" &&
+                "$publish_conclusion" != "cancelled" &&
+                "$publish_conclusion" != "timed_out" ]]; then
+            printf '::error::Resume source must have failed only in publish-canonical.\n'
+            exit 1
+          fi
+
+          artifacts_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100")"
+          artifact_name="brochure-publication-${run_id}"
+          artifact_count="$(jq --arg name "$artifact_name" '[.artifacts[] | select(.name == $name)] | length' <<<"$artifacts_json")"
+          artifact_valid="$(jq --arg name "$artifact_name" '[.artifacts[] | select(.name == $name and .expired == false and .size_in_bytes > 0)] | length' <<<"$artifacts_json")"
+          if [[ "$artifact_count" != "1" || "$artifact_valid" != "1" ]]; then
+            printf '::error::Resume publication handoff is missing, expired, duplicated, or empty.\n'
+            exit 1
+          fi
+
+          printf 'source_run_id=%s\nsource_commit_sha=%s\n' "$run_id" "$commit_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout publisher commit
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
@@ -906,13 +991,50 @@ jobs:
       - name: Set up Bun environment
         uses: ./.github/actions/setup-bun-env
 
-      - name: Download verified publication handoff and phase manifest
+      - name: Download same-run publication handoff
+        if: ${{ inputs.resume_run_id == '' }}
         uses: actions/download-artifact@v5
         with:
           name: brochure-publication-${{ github.run_id }}
           path: ${{ runner.temp }}/brochure-publication
 
-      - name: Validate publication phase artifact
+      - name: Download publication handoff from source run
+        if: ${{ inputs.resume_run_id != '' }}
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-publication-${{ inputs.resume_run_id }}
+          path: ${{ runner.temp }}/brochure-publication
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.resume_run_id }}
+          digest-mismatch: error
+
+      - name: Bind and validate downloaded resume handoff
+        if: ${{ inputs.resume_run_id != '' }}
+        id: resume-handoff
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ steps.resume-source.outputs.source_run_id }}
+          GITHUB_SHA: ${{ steps.resume-source.outputs.source_commit_sha }}
+        run: |
+          set -euo pipefail
+          phase_manifest="${RUNNER_TEMP}/brochure-publication/phase/phase-artifact.json"
+          handoff_manifest="${RUNNER_TEMP}/brochure-publication/handoff/publication-handoff.json"
+          test -s "$phase_manifest"
+          test -s "$handoff_manifest"
+          jq -e --arg repository "$GITHUB_REPOSITORY" --arg run_id "$GITHUB_RUN_ID" --arg commit_sha "$GITHUB_SHA" '
+            .version == 1 and .phase == "publication-handoff" and
+            .repository == $repository and .runId == $run_id and .commitSha == $commit_sha and
+            (.predecessorManifestSha256 | type == "array" and length == 4 and all(.[]; test("^[a-f0-9]{64}$"))) and
+            (.files | length == 1 and .[0].name == "publication-handoff.json" and
+              (.[0].sha256 | test("^[a-f0-9]{64}$")))
+          ' "$phase_manifest"
+          printf 'phase_manifest_sha256=%s\n' "$(sha256sum "$phase_manifest" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          printf 'handoff_manifest_sha256=%s\n' "$(sha256sum "$handoff_manifest" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          printf 'predecessor_manifest_sha256=%s\n' "$(jq -er '.predecessorManifestSha256 | join(",")' "$phase_manifest")" >> "$GITHUB_OUTPUT"
+
+      - name: Validate same-run publication phase artifact
+        if: ${{ inputs.resume_run_id == '' }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
           --phase=publication-handoff
@@ -921,8 +1043,24 @@ jobs:
           --manifest-sha256="${{ needs.publication-handoff.outputs.phase_manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ needs.publication-handoff.outputs.phase_predecessor_manifest_sha256 }}"
 
+      - name: Validate cross-run publication phase artifact
+        if: ${{ inputs.resume_run_id != '' }}
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ steps.resume-source.outputs.source_run_id }}
+          GITHUB_SHA: ${{ steps.resume-source.outputs.source_commit_sha }}
+        run: >-
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=publication-handoff
+          --artifact-dir="${RUNNER_TEMP}/brochure-publication/phase"
+          --files=publication-handoff.json
+          --manifest-sha256="${{ steps.resume-handoff.outputs.phase_manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ steps.resume-handoff.outputs.predecessor_manifest_sha256 }}"
+
       - name: Publish verified pages to private R2 and catalog to Supabase
         env:
+          GITHUB_RUN_ID: ${{ inputs.resume_run_id != '' && steps.resume-source.outputs.source_run_id || github.run_id }}
+          GITHUB_SHA: ${{ inputs.resume_run_id != '' && steps.resume-source.outputs.source_commit_sha || github.sha }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
@@ -932,4 +1070,4 @@ jobs:
         run: >-
           bun run tools/crawler/brochures/listing-only/publish-full-canonical.ts
           --bundle-dir="${RUNNER_TEMP}/brochure-publication/handoff"
-          --manifest-sha256="${{ needs.publication-handoff.outputs.manifest_sha256 }}"
+          --manifest-sha256="${{ inputs.resume_run_id != '' && steps.resume-handoff.outputs.handoff_manifest_sha256 || needs.publication-handoff.outputs.manifest_sha256 }}"
