@@ -1,7 +1,7 @@
 # Release-Checkliste: Externe Vorbereitungen (Off-App)
 
-> **Fokus:** Alle Voraussetzungen für den App Store Release, die **außerhalb des App-Codes** liegen (Rechtliches, Website, App Store Connect, Metadaten).  
-> **Projekt:** Scrappy (vormals fam)  
+> **Fokus:** Alle Voraussetzungen für den App Store Release, die **außerhalb des App-Codes** liegen (Rechtliches, Website, App Store Connect, Metadaten).
+> **Projekt:** Scrappy (vormals fam)
 > **Plattform:** iOS App Store (Bundle-ID: `com.goldjunge91.fam1`)
 
 ---
@@ -24,17 +24,13 @@
 
 ## 1. Website & Hosting (Die Basis für alle Pflicht-URLs)
 
-Apple verlangt funktionierende, öffentlich erreichbare URLs, die ohne Login aufgerufen werden können.
+Cloudflare Application `fam` mit Custom Domain auf `tozzi-test.de` ist live und aktiv:
 
-* [ ] **Hosting-Ort wählen:**
-  * Option A: Einfache statische HTML-Seiten via GitHub Pages (im Repo oder separatem Docs-Branch).
-  * Option B: Cloudflare Pages / Vercel (kostenlos & schnell).
-  * Option C: Einfaches Notion / Craft-Dokument mit öffentlichem Weblink.
-* [ ] **Erforderliche Unterseiten / URLs:**
-  1. `.../privacy` (Datenschutzerklärung)
-  2. `.../terms` (Nutzungsbedingungen / AGB)
-  3. `.../support` (Support & FAQ mit Kontakt-E-Mail)
-  4. `.../imprint` (Impressum gem. § 5 DDG)
+* **Landingpage:** `https://scrappy.tozzi-test.de`
+* **Datenschutzerklärung (Privacy Policy):** `https://scrappy.tozzi-test.de/datenschutz`
+* **Nutzungsbedingungen & AGB (EULA):** `https://scrappy.tozzi-test.de/agb`
+* **Support & Impressum:** `https://scrappy.tozzi-test.de/support`
+*(Sobald `scrappy-app.de` registriert ist, kann diese als zusätzliche Domain auf denselben Worker gelegt werden.)*
 
 ---
 
