@@ -141,7 +141,8 @@ jobs:
     needs: [validate-secrets, prepare-inputs]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.prepare-inputs.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
@@ -226,6 +227,7 @@ jobs:
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
+          needs.prepare-inputs.result == 'success' &&
           needs.scan-locations.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -315,7 +317,9 @@ jobs:
     needs: [validate-secrets, prepare-inputs, scan-merge]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.prepare-inputs.result == 'success' &&
+          needs.scan-merge.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     outputs:
@@ -412,7 +416,9 @@ jobs:
     needs: [validate-secrets, scan-merge, detail-pages]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.scan-merge.result == 'success' &&
+          needs.detail-pages.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -490,7 +496,11 @@ jobs:
     needs: [validate-secrets, prepare-inputs, scan-merge, detail-pages, grouping]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.prepare-inputs.result == 'success' &&
+          needs.scan-merge.result == 'success' &&
+          needs.detail-pages.result == 'success' &&
+          needs.grouping.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -628,7 +638,8 @@ jobs:
     needs: [validate-secrets, page-verification]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.page-verification.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -690,7 +701,10 @@ jobs:
     needs: [validate-secrets, scan-merge, page-verification, persistence]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.scan-merge.result == 'success' &&
+          needs.page-verification.result == 'success' &&
+          needs.persistence.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -784,7 +798,11 @@ jobs:
     needs: [validate-secrets, scan-merge, page-verification, persistence, report]
     if: >-
       ${{ always() && inputs.resume_run_id == '' && github.ref == 'refs/heads/main' &&
-          needs.validate-secrets.result == 'success' }}
+          needs.validate-secrets.result == 'success' &&
+          needs.scan-merge.result == 'success' &&
+          needs.page-verification.result == 'success' &&
+          needs.persistence.result == 'success' &&
+          needs.report.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:

@@ -20,6 +20,27 @@ describe('restartable brochure workflow contract', () => {
     expect(workflow).toContain('The scan merge requires all four shard artifacts');
     expect(workflow).toContain('needs: [validate-secrets, prepare-inputs, scan-locations]');
     expect(workflow).toContain("needs.scan-locations.result == 'success'");
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.prepare-inputs.result == 'success'",
+    );
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.prepare-inputs.result == 'success' &&\n          needs.scan-merge.result == 'success'",
+    );
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.scan-merge.result == 'success' &&\n          needs.detail-pages.result == 'success'",
+    );
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.prepare-inputs.result == 'success' &&\n          needs.scan-merge.result == 'success' &&\n          needs.detail-pages.result == 'success' &&\n          needs.grouping.result == 'success'",
+    );
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.page-verification.result == 'success'",
+    );
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.scan-merge.result == 'success' &&\n          needs.page-verification.result == 'success' &&\n          needs.persistence.result == 'success'",
+    );
+    expect(workflow).toContain(
+      "needs.validate-secrets.result == 'success' &&\n          needs.scan-merge.result == 'success' &&\n          needs.page-verification.result == 'success' &&\n          needs.persistence.result == 'success' &&\n          needs.report.result == 'success'",
+    );
     expect(workflow).toContain('needs: [validate-secrets, page-verification]');
     expect(workflow).toContain('needs: [validate-secrets, scan-merge, detail-pages]');
     expect(workflow).toContain(
