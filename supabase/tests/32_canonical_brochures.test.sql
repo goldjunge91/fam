@@ -64,6 +64,10 @@ select ok(
   'service role writes through the catalog RPC'
 );
 select ok(
+  has_table_privilege('service_role', 'public.canonical_brochures', 'select'),
+  'service role can reuse the published catalog metadata'
+);
+select ok(
   has_function_privilege(
     'service_role', 'public.replace_canonical_brochure_catalog(jsonb,text[])', 'execute'
   ),

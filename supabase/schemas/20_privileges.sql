@@ -87,6 +87,8 @@ grant select, insert, update on public.brochure_stores to service_role;
 revoke all on public.canonical_brochures, public.brochure_availability
   from anon, authenticated, service_role;
 grant select on public.canonical_brochures, public.brochure_availability to authenticated;
+-- The crawler reuses current page metadata; catalog writes stay behind the RPC.
+grant select on public.canonical_brochures to service_role;
 revoke all on function private.canonical_brochure_pages_are_valid(jsonb, integer)
   from public, anon, authenticated, service_role;
 revoke all on function public.replace_canonical_brochure_catalog(jsonb, text[])
