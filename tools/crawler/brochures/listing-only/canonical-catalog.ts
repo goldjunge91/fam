@@ -16,8 +16,8 @@ function compareStrings(left: string, right: string): number {
   return left < right ? -1 : left > right ? 1 : 0;
 }
 
-function stableRegionalId(zipCode: string, brn: string): string {
-  return `canonical:${JSON.stringify([zipCode, brn])}`;
+function stableBrnId(brn: string): string {
+  return `canonical:${brn}`;
 }
 
 function validatedBrochure(brochure: CrawlerBrochure, zipCode: string): CanonicalCatalogRecord {
@@ -50,7 +50,7 @@ function validatedBrochure(brochure: CrawlerBrochure, zipCode: string): Canonica
 
   return {
     ...brochure,
-    id: stableRegionalId(zipCode, brochure.id),
+    id: stableBrnId(brochure.id),
     canonicalBrn: brochure.id,
     sourceZipCode: zipCode,
     pageCount: pages.length,
@@ -61,8 +61,7 @@ function validatedBrochure(brochure: CrawlerBrochure, zipCode: string): Canonica
 }
 
 /**
- * Keeps every Bring listing in its request region until a location-independent
- * edition identity is proven by a separate, explicit contract.
+ * Stores one Bring page set per BRN and keeps its listing ZIPs as separate availability.
  */
 export function buildCanonicalCatalog(
   dumps: readonly CatalogDump[],
@@ -74,16 +73,26 @@ export function buildCanonicalCatalog(
     for (const brochure of dump.brochures) {
       const record = validatedBrochure(brochure, zipCode);
       const existing = records.get(record.id);
-      if (existing && JSON.stringify(existing) !== JSON.stringify(record)) {
-        throw new Error(`Regional brochure ${record.id} has conflicting detail metadata`);
+      if (!existing) {
+        records.set(record.id, record);
+        continue;
       }
-      records.set(record.id, record);
+
+      const comparable = ({ sourceZipCode: _sourceZipCode, availableZipCodes: _availableZipCodes, ...metadata }: CanonicalCatalogRecord) => metadata;
+      if (JSON.stringify(comparable(existing)) !== JSON.stringify(comparable(record))) {
+        throw new Error(`BRN ${record.canonicalBrn} has conflicting detail metadata across ZIP codes`);
+      }
+      records.set(record.id, {
+        ...existing,
+        sourceZipCode: existing.sourceZipCode.localeCompare(record.sourceZipCode) <= 0
+          ? existing.sourceZipCode
+          : record.sourceZipCode,
+        availableZipCodes: [...new Set([...existing.availableZipCodes, ...record.availableZipCodes])].sort(compareStrings),
+      });
     }
   }
 
   return [...records.values()].sort(
-    (left, right) =>
-      compareStrings(left.sourceZipCode, right.sourceZipCode) ||
-      compareStrings(left.canonicalBrn, right.canonicalBrn),
+    (left, right) => compareStrings(left.canonicalBrn, right.canonicalBrn),
   );
 }

@@ -19,8 +19,8 @@ const fullScan = {
   },
 };
 const detailPageMetadata = {
-  '10000:brn-a': {
-    referenceKey: '10000:brn-a',
+  'brn-a': {
+    referenceKey: 'brn-a',
     brn: 'brn-a',
     zipCode: '10000',
     title: 'Lidl Woche',
@@ -33,8 +33,8 @@ const detailPageMetadata = {
   },
 };
 
-describe('regionale Prospektpersistenz', () => {
-  it('persistiert vollständige Details mit Original-URLs und regionaler Verfügbarkeit', () => {
+describe('BRN-Prospektpersistenz', () => {
+  it('persistiert eine vollständige Bring-Ausgabe mit Listing-Verfügbarkeit je PLZ', () => {
     expect(buildPersistedCanonicalBrochures({ fullScan, detailPageMetadata })).toEqual([
       {
         canonicalBrn: 'brn-a',
@@ -53,11 +53,75 @@ describe('regionale Prospektpersistenz', () => {
     ]);
   });
 
-  it('verhindert Veröffentlichung, wenn eine regionale Detailantwort fehlt', () => {
+  it('verhindert Veröffentlichung, wenn die Detailantwort für eine BRN fehlt', () => {
     expect(() => buildPersistedCanonicalBrochures({
       fullScan,
       detailPageMetadata: {},
-    })).toThrow('Missing complete detail metadata for 10000:brn-a');
+    })).toThrow('Missing complete detail metadata for brn-a');
+  });
+
+  it('uses the complete page list from detail metadata when the listing contains only the cover', () => {
+    const secondPageUrl = 'https://cdn.bringapi.app/content/brn-a/page-2.jpg';
+    const partialListing = {
+      ...fullScan,
+      byZipCode: {
+        '10000': [{ ...fullScan.byZipCode['10000']![0]!, pageCount: 1 }],
+      },
+    };
+    const completeDetail = {
+      ...detailPageMetadata,
+      'brn-a': {
+        ...detailPageMetadata['brn-a'],
+        pageUrls: [pageUrl, secondPageUrl],
+        pages: [
+          { number: 1, imageUrl: pageUrl, hotspots: [] },
+          { number: 2, imageUrl: secondPageUrl, hotspots: [] },
+        ],
+      },
+    };
+
+    const [brochure] = buildPersistedCanonicalBrochures({
+      fullScan: partialListing,
+      detailPageMetadata: completeDetail,
+    });
+
+    expect(brochure?.pages).toHaveLength(2);
+    expect(brochure?.pageCount).toBe(2);
+  });
+
+  it('stores one detail record while deriving each available ZIP from its own listing', () => {
+    const secondZipScan = {
+      ...fullScan,
+      byZipCode: {
+        ...fullScan.byZipCode,
+        '20000': [{ ...fullScan.byZipCode['10000']![0]! }],
+      },
+    };
+
+    expect(buildPersistedCanonicalBrochures({
+      fullScan: secondZipScan,
+      detailPageMetadata,
+    })).toMatchObject([{
+      canonicalBrn: 'brn-a',
+      sourceZipCode: '10000',
+      availableZipCodes: ['10000', '20000'],
+      pages: [{ number: 1, imageUrl: pageUrl }],
+    }]);
+  });
+
+  it('rejects listing metadata conflicts for one BRN instead of combining editions', () => {
+    const conflictingScan = {
+      ...fullScan,
+      byZipCode: {
+        ...fullScan.byZipCode,
+        '20000': [{ ...fullScan.byZipCode['10000']![0]!, title: 'Other edition' }],
+      },
+    };
+
+    expect(() => buildPersistedCanonicalBrochures({
+      fullScan: conflictingScan,
+      detailPageMetadata,
+    })).toThrow('Bring-Listingmetadaten für brn-a unterscheiden sich');
   });
 
   it('weist nicht erlaubte Quell-URLs vor der Persistenz zurück', () => {
@@ -65,8 +129,8 @@ describe('regionale Prospektpersistenz', () => {
       fullScan,
       detailPageMetadata: {
         ...detailPageMetadata,
-        '10000:brn-a': {
-          ...detailPageMetadata['10000:brn-a'],
+        'brn-a': {
+          ...detailPageMetadata['brn-a'],
           pageUrls: ['https://images.example.test/page.jpg'],
           pages: [{ number: 1, imageUrl: 'https://images.example.test/page.jpg', hotspots: [] }],
         },

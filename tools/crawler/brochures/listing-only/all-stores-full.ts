@@ -83,7 +83,6 @@ type OfferEntry = {
   title: string;
   validFrom: string;
   validUntil: string;
-  pageCount: number;
   coverImage?: string;
 };
 
@@ -230,7 +229,6 @@ async function fetchLocationEntries(
           : typeof offer.validUntil === "string"
             ? offer.validUntil
             : "",
-      pageCount: offerPages.length,
       ...(coverImage ? { coverImage } : {}),
     });
   }

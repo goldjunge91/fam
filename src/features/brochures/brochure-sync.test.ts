@@ -92,7 +92,6 @@ function canonicalRow(
     brochure: {
       id: brochureId,
       canonical_brn: `brn-${brochureId}`,
-      source_zip_code: zipCode,
       store_id: 'store-1',
       title: `Brochure ${brochureId}`,
       valid_from: '2026-10-01T00:00:00.000Z',

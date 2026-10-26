@@ -63,11 +63,20 @@ export async function publishCanonicalCatalog(
   if (zipScope.length === 0) return { uploadedCount: 0, storesCount: 0 };
 
   const zipScopeSet = new Set(zipScope);
+  const publishedBrns = new Set<string>();
   for (const record of catalog) {
-    if (!zipScopeSet.has(record.sourceZipCode) ||
-        record.availableZipCodes.length !== 1 ||
-        record.availableZipCodes[0] !== record.sourceZipCode) {
-      throw new Error(`Prospekt ${record.id} enthält keine ausschließlich belegte regionale PLZ.`);
+    if (publishedBrns.has(record.canonicalBrn)) {
+      throw new Error(`BRN ${record.canonicalBrn} kommt mehrfach im Katalog vor.`);
+    }
+    publishedBrns.add(record.canonicalBrn);
+    if (
+      !zipScopeSet.has(record.sourceZipCode) ||
+      record.availableZipCodes.length === 0 ||
+      new Set(record.availableZipCodes).size !== record.availableZipCodes.length ||
+      record.availableZipCodes.some((zipCode) => !/^\d{5}$/.test(zipCode) || !zipScopeSet.has(zipCode)) ||
+      !record.availableZipCodes.includes(record.sourceZipCode)
+    ) {
+      throw new Error(`Prospekt ${record.id} enthält ungültige oder nicht belegte PLZ-Verfügbarkeit.`);
     }
     requiredBringImageUrl(record.coverImage, `Prospekt ${record.id} Cover`);
     for (const page of record.pages) {

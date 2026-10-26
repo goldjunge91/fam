@@ -3,7 +3,7 @@ import { describe, expect, it } from '@jest/globals';
 
 const workflowPath = '.github/workflows/update-brochures.yml';
 
-describe('regional brochure metadata workflow', () => {
+describe('BRN brochure metadata workflow', () => {
   it('keeps four run-bound listing scan shards and validates their complete merge', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
 
@@ -16,14 +16,15 @@ describe('regional brochure metadata workflow', () => {
     expect(workflow).toContain('retention-days: 30');
   });
 
-  it('keeps regional detail metadata and publishes original Bring URLs without R2 image storage', async () => {
+  it('fetches detail metadata once per BRN and publishes Bring URLs without R2 image storage', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
 
-    expect(workflow).toContain('Fetch or reuse regional detail metadata');
+    expect(workflow).toContain('Detail-page JSON is fetched once per unique BRN');
+    expect(workflow).toContain('Fetch or reuse detail metadata by BRN');
     expect(workflow).toContain('SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}');
     expect(workflow).toContain('SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}');
-    expect(workflow).toContain('Persist regional metadata catalog');
-    expect(workflow).toContain('Publish regional brochure metadata to Supabase');
+    expect(workflow).toContain('Persist BRN metadata and listing availability');
+    expect(workflow).toContain('Publish BRN metadata and ZIP availability to Supabase');
     expect(workflow).not.toContain('verify-full-brochures.ts');
     expect(workflow).not.toContain('BROCHURE_VERIFY_BUDGET_BYTES');
     expect(workflow).not.toContain('BROCHURE_R2_STORAGE_BUDGET_GB');

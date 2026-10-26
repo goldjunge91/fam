@@ -8,17 +8,17 @@ const validFrom = '2026-10-20';
 const validUntil = '2026-10-27';
 const imageUrl = 'https://cdn.bringapi.app/content/brn-a/page-1.jpg';
 
-function persistedBrochure(sourceZipCode: string, title: string) {
+function persistedBrochure(title: string, availableZipCodes = ['10000', '20000']) {
   return {
     canonicalBrn: 'brn-a',
-    sourceZipCode,
+    sourceZipCode: '10000',
     storeName: 'Lidl',
     storeId: 'lidl',
     title,
     validFrom,
     validUntil,
     pageCount: 1,
-    availableZipCodes: [sourceZipCode],
+    availableZipCodes,
     coverImage: imageUrl,
     pageUrls: [imageUrl],
     pages: [{ number: 1, imageUrl, hotspots: [] }],
@@ -34,7 +34,7 @@ function reportFixture() {
         '10000': [{
           brn: 'brn-a',
           storeName: 'Lidl',
-          title: 'Lidl Nord',
+          title: 'Lidl Angebote',
           validFrom,
           validUntil,
         }],
@@ -42,7 +42,7 @@ function reportFixture() {
         '20000': [{
           brn: 'brn-a',
           storeName: 'Lidl',
-          title: 'Lidl Süd',
+          title: 'Lidl Angebote',
           validFrom,
           validUntil,
         }],
@@ -50,60 +50,48 @@ function reportFixture() {
     },
     persistedBrochures: {
       generatedAt: '2026-10-25T00:00:00.000Z',
-      brochures: [
-        persistedBrochure('10000', 'Lidl Nord'),
-        persistedBrochure('20000', 'Lidl Süd'),
-      ],
+      brochures: [persistedBrochure('Lidl Angebote')],
     },
   };
 }
 
-describe('regional brochure report', () => {
-  it('counts sightings and regional records without combining the same BRN across ZIP codes', () => {
+describe('BRN brochure report', () => {
+  it('counts listing sightings separately from one BRN and preserves its scanned ZIPs', () => {
     expect(buildCanonicalReport(reportFixture())).toEqual({
       naive: 2,
-      canonical: 2,
+      canonical: 1,
       metadata_groups: 1,
-      savings_percent: 0,
+      savings_percent: 50,
       by_store: {
-        Lidl: { naive: 2, canonical: 2, metadata_groups: 1 },
+        Lidl: { naive: 2, canonical: 1, metadata_groups: 1 },
       },
     });
   });
 
-  it('rejects a catalog missing a listed regional reference', () => {
+  it('rejects a catalog missing a listed ZIP association', () => {
     const fixture = reportFixture();
-    fixture.persistedBrochures.brochures.pop();
+    fixture.persistedBrochures.brochures[0]!.availableZipCodes = ['10000'];
 
     expect(() => buildCanonicalReport(fixture)).toThrow(
-      'Persisted catalog is missing regional reference 20000:brn-a',
+      'Persisted catalog is missing availability for 20000:brn-a',
     );
   });
 
-  it('rejects a catalog record that has no listing availability', () => {
+  it('rejects a catalog record with availability absent from the scan', () => {
     const fixture = reportFixture();
-    fixture.persistedBrochures.brochures.push(persistedBrochure('30000', 'Lidl West'));
+    fixture.persistedBrochures.brochures[0]!.availableZipCodes.push('30000');
 
     expect(() => buildCanonicalReport(fixture)).toThrow(
       'Persisted catalog contains unavailable regional reference 30000:brn-a',
     );
   });
 
-  it('rejects fabricated cross-ZIP availability', () => {
+  it('rejects duplicate persisted records for one BRN', () => {
     const fixture = reportFixture();
-    fixture.persistedBrochures.brochures[0]!.availableZipCodes.push('20000');
+    fixture.persistedBrochures.brochures.push(persistedBrochure('Lidl Angebote'));
 
     expect(() => buildCanonicalReport(fixture)).toThrow(
-      'fabricated or ambiguous ZIP availability',
-    );
-  });
-
-  it('rejects duplicate persisted records for a regional reference', () => {
-    const fixture = reportFixture();
-    fixture.persistedBrochures.brochures.push(persistedBrochure('10000', 'Lidl Nord'));
-
-    expect(() => buildCanonicalReport(fixture)).toThrow(
-      'Regional brochure 10000:brn-a appears more than once',
+      'BRN brn-a appears more than once',
     );
   });
 

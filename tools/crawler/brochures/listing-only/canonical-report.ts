@@ -40,10 +40,6 @@ function positiveInteger(value: unknown, field: string): number {
   return value;
 }
 
-function regionalKey(zipCode: string, brn: string): string {
-  return `${zipCode}:${encodeURIComponent(brn)}`;
-}
-
 function parseFullScan(value: unknown) {
   if (!isRecord(value) || !isRecord(value.byZipCode)) throw new Error('Full scan must contain a byZipCode object');
   const sightings: Array<{ zipCode: string; brn: string; storeName: string; title: string; validFrom: string; validUntil: string }> = [];
@@ -70,11 +66,19 @@ function parsePersisted(value: unknown): PersistedCanonicalBrochure[] {
   }
   return value.brochures.map((entry, index) => {
     if (!isRecord(entry)) throw new Error(`Persisted brochure ${index + 1} must be an object`);
-    const sourceZipCode = requiredString(entry.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
     const canonicalBrn = requiredString(entry.canonicalBrn, `Persisted brochure ${index + 1} canonicalBrn`);
     const availableZipCodes = entry.availableZipCodes;
-    if (!Array.isArray(availableZipCodes) || availableZipCodes.length !== 1 || availableZipCodes[0] !== sourceZipCode) {
-      throw new Error(`Persisted brochure ${canonicalBrn} has fabricated or ambiguous ZIP availability`);
+    if (
+      !Array.isArray(availableZipCodes) ||
+      availableZipCodes.length === 0 ||
+      !availableZipCodes.every((zipCode) => typeof zipCode === 'string' && /^\d{5}$/.test(zipCode)) ||
+      new Set(availableZipCodes).size !== availableZipCodes.length
+    ) {
+      throw new Error(`Persisted brochure ${canonicalBrn} has invalid ZIP availability`);
+    }
+    const sourceZipCode = requiredString(entry.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
+    if (!/^\d{5}$/.test(sourceZipCode) || !availableZipCodes.includes(sourceZipCode)) {
+      throw new Error(`Persisted brochure ${canonicalBrn} has no listed source ZIP`);
     }
     const pageCount = positiveInteger(entry.pageCount, `Persisted brochure ${index + 1} pageCount`);
     if (!Array.isArray(entry.pages) || entry.pages.length !== pageCount) {
@@ -90,20 +94,24 @@ export function buildCanonicalReport(input: {
 }): CanonicalReport {
   const sightings = parseFullScan(input.fullScan);
   const brochures = parsePersisted(input.persistedBrochures);
-  const byReference = new Map<string, PersistedCanonicalBrochure>();
+  const byBrn = new Map<string, PersistedCanonicalBrochure>();
   for (const brochure of brochures) {
-    const key = regionalKey(brochure.sourceZipCode, brochure.canonicalBrn);
-    if (byReference.has(key)) throw new Error(`Regional brochure ${key} appears more than once`);
-    byReference.set(key, brochure);
+    if (byBrn.has(brochure.canonicalBrn)) {
+      throw new Error(`BRN ${brochure.canonicalBrn} appears more than once in the persisted catalog`);
+    }
+    byBrn.set(brochure.canonicalBrn, brochure);
   }
 
   const naiveByStore = new Map<string, number>();
   const metadataGroupsByStore = new Map<string, Set<string>>();
-  const seenReferences = new Set<string>();
+  const seenAvailability = new Set<string>();
   for (const sighting of sightings) {
-    const key = regionalKey(sighting.zipCode, sighting.brn);
-    const brochure = byReference.get(key);
-    if (!brochure) throw new Error(`Persisted catalog is missing regional reference ${key}`);
+    const key = `${sighting.zipCode}:${sighting.brn}`;
+    const brochure = byBrn.get(sighting.brn);
+    if (!brochure) throw new Error(`Persisted catalog is missing listed BRN ${sighting.brn}`);
+    if (!brochure.availableZipCodes.includes(sighting.zipCode)) {
+      throw new Error(`Persisted catalog is missing availability for ${key}`);
+    }
     if (
       brochure.storeName !== sighting.storeName ||
       brochure.title !== sighting.title ||
@@ -111,10 +119,13 @@ export function buildCanonicalReport(input: {
       brochure.validUntil !== sighting.validUntil
     ) throw new Error(`Persisted catalog metadata disagrees with full scan for ${key}`);
     naiveByStore.set(sighting.storeName, (naiveByStore.get(sighting.storeName) ?? 0) + 1);
-    seenReferences.add(key);
+    seenAvailability.add(key);
   }
-  for (const key of byReference.keys()) {
-    if (!seenReferences.has(key)) throw new Error(`Persisted catalog contains unavailable regional reference ${key}`);
+  for (const brochure of brochures) {
+    for (const zipCode of brochure.availableZipCodes) {
+      const key = `${zipCode}:${brochure.canonicalBrn}`;
+      if (!seenAvailability.has(key)) throw new Error(`Persisted catalog contains unavailable regional reference ${key}`);
+    }
   }
 
   const canonicalByStore = new Map<string, number>();
@@ -178,7 +189,7 @@ async function main(): Promise<void> {
   const temporaryPath = `${args.outputPath}.${process.pid}.tmp`;
   await writeFile(temporaryPath, JSON.stringify(output, null, 2), 'utf8');
   await rename(temporaryPath, args.outputPath);
-  console.log(`Sichtungen: ${report.naive} | Regionale Ausgaben: ${report.canonical} | Metadaten-Gruppen: ${report.metadata_groups} | Ersparnis: ${report.savings_percent}% | Report: ${args.outputPath}`);
+  console.log(`PLZ-Listungssichtungen: ${report.naive} | eindeutige BRNs: ${report.canonical} | Metadaten-Gruppen: ${report.metadata_groups} | Ersparnis: ${report.savings_percent}% | Report: ${args.outputPath}`);
 }
 
 if (process.argv[1]?.endsWith('canonical-report.ts')) {

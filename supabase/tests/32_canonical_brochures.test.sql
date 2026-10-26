@@ -13,7 +13,7 @@ values (
   'https://offerscdn.bringapi.app/content/offers/test/logo.png'
 );
 
-select has_table('public', 'canonical_brochures', 'the regional catalog table exists');
+select has_table('public', 'canonical_brochures', 'the BRN catalog table exists');
 select has_table('public', 'brochure_availability', 'the PLZ availability table exists');
 select has_column(
   'public', 'canonical_brochures', 'source_zip_code',
@@ -202,11 +202,11 @@ select lives_ok(
   $$select public.replace_canonical_brochure_catalog(
     '[
       {
-        "id":"shared-brn-10115",
+        "id":"canonical:shared-brn",
         "canonical_brn":"shared-brn",
         "source_zip_code":"10115",
         "store_id":"regional_brochures_test_store",
-        "title":"October offers, Berlin",
+        "title":"October offers",
         "valid_from":"2026-10-01T22:01:00Z",
         "valid_until":"2026-10-07T21:59:00Z",
         "page_count":2,
@@ -215,54 +215,54 @@ select lives_ok(
           {"number":1,"imageUrl":"https://offerscdn.bringapi.app/content/10115/page-1.jpg?size=large","hotspots":[{"kind":"discount","id":"berlin-offer","x":1,"y":2,"width":3,"height":4,"title":"Coffee"}]},
           {"number":2,"imageUrl":"https://offerscdn.bringapi.app/content/10115/page-2.jpg","hotspots":[]}
         ],
-        "available_zip_codes":["10115"]
-      },
-      {
-        "id":"shared-brn-20095",
-        "canonical_brn":"shared-brn",
-        "source_zip_code":"20095",
-        "store_id":"regional_brochures_test_store",
-        "title":"October offers, Hamburg",
-        "valid_from":"2026-10-01T22:01:00Z",
-        "valid_until":"2026-10-07T21:59:00Z",
-        "page_count":1,
-        "cover_image":"https://offerscdn.bringapi.app/content/20095/page-1.jpg",
-        "pages":[{"number":1,"imageUrl":"https://offerscdn.bringapi.app/content/20095/page-1.jpg","hotspots":[]}],
-        "available_zip_codes":["20095"]
+        "available_zip_codes":["10115","20095"]
       }
     ]'::jsonb,
     array['10115', '20095']::text[]
   )$$,
-  'the service-role RPC publishes regional editions and their scanned PLZ'
+  'the service-role RPC publishes one BRN and its scanned PLZ availability'
 );
 reset role;
 
 select tests.authenticate_as('90909090-9090-4090-8090-909090909090');
 select results_eq(
   $$select id from public.canonical_brochures order by id$$,
-  $$values ('shared-brn-10115'::text), ('shared-brn-20095'::text)$$,
-  'authenticated users can read catalog metadata for all regions'
+  $$values ('canonical:shared-brn'::text)$$,
+  'authenticated users read one catalog row for a BRN'
 );
 select results_eq(
-  $$select source_zip_code || ':' || canonical_brn from public.canonical_brochures order by source_zip_code$$,
-  $$values ('10115:shared-brn'::text), ('20095:shared-brn'::text)$$,
-  'the same BRN remains separate when its regional editions differ'
+  $$select source_zip_code || ':' || canonical_brn from public.canonical_brochures$$,
+  $$values ('10115:shared-brn'::text)$$,
+  'the detail-request ZIP is retained as source metadata'
 );
 select results_eq(
   $$select zip_code || ':' || canonical_brochure_id from public.brochure_availability order by zip_code$$,
-  $$values ('10115:shared-brn-10115'::text), ('20095:shared-brn-20095'::text)$$,
-  'each regional edition is linked only to the PLZ that supplied its details'
+  $$values ('10115:canonical:shared-brn'::text), ('20095:canonical:shared-brn'::text)$$,
+  'availability links the BRN only to ZIPs from its listings'
 );
 select results_eq(
-  $$select cover_image || ':' || (pages->0->>'imageUrl') from public.canonical_brochures where id = 'shared-brn-10115'$$,
+  $$select cover_image || ':' || (pages->0->>'imageUrl') from public.canonical_brochures where id = 'canonical:shared-brn'$$,
   $$values ('https://offerscdn.bringapi.app/content/10115/cover.jpg?size=large:https://offerscdn.bringapi.app/content/10115/page-1.jpg?size=large'::text)$$,
   'the RPC preserves the independent original cover and page source URLs'
 );
 select results_eq(
   $$select page_count::text || ':' || (pages->0->'hotspots'->0->>'title')
-    from public.canonical_brochures where id = 'shared-brn-10115'$$,
+    from public.canonical_brochures where id = 'canonical:shared-brn'$$,
   $$values ('2:Coffee'::text)$$,
   'page metadata and hotspots survive publication'
+);
+select tests.as_postgres();
+select throws_ok(
+  $$insert into public.canonical_brochures (
+      id, canonical_brn, source_zip_code, store_id, title, valid_from, valid_until,
+      page_count, cover_image, pages
+    ) values (
+      'canonical:shared-brn-copy', 'shared-brn', '10115', 'regional_brochures_test_store', 'Duplicate BRN',
+      '2026-10-01', '2026-10-07', 1, 'https://offerscdn.bringapi.app/content/cover.jpg',
+      '[{"number":1,"imageUrl":"https://offerscdn.bringapi.app/content/page.jpg","hotspots":[]}]'::jsonb
+    )$$,
+  '23505', null,
+  'the catalog enforces one row per BRN'
 );
 select tests.as_postgres();
 
@@ -270,7 +270,7 @@ set local role service_role;
 select lives_ok(
   $$select public.replace_canonical_brochure_catalog(
     '[{
-      "id":"new-brn-10115",
+      "id":"canonical:new-brn",
       "canonical_brn":"new-brn",
       "source_zip_code":"10115",
       "store_id":"regional_brochures_test_store",
@@ -289,12 +289,12 @@ select lives_ok(
 reset role;
 select results_eq(
   $$select id from public.canonical_brochures order by id$$,
-  $$values ('new-brn-10115'::text), ('shared-brn-20095'::text)$$,
+  $$values ('canonical:new-brn'::text), ('canonical:shared-brn'::text)$$,
   'partial replacement preserves catalog rows outside its scope'
 );
 select results_eq(
   $$select zip_code || ':' || canonical_brochure_id from public.brochure_availability order by zip_code$$,
-  $$values ('10115:new-brn-10115'::text), ('20095:shared-brn-20095'::text)$$,
+  $$values ('10115:canonical:new-brn'::text), ('20095:canonical:shared-brn'::text)$$,
   'partial replacement updates only availability inside its scope'
 );
 
@@ -306,7 +306,7 @@ select lives_ok(
 reset role;
 select results_eq(
   $$select id from public.canonical_brochures order by id$$,
-  $$values ('new-brn-10115'::text)$$,
+  $$values ('canonical:new-brn'::text)$$,
   'empty results remove only catalog entries no longer available anywhere'
 );
 select results_eq(
@@ -343,43 +343,38 @@ select throws_ok(
 );
 select throws_ok(
   $$select public.replace_canonical_brochure_catalog(
-    '[{"id":"bad","available_zip_codes":["10115","20095"]}]'::jsonb,
-    array['10115','20095']::text[]
-  )$$,
-  '22023', null,
-  'a catalog record cannot claim availability in several regions'
-);
-select throws_ok(
-  $$select public.replace_canonical_brochure_catalog(
-    '[{"id":"bad","source_zip_code":"10115","available_zip_codes":["20095"]}]'::jsonb,
-    array['10115','20095']::text[]
-  )$$,
-  '22023', null,
-  'the record region must match its single availability entry'
-);
-select throws_ok(
-  $$select public.replace_canonical_brochure_catalog(
     '[{
-      "id":"new-brn-10115",
-      "canonical_brn":"new-brn",
-      "source_zip_code":"20095",
+      "id":"canonical:source-not-available",
+      "canonical_brn":"source-not-available",
+      "source_zip_code":"10115",
       "store_id":"regional_brochures_test_store",
-      "title":"Moved region",
-      "valid_from":"2026-10-08",
-      "valid_until":"2026-10-14",
+      "title":"Source ZIP missing",
+      "valid_from":"2026-10-15",
+      "valid_until":"2026-10-21",
       "page_count":1,
-      "cover_image":"https://offerscdn.bringapi.app/content/20095/cover.jpg",
-      "pages":[{"number":1,"imageUrl":"https://offerscdn.bringapi.app/content/20095/page.jpg","hotspots":[]}],
+      "cover_image":"https://offerscdn.bringapi.app/content/10115/cover.jpg",
+      "pages":[{"number":1,"imageUrl":"https://offerscdn.bringapi.app/content/10115/page.jpg","hotspots":[]}],
       "available_zip_codes":["20095"]
     }]'::jsonb,
-    array['20095']::text[]
+    array['10115','20095']::text[]
   )$$,
   '22023', null,
-  'an existing brochure ID cannot be reassigned to another region'
+  'the detail-request ZIP must also appear in scanned availability'
+);
+select throws_ok(
+  $$select public.replace_canonical_brochure_catalog(
+    '[
+      {"id":"canonical:duplicate","canonical_brn":"duplicate","source_zip_code":"10115","available_zip_codes":["10115"]},
+      {"id":"canonical:duplicate","canonical_brn":"duplicate","source_zip_code":"20095","available_zip_codes":["20095"]}
+    ]'::jsonb,
+    array['10115','20095']::text[]
+  )$$,
+  '22023', null,
+  'the RPC rejects duplicate BRN records before writing'
 );
 reset role;
 select is(
-  (select count(*)::integer from public.canonical_brochures where id = 'new-brn-10115'),
+  (select count(*)::integer from public.canonical_brochures where id = 'canonical:new-brn'),
   1,
   'rejected publication leaves the prior catalog intact'
 );
@@ -428,11 +423,11 @@ select throws_ok(
 );
 
 select lives_ok(
-  $$delete from public.canonical_brochures where id = 'new-brn-10115'$$,
+  $$delete from public.canonical_brochures where id = 'canonical:new-brn'$$,
   'deleting a catalog row succeeds'
 );
 select is(
-  (select count(*)::integer from public.brochure_availability where canonical_brochure_id = 'new-brn-10115'),
+  (select count(*)::integer from public.brochure_availability where canonical_brochure_id = 'canonical:new-brn'),
   0,
   'availability cascades when its catalog row is deleted'
 );

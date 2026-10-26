@@ -101,7 +101,7 @@ $$;
 
 create table public.canonical_brochures (
   id text primary key check (btrim(id) <> ''),
-  canonical_brn text not null check (btrim(canonical_brn) <> ''),
+  canonical_brn text not null unique check (btrim(canonical_brn) <> ''),
   source_zip_code text not null check (source_zip_code ~ '^[0-9]{5}$'),
   store_id text not null references public.brochure_stores(id),
   title text not null check (btrim(title) <> ''),
@@ -117,13 +117,11 @@ create table public.canonical_brochures (
 
 create index canonical_brochures_store_id_idx
   on public.canonical_brochures (store_id);
-create index canonical_brochures_region_idx
-  on public.canonical_brochures (source_zip_code, canonical_brn);
 
 comment on table public.canonical_brochures is
-  'Regionaler Prospektkatalog mit vollständigen Seiten, Hotspots und originalen Bring-Quell-URLs.';
+  'Ein Datensatz pro Bring-BRN mit vollständigen Seiten, Hotspots und originalen Bring-Quell-URLs.';
 comment on column public.canonical_brochures.source_zip_code is
-  'PLZ des Detailabrufs für die konkrete regionale Ausgabe.';
+  'PLZ, mit der die Detailmetadaten für diese BRN abgerufen wurden.';
 
 create table public.brochure_availability (
   zip_code text not null check (zip_code ~ '^[0-9]{5}$'),
@@ -136,7 +134,7 @@ create index brochure_availability_canonical_brochure_id_idx
   on public.brochure_availability (canonical_brochure_id);
 
 comment on table public.brochure_availability is
-  'Verknüpft eine konkrete regionale Ausgabe ausschließlich mit belegten PLZ.';
+  'Verknüpft einen BRN ausschließlich mit PLZ, in deren Bring-Listing er enthalten war.';
 
 alter table public.canonical_brochures enable row level security;
 create policy canonical_brochures_select on public.canonical_brochures
@@ -185,34 +183,69 @@ begin
     where case
       when pg_catalog.jsonb_typeof(input_row.value -> 'available_zip_codes') is distinct from 'array'
         then true
-      when pg_catalog.jsonb_array_length(input_row.value -> 'available_zip_codes') <> 1
+      when pg_catalog.jsonb_array_length(input_row.value -> 'available_zip_codes') = 0
         then true
-      else input_row.value -> 'source_zip_code' is distinct from
-           input_row.value -> 'available_zip_codes' -> 0
+      else exists (
+        select 1
+        from pg_catalog.jsonb_array_elements(input_row.value -> 'available_zip_codes')
+          as availability(value)
+        where pg_catalog.jsonb_typeof(availability.value) is distinct from 'string'
+          or coalesce(availability.value #>> '{}', '') !~ '^[0-9]{5}$'
+          or not (coalesce(availability.value #>> '{}', '') = any(p_scoped_zip_codes))
+      )
     end
   ) then
-    raise exception 'catalog_record_requires_one_matching_source_zip_code' using errcode = '22023';
+    raise exception 'catalog_record_availability_outside_scope' using errcode = '22023';
   end if;
 
   if exists (
     select 1
     from pg_catalog.jsonb_array_elements(p_records) as input_row(value)
-    where input_row.value ->> 'source_zip_code' is null
-      or not (input_row.value ->> 'source_zip_code' = any(p_scoped_zip_codes))
+    where pg_catalog.jsonb_array_length(input_row.value -> 'available_zip_codes') <>
+      (
+        select count(distinct availability.value #>> '{}')::integer
+        from pg_catalog.jsonb_array_elements(input_row.value -> 'available_zip_codes')
+          as availability(value)
+      )
   ) then
-    raise exception 'catalog_record_zip_code_outside_scope' using errcode = '22023';
+    raise exception 'catalog_record_availability_contains_duplicates' using errcode = '22023';
   end if;
-
-  perform pg_catalog.pg_advisory_xact_lock(823491, 23);
 
   if exists (
     select 1
-    from pg_catalog.jsonb_to_recordset(p_records) as incoming (id text, source_zip_code text)
-    join public.canonical_brochures as existing using (id)
-    where existing.source_zip_code <> incoming.source_zip_code
+    from pg_catalog.jsonb_to_recordset(p_records) as incoming (id text, canonical_brn text)
+    where incoming.canonical_brn is null
+      or pg_catalog.btrim(incoming.canonical_brn) = ''
+      or incoming.id is distinct from 'canonical:' || incoming.canonical_brn
   ) then
-    raise exception 'catalog_record_region_identity_changed' using errcode = '22023';
+    raise exception 'catalog_record_id_must_match_brn' using errcode = '22023';
   end if;
+
+  if exists (
+    select incoming.canonical_brn
+    from pg_catalog.jsonb_to_recordset(p_records) as incoming (canonical_brn text)
+    group by incoming.canonical_brn
+    having count(*) > 1
+  ) then
+    raise exception 'catalog_records_contain_duplicate_brns' using errcode = '22023';
+  end if;
+
+  if exists (
+    select 1
+    from pg_catalog.jsonb_to_recordset(p_records) as incoming (source_zip_code text, available_zip_codes jsonb)
+    where incoming.source_zip_code is null
+      or incoming.source_zip_code !~ '^[0-9]{5}$'
+      or not (incoming.source_zip_code = any(p_scoped_zip_codes))
+      or not exists (
+        select 1
+        from pg_catalog.jsonb_array_elements_text(incoming.available_zip_codes) as availability(zip_code)
+        where availability.zip_code = incoming.source_zip_code
+      )
+  ) then
+    raise exception 'catalog_record_source_zip_code_must_be_available' using errcode = '22023';
+  end if;
+
+  perform pg_catalog.pg_advisory_xact_lock(823491, 23);
 
   delete from public.brochure_availability
   where zip_code = any(p_scoped_zip_codes);
@@ -265,11 +298,13 @@ begin
     pages = excluded.pages;
 
   insert into public.brochure_availability (zip_code, canonical_brochure_id)
-  select incoming.source_zip_code, incoming.id
+  select availability.zip_code, incoming.id
   from pg_catalog.jsonb_to_recordset(p_records) as incoming (
     id text,
-    source_zip_code text
-  );
+    available_zip_codes jsonb
+  )
+  cross join lateral pg_catalog.jsonb_array_elements_text(incoming.available_zip_codes)
+    as availability(zip_code);
 
   delete from public.canonical_brochures as brochure
   where not exists (
@@ -281,4 +316,4 @@ end;
 $$;
 
 comment on function public.replace_canonical_brochure_catalog(jsonb, text[]) is
-  'Ersetzt regionale Prospektmetadaten und belegte PLZ atomar für den vollständigen Crawl-Scope.';
+  'Ersetzt eindeutige BRN-Metadaten und ihre belegten PLZ atomar für den Crawl-Scope.';

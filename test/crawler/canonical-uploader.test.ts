@@ -4,7 +4,7 @@ import { publishCanonicalCatalog } from '../../tools/crawler/brochures/uploader'
 import type { CanonicalCatalogRecord } from '../../tools/crawler/brochures/listing-only/canonical-catalog';
 
 const record: CanonicalCatalogRecord = {
-  id: `canonical:${JSON.stringify(['10000', 'brn-1'])}`,
+  id: 'canonical:brn-1',
   canonicalBrn: 'brn-1',
   sourceZipCode: '10000',
   storeId: 'lidl',
@@ -47,7 +47,7 @@ describe('canonical brochure publication', () => {
     expect(rpc).toHaveBeenCalledWith('replace_canonical_brochure_catalog', {
       p_records: [
         {
-          id: `canonical:${JSON.stringify(['10000', 'brn-1'])}`,
+        id: 'canonical:brn-1',
           canonical_brn: 'brn-1',
           source_zip_code: '10000',
           store_id: 'lidl',
@@ -111,7 +111,7 @@ describe('canonical brochure publication', () => {
     ).rejects.toThrow('Prospektkatalog konnte nicht ersetzt werden');
   });
 
-  it('rejects availability that includes a ZIP beyond the source ZIP', async () => {
+  it('rejects availability that includes a ZIP outside the completed scan scope', async () => {
     const from = jest.fn(() => ({ upsert: async () => ({ error: null }) }));
     const rpc = jest.fn(async () => ({ data: null, error: null }));
 
@@ -122,7 +122,7 @@ describe('canonical brochure publication', () => {
         [{ id: 'lidl', name: 'Lidl' }],
         ['10000'],
       ),
-    ).rejects.toThrow('enthält keine ausschließlich belegte regionale PLZ');
+    ).rejects.toThrow('enthält ungültige oder nicht belegte PLZ-Verfügbarkeit');
     expect(rpc).not.toHaveBeenCalled();
   });
 });

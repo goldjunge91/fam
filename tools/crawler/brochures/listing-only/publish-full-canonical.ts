@@ -54,7 +54,7 @@ function persistedCatalog(value: unknown, scopedZipCodes: ReadonlySet<string>): 
   stores: CrawlerStore[];
 } {
   if (!isRecord(value) || !Array.isArray(value.brochures)) {
-    throw new Error('Persisted regional brochure input must contain a brochures array');
+    throw new Error('Persisted BRN catalog input must contain a brochures array');
   }
   const stores = new Map<string, CrawlerStore>();
   const catalog: CanonicalCatalogRecord[] = [];
@@ -63,12 +63,23 @@ function persistedCatalog(value: unknown, scopedZipCodes: ReadonlySet<string>): 
   for (const [index, entry] of value.brochures.entries()) {
     if (!isRecord(entry)) throw new Error(`Persisted brochure ${index + 1} must be an object`);
     const brochure = entry as unknown as PersistedCanonicalBrochure;
-    const sourceZipCode = requiredString(brochure.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
     const canonicalBrn = requiredString(brochure.canonicalBrn, `Persisted brochure ${index + 1} canonicalBrn`);
-    const id = `canonical:${JSON.stringify([sourceZipCode, canonicalBrn])}`;
-    if (!scopedZipCodes.has(sourceZipCode)) throw new Error(`Prospekt ${id} liegt außerhalb des Crawl-Scopes`);
-    if (ids.has(id)) throw new Error(`Persisted regional brochure ${id} appears more than once`);
+    const id = `canonical:${canonicalBrn}`;
+    if (ids.has(id)) throw new Error(`Persisted BRN ${id} appears more than once`);
     ids.add(id);
+
+    if (
+      !Array.isArray(brochure.availableZipCodes) ||
+      brochure.availableZipCodes.length === 0 ||
+      new Set(brochure.availableZipCodes).size !== brochure.availableZipCodes.length ||
+      brochure.availableZipCodes.some((zipCode) => !/^\d{5}$/.test(zipCode) || !scopedZipCodes.has(zipCode))
+    ) {
+      throw new Error(`Prospekt ${id} enthält ungültige oder nicht belegte PLZ-Verfügbarkeit`);
+    }
+    const sourceZipCode = requiredString(brochure.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
+    if (!scopedZipCodes.has(sourceZipCode) || !brochure.availableZipCodes.includes(sourceZipCode)) {
+      throw new Error(`Prospekt ${id} hat keine belegte PLZ für seinen Detailabruf`);
+    }
 
     if (!Array.isArray(brochure.pages) || brochure.pages.length < 1 || brochure.pages.length !== brochure.pageCount) {
       throw new Error(`Persisted brochure ${id} has an incomplete page set`);
@@ -87,10 +98,6 @@ function persistedCatalog(value: unknown, scopedZipCodes: ReadonlySet<string>): 
       };
     });
     const coverImage = requiredBringImageUrl(brochure.coverImage, `Persisted brochure ${id} cover`);
-    if (brochure.availableZipCodes.length !== 1 || brochure.availableZipCodes[0] !== sourceZipCode) {
-      throw new Error(`Prospekt ${id} contains availability outside its source region`);
-    }
-
     stores.set(brochure.storeId, { id: brochure.storeId, name: brochure.storeName });
     catalog.push({
       id,
@@ -103,12 +110,12 @@ function persistedCatalog(value: unknown, scopedZipCodes: ReadonlySet<string>): 
       pageCount: brochure.pageCount,
       coverImage,
       pages,
-      availableZipCodes: [sourceZipCode],
+      availableZipCodes: [...brochure.availableZipCodes],
     });
   }
 
   return {
-    catalog: catalog.sort((left, right) => left.id.localeCompare(right.id)),
+    catalog: catalog.sort((left, right) => left.canonicalBrn.localeCompare(right.canonicalBrn)),
     stores: [...stores.values()].sort((left, right) => left.id.localeCompare(right.id)),
   };
 }
@@ -133,7 +140,7 @@ const fullCanonicalPublicationDependencies: FullCanonicalPublicationDependencies
   uploadCanonicalCatalog,
 };
 
-/** Publishes only the regional metadata catalog. Image bytes are fetched by the demand cache. */
+/** Publishes Bring metadata and listing-derived ZIP availability without transferring image bytes. */
 export async function publishCanonicalPublication(
   publication: FullPagePublication,
   catalogConfig: Parameters<typeof uploadCanonicalCatalog>[3],
@@ -193,7 +200,7 @@ async function main(): Promise<void> {
     },
   );
   console.log(
-    `Published ${result.catalogResult.uploadedCount} regional brochure records and availability for ${publication.scopedZipCodes.length} ZIP codes.`,
+    `Published ${result.catalogResult.uploadedCount} unique BRNs with availability for ${publication.scopedZipCodes.length} ZIP codes.`,
   );
 }
 

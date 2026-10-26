@@ -25,33 +25,35 @@ function dump(zipCode: string, brochures: ReturnType<typeof brochure>[]) {
   };
 }
 
-describe('regionaler Prospektkatalog', () => {
-  it('hält dieselbe BRN in unterschiedlichen PLZ als getrennte Ausgaben', () => {
+describe('BRN-Prospektkatalog', () => {
+  it('speichert eine BRN-Ausgabe und verknüpft jede gelistete PLZ', () => {
     const catalog = buildCanonicalCatalog([
-      dump('10000', [brochure('brn-a', 'Lidl Nord')]),
-      dump('20000', [brochure('brn-a', 'Lidl Süd')]),
+      dump('10000', [brochure('brn-a')]),
+      dump('20000', [brochure('brn-a')]),
     ]);
 
-    expect(catalog).toHaveLength(2);
-    expect(catalog.map(({ canonicalBrn }) => canonicalBrn)).toEqual(['brn-a', 'brn-a']);
-    expect(catalog.map(({ sourceZipCode }) => sourceZipCode)).toEqual(['10000', '20000']);
-    expect(catalog.map(({ availableZipCodes }) => availableZipCodes)).toEqual([
-      ['10000'],
-      ['20000'],
-    ]);
-    expect(catalog[0]?.id).toBe(`canonical:${JSON.stringify(['10000', 'brn-a'])}`);
+    expect(catalog).toHaveLength(1);
+    expect(catalog[0]).toMatchObject({
+      id: 'canonical:brn-a',
+      canonicalBrn: 'brn-a',
+      sourceZipCode: '10000',
+      availableZipCodes: ['10000', '20000'],
+    });
   });
 
-  it('dedupliziert identische Wiederholungen innerhalb derselben regionalen Referenz', () => {
+  it('dedupliziert identische Wiederholungen innerhalb und zwischen ZIPs', () => {
     const catalog = buildCanonicalCatalog([dump('10000', [brochure('brn-a'), brochure('brn-a')])]);
 
     expect(catalog).toHaveLength(1);
   });
 
-  it('verhindert widersprüchliche Detaildaten derselben regionalen Referenz', () => {
+  it('verhindert widersprüchliche Detaildaten derselben BRN in verschiedenen ZIPs', () => {
     expect(() =>
-      buildCanonicalCatalog([dump('10000', [brochure('brn-a'), brochure('brn-a', 'Andere Ausgabe')])]),
-    ).toThrow('conflicting detail metadata');
+      buildCanonicalCatalog([
+        dump('10000', [brochure('brn-a')]),
+        dump('20000', [brochure('brn-a', 'Andere Ausgabe')]),
+      ]),
+    ).toThrow('conflicting detail metadata across ZIP codes');
   });
 
   it('akzeptiert nur die validierten Bring-Quell-URLs', () => {

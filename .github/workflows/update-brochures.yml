@@ -27,10 +27,11 @@ permissions:
 # - After a scan-leg failure, use GitHub's "Re-run failed jobs". The failed ZIP
 #   legs and merge gates retry while successful scan shards remain available.
 # - The listing scan stores Bring CDN URLs as metadata. It does not download or
-#   upload image bytes. Detail-page JSON is still fetched per regional reference
-#   because the listing response exposes only the cover page.
+#   upload image bytes. Detail-page JSON is fetched once per unique BRN because
+#   the listing response exposes only the cover page. ZIP visibility still comes
+#   only from each ZIP's own listing.
 # - Detail metadata progress is cached per run and attempt. Re-running the failed
-#   detail job resumes completed regional references and retries failures.
+#   detail job resumes completed BRNs and retries failures.
 # - After persistence, reporting, or handoff fails, use "Re-run failed jobs".
 #   Successful predecessor phases and their immutable artifacts stay in place.
 # - After Supabase metadata publication fails, use workflow_dispatch with
@@ -399,7 +400,7 @@ jobs:
             } >> "$GITHUB_ENV"
           fi
 
-      - name: Fetch or reuse regional detail metadata
+      - name: Fetch or reuse detail metadata by BRN
         id: fetch-details
         env:
           BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
@@ -438,7 +439,7 @@ jobs:
           overwrite: false
 
   persistence:
-    name: Regionale Metadaten persistieren
+    name: BRN-Metadaten und PLZ-Verfügbarkeit persistieren
     needs: [validate-secrets, scan-merge, detail-pages]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
@@ -494,7 +495,7 @@ jobs:
           cp "${RUNNER_TEMP}/brochure-scan-merge/all-stores-full.json" tools/crawler/data/listing-only/all-stores-full.json
           cp "${RUNNER_TEMP}/brochure-detail-pages/detail-page-metadata.json" tools/crawler/data/listing-only/detail-page-metadata.json
 
-      - name: Persist regional metadata catalog
+      - name: Persist BRN metadata and listing availability
         run: bun run tools/crawler/brochures/listing-only/persist-canonical.ts
 
       - name: Create persistence phase artifact
@@ -875,7 +876,7 @@ jobs:
           --manifest-sha256="${{ steps.resume-handoff.outputs.phase_manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ steps.resume-handoff.outputs.predecessor_manifest_sha256 }}"
 
-      - name: Publish regional brochure metadata to Supabase
+      - name: Publish BRN metadata and ZIP availability to Supabase
         env:
           GITHUB_RUN_ID: ${{ inputs.resume_run_id != '' && steps.resume-source.outputs.source_run_id || github.run_id }}
           GITHUB_SHA: ${{ inputs.resume_run_id != '' && steps.resume-source.outputs.source_commit_sha || github.sha }}
