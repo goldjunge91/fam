@@ -148,6 +148,29 @@ describe('fetch-detail-pages', () => {
     expect(metadata.pages.map(({ imageUrl }) => imageUrl)).toEqual(pageUrls);
   });
 
+  it('uses the first page as cover when Bring listing cover is outside the allowed CDN', () => {
+    const reference = buildBrnReferences(
+      { byZipCode: { '10115': [{ brn: 'brn-a' }] } },
+      [{ zipCode: '10115', latitude: 1, longitude: 2 }],
+    )[0]!;
+    const firstPageUrl = 'https://cdn.bringapi.app/content/brn-a/page-1.jpg';
+
+    const metadata = pageMetadataFromDetail(
+      reference,
+      {
+        brn: 'brn-a',
+        storeName: 'Lidl',
+        title: 'Lidl Woche',
+        validFrom: '2026-10-01',
+        validUntil: '2026-10-07',
+        coverImage: 'https://images.example.com/cover.jpg',
+      },
+      { pages: [{ image: firstPageUrl }, { image: 'https://cdn.bringapi.app/content/brn-a/page-2.jpg' }] },
+    );
+
+    expect(metadata.coverImage).toBe(firstPageUrl);
+  });
+
   it('summarizes the fraction of unique BRNs with multiple detail pages', () => {
     expect(summarizeDetailPages({ 'brn-a': 8, 'brn-b': 1, 'brn-c': 4 })).toEqual({
       totalBrns: 3,

@@ -180,6 +180,9 @@ export function pageMetadataFromDetail(
         : {}),
     })),
   }));
+  const coverImage = isBringImageUrl(transformed.brochure.coverImage)
+    ? requiredBringImageUrl(transformed.brochure.coverImage, 'Prospektcover')
+    : validatedPages[0]!.imageUrl;
 
   return {
     referenceKey: reference.referenceKey,
@@ -189,7 +192,7 @@ export function pageMetadataFromDetail(
     storeId: transformed.brochure.storeId,
     validFrom: offer.validFrom,
     validUntil: offer.validUntil,
-    coverImage: requiredBringImageUrl(transformed.brochure.coverImage, 'Prospektcover'),
+    coverImage,
     pageUrls: validatedPages.map((page) => page.imageUrl),
     pages: validatedPages,
   };
