@@ -47,4 +47,15 @@ describe('BRN brochure metadata workflow', () => {
     expect(workflow).toContain('inputs.resume_run_id != \'\'');
   });
 
+  it('retries only detail metadata from a validated source scan without rescanning PLZs', async () => {
+    const workflow = await readFile(workflowPath, 'utf8');
+
+    expect(workflow).toContain('detail_retry_run_id:');
+    expect(workflow).toContain('Detail-Retry-Quelle prüfen');
+    expect(workflow).toContain('successful scan phases and only the detail job failed');
+    expect(workflow).toContain('Download scan merge artifact from source run');
+    expect(workflow).toContain('brochure-detail-progress-${{ inputs.detail_retry_run_id || github.run_id }}-');
+    expect(workflow).toContain("inputs.detail_retry_run_id == ''");
+  });
+
 });

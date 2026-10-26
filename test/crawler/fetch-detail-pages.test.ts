@@ -5,6 +5,7 @@ import {
   loadReusableDetailMetadata,
   pageMetadataFromDetail,
   pageCountFromDetail,
+  reusableDetailMetadataFromCatalog,
   summarizeDetailPages,
 } from '../../tools/crawler/brochures/listing-only/fetch-detail-pages';
 
@@ -96,6 +97,39 @@ describe('fetch-detail-pages', () => {
         headers: expect.objectContaining({ apikey: 'service-key' }),
       }),
     );
+  });
+
+  it('reuses a valid page-one cover when the listing cover is outside the Bring CDN', () => {
+    const reference = buildBrnReferences(
+      { byZipCode: { '10115': [{ brn: 'brn-a' }] } },
+      [{ zipCode: '10115', latitude: 1, longitude: 2 }],
+    )[0]!;
+    const coverImage = 'https://cdn.bringapi.app/content/brn-a/page-1.jpg';
+    const metadata = reusableDetailMetadataFromCatalog({
+      reference,
+      offer: {
+        brn: 'brn-a',
+        title: 'Lidl Woche',
+        storeName: 'Lidl',
+        validFrom: '2026-10-01',
+        validUntil: '2099-10-07',
+        coverImage: 'https://images.example.com/cover.jpg',
+      },
+      row: {
+        canonical_brn: 'brn-a',
+        title: 'Lidl Woche',
+        store_id: 'lidl',
+        valid_from: '2026-10-01T00:00:00.000Z',
+        valid_until: '2099-10-07T00:00:00.000Z',
+        page_count: 1,
+        cover_image: coverImage,
+        pages: [{ number: 1, imageUrl: coverImage, hotspots: [] }],
+        store: { name: 'Lidl' },
+      },
+      now: new Date('2026-10-25T00:00:00Z'),
+    });
+
+    expect(metadata?.coverImage).toBe(coverImage);
   });
 
   it('skips detail cache reads when no brochure metadata is published yet', async () => {

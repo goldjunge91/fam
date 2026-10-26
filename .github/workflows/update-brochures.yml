@@ -8,6 +8,11 @@ on:
         required: false
         type: string
         default: ''
+      detail_retry_run_id:
+        description: 'Retry only detail metadata using a failed source run with successful scan artifacts'
+        required: false
+        type: string
+        default: ''
 
   schedule:
     # Montag und Donnerstag: Bring-Wochenangebote vollständig aktualisieren.
@@ -32,6 +37,9 @@ permissions:
 #   only from each ZIP's own listing.
 # - Detail metadata progress is cached per run and attempt. Re-running the failed
 #   detail job resumes completed BRNs and retries failures.
+# - To avoid rerunning PLZ scans after a detail failure, dispatch this workflow
+#   with detail_retry_run_id set to the failed source run. It validates and uses
+#   that run's scan artifacts and saved progress, then stops after detail output.
 # - After persistence, reporting, or handoff fails, use "Re-run failed jobs".
 #   Successful predecessor phases and their immutable artifacts stay in place.
 # - After Supabase metadata publication fails, use workflow_dispatch with
@@ -78,11 +86,63 @@ jobs:
             exit 1
           fi
 
+  validate-detail-retry-source:
+    name: Detail-Retry-Quelle prüfen
+    if: ${{ inputs.detail_retry_run_id != '' && inputs.resume_run_id == '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      run_id: ${{ steps.validate.outputs.run_id }}
+      commit_sha: ${{ steps.validate.outputs.commit_sha }}
+    steps:
+      - name: Validate failed detail source run
+        id: validate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.detail_retry_run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$SOURCE_RUN_ID" =~ ^[1-9][0-9]{0,19}$ ]]; then
+            printf '::error::detail_retry_run_id must be a positive numeric run ID.\n'
+            exit 1
+          fi
+
+          run_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}")"
+          if ! jq -e --arg repository "$GITHUB_REPOSITORY" '
+            .repository.full_name == $repository and
+            .path == ".github/workflows/update-brochures.yml" and
+            .head_branch == "main" and
+            .status == "completed" and
+            .conclusion == "failure"
+          ' <<<"$run_json" >/dev/null; then
+            printf '::error::Detail retry source must be a failed, completed run of this workflow on main.\n'
+            exit 1
+          fi
+
+          jobs_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100")"
+          if ! jq -e '
+            def has_result($name; $result): any(.jobs[]; .name == $name and .conclusion == $result);
+            has_result("Crawler-Zugangsdaten prüfen"; "success") and
+            has_result("Eingaben vorbereiten"; "success") and
+            has_result("PLZ-Scan zusammenführen"; "success") and
+            has_result("Detail-Metadaten laden"; "failure") and
+            ([.jobs[] | select(.name | startswith("PLZ-Scan Shard "))] | length == 4 and all(.[]; .conclusion == "success")) and
+            ([.jobs[] | select(.conclusion == "failure") | .name] == ["Detail-Metadaten laden"])
+          ' <<<"$jobs_json" >/dev/null; then
+            printf '::error::Detail retry source must have successful scan phases and only the detail job failed.\n'
+            exit 1
+          fi
+
+          printf 'run_id=%s\n' "$SOURCE_RUN_ID" >> "$GITHUB_OUTPUT"
+          printf 'commit_sha=%s\n' "$(jq -r '.head_sha' <<<"$run_json")" >> "$GITHUB_OUTPUT"
+
   prepare-inputs:
     name: Eingaben vorbereiten
     needs: validate-secrets
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
+          inputs.detail_retry_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' }}
     runs-on: ubuntu-latest
@@ -140,6 +200,7 @@ jobs:
     needs: [validate-secrets, prepare-inputs]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
+          inputs.detail_retry_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.prepare-inputs.result == 'success' }}
@@ -226,6 +287,7 @@ jobs:
     needs: [validate-secrets, prepare-inputs, scan-locations]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
+          inputs.detail_retry_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
           needs.prepare-inputs.result == 'success' &&
@@ -315,13 +377,16 @@ jobs:
 
   detail-pages:
     name: Detail-Metadaten laden
-    needs: [validate-secrets, prepare-inputs, scan-merge]
+    needs: [validate-secrets, validate-detail-retry-source, prepare-inputs, scan-merge]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
-          needs.prepare-inputs.result == 'success' &&
-          needs.scan-merge.result == 'success' }}
+          ((inputs.detail_retry_run_id == '' &&
+            needs.prepare-inputs.result == 'success' &&
+            needs.scan-merge.result == 'success') ||
+           (inputs.detail_retry_run_id != '' &&
+            needs.validate-detail-retry-source.result == 'success')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     outputs:
@@ -335,12 +400,24 @@ jobs:
         uses: ./.github/actions/setup-bun-env
 
       - name: Download prepared inputs
+        if: ${{ inputs.detail_retry_run_id == '' }}
         uses: actions/download-artifact@v5
         with:
           name: brochure-prepare-inputs-${{ github.run_id }}
           path: ${{ runner.temp }}/brochure-prepare-inputs
 
+      - name: Download prepared inputs from source run
+        if: ${{ inputs.detail_retry_run_id != '' }}
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-prepare-inputs-${{ inputs.detail_retry_run_id }}
+          path: ${{ runner.temp }}/brochure-prepare-inputs
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.detail_retry_run_id }}
+
       - name: Validate prepared input artifact
+        if: ${{ inputs.detail_retry_run_id == '' }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
           --phase=prepare-inputs
@@ -349,12 +426,40 @@ jobs:
           --manifest-sha256="${{ needs.prepare-inputs.outputs.manifest_sha256 }}"
 
       - name: Download scan merge artifact
+        if: ${{ inputs.detail_retry_run_id == '' }}
         uses: actions/download-artifact@v5
         with:
           name: brochure-scan-merge-${{ github.run_id }}
           path: ${{ runner.temp }}/brochure-scan-merge
 
+      - name: Download scan merge artifact from source run
+        if: ${{ inputs.detail_retry_run_id != '' }}
+        uses: actions/download-artifact@v5
+        with:
+          name: brochure-scan-merge-${{ inputs.detail_retry_run_id }}
+          path: ${{ runner.temp }}/brochure-scan-merge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.detail_retry_run_id }}
+
+      - name: Read source phase artifact digests
+        id: source-manifests
+        if: ${{ inputs.detail_retry_run_id != '' }}
+        run: |
+          prepare_manifest="${RUNNER_TEMP}/brochure-prepare-inputs/phase-artifact.json"
+          scan_manifest="${RUNNER_TEMP}/brochure-scan-merge/phase-artifact.json"
+          prepare_digest="$(sha256sum "$prepare_manifest" | cut -d' ' -f1)"
+          scan_predecessors="$(jq -er --arg prepare "$prepare_digest" '
+            select((.predecessorManifestSha256 | length) == 5 and
+              (.predecessorManifestSha256 | index($prepare)) != null) |
+            .predecessorManifestSha256 | join(",")
+          ' "$scan_manifest")"
+          printf 'prepare_manifest_sha256=%s\n' "$prepare_digest" >> "$GITHUB_OUTPUT"
+          printf 'scan_manifest_sha256=%s\n' "$(sha256sum "$scan_manifest" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          printf 'scan_predecessor_manifest_sha256=%s\n' "$scan_predecessors" >> "$GITHUB_OUTPUT"
+
       - name: Validate scan merge artifact
+        if: ${{ inputs.detail_retry_run_id == '' }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
           --phase=scan-merge
@@ -362,6 +467,29 @@ jobs:
           --files=all-stores-full.json
           --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
           --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+
+      - name: Validate prepared input artifact from source run
+        if: ${{ inputs.detail_retry_run_id != '' }}
+        run: >-
+          GITHUB_RUN_ID="${{ needs.validate-detail-retry-source.outputs.run_id }}"
+          GITHUB_SHA="${{ needs.validate-detail-retry-source.outputs.commit_sha }}"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=prepare-inputs
+          --artifact-dir="${RUNNER_TEMP}/brochure-prepare-inputs"
+          --files=geonames-DE.txt
+          --manifest-sha256="${{ steps.source-manifests.outputs.prepare_manifest_sha256 }}"
+
+      - name: Validate scan merge artifact from source run
+        if: ${{ inputs.detail_retry_run_id != '' }}
+        run: >-
+          GITHUB_RUN_ID="${{ needs.validate-detail-retry-source.outputs.run_id }}"
+          GITHUB_SHA="${{ needs.validate-detail-retry-source.outputs.commit_sha }}"
+          bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
+          --phase=scan-merge
+          --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
+          --files=all-stores-full.json
+          --manifest-sha256="${{ steps.source-manifests.outputs.scan_manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ steps.source-manifests.outputs.scan_predecessor_manifest_sha256 }}"
 
       - name: Copy scan input
         run: |
@@ -373,9 +501,9 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl
-          key: brochure-detail-progress-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ inputs.detail_retry_run_id != '' && format('brochure-detail-progress-{0}-{1}-{2}', inputs.detail_retry_run_id, github.run_id, github.run_attempt) || format('brochure-detail-progress-{0}-{1}', github.run_id, github.run_attempt) }}
           restore-keys: |
-            brochure-detail-progress-${{ github.run_id }}-
+            brochure-detail-progress-${{ inputs.detail_retry_run_id || github.run_id }}-
 
       - name: Initialize detail metadata progress
         run: |
@@ -414,7 +542,7 @@ jobs:
         continue-on-error: true
         with:
           path: tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl
-          key: brochure-detail-progress-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ inputs.detail_retry_run_id != '' && format('brochure-detail-progress-{0}-{1}-{2}', inputs.detail_retry_run_id, github.run_id, github.run_attempt) || format('brochure-detail-progress-{0}-{1}', github.run_id, github.run_attempt) }}
 
       - name: Create detail phase artifact
         id: create-manifest
@@ -427,7 +555,7 @@ jobs:
             --phase=detail-pages \
             --artifact-dir="$artifact_dir" \
             --files=detail-pages.json,detail-page-metadata.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ inputs.detail_retry_run_id != '' && steps.source-manifests.outputs.scan_manifest_sha256 || needs.scan-merge.outputs.manifest_sha256 }}"
 
       - name: Upload detail phase artifact
         uses: actions/upload-artifact@v4

@@ -126,6 +126,13 @@ function isBringImageUrl(value: unknown): value is string {
   return typeof value === 'string' && bringImageUrl(value) !== null;
 }
 
+function listingCoverMatches(listingCover: unknown, catalogCover: string): boolean {
+  return !isBringImageUrl(listingCover) ||
+    (isBringImageUrl(catalogCover) &&
+      requiredBringImageUrl(listingCover, 'Listingcover') ===
+        requiredBringImageUrl(catalogCover, 'Katalogcover'));
+}
+
 function describeImageUrl(value: unknown): string {
   if (typeof value !== 'string') return `value type ${typeof value}`;
   try {
@@ -448,7 +455,7 @@ export function reusableDetailMetadataFromCatalog(options: {
       };
     });
     const coverImage = requiredBringImageUrl(options.row.cover_image, 'Katalogcover');
-    if (options.offer.coverImage && coverImage !== requiredBringImageUrl(options.offer.coverImage, 'Listingcover')) return undefined;
+    if (!listingCoverMatches(options.offer.coverImage, coverImage)) return undefined;
     return {
       referenceKey: options.reference.referenceKey,
       brn: options.reference.brn,
@@ -584,15 +591,12 @@ async function main(): Promise<void> {
     const offer = offersByBrn.get(reference.brn);
     const cached = pageMetadata[reference.referenceKey];
     if (!cached) continue;
-    const listingCover = offer?.coverImage
-      ? requiredBringImageUrl(offer.coverImage, `Listingcover ${reference.referenceKey}`)
-      : undefined;
     if (
       !offer ||
       cached.title !== offer.title ||
       cached.validFrom !== offer.validFrom ||
       cached.validUntil !== offer.validUntil ||
-      (listingCover !== undefined && cached.coverImage !== listingCover)
+      !listingCoverMatches(offer.coverImage, cached.coverImage)
     ) {
       delete pageMetadata[reference.referenceKey];
       delete progress.completed[reference.referenceKey];
