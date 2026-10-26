@@ -1,5 +1,7 @@
 const BRING_HOST_SUFFIX = '.bringapi.app';
 const BRING_PATH_PREFIX = '/content/';
+const PUBLITAS_HOST = 'view.publitas.com';
+const PUBLITAS_PATH_PREFIX = '/resize/';
 const HOST_LABEL = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/;
 
 function hasValidEncoding(value: string): boolean {
@@ -18,10 +20,10 @@ function hasControlOrSpace(value: string): boolean {
   });
 }
 
-function hasAllowedPath(pathname: string): boolean {
-  if (!pathname.startsWith(BRING_PATH_PREFIX) || /%25|[\\]/i.test(pathname)) return false;
+function hasAllowedPath(pathname: string, prefix: string): boolean {
+  if (!pathname.startsWith(prefix) || /%25|[\\]/i.test(pathname)) return false;
 
-  const segments = pathname.slice(BRING_PATH_PREFIX.length).split('/');
+  const segments = pathname.slice(prefix.length).split('/');
   if (segments.length === 0 || segments.some((segment) => segment.length === 0)) return false;
 
   return segments.every((segment) => {
@@ -52,8 +54,7 @@ export function bringImageUrl(value: unknown): URL | null {
     !absolute ||
     absolute[1]!.includes('@') ||
     absolute[1]!.includes(':') ||
-    absolute[1]!.endsWith('.') ||
-    !hasAllowedPath(absolute[2]!)
+    absolute[1]!.endsWith('.')
   ) return null;
   if (
     absolute[3] &&
@@ -76,10 +77,16 @@ export function bringImageUrl(value: unknown): URL | null {
     hostname !== 'bringapi.app' &&
     subdomainLabels.length >= 1 &&
     subdomainLabels.every((label) => HOST_LABEL.test(label));
+  const pathPrefix = hasBringHost
+    ? BRING_PATH_PREFIX
+    : hostname === PUBLITAS_HOST
+      ? PUBLITAS_PATH_PREFIX
+      : null;
 
   if (
     url.protocol !== 'https:' ||
-    !hasBringHost ||
+    pathPrefix === null ||
+    !hasAllowedPath(absolute[2]!, pathPrefix) ||
     url.username !== '' ||
     url.password !== '' ||
     url.port !== '' ||

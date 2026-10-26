@@ -86,6 +86,22 @@ select ok(
   ),
   'the source validator accepts Bring CDN URLs and query parameters'
 );
+select ok(
+  private.bring_image_url_is_valid(
+    'https://view.publitas.com/resize/rev-95488569/UriN_fEyVDqXuIIRQh0jCOt8oXkYxmgjFSnJPzjCwik/fit-in/1504x2659/filters:quality(90)/production-revolution-publitas-com/89773/3471876/pages/57961b7d-99f7-4fbc-a118-d1d4c801580d-downscaled.jpg'
+  ),
+  'the source validator accepts public image URLs from the exact Publitas host'
+);
+select is(
+  private.bring_image_url_is_valid('https://sub.view.publitas.com/resize/publication/pages/page.jpg'),
+  false,
+  'Publitas subdomains are not accepted'
+);
+select is(
+  private.bring_image_url_is_valid('https://view.publitas.com/content/publication/pages/page.jpg'),
+  false,
+  'Publitas URLs must use the image resize path'
+);
 select is(private.bring_image_url_is_valid(null), false, 'null is not a source URL');
 select is(
   private.bring_image_url_is_valid('https://bringapi.app/content/page.jpg'),
