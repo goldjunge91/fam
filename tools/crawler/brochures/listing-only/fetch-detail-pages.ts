@@ -445,6 +445,18 @@ export async function loadReusableDetailMetadata(options: {
 
   const fetcher = options.fetcher ?? fetch;
   const reusable: Record<string, CachedPageMetadata> = {};
+  const catalogUrl = supabaseUrl.replace(/\/+$/, '');
+  const catalogProbe = await fetcher(
+    `${catalogUrl}/rest/v1/canonical_brochures?select=canonical_brn&limit=1`,
+    { headers: { apikey: supabaseSecretKey, Accept: 'application/json' } },
+  );
+  if (!catalogProbe.ok) {
+    throw new Error(`Katalogdetails konnten nicht gelesen werden (${catalogProbe.status}).`);
+  }
+  const catalogProbeRows = await catalogProbe.json() as unknown;
+  if (!Array.isArray(catalogProbeRows)) throw new Error('Katalogdetails haben kein gültiges Listenformat.');
+  if (catalogProbeRows.length === 0) return reusable;
+
   const referencesByZip = new Map<string, BrnReference[]>();
   for (const reference of options.references) {
     const references = referencesByZip.get(reference.zipCode) ?? [];
@@ -459,55 +471,58 @@ export async function loadReusableDetailMetadata(options: {
     })),
   );
 
-  for (const batch of referenceBatches) {
-    const query = new URLSearchParams({
-      select: 'canonical_brn,source_zip_code,title,store_id,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(name)',
-      canonical_brn: `in.(${batch.references.map(({ brn }) => `"${brn.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`).join(',')})`,
-      source_zip_code: `eq.${batch.zipCode}`,
-      valid_until: `gte.${(options.now ?? new Date()).toISOString()}`,
-      limit: '100',
-    });
-    const response = await fetcher(
-      `${supabaseUrl.replace(/\/+$/, '')}/rest/v1/canonical_brochures?${query.toString()}`,
-      {
-        headers: {
-          apikey: supabaseSecretKey,
-          Accept: 'application/json',
-        },
-      },
-    );
-    if (!response.ok) throw new Error(`Katalogdetails konnten nicht gelesen werden (${response.status}).`);
-    const rows = await response.json() as unknown;
-    if (!Array.isArray(rows)) throw new Error('Katalogdetails haben kein gültiges Listenformat.');
-
-    const rowsByBrn = new Map<string, unknown[]>();
-    for (const row of rows) {
-      if (!isRecord(row) || typeof row.canonical_brn !== 'string') continue;
-      const matchingRows = rowsByBrn.get(row.canonical_brn) ?? [];
-      matchingRows.push(row);
-      rowsByBrn.set(row.canonical_brn, matchingRows);
-    }
-
-    for (const reference of batch.references) {
-      const offer = options.offersByReference.get(reference.referenceKey);
-      const matchingRows = rowsByBrn.get(reference.brn);
-      if (!offer || !offer.title || !offer.validFrom || !offer.validUntil || matchingRows?.length !== 1) continue;
-      const metadata = reusableDetailMetadataFromCatalog({
-        reference,
-        offer: {
-          brn: reference.brn,
-          title: offer.title,
-          storeName: offer.storeName ?? '',
-          validFrom: offer.validFrom,
-          validUntil: offer.validUntil,
-          pageCount: offer.pageCount,
-          coverImage: offer.coverImage,
-        },
-        row: matchingRows[0],
-        now: options.now,
+  for (let index = 0; index < referenceBatches.length; index += concurrency) {
+    const batchGroup = referenceBatches.slice(index, index + concurrency);
+    await Promise.all(batchGroup.map(async (batch) => {
+      const query = new URLSearchParams({
+        select: 'canonical_brn,source_zip_code,title,store_id,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(name)',
+        canonical_brn: `in.(${batch.references.map(({ brn }) => `"${brn.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`).join(',')})`,
+        source_zip_code: `eq.${batch.zipCode}`,
+        valid_until: `gte.${(options.now ?? new Date()).toISOString()}`,
+        limit: '100',
       });
-      if (metadata) reusable[reference.referenceKey] = metadata;
-    }
+      const response = await fetcher(
+        `${catalogUrl}/rest/v1/canonical_brochures?${query.toString()}`,
+        {
+          headers: {
+            apikey: supabaseSecretKey,
+            Accept: 'application/json',
+          },
+        },
+      );
+      if (!response.ok) throw new Error(`Katalogdetails konnten nicht gelesen werden (${response.status}).`);
+      const rows = await response.json() as unknown;
+      if (!Array.isArray(rows)) throw new Error('Katalogdetails haben kein gültiges Listenformat.');
+
+      const rowsByBrn = new Map<string, unknown[]>();
+      for (const row of rows) {
+        if (!isRecord(row) || typeof row.canonical_brn !== 'string') continue;
+        const matchingRows = rowsByBrn.get(row.canonical_brn) ?? [];
+        matchingRows.push(row);
+        rowsByBrn.set(row.canonical_brn, matchingRows);
+      }
+
+      for (const reference of batch.references) {
+        const offer = options.offersByReference.get(reference.referenceKey);
+        const matchingRows = rowsByBrn.get(reference.brn);
+        if (!offer || !offer.title || !offer.validFrom || !offer.validUntil || matchingRows?.length !== 1) continue;
+        const metadata = reusableDetailMetadataFromCatalog({
+          reference,
+          offer: {
+            brn: reference.brn,
+            title: offer.title,
+            storeName: offer.storeName ?? '',
+            validFrom: offer.validFrom,
+            validUntil: offer.validUntil,
+            pageCount: offer.pageCount,
+            coverImage: offer.coverImage,
+          },
+          row: matchingRows[0],
+          now: options.now,
+        });
+        if (metadata) reusable[reference.referenceKey] = metadata;
+      }
+    }));
   }
   return reusable;
 }
@@ -613,6 +628,17 @@ async function main(): Promise<void> {
       );
     }
     await writeJsonAtomic(progressPath, progress);
+    const batchFailures = batch.filter(({ referenceKey }) => progress.failures[referenceKey] !== undefined);
+    if (batchFailures.length > 0) {
+      console.error(
+        `Detailabruf abgebrochen: ${batchFailures.length} von ${batch.length} Referenzen im letzten Batch fehlgeschlagen.`,
+      );
+      for (const { referenceKey } of batchFailures.slice(0, 3)) {
+        console.error(`${referenceKey}: ${progress.failures[referenceKey]}`);
+      }
+      process.exitCode = 1;
+      return;
+    }
     if (index % (concurrency * 10) === 0 || index + batch.length === pending.length) {
       console.log(
         `${Math.min(index + batch.length, pending.length)}/${pending.length} Referenzen verarbeitet | ${Object.keys(progress.failures).length} Hard-Failures`,

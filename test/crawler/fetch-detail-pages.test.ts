@@ -83,9 +83,28 @@ describe('fetch-detail-pages', () => {
     expect(fetcher).toHaveBeenCalledWith(
       expect.stringContaining('source_zip_code=eq.10115'),
       expect.objectContaining({
-        headers: expect.objectContaining({ Authorization: 'Bearer service-key' }),
+        headers: expect.objectContaining({ apikey: 'service-key' }),
       }),
     );
+  });
+
+  it('skips per-region catalog reads when no brochure metadata is cached yet', async () => {
+    const reference = buildBrnReferences(
+      { byZipCode: { '10115': [{ brn: 'brn-a' }] } },
+      [{ zipCode: '10115', latitude: 1, longitude: 2 }],
+    )[0]!;
+    const fetcher = jest.fn(async () => new Response('[]', { status: 200 }));
+
+    const reusable = await loadReusableDetailMetadata({
+      references: [reference],
+      offersByReference: new Map([[reference.referenceKey, { brn: 'brn-a' }]]),
+      supabaseUrl: 'https://supabase.example',
+      supabaseSecretKey: 'service-key',
+      fetcher,
+    });
+
+    expect(reusable).toEqual({});
+    expect(fetcher).toHaveBeenCalledTimes(1);
   });
 
   it('counts detail pages only from a usable Bring detail response', () => {
