@@ -126,6 +126,22 @@ function isBringImageUrl(value: unknown): value is string {
   return typeof value === 'string' && bringImageUrl(value) !== null;
 }
 
+function describeImageUrl(value: unknown): string {
+  if (typeof value !== 'string') return `value type ${typeof value}`;
+  try {
+    const url = new URL(value);
+    return `${url.protocol}//${url.host}${url.pathname}${url.search ? '?<query redacted>' : ''}${url.hash ? '#<fragment>' : ''}`;
+  } catch {
+    return 'malformed URL';
+  }
+}
+
+function requiredPageImageUrl(value: unknown, field: string): string {
+  const url = bringImageUrl(value);
+  if (!url) throw new Error(`${field} is not an allowed Bring image URL (${describeImageUrl(value)})`);
+  return url.toString();
+}
+
 function sameTimestamp(left: unknown, right: unknown): boolean {
   if (typeof left !== 'string' || typeof right !== 'string') return false;
   const leftTime = Date.parse(left);
@@ -172,11 +188,11 @@ export function pageMetadataFromDetail(
 
   const validatedPages = pages.map((page) => ({
     ...page,
-    imageUrl: requiredBringImageUrl(page.imageUrl, `Seite ${page.number}`),
+    imageUrl: requiredPageImageUrl(page.imageUrl, `Seite ${page.number}`),
     hotspots: page.hotspots.map((hotspot) => ({
       ...hotspot,
       ...(hotspot.imageUrl
-        ? { imageUrl: requiredBringImageUrl(hotspot.imageUrl, `Hotspot ${hotspot.id}`) }
+        ? { imageUrl: requiredPageImageUrl(hotspot.imageUrl, `Hotspot ${hotspot.id}`) }
         : {}),
     })),
   }));
