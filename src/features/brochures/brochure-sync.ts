@@ -29,6 +29,7 @@ export type CanonicalAvailabilityRow = {
   brochure: {
     id: string;
     canonical_brn: string;
+    source_zip_code: string;
     store_id: string;
     title: string;
     valid_from: string;
@@ -105,6 +106,10 @@ export function mapCanonicalAvailabilityRows(value: unknown, zipCode: string): B
 
     const id = requiredString(brochure.id, 'id');
     requiredString(brochure.canonical_brn, 'canonical_brn');
+    const sourceZipCode = requiredString(brochure.source_zip_code, 'source_zip_code');
+    if (sourceZipCode !== row.zip_code) {
+      throw new Error('Invalid canonical brochure regional identity');
+    }
     const storeId = requiredString(brochure.store_id, 'store_id');
     const store = brochure.store;
     if (!isRecord(store)) throw new Error('Invalid canonical brochure store');

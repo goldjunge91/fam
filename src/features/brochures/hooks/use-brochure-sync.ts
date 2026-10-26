@@ -34,7 +34,7 @@ export function useBrochureSync(zipCode: string | null) {
         const { data: rows, error } = await catalogClient
           .from('brochure_availability')
           .select(
-            'zip_code,brochure:canonical_brochures!inner(id,canonical_brn,store_id,title,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(id,name,logo_url))',
+            'zip_code,brochure:canonical_brochures!inner(id,canonical_brn,source_zip_code,store_id,title,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(id,name,logo_url))',
           )
           .eq('zip_code', currentZip);
 

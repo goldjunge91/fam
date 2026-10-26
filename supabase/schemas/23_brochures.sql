@@ -101,7 +101,7 @@ $$;
 
 create table public.canonical_brochures (
   id text primary key check (btrim(id) <> ''),
-  canonical_brn text not null unique check (btrim(canonical_brn) <> ''),
+  canonical_brn text not null check (btrim(canonical_brn) <> ''),
   source_zip_code text not null check (source_zip_code ~ '^[0-9]{5}$'),
   store_id text not null references public.brochure_stores(id),
   title text not null check (btrim(title) <> ''),
@@ -112,29 +112,33 @@ create table public.canonical_brochures (
   pages jsonb not null,
   constraint canonical_brochures_validity check (valid_until >= valid_from),
   constraint canonical_brochures_pages_valid
-    check (private.canonical_brochure_pages_are_valid(pages, page_count))
+    check (private.canonical_brochure_pages_are_valid(pages, page_count)),
+  constraint canonical_brochures_id_source_zip_unique unique (id, source_zip_code),
+  constraint canonical_brochures_source_zip_brn_unique unique (source_zip_code, canonical_brn)
 );
 
 create index canonical_brochures_store_id_idx
   on public.canonical_brochures (store_id);
 
 comment on table public.canonical_brochures is
-  'Ein Datensatz pro Bring-BRN mit vollständigen Seiten, Hotspots und originalen Bring-Quell-URLs.';
+  'Ein Datensatz pro PLZ und Bring-BRN mit vollständigen Seiten, Hotspots und originalen Bring-Quell-URLs.';
 comment on column public.canonical_brochures.source_zip_code is
-  'PLZ, mit der die Detailmetadaten für diese BRN abgerufen wurden.';
+  'PLZ, für die die Detailmetadaten dieser BRN abgerufen wurden.';
 
 create table public.brochure_availability (
   zip_code text not null check (zip_code ~ '^[0-9]{5}$'),
-  canonical_brochure_id text not null
-    references public.canonical_brochures(id) on delete cascade,
-  primary key (zip_code, canonical_brochure_id)
+  canonical_brochure_id text not null,
+  primary key (zip_code, canonical_brochure_id),
+  constraint brochure_availability_regional_brochure_fk
+    foreign key (canonical_brochure_id, zip_code)
+    references public.canonical_brochures(id, source_zip_code) on delete cascade
 );
 
 create index brochure_availability_canonical_brochure_id_idx
   on public.brochure_availability (canonical_brochure_id);
 
 comment on table public.brochure_availability is
-  'Verknüpft einen BRN ausschließlich mit PLZ, in deren Bring-Listing er enthalten war.';
+  'Verknüpft einen Prospekt nur mit der PLZ, für die seine Detailmetadaten abgerufen wurden.';
 
 alter table public.canonical_brochures enable row level security;
 create policy canonical_brochures_select on public.canonical_brochures
@@ -213,21 +217,23 @@ begin
 
   if exists (
     select 1
-    from pg_catalog.jsonb_to_recordset(p_records) as incoming (id text, canonical_brn text)
+    from pg_catalog.jsonb_to_recordset(p_records) as incoming (id text, canonical_brn text, source_zip_code text)
     where incoming.canonical_brn is null
       or pg_catalog.btrim(incoming.canonical_brn) = ''
-      or incoming.id is distinct from 'canonical:' || incoming.canonical_brn
+      or incoming.source_zip_code is null
+      or incoming.source_zip_code !~ '^[0-9]{5}$'
+      or incoming.id is distinct from 'canonical:' || incoming.source_zip_code || ':' || incoming.canonical_brn
   ) then
-    raise exception 'catalog_record_id_must_match_brn' using errcode = '22023';
+    raise exception 'catalog_record_id_must_match_regional_brochure' using errcode = '22023';
   end if;
 
   if exists (
-    select incoming.canonical_brn
-    from pg_catalog.jsonb_to_recordset(p_records) as incoming (canonical_brn text)
-    group by incoming.canonical_brn
+    select incoming.source_zip_code, incoming.canonical_brn
+    from pg_catalog.jsonb_to_recordset(p_records) as incoming (source_zip_code text, canonical_brn text)
+    group by incoming.source_zip_code, incoming.canonical_brn
     having count(*) > 1
   ) then
-    raise exception 'catalog_records_contain_duplicate_brns' using errcode = '22023';
+    raise exception 'catalog_records_contain_duplicate_regional_brochures' using errcode = '22023';
   end if;
 
   if exists (
@@ -236,13 +242,14 @@ begin
     where incoming.source_zip_code is null
       or incoming.source_zip_code !~ '^[0-9]{5}$'
       or not (incoming.source_zip_code = any(p_scoped_zip_codes))
+      or pg_catalog.jsonb_array_length(incoming.available_zip_codes) <> 1
       or not exists (
         select 1
         from pg_catalog.jsonb_array_elements_text(incoming.available_zip_codes) as availability(zip_code)
         where availability.zip_code = incoming.source_zip_code
       )
   ) then
-    raise exception 'catalog_record_source_zip_code_must_be_available' using errcode = '22023';
+    raise exception 'catalog_record_availability_must_match_source_zip_code' using errcode = '22023';
   end if;
 
   perform pg_catalog.pg_advisory_xact_lock(823491, 23);
@@ -316,4 +323,4 @@ end;
 $$;
 
 comment on function public.replace_canonical_brochure_catalog(jsonb, text[]) is
-  'Ersetzt eindeutige BRN-Metadaten und ihre belegten PLZ atomar für den Crawl-Scope.';
+  'Ersetzt regionale PLZ/BRN-Metadaten atomar für den Crawl-Scope.';

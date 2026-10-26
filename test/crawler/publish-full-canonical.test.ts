@@ -28,36 +28,39 @@ const fullScan = {
 
 const source = (name: string) => `https://offerscdn.bringapi.app/content/${name}.jpg`;
 
-function persistedBrochure(): PersistedCanonicalBrochure {
+function persistedBrochure(sourceZipCode: string, imagePrefix: string): PersistedCanonicalBrochure {
   return {
     canonicalBrn: 'shared-brn',
-    sourceZipCode: '10115',
+    sourceZipCode,
     storeName: 'Fresh Market',
     storeId: 'fresh-market',
     title: 'October offers',
     validFrom: '2026-10-20',
     validUntil: '2026-10-27',
     pageCount: 1,
-    availableZipCodes: ['10115', '20095'],
-    coverImage: source('shared-cover'),
-    pageUrls: [source('shared-page-1')],
-    pages: [{ number: 1, imageUrl: source('shared-page-1'), hotspots: [] }],
+    availableZipCodes: [sourceZipCode],
+    coverImage: source(`${imagePrefix}-cover`),
+    pageUrls: [source(`${imagePrefix}-page-1`)],
+    pages: [{ number: 1, imageUrl: source(`${imagePrefix}-page-1`), hotspots: [] }],
   };
 }
 
-const persisted = { brochures: [persistedBrochure()] };
+const persisted = { brochures: [persistedBrochure('10115', 'berlin'), persistedBrochure('20095', 'hamburg')] };
 
-describe('unique BRN publication', () => {
-  it('publishes one BRN while preserving each ZIP association from the scan', () => {
+describe('regional BRN publication', () => {
+  it('publishes one regional row per listed ZIP/BRN pair', () => {
     const publication = buildFullPagePublication({ fullScan, persisted });
 
     expect(publication.scopedZipCodes).toEqual(['10115', '20095']);
-    expect(publication.catalog).toHaveLength(1);
-    expect(publication.catalog.map(({ id }) => id)).toEqual(['canonical:shared-brn']);
-    expect(publication.catalog[0]?.availableZipCodes).toEqual(['10115', '20095']);
+    expect(publication.catalog).toHaveLength(2);
+    expect(publication.catalog.map(({ id }) => id)).toEqual([
+      'canonical:10115:shared-brn',
+      'canonical:20095:shared-brn',
+    ]);
+    expect(publication.catalog.map(({ availableZipCodes }) => availableZipCodes)).toEqual([['10115'], ['20095']]);
     expect(publication.catalog[0]).toMatchObject({
-      coverImage: source('shared-cover'),
-      pages: [{ number: 1, imageUrl: source('shared-page-1') }],
+      coverImage: source('berlin-cover'),
+      pages: [{ number: 1, imageUrl: source('berlin-page-1') }],
     });
   });
 
@@ -67,14 +70,14 @@ describe('unique BRN publication', () => {
       persisted,
     })).toThrow('Full scan did not complete every postal code');
 
-    const invalid = { brochures: [{ ...persistedBrochure(), availableZipCodes: ['10115', '50667'] }] };
+    const invalid = { brochures: [{ ...persistedBrochure('10115', 'berlin'), availableZipCodes: ['10115', '50667'] }] };
     expect(() => buildFullPagePublication({ fullScan, persisted: invalid }))
       .toThrow('ungültige oder nicht belegte PLZ-Verfügbarkeit');
   });
 
   it('publishes metadata through Supabase without uploading image bytes', async () => {
     const publication = buildFullPagePublication({ fullScan, persisted });
-    const uploadCanonicalCatalog = jest.fn(async () => ({ uploadedCount: 1, storesCount: 1 }));
+    const uploadCanonicalCatalog = jest.fn(async () => ({ uploadedCount: 2, storesCount: 1 }));
     const config = { supabaseUrl: 'https://example.supabase.co', supabaseSecretKey: 'secret' };
 
     const result = await publishCanonicalPublication(publication, config, { uploadCanonicalCatalog });
@@ -89,7 +92,7 @@ describe('unique BRN publication', () => {
       status: 'COMPLETE',
       uploadedAssetCount: 0,
       reusedAssetCount: 0,
-      catalogResult: { uploadedCount: 1, storesCount: 1 },
+      catalogResult: { uploadedCount: 2, storesCount: 1 },
     });
   });
 });

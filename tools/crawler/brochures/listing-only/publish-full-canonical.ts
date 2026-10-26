@@ -5,7 +5,7 @@ import { buildCanonicalReport } from './canonical-report';
 import { validatePublicationHandoff } from './publication-handoff';
 import { uploadCanonicalCatalog } from '../uploader';
 import { requiredBringImageUrl } from '../bring-image-url';
-import type { CanonicalCatalogRecord } from './canonical-catalog';
+import { canonicalRegionalId, type CanonicalCatalogRecord } from './canonical-catalog';
 import type { CrawlerStore } from '../types';
 import type { PersistedCanonicalBrochure } from './persist-canonical';
 
@@ -64,21 +64,21 @@ function persistedCatalog(value: unknown, scopedZipCodes: ReadonlySet<string>): 
     if (!isRecord(entry)) throw new Error(`Persisted brochure ${index + 1} must be an object`);
     const brochure = entry as unknown as PersistedCanonicalBrochure;
     const canonicalBrn = requiredString(brochure.canonicalBrn, `Persisted brochure ${index + 1} canonicalBrn`);
-    const id = `canonical:${canonicalBrn}`;
-    if (ids.has(id)) throw new Error(`Persisted BRN ${id} appears more than once`);
+    const sourceZipCode = requiredString(brochure.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
+    if (!/^\d{5}$/.test(sourceZipCode) || !scopedZipCodes.has(sourceZipCode)) {
+      throw new Error(`Prospekt ${canonicalBrn} hat keine gültige Quell-PLZ`);
+    }
+    const id = canonicalRegionalId(sourceZipCode, canonicalBrn);
+    if (ids.has(id)) throw new Error(`Regionaler Prospekt ${id} erscheint mehrfach`);
     ids.add(id);
 
     if (
       !Array.isArray(brochure.availableZipCodes) ||
-      brochure.availableZipCodes.length === 0 ||
+      brochure.availableZipCodes.length !== 1 ||
       new Set(brochure.availableZipCodes).size !== brochure.availableZipCodes.length ||
-      brochure.availableZipCodes.some((zipCode) => !/^\d{5}$/.test(zipCode) || !scopedZipCodes.has(zipCode))
+      brochure.availableZipCodes[0] !== sourceZipCode
     ) {
       throw new Error(`Prospekt ${id} enthält ungültige oder nicht belegte PLZ-Verfügbarkeit`);
-    }
-    const sourceZipCode = requiredString(brochure.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
-    if (!scopedZipCodes.has(sourceZipCode) || !brochure.availableZipCodes.includes(sourceZipCode)) {
-      throw new Error(`Prospekt ${id} hat keine belegte PLZ für seinen Detailabruf`);
     }
 
     if (!Array.isArray(brochure.pages) || brochure.pages.length < 1 || brochure.pages.length !== brochure.pageCount) {
@@ -115,7 +115,9 @@ function persistedCatalog(value: unknown, scopedZipCodes: ReadonlySet<string>): 
   }
 
   return {
-    catalog: catalog.sort((left, right) => left.canonicalBrn.localeCompare(right.canonicalBrn)),
+    catalog: catalog.sort(
+      (left, right) => left.sourceZipCode.localeCompare(right.sourceZipCode) || left.canonicalBrn.localeCompare(right.canonicalBrn),
+    ),
     stores: [...stores.values()].sort((left, right) => left.id.localeCompare(right.id)),
   };
 }
@@ -200,7 +202,7 @@ async function main(): Promise<void> {
     },
   );
   console.log(
-    `Published ${result.catalogResult.uploadedCount} unique BRNs with availability for ${publication.scopedZipCodes.length} ZIP codes.`,
+    `Published ${result.catalogResult.uploadedCount} regional brochures across ${publication.scopedZipCodes.length} ZIP codes.`,
   );
 }
 

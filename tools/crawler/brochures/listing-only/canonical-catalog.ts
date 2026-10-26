@@ -1,5 +1,6 @@
 import type { CrawlerBrochure, LocationDump } from '../types';
 import { requiredBringImageUrl } from '../bring-image-url';
+import { regionalReferenceKey } from './fetch-detail-pages';
 
 type CatalogDump = Omit<LocationDump, 'brochures'> & {
   brochures: readonly CrawlerBrochure[];
@@ -16,8 +17,8 @@ function compareStrings(left: string, right: string): number {
   return left < right ? -1 : left > right ? 1 : 0;
 }
 
-function stableBrnId(brn: string): string {
-  return `canonical:${brn}`;
+export function canonicalRegionalId(zipCode: string, brn: string): string {
+  return `canonical:${zipCode}:${brn}`;
 }
 
 function validatedBrochure(brochure: CrawlerBrochure, zipCode: string): CanonicalCatalogRecord {
@@ -50,7 +51,7 @@ function validatedBrochure(brochure: CrawlerBrochure, zipCode: string): Canonica
 
   return {
     ...brochure,
-    id: stableBrnId(brochure.id),
+    id: canonicalRegionalId(zipCode, brochure.id),
     canonicalBrn: brochure.id,
     sourceZipCode: zipCode,
     pageCount: pages.length,
@@ -60,9 +61,7 @@ function validatedBrochure(brochure: CrawlerBrochure, zipCode: string): Canonica
   };
 }
 
-/**
- * Stores one Bring page set per BRN and keeps its listing ZIPs as separate availability.
- */
+/** Keeps each ZIP/BRN page set separate until regional equivalence is established. */
 export function buildCanonicalCatalog(
   dumps: readonly CatalogDump[],
 ): CanonicalCatalogRecord[] {
@@ -78,21 +77,15 @@ export function buildCanonicalCatalog(
         continue;
       }
 
-      const comparable = ({ sourceZipCode: _sourceZipCode, availableZipCodes: _availableZipCodes, ...metadata }: CanonicalCatalogRecord) => metadata;
-      if (JSON.stringify(comparable(existing)) !== JSON.stringify(comparable(record))) {
-        throw new Error(`BRN ${record.canonicalBrn} has conflicting detail metadata across ZIP codes`);
+      if (JSON.stringify(existing) !== JSON.stringify(record)) {
+        throw new Error(`Regional brochure ${regionalReferenceKey(record.sourceZipCode, record.canonicalBrn)} has conflicting detail metadata`);
       }
-      records.set(record.id, {
-        ...existing,
-        sourceZipCode: existing.sourceZipCode.localeCompare(record.sourceZipCode) <= 0
-          ? existing.sourceZipCode
-          : record.sourceZipCode,
-        availableZipCodes: [...new Set([...existing.availableZipCodes, ...record.availableZipCodes])].sort(compareStrings),
-      });
     }
   }
 
   return [...records.values()].sort(
-    (left, right) => compareStrings(left.canonicalBrn, right.canonicalBrn),
+    (left, right) =>
+      compareStrings(left.sourceZipCode, right.sourceZipCode) ||
+      compareStrings(left.canonicalBrn, right.canonicalBrn),
   );
 }

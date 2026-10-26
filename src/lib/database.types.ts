@@ -70,11 +70,11 @@ export type Database = {
         };
         Relationships: [
           {
-            foreignKeyName: "brochure_availability_canonical_brochure_id_fkey";
-            columns: ["canonical_brochure_id"];
+            foreignKeyName: "brochure_availability_regional_brochure_fk";
+            columns: ["canonical_brochure_id", "zip_code"];
             isOneToOne: false;
             referencedRelation: "canonical_brochures";
-            referencedColumns: ["id"];
+            referencedColumns: ["id", "source_zip_code"];
           },
         ];
       };

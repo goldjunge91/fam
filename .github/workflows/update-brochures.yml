@@ -32,14 +32,15 @@ permissions:
 # - After a scan-leg failure, use GitHub's "Re-run failed jobs". The failed ZIP
 #   legs and merge gates retry while successful scan shards remain available.
 # - The listing scan stores Bring CDN URLs as metadata. It does not download or
-#   upload image bytes. Detail-page JSON is fetched once per unique BRN because
-#   the listing response exposes only the cover page. ZIP visibility still comes
-#   only from each ZIP's own listing.
+#   upload image bytes. Detail-page JSON is fetched once per regional (PLZ, BRN)
+#   pair because the detail endpoint is scoped to the requested postal code and
+#   the listing response exposes only the cover page.
 # - Detail metadata progress is cached per run and attempt. Re-running the failed
-#   detail job resumes completed BRNs and retries failures.
+#   detail job resumes completed regional references and retries failures.
 # - To avoid rerunning PLZ scans after a detail failure, dispatch this workflow
 #   with detail_retry_run_id set to the failed source run. It validates and uses
-#   that run's scan artifacts and saved progress, then stops after detail output.
+#   that run's scan artifacts and saved progress, then continues through
+#   persistence, reporting, handoff, and publication.
 # - After persistence, reporting, or handoff fails, use "Re-run failed jobs".
 #   Successful predecessor phases and their immutable artifacts stay in place.
 # - After Supabase metadata publication fails, use workflow_dispatch with
@@ -392,6 +393,8 @@ jobs:
     outputs:
       manifest_sha256: ${{ steps.create-manifest.outputs.manifest_sha256 }}
       predecessor_manifest_sha256: ${{ steps.create-manifest.outputs.predecessor_manifest_sha256 }}
+      scan_manifest_sha256: ${{ inputs.detail_retry_run_id != '' && steps.source-manifests.outputs.scan_manifest_sha256 || needs.scan-merge.outputs.manifest_sha256 }}
+      scan_predecessor_manifest_sha256: ${{ inputs.detail_retry_run_id != '' && steps.source-manifests.outputs.scan_predecessor_manifest_sha256 || needs.scan-merge.outputs.predecessor_manifest_sha256 }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -528,7 +531,7 @@ jobs:
             } >> "$GITHUB_ENV"
           fi
 
-      - name: Fetch or reuse detail metadata by BRN
+      - name: Fetch or reuse detail metadata by regional PLZ/BRN pair
         id: fetch-details
         env:
           BROCHURE_LOCATIONS_FILE: ${{ runner.temp }}/brochure-prepare-inputs/geonames-DE.txt
@@ -568,13 +571,14 @@ jobs:
 
   persistence:
     name: BRN-Metadaten und PLZ-Verfügbarkeit persistieren
-    needs: [validate-secrets, scan-merge, detail-pages]
+    needs: [validate-secrets, validate-detail-retry-source, scan-merge, detail-pages]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
-          needs.scan-merge.result == 'success' &&
-          needs.detail-pages.result == 'success' }}
+          needs.detail-pages.result == 'success' &&
+          ((inputs.detail_retry_run_id == '' && needs.scan-merge.result == 'success') ||
+           (inputs.detail_retry_run_id != '' && needs.validate-detail-retry-source.result == 'success')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     outputs:
@@ -590,17 +594,23 @@ jobs:
       - name: Download scan merge artifact
         uses: actions/download-artifact@v5
         with:
-          name: brochure-scan-merge-${{ github.run_id }}
+          name: brochure-scan-merge-${{ inputs.detail_retry_run_id || github.run_id }}
           path: ${{ runner.temp }}/brochure-scan-merge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.detail_retry_run_id || github.run_id }}
 
       - name: Validate scan merge artifact
+        env:
+          GITHUB_RUN_ID: ${{ inputs.detail_retry_run_id || github.run_id }}
+          GITHUB_SHA: ${{ inputs.detail_retry_run_id != '' && needs.validate-detail-retry-source.outputs.commit_sha || github.sha }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
           --phase=scan-merge
           --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
           --files=all-stores-full.json
-          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+          --manifest-sha256="${{ needs.detail-pages.outputs.scan_manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.scan_predecessor_manifest_sha256 }}"
 
       - name: Download detail phase artifact
         uses: actions/download-artifact@v5
@@ -636,7 +646,7 @@ jobs:
             --phase=persistence \
             --artifact-dir="$artifact_dir" \
             --files=canonical-brochures.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.scan_manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }}"
 
       - name: Upload persistence phase artifact
         uses: actions/upload-artifact@v4
@@ -649,13 +659,15 @@ jobs:
 
   report:
     name: Konsistenzbericht erstellen
-    needs: [validate-secrets, scan-merge, persistence]
+    needs: [validate-secrets, validate-detail-retry-source, scan-merge, detail-pages, persistence]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
-          needs.scan-merge.result == 'success' &&
-          needs.persistence.result == 'success' }}
+          needs.detail-pages.result == 'success' &&
+          needs.persistence.result == 'success' &&
+          ((inputs.detail_retry_run_id == '' && needs.scan-merge.result == 'success') ||
+           (inputs.detail_retry_run_id != '' && needs.validate-detail-retry-source.result == 'success')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -671,17 +683,23 @@ jobs:
       - name: Download scan merge artifact
         uses: actions/download-artifact@v5
         with:
-          name: brochure-scan-merge-${{ github.run_id }}
+          name: brochure-scan-merge-${{ inputs.detail_retry_run_id || github.run_id }}
           path: ${{ runner.temp }}/brochure-scan-merge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.detail_retry_run_id || github.run_id }}
 
       - name: Validate scan merge artifact
+        env:
+          GITHUB_RUN_ID: ${{ inputs.detail_retry_run_id || github.run_id }}
+          GITHUB_SHA: ${{ inputs.detail_retry_run_id != '' && needs.validate-detail-retry-source.outputs.commit_sha || github.sha }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
           --phase=scan-merge
           --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
           --files=all-stores-full.json
-          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+          --manifest-sha256="${{ needs.detail-pages.outputs.scan_manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.scan_predecessor_manifest_sha256 }}"
 
       - name: Download persistence phase artifact
         uses: actions/download-artifact@v5
@@ -717,7 +735,7 @@ jobs:
             --phase=report \
             --artifact-dir="$artifact_dir" \
             --files=canonical-report.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.scan_manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }}"
 
       - name: Upload report phase artifact
         uses: actions/upload-artifact@v4
@@ -730,15 +748,16 @@ jobs:
 
   publication-handoff:
     name: Veröffentlichungs-Handoff erstellen
-    needs: [validate-secrets, scan-merge, detail-pages, persistence, report]
+    needs: [validate-secrets, validate-detail-retry-source, scan-merge, detail-pages, persistence, report]
     if: >-
       ${{ always() && inputs.resume_run_id == '' &&
           github.ref == 'refs/heads/main' &&
           needs.validate-secrets.result == 'success' &&
-          needs.scan-merge.result == 'success' &&
           needs.detail-pages.result == 'success' &&
           needs.persistence.result == 'success' &&
-          needs.report.result == 'success' }}
+          needs.report.result == 'success' &&
+          ((inputs.detail_retry_run_id == '' && needs.scan-merge.result == 'success') ||
+           (inputs.detail_retry_run_id != '' && needs.validate-detail-retry-source.result == 'success')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -755,17 +774,23 @@ jobs:
       - name: Download scan merge artifact
         uses: actions/download-artifact@v5
         with:
-          name: brochure-scan-merge-${{ github.run_id }}
+          name: brochure-scan-merge-${{ inputs.detail_retry_run_id || github.run_id }}
           path: ${{ runner.temp }}/brochure-scan-merge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.detail_retry_run_id || github.run_id }}
 
       - name: Validate scan merge artifact
+        env:
+          GITHUB_RUN_ID: ${{ inputs.detail_retry_run_id || github.run_id }}
+          GITHUB_SHA: ${{ inputs.detail_retry_run_id != '' && needs.validate-detail-retry-source.outputs.commit_sha || github.sha }}
         run: >-
           bun run tools/crawler/brochures/listing-only/phase-artifact.ts validate
           --phase=scan-merge
           --artifact-dir="${RUNNER_TEMP}/brochure-scan-merge"
           --files=all-stores-full.json
-          --manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }}"
-          --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.predecessor_manifest_sha256 }}"
+          --manifest-sha256="${{ needs.detail-pages.outputs.scan_manifest_sha256 }}"
+          --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.scan_predecessor_manifest_sha256 }}"
 
       - name: Download detail phase artifact
         uses: actions/download-artifact@v5
@@ -839,7 +864,7 @@ jobs:
             --phase=publication-handoff \
             --artifact-dir="$artifact_dir" \
             --files=publication-handoff.json \
-            --predecessor-manifest-sha256="${{ needs.scan-merge.outputs.manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }},${{ needs.report.outputs.manifest_sha256 }}"
+            --predecessor-manifest-sha256="${{ needs.detail-pages.outputs.scan_manifest_sha256 }},${{ needs.detail-pages.outputs.manifest_sha256 }},${{ needs.persistence.outputs.manifest_sha256 }},${{ needs.report.outputs.manifest_sha256 }}"
 
       - name: Upload metadata handoff and phase manifest
         uses: actions/upload-artifact@v4
@@ -898,7 +923,7 @@ jobs:
             "PLZ-Scan Shard 3"
             "PLZ-Scan zusammenführen"
             "Detail-Metadaten laden"
-            "Regionale Metadaten persistieren"
+            "BRN-Metadaten und PLZ-Verfügbarkeit persistieren"
             "Konsistenzbericht erstellen"
             "Veröffentlichungs-Handoff erstellen"
           )

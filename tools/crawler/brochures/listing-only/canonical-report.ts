@@ -3,6 +3,7 @@
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import type { PersistedCanonicalBrochure } from './persist-canonical';
+import { regionalReferenceKey } from './fetch-detail-pages';
 
 export type CanonicalReport = {
   naive: number;
@@ -77,8 +78,12 @@ function parsePersisted(value: unknown): PersistedCanonicalBrochure[] {
       throw new Error(`Persisted brochure ${canonicalBrn} has invalid ZIP availability`);
     }
     const sourceZipCode = requiredString(entry.sourceZipCode, `Persisted brochure ${index + 1} sourceZipCode`);
-    if (!/^\d{5}$/.test(sourceZipCode) || !availableZipCodes.includes(sourceZipCode)) {
-      throw new Error(`Persisted brochure ${canonicalBrn} has no listed source ZIP`);
+    if (
+      !/^\d{5}$/.test(sourceZipCode) ||
+      availableZipCodes.length !== 1 ||
+      availableZipCodes[0] !== sourceZipCode
+    ) {
+      throw new Error(`Persisted brochure ${canonicalBrn} must be scoped to its single source ZIP`);
     }
     const pageCount = positiveInteger(entry.pageCount, `Persisted brochure ${index + 1} pageCount`);
     if (!Array.isArray(entry.pages) || entry.pages.length !== pageCount) {
@@ -94,24 +99,22 @@ export function buildCanonicalReport(input: {
 }): CanonicalReport {
   const sightings = parseFullScan(input.fullScan);
   const brochures = parsePersisted(input.persistedBrochures);
-  const byBrn = new Map<string, PersistedCanonicalBrochure>();
+  const byReference = new Map<string, PersistedCanonicalBrochure>();
   for (const brochure of brochures) {
-    if (byBrn.has(brochure.canonicalBrn)) {
-      throw new Error(`BRN ${brochure.canonicalBrn} appears more than once in the persisted catalog`);
+    const referenceKey = regionalReferenceKey(brochure.sourceZipCode, brochure.canonicalBrn);
+    if (byReference.has(referenceKey)) {
+      throw new Error(`Regional reference ${referenceKey} appears more than once in the persisted catalog`);
     }
-    byBrn.set(brochure.canonicalBrn, brochure);
+    byReference.set(referenceKey, brochure);
   }
 
   const naiveByStore = new Map<string, number>();
   const metadataGroupsByStore = new Map<string, Set<string>>();
   const seenAvailability = new Set<string>();
   for (const sighting of sightings) {
-    const key = `${sighting.zipCode}:${sighting.brn}`;
-    const brochure = byBrn.get(sighting.brn);
-    if (!brochure) throw new Error(`Persisted catalog is missing listed BRN ${sighting.brn}`);
-    if (!brochure.availableZipCodes.includes(sighting.zipCode)) {
-      throw new Error(`Persisted catalog is missing availability for ${key}`);
-    }
+    const key = regionalReferenceKey(sighting.zipCode, sighting.brn);
+    const brochure = byReference.get(key);
+    if (!brochure) throw new Error(`Persisted catalog is missing regional reference ${key}`);
     if (
       brochure.storeName !== sighting.storeName ||
       brochure.title !== sighting.title ||
@@ -123,7 +126,7 @@ export function buildCanonicalReport(input: {
   }
   for (const brochure of brochures) {
     for (const zipCode of brochure.availableZipCodes) {
-      const key = `${zipCode}:${brochure.canonicalBrn}`;
+      const key = regionalReferenceKey(zipCode, brochure.canonicalBrn);
       if (!seenAvailability.has(key)) throw new Error(`Persisted catalog contains unavailable regional reference ${key}`);
     }
   }
@@ -131,7 +134,14 @@ export function buildCanonicalReport(input: {
   const canonicalByStore = new Map<string, number>();
   for (const brochure of brochures) {
     canonicalByStore.set(brochure.storeName, (canonicalByStore.get(brochure.storeName) ?? 0) + 1);
-    const groupKey = JSON.stringify([brochure.storeName, brochure.validFrom, brochure.validUntil, brochure.pageCount]);
+    const groupKey = JSON.stringify([
+      brochure.storeId,
+      brochure.title,
+      brochure.validFrom,
+      brochure.validUntil,
+      brochure.coverImage,
+      brochure.pages,
+    ]);
     const groups = metadataGroupsByStore.get(brochure.storeName) ?? new Set<string>();
     groups.add(groupKey);
     metadataGroupsByStore.set(brochure.storeName, groups);
@@ -189,7 +199,7 @@ async function main(): Promise<void> {
   const temporaryPath = `${args.outputPath}.${process.pid}.tmp`;
   await writeFile(temporaryPath, JSON.stringify(output, null, 2), 'utf8');
   await rename(temporaryPath, args.outputPath);
-  console.log(`PLZ-Listungssichtungen: ${report.naive} | eindeutige BRNs: ${report.canonical} | Metadaten-Gruppen: ${report.metadata_groups} | Ersparnis: ${report.savings_percent}% | Report: ${args.outputPath}`);
+  console.log(`PLZ-Listungssichtungen: ${report.naive} | regionale Prospekte: ${report.canonical} | Metadaten-Gruppen: ${report.metadata_groups} | Ersparnis: ${report.savings_percent}% | Report: ${args.outputPath}`);
 }
 
 if (process.argv[1]?.endsWith('canonical-report.ts')) {

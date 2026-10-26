@@ -3,7 +3,8 @@
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import type { CachedPageMetadata } from './fetch-detail-pages';
-import { requiredBringImageUrl } from '../bring-image-url';
+import { regionalReferenceKey } from './fetch-detail-pages';
+import { bringImageUrl, requiredBringImageUrl } from '../bring-image-url';
 import type { CrawlerHotspot, CrawlerPage } from '../types';
 
 export type PersistedCanonicalBrochure = {
@@ -90,8 +91,8 @@ function parseMetadata(value: unknown): Record<string, CachedPageMetadata> {
     if (!isRecord(entry)) throw new Error(`Detail metadata ${referenceKey} must be an object`);
     const brn = requiredString(entry.brn, `${referenceKey} BRN`);
     const sourceZipCode = requiredString(entry.zipCode, `${referenceKey} ZIP code`);
-    if (!/^\d{5}$/.test(sourceZipCode) || brn !== referenceKey) {
-      throw new Error(`Detail metadata ${referenceKey} has an invalid BRN identity`);
+    if (!/^\d{5}$/.test(sourceZipCode) || regionalReferenceKey(sourceZipCode, brn) !== referenceKey) {
+      throw new Error(`Detail metadata ${referenceKey} has an invalid ZIP/BRN identity`);
     }
     const pages = parsePages(entry.pages, `Detail metadata ${referenceKey}`);
     const coverImage = requiredBringImageUrl(entry.coverImage, `${referenceKey} cover image`);
@@ -124,14 +125,15 @@ export function buildPersistedCanonicalBrochures(value: unknown): PersistedCanon
   const fullScan = value.fullScan;
   if (!isRecord(fullScan.byZipCode)) throw new Error('Full scan must contain a byZipCode object');
   const metadata = parseMetadata(value.detailPageMetadata);
-  const listingByBrn = new Map<string, {
+  const listingByReference = new Map<string, {
+    referenceKey: string;
+    zipCode: string;
     brn: string;
     storeName: string;
     title: string;
     validFrom: string;
     validUntil: string;
     coverImage?: string;
-    availableZipCodes: Set<string>;
   }>();
 
   for (const zipCode of Object.keys(fullScan.byZipCode).sort()) {
@@ -141,15 +143,15 @@ export function buildPersistedCanonicalBrochures(value: unknown): PersistedCanon
     for (const [index, rawOffer] of offers.entries()) {
       if (!isRecord(rawOffer)) throw new Error(`Offer ${index + 1} for ZIP ${zipCode} must be an object`);
       const brn = requiredString(rawOffer.brn, `BRN for ZIP ${zipCode}`);
-      const referenceKey = brn;
+      const referenceKey = regionalReferenceKey(zipCode, brn);
       const storeName = requiredString(rawOffer.storeName, `${referenceKey} storeName`);
       const title = requiredString(rawOffer.title, `${referenceKey} title`);
       const validFrom = requiredString(rawOffer.validFrom, `${referenceKey} validFrom`);
       const validUntil = requiredString(rawOffer.validUntil, `${referenceKey} validUntil`);
       const coverImage = typeof rawOffer.coverImage === 'string'
-        ? requiredBringImageUrl(rawOffer.coverImage, `${referenceKey} listing cover`)
+        ? bringImageUrl(rawOffer.coverImage)?.toString()
         : undefined;
-      const existing = listingByBrn.get(brn);
+      const existing = listingByReference.get(referenceKey);
       if (existing) {
         if (
           existing.storeName !== storeName ||
@@ -158,57 +160,59 @@ export function buildPersistedCanonicalBrochures(value: unknown): PersistedCanon
           existing.validUntil !== validUntil ||
           (existing.coverImage !== undefined && coverImage !== undefined && existing.coverImage !== coverImage)
         ) {
-          throw new Error(`Bring-Listingmetadaten für ${brn} unterscheiden sich zwischen PLZ-Bereichen`);
+          throw new Error(`Bring-Listingmetadaten für ${referenceKey} unterscheiden sich innerhalb derselben PLZ`);
         }
         existing.coverImage ??= coverImage;
-        existing.availableZipCodes.add(zipCode);
       } else {
-        listingByBrn.set(brn, {
+        listingByReference.set(referenceKey, {
+          referenceKey,
+          zipCode,
           brn,
           storeName,
           title,
           validFrom,
           validUntil,
           ...(coverImage ? { coverImage } : {}),
-          availableZipCodes: new Set([zipCode]),
         });
       }
     }
   }
 
   const brochures: PersistedCanonicalBrochure[] = [];
-  for (const [brn, listing] of [...listingByBrn.entries()].sort(([left], [right]) => left.localeCompare(right))) {
-    const detail = metadata[brn];
-    if (!detail) throw new Error(`Missing complete detail metadata for ${brn}`);
-    if (!listing.availableZipCodes.has(detail.zipCode)) {
-      throw new Error(`Detail metadata ${brn} was fetched from a ZIP absent from its Bring listing`);
+  for (const [referenceKey, listing] of [...listingByReference.entries()].sort(([left], [right]) => left.localeCompare(right))) {
+    const detail = metadata[referenceKey];
+    if (!detail) throw new Error(`Missing complete detail metadata for ${referenceKey}`);
+    if (detail.zipCode !== listing.zipCode) {
+      throw new Error(`Detail metadata ${referenceKey} was fetched for a different ZIP`);
     }
-    if (detail.title !== listing.title) throw new Error(`Detail metadata ${brn} title differs from listing`);
+    if (detail.title !== listing.title) throw new Error(`Detail metadata ${referenceKey} title differs from listing`);
     if (detail.validFrom !== listing.validFrom || detail.validUntil !== listing.validUntil) {
-      throw new Error(`Detail metadata ${brn} validity differs from listing`);
+      throw new Error(`Detail metadata ${referenceKey} validity differs from listing`);
     }
     if (listing.coverImage !== undefined && listing.coverImage !== detail.coverImage) {
-      throw new Error(`Detail metadata ${brn} cover differs from listing`);
+      throw new Error(`Detail metadata ${referenceKey} cover differs from listing`);
     }
 
     const pages = detail.pages.map((page) => ({ ...page, hotspots: [...page.hotspots] }));
     brochures.push({
-      canonicalBrn: brn,
-      sourceZipCode: detail.zipCode,
+      canonicalBrn: listing.brn,
+      sourceZipCode: listing.zipCode,
       storeName: listing.storeName,
       storeId: detail.storeId,
       title: listing.title,
       validFrom: listing.validFrom,
       validUntil: listing.validUntil,
       pageCount: pages.length,
-      availableZipCodes: [...listing.availableZipCodes].sort(),
+      availableZipCodes: [listing.zipCode],
       coverImage: detail.coverImage,
       pageUrls: pages.map(({ imageUrl }) => imageUrl),
       pages,
     });
   }
 
-  return brochures;
+  return brochures.sort(
+    (left, right) => left.sourceZipCode.localeCompare(right.sourceZipCode) || left.canonicalBrn.localeCompare(right.canonicalBrn),
+  );
 }
 
 export function parsePersistCanonicalArguments(args: readonly string[]): PersistCanonicalArguments {

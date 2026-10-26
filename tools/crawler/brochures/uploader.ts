@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { requiredBringImageUrl } from './bring-image-url';
-import type { CanonicalCatalogRecord } from './listing-only/canonical-catalog';
+import { canonicalRegionalId, type CanonicalCatalogRecord } from './listing-only/canonical-catalog';
 import type { CrawlerStore } from './types';
 
 export type UploaderConfig = {
@@ -63,18 +63,19 @@ export async function publishCanonicalCatalog(
   if (zipScope.length === 0) return { uploadedCount: 0, storesCount: 0 };
 
   const zipScopeSet = new Set(zipScope);
-  const publishedBrns = new Set<string>();
+  const publishedReferences = new Set<string>();
   for (const record of catalog) {
-    if (publishedBrns.has(record.canonicalBrn)) {
-      throw new Error(`BRN ${record.canonicalBrn} kommt mehrfach im Katalog vor.`);
+    const reference = `${record.sourceZipCode}:${record.canonicalBrn}`;
+    if (publishedReferences.has(reference)) {
+      throw new Error(`Regionaler Prospekt ${reference} kommt mehrfach im Katalog vor.`);
     }
-    publishedBrns.add(record.canonicalBrn);
+    publishedReferences.add(reference);
     if (
       !zipScopeSet.has(record.sourceZipCode) ||
-      record.availableZipCodes.length === 0 ||
+      record.id !== canonicalRegionalId(record.sourceZipCode, record.canonicalBrn) ||
+      record.availableZipCodes.length !== 1 ||
       new Set(record.availableZipCodes).size !== record.availableZipCodes.length ||
-      record.availableZipCodes.some((zipCode) => !/^\d{5}$/.test(zipCode) || !zipScopeSet.has(zipCode)) ||
-      !record.availableZipCodes.includes(record.sourceZipCode)
+      record.availableZipCodes[0] !== record.sourceZipCode
     ) {
       throw new Error(`Prospekt ${record.id} enthält ungültige oder nicht belegte PLZ-Verfügbarkeit.`);
     }

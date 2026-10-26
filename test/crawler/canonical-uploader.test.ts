@@ -4,7 +4,7 @@ import { publishCanonicalCatalog } from '../../tools/crawler/brochures/uploader'
 import type { CanonicalCatalogRecord } from '../../tools/crawler/brochures/listing-only/canonical-catalog';
 
 const record: CanonicalCatalogRecord = {
-  id: 'canonical:brn-1',
+  id: 'canonical:10000:brn-1',
   canonicalBrn: 'brn-1',
   sourceZipCode: '10000',
   storeId: 'lidl',
@@ -23,7 +23,7 @@ const record: CanonicalCatalogRecord = {
   availableZipCodes: ['10000'],
 };
 
-describe('canonical brochure publication', () => {
+describe('regional brochure publication', () => {
   it('upserts store metadata then atomically replaces the complete catalog', async () => {
     const storeUpsert = jest.fn(async () => ({ error: null }));
     const from = jest.fn(() => ({ upsert: storeUpsert }));
@@ -47,7 +47,7 @@ describe('canonical brochure publication', () => {
     expect(rpc).toHaveBeenCalledWith('replace_canonical_brochure_catalog', {
       p_records: [
         {
-        id: 'canonical:brn-1',
+          id: 'canonical:10000:brn-1',
           canonical_brn: 'brn-1',
           source_zip_code: '10000',
           store_id: 'lidl',
@@ -124,5 +124,29 @@ describe('canonical brochure publication', () => {
       ),
     ).rejects.toThrow('enthält ungültige oder nicht belegte PLZ-Verfügbarkeit');
     expect(rpc).not.toHaveBeenCalled();
+  });
+
+  it('accepts the same BRN as separate rows for different ZIPs', async () => {
+    const rpc = jest.fn(async () => ({ data: null, error: null }));
+    const from = jest.fn(() => ({ upsert: async () => ({ error: null }) }));
+    const otherRegion = {
+      ...record,
+      id: 'canonical:10100:brn-1',
+      sourceZipCode: '10100',
+      availableZipCodes: ['10100'],
+    };
+
+    await expect(publishCanonicalCatalog(
+      { from, rpc } as unknown as SupabaseClient,
+      [record, otherRegion],
+      [{ id: 'lidl', name: 'Lidl' }],
+      ['10000', '10100'],
+    )).resolves.toEqual({ uploadedCount: 2, storesCount: 1 });
+    expect(rpc).toHaveBeenCalledWith('replace_canonical_brochure_catalog', expect.objectContaining({
+      p_records: expect.arrayContaining([
+        expect.objectContaining({ id: 'canonical:10000:brn-1', available_zip_codes: ['10000'] }),
+        expect.objectContaining({ id: 'canonical:10100:brn-1', available_zip_codes: ['10100'] }),
+      ]),
+    }));
   });
 });

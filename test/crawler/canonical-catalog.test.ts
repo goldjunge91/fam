@@ -26,34 +26,39 @@ function dump(zipCode: string, brochures: ReturnType<typeof brochure>[]) {
 }
 
 describe('BRN-Prospektkatalog', () => {
-  it('speichert eine BRN-Ausgabe und verknüpft jede gelistete PLZ', () => {
+  it('speichert für dieselbe BRN getrennte Ausgaben je PLZ', () => {
     const catalog = buildCanonicalCatalog([
       dump('10000', [brochure('brn-a')]),
       dump('20000', [brochure('brn-a')]),
     ]);
 
-    expect(catalog).toHaveLength(1);
-    expect(catalog[0]).toMatchObject({
-      id: 'canonical:brn-a',
-      canonicalBrn: 'brn-a',
-      sourceZipCode: '10000',
-      availableZipCodes: ['10000', '20000'],
-    });
+    expect(catalog).toHaveLength(2);
+    expect(catalog.map(({ id, sourceZipCode, availableZipCodes }) => ({ id, sourceZipCode, availableZipCodes })))
+      .toEqual([
+        { id: 'canonical:10000:brn-a', sourceZipCode: '10000', availableZipCodes: ['10000'] },
+        { id: 'canonical:20000:brn-a', sourceZipCode: '20000', availableZipCodes: ['20000'] },
+      ]);
   });
 
-  it('dedupliziert identische Wiederholungen innerhalb und zwischen ZIPs', () => {
+  it('dedupliziert identische Wiederholungen innerhalb derselben ZIP', () => {
     const catalog = buildCanonicalCatalog([dump('10000', [brochure('brn-a'), brochure('brn-a')])]);
 
     expect(catalog).toHaveLength(1);
   });
 
-  it('verhindert widersprüchliche Detaildaten derselben BRN in verschiedenen ZIPs', () => {
+  it('lässt regionale Detaildaten für dieselbe BRN unabhängig voneinander', () => {
+    expect(buildCanonicalCatalog([
+      dump('10000', [brochure('brn-a')]),
+      dump('20000', [brochure('brn-a', 'Andere Ausgabe')]),
+    ])).toHaveLength(2);
+  });
+
+  it('verhindert widersprüchliche wiederholte Detaildaten derselben PLZ und BRN', () => {
     expect(() =>
       buildCanonicalCatalog([
-        dump('10000', [brochure('brn-a')]),
-        dump('20000', [brochure('brn-a', 'Andere Ausgabe')]),
+        dump('10000', [brochure('brn-a'), brochure('brn-a', 'Andere Ausgabe')]),
       ]),
-    ).toThrow('conflicting detail metadata across ZIP codes');
+    ).toThrow('Regional brochure 10000:brn-a has conflicting detail metadata');
   });
 
   it('akzeptiert nur die validierten Bring-Quell-URLs', () => {

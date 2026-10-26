@@ -77,7 +77,7 @@ export function buildBrnReferences(
 
     for (const offer of offers) {
       if (!offer.brn) continue;
-      const referenceKey = offer.brn;
+      const referenceKey = regionalReferenceKey(zipCode, offer.brn);
       if (references.has(referenceKey)) continue;
       references.set(referenceKey, {
         brn: offer.brn,
@@ -89,18 +89,21 @@ export function buildBrnReferences(
     }
   }
 
-  return [...references.values()].sort((left, right) => left.brn.localeCompare(right.brn));
+  return [...references.values()].sort(
+    (left, right) => left.zipCode.localeCompare(right.zipCode) || left.brn.localeCompare(right.brn),
+  );
 }
 
-export function buildOffersByBrn(fullScan: FullScan): Map<string, FullScanOffer> {
+export function buildOffersByRegionalReference(fullScan: FullScan): Map<string, FullScanOffer> {
   const offers = new Map<string, FullScanOffer>();
   const comparableFields = ['storeName', 'title', 'validFrom', 'validUntil', 'coverImage'] as const;
 
   for (const zipCode of Object.keys(fullScan.byZipCode).sort()) {
     for (const offer of fullScan.byZipCode[zipCode] ?? []) {
-      const existing = offers.get(offer.brn);
+      const referenceKey = regionalReferenceKey(zipCode, offer.brn);
+      const existing = offers.get(referenceKey);
       if (!existing) {
-        offers.set(offer.brn, { ...offer });
+        offers.set(referenceKey, { ...offer });
         continue;
       }
 
@@ -108,7 +111,7 @@ export function buildOffersByBrn(fullScan: FullScan): Map<string, FullScanOffer>
         const currentValue = existing[field];
         const nextValue = offer[field];
         if (currentValue && nextValue && currentValue !== nextValue) {
-          throw new Error(`Bring-Listingmetadaten für ${offer.brn} unterscheiden sich zwischen PLZ ${zipCode} und anderen Regionen.`);
+          throw new Error(`Bring-Listingmetadaten für ${referenceKey} unterscheiden sich innerhalb derselben PLZ.`);
         }
         if (!currentValue && nextValue) existing[field] = nextValue;
       }
@@ -223,13 +226,13 @@ export function pageMetadataFromDetail(
 
 export function summarizeDetailPages(detailPages: Record<string, number>) {
   const pageCounts = Object.values(detailPages);
-  const multiplePageBrns = pageCounts.filter((pageCount) => pageCount > 1).length;
+  const multiplePageReferences = pageCounts.filter((pageCount) => pageCount > 1).length;
 
   return {
-    totalBrns: pageCounts.length,
-    multiplePageBrns,
+    totalRegionalReferences: pageCounts.length,
+    multiplePageReferences,
     multiplePagePercent:
-      pageCounts.length === 0 ? 0 : Math.round((multiplePageBrns / pageCounts.length) * 1000) / 10,
+      pageCounts.length === 0 ? 0 : Math.round((multiplePageReferences / pageCounts.length) * 1000) / 10,
   };
 }
 
@@ -339,15 +342,15 @@ function asPageCounts(value: unknown): Record<string, number> {
 function asPageMetadata(value: unknown): Record<string, CachedPageMetadata> {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) return {};
   return Object.fromEntries(
-    Object.entries(value).filter(([, entry]) => {
+    Object.entries(value).filter(([referenceKey, entry]) => {
       if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) return false;
       const candidate = entry as Partial<CachedPageMetadata>;
       return Boolean(
-        typeof candidate.referenceKey === 'string' &&
+        candidate.referenceKey === referenceKey &&
         typeof candidate.brn === 'string' &&
         typeof candidate.zipCode === 'string' &&
         /^\d{5}$/.test(candidate.zipCode) &&
-        candidate.referenceKey === candidate.brn &&
+        candidate.referenceKey === regionalReferenceKey(candidate.zipCode, candidate.brn) &&
         typeof candidate.title === 'string' &&
         candidate.title.length > 0 &&
         typeof candidate.storeId === 'string' &&
@@ -417,6 +420,7 @@ export function reusableDetailMetadataFromCatalog(options: {
   if (!isRecord(options.row)) return undefined;
   if (
     options.row.canonical_brn !== options.reference.brn ||
+    options.row.source_zip_code !== options.reference.zipCode ||
     options.row.title !== options.offer.title ||
     !sameTimestamp(options.row.valid_from, options.offer.validFrom) ||
     !sameTimestamp(options.row.valid_until, options.offer.validUntil) ||
@@ -475,7 +479,7 @@ export function reusableDetailMetadataFromCatalog(options: {
 
 export async function loadReusableDetailMetadata(options: {
   references: readonly BrnReference[];
-  offersByBrn: ReadonlyMap<string, FullScanOffer>;
+  offersByReference: ReadonlyMap<string, FullScanOffer>;
   supabaseUrl?: string;
   supabaseSecretKey?: string;
   fetcher?: typeof fetch;
@@ -507,9 +511,14 @@ export async function loadReusableDetailMetadata(options: {
   for (let index = 0; index < referenceBatches.length; index += concurrency) {
     const batchGroup = referenceBatches.slice(index, index + concurrency);
     await Promise.all(batchGroup.map(async (references) => {
+      const quoteFilterValue = (value: string) =>
+        `"${value.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`;
+      const pairFilters = references.map(({ brn, zipCode }) =>
+        `and(canonical_brn.eq.${quoteFilterValue(brn)},source_zip_code.eq.${zipCode})`
+      );
       const query = new URLSearchParams({
-        select: 'canonical_brn,title,store_id,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(name)',
-        canonical_brn: `in.(${references.map(({ brn }) => `"${brn.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`).join(',')})`,
+        select: 'canonical_brn,source_zip_code,title,store_id,valid_from,valid_until,page_count,cover_image,pages,store:brochure_stores!inner(name)',
+        or: `(${pairFilters.join(',')})`,
         valid_until: `gte.${(options.now ?? new Date()).toISOString()}`,
         limit: '100',
       });
@@ -526,17 +535,22 @@ export async function loadReusableDetailMetadata(options: {
       const rows = await response.json() as unknown;
       if (!Array.isArray(rows)) throw new Error('Katalogdetails haben kein gültiges Listenformat.');
 
-      const rowsByBrn = new Map<string, unknown[]>();
+      const rowsByReference = new Map<string, unknown[]>();
       for (const row of rows) {
-        if (!isRecord(row) || typeof row.canonical_brn !== 'string') continue;
-        const matchingRows = rowsByBrn.get(row.canonical_brn) ?? [];
+        if (
+          !isRecord(row) ||
+          typeof row.canonical_brn !== 'string' ||
+          typeof row.source_zip_code !== 'string'
+        ) continue;
+        const key = regionalReferenceKey(row.source_zip_code, row.canonical_brn);
+        const matchingRows = rowsByReference.get(key) ?? [];
         matchingRows.push(row);
-        rowsByBrn.set(row.canonical_brn, matchingRows);
+        rowsByReference.set(key, matchingRows);
       }
 
       for (const reference of references) {
-        const offer = options.offersByBrn.get(reference.brn);
-        const matchingRows = rowsByBrn.get(reference.brn);
+        const offer = options.offersByReference.get(reference.referenceKey);
+        const matchingRows = rowsByReference.get(reference.referenceKey);
         if (!offer || !offer.title || !offer.validFrom || !offer.validUntil || matchingRows?.length !== 1) continue;
         const metadata = reusableDetailMetadataFromCatalog({
           reference,
@@ -564,7 +578,7 @@ async function main(): Promise<void> {
   const references = buildBrnReferences(fullScan, locations);
   if (references.length === 0) throw new Error('Im Voll-Scan wurden keine BRNs gefunden.');
 
-  const offersByBrn = buildOffersByBrn(fullScan);
+  const offersByReference = buildOffersByRegionalReference(fullScan);
 
   const headers = buildBringHeaders(loadBringTokens());
   const progress = await readProgress(progressPath);
@@ -577,7 +591,7 @@ async function main(): Promise<void> {
   }
   const reusableCatalogMetadata = await loadReusableDetailMetadata({
     references,
-    offersByBrn,
+    offersByReference,
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseSecretKey: process.env.SUPABASE_SECRET_KEY,
   });
@@ -588,7 +602,7 @@ async function main(): Promise<void> {
   };
   delete progress.legacyMetadata;
   for (const reference of references) {
-    const offer = offersByBrn.get(reference.brn);
+    const offer = offersByReference.get(reference.referenceKey);
     const cached = pageMetadata[reference.referenceKey];
     if (!cached) continue;
     if (
@@ -606,14 +620,17 @@ async function main(): Promise<void> {
     progress.completed[referenceKey] = metadata.pages.length;
   }
   try {
-    Object.assign(progress.completed, asPageCounts(JSON.parse(await readFile(outputPath, 'utf8'))));
+    const previousCounts = asPageCounts(JSON.parse(await readFile(outputPath, 'utf8')));
+    for (const [referenceKey, pageCount] of Object.entries(previousCounts)) {
+      if (referenceKeys.has(referenceKey)) progress.completed[referenceKey] = pageCount;
+    }
   } catch {
     // The final output is optional while an interrupted run resumes from progress.
   }
 
   const pending = references.filter(({ referenceKey }) => pageMetadata[referenceKey] === undefined);
   console.log(
-    `Detail-Seitenzahlen: ${pending.length} von ${references.length} eindeutigen BRNs ausstehend | Concurrency: ${concurrency}`,
+    `Detail-Seitenzahlen: ${pending.length} von ${references.length} regionalen Referenzen ausstehend | Concurrency: ${concurrency}`,
   );
 
   for (let index = 0; index < pending.length; index += concurrency) {
@@ -623,7 +640,7 @@ async function main(): Promise<void> {
       batch.map(async (reference) => {
         try {
           const detail = await fetchJsonWithRetry(buildDetailUrl(reference), headers);
-          const offer = offersByBrn.get(reference.brn);
+          const offer = offersByReference.get(reference.referenceKey);
           if (
             !offer || !offer.storeName || !offer.title || !offer.validFrom || !offer.validUntil
           ) {
@@ -676,7 +693,7 @@ async function main(): Promise<void> {
   const missingReferences = references.filter(({ referenceKey }) => pageMetadata[referenceKey] === undefined);
   const failures = missingReferences.map(({ referenceKey }) => `${referenceKey}: ${progress.failures[referenceKey] ?? 'keine Detailantwort'}`);
   if (failures.length > 0) {
-    console.error(`${failures.length} BRNs ohne Detail-Seitenzahl; Fortschritt bleibt in ${progressPath}.`);
+    console.error(`${failures.length} regionale Referenzen ohne vollständige Seiten; Fortschritt bleibt in ${progressPath}.`);
     for (const failure of failures) console.error(failure);
     process.exitCode = 1;
     return;
@@ -691,7 +708,7 @@ async function main(): Promise<void> {
   await unlink(progressPath).catch(() => undefined);
   await unlink(pageMetadataProgressPath).catch(() => undefined);
   console.log(
-    `Fertig: ${summary.totalBrns} eindeutige BRNs, ${summary.multiplePageBrns} mit mehr als einer Seite (${summary.multiplePagePercent} %), 0 Hard-Failures.`,
+    `Fertig: ${summary.totalRegionalReferences} regionale Referenzen, ${summary.multiplePageReferences} mit mehr als einer Seite (${summary.multiplePagePercent} %), 0 Hard-Failures.`,
   );
   console.log(`Report: ${outputPath}`);
 }

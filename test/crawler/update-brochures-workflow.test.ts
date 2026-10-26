@@ -16,11 +16,11 @@ describe('BRN brochure metadata workflow', () => {
     expect(workflow).toContain('retention-days: 30');
   });
 
-  it('fetches detail metadata once per BRN and publishes Bring URLs without R2 image storage', async () => {
+  it('fetches detail metadata per regional PLZ/BRN pair and publishes Bring URLs without R2 image storage', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
 
-    expect(workflow).toContain('Detail-page JSON is fetched once per unique BRN');
-    expect(workflow).toContain('Fetch or reuse detail metadata by BRN');
+    expect(workflow).toContain('Detail-page JSON is fetched once per regional (PLZ, BRN)');
+    expect(workflow).toContain('Fetch or reuse detail metadata by regional PLZ/BRN pair');
     expect(workflow).toContain('SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}');
     expect(workflow).toContain('SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}');
     expect(workflow).toContain('Persist BRN metadata and listing availability');
@@ -47,7 +47,7 @@ describe('BRN brochure metadata workflow', () => {
     expect(workflow).toContain('inputs.resume_run_id != \'\'');
   });
 
-  it('retries only detail metadata from a validated source scan without rescanning PLZs', async () => {
+  it('retries details from a validated source scan and carries those artifacts through publication', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
 
     expect(workflow).toContain('detail_retry_run_id:');
@@ -56,6 +56,10 @@ describe('BRN brochure metadata workflow', () => {
     expect(workflow).toContain('Download scan merge artifact from source run');
     expect(workflow).toContain('brochure-detail-progress-${{ inputs.detail_retry_run_id || github.run_id }}-');
     expect(workflow).toContain("inputs.detail_retry_run_id == ''");
+    expect(workflow).toContain('then continues through');
+    expect(workflow).toContain('needs.detail-pages.outputs.scan_manifest_sha256');
+    expect(workflow).toContain('needs.validate-detail-retry-source.outputs.commit_sha');
+    expect(workflow).toContain('"BRN-Metadaten und PLZ-Verfügbarkeit persistieren"');
   });
 
 });

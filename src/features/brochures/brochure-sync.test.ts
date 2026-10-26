@@ -92,6 +92,7 @@ function canonicalRow(
     brochure: {
       id: brochureId,
       canonical_brn: `brn-${brochureId}`,
+      source_zip_code: zipCode,
       store_id: 'store-1',
       title: `Brochure ${brochureId}`,
       valid_from: '2026-10-01T00:00:00.000Z',
@@ -135,6 +136,14 @@ describe('mapCanonicalAvailabilityRows', () => {
         logoUrl: 'https://cdn.bringapi.app/content/store/logo.png',
       },
     ]);
+  });
+
+  it('rejects an availability row linked to brochure metadata from another ZIP', () => {
+    const row = canonicalRow('10000', 'regional', { source_zip_code: '20000' });
+
+    expect(() => mapCanonicalAvailabilityRows([row], '10000')).toThrow(
+      'Invalid canonical brochure regional identity',
+    );
   });
 
   it('preserves every page and its full hotspot data', () => {

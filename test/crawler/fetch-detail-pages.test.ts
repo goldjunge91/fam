@@ -1,7 +1,7 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import {
   buildBrnReferences,
-  buildOffersByBrn,
+  buildOffersByRegionalReference,
   loadReusableDetailMetadata,
   pageMetadataFromDetail,
   pageCountFromDetail,
@@ -10,7 +10,7 @@ import {
 } from '../../tools/crawler/brochures/listing-only/fetch-detail-pages';
 
 describe('fetch-detail-pages', () => {
-  it('schedules one deterministic detail request per unique BRN', () => {
+  it('schedules one deterministic detail request per regional BRN reference', () => {
     const references = buildBrnReferences(
       {
         byZipCode: {
@@ -25,18 +25,30 @@ describe('fetch-detail-pages', () => {
     );
 
     expect(references).toEqual([
-      { brn: 'brn-a', referenceKey: 'brn-a', zipCode: '11111', latitude: 1, longitude: 1 },
-      { brn: 'brn-b', referenceKey: 'brn-b', zipCode: '22222', latitude: 2, longitude: 2 },
+      { brn: 'brn-a', referenceKey: '11111:brn-a', zipCode: '11111', latitude: 1, longitude: 1 },
+      { brn: 'brn-a', referenceKey: '22222:brn-a', zipCode: '22222', latitude: 2, longitude: 2 },
+      { brn: 'brn-b', referenceKey: '22222:brn-b', zipCode: '22222', latitude: 2, longitude: 2 },
     ]);
   });
 
-  it('rejects conflicting listing metadata for one BRN before reusing one detail response', () => {
-    expect(() => buildOffersByBrn({
+  it('keeps region-specific listing metadata for the same BRN separate', () => {
+    expect([...buildOffersByRegionalReference({
       byZipCode: {
         '11111': [{ brn: 'brn-a', title: 'Edition one' }],
         '22222': [{ brn: 'brn-a', title: 'Edition two' }],
       },
-    })).toThrow('Bring-Listingmetadaten für brn-a unterscheiden sich');
+    })]).toEqual([
+      ['11111:brn-a', { brn: 'brn-a', title: 'Edition one' }],
+      ['22222:brn-a', { brn: 'brn-a', title: 'Edition two' }],
+    ]);
+  });
+
+  it('rejects conflicting repeated listings for the same ZIP and BRN', () => {
+    expect(() => buildOffersByRegionalReference({
+      byZipCode: {
+        '11111': [{ brn: 'brn-a', title: 'Edition one' }, { brn: 'brn-a', title: 'Edition two' }],
+      },
+    })).toThrow('Bring-Listingmetadaten für 11111:brn-a unterscheiden sich');
   });
 
   it('rejects an offer location with no matching coordinates', () => {
@@ -48,7 +60,7 @@ describe('fetch-detail-pages', () => {
     ).toThrow('Keine Koordinaten für PLZ 11111');
   });
 
-  it('reuses valid catalog details by BRN without requiring a source ZIP match', async () => {
+  it('reuses valid catalog details only for the matching source ZIP and BRN', async () => {
     const reference = buildBrnReferences(
       {
         byZipCode: {
@@ -63,6 +75,7 @@ describe('fetch-detail-pages', () => {
     )[0]!;
     const fetcher = jest.fn(async () => new Response(JSON.stringify([{
       canonical_brn: 'brn-a',
+      source_zip_code: '10115',
       title: 'Lidl Woche',
       store_id: 'lidl',
       valid_from: '2026-10-01T00:00:00.000Z',
@@ -78,7 +91,7 @@ describe('fetch-detail-pages', () => {
 
     const reusable = await loadReusableDetailMetadata({
       references: [reference],
-      offersByBrn: new Map([[reference.brn, {
+      offersByReference: new Map([[reference.referenceKey, {
         brn: 'brn-a', title: 'Lidl Woche', storeName: 'Lidl',
         validFrom: '2026-10-01', validUntil: '2099-10-07',
         coverImage: 'https://cdn.bringapi.app/content/brn-a/cover.jpg',
@@ -92,11 +105,31 @@ describe('fetch-detail-pages', () => {
     expect(reusable[reference.referenceKey]?.pages).toHaveLength(2);
     expect(reusable[reference.referenceKey]?.coverImage).toBe('https://cdn.bringapi.app/content/brn-a/cover.jpg');
     expect(fetcher).toHaveBeenCalledWith(
-      expect.stringContaining('canonical_brn=in.'),
+      expect.stringContaining('or=%28and%28canonical_brn.eq.'),
       expect.objectContaining({
         headers: expect.objectContaining({ apikey: 'service-key' }),
       }),
     );
+  });
+
+  it('does not reuse catalog detail metadata from a different ZIP', () => {
+    const reference = buildBrnReferences(
+      { byZipCode: { '10115': [{ brn: 'brn-a' }] } },
+      [{ zipCode: '10115', latitude: 1, longitude: 2 }],
+    )[0]!;
+    expect(reusableDetailMetadataFromCatalog({
+      reference,
+      offer: {
+        brn: 'brn-a', title: 'Lidl Woche', storeName: 'Lidl',
+        validFrom: '2026-10-01', validUntil: '2099-10-07',
+      },
+      row: {
+        canonical_brn: 'brn-a', source_zip_code: '20095', title: 'Lidl Woche', store_id: 'lidl',
+        valid_from: '2026-10-01T00:00:00.000Z', valid_until: '2099-10-07T00:00:00.000Z',
+        page_count: 1, cover_image: 'https://cdn.bringapi.app/content/brn-a/page-1.jpg',
+        pages: [{ number: 1, imageUrl: 'https://cdn.bringapi.app/content/brn-a/page-1.jpg', hotspots: [] }],
+      },
+    })).toBeUndefined();
   });
 
   it('reuses a valid page-one cover when the listing cover is outside the Bring CDN', () => {
@@ -117,6 +150,7 @@ describe('fetch-detail-pages', () => {
       },
       row: {
         canonical_brn: 'brn-a',
+        source_zip_code: '10115',
         title: 'Lidl Woche',
         store_id: 'lidl',
         valid_from: '2026-10-01T00:00:00.000Z',
@@ -141,7 +175,7 @@ describe('fetch-detail-pages', () => {
 
     const reusable = await loadReusableDetailMetadata({
       references: [reference],
-      offersByBrn: new Map([[reference.brn, { brn: 'brn-a' }]]),
+      offersByReference: new Map([[reference.referenceKey, { brn: 'brn-a' }]]),
       supabaseUrl: 'https://supabase.example',
       supabaseSecretKey: 'service-key',
       fetcher,
@@ -205,10 +239,10 @@ describe('fetch-detail-pages', () => {
     expect(metadata.coverImage).toBe(firstPageUrl);
   });
 
-  it('summarizes the fraction of unique BRNs with multiple detail pages', () => {
-    expect(summarizeDetailPages({ 'brn-a': 8, 'brn-b': 1, 'brn-c': 4 })).toEqual({
-      totalBrns: 3,
-      multiplePageBrns: 2,
+  it('summarizes the fraction of regional references with multiple detail pages', () => {
+    expect(summarizeDetailPages({ '11111:brn-a': 8, '11111:brn-b': 1, '22222:brn-a': 4 })).toEqual({
+      totalRegionalReferences: 3,
+      multiplePageReferences: 2,
       multiplePagePercent: 66.7,
     });
   });
