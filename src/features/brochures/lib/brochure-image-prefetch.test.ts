@@ -8,8 +8,7 @@ import {
 
 function items(count: number): BrochureImagePrefetchItem[] {
   return Array.from({ length: count }, (_, index) => ({
-    uri: `https://supabase.example/functions/v1/brochure-image?asset=page&page_number=${index + 1}`,
-    headers: { Authorization: 'Bearer token' },
+    uri: `https://offerscdn.bringapi.app/content/page-${index + 1}.jpg`,
     validUntil: '2026-10-27T00:00:00.000Z',
   }));
 }

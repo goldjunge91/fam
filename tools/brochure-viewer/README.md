@@ -111,10 +111,11 @@ Benötigte lokale Variablen stehen in `.env.example`: `BRING_AUTH_TOKEN`,
 ## 6. Wöchentlicher Katalog-Cutover
 
 `.github/workflows/update-brochures.yml` läuft montags und donnerstags und
-kann zusätzlich manuell gestartet werden. Jede Zone lädt die aktuellen
-Prospekte samt vollständigen Seiten und Hotspots, spiegelt die Bilder in den
-privaten R2-Bucket und veröffentlicht anschließend Katalog und PLZ-
-Verfügbarkeit atomar. Teilweise abgeschlossene PLZ werden nicht ersetzt.
+kann zusätzlich manuell gestartet werden. Vier Scan-Shards lesen die Bring-
+Offers-Listen für alle deutschen PLZ. Der Workflow lädt vollständige Seiten-
+und Hotspot-Metadaten als JSON und veröffentlicht originale Bring-Bild-URLs,
+Katalog und PLZ-Verfügbarkeit atomar. Bilddateien werden nicht nach R2
+gespiegelt.
 
 Repository Secrets:
 
@@ -123,20 +124,16 @@ Repository Secrets:
 * `BRING_USER_UUID`
 * `SUPABASE_URL`
 * `SUPABASE_SECRET_KEY`
-* `R2_ACCOUNT_ID`
-* `R2_ACCESS_KEY_ID`
-* `R2_SECRET_ACCESS_KEY`
-* optional `R2_BUCKET` (Standard: `r2-broschure`)
 
 Der Workflow lädt automatisch den vollständigen deutschen PLZ-Datensatz von
 [GeoNames](https://www.geonames.org/) (CC BY 4.0), verdichtet mehrfach
 vorkommende Ortszeilen auf einen Mittelpunkt je PLZ und verarbeitet alle
-fünfstelligen Codes. Identische Bring-Prospekte werden während des Laufs anhand
-ihrer `brn` wiederverwendet.
+fünfstelligen Codes. Detaildaten werden nur für dieselbe regionale `(PLZ, BRN)`-
+Identität wiederverwendet.
 
-Lokaler Dry-Run ohne Supabase-Schreibzugriff:
+Lokaler Vollscan mit einer vollständigen GeoNames-PLZ-Datei:
 
 ```bash
-BROCHURE_LOCATIONS_JSON='[{"zipCode":"22043","latitude":53.572433,"longitude":10.09511}]' \
-  bun --env-file=.env run crawler:brochures --dry-run
+BROCHURE_LOCATIONS_FILE=/path/to/geonames-DE.txt \
+  bun --env-file=.env run tools/crawler/brochures/listing-only/all-stores-full.ts
 ```

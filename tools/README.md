@@ -30,7 +30,7 @@ Diese einseitige Grenze wird durch
 | `tools/build-gui/` | Lokale Oberfläche für Expo-, EAS- und native Build-Abläufe | `python3 tools/build-gui/build_gui.py` | Nein |
 | `tools/category-debugger/` | Vite-Evaluationsumgebung für den Einkaufslisten-Classifier | `just debugger-category` | Ja, Classifier aus `src/` |
 | `tools/classify.ts` | Ad-hoc-Trace für einzelne Classifier-Eingaben | `just classify "Haferdrink"` | Ja, Classifier aus `src/` |
-| `tools/crawler/` | Unfertige Prospekt- und dm-Datenpipeline | `bun run crawler:brochures` | Nein |
+| `tools/crawler/brochures/listing-only/` | Regionale Bring-Prospektmetadaten mit direkten CDN-URLs | `.github/workflows/update-brochures.yml` oder einzelne Phasen direkt | Nein |
 | `tools/llm-test-platform/` | Isolierte Promptfoo- und ChainForge-Evaluation | `bun run --cwd tools/llm-test-platform eval` | Nein |
 | `tools/product-search-lab/` | Experimentelle Suche im lokalen Open-Food-Facts-Dump | `bun tools/product-search-lab/server.ts` | Nein |
 | `tools/receipt-ocr-tesseract/` | Lokaler Tesseract-Vergleich für Kassenbons | `bun run --cwd tools/receipt-ocr-tesseract web` | Nein |

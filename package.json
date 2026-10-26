@@ -152,7 +152,6 @@
     "eas-build-on-success": "scripts/posthog-eas-build-on-success.sh",
     "build:simulator": "bun scripts/ios-build/ios-build.ts simulator",
     "build:testflight": "bun scripts/ios-build/ios-build.ts testflight",
-    "crawler:brochures": "bun run tools/crawler/brochures/index.ts",
     "eas:ios:local": "bash scripts/eas-ios-build.sh local",
     "eas:ios:cloud": "bash scripts/eas-ios-build.sh cloud",
     "posthog:upload-ios-dsyms": "scripts/posthog-upload-ios-dsyms.sh",

@@ -1,18 +1,12 @@
-import type { BrochureImageReference } from './brochure-image';
-
 export const MAX_BROCHURE_PREFETCH_IMAGES = 48;
 export const BROCHURE_PREFETCH_CONCURRENCY = 4;
 
 export type BrochureImagePrefetchReference = {
-  reference: BrochureImageReference;
+  uri: string;
   validUntil: string;
 };
 
-export type BrochureImagePrefetchItem = {
-  uri: string;
-  headers: Record<string, string>;
-  validUntil: string;
-};
+export type BrochureImagePrefetchItem = BrochureImagePrefetchReference;
 
 export async function prefetchBrochureImages(options: {
   items: readonly BrochureImagePrefetchItem[];

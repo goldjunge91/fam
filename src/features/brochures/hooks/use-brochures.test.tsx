@@ -42,12 +42,22 @@ describe('brochure queries', () => {
           title: 'Wochenangebote',
           valid_from: '2026-10-10',
           valid_until: '2099-10-16',
-          cover_image: 'cover.jpg',
+          cover_image: 'https://offerscdn.bringapi.app/content/cover.jpg',
         },
       ])
       .mockResolvedValueOnce([
-        { brochure_id: 'brochure-1', page_number: 1, valid_until: '2099-10-16' },
-        { brochure_id: 'brochure-1', page_number: 2, valid_until: '2099-10-16' },
+        {
+          brochure_id: 'brochure-1',
+          page_number: 1,
+          image_url: 'https://offerscdn.bringapi.app/content/page-1.jpg',
+          valid_until: '2099-10-16',
+        },
+        {
+          brochure_id: 'brochure-1',
+          page_number: 2,
+          image_url: 'https://offerscdn.bringapi.app/content/page-2.jpg',
+          valid_until: '2099-10-16',
+        },
       ]);
 
     const { result } = await renderHook(() => useBrochures(), { wrapper: createWrapper() });
@@ -66,21 +76,21 @@ describe('brochure queries', () => {
           title: 'Wochenangebote',
           validFrom: '2026-10-10',
           validUntil: '2099-10-16',
-          coverImage: 'cover.jpg',
+          coverImage: 'https://offerscdn.bringapi.app/content/cover.jpg',
         },
       ],
       favorites: [{ id: 'rewe', name: 'REWE', logoUrl: null, active: true, isFavorite: true }],
       imageReferences: [
         {
-          reference: { brochureId: 'brochure-1', kind: 'cover' },
+          uri: 'https://offerscdn.bringapi.app/content/cover.jpg',
           validUntil: '2099-10-16',
         },
         {
-          reference: { brochureId: 'brochure-1', kind: 'page', pageNumber: 1 },
+          uri: 'https://offerscdn.bringapi.app/content/page-1.jpg',
           validUntil: '2099-10-16',
         },
         {
-          reference: { brochureId: 'brochure-1', kind: 'page', pageNumber: 2 },
+          uri: 'https://offerscdn.bringapi.app/content/page-2.jpg',
           validUntil: '2099-10-16',
         },
       ],
@@ -128,7 +138,7 @@ describe('brochure queries', () => {
         brochure_id: 'brochure-1',
         store_name: 'REWE',
         page_number: 1,
-        image_url: 'page-1.jpg',
+        image_url: 'https://offerscdn.bringapi.app/content/page-1.jpg',
         hotspots_json: '[]',
       },
       {
@@ -136,7 +146,7 @@ describe('brochure queries', () => {
         brochure_id: 'brochure-1',
         store_name: 'REWE',
         page_number: 2,
-        image_url: 'page-2.jpg',
+        image_url: 'https://offerscdn.bringapi.app/content/page-2.jpg',
         hotspots_json: '[{"id":"hotspot-1"}]',
       },
     ]);
@@ -152,7 +162,7 @@ describe('brochure queries', () => {
         brochureId: 'brochure-1',
         storeName: 'REWE',
         pageNumber: 1,
-        imageUrl: 'page-1.jpg',
+        imageUrl: 'https://offerscdn.bringapi.app/content/page-1.jpg',
         hotspots: [],
       },
       {
@@ -160,7 +170,7 @@ describe('brochure queries', () => {
         brochureId: 'brochure-1',
         storeName: 'REWE',
         pageNumber: 2,
-        imageUrl: 'page-2.jpg',
+        imageUrl: 'https://offerscdn.bringapi.app/content/page-2.jpg',
         hotspots: [{ id: 'hotspot-1' }],
       },
     ]);

@@ -16,7 +16,7 @@ describe('regional brochure metadata workflow', () => {
     expect(workflow).toContain('retention-days: 30');
   });
 
-  it('reuses regional detail metadata and publishes the catalog without image downloads', async () => {
+  it('keeps regional detail metadata and publishes original Bring URLs without R2 image storage', async () => {
     const workflow = await readFile(workflowPath, 'utf8');
 
     expect(workflow).toContain('Fetch or reuse regional detail metadata');
@@ -27,7 +27,8 @@ describe('regional brochure metadata workflow', () => {
     expect(workflow).not.toContain('verify-full-brochures.ts');
     expect(workflow).not.toContain('BROCHURE_VERIFY_BUDGET_BYTES');
     expect(workflow).not.toContain('BROCHURE_R2_STORAGE_BUDGET_GB');
-    expect(workflow.slice(0, workflow.indexOf('  cleanup-demand-cache:'))).not.toContain('R2_ACCESS_KEY_ID');
+    expect(workflow).not.toContain('R2_');
+    expect(workflow).not.toContain('cleanup-demand-cache');
   });
 
   it('resumes only a failed Supabase publication from its unchanged metadata handoff', async () => {
@@ -45,15 +46,4 @@ describe('regional brochure metadata workflow', () => {
     expect(workflow).toContain('inputs.resume_run_id != \'\'');
   });
 
-  it('limits R2 credentials and deletion to the old demand-cache cleanup job', async () => {
-    const workflow = await readFile(workflowPath, 'utf8');
-    const cleanupJob = workflow.match(/\n  cleanup-demand-cache:\n([\s\S]*)$/)?.[1] ?? '';
-
-    expect(cleanupJob).not.toBe('');
-    expect(cleanupJob).toContain('needs.publish-canonical.result == \'success\'');
-    expect(cleanupJob).toContain('R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}');
-    expect(cleanupJob).toContain('R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}');
-    expect(cleanupJob).toContain('bun run tools/crawler/brochures/cleanup-demand-cache.ts');
-    expect(workflow.slice(0, workflow.indexOf('  cleanup-demand-cache:'))).not.toContain('R2_ACCESS_KEY_ID');
-  });
 });

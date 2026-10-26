@@ -24,7 +24,6 @@ import { formatEuro } from '@/lib/format/format-currency';
 import { debugLog } from '@/lib/observability/debug-log';
 import { BrochureHotspot } from '../components/brochure-hotspot';
 import { useBrochurePages } from '../hooks/use-brochures';
-import { type BrochureImageSource, useBrochureImageSourceFactory } from '../lib/brochure-image';
 import type { Hotspot, LocalBrochurePage } from '../types';
 import { calculateContainedImageFrame, type Size } from './brochure-page-layout';
 
@@ -51,7 +50,13 @@ function hotspotPrice(hotspot: Hotspot): string | null {
   return priceCents === undefined ? null : formatEuro(priceCents / 100);
 }
 
-const BROCHURE_IMAGE_HOST = 'brochure-image';
+function brochureImageHost(imageUrl: string): string {
+  try {
+    return new URL(imageUrl).host;
+  } catch {
+    return 'invalid';
+  }
+}
 
 function BrochurePage({
   page,
@@ -62,7 +67,7 @@ function BrochurePage({
   onSelectHotspot,
 }: {
   page: LocalBrochurePage;
-  imageSource: BrochureImageSource | null;
+  imageSource: string | null;
   activeHotspot: Hotspot | null;
   hotspotsVisible: boolean;
   isCurrent: boolean;
@@ -101,7 +106,7 @@ function BrochurePage({
           if (isCurrent) {
             debugLog('[brochures] viewer image loaded', {
               pageNumber: page.pageNumber,
-              imageHost: BROCHURE_IMAGE_HOST,
+              imageHost: brochureImageHost(page.imageUrl),
               image: nextImageSize,
               container: containerSize,
               overlay: calculateContainedImageFrame(containerSize, nextImageSize),
@@ -113,7 +118,7 @@ function BrochurePage({
           if (isCurrent) {
             debugLog('[brochures] viewer image failed', {
               pageNumber: page.pageNumber,
-              imageHost: BROCHURE_IMAGE_HOST,
+              imageHost: brochureImageHost(page.imageUrl),
               error,
             });
           }
@@ -143,7 +148,7 @@ function ProductCropPreview({
   imageSize,
   hotspot,
 }: {
-  imageSource: BrochureImageSource | null;
+  imageSource: string | null;
   imageSize: Size;
   hotspot: Hotspot;
 }) {
@@ -175,7 +180,6 @@ function ProductCropPreview({
 
 export default function BrochureViewerScreen({ brochureId }: { brochureId: string }) {
   const router = useRouter();
-  const getBrochureImageSource = useBrochureImageSourceFactory();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { activeHouseholdId } = useActiveHousehold();
@@ -201,7 +205,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
       firstPage: pages[0]
         ? {
             pageNumber: pages[0].pageNumber,
-            imageHost: BROCHURE_IMAGE_HOST,
+            imageHost: brochureImageHost(pages[0].imageUrl),
             hotspotCount: pages[0].hotspots.length,
           }
         : null,
@@ -292,18 +296,14 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             pageIndex: nativeEvent.position,
             pageNumber: page?.pageNumber ?? null,
             hotspotCount: page?.hotspots.length ?? 0,
-            imageHost: page ? BROCHURE_IMAGE_HOST : null,
+            imageHost: page ? brochureImageHost(page.imageUrl) : null,
           });
         }}>
         {pages.map((page: LocalBrochurePage, index) => (
           <BrochurePage
             key={page.id}
             page={page}
-            imageSource={getBrochureImageSource({
-              brochureId: page.brochureId,
-              kind: 'page',
-              pageNumber: page.pageNumber,
-            })}
+            imageSource={page.imageUrl}
             activeHotspot={activeHotspot}
             hotspotsVisible={hotspotsVisible}
             isCurrent={index === currentPageIndex}
@@ -346,26 +346,15 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
             {activePageImage && activePageImage.size.width > 0 ? (
               <ProductCropPreview
-                imageSource={getBrochureImageSource({
-                  brochureId,
-                  kind: 'page',
-                  pageNumber: activePageImage.pageNumber,
-                })}
+                imageSource={
+                  pages.find((page) => page.pageNumber === activePageImage.pageNumber)?.imageUrl ??
+                  null
+                }
                 imageSize={activePageImage.size}
                 hotspot={activeHotspot}
               />
             ) : activeHotspot.imageUrl ? (
-              <Image
-                source={
-                  getBrochureImageSource({
-                    brochureId,
-                    kind: 'hotspot',
-                    pageNumber: activePageImage?.pageNumber ?? 1,
-                    hotspotId: activeHotspot.id,
-                  }) ?? undefined
-                }
-                style={styles.productPreviewImage}
-              />
+              <Image source={activeHotspot.imageUrl} style={styles.productPreviewImage} />
             ) : null}
 
             <View style={[styles.productCard, { backgroundColor: colors.accent }]}>

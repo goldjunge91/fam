@@ -84,9 +84,10 @@ export function useBrochures() {
       const pageRows = await db.getAllAsync<{
         brochure_id: string;
         page_number: number;
+        image_url: string;
         valid_until: string;
       }>(
-        `SELECT p.brochure_id, p.page_number, b.valid_until
+        `SELECT p.brochure_id, p.page_number, p.image_url, b.valid_until
          FROM local_brochure_pages p
          JOIN local_brochures b ON b.id = p.brochure_id
          WHERE p.page_number >= 1 AND b.valid_until > ?
@@ -95,15 +96,11 @@ export function useBrochures() {
       );
       const imageReferences: BrochureImagePrefetchReference[] = [
         ...activeBrochures.map((brochure) => ({
-          reference: { brochureId: brochure.id, kind: 'cover' as const },
+          uri: brochure.coverImage,
           validUntil: brochure.validUntil,
         })),
         ...pageRows.map((page) => ({
-          reference: {
-            brochureId: page.brochure_id,
-            kind: 'page' as const,
-            pageNumber: page.page_number,
-          },
+          uri: page.image_url,
           validUntil: page.valid_until,
         })),
       ].slice(0, MAX_BROCHURE_PREFETCH_IMAGES);

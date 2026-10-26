@@ -62,10 +62,6 @@ brochures-test-r2 *args:
 tools-recipe-catalog *args:
     bun tools/batch-import/server.ts "$@"
 
-# Bisher: bun run crawler:brochures
-crawler-brochures *args:
-    bun run tools/crawler/brochures/index.ts "$@"
-
 # Bisher: bun run web
 web *args:
     EXPO_NO_DOTENV=1 dotenv -o -e .env.local -- expo start --web "$@"

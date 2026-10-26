@@ -1,5 +1,9 @@
 # Implementierungsplan: Canonical Brochure Pipeline
 
+> Historischer Analyseplan. Für den aktiven Produktionspfad gilt
+> `.agents/tasks/bring-cdn-migration-plan-2026-10-22.md`: regionale
+> Metadaten mit originalen Bring-CDN-URLs, ohne Bild-Upload nach R2.
+
 Status: BRN-Vollscan, Detailseitenzahlen, Gruppierung und Cover-only-Auswertung
 sind abgeschlossen. `fam-gvnp.5`, `.6` und `.7` sind offen. Der lokale
 123-BRN-Händlerpilot ist nach 56 BRNs unterbrochen. Ein vollständiger

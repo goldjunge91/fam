@@ -15,12 +15,24 @@ let mockBrochureQuery: { data: typeof brochureData | undefined; isLoading: boole
 const brochureData = {
   cacheZip: '10115',
   stores: [
-    { id: 'rewe', name: 'REWE', logoUrl: 'rewe.png', active: true, isFavorite: true },
+    {
+      id: 'rewe',
+      name: 'REWE',
+      logoUrl: 'https://offerscdn.bringapi.app/content/rewe.png',
+      active: true,
+      isFavorite: true,
+    },
     { id: 'aldi', name: 'Aldi', logoUrl: null, active: true, isFavorite: true },
     { id: 'unused', name: 'Unused', logoUrl: null, active: true, isFavorite: false },
   ],
   favorites: [
-    { id: 'rewe', name: 'REWE', logoUrl: 'rewe.png', active: true, isFavorite: true },
+    {
+      id: 'rewe',
+      name: 'REWE',
+      logoUrl: 'https://offerscdn.bringapi.app/content/rewe.png',
+      active: true,
+      isFavorite: true,
+    },
     { id: 'aldi', name: 'Aldi', logoUrl: null, active: true, isFavorite: true },
   ],
   brochures: [
@@ -30,7 +42,7 @@ const brochureData = {
       title: 'REWE Angebote',
       validFrom: '2026-10-10',
       validUntil: '2026-10-16',
-      coverImage: 'rewe-cover.jpg',
+      coverImage: 'https://offerscdn.bringapi.app/content/rewe-cover.jpg',
     },
     {
       id: 'brochure-aldi',
@@ -38,7 +50,7 @@ const brochureData = {
       title: 'Aldi Angebote',
       validFrom: '2026-10-10',
       validUntil: '2026-10-16',
-      coverImage: 'aldi-cover.jpg',
+      coverImage: 'https://offerscdn.bringapi.app/content/aldi-cover.jpg',
     },
   ],
   imageReferences: [],
@@ -65,12 +77,6 @@ jest.mock('../hooks/use-brochure-postal-code', () => ({
 }));
 jest.mock('../hooks/use-brochure-sync', () => ({ useBrochureSync: () => mockSync }));
 jest.mock('../hooks/use-brochures', () => ({ useBrochures: () => mockBrochureQuery }));
-jest.mock('../lib/brochure-image', () => ({
-  useBrochureImageSourceFactory:
-    () => (reference: { kind: string; brochureId?: string; storeId?: string }) => ({
-      uri: `https://images.example/${reference.kind}/${reference.brochureId ?? reference.storeId}`,
-    }),
-}));
 
 const { default: SharedBrochuresOverviewScreen } = jest.requireActual(
   './brochures-overview-screen.tsx',
