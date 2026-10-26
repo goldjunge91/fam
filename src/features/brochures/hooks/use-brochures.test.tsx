@@ -42,20 +42,20 @@ describe('brochure queries', () => {
           title: 'Wochenangebote',
           valid_from: '2026-10-10',
           valid_until: '2099-10-16',
-          cover_image: 'https://offerscdn.bringapi.app/content/cover.jpg',
+          cover_image: 'https://content-media.bonial.biz/cover.jpg',
         },
       ])
       .mockResolvedValueOnce([
         {
           brochure_id: 'brochure-1',
           page_number: 1,
-          image_url: 'https://offerscdn.bringapi.app/content/page-1.jpg',
+          image_url: 'https://content-media.bonial.biz/page-1.jpg',
           valid_until: '2099-10-16',
         },
         {
           brochure_id: 'brochure-1',
           page_number: 2,
-          image_url: 'https://offerscdn.bringapi.app/content/page-2.jpg',
+          image_url: 'https://content-media.bonial.biz/page-2.jpg',
           valid_until: '2099-10-16',
         },
       ]);
@@ -76,21 +76,21 @@ describe('brochure queries', () => {
           title: 'Wochenangebote',
           validFrom: '2026-10-10',
           validUntil: '2099-10-16',
-          coverImage: 'https://offerscdn.bringapi.app/content/cover.jpg',
+          coverImage: 'https://content-media.bonial.biz/cover.jpg',
         },
       ],
       favorites: [{ id: 'rewe', name: 'REWE', logoUrl: null, active: true, isFavorite: true }],
       imageReferences: [
         {
-          uri: 'https://offerscdn.bringapi.app/content/cover.jpg',
+          uri: 'https://content-media.bonial.biz/cover.jpg',
           validUntil: '2099-10-16',
         },
         {
-          uri: 'https://offerscdn.bringapi.app/content/page-1.jpg',
+          uri: 'https://content-media.bonial.biz/page-1.jpg',
           validUntil: '2099-10-16',
         },
         {
-          uri: 'https://offerscdn.bringapi.app/content/page-2.jpg',
+          uri: 'https://content-media.bonial.biz/page-2.jpg',
           validUntil: '2099-10-16',
         },
       ],
@@ -138,7 +138,7 @@ describe('brochure queries', () => {
         brochure_id: 'brochure-1',
         store_name: 'REWE',
         page_number: 1,
-        image_url: 'https://offerscdn.bringapi.app/content/page-1.jpg',
+        image_url: 'https://content-media.bonial.biz/page-1.jpg',
         hotspots_json: '[]',
       },
       {
@@ -146,7 +146,7 @@ describe('brochure queries', () => {
         brochure_id: 'brochure-1',
         store_name: 'REWE',
         page_number: 2,
-        image_url: 'https://offerscdn.bringapi.app/content/page-2.jpg',
+        image_url: 'https://content-media.bonial.biz/page-2.jpg',
         hotspots_json: '[{"id":"hotspot-1"}]',
       },
     ]);
@@ -162,7 +162,7 @@ describe('brochure queries', () => {
         brochureId: 'brochure-1',
         storeName: 'REWE',
         pageNumber: 1,
-        imageUrl: 'https://offerscdn.bringapi.app/content/page-1.jpg',
+        imageUrl: 'https://content-media.bonial.biz/page-1.jpg',
         hotspots: [],
       },
       {
@@ -170,7 +170,7 @@ describe('brochure queries', () => {
         brochureId: 'brochure-1',
         storeName: 'REWE',
         pageNumber: 2,
-        imageUrl: 'https://offerscdn.bringapi.app/content/page-2.jpg',
+        imageUrl: 'https://content-media.bonial.biz/page-2.jpg',
         hotspots: [{ id: 'hotspot-1' }],
       },
     ]);

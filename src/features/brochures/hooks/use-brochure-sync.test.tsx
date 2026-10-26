@@ -5,7 +5,7 @@ import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { getDatabase } from '@/lib/db/local-client';
 import { debugLog } from '@/lib/observability/debug-log';
 import { reportError } from '@/lib/telemetry';
-import { mapCanonicalAvailabilityRows, writeBrochureDump } from '../brochure-sync';
+import { mapRegionalAvailabilityRows, writeBrochureDump } from '../brochure-sync';
 import { useBrochureSync } from './use-brochure-sync';
 import { useBrochureSync as useBrochureSyncAndroid } from './use-brochure-sync.android';
 
@@ -14,7 +14,7 @@ jest.mock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
 jest.mock('@/lib/observability/debug-log', () => ({ debugLog: jest.fn() }));
 jest.mock('@/lib/telemetry', () => ({ reportError: jest.fn() }));
 jest.mock('../brochure-sync', () => ({
-  mapCanonicalAvailabilityRows: jest.fn(),
+  mapRegionalAvailabilityRows: jest.fn(),
   writeBrochureDump: jest.fn(),
 }));
 
@@ -22,8 +22,9 @@ const mockGetSupabase = jest.mocked(getSupabase);
 const mockGetDatabase = jest.mocked(getDatabase);
 const mockDebugLog = jest.mocked(debugLog);
 const mockReportError = jest.mocked(reportError);
-const mockMapCanonicalAvailabilityRows = jest.mocked(mapCanonicalAvailabilityRows);
+const mockMapRegionalAvailabilityRows = jest.mocked(mapRegionalAvailabilityRows);
 const mockWriteBrochureDump = jest.mocked(writeBrochureDump);
+const mockRpc = jest.fn();
 const mockEq = jest.fn(
   async (
     _column: string,
@@ -50,16 +51,29 @@ beforeEach(() => {
   mockEq.mockResolvedValue({ data: [], error: null });
   mockGetSupabase.mockReset();
   mockGetSupabase.mockReturnValue({
+    rpc: mockRpc,
     from: jest.fn(() => ({
       select: jest.fn(() => ({ eq: mockEq })),
     })),
   } as never);
+  mockRpc.mockReset();
+  mockRpc.mockResolvedValue({
+    data: [
+      {
+        requested_at: '2026-10-26T10:00:00.000Z',
+        last_successful_at: '2026-10-26T10:00:00.000Z',
+        next_attempt_at: '2026-10-26T10:00:00.000Z',
+        last_error: null,
+      },
+    ],
+    error: null,
+  });
   mockGetDatabase.mockReset();
   mockGetDatabase.mockResolvedValue({} as never);
   mockDebugLog.mockReset();
   mockReportError.mockReset();
-  mockMapCanonicalAvailabilityRows.mockReset();
-  mockMapCanonicalAvailabilityRows.mockReturnValue({ stores: [], brochures: [] });
+  mockMapRegionalAvailabilityRows.mockReset();
+  mockMapRegionalAvailabilityRows.mockReturnValue({ stores: [], brochures: [] });
   mockWriteBrochureDump.mockReset();
   mockWriteBrochureDump.mockResolvedValue({} as never);
 });
@@ -90,10 +104,10 @@ for (const [platform, useHook] of hookVariants) {
 
     it('writes only current brochures and invalidates the local query', async () => {
       const activeStore = { id: 'store-active', name: 'REWE' } as NonNullable<
-        ReturnType<typeof mapCanonicalAvailabilityRows>['stores']
+        ReturnType<typeof mapRegionalAvailabilityRows>['stores']
       >[number];
       const expiredStore = { id: 'store-expired', name: 'EDEKA' } as NonNullable<
-        ReturnType<typeof mapCanonicalAvailabilityRows>['stores']
+        ReturnType<typeof mapRegionalAvailabilityRows>['stores']
       >[number];
       const activeBrochure = {
         id: 'brochure-active',
@@ -101,7 +115,7 @@ for (const [platform, useHook] of hookVariants) {
         validUntil: new Date(Date.now() + 60_000).toISOString(),
         pages: [{ hotspots: [{}, {}] }],
       } as unknown as NonNullable<
-        ReturnType<typeof mapCanonicalAvailabilityRows>['brochures']
+        ReturnType<typeof mapRegionalAvailabilityRows>['brochures']
       >[number];
       const expiredBrochure = {
         id: 'brochure-expired',
@@ -109,15 +123,15 @@ for (const [platform, useHook] of hookVariants) {
         validUntil: new Date(Date.now() - 60_000).toISOString(),
         pages: [],
       } as unknown as NonNullable<
-        ReturnType<typeof mapCanonicalAvailabilityRows>['brochures']
+        ReturnType<typeof mapRegionalAvailabilityRows>['brochures']
       >[number];
-      const catalogDump: ReturnType<typeof mapCanonicalAvailabilityRows> = {
+      const catalogDump: ReturnType<typeof mapRegionalAvailabilityRows> = {
         stores: [activeStore, expiredStore],
         brochures: [activeBrochure, expiredBrochure],
       };
       const database = {} as Awaited<ReturnType<typeof getDatabase>>;
       mockEq.mockResolvedValue({ data: [{ zip_code: '12345' }], error: null });
-      mockMapCanonicalAvailabilityRows.mockReturnValue(catalogDump);
+      mockMapRegionalAvailabilityRows.mockReturnValue(catalogDump);
       mockGetDatabase.mockResolvedValue(database);
       const queryClient = new QueryClient();
       const invalidateQueries = jest.spyOn(queryClient, 'invalidateQueries');
@@ -129,7 +143,7 @@ for (const [platform, useHook] of hookVariants) {
       await waitFor(() => expect(result.current.hasSynced).toBe(true));
 
       expect(result.current.isSyncing).toBe(false);
-      expect(mockMapCanonicalAvailabilityRows).toHaveBeenCalledWith(
+      expect(mockMapRegionalAvailabilityRows).toHaveBeenCalledWith(
         [{ zip_code: '12345' }],
         '12345',
       );
@@ -138,6 +152,9 @@ for (const [platform, useHook] of hookVariants) {
         brochures: [activeBrochure],
       });
       expect(invalidateQueries).toHaveBeenCalledWith({ queryKey: ['brochures'] });
+      expect(mockRpc).toHaveBeenCalledWith('request_brochure_zip_scan', {
+        p_zip_code: '12345',
+      });
     });
   });
 }

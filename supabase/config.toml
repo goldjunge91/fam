@@ -51,37 +51,6 @@ max_client_conn = 100
 [db.migrations]
 # If disabled, migrations will be skipped during a db push or reset.
 enabled = true
-# Specifies an ordered list of schema files that describe your database.
-# Supports glob patterns relative to supabase directory: "./schemas/*.sql"
-schema_paths = [
-  "./schemas/01_private.sql",
-  "./schemas/02_profiles.sql",
-  "./schemas/03_households.sql",
-  "./schemas/05_products.sql",
-  "./schemas/06_household_invites.sql",
-  "./schemas/07_child_profiles.sql",
-  "./schemas/08_inventory.sql",
-  "./schemas/21_shopping_category_preferences.sql",
-  "./schemas/22_shopping_category_feedback.sql",
-  "./schemas/24_feedback.sql",
-  "./schemas/09_tracking.sql",
-  "./schemas/10_realtime.sql",
-  "./schemas/11_recipes.sql",
-  "./schemas/12_recipe_storage.sql",
-  "./schemas/13_recipe_step_storage.sql",
-  "./schemas/14_meal_plans.sql",
-  "./schemas/15_recipe_templates.sql",
-  "./schemas/16_medications_and_symptoms.sql",
-  "./schemas/16_recipe_catalog.sql",
-  "./schemas/17_fasting.sql",
-  "./schemas/18_vital_logs.sql",
-  "./schemas/19_profile_food_rules.sql",
-  "./schemas/19_workouts.sql",
-  "./schemas/23_brochures.sql",
-  "./schemas/26_receipts.sql",
-  "./schemas/27_receipt_storage.sql",
-  "./schemas/20_privileges.sql",
-]
 
 [db.seed]
 # If enabled, seeds the database after migrations during a db reset.
@@ -431,8 +400,6 @@ s3_access_key = "env(S3_ACCESS_KEY)"
 # Configures AWS_SECRET_ACCESS_KEY for S3 bucket
 s3_secret_key = "env(S3_SECRET_KEY)"
 
-# `supabase db schema declarative sync` verweigert sonst mit
-# LegacyDeclarativeNotEnabledError (CLI v2.116.0+); noetig, damit
-# db:diff/db:reset weiterhin aus supabase/schemas/*.sql generieren.
+# Declarative schema sync generates migrations from supabase/schemas/*.sql.
 [experimental.pgdelta]
 enabled = true

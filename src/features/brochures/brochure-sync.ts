@@ -1,5 +1,4 @@
 import type { SqlDatabase } from '@/lib/db/types';
-import { bringImageUrl } from '../../../supabase/functions/_shared/bring-image-url';
 
 export type BrochureDump = {
   stores?: Array<{ id: string; name: string; logoUrl?: string }>;
@@ -24,34 +23,53 @@ export type BrochureSyncStats = {
   hotspotCount: number;
 };
 
-export type CanonicalAvailabilityRow = {
+export type BrochureZipScanStatus = {
+  requested_at: string;
+  last_successful_at: string | null;
+  next_attempt_at: string;
+  last_error: string | null;
+};
+
+export function brochureZipScanIsPending(
+  status: BrochureZipScanStatus | null | undefined,
+): boolean {
+  if (!status) return false;
+  if (status.last_successful_at === null) return true;
+  const requestedAt = Date.parse(status.requested_at);
+  const lastSuccessfulAt = Date.parse(status.last_successful_at);
+  return (
+    !Number.isFinite(requestedAt) ||
+    !Number.isFinite(lastSuccessfulAt) ||
+    lastSuccessfulAt < requestedAt
+  );
+}
+
+type RegionalBrochureRow = {
+  id: string;
+  source_content_id: string;
+  source_zip_code: string;
+  store_id: string;
+  title: string;
+  valid_from: string;
+  valid_until: string;
+  page_count: number;
+  cover_image: string;
+  pages: unknown;
+  store: { id: string; name: string; logo_url: string | null };
+};
+
+type NormalizedRegionalBrochure = Omit<RegionalBrochureRow, 'pages'> & {
+  pages: BrochurePage[];
+};
+
+export type RegionalAvailabilityRow = {
   zip_code: string;
-  brochure: {
-    id: string;
-    canonical_brn: string;
-    source_zip_code: string;
-    store_id: string;
-    title: string;
-    valid_from: string;
-    valid_until: string;
-    page_count: number;
-    cover_image: string;
-    pages: unknown;
-    store: { id: string; name: string; logo_url: string | null };
-  };
+  brochure: RegionalBrochureRow;
 };
 
-export type CanonicalAvailabilityQueryClient = {
-  from: (table: 'brochure_availability') => {
-    select: (columns: string) => {
-      eq: (column: 'zip_code', value: string) => PromiseLike<{ data: unknown; error: unknown }>;
-    };
-  };
-};
-
-type CanonicalBrochurePage = {
-  number: number;
-  imageUrl: string;
+type BrochurePage = {
+  page_number: number;
+  image_url: string;
   hotspots: unknown[];
 };
 
@@ -60,34 +78,118 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 function requiredString(value: unknown, field: string): string {
-  if (typeof value !== 'string' || value.trim().length === 0)
-    throw new Error(`Invalid canonical brochure ${field}`);
-  return value;
+  if (typeof value !== 'string' || value.trim().length === 0) {
+    throw new Error(`Invalid brochure ${field}`);
+  }
+  return value.trim();
 }
 
-function bringSourceImageUrl(value: unknown, field: string): string {
-  const source = bringImageUrl(value);
-  if (!source) throw new Error(`Invalid canonical brochure ${field}`);
-  return source.toString();
+function bonialImageUrl(value: unknown, field: string): string {
+  const source = requiredString(value, field);
+  let url: URL;
+  try {
+    url = new URL(source);
+  } catch {
+    throw new Error(`Invalid brochure ${field}`);
+  }
+  if (url.protocol !== 'https:' || url.hostname !== 'content-media.bonial.biz') {
+    throw new Error(`Invalid brochure ${field}`);
+  }
+  return url.toString();
 }
 
-function canonicalPages(value: unknown, expectedCount: number): CanonicalBrochurePage[] {
-  if (!Array.isArray(value) || value.length !== expectedCount)
-    throw new Error('Invalid canonical brochure pages');
-  return value.map((page, index): CanonicalBrochurePage => {
-    if (!isRecord(page) || page.number !== index + 1 || !Array.isArray(page.hotspots)) {
-      throw new Error('Invalid canonical brochure pages');
+function brochurePages(value: unknown, expectedCount: number): BrochurePage[] {
+  if (!Array.isArray(value) || value.length !== expectedCount) {
+    throw new Error('Invalid brochure pages');
+  }
+  const pages = value.map((page): BrochurePage => {
+    if (!isRecord(page) || !Array.isArray(page.hotspots)) {
+      throw new Error('Invalid brochure pages');
+    }
+    const pageNumber = page.page_number;
+    if (typeof pageNumber !== 'number' || !Number.isInteger(pageNumber)) {
+      throw new Error('Invalid brochure pages');
     }
     return {
-      number: index + 1,
-      imageUrl: bringSourceImageUrl(page.imageUrl, 'pages'),
+      page_number: pageNumber,
+      image_url: bonialImageUrl(page.image_url, 'page image URL'),
       hotspots: page.hotspots,
     };
   });
+  pages.sort((left, right) => left.page_number - right.page_number);
+  if (pages.some((page, index) => page.page_number !== index + 1)) {
+    throw new Error('Invalid brochure pages');
+  }
+  return pages;
 }
 
-/** Converts ZIP-scoped canonical rows into the existing local snapshot shape. */
-export function mapCanonicalAvailabilityRows(value: unknown, zipCode: string): BrochureDump {
+function regionalBrochure(value: unknown, zipCode: string): NormalizedRegionalBrochure {
+  if (!isRecord(value)) throw new Error('Invalid brochure row');
+  const id = requiredString(value.id, 'id');
+  const sourceContentId = requiredString(value.source_content_id, 'source_content_id');
+  const sourceZipCode = requiredString(value.source_zip_code, 'source_zip_code');
+  const storeId = requiredString(value.store_id, 'store_id');
+  if (sourceZipCode !== zipCode || id !== `kaufda:${zipCode}:${storeId}:${sourceContentId}`) {
+    throw new Error(`Invalid regional brochure identity for ${id}`);
+  }
+
+  const store = value.store;
+  if (!isRecord(store)) throw new Error('Invalid brochure store');
+  if (store.id !== storeId) throw new Error('Invalid brochure store');
+  const storeName = requiredString(store.name, 'store name');
+  const logoUrl = store.logo_url === null ? null : requiredString(store.logo_url, 'store logo URL');
+  if (logoUrl !== null) {
+    let url: URL;
+    try {
+      url = new URL(logoUrl);
+    } catch {
+      throw new Error('Invalid brochure store logo URL');
+    }
+    if (url.protocol !== 'https:') throw new Error('Invalid brochure store logo URL');
+  }
+
+  const title = requiredString(value.title, 'title');
+  const validFrom = requiredString(value.valid_from, 'valid_from');
+  const validUntil = requiredString(value.valid_until, 'valid_until');
+  const validFromTime = Date.parse(validFrom);
+  const validUntilTime = Date.parse(validUntil);
+  if (
+    !Number.isFinite(validFromTime) ||
+    !Number.isFinite(validUntilTime) ||
+    validUntilTime < validFromTime
+  ) {
+    throw new Error('Invalid brochure validity');
+  }
+
+  const pageCount = value.page_count;
+  if (typeof pageCount !== 'number' || !Number.isInteger(pageCount) || pageCount < 1) {
+    throw new Error('Invalid brochure page_count');
+  }
+  const pages = brochurePages(value.pages, pageCount);
+  const coverImage = bonialImageUrl(value.cover_image, 'cover image URL');
+  if (pages[0]?.image_url !== coverImage) throw new Error('Invalid brochure cover page');
+
+  return {
+    id,
+    source_content_id: sourceContentId,
+    source_zip_code: sourceZipCode,
+    store_id: storeId,
+    title,
+    valid_from: validFrom,
+    valid_until: validUntil,
+    page_count: pageCount,
+    cover_image: coverImage,
+    pages,
+    store: {
+      id: storeId,
+      name: storeName,
+      logo_url: logoUrl,
+    },
+  };
+}
+
+/** Converts the regional Supabase rows into the existing local SQLite snapshot shape. */
+export function mapRegionalAvailabilityRows(value: unknown, zipCode: string): BrochureDump {
   if (!/^\d{5}$/.test(zipCode)) throw new Error('Invalid brochure ZIP code');
   if (!Array.isArray(value)) throw new Error('Invalid brochure availability rows');
 
@@ -96,59 +198,30 @@ export function mapCanonicalAvailabilityRows(value: unknown, zipCode: string): B
 
   for (const row of value) {
     if (!isRecord(row) || row.zip_code !== zipCode) {
-      if (!isRecord(row) || typeof row.zip_code !== 'string' || !/^\d{5}$/.test(row.zip_code)) {
-        throw new Error('Invalid brochure availability ZIP code');
-      }
-      continue;
+      throw new Error('Invalid brochure availability ZIP code');
     }
-    const brochure = row.brochure;
-    if (!isRecord(brochure)) throw new Error('Invalid canonical brochure row');
-
-    const id = requiredString(brochure.id, 'id');
-    requiredString(brochure.canonical_brn, 'canonical_brn');
-    const sourceZipCode = requiredString(brochure.source_zip_code, 'source_zip_code');
-    if (sourceZipCode !== row.zip_code) {
-      throw new Error('Invalid canonical brochure regional identity');
-    }
-    const storeId = requiredString(brochure.store_id, 'store_id');
+    const brochure = regionalBrochure(row.brochure, zipCode);
     const store = brochure.store;
-    if (!isRecord(store)) throw new Error('Invalid canonical brochure store');
-
-    let logoUrl: string | undefined;
-    if (store.logo_url === null) logoUrl = undefined;
-    else if (typeof store.logo_url === 'string')
-      logoUrl = bringSourceImageUrl(store.logo_url, 'store logo_url');
-    else throw new Error('Invalid canonical brochure store logo_url');
-
-    const storeRecord = {
-      id: requiredString(store.id, 'store id'),
-      name: requiredString(store.name, 'store name'),
-      ...(logoUrl ? { logoUrl } : {}),
-    };
-    if (storeRecord.id !== storeId) throw new Error('Invalid canonical brochure store');
-    if (!stores.has(storeId)) stores.set(storeId, storeRecord);
-
-    const title = requiredString(brochure.title, 'title');
-    const validFrom = requiredString(brochure.valid_from, 'valid_from');
-    const validUntil = requiredString(brochure.valid_until, 'valid_until');
-    const validFromTime = Date.parse(validFrom);
-    const validUntilTime = Date.parse(validUntil);
-    if (
-      !Number.isFinite(validFromTime) ||
-      !Number.isFinite(validUntilTime) ||
-      validUntilTime < validFromTime
-    ) {
-      throw new Error('Invalid canonical brochure validity');
+    if (!stores.has(store.id)) {
+      stores.set(store.id, {
+        id: store.id,
+        name: store.name,
+        ...(store.logo_url ? { logoUrl: store.logo_url } : {}),
+      });
     }
-
-    const pageCount = brochure.page_count;
-    if (typeof pageCount !== 'number' || !Number.isInteger(pageCount) || pageCount < 1) {
-      throw new Error('Invalid canonical brochure page_count');
-    }
-    const pages = canonicalPages(brochure.pages, pageCount);
-    const coverImage = bringSourceImageUrl(brochure.cover_image, 'cover_image');
-
-    brochures.push({ id, storeId, title, validFrom, validUntil, coverImage, pages });
+    brochures.push({
+      id: brochure.id,
+      storeId: brochure.store_id,
+      title: brochure.title,
+      validFrom: brochure.valid_from,
+      validUntil: brochure.valid_until,
+      coverImage: brochure.cover_image,
+      pages: brochure.pages.map((page) => ({
+        number: page.page_number,
+        imageUrl: page.image_url,
+        hotspots: page.hotspots,
+      })),
+    });
   }
 
   return { stores: [...stores.values()], brochures };

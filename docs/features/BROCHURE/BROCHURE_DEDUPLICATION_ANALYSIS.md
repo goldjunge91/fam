@@ -1,11 +1,11 @@
 # Prospekt-Deduplizierung: Vollscan und historische Stichproben
 
-Die in diesem Dokument enthaltenen Händler-Stichproben stammen aus dem
-eingestellten Sample-Workflow und sind kein aktueller Prospektbestand. Der
-aktuelle Ablauf ist die
-[listing-only Vollseitenverifikation](../../../tools/crawler/brochures/README.md#listing-only-vollscan-und-vollständige-prospektverifikation).
-Die hier festgehaltenen Cover-, OCR- und Stichprobenmessungen sind historisch;
-sie steuern keine Prospektzusammenführung.
+Die in diesem Dokument enthaltenen Händler-Stichproben stammen aus früheren
+lokalen Läufen und sind kein aktueller Prospektbestand. Die aktive
+KaufDA-Pipeline ist im
+[Produktionsplan](./KAUFDA_GITHUB_RUNNER_PLAN.md) beschrieben. Die Cover-,
+OCR- und Stichprobenmessungen in diesem Dokument bleiben historische
+Beobachtungen und steuern keine Prospektzusammenführung.
 
 ## Listing-only-Messung vom 2026-10-07
 

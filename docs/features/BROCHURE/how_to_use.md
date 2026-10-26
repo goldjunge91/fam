@@ -1,63 +1,53 @@
-# Prospekte: Bring-CDN direkt verwenden
+# Prospekte nutzen
 
-Der aktive Prospektpfad speichert in Supabase die regionalen Prospektdaten und
-originale Bild-URLs von Bring. Die App lädt Cover, Seiten, Händlerlogos und
-Produktbilder direkt von `offerscdn.bringapi.app`. Der Crawler lädt keine
-Bilddateien herunter und verwendet Cloudflare R2 nicht.
+Die App liest die für die aktive PLZ veröffentlichten Prospekte aus Supabase
+und schreibt sie in die lokale SQLite-Datenbank. Der lokale Stand bleibt bei
+Netzwerkfehlern erhalten. Die App startet keinen Crawler und ruft KaufDA nicht
+direkt auf.
 
-## GitHub-Workflow
+## GitHub-Runner
 
-`.github/workflows/update-brochures.yml` läuft montags und donnerstags auf
-`main` oder manuell. Vier Scan-Shards lesen die Bring-Offers-Liste für alle
-deutschen PLZ. Die Liste liefert das Cover; für vollständige Seiten und
-Hotspots fragt der Workflow zusätzlich den Detail-Endpunkt nach JSON-
-Metadaten. Danach veröffentlicht er den regionalen Katalog atomar in Supabase.
+Der KaufDA-Runner liegt in [`scripts/scrapers/run-kaufda.ts`](../../../scripts/scrapers/run-kaufda.ts)
+und wird über [`.github/workflows/scrape-brochures.yml`](../../../.github/workflows/scrape-brochures.yml)
+ausgeführt. Ein Lauf liest den vollständig paginierten KaufDA-Shelf für die
+angefragte PLZ und übernimmt echte Prospekte aus allen Kategorien. KaufDA
+entscheidet dadurch, welche Publisher und Prospekte an diesem Standort
+verfügbar sind. Die App zeigt standardmäßig alle veröffentlichten
+Prospekte der aktiven PLZ; Händler ohne Angebot für diese PLZ erscheinen dort
+nicht. Der Runner prüft Seiten und Hotspots und veröffentlicht den ganzen
+PLZ-Scope atomar. Die Bilder bleiben originale
+Bonial-CDN-URLs; Bildbytes werden nicht durch den Runner übertragen.
 
-Der Workflow braucht Bring-Zugangsdaten und Supabase-URL sowie Secret-Key.
-R2-Secrets und R2-Bereinigung gehören nicht zu diesem Ablauf. Reports und
-validierte Handoffs bleiben als 30-Tage-GitHub-Artefakte verfügbar. Ein
-fehlgeschlagener Supabase-Publish lässt sich aus dem geprüften Handoff
-wiederholen, ohne Bring erneut abzufragen.
+Die App stellt einen Scanwunsch ein, wenn die aktive PLZ neu ist oder ihr
+letzter erfolgreicher Scan mindestens fünf Tage zurückliegt. GitHub Actions
+prüft diese Warteschlange alle 15 Minuten und startet nur für fällige PLZ
+Scraper-Jobs. Je Prüfung werden höchstens 25 PLZ mit maximal vier parallelen
+Jobs verarbeitet. Nicht verwendete PLZ werden nicht abgefragt. Manuell kann
+eine einzelne PLZ geprüft oder die fällige Warteschlange abgearbeitet werden.
+Ein Ein-PLZ-Dry-Run prüft die Live-Antworten ohne Supabase-Schreibzugriff und
+ohne Übergabe von Datenbank-Zugangsdaten an den Runner-Schritt.
 
-Die Detailmetadaten bleiben regional nach `(PLZ, BRN)` getrennt. Die App erhält
-pro eingestellter PLZ nur die dort im Bring-Listing belegten Prospekte.
+Supabase-Zugangsdaten stehen nur Läufen auf `main` zur Verfügung. Die
+Scanwarteschlange enthält ausschließlich PLZ, die von einer App-Sitzung
+angefragt wurden. Vollständige Scans über alle 10.813 PLZ finden nicht statt.
 
-## App und Offline-Nutzung
+## Offline-Nutzung
 
-Die App liest den PLZ-korrekten SQLite-Snapshot. `expo-image` lädt die originalen
-Bring-URLs und verwendet seinen lokalen Disk-Cache. Der begrenzte Prefetch läuft
-weiterhin nur über WLAN. Nach einem erfolgreichen Sync bleiben die gespeicherten
-URLs samt Seiten und Hotspots für den lokalen Prospektviewer verfügbar.
+Nach einem erfolgreichen Sync stehen Prospektdaten und Hotspots in SQLite zur
+Verfügung. Bilder werden über die gespeicherten Bonial-CDN-URLs mit
+`expo-image` geladen; offline erscheinen sie, wenn sie bereits im Bildcache
+liegen. Der Bild-Prefetch ist begrenzt. Bei Fehlern bleibt der vorherige
+SQLite-Stand bestehen; ein leerer, vollständig veröffentlichter PLZ-Scope wird
+als leerer Bestand übernommen.
 
-Die lokale Zwischenspeicherung ist gerätegebunden. Sie ist kein gemeinsamer
-Cloudflare-Cache. Bring kann Bilder nach Ablauf oder aufgrund eigener CDN-Regeln
-entfernen.
+## Lokaler Dry-Run
 
-## Lokale Crawler-Phasen
-
-Mit gültigen Bring-Zugangsdaten lassen sich Scan und Detailmetadaten lokal
-ausführen:
+Mit `--dry-run` werden alle Shelf-Seiten und Prospektabrufe für eine PLZ geprüft, ohne eine
+Datenbankverbindung oder lokale JSON-Ausgabe zu benötigen:
 
 ```bash
-bun --env-file=.env.development.local run \
-  tools/crawler/brochures/listing-only/all-stores-full.ts
-
-bun --env-file=.env.development.local run \
-  tools/crawler/brochures/listing-only/fetch-detail-pages.ts
-
-bun run tools/crawler/brochures/listing-only/persist-canonical.ts
-bun run tools/crawler/brochures/listing-only/canonical-report.ts
+bun run scripts/scrapers/run-kaufda.ts --zip 22043 --dry-run
 ```
 
-Diese Phasen arbeiten mit JSON-Metadaten und Bild-URLs. Separate historische
-Werkzeuge zur lokalen Bildverifikation gehören nicht zum aktiven
-Veröffentlichungsworkflow.
-
-## Laufzeit
-
-Der letzte Vollscan enthielt 296.662 regionale Prospektreferenzen. Direkter
-Bildzugriff spart die Übertragung und Speicherung der Bilddateien; er entfernt
-nicht die Detailabfragen, die alle Seiten-URLs und Hotspots liefern. Die
-frühere Erwartung eines vollständigen Laufs in zwei bis drei Minuten ist daher
-nicht bestätigt. Der Workflow bricht nach einem fehlerhaften Detailbatch ab und
-zeigt die ersten Ursachen, damit API-Fehler nicht stundenlang weiterlaufen.
+Für einen echten Publish wird der GitHub-Workflow verwendet; die App enthält
+keine Crawler-Zugangsdaten.

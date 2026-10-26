@@ -84,16 +84,39 @@ grant delete, insert, select, update on public.workout_sets to anon, authenticat
 revoke all on public.brochure_stores from anon, authenticated, service_role;
 grant select on public.brochure_stores to authenticated;
 grant select, insert, update on public.brochure_stores to service_role;
-revoke all on public.canonical_brochures, public.brochure_availability
+revoke all on public.brochures, public.brochure_pages, public.brochure_availability
   from anon, authenticated, service_role;
-grant select on public.canonical_brochures, public.brochure_availability to authenticated;
--- The crawler reuses current page metadata; catalog writes stay behind the RPC.
-grant select on public.canonical_brochures to service_role;
-revoke all on function private.canonical_brochure_pages_are_valid(jsonb, integer)
+grant select on public.brochures, public.brochure_pages, public.brochure_availability to authenticated;
+grant select on public.brochures, public.brochure_pages to service_role;
+revoke all on public.brochure_zip_scans from anon, authenticated, service_role;
+grant select, insert, update on public.brochure_zip_scans to service_role;
+revoke all on function private.bonial_image_url_is_valid(text)
   from public, anon, authenticated, service_role;
-revoke all on function public.replace_canonical_brochure_catalog(jsonb, text[])
+revoke all on function private.brochure_hotspots_are_valid(jsonb)
   from public, anon, authenticated, service_role;
-grant execute on function public.replace_canonical_brochure_catalog(jsonb, text[])
+revoke all on function private.brochure_pages_are_valid(jsonb, integer)
+  from public, anon, authenticated, service_role;
+revoke all on function private.brochure_record_is_valid(jsonb, text)
+  from public, anon, authenticated, service_role;
+revoke all on function public.replace_brochure_zip(text, jsonb)
+  from public, anon, authenticated, service_role;
+grant execute on function public.replace_brochure_zip(text, jsonb)
+  to service_role;
+revoke all on function public.request_brochure_zip_scan(text)
+  from public, anon, authenticated, service_role;
+grant execute on function public.request_brochure_zip_scan(text)
+  to authenticated;
+revoke all on function public.get_brochure_zip_scan_status(text)
+  from public, anon, authenticated, service_role;
+grant execute on function public.get_brochure_zip_scan_status(text)
+  to authenticated;
+revoke all on function public.get_pending_brochure_zip_scans(integer)
+  from public, anon, authenticated, service_role;
+grant execute on function public.get_pending_brochure_zip_scans(integer)
+  to service_role;
+revoke all on function public.record_brochure_zip_scan_failure(text, text)
+  from public, anon, authenticated, service_role;
+grant execute on function public.record_brochure_zip_scan_failure(text, text)
   to service_role;
 grant delete, insert, select, update on public.favorite_brochure_stores to anon, authenticated, service_role;
 

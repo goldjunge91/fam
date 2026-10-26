@@ -2,8 +2,9 @@ import { createTestDatabase } from '../../../test/node-sqlite-adapter';
 import { serializeDatabase } from '../../lib/db/serialize';
 import {
   type BrochureDump,
-  type CanonicalAvailabilityRow,
-  mapCanonicalAvailabilityRows,
+  brochureZipScanIsPending,
+  mapRegionalAvailabilityRows,
+  type RegionalAvailabilityRow,
   writeBrochureDump,
 } from './brochure-sync';
 
@@ -35,6 +36,27 @@ const SCHEMA = `
     updated_at INTEGER NOT NULL
   );
 `;
+
+describe('brochureZipScanIsPending', () => {
+  it('returns true until the requested PLZ has a newer successful scan', () => {
+    expect(
+      brochureZipScanIsPending({
+        requested_at: '2026-10-26T10:00:00Z',
+        last_successful_at: null,
+        next_attempt_at: '2026-10-26T10:00:00Z',
+        last_error: null,
+      }),
+    ).toBe(true);
+    expect(
+      brochureZipScanIsPending({
+        requested_at: '2026-10-26T10:00:00Z',
+        last_successful_at: '2026-10-26T10:01:00Z',
+        next_attempt_at: '2026-10-26T10:01:00Z',
+        last_error: null,
+      }),
+    ).toBe(false);
+  });
+});
 
 function dump(id: string): BrochureDump {
   return {
@@ -82,67 +104,64 @@ describe('writeBrochureDump', () => {
   });
 });
 
-function canonicalRow(
+function regionalRow(
   zipCode: string,
   brochureId: string,
-  overrides: Partial<CanonicalAvailabilityRow['brochure']> = {},
-): CanonicalAvailabilityRow {
+  overrides: Partial<RegionalAvailabilityRow['brochure']> = {},
+): RegionalAvailabilityRow {
   return {
     zip_code: zipCode,
     brochure: {
-      id: brochureId,
-      canonical_brn: `brn-${brochureId}`,
+      id: `kaufda:${zipCode}:store-1:content-${brochureId}`,
+      source_content_id: `content-${brochureId}`,
       source_zip_code: zipCode,
       store_id: 'store-1',
       title: `Brochure ${brochureId}`,
       valid_from: '2026-10-01T00:00:00.000Z',
       valid_until: '2026-10-07T23:59:59.000Z',
       page_count: 2,
-      cover_image: `https://cdn.bringapi.app/content/${brochureId}/cover.jpg`,
+      cover_image: `https://content-media.bonial.biz/${brochureId}/1.jpg`,
       pages: [
         {
-          number: 1,
-          imageUrl: `https://cdn.bringapi.app/content/${brochureId}/1.jpg`,
+          page_number: 1,
+          image_url: `https://content-media.bonial.biz/${brochureId}/1.jpg`,
           hotspots: [],
         },
         {
-          number: 2,
-          imageUrl: `https://cdn.bringapi.app/content/${brochureId}/2.jpg`,
+          page_number: 2,
+          image_url: `https://content-media.bonial.biz/${brochureId}/2.jpg`,
           hotspots: [],
         },
       ],
       store: {
         id: 'store-1',
         name: 'Fresh Market',
-        logo_url: 'https://cdn.bringapi.app/content/store/logo.png',
+        logo_url: 'https://content-media.bonial.biz/store/logo.png',
       },
       ...overrides,
     },
   };
 }
 
-describe('mapCanonicalAvailabilityRows', () => {
-  it('maps only rows available for the requested ZIP code', () => {
-    const dump = mapCanonicalAvailabilityRows(
-      [canonicalRow('10000', 'local'), canonicalRow('20000', 'other')],
-      '10000',
-    );
+describe('mapRegionalAvailabilityRows', () => {
+  it('maps a regional brochure row to the local SQLite dump shape', () => {
+    const dump = mapRegionalAvailabilityRows([regionalRow('10000', 'local')], '10000');
 
-    expect(dump.brochures?.map(({ id }) => id)).toEqual(['local']);
+    expect(dump.brochures?.map(({ id }) => id)).toEqual(['kaufda:10000:store-1:content-local']);
     expect(dump.stores).toEqual([
       {
         id: 'store-1',
         name: 'Fresh Market',
-        logoUrl: 'https://cdn.bringapi.app/content/store/logo.png',
+        logoUrl: 'https://content-media.bonial.biz/store/logo.png',
       },
     ]);
   });
 
-  it('rejects an availability row linked to brochure metadata from another ZIP', () => {
-    const row = canonicalRow('10000', 'regional', { source_zip_code: '20000' });
+  it('rejects rows from another ZIP instead of mixing regional content', () => {
+    const row = regionalRow('20000', 'regional');
 
-    expect(() => mapCanonicalAvailabilityRows([row], '10000')).toThrow(
-      'Invalid canonical brochure regional identity',
+    expect(() => mapRegionalAvailabilityRows([row], '10000')).toThrow(
+      'Invalid brochure availability ZIP code',
     );
   });
 
@@ -161,30 +180,35 @@ describe('mapCanonicalAvailabilityRows', () => {
       priceCents: 199,
       oldPriceCents: 249,
       currency: 'EUR',
-      imageUrl: 'https://cdn.bringapi.app/content/offer/apple.jpg',
+      imageUrl: 'https://content-media.bonial.biz/offer/apple.jpg',
       linkoutUrl: 'https://example.com/apples',
     };
-    const row = canonicalRow('10000', 'full', {
+    const row = regionalRow('10000', 'full', {
+      cover_image: 'https://content-media.bonial.biz/full/1.jpg',
       pages: [
-        { number: 1, imageUrl: 'https://cdn.bringapi.app/content/full/1.jpg', hotspots: [hotspot] },
         {
-          number: 2,
-          imageUrl: 'https://cdn.bringapi.app/content/full/2.jpg',
+          page_number: 1,
+          image_url: 'https://content-media.bonial.biz/full/1.jpg',
+          hotspots: [hotspot],
+        },
+        {
+          page_number: 2,
+          image_url: 'https://content-media.bonial.biz/full/2.jpg',
           hotspots: [{ ...hotspot, id: 'offer-2' }],
         },
       ],
     });
 
-    const dump = mapCanonicalAvailabilityRows([row], '10000');
+    const dump = mapRegionalAvailabilityRows([row], '10000');
 
     expect(dump.brochures?.[0]).toMatchObject({
-      id: 'full',
-      coverImage: 'https://cdn.bringapi.app/content/full/cover.jpg',
+      id: 'kaufda:10000:store-1:content-full',
+      coverImage: 'https://content-media.bonial.biz/full/1.jpg',
       pages: [
-        { number: 1, imageUrl: 'https://cdn.bringapi.app/content/full/1.jpg', hotspots: [hotspot] },
+        { number: 1, imageUrl: 'https://content-media.bonial.biz/full/1.jpg', hotspots: [hotspot] },
         {
           number: 2,
-          imageUrl: 'https://cdn.bringapi.app/content/full/2.jpg',
+          imageUrl: 'https://content-media.bonial.biz/full/2.jpg',
           hotspots: [{ ...hotspot, id: 'offer-2' }],
         },
       ],
@@ -192,8 +216,15 @@ describe('mapCanonicalAvailabilityRows', () => {
   });
 
   it('deduplicates a store shared by multiple brochure rows', () => {
-    const dump = mapCanonicalAvailabilityRows(
-      [canonicalRow('10000', 'one'), canonicalRow('10000', 'two')],
+    const dump = mapRegionalAvailabilityRows(
+      [
+        regionalRow('10000', 'one', {
+          title: 'Brochure One',
+        }),
+        regionalRow('10000', 'two', {
+          title: 'Brochure Two',
+        }),
+      ],
       '10000',
     );
 
@@ -202,12 +233,12 @@ describe('mapCanonicalAvailabilityRows', () => {
   });
 
   it('rejects malformed page payloads instead of silently dropping pages', () => {
-    const row = canonicalRow('10000', 'bad-pages', {
-      pages: [{ number: 1, imageUrl: 'https://cdn.bringapi.app/content/bad-pages/1.jpg' }],
+    const row = regionalRow('10000', 'bad-pages', {
+      page_count: 1,
+      cover_image: 'https://content-media.bonial.biz/bad-pages/1.jpg',
+      pages: [{ page_number: 1, image_url: 'https://content-media.bonial.biz/bad-pages/1.jpg' }],
     });
 
-    expect(() => mapCanonicalAvailabilityRows([row], '10000')).toThrow(
-      'Invalid canonical brochure pages',
-    );
+    expect(() => mapRegionalAvailabilityRows([row], '10000')).toThrow('Invalid brochure pages');
   });
 });

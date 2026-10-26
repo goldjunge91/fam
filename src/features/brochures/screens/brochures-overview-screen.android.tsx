@@ -29,7 +29,7 @@ export default function BrochuresOverviewScreen() {
   const [isEditingPostalCode, setIsEditingPostalCode] = useState(false);
   const location = useBrochurePostalCode();
   const postalCode = location.status === 'ready' ? location.postalCode : null;
-  const { isSyncing, hasSynced } = useBrochureSync(postalCode);
+  const { isSyncing, hasSynced, isScanPending, hasScanError } = useBrochureSync(postalCode);
   const { data, isLoading } = useBrochures();
   const imageReferences =
     data?.cacheZip === postalCode ? data.imageReferences : EMPTY_IMAGE_REFERENCES;
@@ -132,12 +132,29 @@ export default function BrochuresOverviewScreen() {
       </Screen>
     );
   }
-  if (isLoading || isSyncing || !hasSynced) {
+  const hasCurrentBrochures = data?.cacheZip === postalCode && data.brochures.length > 0;
+  if (isLoading || isSyncing || !hasSynced || (isScanPending && !hasCurrentBrochures)) {
     return (
       <Screen title="Angebote" chrome={chrome}>
         <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
             Angebote für {postalCode} werden geladen...
+          </Txt>
+          {postalCodeSettings}
+        </View>
+      </Screen>
+    );
+  }
+  if (hasScanError && !hasCurrentBrochures) {
+    return (
+      <Screen title="Angebote" chrome={chrome}>
+        <View style={[styles.locationState, { backgroundColor: colors.background }]}>
+          <Txt variant="heading" style={styles.locationTitle}>
+            Prospekte konnten nicht geladen werden
+          </Txt>
+          <Txt variant="body" tone="secondary" style={styles.locationCopy}>
+            Für die PLZ {postalCode} konnte der Prospektkatalog gerade nicht aktualisiert werden.
+            Versuche es später erneut.
           </Txt>
           {postalCodeSettings}
         </View>

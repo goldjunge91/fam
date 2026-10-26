@@ -8,7 +8,7 @@ import {
 
 function items(count: number): BrochureImagePrefetchItem[] {
   return Array.from({ length: count }, (_, index) => ({
-    uri: `https://offerscdn.bringapi.app/content/page-${index + 1}.jpg`,
+    uri: `https://content-media.bonial.biz/page-${index + 1}.jpg`,
     validUntil: '2026-10-27T00:00:00.000Z',
   }));
 }

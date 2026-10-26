@@ -9,8 +9,8 @@ select tests.create_user('a718c0a3-fdbf-47cf-8980-0a2c0064d3aa', 'other@example.
 
 -- 2. Insert Base Data (as postgres)
 select tests.as_postgres();
-insert into public.brochure_stores (id, name, logo_url)
-values ('test_store', 'Test Store', 'https://offerscdn.bringapi.app/content/test/logo.png');
+insert into public.brochure_stores (id, name)
+values ('test_store', 'Test Store');
 
 -- 3. Test Global Tables (Read Only)
 select tests.authenticate_as('b188c0a3-fdbf-47cf-8980-0a2c0064d3ff');

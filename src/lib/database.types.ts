@@ -57,24 +57,62 @@ export type Database = {
       };
       brochure_availability: {
         Row: {
-          canonical_brochure_id: string;
+          brochure_id: string;
           zip_code: string;
         };
         Insert: {
-          canonical_brochure_id: string;
+          brochure_id: string;
           zip_code: string;
         };
         Update: {
-          canonical_brochure_id?: string;
+          brochure_id?: string;
           zip_code?: string;
         };
         Relationships: [
           {
             foreignKeyName: "brochure_availability_regional_brochure_fk";
-            columns: ["canonical_brochure_id", "zip_code"];
+            columns: ["brochure_id", "zip_code"];
             isOneToOne: false;
-            referencedRelation: "canonical_brochures";
+            referencedRelation: "brochures";
             referencedColumns: ["id", "source_zip_code"];
+          },
+        ];
+      };
+      brochure_pages: {
+        Row: {
+          brochure_id: string;
+          created_at: string;
+          hotspots: NonNullable<Json>;
+          id: string;
+          image_url: string;
+          page_number: number;
+          thumbnail_url: string | null;
+        };
+        Insert: {
+          brochure_id: string;
+          created_at?: string;
+          hotspots?: NonNullable<Json>;
+          id: string;
+          image_url: string;
+          page_number: number;
+          thumbnail_url?: string | null;
+        };
+        Update: {
+          brochure_id?: string;
+          created_at?: string;
+          hotspots?: NonNullable<Json>;
+          id?: string;
+          image_url?: string;
+          page_number?: number;
+          thumbnail_url?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "brochure_pages_brochure_id_fkey";
+            columns: ["brochure_id"];
+            isOneToOne: false;
+            referencedRelation: "brochures";
+            referencedColumns: ["id"];
           },
         ];
       };
@@ -102,46 +140,79 @@ export type Database = {
         };
         Relationships: [];
       };
-      canonical_brochures: {
+      brochure_zip_scans: {
         Row: {
-          canonical_brn: string;
+          attempt_count: number;
+          last_error: string | null;
+          last_successful_at: string | null;
+          next_attempt_at: string;
+          requested_at: string;
+          updated_at: string;
+          zip_code: string;
+        };
+        Insert: {
+          attempt_count?: number;
+          last_error?: string | null;
+          last_successful_at?: string | null;
+          next_attempt_at?: string;
+          requested_at?: string;
+          updated_at?: string;
+          zip_code: string;
+        };
+        Update: {
+          attempt_count?: number;
+          last_error?: string | null;
+          last_successful_at?: string | null;
+          next_attempt_at?: string;
+          requested_at?: string;
+          updated_at?: string;
+          zip_code?: string;
+        };
+        Relationships: [];
+      };
+      brochures: {
+        Row: {
           cover_image: string;
+          created_at: string;
           id: string;
           page_count: number;
-          pages: NonNullable<Json>;
+          source_content_id: string;
           source_zip_code: string;
           store_id: string;
           title: string;
+          updated_at: string;
           valid_from: string;
           valid_until: string;
         };
         Insert: {
-          canonical_brn: string;
           cover_image: string;
+          created_at?: string;
           id: string;
           page_count: number;
-          pages: NonNullable<Json>;
+          source_content_id: string;
           source_zip_code: string;
           store_id: string;
           title: string;
+          updated_at?: string;
           valid_from: string;
           valid_until: string;
         };
         Update: {
-          canonical_brn?: string;
           cover_image?: string;
+          created_at?: string;
           id?: string;
           page_count?: number;
-          pages?: NonNullable<Json>;
+          source_content_id?: string;
           source_zip_code?: string;
           store_id?: string;
           title?: string;
+          updated_at?: string;
           valid_from?: string;
           valid_until?: string;
         };
         Relationships: [
           {
-            foreignKeyName: "canonical_brochures_store_id_fkey";
+            foreignKeyName: "brochures_store_id_fkey";
             columns: ["store_id"];
             isOneToOne: false;
             referencedRelation: "brochure_stores";
@@ -3542,6 +3613,21 @@ export type Database = {
           warning_reached: boolean;
         }[];
       };
+      get_brochure_zip_scan_status: {
+        Args: { p_zip_code: string };
+        Returns: {
+          last_error: string;
+          last_successful_at: string;
+          next_attempt_at: string;
+          requested_at: string;
+        }[];
+      };
+      get_pending_brochure_zip_scans: {
+        Args: { p_limit?: number };
+        Returns: {
+          zip_code: string;
+        }[];
+      };
       household_member_profiles: {
         Args: { hid: string };
         Returns: {
@@ -3577,12 +3663,22 @@ export type Database = {
         Returns: string;
       };
       prepare_account_deletion: { Args: Record<PropertyKey, never>; Returns: undefined };
+      record_brochure_zip_scan_failure: {
+        Args: { p_error: string; p_zip_code: string };
+        Returns: undefined;
+      };
       redeem_invite:
         | { Args: { invite_code: string }; Returns: string }
         | { Args: { invite_token: string }; Returns: string };
-      replace_canonical_brochure_catalog: {
-        Args: { p_records: Json; p_scoped_zip_codes: string[] };
-        Returns: undefined;
+      replace_brochure_zip: { Args: { p_records: Json; p_zip_code: string }; Returns: undefined };
+      request_brochure_zip_scan: {
+        Args: { p_zip_code: string };
+        Returns: {
+          last_error: string;
+          last_successful_at: string;
+          next_attempt_at: string;
+          requested_at: string;
+        }[];
       };
       reverse_inventory_quantity_transaction: {
         Args: {

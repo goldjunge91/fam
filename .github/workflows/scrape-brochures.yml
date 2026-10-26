@@ -1,0 +1,128 @@
+name: Scrape requested KaufDA brochures
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      zip:
+        description: 'Run one postal code, for example 22043; leave blank to process queued requests'
+        required: false
+        type: string
+      dry_run:
+        description: 'Fetch and validate one postal code without publishing it'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: kaufda-brochure-catalog
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    name: Find requested postal codes
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      zip_codes: ${{ steps.manual-targets.outputs.zip_codes || steps.pending-targets.outputs.zip_codes || '[]' }}
+    steps:
+      - name: Validate manual selection
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TARGET_ZIP: ${{ inputs.zip }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$TARGET_ZIP" && ! "$TARGET_ZIP" =~ ^[0-9]{5}$ ]]; then
+            printf '::error::Postal code must contain five digits.\n'
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" && -z "$TARGET_ZIP" ]]; then
+            printf '::error::A dry run requires one postal code.\n'
+            exit 1
+          fi
+
+      - name: Use the explicitly selected postal code
+        id: manual-targets
+        if: github.event_name == 'workflow_dispatch' && inputs.zip != ''
+        env:
+          TARGET_ZIP: ${{ inputs.zip }}
+        run: printf 'zip_codes=["%s"]\n' "$TARGET_ZIP" >> "$GITHUB_OUTPUT"
+
+      - name: Read only pending app requests
+        id: pending-targets
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.zip == '')
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_SERVICE_ROLE_KEY" ]]; then
+            printf '::error::Supabase runner credentials are missing.\n'
+            exit 1
+          fi
+          response=$(curl --fail --silent --show-error --retry 3 --retry-delay 2 \
+            "${SUPABASE_URL%/}/rest/v1/rpc/get_pending_brochure_zip_scans" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H 'Content-Type: application/json' \
+            --data '{"p_limit":25}')
+          zip_codes=$(jq -ce '[.[] | .zip_code]' <<< "$response")
+          if ! jq -e 'type == "array" and length <= 25 and all(.[]; type == "string" and test("^[0-9]{5}$"))' <<< "$zip_codes" >/dev/null; then
+            printf '::error::Supabase returned an invalid pending postal-code list.\n'
+            exit 1
+          fi
+          printf 'zip_codes=%s\n' "$zip_codes" >> "$GITHUB_OUTPUT"
+          printf 'Queued postal codes: %s\n' "$(jq 'length' <<< "$zip_codes")"
+
+  scrape:
+    name: Scrape PLZ ${{ matrix.zip_code }}
+    needs: discover
+    if: needs.discover.outputs.zip_codes != '[]' && (github.event_name != 'workflow_dispatch' || inputs.dry_run != true)
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        zip_code: ${{ fromJSON(needs.discover.outputs.zip_codes) }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Bun and install dependencies
+        uses: ./.github/actions/setup-bun-env
+        with:
+          bun-version: '1.4.2'
+
+      - name: Scrape and publish one complete postal-code scope
+        env:
+          TARGET_ZIP: ${{ matrix.zip_code }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SECRET_KEY }}
+        run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP"
+
+  dry-run:
+    name: Dry-run PLZ ${{ inputs.zip }}
+    needs: discover
+    if: github.event_name == 'workflow_dispatch' && inputs.dry_run == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Bun and install dependencies
+        uses: ./.github/actions/setup-bun-env
+        with:
+          bun-version: '1.4.2'
+
+      - name: Validate one postal code without database credentials
+        env:
+          TARGET_ZIP: ${{ inputs.zip }}
+        run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP" --dry-run

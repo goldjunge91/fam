@@ -9,7 +9,12 @@ const mockUseDeviceLocation = jest.fn();
 const mockOpenDrawer = jest.fn();
 const mockOpenProfile = jest.fn();
 let mockLocation: BrochurePostalCodeState;
-let mockSync = { isSyncing: false, hasSynced: true };
+let mockSync = {
+  isSyncing: false,
+  hasSynced: true,
+  isScanPending: false,
+  hasScanError: false,
+};
 let mockBrochureQuery: { data: typeof brochureData | undefined; isLoading: boolean };
 
 const brochureData = {
@@ -18,7 +23,7 @@ const brochureData = {
     {
       id: 'rewe',
       name: 'REWE',
-      logoUrl: 'https://offerscdn.bringapi.app/content/rewe.png',
+      logoUrl: 'https://content-media.bonial.biz/rewe.png',
       active: true,
       isFavorite: true,
     },
@@ -29,7 +34,7 @@ const brochureData = {
     {
       id: 'rewe',
       name: 'REWE',
-      logoUrl: 'https://offerscdn.bringapi.app/content/rewe.png',
+      logoUrl: 'https://content-media.bonial.biz/rewe.png',
       active: true,
       isFavorite: true,
     },
@@ -42,7 +47,7 @@ const brochureData = {
       title: 'REWE Angebote',
       validFrom: '2026-10-10',
       validUntil: '2026-10-16',
-      coverImage: 'https://offerscdn.bringapi.app/content/rewe-cover.jpg',
+      coverImage: 'https://content-media.bonial.biz/rewe-cover.jpg',
     },
     {
       id: 'brochure-aldi',
@@ -50,7 +55,7 @@ const brochureData = {
       title: 'Aldi Angebote',
       validFrom: '2026-10-10',
       validUntil: '2026-10-16',
-      coverImage: 'https://offerscdn.bringapi.app/content/aldi-cover.jpg',
+      coverImage: 'https://content-media.bonial.biz/aldi-cover.jpg',
     },
   ],
   imageReferences: [],
@@ -102,7 +107,12 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
       setManualPostalCode: mockSetManualPostalCode,
       useDeviceLocation: mockUseDeviceLocation,
     };
-    mockSync = { isSyncing: false, hasSynced: true };
+    mockSync = {
+      isSyncing: false,
+      hasSynced: true,
+      isScanPending: false,
+      hasScanError: false,
+    };
     mockBrochureQuery = { data: brochureData, isLoading: false };
   });
 
@@ -162,12 +172,36 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
   });
 
   it('shows loading, an empty catalog and the manual-location switch', async () => {
-    mockSync = { isSyncing: true, hasSynced: false };
+    mockSync = {
+      isSyncing: true,
+      hasSynced: false,
+      isScanPending: false,
+      hasScanError: false,
+    };
     const loading = await render(<ScreenComponent />);
     expect(screen.getByText('Angebote für 10115 werden geladen...')).toBeOnTheScreen();
     await loading.unmount();
 
-    mockSync = { isSyncing: false, hasSynced: true };
+    mockSync = {
+      isSyncing: false,
+      hasSynced: true,
+      isScanPending: true,
+      hasScanError: false,
+    };
+    mockBrochureQuery = {
+      data: { ...brochureData, brochures: [], favorites: [], stores: [] },
+      isLoading: false,
+    };
+    const pending = await render(<ScreenComponent />);
+    expect(screen.getByText('Angebote für 10115 werden geladen...')).toBeOnTheScreen();
+    await pending.unmount();
+
+    mockSync = {
+      isSyncing: false,
+      hasSynced: true,
+      isScanPending: false,
+      hasScanError: false,
+    };
     mockBrochureQuery = {
       data: { ...brochureData, cacheZip: '22043' },
       isLoading: false,
@@ -176,6 +210,22 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
     expect(screen.getByText('Noch keine Prospekte')).toBeOnTheScreen();
     await wrongPostalCode.unmount();
 
+    mockSync = {
+      isSyncing: false,
+      hasSynced: true,
+      isScanPending: false,
+      hasScanError: true,
+    };
+    const failedScan = await render(<ScreenComponent />);
+    expect(screen.getByText('Prospekte konnten nicht geladen werden')).toBeOnTheScreen();
+    await failedScan.unmount();
+
+    mockSync = {
+      isSyncing: false,
+      hasSynced: true,
+      isScanPending: false,
+      hasScanError: false,
+    };
     mockBrochureQuery = {
       data: { ...brochureData, brochures: [], favorites: [], stores: [] },
       isLoading: false,
