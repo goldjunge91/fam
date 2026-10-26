@@ -2,6 +2,7 @@ import { describe, expect, it, jest } from '@jest/globals';
 import {
   buildBrnReferences,
   buildOffersByRegionalReference,
+  fetchJsonWithRetry,
   loadReusableDetailMetadata,
   pageMetadataFromDetail,
   pageCountFromDetail,
@@ -245,5 +246,24 @@ describe('fetch-detail-pages', () => {
       multiplePageReferences: 2,
       multiplePagePercent: 66.7,
     });
+  });
+
+  it('retries a temporarily forbidden detail response after a cooldown', async () => {
+    const fetchMock = jest.spyOn(global, 'fetch')
+      .mockResolvedValueOnce(new Response('Forbidden', { status: 403 }))
+      .mockResolvedValueOnce(new Response('{"pages":[]}', { status: 200 }));
+    jest.useFakeTimers();
+
+    try {
+      const response = fetchJsonWithRetry('https://bring.example/brochure', {});
+      await Promise.resolve();
+      await jest.advanceTimersByTimeAsync(5_000);
+
+      await expect(response).resolves.toEqual({ pages: [] });
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+      jest.useRealTimers();
+    }
   });
 });

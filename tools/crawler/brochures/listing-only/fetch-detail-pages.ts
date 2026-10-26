@@ -13,7 +13,7 @@ const outputPath = 'tools/crawler/data/listing-only/detail-pages.json';
 const pageMetadataOutputPath = 'tools/crawler/data/listing-only/detail-page-metadata.json';
 const progressPath = 'tools/crawler/data/listing-only/.detail-pages-progress.json';
 const pageMetadataProgressPath = 'tools/crawler/data/listing-only/.detail-page-metadata-progress.jsonl';
-const concurrency = 8;
+const concurrency = 4;
 
 type FullScanOffer = {
   brn: string;
@@ -304,13 +304,14 @@ export async function fetchJsonWithRetry(
       });
       if (response.ok) return await response.json();
 
-      const retryable = response.status === 429 || response.status >= 500;
+      const retryable = response.status === 403 || response.status === 429 || response.status >= 500;
       if (!retryable || attempt === 3) {
         throw new Error(`Bring API ${response.status} fuer ${new URL(url).pathname}`);
       }
 
       const retryAfter = Number(response.headers.get('retry-after'));
-      const delay = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000;
+      const retryDelay = response.status === 403 ? 5_000 * 2 ** attempt : 2 ** attempt * 1000;
+      const delay = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : retryDelay;
       await wait(Math.min(delay, 30_000));
     } catch (error) {
       if (attempt === 3 || (error instanceof Error && error.message.startsWith('Bring API 4'))) {
