@@ -12,6 +12,17 @@
 -- 09_sync_and_realtime.test.sql` prueft das Ergebnis und schlaegt an, wenn sie
 -- fehlen.
 
+-- Scan-Ergebnisse sind fuer angemeldete App-Clients ueber private Broadcasts
+-- sichtbar. Die Topic-Form bindet jede Nachricht an genau eine PLZ; die
+-- Broadcast-Tabelle selbst bleibt fuer Clients unzugaenglich.
+create policy brochure_scan_broadcast_receive
+  on realtime.messages
+  for select to authenticated
+  using (
+    extension = 'broadcast'
+    and (select realtime.topic()) ~ '^brochure-scan:[0-9]{5}$'
+  );
+
 -- REPLICA IDENTITY FULL ist Voraussetzung dafuer, dass Realtime RLS auswerten
 -- kann: Ohne die vollstaendige alte Zeile kann Supabase nicht entscheiden, wer
 -- ein Change-Event sehen darf, und verschickt es im Zweifel an Clients, die die

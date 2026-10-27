@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { renderHook, waitFor } from '@testing-library/react-native';
+import { act, renderHook, waitFor } from '@testing-library/react-native';
 import type { PropsWithChildren } from 'react';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { getDatabase } from '@/lib/db/local-client';
@@ -14,6 +14,7 @@ jest.mock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
 jest.mock('@/lib/observability/debug-log', () => ({ debugLog: jest.fn() }));
 jest.mock('@/lib/telemetry', () => ({ reportError: jest.fn() }));
 jest.mock('../brochure-sync', () => ({
+  ...jest.requireActual<typeof import('../brochure-sync')>('../brochure-sync'),
   mapRegionalAvailabilityRows: jest.fn(),
   writeBrochureDump: jest.fn(),
 }));
@@ -25,6 +26,13 @@ const mockReportError = jest.mocked(reportError);
 const mockMapRegionalAvailabilityRows = jest.mocked(mapRegionalAvailabilityRows);
 const mockWriteBrochureDump = jest.mocked(writeBrochureDump);
 const mockRpc = jest.fn();
+const mockChannel = {
+  on: jest.fn(),
+  subscribe: jest.fn(),
+};
+const mockCreateChannel = jest.fn(() => mockChannel);
+const mockRemoveChannel = jest.fn();
+let mockBroadcastHandler: ((message: { payload: Record<string, unknown> }) => void) | undefined;
 const mockEq = jest.fn(
   async (
     _column: string,
@@ -47,11 +55,32 @@ function queryClientWrapper(queryClient: QueryClient) {
 }
 
 beforeEach(() => {
+  mockBroadcastHandler = undefined;
+  mockChannel.on.mockReset();
+  mockChannel.on.mockImplementation(
+    (
+      _event: string,
+      _filter: unknown,
+      handler: (message: { payload: Record<string, unknown> }) => void,
+    ) => {
+      mockBroadcastHandler = handler;
+      return mockChannel;
+    },
+  );
+  mockChannel.subscribe.mockReset();
+  mockChannel.subscribe.mockImplementation((callback: (status: string) => void) => {
+    callback('SUBSCRIBED');
+    return mockChannel;
+  });
+  mockCreateChannel.mockClear();
+  mockRemoveChannel.mockReset();
   mockEq.mockReset();
   mockEq.mockResolvedValue({ data: [], error: null });
   mockGetSupabase.mockReset();
   mockGetSupabase.mockReturnValue({
     rpc: mockRpc,
+    channel: mockCreateChannel,
+    removeChannel: mockRemoveChannel,
     from: jest.fn(() => ({
       select: jest.fn(() => ({ eq: mockEq })),
     })),
@@ -76,6 +105,10 @@ beforeEach(() => {
   mockMapRegionalAvailabilityRows.mockReturnValue({ stores: [], brochures: [] });
   mockWriteBrochureDump.mockReset();
   mockWriteBrochureDump.mockResolvedValue({} as never);
+});
+
+afterEach(() => {
+  jest.useRealTimers();
 });
 
 for (const [platform, useHook] of hookVariants) {
@@ -155,6 +188,91 @@ for (const [platform, useHook] of hookVariants) {
       expect(mockRpc).toHaveBeenCalledWith('request_brochure_zip_scan', {
         p_zip_code: '12345',
       });
+      expect(mockCreateChannel).toHaveBeenCalledWith('brochure-scan:12345', {
+        config: { private: true },
+      });
+      expect(mockChannel.on).toHaveBeenCalledWith(
+        'broadcast',
+        { event: 'scan-finished' },
+        expect.any(Function),
+      );
+      expect(mockChannel.subscribe.mock.invocationCallOrder[0]).toBeLessThan(
+        mockRpc.mock.invocationCallOrder[0],
+      );
+    });
+
+    it('reconciles the PLZ as soon as its private completion broadcast arrives', async () => {
+      const pendingScan = {
+        requested_at: '2026-10-26T10:01:00.000Z',
+        last_successful_at: '2026-10-26T10:00:00.000Z',
+        next_attempt_at: '2026-10-26T10:01:00.000Z',
+        last_error: null,
+      };
+      const completedScan = {
+        ...pendingScan,
+        last_successful_at: '2026-10-26T10:02:00.000Z',
+      };
+      mockRpc
+        .mockResolvedValueOnce({ data: [pendingScan], error: null })
+        .mockResolvedValueOnce({ data: [pendingScan], error: null })
+        .mockResolvedValueOnce({ data: [completedScan], error: null });
+
+      const { result } = await renderHook(() => useHook('12345'), {
+        wrapper: queryClientWrapper(new QueryClient()),
+      });
+
+      await waitFor(() => expect(result.current.isScanPending).toBe(true));
+      expect(mockRpc).toHaveBeenNthCalledWith(2, 'get_brochure_zip_scan_status', {
+        p_zip_code: '12345',
+      });
+
+      mockBroadcastHandler?.({
+        payload: { zip_code: '12345', result: 'succeeded' },
+      });
+
+      await waitFor(() => expect(result.current.isScanPending).toBe(false));
+      expect(result.current.hasScanError).toBe(false);
+      expect(mockRpc).toHaveBeenNthCalledWith(3, 'get_brochure_zip_scan_status', {
+        p_zip_code: '12345',
+      });
+      expect(mockEq).toHaveBeenCalledTimes(2);
+    });
+
+    it('does not poll while the private Realtime channel stays connected', async () => {
+      jest.useFakeTimers();
+      const pendingScan = {
+        requested_at: '2026-10-26T10:01:00.000Z',
+        last_successful_at: '2026-10-26T10:00:00.000Z',
+        next_attempt_at: '2026-10-26T10:01:00.000Z',
+        last_error: null,
+      };
+      mockRpc
+        .mockResolvedValueOnce({ data: [pendingScan], error: null })
+        .mockResolvedValueOnce({ data: [pendingScan], error: null });
+
+      const { result, unmount } = await renderHook(() => useHook('12345'), {
+        wrapper: queryClientWrapper(new QueryClient()),
+      });
+
+      await waitFor(() => expect(result.current.isScanPending).toBe(true));
+      expect(mockRpc).toHaveBeenCalledTimes(2);
+
+      await act(async () => {
+        await jest.advanceTimersByTimeAsync(60_000);
+      });
+
+      expect(mockRpc).toHaveBeenCalledTimes(2);
+      await unmount();
+    });
+
+    it('removes its private scan channel when the hook unmounts', async () => {
+      const { unmount } = await renderHook(() => useHook('12345'), {
+        wrapper: queryClientWrapper(new QueryClient()),
+      });
+
+      await unmount();
+
+      expect(mockRemoveChannel).toHaveBeenCalledWith(mockChannel);
     });
   });
 }

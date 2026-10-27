@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
+import { AppState } from 'react-native';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { getDatabase } from '@/lib/db/local-client';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -12,8 +13,8 @@ import {
   writeBrochureDump,
 } from '../brochure-sync';
 
-const SCAN_STATUS_POLL_INTERVAL_MS = 30_000;
-const SCAN_STATUS_POLL_TIMEOUT_MS = 20 * 60_000;
+const SCAN_STATUS_FALLBACK_INTERVAL_MS = 30_000;
+const SCAN_STATUS_TIMEOUT_MS = 20 * 60_000;
 
 /**
  * Synchronisiert Prospekte nach SQLite und entfernt abgelaufene Einträge.
@@ -30,6 +31,33 @@ export function useBrochureSync(zipCode: string | null) {
     const currentZip = zipCode;
 
     let isMounted = true;
+    let isScanPendingLocally = false;
+    let isRealtimeConnected = false;
+    let isAppActive = !['background', 'inactive', 'extension'].includes(AppState.currentState);
+    let requestedAt: string | null = null;
+    let fallbackTimeout: ReturnType<typeof setTimeout> | undefined;
+    let scanTimeout: ReturnType<typeof setTimeout> | undefined;
+    let isCheckingStatus = false;
+    let checkStatusAgain = false;
+    let removeRealtimeChannel: (() => void) | undefined;
+
+    function clearFallbackTimeout() {
+      if (fallbackTimeout === undefined) return;
+      clearTimeout(fallbackTimeout);
+      fallbackTimeout = undefined;
+    }
+
+    function finishScan(hasError: boolean) {
+      isScanPendingLocally = false;
+      clearFallbackTimeout();
+      if (scanTimeout !== undefined) {
+        clearTimeout(scanTimeout);
+        scanTimeout = undefined;
+      }
+      if (!isMounted) return;
+      setIsScanPending(false);
+      setHasScanError(hasError);
+    }
 
     async function syncCatalogSnapshot(supabase: ReturnType<typeof getSupabase>) {
       const { data: rows, error } = await supabase
@@ -69,51 +97,96 @@ export function useBrochureSync(zipCode: string | null) {
       });
     }
 
-    async function monitorRequestedScan(
-      supabase: ReturnType<typeof getSupabase>,
-      requestedAt: string,
-    ) {
-      const deadline = Date.now() + SCAN_STATUS_POLL_TIMEOUT_MS;
+    async function reconcileScanStatus(supabase: ReturnType<typeof getSupabase>) {
+      if (!isMounted || !isScanPendingLocally || !requestedAt) return;
+      if (isCheckingStatus) {
+        checkStatusAgain = true;
+        return;
+      }
+
+      isCheckingStatus = true;
       try {
-        while (isMounted && Date.now() < deadline) {
+        do {
+          checkStatusAgain = false;
           const { data, error } = await supabase.rpc('get_brochure_zip_scan_status', {
             p_zip_code: currentZip,
           });
           if (error) throw error;
           const status = data?.[0] as BrochureZipScanStatus | undefined;
+
           if (status?.last_error) {
-            setIsScanPending(false);
-            setHasScanError(true);
+            finishScan(true);
             return;
           }
+
           if (status && !brochureZipScanIsPending(status)) {
-            if (
-              status.last_successful_at &&
-              Date.parse(status.last_successful_at) >= Date.parse(requestedAt)
-            ) {
+            const scanSucceeded =
+              status.last_successful_at !== null &&
+              Date.parse(status.last_successful_at) >= Date.parse(requestedAt);
+            if (scanSucceeded) {
               await syncCatalogSnapshot(supabase);
             }
-            if (isMounted) {
-              setIsScanPending(false);
-              setHasScanError(false);
-            }
+            finishScan(!scanSucceeded);
             return;
           }
-          await new Promise((resolve) => setTimeout(resolve, SCAN_STATUS_POLL_INTERVAL_MS));
-        }
-
-        if (isMounted) {
-          setIsScanPending(false);
-          setHasScanError(true);
-        }
+        } while (isMounted && isScanPendingLocally && checkStatusAgain);
       } catch (error) {
-        debugLog('[brochures] scan status polling failed', error);
+        debugLog('[brochures] scan status reconciliation failed', error);
         reportError(error, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
-        if (isMounted) {
-          setIsScanPending(false);
-          setHasScanError(true);
-        }
+        finishScan(true);
+      } finally {
+        isCheckingStatus = false;
       }
+    }
+
+    function scheduleFallback(supabase: ReturnType<typeof getSupabase>) {
+      if (
+        fallbackTimeout !== undefined ||
+        !isMounted ||
+        !isScanPendingLocally ||
+        isRealtimeConnected ||
+        !isAppActive
+      ) {
+        return;
+      }
+
+      fallbackTimeout = setTimeout(() => {
+        fallbackTimeout = undefined;
+        void reconcileScanStatus(supabase).then(() => {
+          if (isScanPendingLocally) scheduleFallback(supabase);
+        });
+      }, SCAN_STATUS_FALLBACK_INTERVAL_MS);
+    }
+
+    function subscribeToScanCompletion(supabase: ReturnType<typeof getSupabase>) {
+      const channel = supabase.channel(`brochure-scan:${currentZip}`, {
+        config: { private: true },
+      });
+
+      channel.on('broadcast', { event: 'scan-finished' }, ({ payload }) => {
+        if (
+          payload.zip_code !== currentZip ||
+          (payload.result !== 'succeeded' && payload.result !== 'failed')
+        ) {
+          return;
+        }
+        if (isScanPendingLocally && isAppActive) void reconcileScanStatus(supabase);
+      });
+
+      channel.subscribe((status) => {
+        if (!isMounted) return;
+        isRealtimeConnected = status === 'SUBSCRIBED';
+        if (isRealtimeConnected) {
+          clearFallbackTimeout();
+          if (isScanPendingLocally && isAppActive) void reconcileScanStatus(supabase);
+        } else {
+          scheduleFallback(supabase);
+        }
+      });
+
+      return () => {
+        void supabase.removeChannel(channel);
+      };
     }
 
     async function syncBrochures() {
@@ -123,6 +196,12 @@ export function useBrochureSync(zipCode: string | null) {
       setHasScanError(false);
       try {
         const supabase = getSupabase();
+        try {
+          removeRealtimeChannel = subscribeToScanCompletion(supabase);
+        } catch (error) {
+          debugLog('[brochures] realtime subscription could not start', error);
+        }
+
         const { data: scanRows, error: scanError } = await supabase.rpc(
           'request_brochure_zip_scan',
           { p_zip_code: currentZip },
@@ -141,12 +220,17 @@ export function useBrochureSync(zipCode: string | null) {
         if (scanStatus?.last_error) {
           setHasScanError(true);
         } else if (scanStatus && brochureZipScanIsPending(scanStatus)) {
+          requestedAt = scanStatus.requested_at;
+          isScanPendingLocally = true;
           setIsScanPending(true);
-          void monitorRequestedScan(supabase, scanStatus.requested_at);
+          scanTimeout = setTimeout(() => finishScan(true), SCAN_STATUS_TIMEOUT_MS);
+          void reconcileScanStatus(supabase);
+          scheduleFallback(supabase);
         }
-      } catch (e) {
-        debugLog('[brochures] sync failed', e);
-        reportError(e, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
+      } catch (error) {
+        debugLog('[brochures] sync failed', error);
+        reportError(error, { operation: 'brochure.sync', error_code: 'brochure_sync_failed' });
+        if (isMounted) setHasScanError(true);
       } finally {
         if (isMounted) {
           setIsSyncing(false);
@@ -155,10 +239,25 @@ export function useBrochureSync(zipCode: string | null) {
       }
     }
 
-    syncBrochures();
+    const appStateSubscription = AppState.addEventListener('change', (state) => {
+      isAppActive = state === 'active';
+      if (!isAppActive) {
+        clearFallbackTimeout();
+      } else if (isScanPendingLocally) {
+        const supabase = getSupabase();
+        void reconcileScanStatus(supabase);
+        scheduleFallback(supabase);
+      }
+    });
+
+    void syncBrochures();
 
     return () => {
       isMounted = false;
+      clearFallbackTimeout();
+      if (scanTimeout !== undefined) clearTimeout(scanTimeout);
+      appStateSubscription.remove();
+      removeRealtimeChannel?.();
     };
   }, [queryClient, zipCode]);
 

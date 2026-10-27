@@ -176,6 +176,8 @@ revoke execute on function private.handle_new_user() from public, anon, authenti
 revoke execute on function private.guard_last_admin() from public, anon, authenticated;
 revoke execute on function private.delete_orphaned_household() from public, anon, authenticated;
 revoke execute on function private.assign_transaction_sync_sequence() from public, anon, authenticated;
+revoke execute on function private.broadcast_brochure_zip_scan_finished()
+  from public, anon, authenticated, service_role;
 
 -- --------------------------------------------------------------------- public
 -- Diese Client-RPCs SOLLEN vom Client aufrufbar sein — anders als die Helfer.

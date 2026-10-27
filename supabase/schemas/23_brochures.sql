@@ -276,6 +276,61 @@ create trigger set_updated_at_brochure_zip_scans
   before update on public.brochure_zip_scans
   for each row execute function private.set_updated_at();
 
+create or replace function private.broadcast_brochure_zip_scan_finished()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_result text;
+begin
+  if tg_op = 'INSERT' then
+    if new.last_error is not null then
+      v_result := 'failed';
+    elsif new.last_successful_at is not null then
+      v_result := 'succeeded';
+    end if;
+  elsif new.last_error is not null and old.last_error is null then
+    v_result := 'failed';
+  elsif new.last_successful_at is not null
+    and new.last_successful_at is distinct from old.last_successful_at then
+    v_result := 'succeeded';
+  end if;
+
+  if v_result is null then
+    return new;
+  end if;
+
+  perform realtime.send(
+    payload => jsonb_build_object(
+      'zip_code', new.zip_code,
+      'result', v_result,
+      'last_successful_at', new.last_successful_at
+    ),
+    event => 'scan-finished',
+    topic => 'brochure-scan:' || new.zip_code,
+    private => true
+  );
+
+  return new;
+exception when others then
+  raise warning 'Brochure scan completion broadcast failed for postal code %.', new.zip_code;
+  return new;
+end;
+$$;
+
+revoke all on function private.broadcast_brochure_zip_scan_finished()
+  from public, anon, authenticated, service_role;
+
+create trigger broadcast_brochure_zip_scan_insert
+  after insert on public.brochure_zip_scans
+  for each row execute function private.broadcast_brochure_zip_scan_finished();
+
+create trigger broadcast_brochure_zip_scan_update
+  after update of last_successful_at, last_error on public.brochure_zip_scans
+  for each row execute function private.broadcast_brochure_zip_scan_finished();
+
 alter table public.brochures enable row level security;
 create policy brochures_select on public.brochures
   for select to authenticated using (true);
