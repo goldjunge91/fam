@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { cpSync, mkdtempSync, symlinkSync } from 'node:fs';
+import { cpSync, mkdirSync, mkdtempSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
@@ -20,6 +20,11 @@ export function createCngFixture() {
   ]) {
     cpSync(join(projectRoot, path), join(root, path), { recursive: true });
   }
+  mkdirSync(join(root, 'src/lib/config'), { recursive: true });
+  cpSync(
+    join(projectRoot, 'src/lib/config/account-domain.ts'),
+    join(root, 'src/lib/config/account-domain.ts'),
+  );
   symlinkSync(join(projectRoot, 'node_modules'), join(root, 'node_modules'), 'junction');
 
   function run(args: string[], environment: Record<string, string> = {}) {

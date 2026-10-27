@@ -123,7 +123,7 @@ describe('iOS build workflow hooks', () => {
     const actions = fs.readFileSync(path.join(projectRoot, '.github', 'workflows', 'ios-testflight.yml'), 'utf8');
 
     expect(actions).toContain('if: always()');
-    expect(actions).toContain('uses: actions/upload-artifact@v4');
+    expect(actions).toContain('uses: actions/upload-artifact@v7');
     expect(actions).toContain('path: build/workflows/ios/');
     expect(actions).toContain('retention-days: 90');
   });
