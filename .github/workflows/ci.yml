@@ -44,7 +44,7 @@ jobs:
           - name: Unit-Coverage
             command: bun run test:coverage:unit
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: ./.github/actions/setup-bun-env
 
@@ -63,7 +63,7 @@ jobs:
     name: Testqualitätsmetriken
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: ./.github/actions/setup-bun-env
 
@@ -84,15 +84,15 @@ jobs:
     name: DB-Schema, RLS und Integrationstests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: supabase/setup-cli@v1
+      - uses: supabase/setup-cli@v3
         with:
           version: ${{ env.SUPABASE_CLI_VERSION }}
 
       - name: Cache Supabase Docker-Images
         id: cache-supabase-docker
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: build/cache/docker/supabase-docker-images.tar
           key: supabase-docker-${{ env.SUPABASE_CLI_VERSION }}-complete-v2

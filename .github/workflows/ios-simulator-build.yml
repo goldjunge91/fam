@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-26
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Bun environment
         uses: ./.github/actions/setup-bun-env
@@ -69,7 +69,7 @@ jobs:
             watch.app
 
       - name: Upload iOS simulator app
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: fam-ios-simulator
           path: ${{ runner.temp }}/fam-ios-simulator.tar.gz

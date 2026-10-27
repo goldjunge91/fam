@@ -15,12 +15,12 @@ runs:
     #[RUN_GRADLEW]          project :
     #[RUN_GRADLEW]       > Dependency requires at least JVM runtime version 17. This build uses a Java 11 JVM.
     - name: Set up Java 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v6
       with:
         java-version: '17'
-        distribution: 'adopt'
+        distribution: 'temurin'
     - name: 🏗 Setup EAS
-      uses: expo/expo-github-action@v8
+      uses: expo/expo-github-action@v9
       with:
         expo-version: latest
         eas-version: latest
