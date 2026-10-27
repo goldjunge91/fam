@@ -10,7 +10,7 @@ describe('app link configuration', () => {
   });
 
   it('adds the recovery host while preserving existing native settings', () => {
-    process.env.EXPO_PUBLIC_ACCOUNT_DOMAIN = 'account.deine-domain.de';
+    process.env.EXPO_PUBLIC_ACCOUNT_DOMAIN = 'account.test-tozzi.de';
     const config: ExpoConfig = {
       name: 'fam',
       slug: 'fam',
@@ -35,7 +35,7 @@ describe('app link configuration', () => {
 
     expect(result.ios?.associatedDomains).toEqual([
       'applinks:existing.example.test',
-      'applinks:account.deine-domain.de',
+      'applinks:account.test-tozzi.de',
     ]);
     expect(result.ios?.entitlements?.['com.apple.security.application-groups']).toContain(
       'group.example.test',
@@ -45,7 +45,7 @@ describe('app link configuration', () => {
       {
         action: 'VIEW',
         autoVerify: true,
-        data: [{ scheme: 'https', host: 'account.deine-domain.de', path: '/password-recovery' }],
+        data: [{ scheme: 'https', host: 'account.test-tozzi.de', path: '/password-recovery' }],
         category: ['BROWSABLE', 'DEFAULT'],
       },
     ]);
@@ -61,7 +61,7 @@ describe('app link configuration', () => {
   });
 
   it('rejects an invalid host before native configuration is generated', () => {
-    process.env.EXPO_PUBLIC_ACCOUNT_DOMAIN = 'https://account.deine-domain.de';
+    process.env.EXPO_PUBLIC_ACCOUNT_DOMAIN = 'https://account.test-tozzi.de';
 
     expect(() => appConfig({ config: { name: 'fam', slug: 'fam' } } as ConfigContext)).toThrow(
       'EXPO_PUBLIC_ACCOUNT_DOMAIN must be a DNS hostname without a URL path.',

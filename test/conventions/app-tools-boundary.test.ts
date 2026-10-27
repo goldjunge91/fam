@@ -13,7 +13,7 @@ const TOOL_PATHS = [
   'tools/build-gui/',
   'tools/category-debugger/',
   'tools/classify.ts',
-  'tools/crawler/',
+  'tools/crawler/brochures/listing-only/',
   'tools/llm-test-platform/',
   'tools/product-search-lab/',
   'tools/receipt-ocr-tesseract/',

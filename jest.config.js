@@ -96,14 +96,13 @@ module.exports = {
     "/scripts/",
   ],
 
-  // Eigenstaendige Tools und lokale Agent-Skills koennen eigene
-  // package.json-Dateien mit demselben Namen enthalten. Sie gehoeren nicht
-  // zum App-Modulgraphen und duerfen deshalb auch nicht in Jest Haste landen.
-  // `build/` ist der lokale Bun-/Prebuild-Cache: er enthaelt entpackte
-  // Paketquellen mit package.json, die sonst mehrfach als Haste-Kandidaten
-  // auftauchen und die Modulaufloesung mit "several different files" brechen.
+  // Eigenstaendige Tools, lokale Agent-Skills und lokale Paket-Caches koennen
+  // eigene package.json-Dateien mit demselben Namen enthalten. Sie gehoeren
+  // nicht zum App-Modulgraphen und duerfen deshalb nicht in Jest Haste landen.
+  // `build/` und `.deno-cache/` enthalten entpackte Paketquellen, die sonst
+  // mehrfach als Haste-Kandidaten auftauchen und die Modulaufloesung brechen.
   modulePathIgnorePatterns: [
-    "<rootDir>/(?:tools|\\.agents|\\.claude|build|\\.push-clean-worktree|\\.tmp)/",
+    "<rootDir>/(?:tools|\\.agents|\\.claude|build|\\.deno-cache|\\.push-clean-worktree|\\.tmp)/",
   ],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf

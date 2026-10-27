@@ -1,6 +1,6 @@
 SET local check_function_bodies = off;
 
-CREATE EXTENSION "pg_net" SCHEMA "extensions";
+CREATE EXTENSION IF NOT EXISTS "pg_net" SCHEMA "extensions";
 
 CREATE OR REPLACE FUNCTION private.dispatch_brochure_zip_scan()
   RETURNS TRIGGER

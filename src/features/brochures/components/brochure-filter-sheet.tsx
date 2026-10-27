@@ -237,6 +237,7 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: radius.xs,
   },
   checkmark: {
+    // typography-role-exception: keep the checkbox glyph inside its 20-point frame.
     lineHeight: 16,
   },
   applyButton: {
