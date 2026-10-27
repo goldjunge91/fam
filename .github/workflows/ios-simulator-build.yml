@@ -25,6 +25,7 @@ jobs:
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
+          EXPO_PUBLIC_ACCOUNT_DOMAIN: ${{ vars.EXPO_PUBLIC_ACCOUNT_DOMAIN }}
 
       - name: Package iOS simulator app
         shell: bash
