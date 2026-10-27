@@ -33,7 +33,7 @@ export function buildScreenshotTour(recipeId: string): readonly ScreenshotTourSt
   return [
     // Der erste Screenshot zeigt das Dashboard unter der Root-Route.
     { name: '01-home', href: '/', path: '/' },
-    // Der zweite Screenshot zeigt die Angebotsübersicht.
+    // Der zweite Screenshot zeigt die Prospekte-Übersicht.
     { name: '02-brochures', href: '/brochures', path: '/brochures' },
     // Der dritte Screenshot zeigt den gemeinsamen Vorrat.
     { name: '03-inventory', href: '/fridge', path: '/fridge' },

@@ -12,7 +12,7 @@ type PostalCodeEditorProps = {
   onCancel?: () => void;
 };
 
-/** Inline-Formular für die manuelle PLZ-Eingabe, Alternative zum GPS-Standort im Angebote-Bereich. */
+/** Inline-Formular für die manuelle PLZ-Eingabe, Alternative zum GPS-Standort im Prospekte-Bereich. */
 export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) {
   const { colors } = useTheme();
   const [value, setValue] = useState('');

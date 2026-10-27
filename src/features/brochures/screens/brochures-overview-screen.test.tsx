@@ -179,7 +179,7 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
       hasScanError: false,
     };
     const loading = await render(<ScreenComponent />);
-    expect(screen.getByText('Angebote für 10115 werden geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Prospekte für 10115 werden geladen...')).toBeOnTheScreen();
     await loading.unmount();
 
     mockSync = {
@@ -193,7 +193,7 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
       isLoading: false,
     };
     const pending = await render(<ScreenComponent />);
-    expect(screen.getByText('Angebote für 10115 werden geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Prospekte für 10115 werden geladen...')).toBeOnTheScreen();
     await pending.unmount();
 
     mockSync = {

@@ -20,7 +20,7 @@ const EMPTY_IMAGE_REFERENCES: [] = [];
 export default function BrochuresOverviewScreen() {
   const router = useRouter();
   const { colors } = useTheme();
-  // Angebote ist ein Drawer-Top-Level-Screen: der Header braucht einen Menü-Button
+  // Prospekte ist ein Drawer-Top-Level-Screen: der Header braucht einen Menü-Button
   // zurück ins Nav-Menü statt eines Zurück-Pfeils zur vorherigen Route.
   const { openDrawer, openProfile } = useNavigationChrome();
   const { initials, avatarUrl } = useProfileAvatar();
@@ -82,7 +82,7 @@ export default function BrochuresOverviewScreen() {
 
   if (location.status === 'locating') {
     return (
-      <Screen title="Angebote" chrome={chrome}>
+      <Screen title="Prospekte" chrome={chrome}>
         <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
             Standort wird ermittelt...
@@ -98,7 +98,7 @@ export default function BrochuresOverviewScreen() {
     // reicht ein erneuter Request statt eines Umwegs über die Einstellungen.
     const permanentlyDenied = denied && !location.canAskAgain;
     return (
-      <Screen title="Angebote" chrome={chrome}>
+      <Screen title="Prospekte" chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
           <Txt variant="heading" style={styles.locationTitle}>
             Standort erforderlich
@@ -135,10 +135,10 @@ export default function BrochuresOverviewScreen() {
   const hasCurrentBrochures = data?.cacheZip === postalCode && data.brochures.length > 0;
   if (isLoading || isSyncing || !hasSynced || (isScanPending && !hasCurrentBrochures)) {
     return (
-      <Screen title="Angebote" chrome={chrome}>
+      <Screen title="Prospekte" chrome={chrome}>
         <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
-            Angebote für {postalCode} werden geladen...
+            Prospekte für {postalCode} werden geladen...
           </Txt>
           {postalCodeSettings}
         </View>
@@ -147,7 +147,7 @@ export default function BrochuresOverviewScreen() {
   }
   if (hasScanError && !hasCurrentBrochures) {
     return (
-      <Screen title="Angebote" chrome={chrome}>
+      <Screen title="Prospekte" chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
           <Txt variant="heading" style={styles.locationTitle}>
             Prospekte konnten nicht geladen werden
@@ -163,7 +163,7 @@ export default function BrochuresOverviewScreen() {
   }
   if (data?.cacheZip !== postalCode) {
     return (
-      <Screen title="Angebote" chrome={chrome}>
+      <Screen title="Prospekte" chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
           <Txt variant="heading" style={styles.locationTitle}>
             Noch keine Prospekte
@@ -186,7 +186,7 @@ export default function BrochuresOverviewScreen() {
     : brochures;
 
   return (
-    <Screen title="Angebote" chrome={chrome} scroll={false} applyBottomPadding={false}>
+    <Screen title="Prospekte" chrome={chrome} scroll={false} applyBottomPadding={false}>
       <ScrollView
         style={[styles.container, { backgroundColor: colors.background }]}
         contentContainerStyle={styles.content}>
