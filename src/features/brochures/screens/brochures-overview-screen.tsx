@@ -1,19 +1,22 @@
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
-import { Linking, Pressable, ScrollView, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Linking, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
+import { BrochureFilterSheet } from '../components/brochure-filter-sheet';
 import { PostalCodeEditor } from '../components/postal-code-editor';
 import { useBrochureImagePrefetch } from '../hooks/use-brochure-image-prefetch';
 import { useBrochurePostalCode } from '../hooks/use-brochure-postal-code';
 import { useBrochureSync } from '../hooks/use-brochure-sync';
 import { useBrochures } from '../hooks/use-brochures';
+import { groupBrochureStores } from '../market-groups';
 
 const EMPTY_IMAGE_REFERENCES: [] = [];
 
@@ -25,7 +28,11 @@ export default function BrochuresOverviewScreen() {
   const { openDrawer, openProfile } = useNavigationChrome();
   const { initials, avatarUrl } = useProfileAvatar();
   const chrome = { onMenuPress: openDrawer, onAvatarPress: openProfile, initials, avatarUrl };
-  const [selectedStoreId, setSelectedStoreId] = useState<string | null>(null);
+  const [selectedStoreIds, setSelectedStoreIds] = useState<Set<string> | null>(null);
+  const [filterDraftStoreIds, setFilterDraftStoreIds] = useState<Set<string>>(new Set());
+  const [isFilterSheetVisible, setIsFilterSheetVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [isEditingPostalCode, setIsEditingPostalCode] = useState(false);
   const location = useBrochurePostalCode();
   const postalCode = location.status === 'ready' ? location.postalCode : null;
@@ -34,6 +41,17 @@ export default function BrochuresOverviewScreen() {
   const imageReferences =
     data?.cacheZip === postalCode ? data.imageReferences : EMPTY_IMAGE_REFERENCES;
   useBrochureImagePrefetch(imageReferences, data?.cacheZip === postalCode ? postalCode : null);
+
+  const lastPostalCode = useRef(postalCode);
+  useEffect(() => {
+    if (lastPostalCode.current === postalCode) return;
+    lastPostalCode.current = postalCode;
+    setSelectedStoreIds(null);
+    setFilterDraftStoreIds(new Set());
+    setIsFilterSheetVisible(false);
+    setSearchQuery('');
+    setShowFavoritesOnly(false);
+  }, [postalCode]);
 
   const postalCodeSettings = isEditingPostalCode ? (
     <View style={styles.postalCodeEditRow}>
@@ -47,14 +65,14 @@ export default function BrochuresOverviewScreen() {
     </View>
   ) : postalCode ? (
     <View style={styles.postalCodeRow}>
-      <Txt variant="caption" tone="secondary">
+      <Txt variant="body" tone="primary" weight="500">
         PLZ {postalCode}
       </Txt>
       <Pressable
         accessibilityRole="button"
         style={styles.postalCodeAction}
         onPress={() => setIsEditingPostalCode(true)}>
-        <Txt variant="body" tone="primary" weight="600">
+        <Txt variant="body" tone="primary" weight="500">
           PLZ ändern
         </Txt>
       </Pressable>
@@ -181,9 +199,51 @@ export default function BrochuresOverviewScreen() {
   const availableStores = stores
     .filter((store) => availableStoreIds.has(store.id))
     .sort((left, right) => left.name.localeCompare(right.name, 'de'));
-  const visibleBrochures = selectedStoreId
-    ? brochures.filter((brochure) => brochure.storeId === selectedStoreId)
-    : brochures;
+  const allAvailableStoreIds = new Set(availableStores.map((store) => store.id));
+  const marketGroups = groupBrochureStores(availableStores);
+  const storeById = new Map(availableStores.map((store) => [store.id, store]));
+  const brochureCounts = new Map<string, number>();
+  for (const brochure of brochures) {
+    brochureCounts.set(brochure.storeId, (brochureCounts.get(brochure.storeId) ?? 0) + 1);
+  }
+  const normalizedQuery = searchQuery.trim().toLocaleLowerCase('de-DE');
+  const countResults = (storeIds: ReadonlySet<string>) =>
+    brochures.reduce((count, brochure) => {
+      const store = storeById.get(brochure.storeId);
+      if (!store || !storeIds.has(store.id) || (showFavoritesOnly && !store.isFavorite))
+        return count;
+
+      const matchesQuery =
+        normalizedQuery.length === 0 ||
+        store.name.toLocaleLowerCase('de-DE').includes(normalizedQuery) ||
+        brochure.title.toLocaleLowerCase('de-DE').includes(normalizedQuery);
+      return matchesQuery ? count + 1 : count;
+    }, 0);
+  const visibleStoreIds = selectedStoreIds ?? allAvailableStoreIds;
+  const visibleMarketGroups = marketGroups
+    .map((group) => ({
+      ...group,
+      stores: group.stores.flatMap((store) => {
+        if (!visibleStoreIds.has(store.id) || (showFavoritesOnly && !store.isFavorite)) return [];
+
+        const storeMatchesQuery = store.name.toLocaleLowerCase('de-DE').includes(normalizedQuery);
+        const visibleBrochures = brochures.filter(
+          (brochure) =>
+            brochure.storeId === store.id &&
+            (normalizedQuery.length === 0 ||
+              storeMatchesQuery ||
+              brochure.title.toLocaleLowerCase('de-DE').includes(normalizedQuery)),
+        );
+        return visibleBrochures.length > 0 ? [{ store, brochures: visibleBrochures }] : [];
+      }),
+    }))
+    .filter((group) => group.stores.length > 0);
+  const visibleBrochureCount = visibleMarketGroups.reduce(
+    (count, group) =>
+      count + group.stores.reduce((total, market) => total + market.brochures.length, 0),
+    0,
+  );
+  const draftResultCount = countResults(filterDraftStoreIds);
 
   return (
     <Screen title="Prospekte" chrome={chrome} scroll={false} applyBottomPadding={false}>
@@ -191,128 +251,193 @@ export default function BrochuresOverviewScreen() {
         style={[styles.container, { backgroundColor: colors.background }]}
         contentContainerStyle={styles.content}>
         {postalCodeSettings}
-        {favorites.length > 0 && (
-          <View style={styles.section}>
-            <Txt variant="body" weight="600" style={styles.sectionTitle}>
-              Deine Märkte
-            </Txt>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={styles.favoritesScroll}>
-              {favorites.map((store) => (
-                <View key={store.id} style={styles.favoriteStore}>
-                  {store.logoUrl ? (
-                    <Image
-                      source={store.logoUrl ?? undefined}
-                      style={[
-                        styles.storeLogo,
-                        { backgroundColor: colors.backgroundElement, borderColor: colors.border },
-                      ]}
-                      contentFit="contain"
-                    />
-                  ) : (
-                    <View
-                      style={[
-                        styles.storeLogoPlaceholder,
-                        { backgroundColor: colors.backgroundSoft, borderColor: colors.border },
-                      ]}>
-                      <Txt variant="subheading" tone="secondary" style={styles.storeInitials}>
-                        {store.name.substring(0, 2)}
-                      </Txt>
-                    </View>
-                  )}
-                  <Txt
-                    variant="caption"
-                    tone="secondary"
-                    style={styles.storeName}
-                    numberOfLines={1}>
-                    {store.name}
-                  </Txt>
-                </View>
-              ))}
-            </ScrollView>
-          </View>
-        )}
+        <View
+          style={[
+            styles.searchField,
+            { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+          ]}>
+          <SearchIcon size={space.lg} color={colors.textSecondary} />
+          <TextInput
+            accessibilityLabel="Prospekte und Märkte suchen"
+            placeholder="Markt oder Prospekt suchen"
+            placeholderTextColor={colors.textSecondary}
+            selectionColor={colors.accent}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            style={[styles.searchInput, { color: colors.text }]}
+            returnKeyType="search"
+          />
+        </View>
 
-        <View style={styles.section}>
-          <Txt variant="body" weight="600" style={styles.sectionTitle}>
-            Aktuelle Prospekte
-          </Txt>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.filterRow}>
+        <View style={styles.controlsRow}>
+          <View style={styles.scopeTabs}>
             <Pressable
               accessibilityRole="button"
-              accessibilityState={{ selected: selectedStoreId === null }}
+              accessibilityState={{ selected: !showFavoritesOnly }}
+              onPress={() => setShowFavoritesOnly(false)}
               style={[
-                styles.filterChip,
-                {
-                  backgroundColor:
-                    selectedStoreId === null ? colors.accent : colors.backgroundElement,
-                  borderColor: selectedStoreId === null ? colors.accent : colors.border,
-                },
-              ]}
-              onPress={() => setSelectedStoreId(null)}>
-              <Txt variant="body" tone={selectedStoreId === null ? 'onAccent' : 'primary'}>
-                Alle
+                styles.scopeTab,
+                !showFavoritesOnly && { borderBottomColor: colors.accent, borderBottomWidth: 2 },
+              ]}>
+              <Txt variant="body" tone={!showFavoritesOnly ? 'primary' : 'secondary'} weight="500">
+                Alle Märkte
               </Txt>
             </Pressable>
-            {availableStores.map((store) => {
-              const isSelected = selectedStoreId === store.id;
-              return (
-                <Pressable
-                  key={store.id}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: isSelected }}
-                  style={[
-                    styles.filterChip,
-                    {
-                      backgroundColor: isSelected ? colors.accent : colors.backgroundElement,
-                      borderColor: isSelected ? colors.accent : colors.border,
-                    },
-                  ]}
-                  onPress={() => setSelectedStoreId(store.id)}>
-                  <Txt variant="body" tone={isSelected ? 'onAccent' : 'primary'}>
-                    {store.name}
-                  </Txt>
-                </Pressable>
-              );
-            })}
-          </ScrollView>
-          <View style={styles.grid}>
-            {visibleBrochures.map((brochure) => (
+            {favorites.length > 0 ? (
               <Pressable
-                key={brochure.id}
+                accessibilityRole="button"
+                accessibilityState={{ selected: showFavoritesOnly }}
+                onPress={() => setShowFavoritesOnly(true)}
                 style={[
-                  styles.brochureCard,
-                  { backgroundColor: colors.backgroundElement, borderColor: colors.border },
-                ]}
-                onPress={() => router.push(`/brochures/${brochure.id}`)}>
-                <Image
-                  source={brochure.coverImage}
-                  style={[styles.brochureCover, { backgroundColor: colors.backgroundSoft }]}
-                  contentFit="cover"
-                />
-                <View style={styles.brochureInfo}>
-                  <Txt variant="body" weight="600" style={styles.brochureTitle} numberOfLines={2}>
-                    {brochure.title}
-                  </Txt>
-                  <Txt variant="caption" tone="secondary" style={styles.brochureDate}>
-                    Bis {new Date(brochure.validUntil).toLocaleDateString()}
-                  </Txt>
-                </View>
+                  styles.scopeTab,
+                  showFavoritesOnly && { borderBottomColor: colors.accent, borderBottomWidth: 2 },
+                ]}>
+                <Txt variant="body" tone={showFavoritesOnly ? 'primary' : 'secondary'} weight="500">
+                  Favoriten
+                </Txt>
               </Pressable>
-            ))}
-            {visibleBrochures.length === 0 ? (
-              <Txt variant="body" tone="secondary" style={styles.emptyText}>
-                Keine Prospekte.
-              </Txt>
             ) : null}
           </View>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={
+              selectedStoreIds === null
+                ? 'Filter öffnen'
+                : `Filter öffnen, ${selectedStoreIds.size} ausgewählt`
+            }
+            onPress={() => {
+              setFilterDraftStoreIds(new Set(selectedStoreIds ?? allAvailableStoreIds));
+              setIsFilterSheetVisible(true);
+            }}
+            style={[styles.filterButton, { borderColor: colors.border }]}>
+            <FilterIcon size={space.lg} color={colors.text} />
+            <Txt variant="body" weight="500">
+              Filter
+            </Txt>
+            {selectedStoreIds !== null ? (
+              <Txt variant="caption" tone="secondary">
+                {selectedStoreIds.size}
+              </Txt>
+            ) : null}
+          </Pressable>
         </View>
+
+        <View style={styles.sectionHeading}>
+          <Txt variant="body" weight="600">
+            Aktuelle Prospekte
+          </Txt>
+          <Txt variant="caption" tone="secondary">
+            {visibleBrochureCount}
+          </Txt>
+        </View>
+
+        {visibleMarketGroups.map((group) => (
+          <View key={group.id} style={styles.groupSection}>
+            <Txt variant="subheading" style={styles.groupTitle}>
+              {group.label}
+            </Txt>
+            {group.stores.map(({ store, brochures: storeBrochures }) => (
+              <View key={store.id} style={styles.marketSection}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={store.name}
+                  accessibilityState={{
+                    selected: visibleStoreIds.size === 1 && visibleStoreIds.has(store.id),
+                  }}
+                  onPress={() => {
+                    setShowFavoritesOnly(false);
+                    setSelectedStoreIds(new Set([store.id]));
+                  }}
+                  style={styles.marketHeading}>
+                  <Txt variant="body" weight="600" style={styles.marketName} numberOfLines={1}>
+                    {store.name}
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
+                    {storeBrochures.length} Prospekte
+                  </Txt>
+                </Pressable>
+                <ScrollView
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={styles.brochureRow}>
+                  {storeBrochures.map((brochure) => (
+                    <Pressable
+                      key={brochure.id}
+                      style={[
+                        styles.brochureCard,
+                        { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+                      ]}
+                      onPress={() => router.push(`/brochures/${brochure.id}`)}>
+                      <Image
+                        source={brochure.coverImage}
+                        style={[styles.brochureCover, { backgroundColor: colors.backgroundSoft }]}
+                        contentFit="cover"
+                      />
+                      <View style={styles.brochureInfo}>
+                        <Txt
+                          variant="body"
+                          weight="600"
+                          style={styles.brochureTitle}
+                          numberOfLines={2}>
+                          {brochure.title}
+                        </Txt>
+                        <Txt variant="caption" tone="secondary" style={styles.brochureDate}>
+                          Bis {new Date(brochure.validUntil).toLocaleDateString()}
+                        </Txt>
+                      </View>
+                    </Pressable>
+                  ))}
+                </ScrollView>
+              </View>
+            ))}
+          </View>
+        ))}
+        {visibleBrochureCount === 0 ? (
+          <Txt variant="body" tone="secondary" style={styles.emptyText}>
+            {normalizedQuery.length > 0
+              ? 'Keine passenden Prospekte gefunden.'
+              : showFavoritesOnly
+                ? 'Keine Prospekte in deinen Favoriten.'
+                : 'Keine Prospekte.'}
+          </Txt>
+        ) : null}
       </ScrollView>
+      <BrochureFilterSheet
+        visible={isFilterSheetVisible}
+        groups={marketGroups}
+        selectedStoreIds={filterDraftStoreIds}
+        brochureCounts={brochureCounts}
+        resultCount={draftResultCount}
+        onClose={() => setIsFilterSheetVisible(false)}
+        onReset={() => setFilterDraftStoreIds(new Set(allAvailableStoreIds))}
+        onToggleGroup={(storeIds) => {
+          const allSelected = storeIds.every((storeId) => filterDraftStoreIds.has(storeId));
+          setFilterDraftStoreIds((current) => {
+            const next = new Set(current);
+            storeIds.forEach((storeId) => {
+              if (allSelected) next.delete(storeId);
+              else next.add(storeId);
+            });
+            return next;
+          });
+        }}
+        onToggleStore={(storeId) => {
+          setFilterDraftStoreIds((current) => {
+            const next = new Set(current);
+            if (next.has(storeId)) next.delete(storeId);
+            else next.add(storeId);
+            return next;
+          });
+        }}
+        onApply={() => {
+          setSelectedStoreIds(
+            filterDraftStoreIds.size === allAvailableStoreIds.size
+              ? null
+              : new Set(filterDraftStoreIds),
+          );
+          setIsFilterSheetVisible(false);
+        }}
+      />
     </Screen>
   );
 }
@@ -350,7 +475,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.sm,
     paddingHorizontal: space.xl,
   },
-  postalCode: {},
   postalCodeRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -364,47 +488,78 @@ const styles = StyleSheet.create({
   postalCodeEditRow: {
     marginBottom: space.lg,
   },
-  section: {
-    marginBottom: space.xl,
+  searchField: {
+    minHeight: MIN_TOUCH_SIZE,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.md,
+    borderWidth: borderWidth.base,
+    borderRadius: radius.sm,
+    paddingHorizontal: space.md,
+    marginBottom: space.sm,
   },
-  sectionTitle: {
+  searchInput: {
+    flex: 1,
+    height: MIN_TOUCH_SIZE,
+    paddingVertical: 0,
+  },
+  controlsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: space.md,
+    marginBottom: space.lg,
+  },
+  scopeTabs: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.lg,
+  },
+  scopeTab: {
+    minHeight: MIN_TOUCH_SIZE,
+    justifyContent: 'center',
+  },
+  filterButton: {
+    minHeight: MIN_TOUCH_SIZE,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: space.sm,
+    borderWidth: borderWidth.base,
+    borderRadius: radius.sm,
+    paddingHorizontal: space.md,
+  },
+  sectionHeading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: space.md,
   },
-  favoritesScroll: {
-    flexDirection: 'row',
+  groupSection: {
+    marginBottom: space.lg,
   },
-  favoriteStore: {
-    alignItems: 'center',
-    marginRight: space.lg,
-    width: 72,
-  },
-  storeLogo: {
-    width: 64,
-    height: 64,
-    borderRadius: radius.xxl,
-    borderWidth: borderWidth.base,
+  groupTitle: {
     marginBottom: space.sm,
   },
-  storeLogoPlaceholder: {
-    width: 64,
-    height: 64,
-    borderRadius: radius.xxl,
-    borderWidth: borderWidth.base,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: space.sm,
+  marketSection: {
+    marginBottom: space.md,
   },
-  storeInitials: {},
-  storeName: {
-    textAlign: 'center',
-  },
-  grid: {
+  marketHeading: {
+    minHeight: MIN_TOUCH_SIZE,
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    alignItems: 'center',
     justifyContent: 'space-between',
+    gap: space.md,
+  },
+  marketName: {
+    flex: 1,
+  },
+  brochureRow: {
+    gap: space.md,
+    paddingBottom: space.md,
   },
   brochureCard: {
-    width: '48%',
+    width: 148,
     borderWidth: borderWidth.base,
     borderRadius: radius.sm,
     marginBottom: space.lg,
@@ -421,17 +576,6 @@ const styles = StyleSheet.create({
     marginBottom: space.xs,
   },
   brochureDate: {},
-  filterRow: {
-    gap: space.sm,
-    paddingBottom: space.md,
-  },
-  filterChip: {
-    minHeight: MIN_TOUCH_SIZE,
-    justifyContent: 'center',
-    paddingHorizontal: space.md,
-    borderWidth: borderWidth.base,
-    borderRadius: radius.sm,
-  },
   emptyText: {
     paddingVertical: space.xl,
   },
