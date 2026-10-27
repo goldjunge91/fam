@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fam Vorrat - Mobile App UI Design</title>
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM TOKENS (Gemäß 60/30/10 Regel & Fam Brand Palette)
+       ========================================================================== */
+    :root[data-theme="light"] {
+      --bg-canvas: #EDE7E0;
+      /* 60% Neutral Base */
+      --app-bg: #F8F4EF;
+      --surface: #FBF7F2;
+      --surface-elevated: #FFFFFF;
+      --surface-soft: #F0EAE3;
+      --border-subtle: #E8E1DA;
+      --border-strong: #DDD4CC;
+
+      /* 30% Text & Contrast Elements */
+      --text-primary: #2D2830;
+      --text-secondary: #786F79;
+      --text-tertiary: #A39BA5;
+
+      /* 10% Accent & Category Tints */
+      --brand-accent: #8B5E63;
+      --brand-accent-soft: rgba(139, 94, 99, 0.12);
+      --brand-on-accent: #FFFFFF;
+
+      /* Semantics & Categories */
+      --danger: #C65E4F;
+      --danger-soft: #FCECE9;
+      --danger-border: #F7D0CB;
+      --warning: #A8713A;
+      --warning-soft: #FAF0E3;
+      --warning-border: #F3DCBD;
+      --success: #6E8365;
+      --success-soft: #EBF1EA;
+      --success-border: #D3E2D0;
+
+      --cat-dairy-bg: #EFEAF4;
+      --cat-dairy-fg: #6B4E82;
+      --cat-meat-bg: #FAECE8;
+      --cat-meat-fg: #9C3D31;
+      --cat-produce-bg: #EAF2E8;
+      --cat-produce-fg: #456D3E;
+      --cat-pantry-bg: #FAF1E3;
+      --cat-pantry-fg: #8A6427;
+      --cat-freezer-bg: #E4F2F6;
+      --cat-freezer-fg: #2A6E7D;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 6px rgba(89, 64, 89, 0.05);
+      --shadow-md: 0 6px 18px rgba(89, 64, 89, 0.09);
+      --shadow-lg: 0 16px 36px rgba(89, 64, 89, 0.16);
+      --shadow-sheet: 0 -10px 40px rgba(45, 40, 48, 0.22);
+      --sheet-scrim: rgba(45, 40, 48, 0.45);
+    }
+
+    :root[data-theme="dark"] {
+      --bg-canvas: #120F14;
+      --app-bg: #211D23;
+      --surface: #2B262E;
+      --surface-elevated: #342E38;
+      --surface-soft: #3B3340;
+      --border-subtle: #3E3642;
+      --border-strong: #4E4453;
+
+      --text-primary: #F2ECE7;
+      --text-secondary: #B7ADB3;
+      --text-tertiary: #847981;
+
+      --brand-accent: #B79CBA;
+      --brand-accent-soft: rgba(183, 156, 186, 0.16);
+      --brand-on-accent: #211D23;
+
+      --danger: #D9776A;
+      --danger-soft: #3A2321;
+      --danger-border: #522D2A;
+      --warning: #D9A86C;
+      --warning-soft: #382D1D;
+      --warning-border: #503E24;
+      --success: #8FAE86;
+      --success-soft: #243422;
+      --success-border: #334A30;
+
+      --cat-dairy-bg: #35263F;
+      --cat-dairy-fg: #D2BBEC;
+      --cat-meat-bg: #3F2321;
+      --cat-meat-fg: #E89A90;
+      --cat-produce-bg: #253923;
+      --cat-produce-fg: #A9D9A0;
+      --cat-pantry-bg: #3D301A;
+      --cat-pantry-fg: #E8BF7F;
+      --cat-freezer-bg: #1B343D;
+      --cat-freezer-fg: #8FD8EA;
+
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.55);
+      --shadow-sheet: 0 -10px 40px rgba(0, 0, 0, 0.7);
+      --sheet-scrim: rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 64px;
+    }
+
+    /* Top presentation banner */
+    .top-meta {
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-meta-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-accent);
+    }
+    .theme-switcher-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       MOBILE DEVICE CONTAINER (375 × 812 pt iPhone Pro Form-Factor)
+       ========================================================================== */
+    .phone-device {
+      width: 375px;
+      height: 812px;
+      border-radius: 50px;
+      background: var(--app-bg);
+      border: 6px solid var(--border-strong);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      position: absolute;
+      top: 11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 28px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 80;
+    }
+
+    /* iOS Status Bar */
+    .ios-statusbar {
+      height: 48px;
+      padding: 14px 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      z-index: 70;
+    }
+
+    /* Fam Navigation Header */
+    .fam-header {
+      padding: 4px 16px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 60;
+    }
+    .fam-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-primary);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+    .fam-title {
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+    .fam-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      background: var(--brand-accent);
+      color: var(--brand-on-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12.5px;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Mode Segmented Switch (Timeline vs. Shelf) */
+    .mode-switch-wrapper {
+      padding: 0 16px 8px;
+    }
+    .mode-segmented-control {
+      display: flex;
+      background: var(--surface-soft);
+      padding: 3px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+    .mode-tab {
+      flex: 1;
+      padding: 6px 10px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 650;
+      color: var(--text-secondary);
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .mode-tab.active {
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* App Scrollable Content */
+    .app-scroll-view {
+      flex: 1;
+      overflow-y: auto;
+      padding: 4px 16px 90px;
+      scrollbar-width: none;
+    }
+    .app-scroll-view::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Search Input */
+    .search-bar-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 9px 12px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .search-bar-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      color: var(--text-primary);
+      font-size: 13.5px;
+      width: 100%;
+    }
+    .search-bar-input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    /* Location Filter Chips (8pt Grid) */
+    .location-chips-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .location-chips-row::-webkit-scrollbar {
+      display: none;
+    }
+    .loc-chip {
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 650;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .loc-chip.active {
+      background: var(--text-primary);
+      color: var(--app-bg);
+      border-color: var(--text-primary);
+    }
+    .loc-chip-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 6px;
+      background: color-mix(in srgb, currentColor 18%, transparent);
+    }
+
+    /* Hero Status Card (Emotional Design: Peak-End Guiding) */
+    .hero-status-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-status-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-badge-ring {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--danger-soft);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .hero-title-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .hero-sub-text {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .hero-action-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-accent);
+      background: var(--brand-accent-soft);
+      padding: 5px 9px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Toast Notification (Peak Moment Feedback with Undo) */
+    .peak-toast {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--success-soft);
+      border: 1px solid var(--success-border);
+      padding: 10px 14px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      animation: toastPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .peak-toast.active {
+      display: flex;
+    }
+    @keyframes toastPop {
+      from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .peak-toast-msg {
+      font-size: 12px;
+      font-weight: 650;
+      color: var(--text-primary);
+    }
+    .peak-toast-sub {
+      font-size: 11px;
+      color: var(--success);
+      font-weight: 600;
+    }
+    .peak-toast-undo {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--brand-accent);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       VIEW A: TIMELINE ROWS (Informationsdicht & Scanbar)
+       ========================================================================== */
+    .timeline-view-container {
+      display: block;
+    }
+
+    .timeline-section-group {
+      margin-bottom: 14px;
+    }
+    .timeline-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 4px 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .timeline-header-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .timeline-arrow {
+      font-size: 10px;
+      color: var(--text-tertiary);
+      transition: transform 0.2s ease;
+    }
+    .timeline-section-header.collapsed .timeline-arrow {
+      transform: rotate(-90deg);
+    }
+    .timeline-section-title {
+      font-size: 11.5px;
+      font-weight: 750;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .timeline-section-title.crit { color: var(--danger); }
+    .timeline-section-title.soon { color: var(--warning); }
+    .timeline-section-title.safe { color: var(--success); }
+
+    .timeline-badge-count {
+      font-size: 11px;
+      font-weight: 650;
+      color: var(--text-secondary);
+    }
+
+    .timeline-items-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .timeline-section-header.collapsed + .timeline-items-card {
+      display: none;
+    }
+
+    .item-row {
+      display: flex;
+      align-items: center;
+      padding: 11px 13px;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+      cursor: pointer;
+      transition: background 0.15s ease, opacity 0.2s ease;
+    }
+    .item-row:last-child {
+      border-bottom: none;
+    }
+    .item-row:active {
+      background: var(--surface-soft);
+    }
+
+    .item-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .item-icon-box.dairy { background: var(--cat-dairy-bg); color: var(--cat-dairy-fg); }
+    .item-icon-box.meat { background: var(--cat-meat-bg); color: var(--cat-meat-fg); }
+    .item-icon-box.produce { background: var(--cat-produce-bg); color: var(--cat-produce-fg); }
+    .item-icon-box.pantry { background: var(--cat-pantry-bg); color: var(--cat-pantry-fg); }
+    .item-icon-box.freezer { background: var(--cat-freezer-bg); color: var(--cat-freezer-fg); }
+
+    .item-content-col {
+      flex: 1;
+      min-width: 0;
+    }
+    .item-name-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .item-title {
+      font-size: 13.5px;
+      font-weight: 650;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Füllstandsbalken (Dynamisch je nach Restmenge) */
+    .portion-bar-track {
+      height: 3.5px;
+      background: var(--border-subtle);
+      border-radius: 2px;
+      margin: 4px 0 3px;
+      overflow: hidden;
+    }
+    .portion-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+    .portion-bar-fill.high { background: var(--success); }
+    .portion-bar-fill.mid { background: var(--warning); }
+    .portion-bar-fill.low { background: var(--danger); }
+
+    .item-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+    .pill-open-tag {
+      font-size: 9px;
+      font-weight: 750;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: var(--cat-dairy-bg);
+      color: var(--cat-dairy-fg);
+    }
+    .mhd-text-crit { color: var(--danger); font-weight: 650; }
+    .mhd-text-warn { color: var(--warning); font-weight: 650; }
+    .mhd-text-ok { color: var(--success); font-weight: 550; }
+
+    /* Quantity Action Button in Thumb Reach */
+    .qty-tap-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 9px;
+      border-radius: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .qty-tap-val {
+      font-size: 13px;
+      font-weight: 750;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .qty-tap-arrow {
+      font-size: 10px;
+      color: var(--brand-accent);
+    }
+
+    /* ==========================================================================
+       VIEW B: SHELF 2-COLUMN GRID (Visuelle Orientierung)
+       ========================================================================== */
+    .shelf-view-container {
+      display: none;
+    }
+
+    .shelf-category-block {
+      margin-bottom: 16px;
+    }
+    .shelf-category-title {
+      font-size: 11.5px;
+      font-weight: 750;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .shelf-category-title.dairy { color: var(--cat-dairy-fg); }
+    .shelf-category-title.pantry { color: var(--cat-pantry-fg); }
+    .shelf-category-title.freezer { color: var(--cat-freezer-fg); }
+
+    .shelf-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .shelf-card-box {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 124px;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .shelf-card-box:active {
+      transform: scale(0.98);
+    }
+    .shelf-card-box.dairy { border-top: 3px solid var(--cat-dairy-fg); }
+    .shelf-card-box.meat { border-top: 3px solid var(--cat-meat-fg); }
+    .shelf-card-box.produce { border-top: 3px solid var(--cat-produce-fg); }
+    .shelf-card-box.pantry { border-top: 3px solid var(--cat-pantry-fg); }
+    .shelf-card-box.freezer { border-top: 3px solid var(--cat-freezer-fg); }
+
+    .card-box-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-box-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .card-box-icon.dairy { background: var(--cat-dairy-bg); color: var(--cat-dairy-fg); }
+    .card-box-icon.meat { background: var(--cat-meat-bg); color: var(--cat-meat-fg); }
+    .card-box-icon.produce { background: var(--cat-produce-bg); color: var(--cat-produce-fg); }
+    .card-box-icon.pantry { background: var(--cat-pantry-bg); color: var(--cat-pantry-fg); }
+    .card-box-icon.freezer { background: var(--cat-freezer-bg); color: var(--cat-freezer-fg); }
+
+    .card-box-open-badge {
+      font-size: 9px;
+      font-weight: 750;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: var(--cat-dairy-bg);
+      color: var(--cat-dairy-fg);
+    }
+
+    .card-box-title {
+      font-size: 13px;
+      font-weight: 650;
+      color: var(--text-primary);
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 4px;
+    }
+    .card-box-qty {
+      font-size: 14.5px;
+      font-weight: 750;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .card-box-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 6px;
+      font-size: 10.5px;
+    }
+
+    /* Floating Action Button (FAB) */
+    .fam-fab {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 26px;
+      background: var(--brand-accent);
+      color: var(--brand-on-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 400;
+      box-shadow: 0 8px 24px rgba(139, 94, 99, 0.4);
+      cursor: pointer;
+      z-index: 60;
+    }
+
+    /* ==========================================================================
+       BOTTOM ACTION SHEET (Thumb-Zone Quick Selection Modal)
+       ========================================================================== */
+    .action-sheet-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--sheet-scrim);
+      backdrop-filter: blur(2px);
+      z-index: 90;
+      display: none;
+      align-items: flex-end;
+    }
+    .action-sheet-overlay.visible {
+      display: flex;
+    }
+
+    .sheet-card {
+      width: 100%;
+      background: var(--surface-elevated);
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      border: 1px solid var(--border-strong);
+      padding: 16px 20px 32px;
+      box-shadow: var(--shadow-sheet);
+      animation: sheetPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes sheetPop {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .sheet-pill-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--border-strong);
+      border-radius: 2px;
+      margin: 0 auto 14px;
+    }
+
+    .sheet-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .sheet-prod-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sheet-icon-bubble {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .sheet-prod-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .sheet-prod-sub {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+    .sheet-close-x {
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      background: var(--surface-soft);
+      border: none;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .sheet-balance-strip {
+      background: var(--app-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .sheet-balance-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 550;
+    }
+    .sheet-balance-val {
+      font-size: 15px;
+      font-weight: 750;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sheet-tier-label {
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Universal Fraction Pills */
+    .fraction-grid-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .frac-btn {
+      flex: 1;
+      background: var(--surface-soft);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 4px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .frac-btn:hover {
+      border-color: var(--brand-accent);
+      background: var(--brand-accent-soft);
+    }
+    .frac-btn-sub {
+      display: block;
+      font-size: 9.5px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    /* Smart Steps Grid */
+    .step-grid-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .step-btn {
+      background: var(--surface-soft);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 4px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .step-btn:hover {
+      background: var(--brand-accent);
+      color: var(--brand-on-accent);
+      border-color: var(--brand-accent);
+    }
+    .step-btn-hint {
+      display: block;
+      font-size: 9.5px;
+      opacity: 0.8;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    /* Stepper & Custom Input */
+    .custom-entry-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .custom-input-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: var(--app-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    .custom-input-field {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 14px;
+      font-weight: 650;
+      color: var(--text-primary);
+      width: 100%;
+    }
+    .custom-unit-label {
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--text-secondary);
+    }
+    .custom-submit-btn {
+      background: var(--brand-accent);
+      color: var(--brand-on-accent);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Primary Empty Button */
+    .consume-empty-btn {
+      width: 100%;
+      background: var(--danger-soft);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+      padding: 11px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 750;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .consume-empty-btn:hover {
+      background: var(--danger);
+      color: #FFFFFF;
+    }
+
+    /* Bottom Home Indicator */
+    .ios-home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 134px;
+      height: 4.5px;
+      background: var(--text-tertiary);
+      border-radius: 3px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Meta Header -->
+  <header class="top-meta">
+    <div>
+      <div class="top-meta-title">Mobile App UI Design</div>
+      <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-top: 2px;">Fam Vorrat · 8pt Grid &amp; Thumb-Zone</div>
+    </div>
+    <button class="theme-switcher-btn" onclick="toggleAppTheme()">
+      <span id="theme-icon">🌙</span> <span id="theme-text">Dark Mode</span>
+    </button>
+  </header>
+
+  <!-- Phone Device -->
+  <div class="phone-device">
+    <div class="dynamic-island"></div>
+
+    <!-- Status Bar -->
+    <div class="ios-statusbar">
+      <span>09:41</span>
+      <span>5G · 94%</span>
+    </div>
+
+    <!-- App Header -->
+    <div class="fam-header">
+      <div class="fam-header-left">
+        <button class="icon-btn" title="Menü">☰</button>
+        <h1 class="fam-title">Vorrat</h1>
+      </div>
+      <div class="fam-avatar">MA</div>
+    </div>
+
+    <!-- View Mode Switcher (Timeline vs. Shelf) -->
+    <div class="mode-switch-wrapper">
+      <div class="mode-segmented-control">
+        <div class="mode-tab active" id="tab-timeline" onclick="switchViewMode('timeline')">Timeline (MHD)</div>
+        <div class="mode-tab" id="tab-shelf" onclick="switchViewMode('shelf')">Regale (Kategorien)</div>
+      </div>
+    </div>
+
+    <!-- Scrollable View -->
+    <div class="app-scroll-view" id="main-scroll">
+
+      <!-- Search Input -->
+      <div class="search-bar-box">
+        <span style="font-size: 13px; color: var(--text-tertiary);">🔍</span>
+        <input class="search-bar-input" id="search-input" type="text" placeholder="68 Artikel durchsuchen..." oninput="handleSearch(this.value)" />
+      </div>
+
+      <!-- Storage Locations Chips -->
+      <div class="location-chips-row">
+        <div class="loc-chip active" onclick="filterByLocation('all', this)">Alle <span class="loc-chip-badge" id="badge-total">68</span></div>
+        <div class="loc-chip" onclick="filterByLocation('fridge', this)">Kühlschrank <span class="loc-chip-badge" id="badge-fridge">28</span></div>
+        <div class="loc-chip" onclick="filterByLocation('freezer', this)">Tiefkühl <span class="loc-chip-badge">14</span></div>
+        <div class="loc-chip" onclick="filterByLocation('pantry', this)">Kammer <span class="loc-chip-badge">26</span></div>
+      </div>
+
+      <!-- Hero Status Card (Emotional Peak-End Design) -->
+      <div class="hero-status-card" id="hero-card">
+        <div class="hero-status-left">
+          <div class="hero-badge-ring" id="hero-badge">2</div>
+          <div>
+            <div class="hero-title-text" id="hero-title">2 Artikel heute fällig</div>
+            <div class="hero-sub-text" id="hero-sub">Milch &amp; Hähnchenbrust verbrauchen</div>
+          </div>
+        </div>
+        <div class="hero-action-pill">Rezept-Idee</div>
+      </div>
+
+      <!-- Toast Feedback (Peak Moment with Undo) -->
+      <div class="peak-toast" id="peak-toast">
+        <div>
+          <div class="peak-toast-msg" id="toast-title">Artikel aufgebraucht!</div>
+          <div class="peak-toast-sub">+ Zur Einkaufsliste hinzugefügt</div>
+        </div>
+        <button class="peak-toast-undo" onclick="undoConsume()">Rückgängig</button>
+      </div>
+
+      <!-- ========================================================
+           VIEW 1: TIMELINE (DRINGLICHKEIT)
+           ======================================================== -->
+      <div class="timeline-view-container" id="view-timeline">
+
+        <!-- Gruppe: Heute & Morgen -->
+        <div class="timeline-section-group" id="grp-crit">
+          <div class="timeline-section-header" onclick="toggleTimelineGroup(this)">
+            <div class="timeline-header-left">
+              <span class="timeline-arrow">▼</span>
+              <span class="timeline-section-title crit">● Heute &amp; Morgen</span>
+            </div>
+            <span class="timeline-badge-count" id="count-crit">2 Artikel</span>
+          </div>
+          <div class="timeline-items-card">
+
+            <!-- Milch (ml) -->
+            <div class="item-row" id="row-milk" onclick="openActionSheet('milk')">
+              <div class="item-icon-box dairy">🥛</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Frische Vollmilch 3,8 %</span>
+                </div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="fill-milk" style="width: 100%;"></div>
+                </div>
+                <div class="item-meta-row">
+                  <span class="pill-open-tag" id="tag-milk">Neu</span>
+                  <span id="meta-milk">1 l · <b class="mhd-text-crit">MHD heute</b></span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-milk">1 l</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+            <!-- Hähnchen (g) -->
+            <div class="item-row" id="row-chicken" onclick="openActionSheet('chicken')">
+              <div class="item-icon-box meat">🍗</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Hähnchenbrustfilet Bio</span>
+                </div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="fill-chicken" style="width: 100%;"></div>
+                </div>
+                <div class="item-meta-row">
+                  <span class="pill-open-tag" id="tag-chicken">Neu</span>
+                  <span id="meta-chicken">400 g · <b class="mhd-text-crit">Heute verbrauchen</b></span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-chicken">400 g</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Gruppe: Diese Woche -->
+        <div class="timeline-section-group" id="grp-soon">
+          <div class="timeline-section-header" onclick="toggleTimelineGroup(this)">
+            <div class="timeline-header-left">
+              <span class="timeline-arrow">▼</span>
+              <span class="timeline-section-title soon">● Diese Woche</span>
+            </div>
+            <span class="timeline-badge-count">3 Artikel</span>
+          </div>
+          <div class="timeline-items-card">
+
+            <!-- Naturjoghurt (g) -->
+            <div class="item-row" id="row-yogurt" onclick="openActionSheet('yogurt')">
+              <div class="item-icon-box dairy">🥣</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Bio-Naturjoghurt 3,5%</span>
+                </div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill mid" id="fill-yogurt" style="width: 50%;"></div>
+                </div>
+                <div class="item-meta-row">
+                  <span class="pill-open-tag" id="tag-yogurt">Geöffnet</span>
+                  <span id="meta-yogurt">250g von 500g · <b class="mhd-text-warn">in 3 Tagen</b></span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-yogurt">250 g</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+            <!-- Gouda (g) -->
+            <div class="item-row" id="row-gouda" onclick="openActionSheet('gouda')">
+              <div class="item-icon-box dairy">🧀</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Gouda jung in Scheiben</span>
+                </div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="fill-gouda" style="width: 100%;"></div>
+                </div>
+                <div class="item-meta-row">
+                  <span class="pill-open-tag" id="tag-gouda">Neu</span>
+                  <span id="meta-gouda">250 g · <b class="mhd-text-warn">in 5 Tagen</b></span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-gouda">250 g</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+            <!-- Heidelbeeren (g) -->
+            <div class="item-row" id="row-berries" onclick="openActionSheet('berries')">
+              <div class="item-icon-box produce">🫐</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Heidelbeeren frisch</span>
+                </div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill mid" id="fill-berries" style="width: 40%;"></div>
+                </div>
+                <div class="item-meta-row">
+                  <span class="pill-open-tag" id="tag-berries">Geöffnet</span>
+                  <span id="meta-berries">50g von 125g · <b class="mhd-text-warn">in 2 Tagen</b></span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-berries">50 g</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Gruppe: Länger haltbar (Einklappbar) -->
+        <div class="timeline-section-group" id="grp-safe">
+          <div class="timeline-section-header" onclick="toggleTimelineGroup(this)">
+            <div class="timeline-header-left">
+              <span class="timeline-arrow">▼</span>
+              <span class="timeline-section-title safe">● Länger haltbar / Vorrat</span>
+            </div>
+            <span class="timeline-badge-count">63 Artikel</span>
+          </div>
+          <div class="timeline-items-card">
+
+            <!-- Passierte Tomaten (Stk) -->
+            <div class="item-row" id="row-tomatoes" onclick="openActionSheet('tomatoes')">
+              <div class="item-icon-box pantry">🥫</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Passierte Tomaten Bio</span>
+                </div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="fill-tomatoes" style="width: 100%;"></div>
+                </div>
+                <div class="item-meta-row">
+                  <span id="meta-tomatoes">3 Stk · <b class="mhd-text-ok">Nov 2027</b> · Kammer</span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-tomatoes">3 Stk</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+            <!-- Haferflocken (g) -->
+            <div class="item-row" id="row-oats" onclick="openActionSheet('oats')">
+              <div class="item-icon-box pantry">🌾</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Haferflocken zart Bio</span>
+                </div>
+                <div class="item-meta-row">
+                  <span>500 g · <b class="mhd-text-ok">Jan 2027</b> · Kammer</span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-oats">500 g</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+            <!-- Pizza (Stk) -->
+            <div class="item-row" id="row-pizza" onclick="openActionSheet('pizza')">
+              <div class="item-icon-box freezer">🍕</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">Bio Steinofen-Pizza</span>
+                </div>
+                <div class="item-meta-row">
+                  <span>2 Stk · <b class="mhd-text-ok">Mai 2027</b> · Tiefkühl</span>
+                </div>
+              </div>
+              <div class="qty-tap-btn">
+                <span class="qty-tap-val" id="qty-pizza">2 Stk</span>
+                <span class="qty-tap-arrow">✎</span>
+              </div>
+            </div>
+
+            <div class="item-row" style="cursor: default;">
+              <div class="item-icon-box pantry">📦</div>
+              <div class="item-content-col">
+                <div class="item-name-row">
+                  <span class="item-title">... weitere 60 Vorrats-Artikel</span>
+                </div>
+                <div class="item-meta-row">
+                  <span>Nudeln, Reis, Gewürze, Tiefkühlkost</span>
+                </div>
+              </div>
+              <span style="font-size: 11px; color: var(--text-tertiary); padding-right: 4px;">Kompakt</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================================
+           VIEW 2: SHELF / CATEGORIES (KACHEL-GRID)
+           ======================================================== -->
+      <div class="shelf-view-container" id="view-shelf">
+
+        <!-- Molkerei & Kühlung -->
+        <div class="shelf-category-block">
+          <div class="shelf-category-title dairy">
+            <span>● Molkerei &amp; Kühlung (12)</span>
+            <span style="font-size: 10px; opacity: 0.8;">Kühlschrank</span>
+          </div>
+          <div class="shelf-grid-2col">
+
+            <div class="shelf-card-box dairy" id="card-milk" onclick="openActionSheet('milk')">
+              <div class="card-box-top">
+                <div class="card-box-icon dairy">🥛</div>
+                <span class="card-box-open-badge" id="card-tag-milk">Neu</span>
+              </div>
+              <div>
+                <div class="card-box-title">Frische Vollmilch</div>
+                <div class="card-box-qty" id="card-qty-milk">1 l</div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="card-fill-milk" style="width: 100%;"></div>
+                </div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-crit">Heute</span>
+                <span style="color: var(--cat-dairy-fg); font-weight: 700;">ml-Menü</span>
+              </div>
+            </div>
+
+            <div class="shelf-card-box meat" id="card-chicken" onclick="openActionSheet('chicken')">
+              <div class="card-box-top">
+                <div class="card-box-icon meat">🍗</div>
+                <span class="card-box-open-badge" id="card-tag-chicken">Neu</span>
+              </div>
+              <div>
+                <div class="card-box-title">Hähnchenbrust</div>
+                <div class="card-box-qty" id="card-qty-chicken">400 g</div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="card-fill-chicken" style="width: 100%;"></div>
+                </div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-crit">Heute</span>
+                <span style="color: var(--cat-meat-fg); font-weight: 700;">g-Menü</span>
+              </div>
+            </div>
+
+            <div class="shelf-card-box dairy" id="card-yogurt" onclick="openActionSheet('yogurt')">
+              <div class="card-box-top">
+                <div class="card-box-icon dairy">🥣</div>
+                <span class="card-box-open-badge" id="card-tag-yogurt">Geöffnet</span>
+              </div>
+              <div>
+                <div class="card-box-title">Naturjoghurt</div>
+                <div class="card-box-qty" id="card-qty-yogurt">250 g <small style="font-size: 10px; color: var(--text-secondary);">/ 500g</small></div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill mid" id="card-fill-yogurt" style="width: 50%;"></div>
+                </div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-warn">in 3 T.</span>
+                <span style="color: var(--text-secondary);">1/2 voll</span>
+              </div>
+            </div>
+
+            <div class="shelf-card-box dairy" id="card-gouda" onclick="openActionSheet('gouda')">
+              <div class="card-box-top">
+                <div class="card-box-icon dairy">🧀</div>
+                <span class="card-box-open-badge" id="card-tag-gouda">Neu</span>
+              </div>
+              <div>
+                <div class="card-box-title">Gouda Scheiben</div>
+                <div class="card-box-qty" id="card-qty-gouda">250 g</div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="card-fill-gouda" style="width: 100%;"></div>
+                </div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-warn">in 5 T.</span>
+                <span style="color: var(--cat-dairy-fg); font-weight: 700;">g-Menü</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Kammer & Trockenvorrat -->
+        <div class="shelf-category-block">
+          <div class="shelf-category-title pantry">
+            <span>● Trockenvorrat &amp; Kammer (18)</span>
+            <span style="font-size: 10px; opacity: 0.8;">Kammer</span>
+          </div>
+          <div class="shelf-grid-2col">
+
+            <div class="shelf-card-box pantry" id="card-tomatoes" onclick="openActionSheet('tomatoes')">
+              <div class="card-box-top">
+                <div class="card-box-icon pantry">🥫</div>
+                <span class="card-box-open-badge" id="card-tag-tomatoes">Dosen</span>
+              </div>
+              <div>
+                <div class="card-box-title">Passierte Tomaten</div>
+                <div class="card-box-qty" id="card-qty-tomatoes">3 Stk</div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="card-fill-tomatoes" style="width: 100%;"></div>
+                </div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-ok">Nov 2027</span>
+                <span style="color: var(--cat-pantry-fg); font-weight: 700;">Stk-Menü</span>
+              </div>
+            </div>
+
+            <div class="shelf-card-box pantry" id="card-oats" onclick="openActionSheet('oats')">
+              <div class="card-box-top">
+                <div class="card-box-icon pantry">🌾</div>
+              </div>
+              <div>
+                <div class="card-box-title">Haferflocken zart</div>
+                <div class="card-box-qty" id="card-qty-oats">500 g</div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-ok">Jan 2027</span>
+                <span style="color: var(--cat-pantry-fg); font-weight: 700;">g-Menü</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tiefkühlware -->
+        <div class="shelf-category-block">
+          <div class="shelf-category-title freezer">
+            <span>● Tiefkühlware (14)</span>
+            <span style="font-size: 10px; opacity: 0.8;">Tiefkühler</span>
+          </div>
+          <div class="shelf-grid-2col">
+
+            <div class="shelf-card-box freezer" id="card-pizza" onclick="openActionSheet('pizza')">
+              <div class="card-box-top">
+                <div class="card-box-icon freezer">🍕</div>
+                <span class="card-box-open-badge" id="card-tag-pizza">Tiefkühl</span>
+              </div>
+              <div>
+                <div class="card-box-title">Steinofen-Pizza</div>
+                <div class="card-box-qty" id="card-qty-pizza">2 Stk</div>
+                <div class="portion-bar-track">
+                  <div class="portion-bar-fill high" id="card-fill-pizza" style="width: 100%;"></div>
+                </div>
+              </div>
+              <div class="card-box-foot">
+                <span class="mhd-text-ok">Mai 2027</span>
+                <span style="color: var(--cat-freezer-fg); font-weight: 700;">Stk-Menü</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Floating Action Button in Thumb Zone -->
+    <div class="fam-fab" title="Neuen Vorrat erfassen">+</div>
+
+    <!-- Home Indicator -->
+    <div class="ios-home-indicator"></div>
+
+    <!-- ==========================================================================
+         THUMB-ZONE ACTION SHEET (Universelle Schnell-Auswahl)
+         ========================================================================== -->
+    <div class="action-sheet-overlay" id="action-sheet" onclick="closeSheetOnScrim(event)">
+      <div class="sheet-card" onclick="event.stopPropagation()">
+        <div class="sheet-pill-handle"></div>
+
+        <div class="sheet-top-row">
+          <div class="sheet-prod-info">
+            <div class="sheet-icon-bubble" id="sheet-icon">🥛</div>
+            <div>
+              <div class="sheet-prod-name" id="sheet-name">Produktname</div>
+              <div class="sheet-prod-sub" id="sheet-sub">Menge &amp; Verbrauch</div>
+            </div>
+          </div>
+          <button class="sheet-close-x" onclick="hideActionSheet()">✕</button>
+        </div>
+
+        <!-- Aktueller Bestand -->
+        <div class="sheet-balance-strip">
+          <span class="sheet-balance-label">Aktueller Bestand:</span>
+          <span class="sheet-balance-val" id="sheet-balance-text">1.000 ml</span>
+        </div>
+
+        <!-- Ebene 1: Logische Fraktionen (1/4, Hälfte, 3/4) -->
+        <div class="sheet-tier-label">
+          <span>Anteilig verbrauchen</span>
+          <span style="font-weight: 500; font-size: 10.5px;">Schnelltipp</span>
+        </div>
+        <div class="fraction-grid-row" id="sheet-fractions"></div>
+
+        <!-- Ebene 2: Smart Steps (je nach Einheit Stk, g, ml) -->
+        <div class="sheet-tier-label">
+          <span id="sheet-step-title">Typische Mengen</span>
+        </div>
+        <div class="step-grid-row" id="sheet-steps"></div>
+
+        <!-- Ebene 3: Freie Eingabe -->
+        <div class="custom-entry-row">
+          <div class="custom-input-wrap">
+            <input class="custom-input-field" type="number" id="custom-qty-input" placeholder="Genaue Menge..." />
+            <span class="custom-unit-label" id="sheet-unit-label">ml</span>
+          </div>
+          <button class="custom-submit-btn" onclick="submitCustomQty()">Abziehen</button>
+        </div>
+
+        <!-- Ebene 4: Aufbrauchen (Packung leer) -->
+        <button class="consume-empty-btn" onclick="submitConsumeEmpty()">
+          <span>🗑️</span>
+          <span id="sheet-empty-label">Ganz aufbrauchen → Auf Einkaufsliste</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // DATENBANK: Reale Vorratsartikel mit dynamischer Einheitenlogik
+    const DB = {
+      milk: {
+        id: 'milk',
+        name: 'Frische Vollmilch 3,8 %',
+        icon: '🥛',
+        category: 'dairy',
+        unit: 'ml',
+        currentQty: 1000,
+        initialQty: 1000,
+        steps: [100, 200, 400],
+        stepHints: ['Kaffee', 'Müsli', 'Kochen']
+      },
+      chicken: {
+        id: 'chicken',
+        name: 'Hähnchenbrustfilet Bio',
+        icon: '🍗',
+        category: 'meat',
+        unit: 'g',
+        currentQty: 400,
+        initialQty: 400,
+        steps: [100, 150, 200],
+        stepHints: ['Snack', '1 Portion', '2 Portionen']
+      },
+      yogurt: {
+        id: 'yogurt',
+        name: 'Bio-Naturjoghurt 3,5%',
+        icon: '🥣',
+        category: 'dairy',
+        unit: 'g',
+        currentQty: 250,
+        initialQty: 500,
+        steps: [50, 100, 150],
+        stepHints: ['Dip', 'Müsli', 'Portion']
+      },
+      gouda: {
+        id: 'gouda',
+        name: 'Gouda jung in Scheiben',
+        icon: '🧀',
+        category: 'dairy',
+        unit: 'g',
+        currentQty: 250,
+        initialQty: 250,
+        steps: [30, 50, 100],
+        stepHints: ['1 Scheibe', '2 Scheiben', 'Hälfte']
+      },
+      berries: {
+        id: 'berries',
+        name: 'Heidelbeeren frisch',
+        icon: '🫐',
+        category: 'produce',
+        unit: 'g',
+        currentQty: 50,
+        initialQty: 125,
+        steps: [25, 50],
+        stepHints: ['Handvoll', 'Rest']
+      },
+      tomatoes: {
+        id: 'tomatoes',
+        name: 'Passierte Tomaten Bio',
+        icon: '🥫',
+        category: 'pantry',
+        unit: 'Stk',
+        currentQty: 3,
+        initialQty: 3,
+        steps: [1, 2],
+        stepHints: ['1 Dose', '2 Dosen']
+      },
+      pizza: {
+        id: 'pizza',
+        name: 'Bio Steinofen-Pizza',
+        icon: '🍕',
+        category: 'freezer',
+        unit: 'Stk',
+        currentQty: 2,
+        initialQty: 2,
+        steps: [1],
+        stepHints: ['1 Pizza']
+      },
+      oats: {
+        id: 'oats',
+        name: 'Haferflocken zart Bio',
+        icon: '🌾',
+        category: 'pantry',
+        unit: 'g',
+        currentQty: 500,
+        initialQty: 500,
+        steps: [50, 100, 250],
+        stepHints: ['Portion', 'Müsli', 'Hälfte']
+      }
+    };
+
+    let activeItemId = null;
+    let lastDeletedItem = null;
+    let totalItemsCount = 68;
+    let fridgeItemsCount = 28;
+    let critItemsCount = 2;
+
+    function toggleAppTheme() {
+      const html = document.documentElement;
+      const nextTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', nextTheme);
+
+      const icon = document.getElementById('theme-icon');
+      const text = document.getElementById('theme-text');
+      if (nextTheme === 'dark') {
+        icon.textContent = '☀️';
+        text.textContent = 'Light Mode';
+      } else {
+        icon.textContent = '🌙';
+        text.textContent = 'Dark Mode';
+      }
+    }
+
+    function switchViewMode(mode) {
+      const tabTimeline = document.getElementById('tab-timeline');
+      const tabShelf = document.getElementById('tab-shelf');
+      const viewTimeline = document.getElementById('view-timeline');
+      const viewShelf = document.getElementById('view-shelf');
+
+      if (mode === 'timeline') {
+        tabTimeline.classList.add('active');
+        tabShelf.classList.remove('active');
+        viewTimeline.style.display = 'block';
+        viewShelf.style.display = 'none';
+      } else {
+        tabShelf.classList.add('active');
+        tabTimeline.classList.remove('active');
+        viewShelf.style.display = 'block';
+        viewTimeline.style.display = 'none';
+      }
+    }
+
+    function toggleTimelineGroup(head) {
+      head.classList.toggle('collapsed');
+    }
+
+    // ==========================================================================
+    // ACTION SHEET OPEN & DYNAMIC BUTTON GENERATION
+    // ==========================================================================
+    function openActionSheet(itemId) {
+      const item = DB[itemId];
+      if (!item) return;
+      activeItemId = itemId;
+
+      document.getElementById('sheet-icon').textContent = item.icon;
+      document.getElementById('sheet-name').textContent = item.name;
+      document.getElementById('sheet-sub').textContent = `Einheit: ${item.unit} · Packung: ${item.initialQty} ${item.unit}`;
+      document.getElementById('sheet-balance-text').textContent = formatQuantityDisplay(item.currentQty, item.unit);
+      document.getElementById('sheet-unit-label').textContent = item.unit;
+      document.getElementById('custom-qty-input').value = '';
+      document.getElementById('sheet-empty-label').textContent = `Ganz aufbrauchen (${item.name.split(' ')[0]} leer) → Auf Einkaufsliste`;
+
+      // 1. Fraktionen generieren
+      const fracRow = document.getElementById('sheet-fractions');
+      fracRow.innerHTML = '';
+
+      if (item.unit === 'Stk') {
+        for (let s = 1; s <= Math.min(item.currentQty, 3); s++) {
+          const btn = document.createElement('button');
+          btn.className = 'frac-btn';
+          btn.innerHTML = `-${s} Stk<span class="frac-btn-sub">${s === item.currentQty ? 'Rest' : 'abziehen'}</span>`;
+          btn.onclick = () => deductQuantity(s);
+          fracRow.appendChild(btn);
+        }
+      } else {
+        const q4 = Math.round(item.initialQty * 0.25);
+        const q2 = Math.round(item.initialQty * 0.5);
+        const q34 = Math.round(item.initialQty * 0.75);
+
+        const fracs = [
+          { label: '1/4', amt: q4, hint: `-${q4} ${item.unit}` },
+          { label: 'Hälfte (1/2)', amt: q2, hint: `-${q2} ${item.unit}` },
+          { label: '3/4', amt: q34, hint: `-${q34} ${item.unit}` }
+        ];
+
+        fracs.forEach(f => {
+          if (f.amt < item.currentQty) {
+            const btn = document.createElement('button');
+            btn.className = 'frac-btn';
+            btn.innerHTML = `${f.label}<span class="frac-btn-sub">${f.hint}</span>`;
+            btn.onclick = () => deductQuantity(f.amt);
+            fracRow.appendChild(btn);
+          }
+        });
+      }
+
+      // 2. Smart Steps generieren
+      const stepsGrid = document.getElementById('sheet-steps');
+      stepsGrid.innerHTML = '';
+      document.getElementById('sheet-step-title').textContent = `Typische Mengen für ${item.unit}`;
+
+      item.steps.forEach((step, idx) => {
+        if (step <= item.currentQty) {
+          const btn = document.createElement('button');
+          btn.className = 'step-btn';
+          const hint = item.stepHints[idx] || '';
+          btn.innerHTML = `-${step} ${item.unit}<span class="step-btn-hint">${hint}</span>`;
+          btn.onclick = () => deductQuantity(step);
+          stepsGrid.appendChild(btn);
+        }
+      });
+
+      document.getElementById('action-sheet').classList.add('visible');
+    }
+
+    function closeSheetOnScrim(e) {
+      if (e.target.id === 'action-sheet') hideActionSheet();
+    }
+    function hideActionSheet() {
+      document.getElementById('action-sheet').classList.remove('visible');
+    }
+
+    // ==========================================================================
+    // DEDUCTION LOGIC & UI UPDATES
+    // ==========================================================================
+    function deductQuantity(amount) {
+      if (!activeItemId) return;
+      const item = DB[activeItemId];
+      if (!item) return;
+
+      item.currentQty = Math.max(0, item.currentQty - amount);
+
+      if (item.currentQty <= 0) {
+        submitConsumeEmpty();
+        return;
+      }
+
+      refreshItemViews(item);
+      hideActionSheet();
+    }
+
+    function submitCustomQty() {
+      const val = parseInt(document.getElementById('custom-qty-input').value, 10);
+      if (!isNaN(val) && val > 0) deductQuantity(val);
+    }
+
+    function submitConsumeEmpty() {
+      if (!activeItemId) return;
+      const item = DB[activeItemId];
+      if (!item) return;
+
+      item.currentQty = 0;
+      lastDeletedItem = item;
+      hideActionSheet();
+
+      // Animierte Entfernung aus Timeline & Shelf
+      const row = document.getElementById(`row-${item.id}`);
+      const card = document.getElementById(`card-${item.id}`);
+
+      if (row) {
+        row.style.opacity = '0';
+        row.style.transform = 'scale(0.96)';
+        setTimeout(() => { row.style.display = 'none'; }, 220);
+      }
+      if (card) {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.92)';
+        setTimeout(() => { card.style.display = 'none'; }, 220);
+      }
+
+      // Emotional Peak-End Feedback
+      const toast = document.getElementById('peak-toast');
+      document.getElementById('toast-title').textContent = `${item.icon} ${item.name} aufgebraucht!`;
+      toast.classList.add('active');
+
+      // Zähler updaten
+      updateItemCounters(totalItemsCount - 1, (item.category === 'dairy' || item.category === 'meat') ? fridgeItemsCount - 1 : fridgeItemsCount);
+
+      if (item.id === 'milk' || item.id === 'chicken') {
+        critItemsCount = Math.max(0, critItemsCount - 1);
+        document.getElementById('hero-badge').textContent = critItemsCount;
+        document.getElementById('count-crit').textContent = `${critItemsCount} Artikel`;
+        if (critItemsCount === 1) {
+          document.getElementById('hero-title').textContent = '1 Artikel heute fällig';
+          document.getElementById('hero-sub').textContent = 'Hähnchenbrust heute zubereiten';
+        } else if (critItemsCount === 0) {
+          document.getElementById('hero-title').textContent = 'Alles im grünen Bereich!';
+          document.getElementById('hero-sub').textContent = 'Keine kritischen Abläufe für heute';
+          document.getElementById('hero-badge').style.background = 'var(--success-soft)';
+          document.getElementById('hero-badge').style.color = 'var(--success)';
+          document.getElementById('hero-badge').textContent = '✓';
+        }
+      }
+    }
+
+    function undoConsume() {
+      if (!lastDeletedItem) return;
+      const item = lastDeletedItem;
+      item.currentQty = item.initialQty;
+      refreshItemViews(item);
+
+      const row = document.getElementById(`row-${item.id}`);
+      const card = document.getElementById(`card-${item.id}`);
+
+      if (row) {
+        row.style.display = 'flex';
+        setTimeout(() => { row.style.opacity = '1'; row.style.transform = 'scale(1)'; }, 10);
+      }
+      if (card) {
+        card.style.display = 'flex';
+        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 10);
+      }
+
+      document.getElementById('peak-toast').classList.remove('active');
+      updateItemCounters(totalItemsCount, fridgeItemsCount);
+
+      critItemsCount = 2;
+      document.getElementById('hero-badge').textContent = 2;
+      document.getElementById('hero-badge').style.background = 'var(--danger-soft)';
+      document.getElementById('hero-badge').style.color = 'var(--danger)';
+      document.getElementById('hero-title').textContent = '2 Artikel heute fällig';
+      document.getElementById('hero-sub').textContent = 'Milch & Hähnchenbrust verbrauchen';
+      document.getElementById('count-crit').textContent = '2 Artikel';
+
+      lastDeletedItem = null;
+    }
+
+    function updateItemCounters(total, fridge) {
+      document.getElementById('badge-total').textContent = total;
+      document.getElementById('badge-fridge').textContent = fridge;
+    }
+
+    function refreshItemViews(item) {
+      const percent = Math.round((item.currentQty / item.initialQty) * 100);
+      let fillClass = 'high';
+      if (percent <= 25) fillClass = 'low';
+      else if (percent <= 55) fillClass = 'mid';
+
+      const disp = formatQuantityDisplay(item.currentQty, item.unit);
+
+      // Timeline Update
+      const qVal = document.getElementById(`qty-${item.id}`);
+      const qFill = document.getElementById(`fill-${item.id}`);
+      const qTag = document.getElementById(`tag-${item.id}`);
+      const qMeta = document.getElementById(`meta-${item.id}`);
+
+      if (qVal) qVal.textContent = disp;
+      if (qFill) {
+        qFill.style.width = `${percent}%`;
+        qFill.className = `portion-bar-fill ${fillClass}`;
+      }
+      if (qTag) qTag.textContent = 'Geöffnet';
+      if (qMeta) qMeta.innerHTML = `${disp} von ${item.initialQty}${item.unit} · <b class="mhd-text-warn">Geöffnet</b>`;
+
+      // Shelf Update
+      const cQty = document.getElementById(`card-qty-${item.id}`);
+      const cFill = document.getElementById(`card-fill-${item.id}`);
+      const cTag = document.getElementById(`card-tag-${item.id}`);
+
+      if (cQty) cQty.innerHTML = `${disp} <small style="font-size:10px; color:var(--text-secondary);">/ ${item.initialQty}${item.unit}</small>`;
+      if (cFill) {
+        cFill.style.width = `${percent}%`;
+        cFill.className = `portion-bar-fill ${fillClass}`;
+      }
+      if (cTag) cTag.textContent = 'Geöffnet';
+    }
+
+    function formatQuantityDisplay(qty, unit) {
+      if (unit === 'ml' && qty >= 1000) return (qty / 1000).toLocaleString('de-DE') + ' l';
+      if (unit === 'g' && qty >= 1000) return (qty / 1000).toLocaleString('de-DE') + ' kg';
+      return `${qty} ${unit}`;
+    }
+
+    function filterByLocation(loc, el) {
+      el.parentElement.querySelectorAll('.loc-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+
+      const grpCrit = document.getElementById('grp-crit');
+      const grpSoon = document.getElementById('grp-soon');
+      const grpSafe = document.getElementById('grp-safe');
+
+      if (loc === 'pantry') {
+        grpCrit.style.display = 'none';
+        grpSoon.style.display = 'none';
+        grpSafe.style.display = 'block';
+      } else if (loc === 'freezer') {
+        grpCrit.style.display = 'none';
+        grpSoon.style.display = 'block';
+        grpSafe.style.display = 'block';
+      } else {
+        grpCrit.style.display = 'block';
+        grpSoon.style.display = 'block';
+        grpSafe.style.display = 'block';
+      }
+    }
+
+    function handleSearch(q) {
+      const val = q.toLowerCase().trim();
+      const rows = document.querySelectorAll('#view-timeline .item-row');
+      rows.forEach(r => {
+        r.style.display = r.textContent.toLowerCase().includes(val) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

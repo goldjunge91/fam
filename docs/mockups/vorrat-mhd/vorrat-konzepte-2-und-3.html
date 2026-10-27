@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorrat Screen - Universelle Teilmengen &amp; Stückzahl/Gramm-Logik</title>
+  <style>
+    :root[data-theme="light"] {
+      --bg-page: #efe9e1;
+      --bg: #F8F4EF;
+      --bg-element: #FBF7F2;
+      --bg-soft: #E9E1E7;
+      --text: #2D2830;
+      --text-secondary: #786F79;
+      --border: #E4DDE3;
+      --accent: #8B5E63;
+      --on-accent: #FFFFFF;
+      --success: #6E8365;
+      --success-bg: #E4EDE3;
+      --warning: #A8713A;
+      --warning-bg: #F3E9D7;
+      --danger: #C65E4F;
+      --danger-bg: #F0E2DF;
+      --dairy-bg: #EBE5F1;
+      --dairy-color: #6C5285;
+      --produce-bg: #E4EDE3;
+      --produce-color: #4C6A43;
+      --meat-bg: #F5E2DE;
+      --meat-color: #9C4538;
+      --pantry-bg: #F3E9D7;
+      --pantry-color: #8C652D;
+      --freezer-bg: #DFF0F5;
+      --freezer-color: #2F6978;
+      --frame-shadow: rgba(89, 64, 89, 0.18);
+      --card-shadow: 0 4px 12px rgba(89, 64, 89, 0.08);
+      --sheet-scrim: rgba(45, 40, 48, 0.5);
+    }
+
+    :root[data-theme="dark"] {
+      --bg-page: #151217;
+      --bg: #211D23;
+      --bg-element: #2B262E;
+      --bg-soft: #382F3B;
+      --text: #F2ECE7;
+      --text-secondary: #B7ADB3;
+      --border: #3E3640;
+      --accent: #B79CBA;
+      --on-accent: #211D23;
+      --success: #8FAE86;
+      --success-bg: #233522;
+      --warning: #D9A86C;
+      --warning-bg: #382E1E;
+      --danger: #D9776A;
+      --danger-bg: #3B201D;
+      --dairy-bg: #32253B;
+      --dairy-color: #CDB7E2;
+      --produce-bg: #243523;
+      --produce-color: #A6CE9E;
+      --meat-bg: #3D2220;
+      --meat-color: #E29B90;
+      --pantry-bg: #3B2F1C;
+      --pantry-color: #E5BE82;
+      --freezer-bg: #1B3138;
+      --freezer-color: #8FD1E2;
+      --frame-shadow: rgba(0, 0, 0, 0.6);
+      --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --sheet-scrim: rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      padding: 32px 16px 80px;
+      line-height: 1.45;
+    }
+
+    header.top-bar {
+      max-width: 1040px;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .top-bar p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      max-width: 68ch;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+      transition: all 0.15s ease;
+    }
+
+    /* Comparison layout */
+    .comparison-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .concept-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      width: 375px;
+    }
+
+    .concept-header {
+      width: 100%;
+      text-align: left;
+      padding: 0 4px;
+    }
+
+    .concept-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--bg-soft);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+
+    .concept-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .concept-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Phone frame */
+    .phone {
+      width: 375px;
+      height: 790px;
+      border-radius: 46px;
+      background: var(--bg);
+      border: 4px solid var(--border);
+      box-shadow: 0 20px 48px var(--frame-shadow);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 116px;
+      height: 26px;
+      background: #000;
+      border-radius: 18px;
+      z-index: 60;
+    }
+
+    .phone-statusbar {
+      height: 48px;
+      padding: 12px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      z-index: 50;
+    }
+
+    .app-nav {
+      height: 50px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 40;
+    }
+
+    .nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--on-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .phone-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 4px 16px 88px;
+      scrollbar-width: none;
+    }
+    .phone-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .fab {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 26px;
+      background: var(--accent);
+      color: var(--on-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 400;
+      box-shadow: 0 8px 22px rgba(139, 94, 99, 0.4);
+      cursor: pointer;
+      z-index: 45;
+    }
+
+    /* Common Components */
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      color: var(--text);
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .tabs-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tab-pill.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: var(--bg);
+    }
+    .tab-pill.color-fridge.active {
+      background: var(--freezer-color);
+      border-color: var(--freezer-color);
+      color: #fff;
+    }
+    .tab-pill.color-pantry.active {
+      background: var(--pantry-color);
+      border-color: var(--pantry-color);
+      color: #fff;
+    }
+    .tab-pill.color-freezer.active {
+      background: #3B7280;
+      border-color: #3B7280;
+      color: #fff;
+    }
+    .tab-badge {
+      font-size: 10.5px;
+      opacity: 0.9;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 8px;
+      background: color-mix(in srgb, currentColor 18%, transparent);
+    }
+
+    /* SUMMARY / STAT BAR */
+    .stat-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2px 2px 10px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .stat-bar b {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .stat-flags {
+      display: flex;
+      gap: 6px;
+    }
+    .flag-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+    .flag-badge.danger {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid color-mix(in srgb, var(--danger) 30%, transparent);
+    }
+    .flag-badge.warning {
+      background: var(--warning-bg);
+      color: var(--warning);
+      border: 1px solid color-mix(in srgb, var(--warning) 30%, transparent);
+    }
+    .flag-badge.open {
+      background: var(--dairy-bg);
+      color: var(--dairy-color);
+      border: 1px solid color-mix(in srgb, var(--dairy-color) 30%, transparent);
+    }
+
+    /* ========================================================
+       KONZEPT 2: COLLAPSIBLE TIMELINE
+       ======================================================== */
+    .collapsible-section {
+      margin-bottom: 14px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 4px 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-arrow {
+      font-size: 11px;
+      color: var(--text-secondary);
+      transition: transform 0.2s ease;
+    }
+    .section-head.collapsed .section-arrow {
+      transform: rotate(-90deg);
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-title.critical { color: var(--danger); }
+    .section-title.soon { color: var(--warning); }
+    .section-title.safe { color: var(--success); }
+
+    .section-summary-hint {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .section-body {
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .section-head.collapsed + .section-body {
+      display: none;
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .timeline-row:last-child {
+      border-bottom: none;
+    }
+
+    /* Kategorie Icon Badge */
+    .cat-icon-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .cat-icon-badge.dairy { background: var(--dairy-bg); color: var(--dairy-color); }
+    .cat-icon-badge.meat { background: var(--meat-bg); color: var(--meat-color); }
+    .cat-icon-badge.produce { background: var(--produce-bg); color: var(--produce-color); }
+    .cat-icon-badge.pantry { background: var(--pantry-bg); color: var(--pantry-color); }
+    .cat-icon-badge.freezer { background: var(--freezer-bg); color: var(--freezer-color); }
+
+    .row-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .row-title-line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .row-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Farbige Füllstandsanzeige */
+    .portion-progress-track {
+      height: 4px;
+      background: color-mix(in srgb, var(--border) 80%, transparent);
+      border-radius: 2px;
+      margin: 4px 0 3px;
+      overflow: hidden;
+      position: relative;
+    }
+    .portion-progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+    .portion-progress-fill.green { background: var(--success); }
+    .portion-progress-fill.amber { background: var(--warning); }
+    .portion-progress-fill.red { background: var(--danger); }
+
+    .row-meta-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+    .badge-open-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      background: var(--dairy-bg);
+      color: var(--dairy-color);
+      border: 1px solid color-mix(in srgb, var(--dairy-color) 25%, transparent);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+    .badge-expiry-text {
+      font-weight: 600;
+    }
+    .badge-expiry-text.danger { color: var(--danger); }
+    .badge-expiry-text.warning { color: var(--warning); }
+    .badge-expiry-text.safe { color: var(--success); }
+
+    /* Klickbare Menge */
+    .row-qty-trigger {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--bg-soft);
+      border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+      padding: 6px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+    .row-qty-trigger:hover {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+    .row-qty-val {
+      font-size: 13.5px;
+      font-weight: 750;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+    .row-qty-icon {
+      font-size: 11px;
+      color: var(--accent);
+    }
+
+    /* Aufgebraucht / Toast Feedback */
+    .empty-toast-row {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: color-mix(in srgb, var(--success) 12%, var(--bg-element));
+      border: 1px dashed var(--success);
+      border-radius: 12px;
+      margin-bottom: 8px;
+      animation: fadeIn 0.25s ease;
+    }
+    .empty-toast-row.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .empty-toast-text {
+      font-size: 12.5px;
+      font-weight: 650;
+      color: var(--text);
+    }
+    .empty-toast-sub {
+      font-size: 11px;
+      color: var(--success);
+      font-weight: 600;
+    }
+    .empty-toast-undo {
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ========================================================
+       KONZEPT 3: VISUELLE SHELF-KACHELN
+       ======================================================== */
+    .shelf-group {
+      margin-bottom: 14px;
+    }
+
+    .shelf-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 4px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .shelf-title.dairy { color: var(--dairy-color); }
+    .shelf-title.meat { color: var(--meat-color); }
+    .shelf-title.produce { color: var(--produce-color); }
+    .shelf-title.pantry { color: var(--pantry-color); }
+    .shelf-title.freezer { color: var(--freezer-color); }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .shelf-card {
+      background: var(--bg-element);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 11px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 124px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+    }
+    .shelf-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .shelf-card.dairy { border-top: 3px solid var(--dairy-color); }
+    .shelf-card.meat { border-top: 3px solid var(--meat-color); }
+    .shelf-card.produce { border-top: 3px solid var(--produce-color); }
+    .shelf-card.pantry { border-top: 3px solid var(--pantry-color); }
+    .shelf-card.freezer { border-top: 3px solid var(--freezer-color); }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-food-icon-box {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .card-food-icon-box.dairy { background: var(--dairy-bg); color: var(--dairy-color); }
+    .card-food-icon-box.meat { background: var(--meat-bg); color: var(--meat-color); }
+    .card-food-icon-box.produce { background: var(--produce-bg); color: var(--produce-color); }
+    .card-food-icon-box.pantry { background: var(--pantry-bg); color: var(--pantry-color); }
+    .card-food-icon-box.freezer { background: var(--freezer-bg); color: var(--freezer-color); }
+
+    .card-open-badge {
+      font-size: 9px;
+      font-weight: 700;
+      background: var(--dairy-bg);
+      color: var(--dairy-color);
+      border: 1px solid color-mix(in srgb, var(--dairy-color) 25%, transparent);
+      padding: 1px 5px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .card-mid {
+      margin: 2px 0;
+    }
+    .card-prod-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-prod-qty {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      margin-top: 1px;
+    }
+
+    .card-fill-bar {
+      height: 4px;
+      background: color-mix(in srgb, var(--border) 70%, transparent);
+      border-radius: 2px;
+      margin-top: 4px;
+      overflow: hidden;
+    }
+    .card-fill-val {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .card-fill-val.green { background: var(--success); }
+    .card-fill-val.amber { background: var(--warning); }
+    .card-fill-val.red { background: var(--danger); }
+
+    .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+      padding-top: 5px;
+      font-size: 10.5px;
+    }
+    .card-expiry-tag {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .card-expiry-tag.danger { color: var(--danger); }
+    .card-expiry-tag.warning { color: var(--warning); }
+    .card-expiry-tag.safe { color: var(--success); font-weight: 600; }
+
+    .dot-indicator {
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+    }
+    .dot-indicator.danger { background: var(--danger); }
+    .dot-indicator.warning { background: var(--warning); }
+    .dot-indicator.safe { background: var(--success); }
+
+    /* ========================================================
+       UNIVERSELLES BOTTOM SHEET: PASST SICH AUTOMATISCH AN!
+       ======================================================== */
+    .sheet-scrim {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--sheet-scrim);
+      backdrop-filter: blur(2px);
+      z-index: 70;
+      display: none;
+      align-items: flex-end;
+    }
+    .sheet-scrim.open {
+      display: flex;
+    }
+
+    .bottom-sheet {
+      width: 100%;
+      background: var(--bg-element);
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 16px 20px 28px;
+      box-shadow: 0 -8px 24px rgba(0,0,0,0.25);
+      animation: slideUp 0.22s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .sheet-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 0 auto 12px;
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .sheet-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sheet-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .sheet-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .sheet-subtitle {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+    .sheet-close-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      background: var(--bg-soft);
+      border: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .sheet-current-status {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .sheet-current-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .sheet-current-val {
+      font-size: 15px;
+      font-weight: 750;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sheet-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Universelle Fraktions-Pills (1/4, 1/2, 3/4) */
+    .fraction-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .fraction-btn {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 4px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 650;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .fraction-btn:hover {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+    .fraction-sub {
+      display: block;
+      font-size: 9.5px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    /* Dynamische Schnellschritte je Einheit (Stk, g, ml) */
+    .portion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .portion-btn {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 4px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 650;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .portion-btn:hover {
+      background: var(--accent);
+      color: var(--on-accent);
+      border-color: var(--accent);
+    }
+
+    .custom-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .custom-input-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 10px;
+    }
+    .custom-input-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      width: 100%;
+    }
+    .custom-unit-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .custom-apply-btn {
+      background: var(--accent);
+      color: var(--on-accent);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .empty-action-btn {
+      width: 100%;
+      background: var(--danger-bg);
+      border: 1px solid color-mix(in srgb, var(--danger) 40%, transparent);
+      color: var(--danger);
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .empty-action-btn:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    footer.bottom-bar {
+      max-width: 800px;
+      margin: 44px auto 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div>
+      <p class="eyebrow">Design-Vorschau · Vorrat (Universelle Schnellauswahl)</p>
+      <h1>Logische Schnellauswahl für Stückzahl, Gramm &amp; Milliliter</h1>
+      <p>Jedes Lebensmittel öffnet jetzt sein eigenes, einheiten-spezifisches Menü: Stückzahl (z. B. -1, -2 Stk), Gramm (z. B. -50g, -100g, -250g) oder Volumen (z. B. -100ml, -250ml) plus universelle 1/4, 1/2 und Leer-Aktionen.</p>
+    </div>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+      <span id="themeIcon">🌙</span> <span id="themeLabel">Dark Mode</span>
+    </button>
+  </header>
+
+  <main class="comparison-grid">
+
+    <!-- ========================================================
+         KONZEPT 2: COLLAPSIBLE TIMELINE
+         ======================================================== -->
+    <div class="concept-column">
+      <div class="concept-header">
+        <span class="concept-badge">Konzept 2</span>
+        <h2 class="concept-title">MHD-Timeline mit Farb-Akzenten</h2>
+        <p class="concept-desc">Tippe auf ein beliebiges Lebensmittel (Milch, Fleisch, Tomatendose, Gouda), um das jeweils passende Mengen-Menü zu sehen.</p>
+      </div>
+
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="phone-statusbar">
+          <span>09:41</span>
+          <span>5G · 94%</span>
+        </div>
+
+        <div class="app-nav">
+          <div class="nav-btn">☰</div>
+          <div class="nav-title">Vorrat</div>
+          <div class="nav-avatar">MA</div>
+        </div>
+
+        <div class="phone-content" id="c2-content">
+          <!-- Suchleiste -->
+          <div class="search-row">
+            <span>🔍</span>
+            <input class="search-input" type="text" placeholder="68 Artikel durchsuchen..." oninput="handleSearchC2(this.value)" />
+          </div>
+
+          <!-- Lagerort-Pills -->
+          <div class="tabs-row">
+            <div class="tab-pill active" onclick="filterC2('all', this)">Alle <span class="tab-badge" id="c2-total-badge">68</span></div>
+            <div class="tab-pill color-fridge" onclick="filterC2('fridge', this)">Kühlschrank <span class="tab-badge" id="c2-fridge-badge">28</span></div>
+            <div class="tab-pill color-freezer" onclick="filterC2('freezer', this)">Tiefkühl <span class="tab-badge">14</span></div>
+            <div class="tab-pill color-pantry" onclick="filterC2('pantry', this)">Kammer <span class="tab-badge">26</span></div>
+          </div>
+
+          <!-- Statistik & Dringlichkeit -->
+          <div class="stat-bar">
+            <span><b id="c2-stat-total">68</b> Artikel im Bestand</span>
+            <div class="stat-flags">
+              <span class="flag-badge danger" id="c2-flag-critical">2 heute</span>
+              <span class="flag-badge warning">3 bald</span>
+              <span class="flag-badge open">4 geöffnet</span>
+            </div>
+          </div>
+
+          <!-- FEEDBACK TOAST -->
+          <div class="empty-toast-row" id="c2-empty-toast">
+            <div>
+              <div class="empty-toast-text" id="c2-toast-title">Artikel aufgebraucht!</div>
+              <div class="empty-toast-sub">+ Automatisch auf Einkaufsliste gesetzt</div>
+            </div>
+            <button class="empty-toast-undo" onclick="restoreLastItem()">Rückgängig</button>
+          </div>
+
+          <!-- ABSCHNITT 1: HEUTE & MORGEN -->
+          <div class="collapsible-section" id="c2-sec-critical">
+            <div class="section-head" onclick="toggleSection(this)">
+              <div class="section-title-wrap">
+                <span class="section-arrow">▼</span>
+                <span class="section-title critical">● Heute &amp; Morgen</span>
+              </div>
+              <span class="section-summary-hint" id="c2-crit-count">2 Artikel</span>
+            </div>
+            <div class="section-body">
+              <!-- Milch (ml) -->
+              <div class="timeline-row" id="c2-row-milk">
+                <div class="cat-icon-badge dairy">🥛</div>
+                <div class="row-info">
+                  <div class="row-title-line">
+                    <span class="row-name">Frische Vollmilch 3,8 %</span>
+                  </div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill green" id="c2-fill-milk" style="width: 100%;"></div>
+                  </div>
+                  <div class="row-meta-line">
+                    <span class="badge-open-tag" id="c2-tag-milk">Neu</span>
+                    <span id="c2-meta-milk">1 l · <b class="badge-expiry-text danger">MHD heute</b></span>
+                  </div>
+                </div>
+                <div class="row-qty-trigger" title="Menge anpassen" onclick="openUniversalSheet('milk')">
+                  <span class="row-qty-val" id="c2-qty-milk">1 l</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+
+              <!-- Hähnchen (Gramm) -->
+              <div class="timeline-row" id="c2-row-chicken">
+                <div class="cat-icon-badge meat">🍗</div>
+                <div class="row-info">
+                  <div class="row-title-line">
+                    <span class="row-name">Hähnchenbrustfilet Bio</span>
+                  </div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill green" id="c2-fill-chicken" style="width: 100%;"></div>
+                  </div>
+                  <div class="row-meta-line">
+                    <span class="badge-open-tag" id="c2-tag-chicken">Neu</span>
+                    <span id="c2-meta-chicken">400 g · <b class="badge-expiry-text danger">Heute verbrauchen</b></span>
+                  </div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('chicken')">
+                  <span class="row-qty-val" id="c2-qty-chicken">400 g</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ABSCHNITT 2: DIESE WOCHE -->
+          <div class="collapsible-section" id="c2-sec-soon">
+            <div class="section-head" onclick="toggleSection(this)">
+              <div class="section-title-wrap">
+                <span class="section-arrow">▼</span>
+                <span class="section-title soon">● Diese Woche</span>
+              </div>
+              <span class="section-summary-hint">3 Artikel</span>
+            </div>
+            <div class="section-body">
+              <!-- Naturjoghurt (Gramm) -->
+              <div class="timeline-row" id="c2-row-yogurt">
+                <div class="cat-icon-badge dairy">🥣</div>
+                <div class="row-info">
+                  <div class="row-title-line">
+                    <span class="row-name">Bio-Naturjoghurt 3,5%</span>
+                  </div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill amber" id="c2-fill-yogurt" style="width: 50%;"></div>
+                  </div>
+                  <div class="row-meta-line">
+                    <span class="badge-open-tag" id="c2-tag-yogurt">Geöffnet</span>
+                    <span id="c2-meta-yogurt">250g von 500g · <b class="badge-expiry-text warning">in 3 Tagen</b></span>
+                  </div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('yogurt')">
+                  <span class="row-qty-val" id="c2-qty-yogurt">250 g</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+
+              <!-- Gouda (Gramm) -->
+              <div class="timeline-row" id="c2-row-gouda">
+                <div class="cat-icon-badge dairy">🧀</div>
+                <div class="row-info">
+                  <div class="row-title-line">
+                    <span class="row-name">Gouda jung in Scheiben</span>
+                  </div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill green" id="c2-fill-gouda" style="width: 100%;"></div>
+                  </div>
+                  <div class="row-meta-line">
+                    <span class="badge-open-tag" id="c2-tag-gouda">Neu</span>
+                    <span id="c2-meta-gouda">250 g · <b class="badge-expiry-text warning">in 5 Tagen</b></span>
+                  </div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('gouda')">
+                  <span class="row-qty-val" id="c2-qty-gouda">250 g</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+
+              <!-- Blaubeeren (Gramm) -->
+              <div class="timeline-row" id="c2-row-berries">
+                <div class="cat-icon-badge produce">🫐</div>
+                <div class="row-info">
+                  <div class="row-title-line">
+                    <span class="row-name">Heidelbeeren frisch</span>
+                  </div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill amber" id="c2-fill-berries" style="width: 40%;"></div>
+                  </div>
+                  <div class="row-meta-line">
+                    <span class="badge-open-tag" id="c2-tag-berries">Geöffnet</span>
+                    <span id="c2-meta-berries">50g von 125g · <b class="badge-expiry-text warning">in 2 Tagen</b></span>
+                  </div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('berries')">
+                  <span class="row-qty-val" id="c2-qty-berries">50 g</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ABSCHNITT 3: LÄNGER HALTBAR -->
+          <div class="collapsible-section" id="c2-sec-safe">
+            <div class="section-head" onclick="toggleSection(this)">
+              <div class="section-title-wrap">
+                <span class="section-arrow">▼</span>
+                <span class="section-title safe">● Länger haltbar / Vorrat</span>
+              </div>
+              <span class="section-summary-hint">63 Artikel</span>
+            </div>
+            <div class="section-body">
+              <!-- Passierte Tomaten (STÜCK) -->
+              <div class="timeline-row" id="c2-row-tomatoes">
+                <div class="cat-icon-badge pantry">🥫</div>
+                <div class="row-info">
+                  <div class="row-title-line"><span class="row-name">Passierte Tomaten Bio</span></div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill green" id="c2-fill-tomatoes" style="width: 100%;"></div>
+                  </div>
+                  <div class="row-meta-line"><span id="c2-meta-tomatoes">3 Stk · <b class="badge-expiry-text safe">Nov 2027</b> · Kammer</span></div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('tomatoes')">
+                  <span class="row-qty-val" id="c2-qty-tomatoes">3 Stk</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+
+              <!-- Haferflocken (Gramm) -->
+              <div class="timeline-row" id="c2-row-oats">
+                <div class="cat-icon-badge pantry">🌾</div>
+                <div class="row-info">
+                  <div class="row-title-line"><span class="row-name">Haferflocken zart Bio</span></div>
+                  <div class="row-meta-line"><span>500 g · <b class="badge-expiry-text safe">Jan 2027</b> · Kammer</span></div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('oats')">
+                  <span class="row-qty-val" id="c2-qty-oats">500 g</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+
+              <!-- Steinofen Pizza (STÜCK) -->
+              <div class="timeline-row" id="c2-row-pizza">
+                <div class="cat-icon-badge freezer">🍕</div>
+                <div class="row-info">
+                  <div class="row-title-line"><span class="row-name">Bio Steinofen-Pizza</span></div>
+                  <div class="portion-progress-track">
+                    <div class="portion-progress-fill green" id="c2-fill-pizza" style="width: 100%;"></div>
+                  </div>
+                  <div class="row-meta-line"><span id="c2-meta-pizza">2 Stk · <b class="badge-expiry-text safe">Mai 2027</b> · Tiefkühl</span></div>
+                </div>
+                <div class="row-qty-trigger" onclick="openUniversalSheet('pizza')">
+                  <span class="row-qty-val" id="c2-qty-pizza">2 Stk</span>
+                  <span class="row-qty-icon">✎</span>
+                </div>
+              </div>
+
+              <div class="timeline-row">
+                <div class="cat-icon-badge pantry">📦</div>
+                <div class="row-info">
+                  <div class="row-title-line"><span class="row-name">... weitere 60 Vorrats-Artikel</span></div>
+                  <div class="row-meta-line"><span>Nudeln, Reis, Gewürze, Konserven</span></div>
+                </div>
+                <span style="font-size: 11px; color: var(--text-secondary); padding-right: 6px;">Kompakt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fab" title="Artikel hinzufügen">+</div>
+      </div>
+    </div>
+
+
+    <!-- ========================================================
+         KONZEPT 3: VISUELLE SHELF-KACHELN
+         ======================================================== -->
+    <div class="concept-column">
+      <div class="concept-header">
+        <span class="concept-badge">Konzept 3</span>
+        <h2 class="concept-title">Visuelle Shelf-Kacheln mit Farbleitsystem</h2>
+        <p class="concept-desc">Auch im Kachel-Grid: Ein Klick auf Tomaten (Stk), Hähnchen (g) oder Pizza (Stk) öffnet die passenden Buttons.</p>
+      </div>
+
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="phone-statusbar">
+          <span>09:41</span>
+          <span>5G · 94%</span>
+        </div>
+
+        <div class="app-nav">
+          <div class="nav-btn">☰</div>
+          <div class="nav-title">Vorrat</div>
+          <div class="nav-avatar">MA</div>
+        </div>
+
+        <div class="phone-content" id="c3-content">
+          <!-- Suchleiste -->
+          <div class="search-row">
+            <span>🔍</span>
+            <input class="search-input" type="text" placeholder="68 Artikel durchsuchen..." />
+          </div>
+
+          <!-- Lagerort-Tabs -->
+          <div class="tabs-row">
+            <div class="tab-pill active">Alle <span class="tab-badge" id="c3-total-badge">68</span></div>
+            <div class="tab-pill color-fridge">Kühlschrank <span class="tab-badge" id="c3-fridge-badge">28</span></div>
+            <div class="tab-pill color-freezer">Tiefkühl <span class="tab-badge">14</span></div>
+            <div class="tab-pill color-pantry">Kammer <span class="tab-badge">26</span></div>
+          </div>
+
+          <!-- Kompakte Statuszeile -->
+          <div class="stat-bar">
+            <span><b id="c3-stat-total">68</b> Artikel · 28 Kühlschrank</span>
+            <div class="stat-flags">
+              <span class="flag-badge danger" id="c3-flag-critical">2 kritisch</span>
+              <span class="flag-badge warning">3 bald</span>
+            </div>
+          </div>
+
+          <!-- FEEDBACK TOAST IN C3 -->
+          <div class="empty-toast-row" id="c3-empty-toast">
+            <div>
+              <div class="empty-toast-text" id="c3-toast-title">Artikel aufgebraucht!</div>
+              <div class="empty-toast-sub">+ Zur Einkaufsliste hinzugefügt</div>
+            </div>
+            <button class="empty-toast-undo" onclick="restoreLastItem()">Rückgängig</button>
+          </div>
+
+          <!-- REGAL-GRUPPE 1: FRISCHE & MOLKEREI -->
+          <div class="shelf-group">
+            <div class="shelf-title dairy">
+              <span>● Molkerei &amp; Kühlung (12)</span>
+              <span style="font-size:10px; opacity:0.8;">Kühlschrank</span>
+            </div>
+            <div class="grid-2col">
+              <!-- Milch Kachel -->
+              <div class="shelf-card dairy" id="c3-card-milk" onclick="openUniversalSheet('milk')">
+                <div class="card-head">
+                  <div class="card-food-icon-box dairy">🥛</div>
+                  <span class="card-open-badge" id="c3-tag-milk">Neu</span>
+                </div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Frische Vollmilch</div>
+                  <div class="card-prod-qty" id="c3-qty-milk">1 l</div>
+                  <div class="card-fill-bar">
+                    <div class="card-fill-val green" id="c3-fill-milk" style="width: 100%;"></div>
+                  </div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag danger"><span class="dot-indicator danger"></span> Heute</span>
+                  <span style="color:var(--dairy-color); font-weight:600; font-size:10px;">ml-Menü</span>
+                </div>
+              </div>
+
+              <!-- Hähnchenfilet -->
+              <div class="shelf-card meat" id="c3-card-chicken" onclick="openUniversalSheet('chicken')">
+                <div class="card-head">
+                  <div class="card-food-icon-box meat">🍗</div>
+                  <span class="card-open-badge" id="c3-tag-chicken">Neu</span>
+                </div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Hähnchenbrust</div>
+                  <div class="card-prod-qty" id="c3-qty-chicken">400 g</div>
+                  <div class="card-fill-bar">
+                    <div class="card-fill-val green" id="c3-fill-chicken" style="width: 100%;"></div>
+                  </div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag danger"><span class="dot-indicator danger"></span> Heute</span>
+                  <span style="color:var(--meat-color); font-weight:600; font-size:10px;">Gramm-Menü</span>
+                </div>
+              </div>
+
+              <!-- Joghurt -->
+              <div class="shelf-card dairy" id="c3-card-yogurt" onclick="openUniversalSheet('yogurt')">
+                <div class="card-head">
+                  <div class="card-food-icon-box dairy">🥣</div>
+                  <span class="card-open-badge" id="c3-tag-yogurt">Geöffnet</span>
+                </div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Naturjoghurt</div>
+                  <div class="card-prod-qty" id="c3-qty-yogurt">250 g <small style="font-size:10px; font-weight:500; color:var(--text-secondary);">/ 500g</small></div>
+                  <div class="card-fill-bar"><div class="card-fill-val amber" id="c3-fill-yogurt" style="width: 50%;"></div></div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag warning"><span class="dot-indicator warning"></span> in 3 T.</span>
+                  <span style="color:var(--text-secondary); font-size:10px;">1/2 voll</span>
+                </div>
+              </div>
+
+              <!-- Gouda -->
+              <div class="shelf-card dairy" id="c3-card-gouda" onclick="openUniversalSheet('gouda')">
+                <div class="card-head">
+                  <div class="card-food-icon-box dairy">🧀</div>
+                  <span class="card-open-badge" id="c3-tag-gouda">Neu</span>
+                </div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Gouda Scheiben</div>
+                  <div class="card-prod-qty" id="c3-qty-gouda">250 g</div>
+                  <div class="card-fill-bar"><div class="card-fill-val green" id="c3-fill-gouda" style="width: 100%;"></div></div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag warning"><span class="dot-indicator warning"></span> in 5 T.</span>
+                  <span style="color:var(--text-secondary); font-size:10px;">Gramm-Menü</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- REGAL-GRUPPE 2: TROCKENVORRAT & KAMMER -->
+          <div class="shelf-group">
+            <div class="shelf-title pantry">
+              <span>● Trockenvorrat &amp; Kammer (18)</span>
+              <span style="font-size:10px; opacity:0.8;">Kammer</span>
+            </div>
+            <div class="grid-2col">
+              <!-- Tomatendose (Stück) -->
+              <div class="shelf-card pantry" id="c3-card-tomatoes" onclick="openUniversalSheet('tomatoes')">
+                <div class="card-head">
+                  <div class="card-food-icon-box pantry">🥫</div>
+                  <span class="card-open-badge" id="c3-tag-tomatoes">Dosen</span>
+                </div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Passierte Tomaten</div>
+                  <div class="card-prod-qty" id="c3-qty-tomatoes">3 Stk</div>
+                  <div class="card-fill-bar"><div class="card-fill-val green" id="c3-fill-tomatoes" style="width: 100%;"></div></div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag safe"><span class="dot-indicator safe"></span> Nov 2027</span>
+                  <span style="color:var(--pantry-color); font-weight:600; font-size:10px;">Stück-Menü</span>
+                </div>
+              </div>
+
+              <!-- Haferflocken -->
+              <div class="shelf-card pantry" id="c3-card-oats" onclick="openUniversalSheet('oats')">
+                <div class="card-head"><div class="card-food-icon-box pantry">🌾</div></div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Haferflocken zart</div>
+                  <div class="card-prod-qty" id="c3-qty-oats">500 g</div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag safe"><span class="dot-indicator safe"></span> Jan 2027</span>
+                  <span style="color:var(--pantry-color); font-weight:600; font-size:10px;">Gramm-Menü</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- REGAL-GRUPPE 3: TIEFKÜHL -->
+          <div class="shelf-group">
+            <div class="shelf-title freezer">
+              <span>● Tiefkühlware (14)</span>
+              <span style="font-size:10px; opacity:0.8;">Tiefkühler</span>
+            </div>
+            <div class="grid-2col">
+              <!-- Pizza (Stück) -->
+              <div class="shelf-card freezer" id="c3-card-pizza" onclick="openUniversalSheet('pizza')">
+                <div class="card-head">
+                  <div class="card-food-icon-box freezer">🍕</div>
+                  <span class="card-open-badge" id="c3-tag-pizza">Tiefkühl</span>
+                </div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Steinofen-Pizza</div>
+                  <div class="card-prod-qty" id="c3-qty-pizza">2 Stk</div>
+                  <div class="card-fill-bar"><div class="card-fill-val green" id="c3-fill-pizza" style="width: 100%;"></div></div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag safe"><span class="dot-indicator safe"></span> Mai 2027</span>
+                  <span style="color:var(--freezer-color); font-weight:600; font-size:10px;">Stück-Menü</span>
+                </div>
+              </div>
+
+              <div class="shelf-card freezer">
+                <div class="card-head"><div class="card-food-icon-box freezer">🧊</div></div>
+                <div class="card-mid">
+                  <div class="card-prod-name">Kaisergemüse TK</div>
+                  <div class="card-prod-qty">750 g</div>
+                </div>
+                <div class="card-foot">
+                  <span class="card-expiry-tag safe"><span class="dot-indicator safe"></span> Feb 2027</span>
+                  <span style="color:var(--freezer-color); font-weight:600; font-size:10px;">Tiefkühl</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="fab" title="Artikel hinzufügen">+</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================
+       UNIVERSELLES DYNAMISCHES BOTTOM SHEET
+       ======================================================== -->
+  <div class="sheet-scrim" id="universal-portion-sheet" onclick="closeUniversalSheet(event)">
+    <div class="bottom-sheet" onclick="event.stopPropagation()">
+      <div class="sheet-handle"></div>
+
+      <div class="sheet-header">
+        <div class="sheet-title-row">
+          <div class="sheet-icon-circle" id="sheet-icon">🥛</div>
+          <div>
+            <div class="sheet-title" id="sheet-title">Produktname</div>
+            <div class="sheet-subtitle" id="sheet-subtitle">Verbrauch oder Restmenge erfassen</div>
+          </div>
+        </div>
+        <button class="sheet-close-btn" onclick="hideUniversalSheet()">✕</button>
+      </div>
+
+      <!-- Aktueller Stand -->
+      <div class="sheet-current-status">
+        <span class="sheet-current-label">Aktueller Bestand:</span>
+        <span class="sheet-current-val" id="sheet-current-val">1.000 ml</span>
+      </div>
+
+      <!-- Ebene 1: Logische Fraktionen (1/4, Hälfte, 3/4) -->
+      <div class="sheet-section-label">
+        <span>Anteilig verbrauchen</span>
+        <span style="font-weight:500; text-transform:none; font-size:10.5px;">Schnelltipp</span>
+      </div>
+      <div class="fraction-row" id="sheet-fractions-row">
+        <!-- Dynamisch generiert -->
+      </div>
+
+      <!-- Ebene 2: Logische Einheitsschritte (z. B. -50g / -100g oder -1 Stk / -2 Stk) -->
+      <div class="sheet-section-label">
+        <span id="sheet-step-label">Schnellschritte</span>
+      </div>
+      <div class="portion-grid" id="sheet-steps-grid">
+        <!-- Dynamisch generiert -->
+      </div>
+
+      <!-- Ebene 3: Freie Zahleneingabe -->
+      <div class="custom-input-row">
+        <div class="custom-input-box">
+          <input type="number" id="custom-portion-input" placeholder="Freie Menge" />
+          <span class="custom-unit-tag" id="sheet-unit-tag">g</span>
+        </div>
+        <button class="custom-apply-btn" onclick="applyCustomInput()">Abziehen</button>
+      </div>
+
+      <!-- Ebene 4: Leer machen & Einkaufsliste -->
+      <button class="empty-action-btn" onclick="triggerConsumeEmpty()">
+        <span>🗑️</span>
+        <span id="sheet-empty-btn-text">Ganz aufbrauchen (Packung leer) → Auf Einkaufsliste</span>
+      </button>
+    </div>
+  </div>
+
+  <footer class="bottom-bar">
+    Klicke auf beliebige Lebensmittel (z. B. Hähnchen für Gramm, Tomaten für Stückzahl, Milch für Milliliter) um die jeweils maßgeschneiderten Schnellauswahl-Buttons zu testen.
+  </footer>
+
+  <script>
+    // DATENMODELL: Reale Produkte mit ihren jeweiligen Einheiten
+    const ITEMS_DB = {
+      milk: {
+        id: 'milk',
+        name: 'Frische Vollmilch 3,8 %',
+        icon: '🥛',
+        category: 'dairy',
+        unit: 'ml',
+        currentQty: 1000,
+        initialQty: 1000,
+        displayUnit: 'l',
+        steps: [100, 200, 400],
+        stepHints: ['Kaffee', 'Müsli', 'Kochen']
+      },
+      chicken: {
+        id: 'chicken',
+        name: 'Hähnchenbrustfilet Bio',
+        icon: '🍗',
+        category: 'meat',
+        unit: 'g',
+        currentQty: 400,
+        initialQty: 400,
+        displayUnit: 'g',
+        steps: [100, 150, 200],
+        stepHints: ['Snack', '1 Portion', '2 Portionen']
+      },
+      yogurt: {
+        id: 'yogurt',
+        name: 'Bio-Naturjoghurt 3,5%',
+        icon: '🥣',
+        category: 'dairy',
+        unit: 'g',
+        currentQty: 250,
+        initialQty: 500,
+        displayUnit: 'g',
+        steps: [50, 100, 150],
+        stepHints: ['Dip', 'Müsli', 'Portion']
+      },
+      gouda: {
+        id: 'gouda',
+        name: 'Gouda jung in Scheiben',
+        icon: '🧀',
+        category: 'dairy',
+        unit: 'g',
+        currentQty: 250,
+        initialQty: 250,
+        displayUnit: 'g',
+        steps: [30, 50, 100],
+        stepHints: ['1 Scheibe', '2 Scheiben', 'Halbe Packung']
+      },
+      berries: {
+        id: 'berries',
+        name: 'Heidelbeeren frisch',
+        icon: '🫐',
+        category: 'produce',
+        unit: 'g',
+        currentQty: 50,
+        initialQty: 125,
+        displayUnit: 'g',
+        steps: [25, 50],
+        stepHints: ['Handvoll', 'Rest']
+      },
+      tomatoes: {
+        id: 'tomatoes',
+        name: 'Passierte Tomaten Bio',
+        icon: '🥫',
+        category: 'pantry',
+        unit: 'Stk',
+        currentQty: 3,
+        initialQty: 3,
+        displayUnit: 'Stk',
+        steps: [1, 2],
+        stepHints: ['1 Dose', '2 Dosen']
+      },
+      pizza: {
+        id: 'pizza',
+        name: 'Bio Steinofen-Pizza',
+        icon: '🍕',
+        category: 'freezer',
+        unit: 'Stk',
+        currentQty: 2,
+        initialQty: 2,
+        displayUnit: 'Stk',
+        steps: [1],
+        stepHints: ['1 Pizza']
+      },
+      oats: {
+        id: 'oats',
+        name: 'Haferflocken zart Bio',
+        icon: '🌾',
+        category: 'pantry',
+        unit: 'g',
+        currentQty: 500,
+        initialQty: 500,
+        displayUnit: 'g',
+        steps: [50, 100, 250],
+        stepHints: ['Portion', 'Doppelt', 'Hälfte']
+      }
+    };
+
+    let currentActiveItemId = null;
+    let lastConsumedItem = null;
+    let totalItems = 68;
+    let fridgeItems = 28;
+    let criticalItems = 2;
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      if (next === 'dark') {
+        icon.textContent = '☀️';
+        label.textContent = 'Light Mode';
+      } else {
+        icon.textContent = '🌙';
+        label.textContent = 'Dark Mode';
+      }
+    }
+
+    function toggleSection(head) {
+      head.classList.toggle('collapsed');
+    }
+
+    // ========================================================
+    // UNIVERSELLE SCHNELLAUSWAHL ÖFFNEN
+    // ========================================================
+    function openUniversalSheet(itemId) {
+      const item = ITEMS_DB[itemId];
+      if (!item) return;
+      currentActiveItemId = itemId;
+
+      document.getElementById('sheet-icon').textContent = item.icon;
+      document.getElementById('sheet-title').textContent = item.name;
+      document.getElementById('sheet-subtitle').textContent = `Einheit: ${item.unit} · Ursprünglich: ${item.initialQty} ${item.unit}`;
+      document.getElementById('sheet-current-val').textContent = formatQty(item.currentQty, item.unit);
+      document.getElementById('sheet-unit-tag').textContent = item.unit;
+      document.getElementById('custom-portion-input').value = '';
+      document.getElementById('sheet-empty-btn-text').textContent = `Ganz aufbrauchen (${item.name.split(' ')[0]} leer) → Auf Einkaufsliste`;
+
+      // 1. Fraktions-Buttons generieren (1/4, Hälfte, 3/4)
+      const fractionsRow = document.getElementById('sheet-fractions-row');
+      fractionsRow.innerHTML = '';
+
+      if (item.unit === 'Stk') {
+        // Bei Stückzahl: z.B. 1 Stk oder 2 Stk
+        for (let s = 1; s <= Math.min(item.currentQty, 3); s++) {
+          const btn = document.createElement('button');
+          btn.className = 'fraction-btn';
+          btn.innerHTML = `-${s} Stk<span class="fraction-sub">${s === item.currentQty ? 'Rest' : 'abziehen'}</span>`;
+          btn.onclick = () => applyDeduction(s);
+          fractionsRow.appendChild(btn);
+        }
+      } else {
+        // Bei Gramm oder ml: 1/4, Hälfte, 3/4 berechnen
+        const q4 = Math.round(item.initialQty * 0.25);
+        const q2 = Math.round(item.initialQty * 0.5);
+        const q34 = Math.round(item.initialQty * 0.75);
+
+        const fractions = [
+          { label: '1/4', amount: q4, hint: `-${q4} ${item.unit}` },
+          { label: 'Hälfte (1/2)', amount: q2, hint: `-${q2} ${item.unit}` },
+          { label: '3/4', amount: q34, hint: `-${q34} ${item.unit}` }
+        ];
+
+        fractions.forEach(f => {
+          if (f.amount < item.currentQty) {
+            const btn = document.createElement('button');
+            btn.className = 'fraction-btn';
+            btn.innerHTML = `${f.label}<span class="fraction-sub">${f.hint}</span>`;
+            btn.onclick = () => applyDeduction(f.amount);
+            fractionsRow.appendChild(btn);
+          }
+        });
+      }
+
+      // 2. Einheitsspezifische Schnellschritte generieren
+      const stepsGrid = document.getElementById('sheet-steps-grid');
+      stepsGrid.innerHTML = '';
+      document.getElementById('sheet-step-label').textContent = `Typische Mengen für ${item.unit}`;
+
+      item.steps.forEach((step, idx) => {
+        if (step <= item.currentQty) {
+          const btn = document.createElement('button');
+          btn.className = 'portion-btn';
+          const hint = item.stepHints[idx] || '';
+          btn.innerHTML = `-${step} ${item.unit}<br><small style="opacity:0.75; font-size:10px;">${hint}</small>`;
+          btn.onclick = () => applyDeduction(step);
+          stepsGrid.appendChild(btn);
+        }
+      });
+
+      // Sheet anzeigen
+      document.getElementById('universal-portion-sheet').classList.add('open');
+    }
+
+    function closeUniversalSheet(e) {
+      if (e.target.id === 'universal-portion-sheet') {
+        hideUniversalSheet();
+      }
+    }
+
+    function hideUniversalSheet() {
+      document.getElementById('universal-portion-sheet').classList.remove('open');
+    }
+
+    function applyDeduction(amount) {
+      if (!currentActiveItemId) return;
+      const item = ITEMS_DB[currentActiveItemId];
+      if (!item) return;
+
+      item.currentQty = Math.max(0, item.currentQty - amount);
+
+      if (item.currentQty <= 0) {
+        triggerConsumeEmpty();
+        return;
+      }
+
+      updateItemDisplay(item);
+      hideUniversalSheet();
+    }
+
+    function applyCustomInput() {
+      const val = parseInt(document.getElementById('custom-portion-input').value, 10);
+      if (!isNaN(val) && val > 0) {
+        applyDeduction(val);
+      }
+    }
+
+    function triggerConsumeEmpty() {
+      if (!currentActiveItemId) return;
+      const item = ITEMS_DB[currentActiveItemId];
+      if (!item) return;
+
+      item.currentQty = 0;
+      lastConsumedItem = item;
+      hideUniversalSheet();
+
+      // Animierte Entfernung
+      const c2Row = document.getElementById(`c2-row-${item.id}`);
+      const c3Card = document.getElementById(`c3-card-${item.id}`);
+
+      if (c2Row) {
+        c2Row.style.opacity = '0';
+        c2Row.style.transform = 'scale(0.96)';
+        setTimeout(() => { c2Row.style.display = 'none'; }, 220);
+      }
+      if (c3Card) {
+        c3Card.style.opacity = '0';
+        c3Card.style.transform = 'scale(0.92)';
+        setTimeout(() => { c3Card.style.display = 'none'; }, 220);
+      }
+
+      // Toasts
+      document.getElementById('c2-toast-title').textContent = `${item.icon} ${item.name} aufgebraucht!`;
+      document.getElementById('c3-toast-title').textContent = `${item.icon} ${item.name} aufgebraucht!`;
+      document.getElementById('c2-empty-toast').classList.add('active');
+      document.getElementById('c3-empty-toast').classList.add('active');
+
+      // Zähler reduzieren
+      updateCounters(totalItems - 1, (item.category === 'dairy' || item.category === 'meat') ? fridgeItems - 1 : fridgeItems);
+    }
+
+    function restoreLastItem() {
+      if (!lastConsumedItem) return;
+      const item = lastConsumedItem;
+      item.currentQty = item.initialQty;
+      updateItemDisplay(item);
+
+      const c2Row = document.getElementById(`c2-row-${item.id}`);
+      const c3Card = document.getElementById(`c3-card-${item.id}`);
+      if (c2Row) {
+        c2Row.style.display = 'flex';
+        setTimeout(() => { c2Row.style.opacity = '1'; c2Row.style.transform = 'scale(1)'; }, 10);
+      }
+      if (c3Card) {
+        c3Card.style.display = 'flex';
+        setTimeout(() => { c3Card.style.opacity = '1'; c3Card.style.transform = 'scale(1)'; }, 10);
+      }
+
+      document.getElementById('c2-empty-toast').classList.remove('active');
+      document.getElementById('c3-empty-toast').classList.remove('active');
+
+      updateCounters(totalItems, fridgeItems);
+      lastConsumedItem = null;
+    }
+
+    function updateCounters(total, fridge) {
+      document.getElementById('c2-total-badge').textContent = total;
+      document.getElementById('c3-total-badge').textContent = total;
+      document.getElementById('c2-fridge-badge').textContent = fridge;
+      document.getElementById('c3-fridge-badge').textContent = fridge;
+      document.getElementById('c2-stat-total').textContent = total;
+      document.getElementById('c3-stat-total').textContent = total;
+    }
+
+    function updateItemDisplay(item) {
+      const percent = Math.round((item.currentQty / item.initialQty) * 100);
+      let colorClass = 'green';
+      if (percent <= 25) colorClass = 'red';
+      else if (percent <= 55) colorClass = 'amber';
+
+      const formatted = formatQty(item.currentQty, item.unit);
+
+      // C2 Update
+      const c2Qty = document.getElementById(`c2-qty-${item.id}`);
+      const c2Fill = document.getElementById(`c2-fill-${item.id}`);
+      const c2Tag = document.getElementById(`c2-tag-${item.id}`);
+      const c2Meta = document.getElementById(`c2-meta-${item.id}`);
+
+      if (c2Qty) c2Qty.textContent = formatted;
+      if (c2Fill) {
+        c2Fill.style.width = `${percent}%`;
+        c2Fill.className = `portion-progress-fill ${colorClass}`;
+      }
+      if (c2Tag) {
+        c2Tag.textContent = 'Geöffnet';
+        c2Tag.style.background = 'var(--dairy-bg)';
+      }
+      if (c2Meta) {
+        c2Meta.innerHTML = `${formatted} von ${item.initialQty}${item.unit} · <b class="badge-expiry-text warning">Geöffnet</b>`;
+      }
+
+      // C3 Update
+      const c3Qty = document.getElementById(`c3-qty-${item.id}`);
+      const c3Fill = document.getElementById(`c3-fill-${item.id}`);
+      const c3Tag = document.getElementById(`c3-tag-${item.id}`);
+
+      if (c3Qty) {
+        c3Qty.innerHTML = `${formatted} <small style="font-size:10px; font-weight:600; color:var(--text-secondary);">/ ${item.initialQty}${item.unit}</small>`;
+      }
+      if (c3Fill) {
+        c3Fill.style.width = `${percent}%`;
+        c3Fill.className = `card-fill-val ${colorClass}`;
+      }
+      if (c3Tag) c3Tag.textContent = 'Geöffnet';
+    }
+
+    function formatQty(qty, unit) {
+      if (unit === 'ml' && qty >= 1000) {
+        return (qty / 1000).toLocaleString('de-DE') + ' l';
+      }
+      if (unit === 'g' && qty >= 1000) {
+        return (qty / 1000).toLocaleString('de-DE') + ' kg';
+      }
+      return `${qty} ${unit}`;
+    }
+
+    function filterC2(location, el) {
+      const row = el.parentElement;
+      row.querySelectorAll('.tab-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+
+      const secSafe = document.getElementById('c2-sec-safe');
+      const secSoon = document.getElementById('c2-sec-soon');
+      const secCrit = document.getElementById('c2-sec-critical');
+
+      if (location === 'pantry') {
+        secCrit.style.display = 'none';
+        secSoon.style.display = 'none';
+        secSafe.style.display = 'block';
+      } else if (location === 'freezer') {
+        secCrit.style.display = 'none';
+        secSoon.style.display = 'block';
+        secSafe.style.display = 'block';
+      } else {
+        secCrit.style.display = 'block';
+        secSoon.style.display = 'block';
+        secSafe.style.display = 'block';
+      }
+    }
+
+    function handleSearchC2(query) {
+      const val = query.toLowerCase().trim();
+      const rows = document.querySelectorAll('#c2-content .timeline-row');
+      rows.forEach(r => {
+        const text = r.textContent.toLowerCase();
+        r.style.display = text.includes(val) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
