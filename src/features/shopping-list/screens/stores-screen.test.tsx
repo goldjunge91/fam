@@ -213,39 +213,42 @@ describe('StoresScreen', () => {
     const user = userEvent.setup();
     await renderScreen();
 
-    await user.press(screen.getByRole('button', { name: 'REWE' }));
-    expect(screen.getByDisplayValue('REWE')).toBeTruthy();
+    await user.press(screen.getByRole('button', { name: 'Aldi' }));
+    expect(screen.getByDisplayValue('Aldi')).toBeTruthy();
 
+    const presetColor = screen.getByRole('button', { name: 'Farbe #5C7396' });
     const firstColor = screen.getByRole('button', { name: 'Farbe #B5623F' });
     const secondColor = screen.getByRole('button', { name: 'Farbe #C08A4E' });
 
-    expect(firstColor).toBeSelected();
-    expect(firstColor.props.accessibilityState).toEqual({ selected: true });
+    expect(presetColor).toBeSelected();
+    expect(presetColor.props.accessibilityState).toEqual({ selected: true });
+    expect(firstColor).not.toBeSelected();
+    expect(firstColor.props.accessibilityState).toEqual({ selected: false });
     expect(secondColor).not.toBeSelected();
     expect(secondColor.props.accessibilityState).toEqual({ selected: false });
 
     await user.press(secondColor);
 
-    expect(firstColor).not.toBeSelected();
-    expect(firstColor.props.accessibilityState).toEqual({ selected: false });
+    expect(presetColor).not.toBeSelected();
+    expect(presetColor.props.accessibilityState).toEqual({ selected: false });
     expect(secondColor).toBeSelected();
     expect(secondColor.props.accessibilityState).toEqual({ selected: true });
   });
 
-  it('erstellt ein neues Geschäft beim Absenden', async () => {
+  it('erstellt ein neues Geschäft mit der Farbe des gewählten Presets', async () => {
+    const user = userEvent.setup();
     await renderScreen();
 
-    const input = screen.getByPlaceholderText('z.B. REWE, Aldi, Lidl...');
-    await fireEvent.changeText(input, 'Bioladen');
+    await user.press(screen.getByRole('button', { name: 'Aldi' }));
 
-    const addBtn = screen.getByRole('button', { name: 'Hinzufügen' });
-    await fireEvent.press(addBtn);
+    await user.press(screen.getByRole('button', { name: 'Hinzufügen' }));
 
     await waitFor(() => {
       expect(mockAddMutateAsync).toHaveBeenCalledWith(
         expect.objectContaining({
           household_id: 'hh-1',
-          name: 'Bioladen',
+          name: 'Aldi',
+          color: '#5C7396',
         }),
       );
     });

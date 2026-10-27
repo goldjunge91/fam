@@ -227,7 +227,10 @@ export function StoresScreen() {
             {STORE_PRESETS.map((preset) => (
               <Press
                 key={preset.name}
-                onPress={() => setNewStoreName(preset.name)}
+                onPress={() => {
+                  setNewStoreName(preset.name);
+                  setNewStoreColor(preset.color);
+                }}
                 accessibilityRole="button"
                 haptic="selection"
                 // Dynamische Preset-Farbe
