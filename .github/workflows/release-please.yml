@@ -54,12 +54,16 @@ jobs:
           inAppUpdatePriority: 2
   release2testflight:
     needs: release-please
-    runs-on: macos-14
+    runs-on: macos-26
     if: ${{ needs.release-please.outputs.release_created && inputs.approve_rebuild == true }}
     env:
       FAM_HARNESS_UI: "0"
     steps:
       - uses: actions/checkout@v7
+      - name: Setup Xcode 26.4.1
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "26.4.1"
       - uses: ./.github/actions/setup-bun-env
       - name: Build iOS app
         id: build
