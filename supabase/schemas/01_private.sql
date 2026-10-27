@@ -8,6 +8,9 @@
 
 create schema if not exists private;
 
+-- Asynchrone HTTP-Aufrufe aus Datenbank-Triggern, z. B. für Datenbank-Webhooks.
+create extension if not exists pg_net with schema extensions;
+
 -- Wird von allen synchronisierten Tabellen gebraucht; hier zentral, damit es
 -- nur eine Implementierung gibt.
 create or replace function private.set_updated_at()

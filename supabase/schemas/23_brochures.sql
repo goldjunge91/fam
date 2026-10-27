@@ -200,6 +200,76 @@ create index brochure_zip_scans_pending_idx
   on public.brochure_zip_scans (next_attempt_at, requested_at)
   where last_successful_at is null or requested_at > last_successful_at;
 
+create or replace function private.dispatch_brochure_zip_scan()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_function_url text;
+  v_webhook_secret text;
+begin
+  if new.last_error is not null then
+    return new;
+  end if;
+
+  if new.last_successful_at is not null and new.requested_at <= new.last_successful_at then
+    return new;
+  end if;
+
+  if tg_op = 'UPDATE' and new.requested_at is not distinct from old.requested_at then
+    return new;
+  end if;
+
+  select decrypted_secret
+  into v_function_url
+  from vault.decrypted_secrets
+  where name = 'brochure_dispatch_function_url'
+  limit 1;
+
+  select decrypted_secret
+  into v_webhook_secret
+  from vault.decrypted_secrets
+  where name = 'brochure_dispatch_webhook_secret'
+  limit 1;
+
+  if coalesce(v_function_url, '') = '' or coalesce(v_webhook_secret, '') = '' then
+    raise warning 'Brochure dispatch is not configured; the scheduled queue fallback remains active.';
+    return new;
+  end if;
+
+  perform net.http_post(
+    url := v_function_url,
+    body := jsonb_build_object(
+      'type', tg_op,
+      'schema', 'public',
+      'table', 'brochure_zip_scans',
+      'record', jsonb_build_object(
+        'zip_code', new.zip_code,
+        'requested_at', new.requested_at,
+        'last_successful_at', new.last_successful_at,
+        'last_error', new.last_error
+      )
+    ),
+    headers := jsonb_build_object(
+      'Content-Type', 'application/json',
+      'x-brochure-dispatch-secret', v_webhook_secret
+    ),
+    timeout_milliseconds := 5000
+  );
+
+  return new;
+end;
+$$;
+
+revoke all on function private.dispatch_brochure_zip_scan()
+  from public, anon, authenticated, service_role;
+
+create trigger dispatch_pending_brochure_zip_scan
+  after insert or update on public.brochure_zip_scans
+  for each row execute function private.dispatch_brochure_zip_scan();
+
 alter table public.brochure_zip_scans enable row level security;
 
 create trigger set_updated_at_brochure_zip_scans
@@ -502,3 +572,5 @@ comment on function public.get_pending_brochure_zip_scans(integer) is
   'Liefert dem Runner fällige, von der App angefragte PLZ-Scope.';
 comment on function public.record_brochure_zip_scan_failure(text, text) is
   'Vermerkt einen fehlgeschlagenen PLZ-Scan und wartet eine Stunde bis zur Wiederholung.';
+comment on function private.dispatch_brochure_zip_scan() is
+  'Sendet neu angefragte PLZ asynchron an den serverseitigen Runner-Dispatch.';

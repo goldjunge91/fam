@@ -362,6 +362,11 @@ verify_jwt = false
 [functions.revenuecat-webhook]
 verify_jwt = false
 
+# The brochure database webhook authenticates with a dedicated shared secret
+# from Vault and verifies it in the function handler.
+[functions.dispatch-brochure-scan]
+verify_jwt = false
+
 # Der AI-Gateway ist ausschließlich für eingeloggte App-Nutzer erreichbar.
 # Der Handler prüft zusätzlich den Haushaltsscope, bevor er Inventar liest.
 [functions.ai-gateway]

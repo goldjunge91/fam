@@ -15,10 +15,6 @@ on:
         default: false
         type: boolean
 
-concurrency:
-  group: kaufda-brochure-catalog
-  cancel-in-progress: false
-
 permissions:
   contents: read
 
@@ -84,6 +80,9 @@ jobs:
     name: Scrape PLZ ${{ matrix.zip_code }}
     needs: discover
     if: needs.discover.outputs.zip_codes != '[]' && (github.event_name != 'workflow_dispatch' || inputs.dry_run != true)
+    concurrency:
+      group: kaufda-brochure-${{ matrix.zip_code }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:

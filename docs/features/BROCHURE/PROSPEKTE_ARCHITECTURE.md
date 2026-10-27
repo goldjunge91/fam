@@ -55,7 +55,9 @@ User-Agent: Mozilla/5.0 ...
 flowchart TD
     subgraph Trigger ["Trigger-Ebene"]
         AppRequest["App: aktive PLZ neu oder mindestens fünf Tage alt"]
-        QueuePoll["GitHub Actions: Warteschlange alle 15 Minuten"]
+        DbWebhook["Supabase: neuer PLZ-Eintrag löst Webhook aus"]
+        Dispatch["Edge Function: workflow_dispatch mit genau dieser PLZ"]
+        QueuePoll["GitHub Actions: 15-Minuten-Wiederherstellungslauf"]
         Manual["Manuell: genau eine PLZ oder fällige Anfragen"]
     end
 
@@ -82,8 +84,11 @@ flowchart TD
     end
 
     AppRequest --> TableQueue
-    QueuePoll --> TableQueue
-    TableQueue --> FetchMeta
+    TableQueue --> DbWebhook
+    DbWebhook --> Dispatch
+    Dispatch -->|"workflow_dispatch(zip)"| FetchMeta
+    QueuePoll -->|"Fallback: fällige PLZ"| TableQueue
+    TableQueue -->|"Fallback-Matrix"| FetchMeta
     Manual --> FetchMeta
     FetchMeta --> ExtractContentId
     ExtractContentId --> FetchPages
@@ -190,7 +195,9 @@ Prospektbilder werden weiter vom Bonial-CDN geladen:
 2. **Bedarf und Synchronisation:** `useBrochureSync(postalCode)` stellt zuerst
    einen Scanwunsch für die aktive PLZ ein. Supabase stellt ihn nur ein, wenn
    es noch keinen erfolgreichen Scan gibt oder dieser mindestens fünf Tage
-   zurückliegt. Danach fragt die App `brochure_availability` ab:
+   zurückliegt. Ein neuer PLZ-Eintrag löst sofort den Datenbank-Webhook und
+   einen Runner-Aufruf nur für diese PLZ aus. Danach fragt die App
+   `brochure_availability` ab:
    ```ts
    const { data: rows } = await supabase
      .from('brochure_availability')
@@ -210,12 +217,35 @@ Prospektbilder werden weiter vom Bonial-CDN geladen:
 
 ## 6. Automatisierung via GitHub Actions
 
-Der Workflow `.github/workflows/scrape-brochures.yml` prüft alle 15 Minuten,
-ob die App neue oder fällige PLZ angefragt hat. Der leichte Prüfjob fragt nur
-Supabase ab. Bei leerer Warteschlange startet kein Scraper-Job und KaufDA wird
-nicht aufgerufen. Je Abfrage kommen höchstens 25 PLZ in die Warteschlange der
-Matrix, mit höchstens vier gleichzeitigen Scraper-Jobs. Ein manueller Lauf
+Ein neuer oder nach fünf Tagen erneuerter Eintrag in `brochure_zip_scans`
+löst nach dem Commit einen asynchronen Supabase-Datenbank-Webhook aus. Er sendet
+nur die betroffene PLZ an `dispatch-brochure-scan`. Die Edge Function prüft
+das Webhook-Secret und startet `.github/workflows/scrape-brochures.yml` mit
+`workflow_dispatch` und genau dieser PLZ. Sie kann keine anderen PLZ aus der
+Datenbank auswählen. Ein erneuter App-Aufruf während eines laufenden Scans
+ändert den Eintrag nicht und startet keinen zweiten Lauf.
+Der Runner sperrt Läufe je PLZ: Ein Scan für eine andere PLZ muss nicht hinter
+einem langen laufenden Scan warten.
+
+Gleichzeitige App-Anfragen derselben PLZ laufen über den eindeutigen
+`zip_code`-Eintrag zusammen und erzeugen keinen zweiten offenen Scan. Anfragen
+verschiedener PLZ haben eigene Einträge und Runner-Jobs. Auch die atomare
+Veröffentlichung ist je PLZ gesperrt; dadurch können parallele Scans weder die
+Anfrage noch Prospektdaten einer anderen PLZ überschreiben. Unterschiedliche
+PLZ können parallel laufen, abhängig von der verfügbaren GitHub-Runner-Kapazität.
+
+Der 15-Minuten-Workflow bleibt als Wiederherstellungsweg aktiv, falls der
+asynchrone Webhook oder der GitHub-Aufruf ausfällt. Sein leichter Prüfjob fragt
+nur fällige, bereits von der App angefragte PLZ ab; bei leerer Warteschlange
+startet kein Scraper-Job und KaufDA wird nicht aufgerufen. Ein manueller Lauf
 kann eine einzelne PLZ direkt prüfen.
+
+Für die sofortige Auslösung benötigt Supabase das serverseitige Secret
+`GITHUB_WORKFLOW_DISPATCH_TOKEN` mit Schreibrecht für GitHub-Actions-Workflows
+im Repository `goldjunge91/fam`. Die Datenbank liest die Function-URL und das
+eigene Webhook-Secret aus Supabase Vault; dasselbe Webhook-Secret wird als
+`BROCHURE_DISPATCH_WEBHOOK_SECRET` in den Edge-Function-Secrets hinterlegt.
+Keines dieser Secrets liegt in der Expo-App oder im Git.
 
 Für jede PLZ ruft der Runner den KaufDA-Shelf mit deren Koordinaten ab. Er
 paginiert alle Kategorien und lädt die Viewer-Seiten echter Prospekte
@@ -229,7 +259,8 @@ eigene Prospektzeilen und Seiten; dieselbe KaufDA-contentId führt nicht dazu,
 dass eine PLZ die gespeicherten Seiten einer anderen PLZ nutzt.
 
 Supabase-Schlüssel werden nur auf `main` eingebunden. Der Workflow hat nur
-`contents: read`. Es werden keine Seitenbilder heruntergeladen oder
+`contents: read`; der separate Workflow-Dispatch-Token wird ausschließlich
+von der serverseitigen Supabase Edge Function verwendet. Es werden keine Seitenbilder heruntergeladen oder
 Bilddateien als Actions-Artefakte gespeichert. Es gibt keinen Deutschlandlauf
 über alle PLZ. Die Zahl der KaufDA-Abfragen folgt den aktiven App-Anfragen und
 dem fünf Tage langen Frischefenster.
