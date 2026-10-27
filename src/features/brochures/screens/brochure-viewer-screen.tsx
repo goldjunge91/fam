@@ -10,9 +10,16 @@ import {
   Pressable,
   View,
 } from 'react-native';
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  FadeIn,
+  FadeOut,
+  useAnimatedStyle,
+  useSharedValue,
+} from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
+import { scheduleOnRN } from 'react-native-worklets';
 import { borderWidth, colors, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
@@ -26,6 +33,7 @@ import { BrochureHotspot } from '../components/brochure-hotspot';
 import { useBrochurePages } from '../hooks/use-brochures';
 import type { Hotspot, LocalBrochurePage } from '../types';
 import { calculateContainedImageFrame, type Size } from './brochure-page-layout';
+import { applyPinchZoom, toggleDoubleTapZoom } from './brochure-zoom';
 
 function priceValuesFromDiscount(discount: string | undefined): number[] {
   if (!discount) return [];
@@ -64,6 +72,9 @@ function BrochurePage({
   activeHotspot,
   hotspotsVisible,
   isCurrent,
+  resetKey,
+  isZoomed,
+  onZoomStateChange,
   onSelectHotspot,
 }: {
   page: LocalBrochurePage;
@@ -71,11 +82,81 @@ function BrochurePage({
   activeHotspot: Hotspot | null;
   hotspotsVisible: boolean;
   isCurrent: boolean;
+  resetKey: number;
+  isZoomed: boolean;
+  onZoomStateChange: (zoomed: boolean) => void;
   onSelectHotspot: (hotspot: Hotspot, pageNumber: number, imageSize: Size) => void;
 }) {
   const [containerSize, setContainerSize] = useState<Size>({ width: 0, height: 0 });
   const [imageSize, setImageSize] = useState<Size>({ width: 0, height: 0 });
+  const scale = useSharedValue(1);
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+  const pinchScale = useSharedValue(1);
+  const panStartX = useSharedValue(0);
+  const panStartY = useSharedValue(0);
   const imageFrame = calculateContainedImageFrame(containerSize, imageSize);
+  const contentStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateX: translateX.value },
+      { translateY: translateY.value },
+      { scale: scale.value },
+    ],
+  }));
+
+  // Reset view transforms whenever the pager selects a new page.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: resetKey is a parent-controlled page-selection signal.
+  useEffect(() => {
+    scale.value = 1;
+    translateX.value = 0;
+    translateY.value = 0;
+  }, [resetKey, scale, translateX, translateY]);
+
+  const pinch = Gesture.Pinch()
+    .onBegin(() => {
+      pinchScale.value = 1;
+    })
+    .onUpdate((event) => {
+      const previousScale = scale.value;
+      const scaleChange = event.scale / pinchScale.value;
+      const next = applyPinchZoom(
+        { scale: previousScale, translateX: translateX.value, translateY: translateY.value },
+        scaleChange,
+        { x: event.focalX, y: event.focalY },
+      );
+      pinchScale.value = event.scale;
+      scale.value = next.scale;
+      translateX.value = next.translateX;
+      translateY.value = next.translateY;
+      if (next.scale > 1 && previousScale <= 1) scheduleOnRN(onZoomStateChange, true);
+      if (next.scale <= 1 && previousScale > 1) scheduleOnRN(onZoomStateChange, false);
+    });
+
+  const pan = Gesture.Pan()
+    .enabled(isZoomed)
+    .onBegin(() => {
+      panStartX.value = translateX.value;
+      panStartY.value = translateY.value;
+    })
+    .onUpdate((event) => {
+      translateX.value = panStartX.value + event.translationX;
+      translateY.value = panStartY.value + event.translationY;
+    });
+
+  const doubleTap = Gesture.Tap()
+    .numberOfTaps(2)
+    .onEnd((event, success) => {
+      if (!success) return;
+      const next = toggleDoubleTapZoom(
+        { scale: scale.value, translateX: translateX.value, translateY: translateY.value },
+        { x: event.x, y: event.y },
+      );
+      scale.value = next.scale;
+      translateX.value = next.translateX;
+      translateY.value = next.translateY;
+      scheduleOnRN(onZoomStateChange, next.scale > 1);
+    });
+  const gestures = Gesture.Simultaneous(pinch, pan, doubleTap);
 
   function handleLayout(event: LayoutChangeEvent) {
     const { width, height } = event.nativeEvent.layout;
@@ -92,54 +173,58 @@ function BrochurePage({
   }
 
   return (
-    <View style={styles.page} onLayout={handleLayout}>
-      <Image
-        source={imageSource ?? undefined}
-        style={styles.pageImage}
-        contentFit="contain"
-        transition={200}
-        blurRadius={activeHotspot ? 12 : 0}
-        pointerEvents="none"
-        onLoad={({ source }) => {
-          const nextImageSize = { width: source.width, height: source.height };
-          setImageSize(nextImageSize);
-          if (isCurrent) {
-            debugLog('[brochures] viewer image loaded', {
-              pageNumber: page.pageNumber,
-              imageHost: brochureImageHost(page.imageUrl),
-              image: nextImageSize,
-              container: containerSize,
-              overlay: calculateContainedImageFrame(containerSize, nextImageSize),
-              hotspotCount: page.hotspots.length,
-            });
-          }
-        }}
-        onError={({ error }) => {
-          if (isCurrent) {
-            debugLog('[brochures] viewer image failed', {
-              pageNumber: page.pageNumber,
-              imageHost: brochureImageHost(page.imageUrl),
-              error,
-            });
-          }
-        }}
-      />
-      {imageFrame ? (
-        <View
-          style={[styles.hotspotsOverlay, imageFrame]}
-          pointerEvents={hotspotsVisible ? 'auto' : 'none'}>
-          {page.hotspots.map((hotspot) => (
-            <BrochureHotspot
-              key={hotspot.id}
-              hotspot={hotspot}
-              isActive={activeHotspot?.id === hotspot.id}
-              isVisible={hotspotsVisible}
-              onPress={(hotspot) => onSelectHotspot(hotspot, page.pageNumber, imageSize)}
-            />
-          ))}
-        </View>
-      ) : null}
-    </View>
+    <GestureDetector gesture={gestures}>
+      <View style={styles.page} onLayout={handleLayout}>
+        <Animated.View style={[styles.pageContent, contentStyle]}>
+          <Image
+            source={imageSource ?? undefined}
+            style={styles.pageImage}
+            contentFit="contain"
+            transition={200}
+            blurRadius={activeHotspot ? 12 : 0}
+            pointerEvents="none"
+            onLoad={({ source }) => {
+              const nextImageSize = { width: source.width, height: source.height };
+              setImageSize(nextImageSize);
+              if (isCurrent) {
+                debugLog('[brochures] viewer image loaded', {
+                  pageNumber: page.pageNumber,
+                  imageHost: brochureImageHost(page.imageUrl),
+                  image: nextImageSize,
+                  container: containerSize,
+                  overlay: calculateContainedImageFrame(containerSize, nextImageSize),
+                  hotspotCount: page.hotspots.length,
+                });
+              }
+            }}
+            onError={({ error }) => {
+              if (isCurrent) {
+                debugLog('[brochures] viewer image failed', {
+                  pageNumber: page.pageNumber,
+                  imageHost: brochureImageHost(page.imageUrl),
+                  error,
+                });
+              }
+            }}
+          />
+          {imageFrame ? (
+            <View
+              style={[styles.hotspotsOverlay, imageFrame]}
+              pointerEvents={hotspotsVisible ? 'auto' : 'none'}>
+              {page.hotspots.map((hotspot) => (
+                <BrochureHotspot
+                  key={hotspot.id}
+                  hotspot={hotspot}
+                  isActive={activeHotspot?.id === hotspot.id}
+                  isVisible={hotspotsVisible}
+                  onPress={(hotspot) => onSelectHotspot(hotspot, page.pageNumber, imageSize)}
+                />
+              ))}
+            </View>
+          ) : null}
+        </Animated.View>
+      </View>
+    </GestureDetector>
   );
 }
 
@@ -194,6 +279,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
   const [quantity, setQuantity] = useState(1);
   const [hotspotsVisible, setHotspotsVisible] = useState(true);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomResetKey, setZoomResetKey] = useState(0);
 
   useEffect(() => {
     if (!pages) return;
@@ -289,9 +376,12 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
       <PagerView
         style={styles.pagerView}
         initialPage={0}
+        scrollEnabled={!isZoomed}
         onPageSelected={({ nativeEvent }) => {
           const page = pages[nativeEvent.position];
           setCurrentPageIndex(nativeEvent.position);
+          setIsZoomed(false);
+          setZoomResetKey((key) => key + 1);
           debugLog('[brochures] viewer page selected', {
             pageIndex: nativeEvent.position,
             pageNumber: page?.pageNumber ?? null,
@@ -307,6 +397,9 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             activeHotspot={activeHotspot}
             hotspotsVisible={hotspotsVisible}
             isCurrent={index === currentPageIndex}
+            resetKey={zoomResetKey}
+            isZoomed={isZoomed}
+            onZoomStateChange={setIsZoomed}
             onSelectHotspot={selectHotspot}
           />
         ))}
@@ -469,6 +562,7 @@ const styles = StyleSheet.create({
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', gap: space.md },
   pagerView: { flex: 1 },
   page: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  pageContent: { ...StyleSheet.absoluteFillObject, transformOrigin: 'top left' },
   pageImage: { position: 'absolute', inset: 0, zIndex: 0 },
   hotspotsOverlay: { position: 'absolute', zIndex: 1 },
   hotspotToggle: {
