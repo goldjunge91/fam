@@ -94,8 +94,8 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
-      - name: Set up Bun and install dependencies
-        uses: ./.github/actions/setup-bun-env
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: '1.4.2'
 
@@ -116,8 +116,8 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
-      - name: Set up Bun and install dependencies
-        uses: ./.github/actions/setup-bun-env
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: '1.4.2'
 

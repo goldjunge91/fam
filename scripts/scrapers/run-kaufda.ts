@@ -1,6 +1,5 @@
 import { appendFile } from 'node:fs/promises';
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import type { Database, Json } from '../../src/lib/database.types';
+import type { Json } from '../../src/lib/database.types';
 import { type ScrapedBrochure, scrapeKaufdaZip } from './kaufda';
 import { loadPostalCodes, type ScrapeLocation } from './locations';
 
@@ -24,7 +23,60 @@ type PublishedBrochure = {
   available_zip_codes: string[];
 };
 
-type Publisher = Pick<SupabaseClient<Database>, 'rpc'>;
+type RpcParameters = {
+  replace_brochure_zip: {
+    p_zip_code: string;
+    p_records: Json;
+  };
+  record_brochure_zip_scan_failure: {
+    p_zip_code: string;
+    p_error: string;
+  };
+};
+
+type Publisher = {
+  rpc: <Procedure extends keyof RpcParameters>(
+    procedure: Procedure,
+    parameters: RpcParameters[Procedure],
+  ) => Promise<{ error: Error | null }>;
+};
+
+export function createPublisher(
+  projectUrl: string,
+  key: string,
+  fetcher: typeof fetch = fetch,
+): Publisher {
+  return {
+    rpc: async (procedure, parameters) => {
+      try {
+        const response = await fetcher(new URL(`/rest/v1/rpc/${procedure}`, projectUrl), {
+          method: 'POST',
+          headers: {
+            apikey: key,
+            Authorization: `Bearer ${key}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(parameters),
+        });
+        if (response.ok) return { error: null };
+
+        const details = await response.text();
+        return {
+          error: new Error(
+            `Supabase RPC ${procedure} failed with HTTP ${response.status}: ${details}`,
+          ),
+        };
+      } catch (error) {
+        return {
+          error:
+            error instanceof Error
+              ? error
+              : new Error(`Supabase RPC ${procedure} request failed: ${String(error)}`),
+        };
+      }
+    },
+  };
+}
 
 type ScanDependencies = {
   scrape: typeof scrapeKaufdaZip;
@@ -68,9 +120,7 @@ function publisherFromEnvironment(): Publisher {
     'SUPABASE_SERVICE_ROLE_KEY',
     process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY,
   );
-  return createClient<Database>(url, key, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
+  return createPublisher(url, key);
 }
 
 function toPublishedBrochure(brochure: ScrapedBrochure): PublishedBrochure {

@@ -1,4 +1,4 @@
-import { scanAndPublishLocation } from '../../scripts/scrapers/run-kaufda';
+import { createPublisher, scanAndPublishLocation } from '../../scripts/scrapers/run-kaufda';
 import type { ScrapedBrochure, ScrapeOptions } from '../../scripts/scrapers/kaufda';
 
 const location = {
@@ -42,6 +42,52 @@ const allCategoryBrochures = [
 ];
 
 describe('KaufDA runner publication boundary', () => {
+  it('calls the Supabase RPC endpoint with service-role authentication', async () => {
+    const requests: Array<{ url: RequestInfo | URL; init?: RequestInit }> = [];
+    const fetcher: typeof fetch = async (url, init) => {
+      requests.push({ url, init });
+      return new Response(null, { status: 204 });
+    };
+    const publisher = createPublisher('https://project.example', 'service-role-test-key', fetcher);
+
+    await expect(
+      publisher.rpc('replace_brochure_zip', {
+        p_zip_code: '22043',
+        p_records: [],
+      }),
+    ).resolves.toEqual({ error: null });
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0]?.url).toEqual(
+      new URL('https://project.example/rest/v1/rpc/replace_brochure_zip'),
+    );
+    expect(requests[0]?.init).toMatchObject({
+      method: 'POST',
+      headers: {
+        apikey: 'service-role-test-key',
+        Authorization: 'Bearer service-role-test-key',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ p_zip_code: '22043', p_records: [] }),
+    });
+  });
+
+  it('returns Supabase RPC errors to the caller', async () => {
+    const fetcher = jest.fn(async () => new Response('database unavailable', { status: 503 }));
+    const publisher = createPublisher('https://project.example', 'service-role-test-key', fetcher);
+
+    await expect(
+      publisher.rpc('record_brochure_zip_scan_failure', {
+        p_zip_code: '22043',
+        p_error: 'upstream request failed',
+      }),
+    ).resolves.toMatchObject({
+      error: new Error(
+        'Supabase RPC record_brochure_zip_scan_failure failed with HTTP 503: database unavailable',
+      ),
+    });
+  });
+
   it('publishes all category results together for one ZIP', async () => {
     const publish = jest.fn(async () => undefined);
     const scrape = jest.fn(async (_options: ScrapeOptions) => allCategoryBrochures);
