@@ -6,6 +6,7 @@ import { i18n } from '@/i18n';
 
 const mockRequestCode = jest.fn();
 const mockBack = jest.fn();
+const mockPush = jest.fn();
 const mockReplace = jest.fn();
 const mockCanGoBack = jest.fn(() => false);
 let mockSearchParams: { from?: string } = {};
@@ -13,6 +14,7 @@ let mockSearchParams: { from?: string } = {};
 jest.mock('expo-router', () => ({
   router: {
     back: (...args: unknown[]) => mockBack(...args),
+    push: (...args: unknown[]) => mockPush(...args),
     replace: (...args: unknown[]) => mockReplace(...args),
     canGoBack: () => mockCanGoBack(),
   },
@@ -102,6 +104,27 @@ describe('ForgotPasswordScreen', () => {
 
     expect(screen.queryByText('E-Mail unterwegs')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Code anfordern' })).toBeOnTheScreen();
+  });
+
+  it('zeigt eine Anfragefehlermeldung und bleibt im Formular', async () => {
+    mockRequestCode.mockResolvedValueOnce({ status: 'error', error: new Error('mail failed') });
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'anna@test.fam');
+    await fireEvent.press(screen.getByRole('button', { name: 'Code anfordern' }));
+    expect(await screen.findByText('mail failed')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Code anfordern' })).toBeOnTheScreen();
+  });
+
+  it('navigates to code entry and returns to sign-in when history is empty', async () => {
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'anna@test.fam');
+    await fireEvent.press(screen.getByRole('button', { name: 'Code anfordern' }));
+
+    await fireEvent.press(await screen.findByRole('button', { name: 'Code in der App eingeben' }));
+    expect(mockPush).toHaveBeenCalledWith('/password-recovery');
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Zurück zur Anmeldung' }));
+    expect(mockReplace).toHaveBeenCalledWith('/sign-in');
   });
 
   it('kehrt aus dem Onboarding nach der Anfrage zum Account-Schritt zurück', async () => {

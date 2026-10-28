@@ -78,6 +78,109 @@ describe('password recovery store', () => {
     mockDiscardPasswordRecoverySession.mockResolvedValue({ error: null });
   });
 
+  it('normalizes the code and only accepts email edits during the entry phase', () => {
+    const store = usePasswordRecoveryStore.getState();
+
+    store.setEmail('person@example.test');
+    store.setCode('12a34-56789');
+
+    expect(usePasswordRecoveryStore.getState()).toMatchObject({
+      code: '123456',
+      email: 'person@example.test',
+    });
+
+    usePasswordRecoveryStore.setState({ phase: 'verified', operation: null });
+    usePasswordRecoveryStore.getState().setEmail('ignored@example.test');
+    expect(usePasswordRecoveryStore.getState().email).toBe('person@example.test');
+  });
+
+  it('validates reset email, enforces the resend cooldown, and allows a different address', async () => {
+    const store = usePasswordRecoveryStore.getState();
+
+    await expect(store.requestCode('invalid')).resolves.toMatchObject({ status: 'error' });
+    expect(mockRequestPasswordReset).not.toHaveBeenCalled();
+
+    await expect(store.requestCode('person@example.test')).resolves.toEqual({ status: 'ok' });
+    await expect(store.requestCode('person@example.test')).resolves.toEqual({ status: 'busy' });
+    await expect(store.requestCode('other@example.test')).resolves.toEqual({ status: 'ok' });
+    expect(mockRequestPasswordReset).toHaveBeenNthCalledWith(1, 'person@example.test');
+    expect(mockRequestPasswordReset).toHaveBeenNthCalledWith(2, 'other@example.test');
+  });
+
+  it('returns a useful error when reset requests fail or throw', async () => {
+    mockRequestPasswordReset.mockResolvedValueOnce({ error: new Error('mail unavailable') });
+    await expect(
+      usePasswordRecoveryStore.getState().requestCode('person@example.test'),
+    ).resolves.toMatchObject({ status: 'error', error: new Error('mail unavailable') });
+    expect(usePasswordRecoveryStore.getState().operation).toBeNull();
+
+    mockRequestPasswordReset.mockRejectedValueOnce({ message: 'network unavailable' });
+    await expect(
+      usePasswordRecoveryStore.getState().requestCode('person@example.test'),
+    ).resolves.toMatchObject({ status: 'error', error: new Error('network unavailable') });
+    expect(usePasswordRecoveryStore.getState().operation).toBeNull();
+  });
+
+  it('rejects invalid codes and resets the entry state when verification returns no session', async () => {
+    const store = usePasswordRecoveryStore.getState();
+    await expect(store.verifyCode()).resolves.toMatchObject({ status: 'error' });
+    store.setEmail('person@example.test');
+    store.setCode('123');
+    await expect(usePasswordRecoveryStore.getState().verifyCode()).resolves.toMatchObject({
+      status: 'error',
+    });
+
+    enterCode();
+    mockVerifyPasswordRecoveryCode.mockResolvedValueOnce({ data: { session: null }, error: null });
+    await expect(usePasswordRecoveryStore.getState().verifyCode()).resolves.toEqual({
+      status: 'missing-session',
+    });
+    expect(mockDiscardPasswordRecoverySession).toHaveBeenCalledWith(mockClient);
+    expect(usePasswordRecoveryStore.getState()).toMatchObject({ phase: 'entry', operation: null });
+  });
+
+  it('marks failed or blank token hashes without entering recovery', async () => {
+    const store = usePasswordRecoveryStore.getState();
+    await expect(store.openRecoveryTokenHash('  ')).resolves.toBe('ignored');
+    expect(mockCreatePasswordRecoveryClient).not.toHaveBeenCalled();
+
+    mockVerifyPasswordRecoveryTokenHash.mockResolvedValueOnce({
+      data: { session: null },
+      error: null,
+    });
+    await expect(
+      usePasswordRecoveryStore.getState().openRecoveryTokenHash('expired-token'),
+    ).resolves.toBe('failed');
+    expect(usePasswordRecoveryStore.getState()).toMatchObject({
+      phase: 'entry',
+      operation: null,
+      recoveryLinkFailed: true,
+    });
+    expect(mockDiscardPasswordRecoverySession).toHaveBeenCalledWith(mockClient);
+  });
+
+  it('keeps the session required state when password update succeeds but transfer is uncertain', async () => {
+    enterCode();
+    await usePasswordRecoveryStore.getState().verifyCode();
+
+    await expect(usePasswordRecoveryStore.getState().savePassword('short')).resolves.toMatchObject({
+      status: 'error',
+    });
+    mockUpdatePasswordWithRecoveryClient.mockResolvedValueOnce({
+      error: new Error('update failed'),
+    });
+    await expect(
+      usePasswordRecoveryStore.getState().savePassword('StrongPassword123!'),
+    ).resolves.toMatchObject({ status: 'error' });
+    expect(usePasswordRecoveryStore.getState().operation).toBeNull();
+
+    mockTransferPasswordRecoverySession.mockRejectedValueOnce(new Error('transfer failed'));
+    await expect(
+      usePasswordRecoveryStore.getState().savePassword('StrongPassword123!'),
+    ).resolves.toEqual({ status: 'ok', outcome: 'sign-in-required' });
+    expect(usePasswordRecoveryStore.getState().phase).toBe('sign-in-required');
+  });
+
   it('clears the busy state if the isolated client cannot be created', async () => {
     enterCode();
     mockCreatePasswordRecoveryClient.mockImplementationOnce(() => {

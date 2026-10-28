@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { BackHandler } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { usePasswordRecoveryStore } from '@/features/auth/recovery-store';
 import { PasswordRecoveryScreen } from '@/features/auth/screens/password-recovery-screen';
@@ -16,6 +17,8 @@ const mockRouterBack = jest.fn();
 const mockRouterReplace = jest.fn();
 const mockRouterSetParams = jest.fn();
 const mockNavigationDispatch = jest.fn();
+const mockUsePreventRemove = jest.fn();
+let mockCanGoBack = false;
 let mockRecoveryLinkParams: {
   token_hash?: string | string[];
   type?: string | string[];
@@ -26,7 +29,7 @@ jest.mock('expo-router', () => {
   return {
     router: {
       back: (...args: unknown[]) => mockRouterBack(...args),
-      canGoBack: () => false,
+      canGoBack: () => mockCanGoBack,
       replace: (...args: unknown[]) => mockRouterReplace(...args),
       setParams: (...args: unknown[]) => mockRouterSetParams(...args),
     },
@@ -36,7 +39,9 @@ jest.mock('expo-router', () => {
   };
 });
 
-jest.mock('expo-router/react-navigation', () => ({ usePreventRemove: jest.fn() }));
+jest.mock('expo-router/react-navigation', () => ({
+  usePreventRemove: (...args: unknown[]) => mockUsePreventRemove(...args),
+}));
 
 jest.mock('@/features/auth/api', () => ({
   discardPasswordRecoverySession: (...args: unknown[]) =>
@@ -75,6 +80,7 @@ describe('PasswordRecoveryScreen', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    mockCanGoBack = false;
     mockRecoveryLinkParams = {};
     usePasswordRecoveryStore.setState({
       phase: 'entry',
@@ -104,6 +110,8 @@ describe('PasswordRecoveryScreen', () => {
     mockDiscardPasswordRecoverySession.mockResolvedValue({ error: null });
     await i18n.changeLanguage('de');
   });
+
+  afterEach(() => jest.restoreAllMocks());
 
   it('does not send another email on a cold route and verifies the entered code', async () => {
     await renderScreen();
@@ -165,5 +173,81 @@ describe('PasswordRecoveryScreen', () => {
       token_hash: undefined,
       type: undefined,
     });
+  });
+
+  it('validates a new password and saves a matching confirmation', async () => {
+    const store = usePasswordRecoveryStore.getState();
+    store.setEmail('person@example.test');
+    store.setCode('123456');
+    await store.verifyCode();
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'Different123!');
+    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    expect(await screen.findByText('Die Passwörter stimmen nicht überein.')).toBeOnTheScreen();
+    expect(mockUpdatePasswordWithRecoveryClient).not.toHaveBeenCalled();
+
+    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+
+    await waitFor(() =>
+      expect(mockUpdatePasswordWithRecoveryClient).toHaveBeenCalledWith(
+        mockClient,
+        'StrongPassword123!',
+      ),
+    );
+    expect(mockRouterReplace).toHaveBeenCalledWith('/');
+    expect(usePasswordRecoveryStore.getState().phase).toBe('updated');
+  });
+
+  it('shows a password update error and allows cancelling the recovery session', async () => {
+    const store = usePasswordRecoveryStore.getState();
+    store.setEmail('person@example.test');
+    store.setCode('123456');
+    await store.verifyCode();
+    mockUpdatePasswordWithRecoveryClient.mockResolvedValueOnce({ error: new Error('save failed') });
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    expect(await screen.findByText('save failed')).toBeOnTheScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Abbrechen' }));
+    await waitFor(() => expect(usePasswordRecoveryStore.getState().phase).toBe('entry'));
+    expect(mockRouterReplace).toHaveBeenCalledWith('/');
+    expect(mockDiscardPasswordRecoverySession).toHaveBeenCalledWith(mockClient);
+  });
+
+  it('cancels before prevented navigation and handles the hardware back action', async () => {
+    const store = usePasswordRecoveryStore.getState();
+    store.setEmail('person@example.test');
+    let onHardwareBack: Parameters<typeof BackHandler.addEventListener>[1] | undefined;
+    jest.spyOn(BackHandler, 'addEventListener').mockImplementation((_eventName, handler) => {
+      onHardwareBack = handler;
+      return { remove: jest.fn() };
+    });
+
+    await renderScreen();
+    const preventRemove = mockUsePreventRemove.mock.calls.at(-1)?.[1] as
+      | ((event: { data: { action: unknown } }) => void)
+      | undefined;
+    expect(preventRemove).toBeDefined();
+    const action = { type: 'GO_BACK' };
+    await act(async () => {
+      preventRemove?.({ data: { action } });
+      await waitFor(() => expect(mockNavigationDispatch).toHaveBeenCalledWith(action));
+    });
+
+    await act(async () => store.setEmail('person@example.test'));
+    mockCanGoBack = true;
+    const hardwareBackHandler = onHardwareBack;
+    if (!hardwareBackHandler) throw new Error('Expected the hardware back press handler');
+    await act(async () =>
+      expect(hardwareBackHandler({ type: 'hardwareBackPress', timeStamp: 1 })).toBe(true),
+    );
+    await waitFor(() => expect(mockRouterBack).toHaveBeenCalled());
+    expect(usePasswordRecoveryStore.getState().phase).toBe('entry');
   });
 });
