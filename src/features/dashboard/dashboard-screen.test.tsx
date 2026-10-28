@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import * as Haptics from 'expo-haptics';
@@ -6,6 +7,7 @@ import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { space } from '@/components/theme';
 import { DashboardScreen } from '@/features/dashboard/dashboard-screen';
+import { getCards } from '@/features/dashboard/registry';
 import {
   getDailyMealPlanEmptyArtworkVariant,
   getDailyMealPlanEmptyMessageKey,
@@ -13,9 +15,12 @@ import {
 import { todayIso } from '@/features/meal-planner/week';
 import { i18n } from '@/i18n';
 
+let mockWindowWidth = 390;
+let mockFontScale = 1;
+
 jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => ({
   __esModule: true,
-  default: () => ({ width: 390, height: 844, scale: 1, fontScale: 1 }),
+  default: () => ({ width: mockWindowWidth, height: 844, scale: 1, fontScale: mockFontScale }),
 }));
 
 type MockChildrenProps = { children?: ReactNode };
@@ -23,6 +28,11 @@ type MockChildrenProps = { children?: ReactNode };
 let mockDraxProviderMounts = 0;
 let mockDraxSpans: Array<{ colSpan: number; rowSpan: number }> = [];
 let mockSortableItemStyles: Array<Record<string, unknown>> = [];
+let mockSortableCallbacks: {
+  onDragStart?: () => void;
+  onDragEnd?: () => void;
+  onReorder?: (event: { data: unknown[] }) => void;
+} = {};
 const mockRouterPush = jest.fn();
 
 jest.mock('react-native-gesture-handler', () => {
@@ -44,7 +54,18 @@ jest.mock('react-native-drax', () => {
     return children;
   }
 
-  function useSortableList({ data }: { data: unknown[] }) {
+  function useSortableList({
+    data,
+    onDragStart,
+    onDragEnd,
+    onReorder,
+  }: {
+    data: unknown[];
+    onDragStart?: () => void;
+    onDragEnd?: () => void;
+    onReorder?: (event: { data: unknown[] }) => void;
+  }) {
+    mockSortableCallbacks = { onDragStart, onDragEnd, onReorder };
     return {
       data,
       onScroll: jest.fn(),
@@ -221,7 +242,10 @@ beforeEach(async () => {
   mockDraxProviderMounts = 0;
   mockDraxSpans = [];
   mockSortableItemStyles = [];
+  mockSortableCallbacks = {};
   mockRouterPush.mockClear();
+  mockWindowWidth = 390;
+  mockFontScale = 1;
 });
 
 it('formatiert das Datum der Übersicht anhand der aktiven Sprache', async () => {
@@ -554,9 +578,11 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
     expect(mockDraxProviderMounts).toBe(1);
 
+    const spansBeforeResize = [...mockDraxSpans];
     await fireEvent.press(screen.getAllByLabelText('Kartengröße umschalten')[0]);
 
     expect(mockDraxProviderMounts).toBe(2);
+    expect(mockDraxSpans).not.toEqual(spansBeforeResize);
   });
 
   it('positioniert zwei kleine Widgets als einzelne DND-Elemente nebeneinander', async () => {
@@ -565,6 +591,24 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
 
     expect(mockDraxSpans.filter((span) => span.colSpan === 1).length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('stackt kleine Widgets bei schmalen Bildschirmen vertikal', async () => {
+    mockWindowWidth = 350;
+    await renderScreen();
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+
+    expect(mockDraxSpans.length).toBeGreaterThan(0);
+    expect(mockDraxSpans.every((span) => span.colSpan === 2)).toBe(true);
+  });
+
+  it('stackt kleine Widgets bei großer Systemschrift vertikal', async () => {
+    mockFontScale = 1.2;
+    await renderScreen();
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+
+    expect(mockDraxSpans.length).toBeGreaterThan(0);
+    expect(mockDraxSpans.every((span) => span.colSpan === 2)).toBe(true);
   });
 
   it('passt die Jiggle-Kartenbreite an den verfügbaren Inhaltsbereich an', async () => {
@@ -578,6 +622,53 @@ describe('DashboardScreen — iOS-Style Wackel-Modus & Plus-Button', () => {
     expect(mockSortableItemStyles).toEqual(
       expect.arrayContaining([expect.objectContaining({ width: 348, overflow: 'visible' })]),
     );
+  });
+
+  it('verarbeitet den DnD-Lebenszyklus und eine gemischte neue Reihenfolge', async () => {
+    await renderScreen();
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+    const expectedOrder = getCards()
+      .map((card) => card.id)
+      .reverse();
+    jest.mocked(AsyncStorage.setItem).mockClear();
+
+    await act(async () => {
+      mockSortableCallbacks.onDragStart?.();
+      mockSortableCallbacks.onReorder?.({ data: [...getCards()].reverse() });
+      mockSortableCallbacks.onDragEnd?.();
+    });
+
+    expect(Haptics.impactAsync).toHaveBeenCalledWith('medium');
+    expect(AsyncStorage.setItem).toHaveBeenCalledWith(
+      'dashboard_card_order',
+      JSON.stringify(expectedOrder),
+    );
+  });
+
+  it('merkt Kartenhöhe erst nach gültigem Layout und außerhalb eines Drags', async () => {
+    await renderScreen();
+    await fireEvent(screen.getByLabelText('Essensplan öffnen'), 'longPress');
+    const cardLayouts = screen.getAllByTestId('dashboard-card-layout-measurement');
+    expect(cardLayouts.length).toBeGreaterThan(0);
+    const cardLayout = cardLayouts[0];
+    const spansBeforeLayout = [...mockDraxSpans];
+
+    await fireEvent(cardLayout, 'layout', {
+      nativeEvent: { layout: { width: 200, height: 0 } },
+    });
+    expect(mockDraxSpans).toEqual(spansBeforeLayout);
+    await fireEvent(cardLayout, 'layout', {
+      nativeEvent: { layout: { width: 200, height: 480 } },
+    });
+    const spansAfterLayout = [...mockDraxSpans];
+    expect(mockDraxSpans).not.toEqual(spansBeforeLayout);
+    await act(async () => mockSortableCallbacks.onDragStart?.());
+    await fireEvent(cardLayout, 'layout', {
+      nativeEvent: { layout: { width: 200, height: 520 } },
+    });
+    await act(async () => mockSortableCallbacks.onDragEnd?.());
+
+    expect(mockDraxSpans).toEqual(spansAfterLayout);
   });
 });
 
