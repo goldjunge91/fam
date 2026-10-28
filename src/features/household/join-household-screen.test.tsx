@@ -97,4 +97,18 @@ describe('JoinHouseholdScreen', () => {
     expect(mockClearPendingInviteToken).toHaveBeenCalled();
     expect(mockReplace).toHaveBeenCalledWith('/');
   });
+
+  it('lädt einen gespeicherten Einladungstoken und zeigt einen Beitrittsfehler', async () => {
+    mockPeekPendingInviteToken.mockResolvedValueOnce('pending-token');
+    mockMutateAsync.mockRejectedValueOnce(new Error('Einladung ist abgelaufen'));
+    await renderScreen();
+
+    expect(await screen.findByDisplayValue('pending-token')).toBeTruthy();
+    await fireEvent.press(screen.getByRole('button', { name: 'Haushalt beitreten' }));
+
+    expect(mockMutateAsync).toHaveBeenCalledWith('pending-token');
+    expect(await screen.findByText('Einladung ist abgelaufen')).toBeTruthy();
+    expect(mockClearPendingInviteToken).not.toHaveBeenCalled();
+    expect(mockReplace).not.toHaveBeenCalled();
+  });
 });
