@@ -1,5 +1,8 @@
 name: autofix.ci
 
+env:
+  SUPABASE_CLI_VERSION: 2.111.0
+
 on:
   pull_request:
     paths-ignore:
@@ -23,8 +26,39 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v3
+        with:
+          version: ${{ env.SUPABASE_CLI_VERSION }}
+
+      - name: Cache Supabase Docker Images
+        id: cache-supabase-docker
+        uses: actions/cache@v6
+        with:
+          path: build/cache/docker/supabase-docker-images.tar
+          key: supabase-docker-${{ env.SUPABASE_CLI_VERSION }}-complete-v2
+
+      - name: Restore Supabase Docker Images
+        if: steps.cache-supabase-docker.outputs.cache-hit == 'true'
+        run: docker load -i build/cache/docker/supabase-docker-images.tar
+
+      - name: Start Local Supabase Stack
+        run: supabase start
+
+      - name: Save Supabase Docker Images to Cache
+        if: steps.cache-supabase-docker.outputs.cache-hit != 'true'
+        run: |
+          mapfile -t images < <(docker images --format '{{.Repository}}:{{.Tag}}' | grep supabase || true)
+          if ((${#images[@]} > 0)); then
+            mkdir -p build/cache/docker
+            docker save "${images[@]}" -o build/cache/docker/supabase-docker-images.tar
+          fi
+
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
+
+      - name: Regenerate database types
+        run: bun run db:types
 
       - name: Apply deterministic Biome fixes
         run: bun run check:fix
