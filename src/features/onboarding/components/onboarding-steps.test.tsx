@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { AppState, type AppStateStatus, Linking } from 'react-native';
 
 import { ModuleSelectorForm } from '@/features/onboarding/components/module-selector';
 import { PermissionsStepForm } from '@/features/onboarding/components/permissions-step';
@@ -243,6 +244,134 @@ describe('Onboarding Components', () => {
           checked: true,
         });
       });
+    });
+
+    it('fragt Kamera und Standort bei eingeschalteten Toggles an', async () => {
+      const user = userEvent.setup();
+      mockRequestCameraPermission.mockResolvedValue({ granted: true, canAskAgain: false });
+      mockRequestLocationPermission.mockResolvedValue({ granted: true, canAskAgain: false });
+
+      await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+      await user.press(screen.getByRole('switch', { name: 'Kamera-Zugriff' }));
+      await user.press(screen.getByRole('switch', { name: 'Standort-Zugriff' }));
+
+      expect(mockRequestCameraPermission).toHaveBeenCalledTimes(1);
+      expect(mockRequestLocationPermission).toHaveBeenCalledTimes(1);
+    });
+
+    it('öffnet Systemeinstellungen, wenn eine Berechtigung nicht erneut angefragt werden kann', async () => {
+      const openSettings = jest.spyOn(Linking, 'openSettings').mockResolvedValue();
+      mockCameraPermission = { granted: false, canAskAgain: false };
+      mockLocationPermission = { granted: false, canAskAgain: false };
+      mockUseForegroundPermissions.mockReturnValue([
+        mockLocationPermission,
+        mockRequestLocationPermission,
+        mockGetLocationPermission,
+      ]);
+      mockGetNotificationPermissionStatus.mockResolvedValue({
+        granted: false,
+        canAskAgain: false,
+      });
+      mockGetMicrophonePermission.mockResolvedValue({ granted: false, canAskAgain: false });
+
+      await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+      const user = userEvent.setup();
+
+      for (const label of [
+        'Benachrichtigungen',
+        'Kamera-Zugriff',
+        'Mikrofon-Zugriff',
+        'Standort-Zugriff',
+      ]) {
+        await user.press(screen.getByRole('switch', { name: label }));
+      }
+
+      expect(openSettings).toHaveBeenCalledTimes(4);
+      expect(mockRequestNotificationPermissions).not.toHaveBeenCalled();
+      expect(mockRequestCameraPermission).not.toHaveBeenCalled();
+      expect(mockRequestMicrophonePermission).not.toHaveBeenCalled();
+      expect(mockRequestLocationPermission).not.toHaveBeenCalled();
+      openSettings.mockRestore();
+    });
+
+    it('öffnet Einstellungen statt eine erteilte Berechtigung direkt auszuschalten', async () => {
+      const openSettings = jest.spyOn(Linking, 'openSettings').mockResolvedValue();
+      mockCameraPermission = { granted: true, canAskAgain: true };
+      mockLocationPermission = { granted: true, canAskAgain: true };
+      mockUseForegroundPermissions.mockReturnValue([
+        mockLocationPermission,
+        mockRequestLocationPermission,
+        mockGetLocationPermission,
+      ]);
+      mockGetNotificationPermissionStatus.mockResolvedValue({ granted: true, canAskAgain: true });
+      mockGetMicrophonePermission.mockResolvedValue({ granted: true, canAskAgain: true });
+
+      await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+      const user = userEvent.setup();
+
+      for (const label of [
+        'Benachrichtigungen',
+        'Kamera-Zugriff',
+        'Mikrofon-Zugriff',
+        'Standort-Zugriff',
+      ]) {
+        await user.press(screen.getByRole('switch', { name: label }));
+      }
+
+      expect(openSettings).toHaveBeenCalledTimes(4);
+      openSettings.mockRestore();
+    });
+
+    it('speichert den Status beim Fortfahren und kann ohne Speichern übersprungen werden', async () => {
+      const onNext = jest.fn();
+      const onSkip = jest.fn();
+      mockCameraPermission = { granted: true, canAskAgain: true };
+      mockLocationPermission = { granted: false, canAskAgain: true };
+      mockUseForegroundPermissions.mockReturnValue([
+        mockLocationPermission,
+        mockRequestLocationPermission,
+        mockGetLocationPermission,
+      ]);
+      mockGetNotificationPermissionStatus.mockResolvedValue({ granted: true, canAskAgain: true });
+      mockGetMicrophonePermission.mockResolvedValue({ granted: false, canAskAgain: true });
+
+      await render(<PermissionsStepForm onNext={onNext} onSkip={onSkip} />);
+      await waitFor(() =>
+        expect(screen.getByRole('switch', { name: 'Benachrichtigungen' })).toBeChecked(),
+      );
+      await fireEvent.press(screen.getByRole('button', { name: 'Weiter' }));
+
+      expect(mockUpdatePermissionsData).toHaveBeenCalledWith({
+        notificationsRequested: true,
+        cameraRequested: true,
+        microphoneRequested: false,
+        locationRequested: false,
+      });
+      expect(onNext).toHaveBeenCalledTimes(1);
+
+      await fireEvent.press(screen.getByRole('button', { name: 'Jetzt nicht' }));
+      expect(onSkip).toHaveBeenCalledTimes(1);
+      expect(mockUpdatePermissionsData).toHaveBeenCalledTimes(1);
+    });
+
+    it('fragt Kamera und Standort bei erneuter Aktivierung der App nach dem Status', async () => {
+      let listener: ((state: AppStateStatus) => void) | undefined;
+      const addListener = jest
+        .spyOn(AppState, 'addEventListener')
+        .mockImplementation((event, callback) => {
+          if (event === 'change') listener = callback;
+          return { remove: jest.fn() };
+        });
+
+      await render(<PermissionsStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+      const onAppStateChange = listener;
+      if (!onAppStateChange) throw new Error('Expected the AppState change listener');
+      await act(async () => onAppStateChange('active'));
+
+      expect(mockGetCameraPermission).toHaveBeenCalledTimes(1);
+      expect(mockGetLocationPermission).toHaveBeenCalledTimes(1);
+      addListener.mockRestore();
     });
   });
 });
