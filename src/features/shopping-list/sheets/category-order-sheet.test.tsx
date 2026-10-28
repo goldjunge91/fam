@@ -21,13 +21,22 @@ jest.mock('@expo/ui', () => {
 });
 
 jest.mock('@expo/ui/swift-ui', () => {
-  const { View } = require('react-native');
+  const { Pressable, View } = require('react-native');
   const Wrapper = ({ children }: { children: React.ReactNode }) => <View>{children}</View>;
   const Host = ({ children, ...props }: { children: React.ReactNode }) => (
     <View {...props}>{children}</View>
   );
-  const BottomSheet = ({ children }: { children: React.ReactNode }) => (
-    <View testID="category-order-bottom-sheet">{children}</View>
+  const BottomSheet = ({
+    children,
+    onIsPresentedChange,
+  }: {
+    children: React.ReactNode;
+    onIsPresentedChange: (presented: boolean) => void;
+  }) => (
+    <View testID="category-order-bottom-sheet">
+      <Pressable testID="category-order-dismiss" onPress={() => onIsPresentedChange(false)} />
+      {children}
+    </View>
   );
   return {
     __esModule: true,
@@ -35,6 +44,54 @@ jest.mock('@expo/ui/swift-ui', () => {
     Group: Wrapper,
     Host,
     RNHostView: Wrapper,
+  };
+});
+
+jest.mock('react-native-reorderable-list', () => {
+  const React = require('react') as typeof import('react');
+  const { Pressable, Text, View } = require('react-native') as typeof import('react-native');
+  const ReorderableList = ({
+    data,
+    keyExtractor,
+    renderItem,
+    onReorder,
+    ListHeaderComponent,
+    ListFooterComponent,
+  }: {
+    data: import('@/features/shopping-list/domain-logik/shopping-categories').ShoppingCategory[];
+    keyExtractor: (
+      item: import('@/features/shopping-list/domain-logik/shopping-categories').ShoppingCategory,
+    ) => string;
+    renderItem: (props: {
+      item: import('@/features/shopping-list/domain-logik/shopping-categories').ShoppingCategory;
+    }) => React.ReactNode;
+    onReorder: (event: { from: number; to: number }) => void;
+    ListHeaderComponent: React.ReactNode;
+    ListFooterComponent: React.ReactNode;
+  }) => (
+    <View>
+      {ListHeaderComponent}
+      {data.map((item) => (
+        <React.Fragment key={keyExtractor(item)}>{renderItem({ item })}</React.Fragment>
+      ))}
+      <Pressable testID="category-order-reorder" onPress={() => onReorder({ from: 0, to: 1 })}>
+        <Text>Reorder</Text>
+      </Pressable>
+      {ListFooterComponent}
+    </View>
+  );
+
+  return {
+    __esModule: true,
+    default: ReorderableList,
+    reorderItems: <T,>(items: T[], from: number, to: number) => {
+      const next = [...items];
+      const [item] = next.splice(from, 1);
+      if (item) next.splice(to, 0, item);
+      return next;
+    },
+    useIsActive: () => false,
+    useReorderableDrag: () => jest.fn(),
   };
 });
 
@@ -93,5 +150,37 @@ describe('CategoryOrderSheet', () => {
         household_id: 'hh-1',
       }),
     );
+  });
+
+  it('speichert eine geänderte Reihenfolge ohne ungültige IDs', async () => {
+    const store = { ...mockStore, category_order: 'cold_drinks,unknown-category' };
+    await render(<CategoryOrderSheet isOpen store={store} onClose={mockClose} />);
+
+    expect(screen.getByText('Wasser, Saft & Softdrinks')).toBeOnTheScreen();
+    await fireEvent.press(screen.getByTestId('category-order-reorder'));
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    const savedOrder = mockMutateAsync.mock.calls[0]?.[0].categoryOrder;
+    expect(savedOrder?.slice(0, 2)).toEqual(['fresh_produce', 'cold_drinks']);
+    expect(savedOrder).not.toContain('unknown-category');
+    expect(mockClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('lässt sich ohne Markt öffnen, aber nicht speichern', async () => {
+    await render(<CategoryOrderSheet isOpen store={null} onClose={mockClose} />);
+
+    expect(screen.queryByTestId('category-order-store-color')).toBeNull();
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockMutateAsync).not.toHaveBeenCalled();
+    expect(mockClose).not.toHaveBeenCalled();
+  });
+
+  it('schließt sich über die native Sheet-Dismiss-Transition', async () => {
+    await render(<CategoryOrderSheet isOpen store={mockStore} onClose={mockClose} />);
+
+    await fireEvent.press(screen.getByTestId('category-order-dismiss'));
+
+    expect(mockClose).toHaveBeenCalledTimes(1);
   });
 });

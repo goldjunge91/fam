@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import type { CatalogProduct } from '@/features/product-search/types';
 import { AddItemForm } from '@/features/shopping-list/forms/add-item-form';
 import { i18n } from '@/i18n';
 
@@ -100,7 +100,14 @@ jest.mock('../preferences/hooks', () => ({
 }));
 
 describe('AddItemForm', () => {
-  async function renderForm(onDismiss = jest.fn()) {
+  async function renderForm(
+    onDismiss = jest.fn(),
+    options: {
+      initialProduct?: CatalogProduct | null;
+      initialStoreId?: string | null;
+      onItemAdded?: () => void;
+    } = {},
+  ) {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
@@ -114,7 +121,13 @@ describe('AddItemForm', () => {
           insets: { top: 47, left: 0, right: 0, bottom: 34 },
         }}>
         <QueryClientProvider client={queryClient}>
-          <AddItemForm householdId="hh-1" onDismiss={onDismiss} />
+          <AddItemForm
+            householdId="hh-1"
+            initialProduct={options.initialProduct}
+            initialStoreId={options.initialStoreId}
+            onDismiss={onDismiss}
+            onItemAdded={options.onItemAdded}
+          />
         </QueryClientProvider>
       </SafeAreaProvider>,
     );
@@ -170,6 +183,56 @@ describe('AddItemForm', () => {
         household_id: 'hh-1',
         name: 'Hafermilch',
       }),
+    );
+  });
+
+  it('übernimmt ein bekanntes Produkt mit Packungsinhalt und Preis', async () => {
+    const onItemAdded = jest.fn();
+    const product: CatalogProduct = {
+      productId: 'product-milk',
+      barcode: '4001234567890',
+      name: 'Haferdrink',
+      brand: 'Biohof',
+      quantity: 1,
+      unit: 'l',
+      categoryTags: ['plant_milk'],
+    };
+    await renderForm(jest.fn(), { initialProduct: product, onItemAdded });
+
+    await waitFor(() => expect(screen.getByDisplayValue('Haferdrink')).toBeOnTheScreen());
+    expect(screen.getByText('Biohof')).toBeOnTheScreen();
+    expect(screen.getByText('EAN 4001234567890')).toBeOnTheScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
+    await fireEvent.changeText(screen.getByPlaceholderText('z. B. 500'), '1,5');
+    await fireEvent.changeText(screen.getByPlaceholderText('z. B. 2,49 €'), '2,49');
+    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        product_id: 'product-milk',
+        package_size: 1.5,
+        package_size_unit: 'l',
+        price_estimate: 2.49,
+      }),
+    );
+    expect(onItemAdded).toHaveBeenCalledTimes(1);
+  });
+
+  it('lässt bei Produkten ohne Messpackung die Packungsangaben leer', async () => {
+    const product: CatalogProduct = {
+      barcode: '4001234567891',
+      name: 'Eier',
+      quantity: 1,
+      unit: 'piece',
+      categoryTags: ['eggs'],
+    };
+    await renderForm(jest.fn(), { initialProduct: product });
+
+    await waitFor(() => expect(screen.getByDisplayValue('Eier')).toBeOnTheScreen());
+    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+
+    expect(mockAddMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ product_id: null, package_size: null, package_size_unit: null }),
     );
   });
 
