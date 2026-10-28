@@ -30,10 +30,12 @@ create policy brochure_scan_broadcast_receive
 alter table public.fridge_items replica identity full;
 alter table public.transactions replica identity full;
 alter table public.shopping_list_items replica identity full;
+alter table public.household_members replica identity full;
 alter table public.shopping_category_preferences replica identity full;
 alter table public.feedback_tickets replica identity full;
 alter table public.feedback_messages replica identity full;
-alter table public.household_members replica identity full;
+alter table public.purchase_receipts replica identity full;
+alter table public.purchase_receipt_items replica identity full;
 
 do $$
 begin
@@ -66,6 +68,15 @@ begin
 
   if not exists (
     select 1 from pg_publication_tables
+      where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'household_members'
+  ) then
+    alter publication supabase_realtime add table public.household_members;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
     where pubname = 'supabase_realtime'
       and schemaname = 'public'
       and tablename = 'shopping_category_preferences'
@@ -93,11 +104,20 @@ begin
 
   if not exists (
     select 1 from pg_publication_tables
-      where pubname = 'supabase_realtime'
+    where pubname = 'supabase_realtime'
       and schemaname = 'public'
-      and tablename = 'household_members'
+      and tablename = 'purchase_receipts'
   ) then
-    alter publication supabase_realtime add table public.household_members;
+    alter publication supabase_realtime add table public.purchase_receipts;
+  end if;
+
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'purchase_receipt_items'
+  ) then
+    alter publication supabase_realtime add table public.purchase_receipt_items;
   end if;
 end;
 $$;
