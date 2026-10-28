@@ -6,6 +6,7 @@ import {
   useAddStorageLocationMutation,
   useDeleteStorageLocationMutation,
   useStorageLocations,
+  useUpdateStorageLocationMutation,
 } from '@/features/inventory/use-storage-locations';
 import { enqueueMutation } from '@/lib/db/outbox';
 
@@ -58,14 +59,25 @@ describe('use-storage-locations mutations', () => {
     expect(mockDbGetAllAsync).toHaveBeenCalledTimes(1);
   });
 
+  it('liefert ohne Household-ID eine leere Liste und fragt SQLite nicht ab', async () => {
+    const { result } = await renderHook(() => useStorageLocations(undefined), { wrapper });
+
+    let data: typeof result.current.data;
+    await act(async () => {
+      data = (await result.current.refetch()).data;
+    });
+    expect(data).toEqual([]);
+    expect(mockDbGetAllAsync).not.toHaveBeenCalled();
+  });
+
   it('führt useAddStorageLocationMutation über Outbox aus', async () => {
+    mockDbGetAllAsync.mockResolvedValue([{ sort_order: 2 }]);
     const { result } = await renderHook(() => useAddStorageLocationMutation(), { wrapper });
 
     await act(async () => {
       await result.current.mutateAsync({
         household_id: 'hh-1',
         name: 'Keller',
-        kind: 'custom',
       });
     });
 
@@ -77,6 +89,56 @@ describe('use-storage-locations mutations', () => {
       expect.objectContaining({
         entity: 'storage_locations',
         op: 'insert',
+        payload: expect.objectContaining({
+          name: 'Keller',
+          kind: 'pantry',
+          sort_order: 3,
+        }),
+      }),
+    );
+  });
+
+  it('aktualisiert den Namen eines Lagerorts als Outbox-Änderung', async () => {
+    const { result } = await renderHook(() => useUpdateStorageLocationMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ id: 'loc-1', household_id: 'hh-1', name: 'Speisekammer' });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        entity: 'storage_locations',
+        entityId: 'loc-1',
+        op: 'update',
+        payload: expect.objectContaining({
+          id: 'loc-1',
+          household_id: 'hh-1',
+          name: 'Speisekammer',
+        }),
+      }),
+    );
+  });
+
+  it('beginnt bei einem neuen Household mit Sortierreihenfolge null', async () => {
+    mockDbGetAllAsync.mockResolvedValue([]);
+    const { result } = await renderHook(() => useAddStorageLocationMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        household_id: 'hh-2',
+        name: 'Vorrat',
+        kind: 'custom',
+      });
+    });
+
+    expect(enqueueMutation).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        entity: 'storage_locations',
+        op: 'insert',
+        payload: expect.objectContaining({ name: 'Vorrat', kind: 'custom', sort_order: 0 }),
       }),
     );
   });
