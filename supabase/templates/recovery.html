@@ -1,11 +1,55 @@
-<h2>Setze dein Passwort zurück</h2>
-
-<p>Tippe auf den Link, um fam zu öffnen und direkt ein neues Passwort festzulegen:</p>
-
-<p><a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=recovery">Passwort in fam zurücksetzen</a></p>
-
-<p>Wenn du die E-Mail auf einem anderen Gerät geöffnet hast, öffne fam dort und gib deine E-Mail-Adresse zusammen mit diesem Code ein:</p>
-
-<p style="font-size:28px;letter-spacing:6px;font-weight:700;font-family:monospace">{{ .Token }}</p>
-
-<p>Link und Code sind eine Stunde gültig. Verwende nur einen davon.</p>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Passwort in fam zurücksetzen</title>
+  </head>
+  <body style="margin:0;padding:0;background-color:#f7f2ed;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:#342a34;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Setze dein Passwort sicher in der fam-App zurück.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f2ed;">
+      <tr>
+        <td align="center" style="padding:36px 16px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
+            <tr>
+              <td align="center" style="padding:0 0 18px;">
+                <img src="https://account.test-tozzi.de/fam-email-icon.png" width="56" height="56" alt="" style="display:block;width:56px;height:56px;border:0;border-radius:14px;">
+                <p style="margin:10px 0 0;color:#6d506b;font-size:22px;font-weight:700;letter-spacing:-1px;line-height:1;">fam</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:36px 34px 32px;border:1px solid #e8dfe6;border-radius:18px;background-color:#fffdfa;">
+                <p style="margin:0 0 10px;color:#796b78;font-size:12px;font-weight:700;letter-spacing:1.2px;text-align:center;text-transform:uppercase;">KONTO-SICHERHEIT</p>
+                <h1 style="margin:0;color:#342a34;font-size:28px;font-weight:700;letter-spacing:-.7px;line-height:1.2;text-align:center;">Setze dein Passwort zurück</h1>
+                <p style="margin:18px 0 0;color:#554b55;font-size:16px;line-height:1.6;text-align:center;">Wir haben eine Anfrage erhalten, das Passwort für dein fam-Konto zu ändern. Tippe auf die Schaltfläche, um in der App ein neues Passwort festzulegen.</p>
+                <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:26px auto 0;">
+                  <tr>
+                    <td align="center" bgcolor="#6d506b" style="border-radius:10px;">
+                      <a href="{{ .RedirectTo }}?token_hash={{ .TokenHash }}&amp;type=recovery" style="display:inline-block;padding:15px 24px;border:1px solid #6d506b;border-radius:10px;color:#ffffff;font-size:16px;font-weight:700;line-height:1.2;text-decoration:none;">Passwort in fam zurücksetzen</a>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:28px 0 0;color:#554b55;font-size:14px;font-weight:600;line-height:1.5;text-align:center;">Du liest diese E-Mail am Computer?</p>
+                <p style="margin:6px 0 0;color:#554b55;font-size:14px;line-height:1.6;text-align:center;">Öffne dieselbe E-Mail auf deinem Smartphone und tippe dort auf den Link. Alternativ kannst du den Einmalcode in der fam-App eingeben.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0;">
+                  <tr>
+                    <td align="center" style="padding:18px 12px;border:1px solid #e8dfe6;border-radius:12px;background-color:#f4eef4;">
+                      <p style="margin:0 0 8px;color:#796b78;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;">Dein Einmalcode</p>
+                      <p style="margin:0;color:#503d50;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:30px;font-weight:700;letter-spacing:7px;line-height:1.25;">{{ .Token }}</p>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:18px 0 0;color:#6e626b;font-size:13px;line-height:1.55;text-align:center;">Link und Code sind eine Stunde gültig. Verwende nur einen davon.</p>
+                <p style="margin:14px 0 0;color:#6e626b;font-size:13px;line-height:1.55;text-align:center;">Hast du die Anfrage nicht gestellt? Dann kannst du diese E-Mail ignorieren. Dein Passwort bleibt unverändert.</p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding:20px 12px 0;color:#867b85;font-size:12px;line-height:1.5;">Automatische Nachricht von fam. Bitte antworte nicht auf diese E-Mail.</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,10 +1,10 @@
 # Password recovery hosting
 
-This folder contains the HTTPS app-link redirect and association-file source
-for password recovery. The email link carries Supabase's recovery token hash to
-the app, where it is verified before the new-password form appears. The email
-also contains the six-digit code for manual entry when it is opened on a
-different device.
+This folder contains the HTTPS app-link handler and association-file source
+for password recovery. Mobile requests are forwarded to fam with Supabase's
+recovery token hash. Desktop browsers receive a short page that asks the user
+to open the same email on a smartphone or enter its one-time code in fam. The
+page never verifies, displays, or forwards the recovery token.
 
 ## Domain and app configuration
 
@@ -25,11 +25,24 @@ separate from this repository and is not changed by editing local files.
 
 ## Worker routes
 
-The test Worker responds to `/password-recovery` with a no-store 302 redirect to
-`fam:///password-recovery`, forwarding `token_hash` and `type=recovery` when
-present. There is no browser recovery page. It serves
-`/.well-known/apple-app-site-association` without a redirect. The AASA file
-uses the existing iOS Team ID and bundle ID from `app.json`.
+`worker.mjs` routes mobile requests for `/password-recovery` to
+`fam:///password-recovery`, forwarding only `token_hash` and
+`type=recovery`. On iOS, a correctly associated app link is opened by iOS
+before the request reaches the Worker; the Worker redirect is a fallback for
+mobile browsers. Desktop requests receive an accessible German guidance page
+with no-store and no-referrer headers. The token query is removed from browser
+history, and no auth verification happens on the page.
+
+The Worker serves `/.well-known/apple-app-site-association` and
+`/fam-email-icon.png`. The icon is a reduced PNG derived from the app icon and
+is used by the Supabase email template. `fam-email-icon.base64.txt` is the
+text module imported by the Worker; regenerate it after changing the PNG with:
+
+```sh
+base64 < recovery-hosting/fam-email-icon.png | tr -d '\n' > recovery-hosting/fam-email-icon.base64.txt
+```
+
+The AASA file uses the existing iOS Team ID and bundle ID from `app.json`.
 
 `worker.mjs` is the small Cloudflare Worker entry point. Its multipart upload
 uses `worker.mjs` as the `main_module`, with content type
@@ -48,11 +61,11 @@ The test Worker `fam-password-recovery-test` is deployed in Cloudflare account
 `account.test-tozzi.de` is attached with ID
 `id05963fd681b92253827f0c4fbb302ae830f3652`.
 
-The redirect-only Worker is deployed. A probe to the recovery endpoint
-returned `302` with the token hash forwarded to the app scheme, and the [AASA
-file](https://account.test-tozzi.de/.well-known/apple-app-site-association)
-returned `200`. Android's asset-links URL returns 404 because no real signing
-fingerprint is available yet. Cloudflare's default Python
+The Worker is deployed to the test domain. The recovery endpoint returns a
+desktop guidance page to desktop browsers and a `302` app-scheme handoff to
+mobile browsers. The [AASA file](https://account.test-tozzi.de/.well-known/apple-app-site-association)
+and email icon are served by the same Worker. Android's asset-links URL returns
+404 because no real signing fingerprint is available yet. Cloudflare's default Python
 `urllib` probe received BIC error 1010; the verification User-Agent
 `fam-recovery-verification/1.0` passed. No Cloudflare security settings or
 rules were changed.
@@ -76,14 +89,13 @@ Worker with the generated asset-links content as a text module.
 
 ## Supabase recovery email
 
-The local template is `supabase/templates/recovery.html`; the local Supabase
-config points its recovery template at that file. The email link combines
-`{{ .RedirectTo }}` with `{{ .TokenHash }}` and `type=recovery`. The app verifies
-that token hash on an isolated recovery client. The same email contains
-`{{ .Token }}` for manual code entry on another device; either credential can
-be used once. The hosted recovery subject and template were updated through a
-scoped Supabase CLI config push. The hosted redirect allow-list includes the
-HTTPS recovery URL. Existing Resend SMTP settings were not changed.
+The Supabase dashboard-ready HTML is `supabase/templates/recovery.html`; the
+local Supabase config points at the same file. It includes the branded icon,
+the HTTPS recovery link built from `{{ .RedirectTo }}` and `{{ .TokenHash }}`,
+and `{{ .Token }}` for manual code entry. The hosted project template is
+managed separately in the Supabase dashboard; this repository change does not
+upload it. The hosted redirect allow-list includes the HTTPS recovery URL.
+Existing Resend SMTP settings were not changed.
 
 ## Remaining release work
 
