@@ -7,6 +7,14 @@ import { ProfileSheet as AndroidProfileSheet } from '@/features/navigation/profi
 
 const mockPush = jest.fn();
 const mockCloseProfile = jest.fn();
+let mockProfileData: { display_name?: string | null; avatar_url?: string | null } | null = {
+  display_name: 'Max Mustermann',
+  avatar_url: null,
+};
+let mockSession: { user: { id: string; email?: string } } | null = {
+  user: { id: 'user-1', email: 'test@fam.app' },
+};
+let mockPremium: { hasPlus: boolean; hasAI: boolean } = { hasPlus: true, hasAI: false };
 const profileSheetVariants: Array<{
   platform: string;
   Component: typeof ProfileSheet;
@@ -38,24 +46,23 @@ jest.mock('@/hooks/use-deferred-mount', () => ({
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({
-    session: { user: { id: 'user-1', email: 'test@fam.app' } },
-  }),
+  useSession: () => ({ session: mockSession }),
 }));
 
 jest.mock('@/features/profile/api', () => ({
-  useProfile: () => ({
-    data: { display_name: 'Max Mustermann', avatar_url: null },
-  }),
+  useProfile: () => ({ data: mockProfileData }),
 }));
 
 jest.mock('@/features/premium/premium-provider', () => ({
-  usePremium: () => ({ hasPlus: true }),
+  usePremium: () => mockPremium,
 }));
 
 describe('ProfileSheet', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockProfileData = { display_name: 'Max Mustermann', avatar_url: null };
+    mockSession = { user: { id: 'user-1', email: 'test@fam.app' } };
+    mockPremium = { hasPlus: true, hasAI: false };
   });
 
   it('rendert Benutzername und Profiloptionen', async () => {
@@ -162,4 +169,52 @@ describe('ProfileSheet', () => {
 
     expect(mockPush).toHaveBeenCalledWith('/profile/edit');
   });
+
+  it.each(profileSheetVariants)(
+    '$platform zeigt sinnvolle Werte ohne Profil und Plus-Zugang',
+    async ({ Component }) => {
+      mockProfileData = null;
+      mockSession = null;
+      mockPremium = { hasPlus: false, hasAI: false };
+
+      await render(
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { x: 0, y: 0, width: 390, height: 844 },
+            insets: { top: 47, left: 0, right: 0, bottom: 34 },
+          }}>
+          <Component />
+        </SafeAreaProvider>,
+      );
+
+      expect(screen.getByText('Ohne Namen')).toBeTruthy();
+      expect(screen.queryByText('test@fam.app')).toBeNull();
+      expect(screen.getByText('Jetzt freischalten')).toBeTruthy();
+    },
+  );
+
+  it.each(profileSheetVariants)(
+    '$platform navigiert zu allen Profilbereichen',
+    async ({ Component }) => {
+      const user = userEvent.setup();
+      await render(
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { x: 0, y: 0, width: 390, height: 844 },
+            insets: { top: 47, left: 0, right: 0, bottom: 34 },
+          }}>
+          <Component />
+        </SafeAreaProvider>,
+      );
+
+      for (const [title, href] of [
+        ['Mein Profil', '/profile/edit'],
+        ['Familie', '/household/members'],
+        ['Plus & KI', '/settings/plus-and-ai'],
+      ]) {
+        await user.press(screen.getByText(title));
+        expect(mockPush).toHaveBeenLastCalledWith(href);
+      }
+    },
+  );
 });
