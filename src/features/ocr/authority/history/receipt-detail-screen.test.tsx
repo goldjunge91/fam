@@ -20,6 +20,12 @@ const mockReceiptAsset = {
   deleted_at: null,
 };
 const mockReceiptAssets = { current: [] as (typeof mockReceiptAsset)[] };
+const mockReceiptLoading = { current: false };
+const mockReceiptMissing = { current: false };
+const mockItemsLoading = { current: false };
+const mockItemsEmpty = { current: false };
+const mockSparseItem = { current: false };
+const mockAssetsError = { current: false };
 
 jest.mock('@/lib/observability/debug-log', () => ({
   debugLogEvent: jest.fn(),
@@ -44,52 +50,84 @@ jest.mock('@/features/household/active-household-provider', () => ({
 
 jest.mock('@/features/ocr/authority/api', () => ({
   useReceipt: () => ({
-    data: {
-      id: 'receipt-1',
-      household_id: 'household-1',
-      store_id: 'store-1',
-      store_name: 'EDEKA',
-      purchase_date: '2026-09-21',
-      currency: 'EUR',
-      total_cents: 3914,
-      processing_status: 'confirmed',
-      created_by: 'user-1',
-      confirmed_by: 'user-1',
-      confirmed_at: '2026-09-21T10:00:00.000Z',
-      created_at: '2026-09-21T09:00:00.000Z',
-      updated_at: 0,
-      deleted_at: null,
-      _dirty: 0,
-    },
-    isLoading: false,
+    data: mockReceiptMissing.current
+      ? undefined
+      : {
+          id: 'receipt-1',
+          household_id: 'household-1',
+          store_id: 'store-1',
+          store_name: 'EDEKA',
+          purchase_date: '2026-09-21',
+          currency: 'EUR',
+          total_cents: 3914,
+          processing_status: 'confirmed',
+          created_by: 'user-1',
+          confirmed_by: 'user-1',
+          confirmed_at: '2026-09-21T10:00:00.000Z',
+          created_at: '2026-09-21T09:00:00.000Z',
+          updated_at: 0,
+          deleted_at: null,
+          _dirty: 0,
+        },
+    isLoading: mockReceiptLoading.current,
   }),
   useConfirmedReceiptItems: () => ({
-    data: [
-      {
-        id: 'item-1',
-        receipt_id: 'receipt-1',
-        household_id: 'household-1',
-        position: 0,
-        name: 'Milch',
-        product_id: 'product-1',
-        product_name: 'Vollmilch',
-        product_brand: 'Hausmarke',
-        category_id: 'dairy',
-        quantity: 2,
-        unit: 'Stück',
-        package_size: 1,
-        package_size_unit: 'l',
-        line_total_cents: 299,
-        review_status: 'confirmed',
-        created_at: '2026-09-21T09:00:00.000Z',
-        updated_at: 0,
-        deleted_at: null,
-        _dirty: 0,
-      },
-    ],
-    isLoading: false,
+    data: mockItemsEmpty.current
+      ? []
+      : mockSparseItem.current
+        ? [
+            {
+              id: 'item-sparse',
+              receipt_id: 'receipt-1',
+              household_id: 'household-1',
+              position: 0,
+              name: 'Artikel ohne Angaben',
+              product_id: 'product-fallback',
+              product_name: null,
+              product_brand: null,
+              category_id: 'unknown-category',
+              quantity: null,
+              unit: 'kg',
+              package_size: 0.5,
+              package_size_unit: 'kg',
+              line_total_cents: null,
+              review_status: 'confirmed',
+              created_at: '2026-09-21T09:00:00.000Z',
+              updated_at: 0,
+              deleted_at: null,
+              _dirty: 0,
+            },
+          ]
+        : [
+            {
+              id: 'item-1',
+              receipt_id: 'receipt-1',
+              household_id: 'household-1',
+              position: 0,
+              name: 'Milch',
+              product_id: 'product-1',
+              product_name: 'Vollmilch',
+              product_brand: 'Hausmarke',
+              category_id: 'dairy',
+              quantity: 2,
+              unit: 'Stück',
+              package_size: 1,
+              package_size_unit: 'l',
+              line_total_cents: 299,
+              review_status: 'confirmed',
+              created_at: '2026-09-21T09:00:00.000Z',
+              updated_at: 0,
+              deleted_at: null,
+              _dirty: 0,
+            },
+          ],
+    isLoading: mockItemsLoading.current,
   }),
-  useReceiptAssets: () => ({ data: mockReceiptAssets.current, isLoading: false, isError: false }),
+  useReceiptAssets: () => ({
+    data: mockReceiptAssets.current,
+    isLoading: false,
+    isError: mockAssetsError.current,
+  }),
   useDeleteReceiptAssetMutation: () => ({ mutateAsync: mockDeleteAsset }),
   useDeleteReceiptMutation: () => ({ mutateAsync: mockDeleteReceipt, isPending: false }),
   receiptAssetSignedUrlQueryKey: jest.fn(() => ['receipt-asset-signed-url']),
@@ -102,6 +140,12 @@ describe('ReceiptDetailScreen', () => {
     mockDeleteReceipt.mockResolvedValue(undefined);
     mockDeleteAsset.mockResolvedValue(undefined);
     mockReceiptAssets.current = [];
+    mockReceiptLoading.current = false;
+    mockReceiptMissing.current = false;
+    mockItemsLoading.current = false;
+    mockItemsEmpty.current = false;
+    mockSparseItem.current = false;
+    mockAssetsError.current = false;
     mockDebugLogEvent.mockClear();
     jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
       buttons?.find((button) => button.style === 'destructive')?.onPress?.();
@@ -142,6 +186,64 @@ describe('ReceiptDetailScreen', () => {
     expect(screen.getByText('Keine Bonbilder verfügbar.')).toBeOnTheScreen();
     expect(mockDeleteAsset).not.toHaveBeenCalled();
     expect(router.back).not.toHaveBeenCalled();
+  });
+
+  it('zeigt Lade- und Fehlerzustände für Receipt und Artikel sowie fehlende Detaildaten', async () => {
+    const queryClient = new QueryClient();
+    mockItemsLoading.current = true;
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+    expect(screen.getByText('Wird geladen…')).toBeOnTheScreen();
+
+    mockItemsLoading.current = false;
+    mockReceiptLoading.current = true;
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+    expect(screen.getByText('Wird geladen…')).toBeOnTheScreen();
+
+    mockReceiptLoading.current = false;
+    mockItemsLoading.current = false;
+    mockReceiptMissing.current = true;
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+    expect(screen.getByText('Die Bon-Historie konnte nicht geladen werden.')).toBeOnTheScreen();
+
+    mockReceiptMissing.current = false;
+    mockItemsEmpty.current = true;
+    mockAssetsError.current = true;
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+    expect(screen.getByText('Keine bestätigten Artikel gespeichert.')).toBeOnTheScreen();
+    expect(
+      screen.getByText('Bonbilder sind offline oder derzeit nicht verfügbar.'),
+    ).toBeOnTheScreen();
+  });
+
+  it('zeigt Ersatzwerte für fehlende Mengen, Preise, Produkte und Kategorien', async () => {
+    const queryClient = new QueryClient();
+    mockSparseItem.current = true;
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    expect(screen.getByText('Menge unbekannt (kg) · 0,5 kg')).toBeOnTheScreen();
+    expect(screen.getByText('Preis unbekannt')).toBeOnTheScreen();
+    expect(screen.getByText('Produkt: product-fallback')).toBeOnTheScreen();
+    expect(screen.getByText('Kategorie: unknown-category')).toBeOnTheScreen();
   });
 
   it('löscht den strukturierten Bon nach Bestätigung und kehrt zur Historie zurück', async () => {
@@ -276,6 +378,62 @@ describe('ReceiptDetailScreen', () => {
     expect(router.back).not.toHaveBeenCalled();
 
     await rendered.unmount();
+    queryClient.clear();
+  });
+
+  it('öffnet und schließt eine verfügbare Belegbild-Vorschau', async () => {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { gcTime: Infinity } },
+    });
+    mockReceiptAssets.current = [mockReceiptAsset];
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    const user = userEvent.setup();
+    const previewButton = await screen.findByRole('button', { name: 'Bonseite 1 öffnen' });
+    await user.press(previewButton);
+    expect(screen.getByText('Bildansicht schließen')).toBeOnTheScreen();
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.button_pressed', {
+      button: 'open_asset',
+      asset_position: 0,
+    });
+
+    await user.press(screen.getByRole('button', { name: 'Bildansicht schließen' }));
+    await waitFor(() => expect(screen.queryByText('Bildansicht schließen')).not.toBeOnTheScreen());
+    expect(mockDebugLogEvent).toHaveBeenCalledWith('receipt.history.button_pressed', {
+      button: 'close_asset_viewer',
+    });
+    queryClient.clear();
+  });
+
+  it('meldet und protokolliert Fehler beim Löschen einzelner Bonbilder', async () => {
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { gcTime: Infinity } },
+    });
+    mockReceiptAssets.current = [mockReceiptAsset];
+    mockDeleteAsset.mockRejectedValueOnce(new Error('storage unavailable'));
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <ReceiptDetailScreen />
+      </QueryClientProvider>,
+    );
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Bonseite 1 löschen' }));
+    await waitFor(() =>
+      expect(mockDebugLogEvent).toHaveBeenCalledWith(
+        'receipt.history.delete_asset.failed',
+        expect.objectContaining({ asset_id: 'asset-1', error_type: 'Error' }),
+      ),
+    );
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      'Bon konnte nicht gelöscht werden',
+      'storage unavailable',
+    );
+    expect(screen.getByText('39,14 €')).toBeOnTheScreen();
     queryClient.clear();
   });
 });
