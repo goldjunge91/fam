@@ -1,7 +1,8 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
+import { Linking } from 'react-native';
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
-import type { LocalBrochurePage } from '../types';
+import type { Hotspot, LocalBrochurePage } from '../types';
 import BrochureViewerScreen from './brochure-viewer-screen';
 
 const mockRouterBack = jest.fn();
@@ -131,15 +132,79 @@ const SECOND_PAGE: LocalBrochurePage = {
   imageUrl: 'https://example.test/page-2.jpg',
 };
 const PAGES = [PAGE, SECOND_PAGE];
+const PRODUCT_DESCRIPTION = 'Bio Haferdrink';
+const PRODUCT_HOTSPOT: Hotspot = {
+  id: 'product-1',
+  kind: 'discount',
+  x: 10,
+  y: 20,
+  width: 25,
+  height: 15,
+  title: 'Hafermilch',
+  description: PRODUCT_DESCRIPTION,
+};
+const LINK_HOTSPOT: Hotspot = {
+  id: 'link-1',
+  kind: 'linkout',
+  x: 45,
+  y: 20,
+  width: 15,
+  height: 10,
+  title: 'Mehr erfahren',
+  linkoutUrl: 'https://example.test/mehr-erfahren',
+};
 let mockBrochurePagesState: { data: LocalBrochurePage[] | undefined; isLoading: boolean } = {
   data: PAGES,
   isLoading: false,
 };
 
+function hasImageSource(source: unknown, imageUrl: string): boolean {
+  if (Array.isArray(source)) {
+    return source.some(
+      (item) => typeof item === 'object' && item !== null && 'uri' in item && item.uri === imageUrl,
+    );
+  }
+
+  return (
+    source === imageUrl ||
+    (typeof source === 'object' && source !== null && 'uri' in source && source.uri === imageUrl)
+  );
+}
+
+async function renderViewerWithHotspots(hotspots: Hotspot[]) {
+  mockBrochurePagesState = {
+    data: [{ ...PAGE, hotspots }, SECOND_PAGE],
+    isLoading: false,
+  };
+  await render(<BrochureViewerScreen brochureId="bro-1" />);
+
+  const pageContainer = screen.root.queryAll(
+    (instance) => instance.type === 'View' && typeof instance.props.onLayout === 'function',
+  )[0];
+  if (!pageContainer) throw new Error('Viewer page must receive its native layout event');
+  await fireEvent(pageContainer, 'layout', {
+    nativeEvent: { layout: { x: 0, y: 0, width: 300, height: 600 } },
+  });
+
+  const pageImage = screen.root.queryAll(
+    (instance) =>
+      hasImageSource(instance.props.source, PAGE.imageUrl) &&
+      typeof instance.props.onLoad === 'function',
+  )[0];
+  if (!pageImage) throw new Error('Viewer page image must receive its native load event');
+  await fireEvent(pageImage, 'load', {
+    nativeEvent: { source: { width: 1200, height: 1800 } },
+  });
+}
+
 describe('BrochureViewerScreen', () => {
   beforeEach(() => {
     mockBrochurePagesState = { data: PAGES, isLoading: false };
     mockRouterBack.mockClear();
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it.each([
@@ -185,6 +250,100 @@ describe('BrochureViewerScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Seite 2 auswählen' }));
     expect(screen.getByRole('text', { name: 'Seite 2 ausgewählt' })).toBeOnTheScreen();
     expect(screen.getByRole('text', { name: 'Seitenscrollen aktiviert' })).toBeOnTheScreen();
+  });
+
+  it('öffnet Artikeldetails mit Produkt, Markt und Beschreibung über einen Produkt-Hotspot', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([PRODUCT_HOTSPOT]);
+
+    await user.press(screen.getByRole('button', { name: PRODUCT_HOTSPOT.title }));
+
+    expect(screen.getByText(PRODUCT_HOTSPOT.title)).toBeOnTheScreen();
+    expect(screen.getByText(PAGE.storeName)).toBeOnTheScreen();
+    expect(screen.getByText(PRODUCT_DESCRIPTION)).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Auf die Einkaufsliste' })).toBeOnTheScreen();
+  });
+
+  it('öffnet Link-Hotspots außerhalb der Artikeldetails', async () => {
+    const user = userEvent.setup();
+    const openUrl = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
+    await renderViewerWithHotspots([LINK_HOTSPOT]);
+
+    await user.press(screen.getByRole('button', { name: LINK_HOTSPOT.title }));
+
+    expect(openUrl).toHaveBeenCalledWith(LINK_HOTSPOT.linkoutUrl);
+    expect(screen.queryByRole('button', { name: 'Auf die Einkaufsliste' })).not.toBeOnTheScreen();
+  });
+
+  it.each([
+    ['priceLabel', { priceLabel: 'Angebot: 2,49 €', priceCents: 199 }, 'Angebot: 2,49 €'],
+    ['priceCents', { priceCents: 199 }, '1,99 €'],
+    ['discount price text', { discount: '2,49 € statt 3,29 €' }, '2,49 €'],
+  ] as const)('zeigt den Produktpreis aus %s', async (_source, price, expectedPrice) => {
+    const user = userEvent.setup();
+    const hotspot = { ...PRODUCT_HOTSPOT, ...price };
+    await renderViewerWithHotspots([hotspot]);
+
+    await user.press(
+      screen.getByRole('button', {
+        name: hotspot.discount ? `${hotspot.title}, ${hotspot.discount}` : hotspot.title,
+      }),
+    );
+
+    expect(screen.getByText(expectedPrice)).toBeOnTheScreen();
+  });
+
+  it('lässt den Preis im Produktdetail weg, wenn kein Preis vorliegt', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([PRODUCT_HOTSPOT]);
+
+    await user.press(screen.getByRole('button', { name: PRODUCT_HOTSPOT.title }));
+
+    expect(screen.queryByText(/€/)).not.toBeOnTheScreen();
+  });
+
+  it('zeigt den Bildausschnitt des Prospekt-Hotspots als Artikeldetail-Vorschau', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([PRODUCT_HOTSPOT]);
+
+    await user.press(screen.getByRole('button', { name: PRODUCT_HOTSPOT.title }));
+
+    const pageImageSources = screen.root.queryAll((instance) =>
+      hasImageSource(instance.props.source, PAGE.imageUrl),
+    );
+    expect(pageImageSources).toHaveLength(2);
+  });
+
+  it('zeigt keine Bildvorschau, wenn der Hotspot keinen Bildausschnitt abdeckt', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([{ ...PRODUCT_HOTSPOT, width: 0 }]);
+
+    await user.press(screen.getByRole('button', { name: PRODUCT_HOTSPOT.title }));
+
+    const pageImageSources = screen.root.queryAll((instance) =>
+      hasImageSource(instance.props.source, PAGE.imageUrl),
+    );
+    expect(pageImageSources).toHaveLength(1);
+  });
+
+  it('schließt die Artikeldetails über den Backdrop', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([PRODUCT_HOTSPOT]);
+    await user.press(screen.getByRole('button', { name: PRODUCT_HOTSPOT.title }));
+
+    await user.press(screen.getAllByRole('button', { name: 'Artikeldetails schließen' })[0]);
+
+    expect(screen.queryByText(PRODUCT_DESCRIPTION)).not.toBeOnTheScreen();
+  });
+
+  it('schließt die Artikeldetails über die Schließen-Aktion', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([PRODUCT_HOTSPOT]);
+    await user.press(screen.getByRole('button', { name: PRODUCT_HOTSPOT.title }));
+
+    await user.press(screen.getAllByRole('button', { name: 'Artikeldetails schließen' })[1]);
+
+    expect(screen.queryByText(PRODUCT_DESCRIPTION)).not.toBeOnTheScreen();
   });
 
   it('hält Close-Knopf und Hotspot-Toggle auf mindestens 44 Punkten', async () => {
