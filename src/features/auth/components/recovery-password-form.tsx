@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -10,6 +10,8 @@ import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { authErrorMessage } from '@/features/auth/domain/auth-error-message';
 import { usePasswordRecoveryStore } from '@/features/auth/recovery-store';
+import { useSession } from '@/features/auth/session-provider';
+import { useAppEntryReadiness } from '@/features/onboarding/app-entry-readiness';
 import {
   type NewPasswordInput,
   newPasswordSchema,
@@ -28,7 +30,18 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
   const phase = usePasswordRecoveryStore((state) => state.phase);
   const operation = usePasswordRecoveryStore((state) => state.operation);
   const outcome = usePasswordRecoveryStore((state) => state.outcome);
+  const recoveryUserId = usePasswordRecoveryStore((state) => state.recoveryUserId);
+  const { session, accountReady, error: sessionError } = useSession();
+  const { userId: readyUserId, isReady: appEntryReady } = useAppEntryReadiness();
   const [formError, setFormError] = useState<string | null>(null);
+  const [pendingSessionUserId, setPendingSessionUserId] = useState<string | null>(null);
+  const navigationStartedRef = useRef(false);
+  const navigateToApp = useCallback(() => {
+    if (navigationStartedRef.current) return;
+    navigationStartedRef.current = true;
+    setPendingSessionUserId(null);
+    router.replace('/');
+  }, []);
   const {
     control,
     setValue,
@@ -43,8 +56,32 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
   const password = watch('password');
   const passwordConfirmation = watch('passwordConfirmation');
 
+  useEffect(() => {
+    if (
+      !pendingSessionUserId ||
+      !accountReady ||
+      sessionError ||
+      session?.user.id !== pendingSessionUserId ||
+      readyUserId !== pendingSessionUserId ||
+      !appEntryReady
+    ) {
+      return;
+    }
+
+    navigateToApp();
+  }, [
+    accountReady,
+    appEntryReady,
+    navigateToApp,
+    pendingSessionUserId,
+    readyUserId,
+    session?.user.id,
+    sessionError,
+  ]);
+
   async function submit(values: NewPasswordInput) {
     setFormError(null);
+    const recoveredUserId = recoveryUserId;
     const result = await usePasswordRecoveryStore.getState().savePassword(values.password);
     if (result.status === 'error') {
       setFormError(authErrorMessage(result.error, t) ?? t('auth.passwordReset.expiredLink'));
@@ -54,8 +91,13 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
       setFormError(t('auth.passwordReset.expiredLink'));
       return;
     }
-    if (result.status === 'ok' && result.outcome !== 'sign-in-required') {
-      router.replace('/');
+    if (result.status === 'ok' && result.outcome === 'signed-in') {
+      if (recoveredUserId) setPendingSessionUserId(recoveredUserId);
+      return;
+    }
+
+    if (result.status === 'ok' && result.outcome === 'existing-session') {
+      navigateToApp();
     }
   }
 
@@ -65,7 +107,7 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
         <ContentCard>
           <Txt variant="body">{t('auth.passwordReset.updatedSignInBody')}</Txt>
         </ContentCard>
-        <Button title={t('auth.passwordReset.continue')} onPress={() => router.replace('/')} />
+        <Button title={t('auth.passwordReset.continue')} onPress={navigateToApp} />
       </Screen>
     );
   }
@@ -82,7 +124,7 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
             )}
           </Txt>
         </ContentCard>
-        <Button title={t('auth.passwordReset.continue')} onPress={() => router.replace('/')} />
+        <Button title={t('auth.passwordReset.continue')} onPress={navigateToApp} />
       </Screen>
     );
   }
