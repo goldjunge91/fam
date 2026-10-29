@@ -1,11 +1,18 @@
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
+import type { Store } from '@/features/shopping-list/hooks/use-stores';
 import type { Hotspot, LocalBrochurePage } from '../types';
 import BrochureViewerScreen from './brochure-viewer-screen';
 
 const mockRouterBack = jest.fn();
+const mockAddShoppingItem = jest.fn();
+const mockFindStoreByName = jest.fn();
+const mockResolveCategoryForItem = jest.fn();
+let mockIsAddShoppingItemPending = false;
+let mockActiveHouseholdId: string | null = 'hh-1';
+const mockHouseholdStores: Store[] = [];
 
 type MockPagerPageProps = {
   isCurrent?: boolean;
@@ -104,17 +111,22 @@ jest.mock('../hooks/use-brochures', () => ({
   useBrochurePages: () => mockBrochurePagesState,
 }));
 jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
-  useStores: () => ({ data: [] }),
-  findStoreByName: () => undefined,
+  useStores: () => ({ data: mockHouseholdStores }),
+  findStoreByName: (...args: Parameters<typeof mockFindStoreByName>) =>
+    mockFindStoreByName(...args),
 }));
 jest.mock('@/features/household/active-household-provider', () => ({
-  useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+  useActiveHousehold: () => ({ activeHouseholdId: mockActiveHouseholdId }),
 }));
 jest.mock('@/features/shopping-list/hooks/use-shopping-list-mutations', () => ({
-  useAddShoppingItem: () => ({ mutateAsync: jest.fn(), isPending: false }),
+  useAddShoppingItem: () => ({
+    mutateAsync: mockAddShoppingItem,
+    isPending: mockIsAddShoppingItemPending,
+  }),
 }));
 jest.mock('@/features/shopping-list/preferences/api', () => ({
-  resolveCategoryForItem: jest.fn(),
+  resolveCategoryForItem: (...args: Parameters<typeof mockResolveCategoryForItem>) =>
+    mockResolveCategoryForItem(...args),
 }));
 
 const PAGE: LocalBrochurePage = {
@@ -133,6 +145,19 @@ const SECOND_PAGE: LocalBrochurePage = {
 };
 const PAGES = [PAGE, SECOND_PAGE];
 const PRODUCT_DESCRIPTION = 'Bio Haferdrink';
+const HOUSEHOLD_STORE: Store = {
+  id: 'store-1',
+  household_id: 'hh-1',
+  name: PAGE.storeName,
+  color: '#000000',
+  sort_order: 0,
+  category_order: null,
+};
+const CLASSIFICATION = {
+  categoryId: 'cold_drinks',
+  source: 'name_fallback',
+  classifierVersion: 'placement-v2.0.0',
+};
 const PRODUCT_HOTSPOT: Hotspot = {
   id: 'product-1',
   kind: 'discount',
@@ -197,10 +222,27 @@ async function renderViewerWithHotspots(hotspots: Hotspot[]) {
   });
 }
 
+async function openProductDetails(hotspot = PRODUCT_HOTSPOT) {
+  const user = userEvent.setup();
+  await renderViewerWithHotspots([hotspot]);
+  await user.press(
+    screen.getByRole('button', {
+      name: hotspot.discount ? `${hotspot.title}, ${hotspot.discount}` : hotspot.title,
+    }),
+  );
+  return user;
+}
+
 describe('BrochureViewerScreen', () => {
   beforeEach(() => {
     mockBrochurePagesState = { data: PAGES, isLoading: false };
     mockRouterBack.mockClear();
+    mockActiveHouseholdId = 'hh-1';
+    mockIsAddShoppingItemPending = false;
+    mockHouseholdStores.splice(0, mockHouseholdStores.length, HOUSEHOLD_STORE);
+    mockAddShoppingItem.mockReset().mockResolvedValue(undefined);
+    mockFindStoreByName.mockReset().mockReturnValue(HOUSEHOLD_STORE);
+    mockResolveCategoryForItem.mockReset().mockResolvedValue(CLASSIFICATION);
   });
 
   afterEach(() => {
@@ -344,6 +386,110 @@ describe('BrochureViewerScreen', () => {
     await user.press(screen.getAllByRole('button', { name: 'Artikeldetails schließen' })[1]);
 
     expect(screen.queryByText(PRODUCT_DESCRIPTION)).not.toBeOnTheScreen();
+  });
+
+  it('verhindert eine Menge unter eins und kann eine Erhöhung wieder verringern', async () => {
+    const user = await openProductDetails();
+
+    expect(screen.getByText('1×')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Menge verringern' })).toBeDisabled();
+
+    await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+    await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+    expect(screen.getByText('3×')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Menge verringern' }));
+    expect(screen.getByText('2×')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Menge verringern' }));
+    expect(screen.getByText('1×')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Menge verringern' })).toBeDisabled();
+  });
+
+  it('fügt den Artikel mit Haushalt, Markt, Kategorie, Menge und Preisschätzung hinzu', async () => {
+    const user = await openProductDetails({ ...PRODUCT_HOTSPOT, priceCents: 249 });
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    await user.press(screen.getByRole('button', { name: 'Menge erhöhen' }));
+    await user.press(screen.getByRole('button', { name: 'Auf die Einkaufsliste' }));
+
+    await waitFor(() => {
+      expect(mockAddShoppingItem).toHaveBeenCalledWith({
+        household_id: 'hh-1',
+        name: PRODUCT_HOTSPOT.title,
+        quantity: 2,
+        unit: 'piece',
+        category_id: CLASSIFICATION.categoryId,
+        category_source: CLASSIFICATION.source,
+        category_classifier_version: CLASSIFICATION.classifierVersion,
+        store_id: HOUSEHOLD_STORE.id,
+        price_estimate: 4.98,
+      });
+    });
+    expect(mockResolveCategoryForItem).toHaveBeenCalledWith({
+      householdId: 'hh-1',
+      name: PRODUCT_HOTSPOT.title,
+    });
+    expect(mockFindStoreByName).toHaveBeenCalledWith(mockHouseholdStores, PAGE.storeName);
+    expect(alert).toHaveBeenCalledWith('Zur Einkaufsliste hinzugefügt', '2 × Hafermilch');
+    expect(screen.queryByText(PRODUCT_DESCRIPTION)).not.toBeOnTheScreen();
+  });
+
+  it('zeigt ohne aktiven Haushalt einen Hinweis und schreibt nichts', async () => {
+    mockActiveHouseholdId = null;
+    const user = await openProductDetails();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    await user.press(screen.getByRole('button', { name: 'Auf die Einkaufsliste' }));
+
+    expect(alert).toHaveBeenCalledWith(
+      'Kein Haushalt ausgewählt',
+      'Wähle zuerst einen Haushalt aus.',
+    );
+    expect(mockResolveCategoryForItem).not.toHaveBeenCalled();
+    expect(mockAddShoppingItem).not.toHaveBeenCalled();
+    expect(screen.getByText(PRODUCT_DESCRIPTION)).toBeOnTheScreen();
+  });
+
+  it('deaktiviert das Hinzufügen während die Mutation läuft', async () => {
+    mockIsAddShoppingItemPending = true;
+    const user = await openProductDetails();
+    const addButton = screen.getByRole('button', { name: 'Auf die Einkaufsliste' });
+
+    expect(addButton).toBeDisabled();
+    await user.press(addButton);
+
+    expect(mockAddShoppingItem).not.toHaveBeenCalled();
+  });
+
+  it('hält Artikeldetails offen, wenn die Kategorie nicht bestimmt werden kann', async () => {
+    mockResolveCategoryForItem.mockRejectedValue(new Error('Kategorisierung fehlgeschlagen'));
+    const user = await openProductDetails();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    await user.press(screen.getByRole('button', { name: 'Auf die Einkaufsliste' }));
+
+    await waitFor(() => {
+      expect(alert).toHaveBeenCalledWith(
+        'Hinzufügen fehlgeschlagen',
+        'Kategorisierung fehlgeschlagen',
+      );
+    });
+    expect(mockAddShoppingItem).not.toHaveBeenCalled();
+    expect(screen.getByText(PRODUCT_DESCRIPTION)).toBeOnTheScreen();
+  });
+
+  it('hält Artikeldetails offen, wenn das Schreiben in die Einkaufsliste fehlschlägt', async () => {
+    mockAddShoppingItem.mockRejectedValue(new Error('Speichern fehlgeschlagen'));
+    const user = await openProductDetails();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    await user.press(screen.getByRole('button', { name: 'Auf die Einkaufsliste' }));
+
+    await waitFor(() => {
+      expect(alert).toHaveBeenCalledWith('Hinzufügen fehlgeschlagen', 'Speichern fehlgeschlagen');
+    });
+    expect(mockAddShoppingItem).toHaveBeenCalledTimes(1);
+    expect(screen.getByText(PRODUCT_DESCRIPTION)).toBeOnTheScreen();
   });
 
   it('hält Close-Knopf und Hotspot-Toggle auf mindestens 44 Punkten', async () => {
