@@ -77,7 +77,7 @@ describe('ProductSearchSettingsRoute', () => {
 
   it('does not use device-unsafe Pressable style callbacks', () => {
     const source = fs.readFileSync(
-      path.join(__dirname, '../../app/settings/product-search.tsx'),
+      path.join(__dirname, 'product-search-settings-screen.tsx'),
       'utf8',
     );
 

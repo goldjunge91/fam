@@ -1,7 +1,7 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import type React from 'react';
 
-import ProductSearchSettingsRoute from './product-search';
+import ProductSearchSettingsRoute from './product-search-settings-screen';
 
 const mockSetPreferredMarket = jest.fn();
 let mockHouseholdId: string | undefined = 'household-1';
