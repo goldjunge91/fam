@@ -3,7 +3,9 @@ import type { ComponentProps } from 'react';
 
 import { BrochureFilterSheet } from './brochure-filter-sheet';
 
-const groups = [
+type FilterSheetProps = ComponentProps<typeof BrochureFilterSheet>;
+
+const groups: FilterSheetProps['groups'] = [
   {
     id: 'groceries',
     label: 'Lebensmittel',
@@ -22,9 +24,7 @@ const groups = [
     label: 'Weitere Märkte',
     stores: [{ id: 'unknown', name: 'Unbekannter Markt', logoUrl: null, active: true }],
   },
-] as const;
-
-type FilterSheetProps = ComponentProps<typeof BrochureFilterSheet>;
+];
 
 function createProps(overrides: Partial<FilterSheetProps> = {}): FilterSheetProps {
   return {
