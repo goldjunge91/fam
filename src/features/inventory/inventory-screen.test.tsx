@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { font } from '@/components/theme/index';
 import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
+import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import type { SyncStatusView } from '@/lib/sync/sync-status';
 
 const mockUpdateQtyMutate = jest.fn();
@@ -18,6 +19,8 @@ const mockDiscardConflictMutate = jest.fn();
 const mockReconfirmConflictMutate = jest.fn();
 
 let mockItems: LocalInventoryItem[] = [];
+let mockItemsLoading = false;
+let mockLocations: StorageLocation[] = [];
 let mockTransactions: LocalInventoryTransaction[] = [];
 let mockTransactionsLoading = false;
 let mockTransactionsError = false;
@@ -25,6 +28,8 @@ const mockTransactionsRefetch = jest.fn();
 let mockUndoPending = false;
 let mockSyncStatus: SyncStatusView = { kind: 'hidden' };
 let mockParams: Record<string, string> = {};
+let mockHouseholdId: string | null = 'hh-1';
+const originalPlatformOSDescriptor = Object.getOwnPropertyDescriptor(Platform, 'OS');
 
 jest.mock('react-native-gesture-handler/ReanimatedSwipeable', () => {
   return {
@@ -78,16 +83,16 @@ jest.mock('expo-router', () => ({
 }));
 
 jest.mock('@/features/household/active-household-provider', () => ({
-  useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
-  useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+  useActiveHousehold: () => ({ activeHouseholdId: mockHouseholdId }),
+  useOptionalActiveHousehold: () => ({ activeHouseholdId: mockHouseholdId }),
 }));
 
 jest.mock('@/features/inventory/use-storage-locations', () => ({
-  useStorageLocations: () => ({ data: [] }),
+  useStorageLocations: () => ({ data: mockLocations }),
 }));
 
 jest.mock('@/features/inventory/use-inventory-items', () => ({
-  useInventoryItems: () => ({ data: mockItems, isLoading: false }),
+  useInventoryItems: () => ({ data: mockItems, isLoading: mockItemsLoading }),
 }));
 
 jest.mock('@/features/inventory/use-inventory-transactions', () => ({
@@ -173,14 +178,18 @@ async function renderScreen() {
   return result;
 }
 
-async function openLotActions(user: ReturnType<typeof userEvent.setup>) {
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+async function openLotActions(
+  user: ReturnType<typeof userEvent.setup>,
+  groupLabel = 'Milch, 2 L',
+  lotLabel = 'Milch, 2 L, MHD ohne MHD, Kein Lagerort',
+) {
+  await user.press(screen.getByRole('button', { name: groupLabel }));
   const groupModal = screen.container.queryAll(
     (instance) =>
       instance.props.visible === true && typeof instance.props.onRequestClose === 'function',
   )[0];
   expect(groupModal).toBeDefined();
-  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+  await user.press(screen.getByRole('button', { name: lotLabel }));
   await act(() => groupModal?.props.onDismiss());
 }
 
@@ -216,6 +225,7 @@ function makeTransaction(
 // deterministisch statt wall-clock-abhaengig.
 beforeEach(() => {
   jest.useFakeTimers();
+  jest.setSystemTime(new Date(2026, 9, 29, 12, 0, 0));
 });
 
 afterEach(async () => {
@@ -225,10 +235,17 @@ afterEach(async () => {
     jest.runOnlyPendingTimers();
   });
   jest.useRealTimers();
+  jest.restoreAllMocks();
+  if (originalPlatformOSDescriptor) {
+    Object.defineProperty(Platform, 'OS', originalPlatformOSDescriptor);
+  }
 });
 
 beforeEach(() => {
   mockParams = {};
+  mockHouseholdId = 'hh-1';
+  mockItemsLoading = false;
+  mockLocations = [];
   mockTransactions = [];
   mockTransactionsLoading = false;
   mockTransactionsError = false;
@@ -314,13 +331,28 @@ it('öffnet den Option-C-Flow und protokolliert die gewählte Menge', async () =
     expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), quantity: 1 }),
     expect.any(Object),
   );
+  expect(screen.getByText('Milch öffnen')).toBeOnTheScreen();
+
+  const onSuccess = mockOpenMutate.mock.calls[0]?.[1]?.onSuccess;
+  expect(onSuccess).toEqual(expect.any(Function));
+  await act(() => onSuccess?.());
+  expect(screen.queryByText('Milch öffnen')).not.toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Milch Verlauf öffnen' })).toBeOnTheScreen();
 });
 
 it('bucht Verschwendung mit dem ausgewählten Grund', async () => {
   const user = userEvent.setup();
+  mockItems = [
+    { ...mockItems[0], id: 'item-1', quantity: 2, expiry_date: '2030-09-03' },
+    { ...mockItems[0], id: 'item-2', quantity: 1, expiry_date: '2030-09-12' },
+  ];
 
   await renderScreen();
-  await openLotActions(user);
+  await openLotActions(
+    user,
+    'Milch, 3 L, 2 MHD-Einträge',
+    'Milch, 2 L, MHD 03.09.2030, Kein Lagerort',
+  );
   await user.press(screen.getByRole('button', { name: 'Wegwerfen' }));
   await user.press(screen.getByRole('radio', { name: 'Schlecht geworden' }));
   await user.press(screen.getByRole('button', { name: 'Als Verschwendung buchen' }));
@@ -329,6 +361,225 @@ it('bucht Verschwendung mit dem ausgewählten Grund', async () => {
     expect.objectContaining({ item: expect.objectContaining({ id: 'item-1' }), reason: 'spoiled' }),
     expect.any(Object),
   );
+
+  const onSuccess = mockWasteMutate.mock.calls[0]?.[1]?.onSuccess;
+  expect(onSuccess).toEqual(expect.any(Function));
+  await act(() => onSuccess?.());
+  expect(screen.queryByText('Milch wegwerfen')).not.toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Milch Verlauf öffnen' })).toBeOnTheScreen();
+});
+
+it('verbraucht ein Los und kehrt nach Erfolg zur Gruppe mit verbleibenden Losen zurück', async () => {
+  const user = userEvent.setup();
+  mockItems = [
+    { ...mockItems[0], id: 'item-1', quantity: 2, expiry_date: '2030-09-03' },
+    { ...mockItems[0], id: 'item-2', quantity: 1, expiry_date: '2030-09-12' },
+  ];
+  mockUpdateQtyMutate.mockImplementationOnce((_input, callbacks) => callbacks.onSuccess?.());
+
+  await renderScreen();
+  await openLotActions(
+    user,
+    'Milch, 3 L, 2 MHD-Einträge',
+    'Milch, 2 L, MHD 03.09.2030, Kein Lagerort',
+  );
+  await user.press(screen.getByRole('button', { name: 'Verbrauchen' }));
+
+  expect(mockUpdateQtyMutate).toHaveBeenCalledWith(
+    { id: 'item-1', household_id: 'hh-1', delta: -2 },
+    expect.any(Object),
+  );
+  expect(screen.getByRole('button', { name: 'Milch Verlauf öffnen' })).toBeOnTheScreen();
+});
+
+it('kehrt beim Schließen des Öffnen- und Wegwerfen-Sheets ohne Buchung zu den Losaktionen zurück', async () => {
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await openLotActions(user);
+  await user.press(screen.getByRole('button', { name: 'Öffnen' }));
+  await user.press(screen.getByRole('button', { name: 'Öffnen schließen' }));
+  expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Wegwerfen' }));
+  await user.press(screen.getByRole('button', { name: 'Verschwendung schließen' }));
+  expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
+  expect(mockOpenMutate).not.toHaveBeenCalled();
+  expect(mockWasteMutate).not.toHaveBeenCalled();
+});
+
+it('kehrt beim Schließen der Losaktionen zur Gruppe mit den MHD-Einträgen zurück', async () => {
+  const user = userEvent.setup();
+  mockItems = [
+    { ...mockItems[0], id: 'item-1', quantity: 2, expiry_date: '2030-09-03' },
+    { ...mockItems[0], id: 'item-2', quantity: 1, expiry_date: '2030-09-12' },
+  ];
+
+  await renderScreen();
+  await openLotActions(
+    user,
+    'Milch, 3 L, 2 MHD-Einträge',
+    'Milch, 2 L, MHD 03.09.2030, Kein Lagerort',
+  );
+  await user.press(screen.getByRole('button', { name: 'Artikelaktionen schließen' }));
+
+  expect(screen.getByRole('button', { name: 'Milch, 3 L, 2 MHD-Einträge' })).toBeOnTheScreen();
+  expect(
+    screen.getByRole('button', { name: 'Milch, 1 L, MHD 12.09.2030, Kein Lagerort' }),
+  ).toBeOnTheScreen();
+});
+
+it('öffnet die Losdetails über die Entfernen-Aktion bei mehreren Losen', async () => {
+  const user = userEvent.setup();
+  mockItems = [
+    { ...mockItems[0], id: 'item-1', quantity: 2, expiry_date: '2030-09-03' },
+    { ...mockItems[0], id: 'item-2', quantity: 1, expiry_date: '2030-09-12' },
+  ];
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch mhds anzeigen' }));
+
+  expect(screen.getByRole('button', { name: 'Milch Verlauf öffnen' })).toBeOnTheScreen();
+});
+
+it.each([
+  { openedAt: undefined, actionLabel: '1 L öffnen', action: 'open' },
+  { openedAt: '2026-10-29T12:00:00.000Z', actionLabel: '1 L verbrauchen', action: 'consume' },
+] as const)(
+  'führt die iOS-Schnellaktion für $action aus',
+  async ({ openedAt, actionLabel, action }) => {
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: 'ios' });
+    mockItems = [{ ...mockItems[0], opened_at: openedAt }];
+    const user = userEvent.setup();
+
+    await renderScreen();
+    await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+    await user.press(screen.getByRole('button', { name: actionLabel }));
+
+    if (action === 'open') {
+      expect(mockOpenMutate).toHaveBeenCalledWith({
+        item: expect.objectContaining({ id: 'item-1' }),
+        quantity: 1,
+      });
+      expect(mockUpdateQtyMutate).not.toHaveBeenCalled();
+    } else {
+      expect(mockUpdateQtyMutate).toHaveBeenCalledWith({
+        id: 'item-1',
+        household_id: 'hh-1',
+        delta: -1,
+      });
+      expect(mockOpenMutate).not.toHaveBeenCalled();
+    }
+  },
+);
+
+it('öffnet das iOS-Bearbeitungssheet erst nach dem Losaktionen-Sheet und kann es schließen', async () => {
+  Object.defineProperty(Platform, 'OS', { configurable: true, value: 'ios' });
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await openLotActions(user);
+  const actionSheetModal = screen.container.queryAll(
+    (instance) =>
+      typeof instance.props.onRequestClose === 'function' &&
+      typeof instance.props.onDismiss === 'function',
+  )[0];
+  expect(actionSheetModal).toBeDefined();
+  await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
+
+  expect(screen.queryByText('Artikel bearbeiten')).not.toBeOnTheScreen();
+  await act(() => actionSheetModal?.props.onDismiss());
+  expect(screen.getByText('Artikel bearbeiten')).toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: 'Artikel bearbeiten schließen' }));
+
+  expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
+  expect(mockUpdateItemMutateAsync).not.toHaveBeenCalled();
+});
+
+it('öffnet unter Android die Losaktionen und direkt danach die Artikelbearbeitung', async () => {
+  Object.defineProperty(Platform, 'OS', { configurable: true, value: 'android' });
+  const user = userEvent.setup();
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L, MHD ohne MHD, Kein Lagerort' }));
+
+  expect(screen.getByRole('button', { name: 'Bearbeiten' })).toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
+
+  expect(screen.getByText('Artikel bearbeiten')).toBeOnTheScreen();
+});
+
+it('zeigt den leeren Vorratszustand wenn kein Haushalt ausgewählt ist und schreibt nichts', async () => {
+  mockHouseholdId = null;
+
+  await renderScreen();
+
+  expect(screen.getByText('Noch kein Haushalt')).toBeOnTheScreen();
+  expect(screen.queryByRole('button', { name: 'Artikel suchen' })).not.toBeOnTheScreen();
+  expect(mockUpdateQtyMutate).not.toHaveBeenCalled();
+  expect(mockOpenMutate).not.toHaveBeenCalled();
+});
+
+it('zeigt den leeren Vorrat und Suchhinweis, wenn die Suche keine Artikel trifft', async () => {
+  const user = userEvent.setup();
+  mockItems = [];
+
+  await renderScreen();
+  expect(screen.getByText('Noch keine Artikel hinzugefügt')).toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Artikel suchen' }));
+  await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Käse');
+  expect(screen.getByText('Keine Treffer für "Käse"')).toBeOnTheScreen();
+  expect(screen.getByText('Prüfe die Schreibweise oder setze die Suche zurück.')).toBeOnTheScreen();
+
+  await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), '');
+  expect(screen.getByText('Noch keine Artikel hinzugefügt')).toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: 'Artikel suchen' }));
+  expect(screen.queryByPlaceholderText('Artikel suchen')).not.toBeOnTheScreen();
+});
+
+it('zeigt bei noch ladendem Vorrat keinen endgültigen Leerzustand', async () => {
+  mockItems = [];
+  mockItemsLoading = true;
+
+  await renderScreen();
+
+  expect(screen.queryByText('Noch keine Artikel hinzugefügt')).not.toBeOnTheScreen();
+});
+
+it('zählt bald fällige Artikel separat von den bald ablaufenden', async () => {
+  const dueSoon = new Date();
+  dueSoon.setDate(dueSoon.getDate() + 4);
+  mockItems = [{ ...mockItems[0], expiry_date: dueSoon.toISOString().split('T')[0] ?? null }];
+
+  await renderScreen();
+
+  expect(
+    screen.getByLabelText('0 Artikel laufen bald ab, 1 bald fällig, 1 insgesamt im Vorrat'),
+  ).toBeOnTheScreen();
+});
+
+it('zeigt den Lagerortzustand und dessen Namen, wenn dort keine Artikel liegen', async () => {
+  const user = userEvent.setup();
+  mockLocations = [
+    {
+      id: 'loc-freezer',
+      household_id: 'hh-1',
+      name: 'Gefrierfach',
+      kind: 'freezer',
+      sort_order: 0,
+    },
+  ];
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Lagerort auswählen, aktuell Alle' }));
+  await user.press(screen.getByRole('menuitem', { name: 'Gefrierfach' }));
+
+  expect(screen.getByText('Gefrierfach ist leer')).toBeOnTheScreen();
+  expect(
+    screen.getByText('Schließe einen Einkauf ab oder füge Artikel manuell hinzu.'),
+  ).toBeOnTheScreen();
 });
 
 it('fragt vor dem Entfernen aus dem Aktions-Sheet nach Bestaetigung', async () => {
@@ -508,6 +759,26 @@ it('öffnet den Produktverlauf als Vollansicht ohne Gesamtverlaufs-Link', async 
   expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeOnTheScreen();
 });
 
+it('zeigt den Hinweis bei einem einzelnen Produktverlauf und führt Zurück zur Artikelgruppe', async () => {
+  const user = userEvent.setup();
+  mockTransactions = [makeTransaction()];
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Milch, 2 L' }));
+  await user.press(screen.getByRole('button', { name: 'Milch Verlauf öffnen' }));
+
+  expect(
+    screen.getByText(
+      'Nur ein Eintrag. Dieses Los wurde noch nicht geöffnet, verbraucht oder korrigiert.',
+    ),
+  ).toBeOnTheScreen();
+
+  await user.press(screen.getByRole('button', { name: 'Milch' }));
+
+  expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeOnTheScreen();
+  expect(screen.queryByText('Verlauf zu Milch')).not.toBeOnTheScreen();
+});
+
 it('zeigt für alle erlaubten Transaktionstypen genau eine Undo-Aktion', async () => {
   const user = userEvent.setup();
   const moveIn = makeTransaction({
@@ -581,6 +852,36 @@ it('zeigt den Fehlerzustand und kann den Verlauf erneut laden', async () => {
 
   await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
   expect(mockTransactionsRefetch).toHaveBeenCalledTimes(1);
+});
+
+it('meldet Undo-Fehler mit Details oder einem allgemeinen Hinweis', async () => {
+  const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  const user = userEvent.setup();
+  mockTransactions = [makeTransaction({ type: 'out' })];
+  mockUndoMutate
+    .mockImplementationOnce((_input, callbacks) =>
+      callbacks.onError?.(new Error('Eintrag wurde zwischenzeitlich geändert.')),
+    )
+    .mockImplementationOnce((_input, callbacks) => callbacks.onError?.('offline'));
+
+  await renderScreen();
+  await user.press(screen.getByRole('button', { name: 'Gesamten Vorratsverlauf öffnen' }));
+  const undoButton = screen.getByRole('button', { name: 'Verbrauch rückgängig machen' });
+  await user.press(undoButton);
+  await user.press(undoButton);
+
+  expect(alertSpy).toHaveBeenNthCalledWith(
+    1,
+    'Undo nicht möglich',
+    'Eintrag wurde zwischenzeitlich geändert.',
+  );
+  expect(alertSpy).toHaveBeenNthCalledWith(
+    2,
+    'Undo nicht möglich',
+    'Bitte später erneut versuchen.',
+  );
+  expect(mockUpdateQtyMutate).not.toHaveBeenCalled();
+  alertSpy.mockRestore();
 });
 
 it('kennzeichnet den Verlauf bei Offline-Betrieb als lokale Daten', async () => {
@@ -666,6 +967,12 @@ describe('Sortier-Toggle MHD/Name (#71)', () => {
     expect(
       screen.getByRole('button', { name: 'Sortierung ändern, aktuell alphabetisch' }),
     ).toBeOnTheScreen();
+    await user.press(
+      screen.getByRole('button', { name: 'Sortierung ändern, aktuell alphabetisch' }),
+    );
+    expect(
+      screen.getByRole('button', { name: 'Sortierung ändern, aktuell nach Haltbarkeit' }),
+    ).toBeOnTheScreen();
   });
 });
 
@@ -716,5 +1023,23 @@ describe('filter=expiring vom Dashboard-Widget (#73)', () => {
     await renderScreen();
     expect(screen.getByText('Bald abgelaufen')).toBeTruthy();
     expect(screen.queryByText('Noch lange haltbar')).not.toBeOnTheScreen();
+  });
+
+  it('zeigt den leeren Hinweis, wenn aus dem Dashboard keine bald fälligen Artikel mehr übrig sind', async () => {
+    const notExpiringSoon = new Date();
+    notExpiringSoon.setDate(notExpiringSoon.getDate() + 30);
+    mockItems = [
+      {
+        ...mockItems[0],
+        expiry_date: notExpiringSoon.toISOString().split('T')[0] ?? null,
+      },
+    ];
+
+    await renderScreen();
+
+    expect(screen.getByText('Vorrat ist leer')).toBeOnTheScreen();
+    expect(
+      screen.getByText('Schließe einen Einkauf ab oder füge Artikel manuell hinzu.'),
+    ).toBeOnTheScreen();
   });
 });
