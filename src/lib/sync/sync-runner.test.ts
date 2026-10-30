@@ -61,8 +61,16 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, renderHook } from '@testing-library/react-native';
 import { createElement, type ReactNode } from 'react';
 import { AppState } from 'react-native';
+import type { RealtimeRowEvent, RealtimeSubscribeState } from '@/lib/sync/realtime';
+import type { SyncRunResult } from '@/lib/sync/remote-sync-engine';
 import {
+  getActiveSyncEngineIntervalCount,
+  getLastRealtimeStatus,
   getLastSyncInfo,
+  getRealtimeDiagnostics,
+  getRealtimeLatencySamples,
+  getRealtimeLatencySampleVersion,
+  syncRunHasErrors,
   triggerHouseholdSync,
   triggerHouseholdSyncAfterOutboxMutation,
   useRealtimeSync,
@@ -289,6 +297,108 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
       error: 'JWT liegt in der Zukunft',
     });
   });
+
+  it('überspringt leere Haushalte und einen parallelen Sync mit anderem Scope', async () => {
+    expect(await triggerHouseholdSync([])).toBeNull();
+
+    let releaseSync!: (result: SyncRunResult) => void;
+    const pendingResult = new Promise<SyncRunResult>((resolve) => {
+      releaseSync = resolve;
+    });
+    mockSyncHousehold.mockReset().mockReturnValueOnce(pendingResult);
+
+    const firstRun = triggerHouseholdSync(['household-1']);
+    await Promise.resolve();
+    await expect(triggerHouseholdSync(['household-2'])).resolves.toBeNull();
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
+
+    const result: SyncRunResult = { push: { outcomes: [], stoppedEarly: false }, pull: [] };
+    releaseSync(result);
+    await expect(firstRun).resolves.toEqual(result);
+  });
+
+  it('retries due outbox rows and reports only permanent push failures', async () => {
+    const reportError = jest.requireMock('@/lib/telemetry').reportError as jest.Mock;
+    reportError.mockClear();
+    mockRetryFailedOutboxEntries.mockClear();
+    mockSyncHousehold.mockResolvedValue({
+      push: {
+        outcomes: [
+          {
+            kind: 'failed-permanent',
+            entity: 'fridge_items',
+            entityId: 'item-1',
+            sourceIds: [1],
+            error: 'compare-and-set rejected',
+          },
+          {
+            kind: 'failed-transient',
+            entity: 'fridge_items',
+            entityId: 'item-2',
+            sourceIds: [2],
+            error: 'network timeout',
+          },
+        ],
+        stoppedEarly: false,
+      },
+      pull: [],
+    });
+
+    await triggerHouseholdSync(['household-1'], true);
+
+    expect(mockRetryFailedOutboxEntries).toHaveBeenCalledTimes(1);
+    expect(reportError).toHaveBeenCalledTimes(1);
+    expect(reportError).toHaveBeenCalledWith(new Error('compare-and-set rejected'), {
+      operation: 'sync.push',
+      entity: 'fridge_items',
+      error_code: 'sync_push_permanent',
+      outbox_count: 1,
+    });
+    expect(getLastSyncInfo()).toMatchObject({
+      hasErrors: true,
+      lastError: 'compare-and-set rejected',
+    });
+  });
+
+  it('returns null and reports a local database failure', async () => {
+    const reportError = jest.requireMock('@/lib/telemetry').reportError as jest.Mock;
+    reportError.mockClear();
+    mockGetDatabase.mockRejectedValueOnce(new Error('local database unavailable'));
+
+    await expect(triggerHouseholdSync(['household-1'])).resolves.toBeNull();
+
+    expect(reportError).toHaveBeenCalledWith(new Error('local database unavailable'), {
+      operation: 'sync.run',
+      error_code: 'sync_run_failed',
+    });
+    expect(mockDebugWarn).toHaveBeenCalledWith(
+      '[SyncRunner] Sync fehlgeschlagen:',
+      expect.any(Error),
+    );
+  });
+
+  it('classifies null, successful and push-error sync results', () => {
+    const success: SyncRunResult = { push: { outcomes: [], stoppedEarly: false }, pull: [] };
+    const pushFailure: SyncRunResult = {
+      push: {
+        outcomes: [
+          {
+            kind: 'failed-transient',
+            entity: 'fridge_items',
+            entityId: 'item-1',
+            sourceIds: [1],
+            error: 'network timeout',
+          },
+        ],
+        stoppedEarly: false,
+      },
+      pull: [],
+    };
+
+    expect(syncRunHasErrors(null)).toBe(true);
+    expect(syncRunHasErrors(success)).toBe(false);
+    expect(syncRunHasErrors(pushFailure)).toBe(true);
+  });
 });
 
 describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
@@ -325,6 +435,16 @@ describe('useSyncEngine — Sync-Ausloeser bei lokalem Schreibvorgang', () => {
     // Kein Timer-Vorlauf noetig: der erste Schreibvorgang eines Schwungs
     // loest den Aufruf synchron aus, nicht erst nach OUTBOX_DEBOUNCE_MS.
     expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
+
+    await unmount();
+  });
+
+  it('bleibt ohne Household inaktiv und registriert keinen Polling-Timer', async () => {
+    const before = getActiveSyncEngineIntervalCount();
+    const { unmount } = await renderHook(() => useSyncEngine(undefined), { wrapper });
+
+    expect(getActiveSyncEngineIntervalCount()).toBe(before);
+    expect(mockSyncHousehold).not.toHaveBeenCalled();
 
     await unmount();
   });
@@ -457,6 +577,51 @@ describe('useRealtimeSync — App-Lifecycle', () => {
     });
 
     expect(mockSubscribeHouseholdRealtime).toHaveBeenCalledTimes(2);
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
+
+    await unmount();
+  });
+
+  it('veröffentlicht Status, Realtime-Latenz und Reconnect-Diagnostik', async () => {
+    const diagnosticsBefore = getRealtimeDiagnostics();
+    const latencyVersionBefore = getRealtimeLatencySampleVersion();
+    const sampleCountBefore = getRealtimeLatencySamples().length;
+    const { unmount } = await renderHook(() => useRealtimeSync('household-1'), { wrapper });
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+    const options = mockSubscribeHouseholdRealtime.mock.calls[0]?.[0] as {
+      onStatusChange: (householdId: string, status: RealtimeSubscribeState) => void;
+      onRowApplied: (event: RealtimeRowEvent) => void;
+      onReconnectResyncNeeded: () => Promise<void>;
+    };
+
+    await act(async () => {
+      options.onStatusChange('household-1', 'SUBSCRIBED');
+      options.onStatusChange('household-1', 'CHANNEL_ERROR');
+      options.onStatusChange('household-1', 'TIMED_OUT');
+      options.onRowApplied({
+        entity: 'fridge_items',
+        op: 'update',
+        id: 'item-1',
+        latencyMs: 25,
+      });
+      await options.onReconnectResyncNeeded();
+    });
+
+    expect(getLastRealtimeStatus()).toBe('TIMED_OUT');
+    expect(getRealtimeDiagnostics()).toEqual({
+      statusChangeCount: diagnosticsBefore.statusChangeCount + 3,
+      reconnectCount: diagnosticsBefore.reconnectCount + 1,
+    });
+    expect(getRealtimeLatencySampleVersion()).toBe(latencyVersionBefore + 1);
+    expect(getRealtimeLatencySamples()).toHaveLength(Math.min(sampleCountBefore + 1, 20));
+    expect(getRealtimeLatencySamples().at(-1)).toMatchObject({
+      entity: 'fridge_items',
+      op: 'update',
+      latencyMs: 25,
+    });
     expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
 
     await unmount();
