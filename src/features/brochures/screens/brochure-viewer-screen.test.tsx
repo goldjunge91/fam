@@ -196,7 +196,10 @@ function hasImageSource(source: unknown, imageUrl: string): boolean {
   );
 }
 
-async function renderViewerWithHotspots(hotspots: Hotspot[]) {
+async function renderViewerWithHotspots(
+  hotspots: Hotspot[],
+  options: { loadCurrentImage?: boolean } = {},
+) {
   mockBrochurePagesState = {
     data: [{ ...PAGE, hotspots }, SECOND_PAGE],
     isLoading: false,
@@ -217,9 +220,11 @@ async function renderViewerWithHotspots(hotspots: Hotspot[]) {
       typeof instance.props.onLoad === 'function',
   )[0];
   if (!pageImage) throw new Error('Viewer page image must receive its native load event');
-  await fireEvent(pageImage, 'load', {
-    nativeEvent: { source: { width: 1200, height: 1800 } },
-  });
+  if (options.loadCurrentImage !== false) {
+    await fireEvent(pageImage, 'load', {
+      nativeEvent: { source: { width: 1200, height: 1800 } },
+    });
+  }
 }
 
 async function openProductDetails(hotspot = PRODUCT_HOTSPOT) {
@@ -403,6 +408,51 @@ describe('BrochureViewerScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Menge verringern' }));
     expect(screen.getByText('1×')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Menge verringern' })).toBeDisabled();
+  });
+
+  it('verarbeitet Layout und Bildladen einer nicht ausgewählten Seite getrennt', async () => {
+    await renderViewerWithHotspots([]);
+
+    const pageContainers = screen.root.queryAll(
+      (instance) => instance.type === 'View' && typeof instance.props.onLayout === 'function',
+    );
+    const secondPageContainer = pageContainers[1];
+    if (!secondPageContainer) throw new Error('Pager should render its second page');
+    await fireEvent(secondPageContainer, 'layout', {
+      nativeEvent: { layout: { x: 0, y: 0, width: 300, height: 600 } },
+    });
+
+    const secondPageImage = screen.root.queryAll(
+      (instance) =>
+        hasImageSource(instance.props.source, SECOND_PAGE.imageUrl) &&
+        typeof instance.props.onLoad === 'function',
+    )[0];
+    if (!secondPageImage) throw new Error('Second page image must receive its native load event');
+    await fireEvent(secondPageImage, 'load', {
+      nativeEvent: { source: { width: 1200, height: 1800 } },
+    });
+
+    expect(screen.getByRole('text', { name: 'Seite 1 ausgewählt' })).toBeOnTheScreen();
+  });
+
+  it('behält den aktiven Viewer beim Fehler des Prospektbildes benutzbar', async () => {
+    const user = userEvent.setup();
+    await renderViewerWithHotspots([PRODUCT_HOTSPOT], { loadCurrentImage: false });
+
+    const currentPageImage = screen.root.queryAll(
+      (instance) =>
+        hasImageSource(instance.props.source, PAGE.imageUrl) &&
+        typeof instance.props.onError === 'function',
+    )[0];
+    if (!currentPageImage) throw new Error('Viewer image must receive its native error event');
+    await fireEvent(currentPageImage, 'error', {
+      nativeEvent: { error: 'image unavailable' },
+    });
+
+    expect(screen.getByRole('button', { name: 'Prospekt schließen' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: PRODUCT_HOTSPOT.title })).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Prospekt schließen' }));
+    expect(mockRouterBack).toHaveBeenCalledTimes(1);
   });
 
   it('fügt den Artikel mit Haushalt, Markt, Kategorie, Menge und Preisschätzung hinzu', async () => {
