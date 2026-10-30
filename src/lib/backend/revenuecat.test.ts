@@ -15,8 +15,12 @@ import {
   offeringForEntitlement,
   PACKAGE_IDS,
   packagesForEntitlement,
+  resetPurchasesIdentity,
   restorePurchases,
   selectRevenueCatApiKey,
+  setPurchasesAttributes,
+  setPurchasesEmail,
+  syncPurchasesIdentity,
   VERIFICATION_RESULT,
 } from './revenuecat';
 
@@ -29,6 +33,11 @@ jest.mock('react-native-purchases', () => ({
     purchasePackage: jest.fn(),
     restorePurchases: jest.fn(),
     getOfferings: jest.fn(),
+    logIn: jest.fn(),
+    logOut: jest.fn(),
+    isAnonymous: jest.fn(),
+    setAttributes: jest.fn(),
+    setEmail: jest.fn(),
   },
   LOG_LEVEL: { DEBUG: 'DEBUG' },
   ENTITLEMENT_VERIFICATION_MODE: {
@@ -57,8 +66,13 @@ describe('purchases security and entitlement checks', () => {
     jest.clearAllMocks();
   });
 
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   describe('initPurchases', () => {
     it('initializes with INFORMATIONAL entitlement verification mode', () => {
+      initPurchases();
       initPurchases();
       expect(Purchases.configure).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -66,6 +80,7 @@ describe('purchases security and entitlement checks', () => {
           entitlementVerificationMode: ENTITLEMENT_VERIFICATION_MODE.INFORMATIONAL,
         }),
       );
+      expect(Purchases.configure).toHaveBeenCalledTimes(1);
       expect(isPurchasesConfigured()).toBe(true);
     });
   });
@@ -111,6 +126,27 @@ describe('purchases security and entitlement checks', () => {
           testStoreApiKey: undefined,
           iosApiKey: 'appl_production',
           androidApiKey: 'appl_wrong_platform',
+        }),
+      ).toBeUndefined();
+    });
+
+    it('returns no key for unsupported platforms or missing platform keys', () => {
+      expect(
+        selectRevenueCatApiKey({
+          isDev: false,
+          platform: 'web',
+          testStoreApiKey: undefined,
+          iosApiKey: 'appl_production',
+          androidApiKey: 'goog_production',
+        }),
+      ).toBeUndefined();
+      expect(
+        selectRevenueCatApiKey({
+          isDev: false,
+          platform: 'ios',
+          testStoreApiKey: undefined,
+          iosApiKey: undefined,
+          androidApiKey: 'goog_production',
         }),
       ).toBeUndefined();
     });
@@ -300,6 +336,78 @@ describe('purchases security and entitlement checks', () => {
 
       const result = await restorePurchases();
       expect(result).toEqual({ ok: false, error });
+    });
+  });
+
+  describe('purchases identity and subscriber attributes', () => {
+    beforeEach(() => {
+      initPurchases();
+    });
+
+    it('logs in with the application user ID, then applies attributes', async () => {
+      const customerInfo = { entitlements: { active: {} } } as CustomerInfo;
+      (Purchases.logIn as jest.Mock).mockResolvedValueOnce({ customerInfo, created: false });
+
+      await expect(
+        syncPurchasesIdentity('user-123', { household: 'household-1', optional: null }),
+      ).resolves.toBe(customerInfo);
+      expect(Purchases.logIn).toHaveBeenCalledWith('user-123');
+      expect(Purchases.setAttributes).toHaveBeenCalledWith({
+        household: 'household-1',
+        optional: null,
+      });
+    });
+
+    it('returns null and skips attributes when identity login fails', async () => {
+      const error = new Error('Login failed');
+      (Purchases.logIn as jest.Mock).mockRejectedValueOnce(error);
+      const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+      await expect(syncPurchasesIdentity('user-123', { household: 'household-1' })).resolves.toBe(
+        null,
+      );
+      expect(Purchases.setAttributes).not.toHaveBeenCalled();
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining('syncPurchasesIdentity fehlgeschlagen:'),
+      );
+
+      warnSpy.mockRestore();
+    });
+
+    it('returns null when setting attributes fails after login', async () => {
+      const customerInfo = { entitlements: { active: {} } } as CustomerInfo;
+      (Purchases.logIn as jest.Mock).mockResolvedValueOnce({ customerInfo, created: true });
+      (Purchases.setAttributes as jest.Mock).mockRejectedValueOnce(new Error('Attributes failed'));
+      jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+      await expect(syncPurchasesIdentity('user-123', { household: 'household-1' })).resolves.toBe(
+        null,
+      );
+    });
+
+    it('sets subscriber attributes for an already identified user', async () => {
+      await setPurchasesAttributes({ household: 'household-1' });
+
+      expect(Purchases.setAttributes).toHaveBeenCalledWith({ household: 'household-1' });
+    });
+
+    it('sets non-empty email and ignores null or empty email', async () => {
+      await setPurchasesEmail('person@example.com');
+      await setPurchasesEmail(null);
+      await setPurchasesEmail('');
+
+      expect(Purchases.setEmail).toHaveBeenCalledTimes(1);
+      expect(Purchases.setEmail).toHaveBeenCalledWith('person@example.com');
+    });
+
+    it('logs out only a non-anonymous RevenueCat identity', async () => {
+      const customerInfo = { entitlements: { active: {} } } as CustomerInfo;
+      (Purchases.isAnonymous as jest.Mock).mockResolvedValueOnce(true).mockResolvedValueOnce(false);
+      (Purchases.logOut as jest.Mock).mockResolvedValueOnce(customerInfo);
+
+      await expect(resetPurchasesIdentity()).resolves.toBeNull();
+      await expect(resetPurchasesIdentity()).resolves.toBe(customerInfo);
+      expect(Purchases.logOut).toHaveBeenCalledTimes(1);
     });
   });
 });
