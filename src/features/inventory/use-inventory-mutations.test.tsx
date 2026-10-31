@@ -20,6 +20,7 @@ import {
 import type { LocalInventoryTransaction } from './use-inventory-transactions';
 
 const mockGetFirstAsync = jest.fn();
+const mockGetAllAsync = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: { user: { id: 'actor-1' } } }),
@@ -32,6 +33,7 @@ jest.mock('expo-crypto', () => ({ randomUUID: jest.fn() }));
 jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
     getFirstAsync: (...args: unknown[]) => mockGetFirstAsync(...args),
+    getAllAsync: (...args: unknown[]) => mockGetAllAsync(...args),
   }),
 }));
 
@@ -99,6 +101,7 @@ describe('inventory mutation hooks', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockGetFirstAsync.mockReset();
+    mockGetAllAsync.mockReset().mockResolvedValue([]);
     jest.mocked(Outbox.enqueueMutation).mockResolvedValue(undefined);
     jest.mocked(Outbox.enqueueMutations).mockResolvedValue(undefined);
     jest
@@ -247,6 +250,124 @@ describe('inventory mutation hooks', () => {
     });
   });
 
+  it('protokolliert eine Bestandserhöhung als Bestandsmutation', async () => {
+    mockGetFirstAsync.mockResolvedValue({
+      quantity: 3_000,
+      name: 'Senf',
+      product_id: 'product-1',
+      location_id: 'loc-1',
+      expiry_date: '2026-12-31',
+    });
+    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
+      wrapper,
+    });
+
+    await act(async () => {
+      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: 1 });
+    });
+
+    expect(lastMutations()).toEqual([
+      expect.objectContaining({
+        entity: 'fridge_items',
+        op: 'adjust_quantity',
+        payload: expect.objectContaining({ delta: 1_000, item_id: 'item-1' }),
+      }),
+    ]);
+  });
+
+  it('weist eine nicht endliche Bestandsänderung vor dem Datenbankzugriff zurück', async () => {
+    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
+      wrapper,
+    });
+
+    await act(async () => {
+      await expect(
+        result.current.mutateAsync({
+          id: 'item-1',
+          household_id: 'hh-1',
+          delta: Number.POSITIVE_INFINITY,
+        }),
+      ).rejects.toThrow('Mengenänderungen benötigen eine endliche Zahl.');
+    });
+    expect(mockGetFirstAsync).not.toHaveBeenCalled();
+  });
+
+  it('erzeugt keine Mengenbuchung, wenn der Artikel lokal nicht mehr vorhanden ist', async () => {
+    mockGetFirstAsync.mockResolvedValue(null);
+    const { result } = await renderHook(() => useUpdateInventoryItemQuantityMutation(), {
+      wrapper,
+    });
+
+    await act(async () => {
+      await result.current.mutateAsync({ id: 'item-1', household_id: 'hh-1', delta: -1 });
+    });
+
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
+  });
+
+  it('macht einen Move über seine beiden Ledger-Legs rückgängig', async () => {
+    const transaction: LocalInventoryTransaction = {
+      id: 'move-in-source',
+      operation_id: 'move-operation-1',
+      operation_legs: 2,
+      household_id: 'hh-1',
+      fridge_item_id: 'item-1',
+      product_id: 'product-1',
+      actor: 'actor-1',
+      type: 'in',
+      quantity: 3_000,
+      location_id: 'loc-2',
+      reason: null,
+      previous_expiry_date: null,
+      notes: null,
+      undone: false,
+      created_at: new Date().toISOString(),
+    };
+    mockGetAllAsync.mockResolvedValue([
+      {
+        id: 'move-out',
+        type: 'out',
+        quantity: 3_000,
+        location_id: 'loc-1',
+        fridge_item_id: 'item-1',
+        reversal_of: null,
+      },
+      {
+        id: 'move-in',
+        type: 'in',
+        quantity: 3_000,
+        location_id: 'loc-2',
+        fridge_item_id: 'item-1',
+        reversal_of: null,
+      },
+    ]);
+    mockGetFirstAsync.mockResolvedValueOnce(null).mockResolvedValueOnce({
+      id: 'item-1',
+      household_id: 'hh-1',
+      location_id: 'loc-2',
+      quantity: 3_000,
+      deleted_at: null,
+      product_id: 'product-1',
+    });
+    const { result } = await renderHook(() => useUndoInventoryTransactionMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ transaction });
+    });
+
+    expect(lastMutations()).toHaveLength(1);
+    expect(lastMutations()[0]).toMatchObject({
+      entity: 'fridge_items',
+      op: 'move',
+      payload: {
+        item_id: 'item-1',
+        expected_location_id: 'loc-2',
+        new_location_id: 'loc-1',
+        reversal_of: 'move-operation-1',
+      },
+    });
+  });
+
   it('erzeugt bei einer No-op-Mengenänderung keine Ledger-Buchung', async () => {
     mockGetFirstAsync.mockResolvedValue({
       quantity: 3,
@@ -340,6 +461,54 @@ describe('inventory mutation hooks', () => {
       household_id: ITEM.household_id,
       name: 'Dijon-Senf',
     });
+  });
+
+  it('weist eine negative manuelle Zielmenge vor dem Lesen zurück', async () => {
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await expect(
+        result.current.mutateAsync({
+          id: ITEM.id,
+          household_id: ITEM.household_id,
+          patch: {},
+          quantityCorrection: { expectedQuantity: 3, newQuantity: -1 },
+        }),
+      ).rejects.toThrow('Bestandsmengen müssen endlich und nicht negativ sein.');
+    });
+    expect(mockGetFirstAsync).not.toHaveBeenCalled();
+  });
+
+  it('weist einen manuellen Metadatenpatch für einen fehlenden Artikel zurück', async () => {
+    mockGetFirstAsync.mockResolvedValue(null);
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await expect(
+        result.current.mutateAsync({
+          id: ITEM.id,
+          household_id: ITEM.household_id,
+          patch: { name: 'Senf' },
+        }),
+      ).rejects.toThrow('Der Bestand ist lokal nicht vorhanden.');
+    });
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
+  });
+
+  it('überspringt eine manuelle Korrektur, wenn Ziel- und Erwartungsmenge gleich sind', async () => {
+    mockGetFirstAsync.mockResolvedValue({ ...ITEM, quantity: 3_000 });
+    const { result } = await renderHook(() => useUpdateFridgeItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: ITEM.id,
+        household_id: ITEM.household_id,
+        patch: {},
+        quantityCorrection: { expectedQuantity: 3, newQuantity: 3 },
+      });
+    });
+
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
   });
 
   it('überträgt bewusstes Löschen als null im expliziten Metadatenpatch', async () => {
@@ -518,6 +687,28 @@ describe('inventory mutation hooks', () => {
         in_transaction_id: 'in-id',
       },
     });
+  });
+
+  it('weist das Öffnen eines lokal fehlenden Loses zurück', async () => {
+    mockGetFirstAsync.mockResolvedValue(null);
+    const { result } = await renderHook(() => useOpenInventoryItemMutation(), { wrapper });
+
+    await act(async () => {
+      await expect(result.current.mutateAsync({ item: ITEM, quantity: 1 })).rejects.toThrow(
+        'Der Bestand ist lokal nicht vorhanden.',
+      );
+    });
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
+  });
+
+  it('überspringt einen Move, wenn der Artikel bereits am Zielort liegt', async () => {
+    const { result } = await renderHook(() => useMoveInventoryItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({ item: ITEM, locationId: ITEM.location_id });
+    });
+
+    expect(Outbox.enqueueMutations).not.toHaveBeenCalled();
   });
 
   it('bucht einen Split als eine atomare Server-Operation mit Compare-and-set gegen die frische Menge (fam-n46.1)', async () => {

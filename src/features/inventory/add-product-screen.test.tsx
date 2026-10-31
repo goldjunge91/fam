@@ -1,11 +1,13 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AddProductScreen } from '@/features/inventory/add-product-screen';
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
 
 let mockParams: Record<string, string> = {};
+let mockSession: { user: { id: string } } | null = { user: { id: 'user-1' } };
 
 const mockAddProductMutateAsync = jest.fn();
 
@@ -16,7 +18,7 @@ jest.mock('expo-router', () => ({
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+  useSession: () => ({ session: mockSession }),
 }));
 
 jest.mock('@/features/inventory/use-product-mutations', () => ({
@@ -37,9 +39,12 @@ function renderScreen() {
 
 beforeEach(() => {
   mockParams = {};
+  mockSession = { user: { id: 'user-1' } };
   mockAddProductMutateAsync.mockReset();
   consumePendingProductSelection(); // Puffer zwischen Tests leeren.
 });
+
+afterEach(() => jest.restoreAllMocks());
 
 describe('AddProductScreen', () => {
   it('startet mit einem leeren Formular, sofern kein prefillName-Param gesetzt ist', async () => {
@@ -76,5 +81,55 @@ describe('AddProductScreen', () => {
     expect(consumePendingProductSelection()).toEqual(
       expect.objectContaining({ name: 'Bio-Karotten', caloriesPer100g: 41 }),
     );
+  });
+
+  it('normalisiert optionale Nährwerte und lässt ungültige Werte aus', async () => {
+    mockAddProductMutateAsync.mockResolvedValue({
+      id: 'prod-2',
+      name: 'Haferdrink',
+      barcode: '123',
+      brand: 'Bio',
+    });
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('Name'), ' Haferdrink ');
+    await fireEvent.changeText(screen.getByLabelText('Marke (optional)'), ' Bio ');
+    await fireEvent.changeText(screen.getByLabelText('kcal pro 100g'), '42.5 kcal');
+    await fireEvent.changeText(screen.getByLabelText('Kohlenhydrate pro 100g'), 'ungültig');
+    await fireEvent.changeText(screen.getByLabelText('Eiweiß pro 100g'), '1.2');
+    await fireEvent.changeText(screen.getByLabelText('Fett pro 100g'), ' ');
+    await fireEvent.changeText(screen.getByLabelText('Portionsgröße in Gramm (optional)'), '30');
+
+    await fireEvent.press(screen.getByText('Speichern'));
+
+    expect(mockAddProductMutateAsync).toHaveBeenCalledWith({
+      name: 'Haferdrink',
+      brand: 'Bio',
+      kcal_per_100: 42.5,
+      protein_g_per_100: 1.2,
+      carbs_g_per_100: undefined,
+      fat_g_per_100: undefined,
+      serving_size_g: 30,
+      source: 'manual',
+      created_by: 'user-1',
+    });
+  });
+
+  it('zeigt einen Speicherfehler an', async () => {
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    mockAddProductMutateAsync.mockRejectedValueOnce(new Error('offline'));
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('Name'), 'Haferdrink');
+    await fireEvent.press(screen.getByText('Speichern'));
+    await waitFor(() => expect(alert).toHaveBeenCalledWith('Fehler', 'offline'));
+  });
+
+  it('speichert nicht ohne angemeldete Person', async () => {
+    mockSession = null;
+    await renderScreen();
+    await fireEvent.changeText(screen.getByLabelText('Name'), 'Haferdrink');
+    await fireEvent.press(screen.getByText('Speichern'));
+    expect(mockAddProductMutateAsync).not.toHaveBeenCalled();
   });
 });

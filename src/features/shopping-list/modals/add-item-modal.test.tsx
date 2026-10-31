@@ -1,6 +1,8 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { Keyboard, Text } from 'react-native';
 import { i18n } from '@/i18n';
 import { AddItemModal } from './add-item-modal';
+import { ItemModalShell } from './item-modal-shell';
 
 const mockCloseSearch = jest.fn();
 
@@ -80,5 +82,46 @@ describe('AddItemModal', () => {
     await render(<AddItemModal visible={false} householdId="household-1" onDismiss={jest.fn()} />);
 
     expect(screen.queryByText('household-1:none')).not.toBeOnTheScreen();
+  });
+
+  it('uses the default keyboard-dismiss action for a tappable header', async () => {
+    const user = userEvent.setup();
+    const dismissKeyboard = jest.spyOn(Keyboard, 'dismiss').mockImplementation(() => {});
+    await render(
+      <ItemModalShell visible onDismiss={jest.fn()} header={<Text>Neuer Eintrag</Text>} showHandle>
+        <Text>Inhalt</Text>
+      </ItemModalShell>,
+    );
+
+    await user.press(screen.getByText('Neuer Eintrag'));
+
+    expect(dismissKeyboard).toHaveBeenCalledTimes(1);
+    dismissKeyboard.mockRestore();
+  });
+
+  it('forwards native modal close and finished-dismiss events', async () => {
+    const onDismiss = jest.fn();
+    const onDismissFinished = jest.fn();
+    const previousNodeEnv = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'production';
+    try {
+      await render(
+        <ItemModalShell
+          visible
+          onDismiss={onDismiss}
+          onDismissFinished={onDismissFinished}
+          header={<Text>Native modal header</Text>}>
+          <Text>Native modal content</Text>
+        </ItemModalShell>,
+      );
+    } finally {
+      process.env.NODE_ENV = previousNodeEnv;
+    }
+
+    await fireEvent(screen.getByText('Native modal header'), 'requestClose');
+    await fireEvent(screen.getByText('Native modal header'), 'dismiss');
+
+    expect(onDismiss).toHaveBeenCalledTimes(1);
+    expect(onDismissFinished).toHaveBeenCalledTimes(1);
   });
 });

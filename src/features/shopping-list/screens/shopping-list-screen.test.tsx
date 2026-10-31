@@ -1,9 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colorsLight } from '@/components/theme';
 import { i18n } from '@/i18n';
 import { categorySurfaceColors } from '../components/category-surface-colors';
+import type { TransferItem } from '../sheets/complete-run-sheet';
 
 import { ShoppingListScreen } from './shopping-list-screen';
 
@@ -46,18 +48,51 @@ jest.mock('@/features/household/active-household-provider', () => ({
 
 const mockToggleMutateAsync = jest.fn();
 const mockDeleteMutateAsync = jest.fn();
+const mockDeleteMutate = jest.fn();
 const mockMoveMutateAsync = jest.fn().mockResolvedValue(undefined);
+const mockCompleteRunMutateAsync = jest.fn().mockResolvedValue(undefined);
 
 jest.mock('../hooks/use-shopping-list-mutations', () => ({
   useToggleShoppingItem: () => ({ mutateAsync: mockToggleMutateAsync }),
-  useDeleteShoppingItem: () => ({ mutateAsync: mockDeleteMutateAsync }),
+  useDeleteShoppingItem: () => ({ mutate: mockDeleteMutate, mutateAsync: mockDeleteMutateAsync }),
   useMoveShoppingItems: () => ({ mutateAsync: mockMoveMutateAsync }),
-  useCompleteShoppingRun: () => ({ mutateAsync: jest.fn() }),
+  useCompleteShoppingRun: () => ({ mutateAsync: mockCompleteRunMutateAsync }),
   useAddShoppingItem: () => ({ mutateAsync: jest.fn() }),
   // Zeile antippen oeffnet jetzt das Bearbeiten-Formular (statt abzuhaken),
   // das braucht diesen Hook.
   useUpdateShoppingItem: () => ({ mutateAsync: jest.fn() }),
 }));
+
+jest.mock('../hooks/use-complete-shopping-run', () => ({
+  useCompleteShoppingRun: () => ({ mutateAsync: mockCompleteRunMutateAsync }),
+}));
+
+jest.mock('../sheets/complete-run-sheet', () => {
+  const React = jest.requireActual<typeof import('react')>('react');
+  const { Pressable: NativePressable, Text: NativeText } =
+    jest.requireActual<typeof import('react-native')>('react-native');
+
+  return {
+    CompleteRunSheet: ({
+      isOpen,
+      onConfirm,
+    }: {
+      isOpen: boolean;
+      onConfirm: (transfers: TransferItem[]) => Promise<void>;
+    }) =>
+      isOpen
+        ? React.createElement(
+            NativePressable,
+            {
+              accessibilityRole: 'button',
+              accessibilityLabel: 'Testabschluss bestätigen',
+              onPress: () => onConfirm([]),
+            },
+            React.createElement(NativeText, null, 'Testabschluss bestätigen'),
+          )
+        : null,
+  };
+});
 
 jest.mock('../preferences/display-settings', () => ({
   useShowPriceInMarketView: () => ({ data: false }),
@@ -174,23 +209,34 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
 }));
 
 jest.mock('@/features/inventory/barcode-scanner-modal', () => {
-  const { Pressable, Text } = require('react-native');
+  const { Pressable: NativePressable, Text: NativeText } =
+    jest.requireActual<typeof import('react-native')>('react-native');
 
   return {
     BarcodeScannerModal: ({
       visible,
       onBarcodeDetected,
+      onClose,
     }: {
       visible: boolean;
       onBarcodeDetected: (barcode: string) => void;
+      onClose: () => void;
     }) =>
       visible ? (
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Testprodukt scannen"
-          onPress={() => onBarcodeDetected('4001234567890')}>
-          <Text>Barcode scanner geöffnet</Text>
-        </Pressable>
+        <>
+          <NativePressable
+            accessibilityRole="button"
+            accessibilityLabel="Testprodukt scannen"
+            onPress={() => onBarcodeDetected('4001234567890')}>
+            <NativeText>Barcode scanner geöffnet</NativeText>
+          </NativePressable>
+          <NativePressable
+            accessibilityRole="button"
+            accessibilityLabel="Scanner schließen"
+            onPress={onClose}>
+            <NativeText>Schließen</NativeText>
+          </NativePressable>
+        </>
       ) : null,
   };
 });
@@ -233,6 +279,7 @@ describe('ShoppingListScreen', () => {
       jest.runOnlyPendingTimers();
     });
     jest.useRealTimers();
+    jest.restoreAllMocks();
   });
 
   async function renderScreen() {
@@ -365,6 +412,15 @@ describe('ShoppingListScreen', () => {
     expect(await screen.findByText('Barcode scanner geöffnet')).toBeTruthy();
   });
 
+  it('schließt den Scanner nach der Schließen-Aktion', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Barcode scannen' }));
+    await fireEvent.press(await screen.findByRole('button', { name: 'Scanner schließen' }));
+
+    expect(screen.queryByText('Barcode scanner geöffnet')).toBeNull();
+  });
+
   it('zeigt Barcode und Hinzufügen als Header-Aktionen', async () => {
     await renderScreen();
 
@@ -402,6 +458,9 @@ describe('ShoppingListScreen', () => {
       await screen.findByRole('button', { name: 'Mehrfachauswahl starten' }),
     ).toBeOnTheScreen();
     await fireEvent.press(screen.getByRole('button', { name: 'Mehrfachauswahl starten' }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Alle Artikel auswählen' }));
+    expect(screen.getByRole('button', { name: 'Auswahl aufheben' })).toBeOnTheScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Auswahl aufheben' }));
     await fireEvent.press(screen.getByRole('button', { name: 'Bananen auswählen' }));
     await fireEvent.press(screen.getByRole('button', { name: 'Hafermilch auswählen' }));
 
@@ -416,6 +475,53 @@ describe('ShoppingListScreen', () => {
       store_id: 'store-2',
     });
     expect(screen.queryByText('Artikel verschieben')).not.toBeOnTheScreen();
+  });
+
+  it('hakt Artikel im Einkaufsmodus ab', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+    await fireEvent.press(
+      screen.getByRole('button', { name: 'Einkaufsmodus für Supermarkt starten' }),
+    );
+    await fireEvent.press(await screen.findByRole('checkbox', { name: 'Bananen' }));
+
+    expect(mockToggleMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ id: 'item-1', household_id: 'hh-1', checked_by: 'user-1' }),
+    );
+  });
+
+  it('bestätigt den Einkaufsabschluss mit den abgehakten Artikeln', async () => {
+    mockShoppingListChecked = true;
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+    await fireEvent.press(
+      screen.getByRole('button', { name: /Einkaufsliste bei Supermarkt abschließen/ }),
+    );
+    await fireEvent.press(await screen.findByRole('button', { name: 'Testabschluss bestätigen' }));
+
+    expect(mockCompleteRunMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ householdId: 'hh-1', userId: 'user-1', transfers: [] }),
+    );
+  });
+
+  it('fragt vor dem Löschen eines Artikels nach Bestätigung', async () => {
+    const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    await renderScreen();
+    await fireEvent.press(screen.getByText('Supermarkt'));
+    await act(() => {
+      jest.advanceTimersByTime(60);
+    });
+    await fireEvent(screen.getByRole('button', { name: 'Bananen bearbeiten' }), 'longPress');
+
+    expect(alertSpy).toHaveBeenCalled();
+    alertSpy.mock.calls[0]?.[2]?.find((button) => button.style === 'destructive')?.onPress?.();
+    expect(mockDeleteMutate).toHaveBeenCalledWith({ id: 'item-1', household_id: 'hh-1' });
   });
 
   it('öffnet nach einem erfolgreichen Scan das Hinzufügen-Modal mit dem Produkt', async () => {

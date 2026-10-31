@@ -5,7 +5,9 @@ import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
 import { useCompleteShoppingRun } from '@/features/shopping-list/hooks/use-complete-shopping-run';
 import type { LocalShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list';
-import { enqueueMutations } from '@/lib/db/outbox';
+import { enqueueMutation, enqueueMutations } from '@/lib/db/outbox';
+import type { SqlDatabase } from '@/lib/db/types';
+import { applyLocalMirrorWrite } from '@/lib/sync/mirror-write';
 
 jest.mock('expo-crypto', () => ({
   randomUUID: jest.fn().mockReturnValueOnce('fridge-item-1').mockReturnValueOnce('transaction-1'),
@@ -14,6 +16,13 @@ jest.mock('expo-crypto', () => ({
 // `useStorageLocations` erwartet immer eine Liste; `undefined` ist fuer TanStack Query ungueltig.
 const mockDbGetAllAsync = jest.fn().mockResolvedValue([]);
 const mockDbRunAsync = jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 });
+const mockLocalTxn: SqlDatabase = {
+  execAsync: jest.fn().mockResolvedValue(undefined),
+  runAsync: jest.fn().mockResolvedValue({ changes: 1, lastInsertRowId: 1 }),
+  getAllAsync: async <T,>() => [] as T[],
+  getFirstAsync: async () => null,
+  withExclusiveTransactionAsync: jest.fn().mockResolvedValue(undefined),
+};
 
 jest.mock('@/lib/db/local-client', () => ({
   getDatabase: jest.fn().mockResolvedValue({
@@ -27,12 +36,20 @@ jest.mock('@/lib/db/outbox', () => ({
   enqueueMutations: jest.fn().mockResolvedValue(undefined),
 }));
 
+jest.mock('@/lib/sync/mirror-write', () => ({
+  applyLocalMirrorWrite: jest.fn().mockResolvedValue(undefined),
+}));
+
 jest.mock('@/features/gamification/streak', () => ({
   recordActivity: jest.fn(() => ({ count: 1, increased: true, milestone: false })),
 }));
 
 jest.mock('@/features/gamification/celebration', () => ({
   celebrate: jest.fn(),
+}));
+
+jest.mock('@/features/inventory/use-storage-locations', () => ({
+  useStorageLocations: () => ({ data: [{ id: 'fridge-location', kind: 'fridge' }] }),
 }));
 
 describe('useCompleteShoppingRun', () => {
@@ -126,6 +143,15 @@ describe('useCompleteShoppingRun', () => {
         }),
       }),
     ]);
+    const transferMutations = jest.mocked(enqueueMutations).mock.calls[0]?.[1];
+    if (!transferMutations) throw new Error('Die Transfer-Mutationen fehlen.');
+    await Promise.all(transferMutations.map((mutation) => mutation.applyLocally(mockLocalTxn)));
+
+    const checkedMutation = jest.mocked(enqueueMutation).mock.calls[0]?.[1];
+    if (!checkedMutation) throw new Error('Die Mutation für den abgehakten Artikel fehlt.');
+    await checkedMutation.applyLocally(mockLocalTxn);
+
+    expect(applyLocalMirrorWrite).toHaveBeenCalledTimes(4);
     expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 

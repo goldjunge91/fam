@@ -301,6 +301,66 @@ for (const [platform, mutations] of implementations) {
       );
     });
 
+    it('reicht Vorgaben ohne Feedback an den atomaren Save weiter', async () => {
+      const { result } = await renderHook(() => useAddShoppingItem(), { wrapper });
+
+      await act(async () => {
+        await result.current.mutateAsync({
+          household_id: 'hh-1',
+          name: 'Hafermilch',
+          quantity: 1,
+          unit: 'piece',
+          product_id: 'product-1',
+          preference: {
+            type: 'set',
+            input: {
+              householdId: 'hh-1',
+              keyType: 'name',
+              keyValue: 'Hafermilch',
+              categoryId: 'cold_drinks',
+              createdBy: 'user-1',
+            },
+          },
+        });
+      });
+
+      await waitFor(() => expect(result.current.isSuccess).toBe(true));
+      expect(saveShoppingItemAtomically).toHaveBeenCalledWith(
+        expect.objectContaining({ feedback: undefined }),
+      );
+    });
+
+    it.each([new Error('Speichern fehlgeschlagen'), 'unbekannter Fehler'])(
+      'reicht atomare Speicherfehler unverändert weiter: %s',
+      async (error) => {
+        jest.mocked(saveShoppingItemAtomically).mockRejectedValueOnce(error);
+        const { result } = await renderHook(() => useAddShoppingItem(), { wrapper });
+
+        await act(async () => {
+          await expect(
+            result.current.mutateAsync({
+              household_id: 'hh-1',
+              name: 'Hafermilch',
+              quantity: 1,
+              unit: 'piece',
+              product_id: 'product-1',
+              preference: {
+                type: 'set',
+                input: {
+                  householdId: 'hh-1',
+                  keyType: 'name',
+                  keyValue: 'Hafermilch',
+                  categoryId: 'cold_drinks',
+                  createdBy: 'user-1',
+                },
+              },
+            }),
+          ).rejects.toBe(error);
+        });
+        await waitFor(() => expect(result.current.isError).toBe(true));
+      },
+    );
+
     it('reicht einen leeren Verschiebeauftrag ohne Datenbankzugriff durch', async () => {
       const { result } = await renderHook(() => useMoveShoppingItems(), { wrapper });
 

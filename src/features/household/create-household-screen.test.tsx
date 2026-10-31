@@ -6,10 +6,11 @@ import { CreateHouseholdScreen } from '@/features/household/create-household-scr
 
 const mockCreateMutateAsync = jest.fn().mockResolvedValue({ id: 'hh-1', name: 'Neuer Haushalt' });
 const mockReplace = jest.fn();
+const mockPush = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: {
-    push: jest.fn(),
+    push: (...args: unknown[]) => mockPush(...args),
     replace: (...args: unknown[]) => mockReplace(...args),
     back: jest.fn(),
     canGoBack: () => false,
@@ -50,6 +51,8 @@ describe('CreateHouseholdScreen', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockCreateMutateAsync.mockResolvedValue({ id: 'hh-1', name: 'Neuer Haushalt' });
+    mockPush.mockClear();
   });
 
   it('rendert Formular für neuen Haushalt', async () => {
@@ -58,6 +61,14 @@ describe('CreateHouseholdScreen', () => {
     expect(screen.getByText('Haushalt erstellen')).toBeTruthy();
     expect(screen.getByLabelText('Name deines Haushalts')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Erstellen' })).toBeTruthy();
+  });
+
+  it('öffnet die Beitrittsansicht für einen vorhandenen Einladungscode', async () => {
+    await renderScreen();
+
+    await userEvent.press(screen.getByRole('button', { name: 'Ich habe einen Einladungs-Code' }));
+
+    expect(mockPush).toHaveBeenCalledWith('/household/join');
   });
 
   it('validiert leeren Haushaltsnamen', async () => {
@@ -85,5 +96,19 @@ describe('CreateHouseholdScreen', () => {
       expect(mockCreateMutateAsync).toHaveBeenCalledWith('WG Sonnenschein');
       expect(mockReplace).toHaveBeenCalledWith('/');
     });
+  });
+
+  it('zeigt einen Erstellungsfehler an und löscht ihn bei erfolgreichem erneuten Versuch', async () => {
+    mockCreateMutateAsync.mockRejectedValueOnce(new Error('Haushalt konnte nicht erstellt werden'));
+    await renderScreen();
+
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText('Name deines Haushalts'), 'WG Sonnenschein');
+    await user.press(screen.getByRole('button', { name: 'Erstellen' }));
+    expect(await screen.findByText('Haushalt konnte nicht erstellt werden')).toBeTruthy();
+
+    await user.press(screen.getByRole('button', { name: 'Erstellen' }));
+    await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/'));
+    expect(screen.queryByText('Haushalt konnte nicht erstellt werden')).toBeNull();
   });
 });

@@ -1,10 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { i18n } from '@/i18n';
 import { AccountStepForm } from './account-step';
 
 const mockSignUp = jest.fn();
 const mockSignIn = jest.fn();
 const mockPush = jest.fn();
+let mockSession: { user: { email: string } } | null = null;
 
 jest.mock('expo-router', () => ({
   router: { push: (...args: unknown[]) => mockPush(...args) },
@@ -24,9 +25,23 @@ jest.mock('@/features/auth/oauth-provider-actions', () => ({
 }));
 
 jest.mock('@/features/auth/components/email-verification-panel', () => ({
-  EmailVerificationPanel: ({ email }: { email: string }) => {
-    const { Text } = require('react-native');
-    return <Text>Warteraum: {email}</Text>;
+  EmailVerificationPanel: ({
+    email,
+    onConfirmed,
+    onChangeEmail,
+  }: {
+    email: string;
+    onConfirmed: () => void;
+    onChangeEmail: () => void;
+  }) => {
+    const { Button, Text, View } = require('react-native');
+    return (
+      <View>
+        <Text>Warteraum: {email}</Text>
+        <Button title="E-Mail bestätigt" onPress={onConfirmed} />
+        <Button title="E-Mail ändern" onPress={onChangeEmail} />
+      </View>
+    );
   },
 }));
 
@@ -38,7 +53,7 @@ jest.mock('@/features/auth/components/apple-sign-in-button', () => ({
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: null }),
+  useSession: () => ({ session: mockSession }),
 }));
 
 async function fillAndSubmit() {
@@ -53,6 +68,7 @@ describe('AccountStepForm', () => {
     mockSignUp.mockReset();
     mockSignIn.mockReset();
     mockPush.mockReset();
+    mockSession = null;
     await i18n.changeLanguage('de');
   });
 
@@ -96,5 +112,46 @@ describe('AccountStepForm', () => {
     await fillAndSubmit();
 
     expect(onNext).toHaveBeenCalled();
+  });
+
+  it('wechselt nach Google-Login weiter, sobald die OAuth-Session eintrifft', async () => {
+    const user = userEvent.setup();
+    const onNext = jest.fn();
+    const view = await render(<AccountStepForm onNext={onNext} />);
+
+    await user.press(screen.getByRole('button', { name: 'Mit Google anmelden' }));
+    expect(onNext).not.toHaveBeenCalled();
+
+    mockSession = { user: { email: 'family@example.com' } };
+    await view.rerender(<AccountStepForm onNext={onNext} />);
+
+    expect(onNext).toHaveBeenCalledTimes(1);
+  });
+
+  it('zeigt ein bereits angemeldetes Konto und kann direkt fortfahren', async () => {
+    const user = userEvent.setup();
+    const onNext = jest.fn();
+    mockSession = { user: { email: 'family@example.com' } };
+
+    await render(<AccountStepForm onNext={onNext} />);
+
+    expect(screen.getByText('✓ Angemeldet als: family@example.com')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Weiter' }));
+    expect(onNext).toHaveBeenCalledTimes(1);
+  });
+
+  it('geht aus der E-Mail-Verifizierung weiter oder zurück zur Kontoerstellung', async () => {
+    const user = userEvent.setup();
+    mockSignUp.mockResolvedValue({ data: { session: null }, error: null });
+    const onNext = jest.fn();
+
+    await render(<AccountStepForm onNext={onNext} />);
+    await fillAndSubmit();
+    await user.press(await screen.findByRole('button', { name: 'E-Mail ändern' }));
+
+    expect(screen.getByRole('button', { name: 'Konto erstellen' })).toBeOnTheScreen();
+    await fillAndSubmit();
+    await user.press(await screen.findByRole('button', { name: 'E-Mail bestätigt' }));
+    expect(onNext).toHaveBeenCalledTimes(1);
   });
 });

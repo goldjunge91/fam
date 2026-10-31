@@ -221,7 +221,6 @@ async function retryPendingReceiptAssetUploadOnce(input: {
     { persistence },
   );
   if (result.draft.status === 'uploaded') {
-    await persistence.transition({ phase: 'saved', updatedAt: new Date().toISOString() });
     await persistence.discard();
   }
   return result;

@@ -5,6 +5,8 @@ import { WeightTrackingScreen } from '@/features/calorie-tracking/weight-trackin
 
 const mockUseWeightHistory = jest.fn();
 const mockAddWeightEntry = jest.fn().mockResolvedValue({ id: 'weight-3' });
+let mockSession: { user: { id: string } } | null = { user: { id: 'user-1' } };
+let mockProfile: { tracking_day_start_time: string } | null = { tracking_day_start_time: '00:00' };
 
 jest.mock('expo-router', () => ({
   router: {
@@ -18,11 +20,11 @@ jest.mock('expo-router', () => ({
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
-  useSession: () => ({ session: { user: { id: 'user-1' } } }),
+  useSession: () => ({ session: mockSession }),
 }));
 
 jest.mock('@/features/profile/api', () => ({
-  useProfile: () => ({ data: { tracking_day_start_time: '00:00' }, isLoading: false }),
+  useProfile: () => ({ data: mockProfile, isLoading: false }),
 }));
 
 jest.mock('@/features/calorie-tracking/api', () => ({
@@ -48,6 +50,8 @@ function renderScreen() {
 beforeEach(() => {
   mockUseWeightHistory.mockReset();
   mockAddWeightEntry.mockClear();
+  mockSession = { user: { id: 'user-1' } };
+  mockProfile = { tracking_day_start_time: '00:00' };
   mockUseWeightHistory.mockReturnValue({
     data: [
       {
@@ -96,5 +100,53 @@ describe('WeightTrackingScreen', () => {
     } finally {
       jest.useRealTimers();
     }
+  });
+
+  it('zeigt den leeren Verlauf ohne Profil', async () => {
+    mockProfile = null;
+    mockUseWeightHistory.mockReturnValue({ data: [], isLoading: false });
+
+    await renderScreen();
+
+    expect(screen.getByText('Noch kein Eintrag')).toBeOnTheScreen();
+    expect(screen.getByText('Füge deine erste Messung hinzu.')).toBeOnTheScreen();
+    expect(screen.getByText('Noch keine Messungen vorhanden.')).toBeOnTheScreen();
+  });
+
+  it('zeigt den Ladezustand des Verlaufs', async () => {
+    mockUseWeightHistory.mockReturnValue({ data: [], isLoading: true });
+
+    await renderScreen();
+
+    expect(screen.getByText('Lade Gewichtseinträge...')).toBeOnTheScreen();
+    expect(screen.queryByText('Die letzten 2 Messungen')).toBeNull();
+  });
+
+  it('validiert unbrauchbare Gewichte und erlaubt das Verwerfen des Formulars', async () => {
+    await renderScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Neuer Eintrag' }));
+    await fireEvent.changeText(screen.getByLabelText('Gewicht (kg)'), '700');
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(screen.getByText('Bitte gib ein gültiges Gewicht unter 700 kg ein.')).toBeOnTheScreen();
+    expect(mockAddWeightEntry).not.toHaveBeenCalled();
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Abbrechen' }));
+    expect(screen.queryByLabelText('Gewicht (kg)')).toBeNull();
+  });
+
+  it('zeigt einen Speicherfehler an und löscht ihn beim Ändern des Gewichts', async () => {
+    mockAddWeightEntry.mockRejectedValueOnce(new Error('offline'));
+    await renderScreen();
+    await fireEvent.press(screen.getByRole('button', { name: 'Neuer Eintrag' }));
+    await fireEvent.changeText(screen.getByLabelText('Gewicht (kg)'), '79');
+    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(
+      await screen.findByText('Der Gewichtseintrag konnte nicht gespeichert werden.'),
+    ).toBeOnTheScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('Gewicht (kg)'), '79,1');
+    expect(screen.queryByText('Der Gewichtseintrag konnte nicht gespeichert werden.')).toBeNull();
   });
 });

@@ -1,4 +1,10 @@
-import { deleteLocalDatabase, getDatabase, setActiveUserId } from '@/lib/db/local-client';
+import {
+  closeDatabaseForLifecycle,
+  deleteLocalDatabase,
+  getDatabase,
+  getDrizzleDatabase,
+  setActiveUserId,
+} from '@/lib/db/local-client';
 import {
   deleteDatabaseEncryptionKey,
   openEncryptedDatabaseWithCutover,
@@ -7,8 +13,11 @@ import { debugLog } from '@/lib/observability/debug-log';
 import localMigrations from '../../../drizzle/local/migrations';
 
 const mockExistingFiles = new Set(['fam-v2.db', 'fam-v2.db-wal']);
+let failMainFileDeletion = true;
 const mockDeleteFile = jest.fn(async (fileName: string) => {
-  if (fileName === 'fam-v2.db') throw new Error('native delete failed');
+  if (fileName === 'fam-v2.db' && failMainFileDeletion) {
+    throw new Error('native delete failed');
+  }
   mockExistingFiles.delete(fileName);
 });
 const mockRawDatabase = {
@@ -101,7 +110,89 @@ describe('database client lifecycle', () => {
     expect(createExpoDatabaseFileOps).toHaveBeenCalledWith('/mock/app-group');
   });
 
+  it('reicht SQL-Parameter weiter und schließt Raw-Statements auch nach Fehlern', async () => {
+    setActiveUserId('user-a');
+    const db = await getDatabase();
+    const rows = [{ id: 'item-a' }];
+    const rawResult = { getAllAsync: jest.fn().mockResolvedValue(rows) };
+    const statement = {
+      executeForRawResultAsync: jest.fn().mockResolvedValue(rawResult),
+      finalizeAsync: jest.fn().mockResolvedValue(undefined),
+    };
+    mockRawDatabase.runAsync.mockResolvedValueOnce({ lastInsertRowId: 4, changes: 1 });
+    mockRawDatabase.getAllAsync.mockResolvedValueOnce(rows);
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce(rows[0]);
+    mockRawDatabase.prepareAsync.mockResolvedValueOnce(statement);
+
+    await expect(db.runAsync('UPDATE items SET checked = ?', [1])).resolves.toEqual({
+      lastInsertRowId: 4,
+      changes: 1,
+    });
+    await expect(db.getAllAsync('SELECT id FROM items', ['list-a'])).resolves.toEqual(rows);
+    await expect(db.getFirstAsync('SELECT id FROM items', ['item-a'])).resolves.toEqual(rows[0]);
+    await expect(db.getAllRawAsync?.('SELECT * FROM items', ['list-a'])).resolves.toEqual(rows);
+
+    expect(mockRawDatabase.runAsync).toHaveBeenCalledWith('UPDATE items SET checked = ?', [1]);
+    expect(mockRawDatabase.getAllAsync).toHaveBeenCalledWith('SELECT id FROM items', ['list-a']);
+    expect(mockRawDatabase.getFirstAsync).toHaveBeenCalledWith('SELECT id FROM items', ['item-a']);
+    expect(statement.executeForRawResultAsync).toHaveBeenCalledWith(['list-a']);
+    expect(rawResult.getAllAsync).toHaveBeenCalledTimes(1);
+    expect(statement.finalizeAsync).toHaveBeenCalledTimes(1);
+
+    const failedStatement = {
+      executeForRawResultAsync: jest.fn().mockRejectedValue(new Error('raw read failed')),
+      finalizeAsync: jest.fn().mockResolvedValue(undefined),
+    };
+    mockRawDatabase.prepareAsync.mockResolvedValueOnce(failedStatement);
+
+    await expect(db.getAllRawAsync?.('SELECT * FROM broken')).rejects.toThrow('raw read failed');
+    expect(failedStatement.finalizeAsync).toHaveBeenCalledTimes(1);
+  });
+
+  it('schließt den Lifecycle-Handle, warnt bei Close-Fehlern und cached Drizzle', async () => {
+    setActiveUserId('user-a');
+    const { createDrizzleDatabase } = jest.requireMock('@/lib/db/drizzle-driver') as {
+      createDrizzleDatabase: jest.Mock;
+    };
+    createDrizzleDatabase.mockClear();
+    createDrizzleDatabase.mockReturnValue(mockExpoDrizzleDatabase);
+    const firstDrizzle = await getDrizzleDatabase();
+    await expect(getDrizzleDatabase()).resolves.toBe(firstDrizzle);
+    expect(createDrizzleDatabase).toHaveBeenCalledTimes(1);
+
+    mockRawDatabase.closeAsync.mockRejectedValueOnce(new Error('temporary close failure'));
+    await closeDatabaseForLifecycle();
+
+    const { debugWarn } = jest.requireMock('@/lib/observability/debug-log') as {
+      debugWarn: jest.Mock;
+    };
+    expect(debugWarn).toHaveBeenCalledWith(
+      '[db] Verbindung beim App-Wechsel konnte nicht geschlossen werden:',
+      expect.any(Error),
+    );
+
+    let finishClose: (() => void) | undefined;
+    mockRawDatabase.closeAsync.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          finishClose = resolve;
+        }),
+    );
+    const closing = closeDatabaseForLifecycle();
+    const joinedClose = closeDatabaseForLifecycle();
+    expect(joinedClose).toBe(closing);
+    const reopening = getDatabase();
+    await Promise.resolve();
+    finishClose?.();
+    await closing;
+    await expect(reopening).resolves.toBeDefined();
+    await getDrizzleDatabase();
+    expect(createDrizzleDatabase).toHaveBeenCalledTimes(2);
+    expect(mockRawDatabase.closeAsync).toHaveBeenCalledTimes(2);
+  });
+
   it('blockiert ohne Session und drained eine laufende Query vor einem fail-closed Wipe', async () => {
+    mockRawDatabase.closeAsync.mockClear();
     setActiveUserId(null);
     await expect(getDatabase()).rejects.toThrow(/Ohne angemeldeten Nutzer/);
 
@@ -179,5 +270,89 @@ describe('database client lifecycle', () => {
     await expect(staleOpening).rejects.toThrow(/Accountwechsel/);
     await expect(deferredWipe).rejects.toThrow(/Wipe ist fehlgeschlagen/);
     await expect(getDatabase()).rejects.toThrow(/Ohne angemeldeten Nutzer/);
+  });
+
+  it('löscht Dateien aus dem Standardverzeichnis, wenn kein App-Group-Pfad verfügbar ist', async () => {
+    const fileSystem = jest.requireMock('expo-file-system') as {
+      Paths: { appleSharedContainers?: Record<string, { uri: string }> };
+    };
+    const { createExpoDatabaseFileOps } = jest.requireMock('@/lib/db/database-files') as {
+      createExpoDatabaseFileOps: jest.Mock;
+    };
+    const { deleteDatabaseEncryptionKey: deleteKey } = jest.requireMock(
+      '@/lib/db/local-database-encryption',
+    ) as { deleteDatabaseEncryptionKey: jest.Mock };
+    const { debugWarn } = jest.requireMock('@/lib/observability/debug-log') as {
+      debugWarn: jest.Mock;
+    };
+    const originalFailMainFileDeletion = failMainFileDeletion;
+    const originalExistingFiles = new Set(mockExistingFiles);
+    const originalAppGroupDescriptor = Object.getOwnPropertyDescriptor(
+      fileSystem.Paths,
+      'appleSharedContainers',
+    );
+
+    try {
+      failMainFileDeletion = false;
+      setActiveUserId('user-c');
+      mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
+      await getDatabase();
+
+      fileSystem.Paths.appleSharedContainers = undefined;
+      createExpoDatabaseFileOps.mockClear();
+      mockDeleteFile.mockClear();
+      deleteKey.mockClear();
+      debugWarn.mockClear();
+      await deleteLocalDatabase();
+
+      expect(createExpoDatabaseFileOps).toHaveBeenCalledTimes(1);
+      expect(createExpoDatabaseFileOps).toHaveBeenLastCalledWith('/mock/sqlite');
+      expect(mockDeleteFile).toHaveBeenCalledTimes(12);
+      expect(mockDeleteFile).toHaveBeenNthCalledWith(1, 'fam-v2.db');
+      expect(deleteKey).toHaveBeenCalledTimes(1);
+      expect(debugWarn).not.toHaveBeenCalled();
+
+      Object.defineProperty(fileSystem.Paths, 'appleSharedContainers', {
+        configurable: true,
+        get() {
+          throw new Error('shared-container API unavailable');
+        },
+      });
+      createExpoDatabaseFileOps.mockClear();
+      mockDeleteFile.mockClear();
+      deleteKey.mockClear();
+      debugWarn.mockClear();
+      await deleteLocalDatabase();
+
+      expect(createExpoDatabaseFileOps).toHaveBeenCalledTimes(1);
+      expect(createExpoDatabaseFileOps).toHaveBeenLastCalledWith('/mock/sqlite');
+      expect(mockDeleteFile).toHaveBeenCalledTimes(12);
+      expect(mockDeleteFile).toHaveBeenNthCalledWith(1, 'fam-v2.db');
+      expect(deleteKey).toHaveBeenCalledTimes(1);
+      expect(debugWarn).toHaveBeenCalledTimes(1);
+      expect(debugWarn).toHaveBeenLastCalledWith(
+        '[db] App-Group-Container nicht verfügbar; verwende Standardverzeichnis.',
+        expect.any(Error),
+      );
+    } finally {
+      failMainFileDeletion = originalFailMainFileDeletion;
+      mockExistingFiles.clear();
+      for (const fileName of originalExistingFiles) mockExistingFiles.add(fileName);
+      if (originalAppGroupDescriptor) {
+        Object.defineProperty(
+          fileSystem.Paths,
+          'appleSharedContainers',
+          originalAppGroupDescriptor,
+        );
+      } else {
+        delete fileSystem.Paths.appleSharedContainers;
+      }
+      createExpoDatabaseFileOps.mockClear();
+      mockDeleteFile.mockClear();
+      deleteKey.mockClear();
+      debugWarn.mockClear();
+      mockRawDatabase.closeAsync.mockClear();
+      setActiveUserId(null);
+    }
   });
 });
