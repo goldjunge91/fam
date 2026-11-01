@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import { InjectionReminderSettingsCard } from './injection-reminder-settings-card';
 
 const mockUseInjectionPlan = jest.fn();
@@ -127,7 +127,9 @@ describe('InjectionReminderSettingsCard', () => {
     mockUseInjectionPlan.mockReturnValue({ data: PLAN, isLoading: false, isError: false });
 
     await render(<InjectionReminderSettingsCard userId="user-1" />);
-    await fireEvent.press(screen.getByRole('switch', { name: 'An fällige Injektion erinnern' }));
+    await userEvent
+      .setup()
+      .press(screen.getByRole('switch', { name: 'An fällige Injektion erinnern' }));
 
     expect(mockUpdateInjectionPlan).toHaveBeenCalledWith({
       id: 'plan-1',
@@ -145,14 +147,14 @@ describe('InjectionReminderSettingsCard', () => {
     mockUseInjectionPlan.mockReturnValue({ data: PLAN, isLoading: false, isError: false });
 
     await render(<InjectionReminderSettingsCard userId="user-1" />);
-    await fireEvent.press(screen.getByTestId('time-wheel-invalid'));
+    await userEvent.setup().press(screen.getByTestId('time-wheel-invalid'));
 
     expect(screen.getByText('Bitte eine gültige Uhrzeit auswählen.')).toBeOnTheScreen();
     expect(mockUpdateInjectionPlan).not.toHaveBeenCalled();
 
-    await fireEvent.press(screen.getByTestId('time-wheel-valid'));
+    await userEvent.setup().press(screen.getByTestId('time-wheel-valid'));
 
-    expect(screen.queryByText('Bitte eine gültige Uhrzeit auswählen.')).toBeNull();
+    expect(screen.queryByText('Bitte eine gültige Uhrzeit auswählen.')).not.toBeOnTheScreen();
     expect(mockUpdateInjectionPlan).toHaveBeenCalledWith({
       id: 'plan-1',
       userId: 'user-1',
@@ -187,8 +189,10 @@ describe('InjectionReminderSettingsCard', () => {
     mockUseInjectionPlan.mockReturnValue({ data: PLAN, isLoading: false, isError: false });
 
     await render(<InjectionReminderSettingsCard userId={undefined} />);
-    await fireEvent.press(screen.getByRole('switch', { name: 'An fällige Injektion erinnern' }));
-    await fireEvent.press(screen.getByTestId('time-wheel-valid'));
+    await userEvent
+      .setup()
+      .press(screen.getByRole('switch', { name: 'An fällige Injektion erinnern' }));
+    await userEvent.setup().press(screen.getByTestId('time-wheel-valid'));
 
     expect(mockUpdateInjectionPlan).not.toHaveBeenCalled();
   });

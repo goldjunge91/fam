@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 import type { DashboardCardDef } from '@/features/dashboard/registry';
 import { clearCards, registerCard } from '@/features/dashboard/registry';
@@ -86,14 +86,15 @@ describe('CardGallerySheet', () => {
   });
 
   it('adds a hidden fallback card and closes when the backdrop is pressed', async () => {
+    const user = userEvent.setup();
     const onClose = jest.fn();
     await render(<CardGallerySheet visible onClose={onClose} />);
 
     expect(screen.getByText('dashboard.gallery.fallbackDescription')).toBeOnTheScreen();
     expect(screen.queryByText('dashboard.gallery.small')).toBeOnTheScreen();
-    await fireEvent.press(screen.getByLabelText('dashboard.gallery.addAccessibility'));
+    await user.press(screen.getByLabelText('dashboard.gallery.addAccessibility'));
     expect(mockCardSizes.showCard).toHaveBeenCalledWith('hidden-card');
-    await fireEvent.press(screen.getByLabelText('dashboard.gallery.close'));
+    await user.press(screen.getByLabelText('dashboard.gallery.close'));
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });

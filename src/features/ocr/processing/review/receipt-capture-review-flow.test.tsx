@@ -119,7 +119,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
       />,
     );
 
-    expect(screen.queryByRole('button')).toBeNull();
+    expect(screen.queryByRole('button')).not.toBeOnTheScreen();
     expect(load).not.toHaveBeenCalled();
   });
 
@@ -165,8 +165,8 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     );
 
     await waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
-    expect(screen.queryByRole('alert')).toBeNull();
-    expect(screen.queryByRole('button')).toBeNull();
+    expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button')).not.toBeOnTheScreen();
   });
 
   it('shows a retryable permission error for the initial camera capture', async () => {
@@ -295,7 +295,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     await waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
 
     await rerender(flowElement(false));
-    await waitFor(() => expect(screen.queryByRole('button')).toBeNull());
+    await waitFor(() => expect(screen.queryByRole('button')).not.toBeOnTheScreen());
 
     await rerender(flowElement(true));
     await waitFor(() => expect(capture).toHaveBeenCalledTimes(2));
@@ -476,7 +476,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
 
     await waitFor(() => expect(state.discarded).toHaveBeenCalledTimes(1));
     expect(state.current()).toBeNull();
-    expect(screen.queryByRole('button')).toBeNull();
+    expect(screen.queryByRole('button')).not.toBeOnTheScreen();
   });
 
   it('offers a save retry when resume finds an interrupted authority save', async () => {
@@ -697,7 +697,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('OCR unavailable.');
     state.persistence.load = jest.fn().mockResolvedValue(null);
     await userEvent.setup().press(screen.getByRole('button', { name: i18n.t('ocr.review.retry') }));
-    await waitFor(() => expect(screen.queryByRole('alert')).toBeNull());
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeOnTheScreen());
   });
 
   it('uses the translated processing error for a non-Error rejection and allows retry', async () => {
@@ -887,7 +887,7 @@ describe('ReceiptCaptureReviewFlow persistence', () => {
     expect(
       await screen.findByRole('button', { name: 'Weitere Seite fotografieren' }),
     ).toBeOnTheScreen();
-    expect(screen.queryByRole('alert')).toBeNull();
+    expect(screen.queryByRole('alert')).not.toBeOnTheScreen();
     expect(state.current()).toMatchObject({ status: 'pending', phase: 'normalized' });
   });
 

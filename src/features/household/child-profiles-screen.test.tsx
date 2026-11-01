@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { act, render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -56,9 +56,9 @@ beforeEach(() => {
 
 it('sendet managedBy beim Anlegen eines Kinder-Profils (RLS verlangt managed_by = auth.uid())', async () => {
   await renderScreen();
-  await fireEvent.press(screen.getByText('+ Kinder-Profil anlegen'));
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Paul'), 'Paul');
-  await fireEvent.press(screen.getByText('Speichern'));
+  await userEvent.setup().press(screen.getByRole('button', { name: '+ Kinder-Profil anlegen' }));
+  await userEvent.setup().type(screen.getByPlaceholderText('z. B. Paul'), 'Paul');
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
 
   expect(mockAddMutateAsync).toHaveBeenCalledWith(
     expect.objectContaining({
@@ -71,11 +71,11 @@ it('sendet managedBy beim Anlegen eines Kinder-Profils (RLS verlangt managed_by 
 
 it('speichert optionale Kinderangaben normalisiert und schließt das Formular danach', async () => {
   await renderScreen();
-  await fireEvent.press(screen.getByText('+ Kinder-Profil anlegen'));
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Paul'), '  Lina  ');
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. 104'), '104 cm');
-  await fireEvent.press(screen.getByLabelText('Weiblich'));
-  await fireEvent.press(screen.getByText('Speichern'));
+  await userEvent.setup().press(screen.getByRole('button', { name: '+ Kinder-Profil anlegen' }));
+  await userEvent.setup().type(screen.getByPlaceholderText('z. B. Paul'), '  Lina  ');
+  await userEvent.setup().type(screen.getByPlaceholderText('z. B. 104'), '104 cm');
+  await userEvent.setup().press(screen.getByLabelText('Weiblich'));
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
 
   expect(mockAddMutateAsync).toHaveBeenCalledWith({
     householdId: 'hh-1',
@@ -85,16 +85,16 @@ it('speichert optionale Kinderangaben normalisiert und schließt das Formular da
     heightCm: 104,
     managedBy: 'user-1',
   });
-  expect(screen.queryByPlaceholderText('z. B. Paul')).toBeNull();
+  expect(screen.queryByPlaceholderText('z. B. Paul')).not.toBeOnTheScreen();
 });
 
 it('hält das Formular offen und meldet einen fehlgeschlagenen Speicherversuch', async () => {
   const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
   mockAddMutateAsync.mockRejectedValueOnce(new Error('Profil konnte nicht gespeichert werden'));
   await renderScreen();
-  await fireEvent.press(screen.getByText('+ Kinder-Profil anlegen'));
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Paul'), 'Paul');
-  await fireEvent.press(screen.getByText('Speichern'));
+  await userEvent.setup().press(screen.getByRole('button', { name: '+ Kinder-Profil anlegen' }));
+  await userEvent.setup().type(screen.getByPlaceholderText('z. B. Paul'), 'Paul');
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
 
   expect(alert).toHaveBeenCalledWith('Fehler', 'Profil konnte nicht gespeichert werden');
   expect(screen.getByPlaceholderText('z. B. Paul')).toBeOnTheScreen();
@@ -112,9 +112,12 @@ it('bearbeitet ein vorhandenes Profil und übergibt die Änderungen', async () =
     },
   ];
   await renderScreen();
-  await fireEvent.press(screen.getByText('Bearbeiten'));
-  await fireEvent.changeText(screen.getByLabelText('Name des Kindes'), 'Paulchen');
-  await fireEvent.press(screen.getByText('Übernehmen'));
+  const user = userEvent.setup();
+  await user.press(screen.getByRole('button', { name: 'Bearbeiten' }));
+  const nameInput = screen.getByLabelText('Name des Kindes');
+  await user.clear(nameInput);
+  await user.type(nameInput, 'Paulchen');
+  await user.press(screen.getByRole('button', { name: 'Übernehmen' }));
 
   expect(mockUpdateMutateAsync).toHaveBeenCalledWith({
     id: 'child-1',
@@ -141,7 +144,7 @@ it('fragt vor dem Löschen nach und entfernt das ausgewählte Profil', async () 
     confirm = buttons?.find((button) => button.style === 'destructive')?.onPress;
   });
   await renderScreen();
-  await fireEvent.press(screen.getByText('Löschen'));
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Löschen' }));
 
   expect(alert).toHaveBeenCalledWith(
     'Profil löschen',
@@ -170,11 +173,11 @@ it('zeigt Zusatzangaben eines Profils an und kann die Bearbeitung abbrechen', as
 
   expect(screen.getByText(/Geboren:/)).toBeOnTheScreen();
   expect(screen.getByText(/120 cm · weiblich/)).toBeOnTheScreen();
-  await fireEvent.press(screen.getByText('Bearbeiten'));
-  await fireEvent.press(screen.getByText('Abbrechen'));
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Bearbeiten' }));
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Abbrechen' }));
 
   expect(screen.getByText(/Lina/)).toBeOnTheScreen();
-  expect(screen.queryByLabelText('Name des Kindes')).toBeNull();
+  expect(screen.queryByLabelText('Name des Kindes')).not.toBeOnTheScreen();
 });
 
 it('meldet einen Fehler beim Aktualisieren, ohne den Entwurf zu schließen', async () => {
@@ -190,8 +193,8 @@ it('meldet einen Fehler beim Aktualisieren, ohne den Entwurf zu schließen', asy
   mockUpdateMutateAsync.mockRejectedValueOnce(new Error('Profil konnte nicht geändert werden'));
   const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
   await renderScreen();
-  await fireEvent.press(screen.getByText('Bearbeiten'));
-  await fireEvent.press(screen.getByText('Übernehmen'));
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Bearbeiten' }));
+  await userEvent.setup().press(screen.getByRole('button', { name: 'Übernehmen' }));
 
   expect(alert).toHaveBeenCalledWith('Fehler', 'Profil konnte nicht geändert werden');
   expect(screen.getByLabelText('Name des Kindes')).toBeOnTheScreen();

@@ -188,7 +188,7 @@ describe('ProfileSheet', () => {
       );
 
       expect(screen.getByText('Ohne Namen')).toBeTruthy();
-      expect(screen.queryByText('test@fam.app')).toBeNull();
+      expect(screen.queryByText('test@fam.app')).not.toBeOnTheScreen();
       expect(screen.getByText('Jetzt freischalten')).toBeTruthy();
     },
   );

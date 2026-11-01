@@ -326,6 +326,7 @@ describe('Onboarding Components', () => {
     it('speichert den Status beim Fortfahren und kann ohne Speichern übersprungen werden', async () => {
       const onNext = jest.fn();
       const onSkip = jest.fn();
+      const user = userEvent.setup();
       mockCameraPermission = { granted: true, canAskAgain: true };
       mockLocationPermission = { granted: false, canAskAgain: true };
       mockUseForegroundPermissions.mockReturnValue([
@@ -340,7 +341,7 @@ describe('Onboarding Components', () => {
       await waitFor(() =>
         expect(screen.getByRole('switch', { name: 'Benachrichtigungen' })).toBeChecked(),
       );
-      await fireEvent.press(screen.getByRole('button', { name: 'Weiter' }));
+      await user.press(screen.getByRole('button', { name: 'Weiter' }));
 
       expect(mockUpdatePermissionsData).toHaveBeenCalledWith({
         notificationsRequested: true,
@@ -350,7 +351,7 @@ describe('Onboarding Components', () => {
       });
       expect(onNext).toHaveBeenCalledTimes(1);
 
-      await fireEvent.press(screen.getByRole('button', { name: 'Jetzt nicht' }));
+      await user.press(screen.getByRole('button', { name: 'Jetzt nicht' }));
       expect(onSkip).toHaveBeenCalledTimes(1);
       expect(mockUpdatePermissionsData).toHaveBeenCalledTimes(1);
     });

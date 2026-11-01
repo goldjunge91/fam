@@ -529,11 +529,11 @@ it('zeigt den leeren Vorrat und Suchhinweis, wenn die Suche keine Artikel trifft
   expect(screen.getByText('Noch keine Artikel hinzugefügt')).toBeOnTheScreen();
 
   await user.press(screen.getByRole('button', { name: 'Artikel suchen' }));
-  await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), 'Käse');
+  await user.type(screen.getByPlaceholderText('Artikel suchen'), 'Käse');
   expect(screen.getByText('Keine Treffer für "Käse"')).toBeOnTheScreen();
   expect(screen.getByText('Prüfe die Schreibweise oder setze die Suche zurück.')).toBeOnTheScreen();
 
-  await fireEvent.changeText(screen.getByPlaceholderText('Artikel suchen'), '');
+  await user.clear(screen.getByPlaceholderText('Artikel suchen'));
   expect(screen.getByText('Noch keine Artikel hinzugefügt')).toBeOnTheScreen();
   await user.press(screen.getByRole('button', { name: 'Artikel suchen' }));
   expect(screen.queryByPlaceholderText('Artikel suchen')).not.toBeOnTheScreen();

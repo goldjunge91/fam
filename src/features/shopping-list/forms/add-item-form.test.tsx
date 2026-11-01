@@ -315,6 +315,7 @@ describe('AddItemForm', () => {
   });
 
   it('übernimmt ein bekanntes Produkt mit Packungsinhalt und Preis', async () => {
+    const user = userEvent.setup();
     const onItemAdded = jest.fn();
     const product: CatalogProduct = {
       productId: 'product-milk',
@@ -330,10 +331,14 @@ describe('AddItemForm', () => {
     await waitFor(() => expect(screen.getByDisplayValue('Haferdrink')).toBeOnTheScreen());
     expect(screen.getByText('Biohof')).toBeOnTheScreen();
     expect(screen.getByText('EAN 4001234567890')).toBeOnTheScreen();
-    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
-    await fireEvent.changeText(screen.getByPlaceholderText('z. B. 500'), '1,5');
-    await fireEvent.changeText(screen.getByPlaceholderText('z. B. 2,49 €'), '2,49');
-    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben' }));
+    const packageSizeInput = screen.getByPlaceholderText('z. B. 500');
+    const priceInput = screen.getByPlaceholderText('z. B. 2,49 €');
+    await user.clear(packageSizeInput);
+    await user.type(packageSizeInput, '1,5');
+    await user.clear(priceInput);
+    await user.type(priceInput, '2,49');
+    await user.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
 
     expect(mockAddMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -347,6 +352,7 @@ describe('AddItemForm', () => {
   });
 
   it('lässt bei Produkten ohne Messpackung die Packungsangaben leer', async () => {
+    const user = userEvent.setup();
     const product: CatalogProduct = {
       barcode: '4001234567891',
       name: 'Eier',
@@ -357,7 +363,7 @@ describe('AddItemForm', () => {
     await renderForm(jest.fn(), { initialProduct: product });
 
     await waitFor(() => expect(screen.getByDisplayValue('Eier')).toBeOnTheScreen());
-    await fireEvent.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
+    await user.press(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' }));
 
     expect(mockAddMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ product_id: null, package_size: null, package_size_unit: null }),

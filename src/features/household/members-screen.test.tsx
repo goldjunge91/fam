@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -56,6 +56,10 @@ jest.mock('@/features/household/api', () => ({
 }));
 
 describe('MembersScreen', () => {
+  function setupUser() {
+    return userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+  }
+
   async function renderScreen() {
     const queryClient = new QueryClient({
       defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
@@ -143,13 +147,14 @@ describe('MembersScreen', () => {
   });
 
   it('ändert eine Mitgliedsrolle erst nach Bestätigung', async () => {
+    const user = setupUser();
     let confirm: (() => void) | undefined;
     const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
       confirm = buttons?.find((button) => button.text === 'Bestätigen')?.onPress;
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByLabelText('Mitglied-Rolle ändern'));
+    await user.press(screen.getByLabelText('Mitglied-Rolle ändern'));
 
     expect(alert).toHaveBeenCalledWith('Rolle ändern', expect.any(String), expect.any(Array));
     expect(mockUpdateRoleMutateAsync).not.toHaveBeenCalled();
@@ -177,13 +182,14 @@ describe('MembersScreen', () => {
   });
 
   it('entfernt ein anderes Mitglied nach Bestätigung', async () => {
+    const user = setupUser();
     let confirm: (() => void) | undefined;
     const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
       confirm = buttons?.find((button) => button.style === 'destructive')?.onPress;
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByLabelText('Erika Mitglied entfernen'));
+    await user.press(screen.getByLabelText('Erika Mitglied entfernen'));
 
     expect(alert).toHaveBeenCalledWith('Mitglied entfernen', expect.any(String), expect.any(Array));
     expect(mockRemoveMemberMutateAsync).not.toHaveBeenCalled();
@@ -198,6 +204,7 @@ describe('MembersScreen', () => {
   });
 
   it('verlässt den Haushalt nach Bestätigung und navigiert zurück zum Dashboard', async () => {
+    const user = setupUser();
     updateMockMember(0, { role: 'member' });
     let confirm: (() => void) | undefined;
     const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
@@ -205,7 +212,7 @@ describe('MembersScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByText('Haushalt verlassen'));
+    await user.press(screen.getByRole('button', { name: 'Haushalt verlassen' }));
 
     expect(alert).toHaveBeenCalledWith('Haushalt verlassen', expect.any(String), expect.any(Array));
     expect(mockLeaveMutateAsync).not.toHaveBeenCalled();
@@ -218,6 +225,7 @@ describe('MembersScreen', () => {
   });
 
   it('meldet einen Fehler beim Ändern der Rolle', async () => {
+    const user = setupUser();
     mockUpdateRoleMutateAsync.mockRejectedValueOnce(
       new Error('Rolle konnte nicht geändert werden'),
     );
@@ -227,7 +235,7 @@ describe('MembersScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByLabelText('Mitglied-Rolle ändern'));
+    await user.press(screen.getByLabelText('Mitglied-Rolle ändern'));
     expect(mockUpdateRoleMutateAsync).not.toHaveBeenCalled();
     await act(async () => {
       await confirm?.();
@@ -238,13 +246,14 @@ describe('MembersScreen', () => {
   });
 
   it('löscht den Haushalt erst nach Bestätigung', async () => {
+    const user = setupUser();
     let confirm: (() => void) | undefined;
     const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
       confirm = buttons?.find((button) => button.style === 'destructive')?.onPress;
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByText('Haushalt löschen'));
+    await user.press(screen.getByRole('button', { name: 'Haushalt löschen' }));
 
     expect(alert).toHaveBeenCalledWith('Haushalt löschen', expect.any(String), expect.any(Array));
     expect(mockDeleteHouseholdMutateAsync).not.toHaveBeenCalled();
@@ -257,6 +266,7 @@ describe('MembersScreen', () => {
   });
 
   it('meldet einen Fehler beim Entfernen und lässt die Liste sichtbar', async () => {
+    const user = setupUser();
     mockRemoveMemberMutateAsync.mockRejectedValueOnce(
       new Error('Mitglied konnte nicht entfernt werden'),
     );
@@ -266,7 +276,7 @@ describe('MembersScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByLabelText('Erika Mitglied entfernen'));
+    await user.press(screen.getByLabelText('Erika Mitglied entfernen'));
     expect(mockRemoveMemberMutateAsync).not.toHaveBeenCalled();
     await act(async () => {
       await confirm?.();
@@ -278,6 +288,7 @@ describe('MembersScreen', () => {
   });
 
   it('setzt den Haushalt-Löschfehler zurück und hält die Ansicht offen', async () => {
+    const user = setupUser();
     mockDeleteHouseholdMutateAsync.mockRejectedValueOnce(new Error('Löschen fehlgeschlagen'));
     let confirm: (() => void) | undefined;
     const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
@@ -285,7 +296,7 @@ describe('MembersScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByText('Haushalt löschen'));
+    await user.press(screen.getByRole('button', { name: 'Haushalt löschen' }));
     expect(mockDeleteHouseholdMutateAsync).not.toHaveBeenCalled();
     await act(async () => {
       await confirm?.();
@@ -297,6 +308,7 @@ describe('MembersScreen', () => {
   });
 
   it('meldet einen Fehler beim Verlassen und reaktiviert die Aktion', async () => {
+    const user = setupUser();
     updateMockMember(0, { role: 'member' });
     mockLeaveMutateAsync.mockRejectedValueOnce(new Error('Verlassen fehlgeschlagen'));
     let confirm: (() => void) | undefined;
@@ -305,7 +317,7 @@ describe('MembersScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByText('Haushalt verlassen'));
+    await user.press(screen.getByRole('button', { name: 'Haushalt verlassen' }));
     await act(async () => {
       await confirm?.();
     });
@@ -328,6 +340,7 @@ describe('MembersScreen', () => {
   });
 
   it('lässt einen Haushalt, wenn ein weiterer Admin bleibt', async () => {
+    const user = setupUser();
     updateMockMember(1, { role: 'admin' });
     let confirm: (() => void) | undefined;
     const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
@@ -335,7 +348,7 @@ describe('MembersScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.press(screen.getByText('Haushalt verlassen'));
+    await user.press(screen.getByRole('button', { name: 'Haushalt verlassen' }));
 
     expect(screen.getByText('Haushalt verlassen')).toBeEnabled();
     expect(mockLeaveMutateAsync).not.toHaveBeenCalled();

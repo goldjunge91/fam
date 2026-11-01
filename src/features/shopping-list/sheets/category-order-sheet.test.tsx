@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { colorsLight } from '@/components/theme';
 import { categorySurfaceColors } from '@/features/shopping-list/components/category-surface-colors';
@@ -133,7 +133,7 @@ describe('CategoryOrderSheet', () => {
   it('rendert den nativen Host bei geschlossenem Sheet nicht', async () => {
     await render(<CategoryOrderSheet isOpen={false} store={mockStore} onClose={mockClose} />);
 
-    expect(screen.queryByTestId('category-order-host')).toBeNull();
+    expect(screen.queryByTestId('category-order-host')).not.toBeOnTheScreen();
   });
 
   it('speichert die Reihenfolge beim Klick auf Speichern', async () => {
@@ -153,12 +153,13 @@ describe('CategoryOrderSheet', () => {
   });
 
   it('speichert eine geänderte Reihenfolge ohne ungültige IDs', async () => {
+    const user = userEvent.setup();
     const store = { ...mockStore, category_order: 'cold_drinks,unknown-category' };
     await render(<CategoryOrderSheet isOpen store={store} onClose={mockClose} />);
 
     expect(screen.getByText('Wasser, Saft & Softdrinks')).toBeOnTheScreen();
-    await fireEvent.press(screen.getByTestId('category-order-reorder'));
-    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+    await user.press(screen.getByTestId('category-order-reorder'));
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     const savedOrder = mockMutateAsync.mock.calls[0]?.[0].categoryOrder;
     expect(savedOrder?.slice(0, 2)).toEqual(['fresh_produce', 'cold_drinks']);
@@ -167,10 +168,11 @@ describe('CategoryOrderSheet', () => {
   });
 
   it('lässt sich ohne Markt öffnen, aber nicht speichern', async () => {
+    const user = userEvent.setup();
     await render(<CategoryOrderSheet isOpen store={null} onClose={mockClose} />);
 
-    expect(screen.queryByTestId('category-order-store-color')).toBeNull();
-    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+    expect(screen.queryByTestId('category-order-store-color')).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     expect(mockMutateAsync).not.toHaveBeenCalled();
     expect(mockClose).not.toHaveBeenCalled();

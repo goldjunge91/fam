@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import * as Haptics from 'expo-haptics';
 import { BarcodeScannerModal } from './barcode-scanner-modal';
 
@@ -90,7 +90,7 @@ describe('BarcodeScannerModal', () => {
     expect(screen.getByText('Suche Produktdaten...')).toBeOnTheScreen();
     expect(screen.getByText('Kein Produkt gefunden')).toBeOnTheScreen();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Kamera erlauben' }));
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Kamera erlauben' }));
     expect(mockRequestCameraPermission).toHaveBeenCalledTimes(1);
   });
 
@@ -100,9 +100,10 @@ describe('BarcodeScannerModal', () => {
 
     expect(screen.getByTestId('barcode-camera')).toHaveProp('barcodeTypes', 'ean13,ean8,qr');
 
-    await fireEvent.press(screen.getByTestId('scan-empty'));
-    await fireEvent.press(screen.getByTestId('scan-value'));
-    await fireEvent.press(screen.getByTestId('scan-duplicate'));
+    const user = userEvent.setup();
+    await user.press(screen.getByTestId('scan-empty'));
+    await user.press(screen.getByTestId('scan-value'));
+    await user.press(screen.getByTestId('scan-duplicate'));
 
     expect(mockOnBarcodeDetected).toHaveBeenCalledTimes(1);
     expect(mockOnBarcodeDetected).toHaveBeenCalledWith('4006381333931');
@@ -123,7 +124,7 @@ describe('BarcodeScannerModal', () => {
         onBarcodeDetected={mockOnBarcodeDetected}
       />,
     );
-    await fireEvent.press(screen.getByTestId('scan-value'));
+    await user.press(screen.getByTestId('scan-value'));
 
     expect(mockOnBarcodeDetected).toHaveBeenCalledTimes(2);
     expect(Haptics.notificationAsync).toHaveBeenCalledTimes(2);
@@ -134,8 +135,9 @@ describe('BarcodeScannerModal', () => {
     const closeButtons = screen.getAllByRole('button', { name: 'Schließen' });
     expect(closeButtons).toHaveLength(2);
 
-    await fireEvent.press(closeButtons[0]);
-    await fireEvent.press(closeButtons[1]);
+    const user = userEvent.setup();
+    await user.press(closeButtons[0]);
+    await user.press(closeButtons[1]);
 
     expect(mockOnClose).toHaveBeenCalledTimes(2);
   });

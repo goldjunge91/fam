@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -209,12 +209,13 @@ it('setzt ein MHD aus der Schnellauswahl und speichert es mit dem Vorratseintrag
   jest.useFakeTimers().setSystemTime(new Date('2026-10-28T12:00:00.000Z'));
 
   try {
+    const user = userEvent.setup();
     await renderScreen();
 
-    await fireEvent.changeText(screen.getByTestId('name-field'), 'Haferdrink');
-    await fireEvent.press(screen.getByRole('button', { name: 'Weitere Angaben öffnen' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Schnellauswahl MHD: + 7 Tage' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
+    await user.type(screen.getByTestId('name-field'), 'Haferdrink');
+    await user.press(screen.getByRole('button', { name: 'Weitere Angaben öffnen' }));
+    await user.press(screen.getByRole('button', { name: 'Schnellauswahl MHD: + 7 Tage' }));
+    await user.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
 
     expect(mockAddFridgeItemMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ name: 'Haferdrink', expiry_date: '2026-11-04' }),
@@ -225,11 +226,12 @@ it('setzt ein MHD aus der Schnellauswahl und speichert es mit dem Vorratseintrag
 });
 
 it('erstellt einen Lagerort mit getrimmtem Namen und kann die Eingabe abbrechen', async () => {
+  const user = userEvent.setup();
   await renderScreen();
 
-  await fireEvent.press(screen.getByText('+ Neuer Lagerort'));
-  await fireEvent.changeText(screen.getByLabelText('Name des Lagerorts'), '  Vorratskammer  ');
-  await fireEvent.press(screen.getByRole('button', { name: 'Erstellen' }));
+  await user.press(screen.getByRole('button', { name: '+ Neuer Lagerort' }));
+  await user.type(screen.getByLabelText('Name des Lagerorts'), '  Vorratskammer  ');
+  await user.press(screen.getByRole('button', { name: 'Erstellen' }));
   await waitFor(() =>
     expect(mockAddStorageLocationMutateAsync).toHaveBeenCalledWith({
       household_id: 'hh-1',
@@ -237,19 +239,20 @@ it('erstellt einen Lagerort mit getrimmtem Namen und kann die Eingabe abbrechen'
     }),
   );
 
-  await fireEvent.press(screen.getByText('+ Neuer Lagerort'));
-  await fireEvent.changeText(screen.getByLabelText('Name des Lagerorts'), 'Abbruch');
-  await fireEvent.press(screen.getByRole('button', { name: 'Abbrechen' }));
-  expect(screen.queryByLabelText('Name des Lagerorts')).toBeNull();
+  await user.press(screen.getByRole('button', { name: '+ Neuer Lagerort' }));
+  await user.type(screen.getByLabelText('Name des Lagerorts'), 'Abbruch');
+  await user.press(screen.getByRole('button', { name: 'Abbrechen' }));
+  expect(screen.queryByLabelText('Name des Lagerorts')).not.toBeOnTheScreen();
   expect(mockAddStorageLocationMutateAsync).toHaveBeenCalledTimes(1);
 });
 
 it('lässt eine erfolgreiche Vorratsspeicherung trotz Fehler im Nutzungsverlauf bestehen', async () => {
   mockRecordProductUsage.mockRejectedValueOnce(new Error('lokale History offline'));
+  const user = userEvent.setup();
   await renderScreen();
 
-  await fireEvent.changeText(screen.getByTestId('name-field'), 'Reis');
-  await fireEvent.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
+  await user.type(screen.getByTestId('name-field'), 'Reis');
+  await user.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
 
   await waitFor(() => expect(router.back).toHaveBeenCalled());
   expect(mockAddFridgeItemMutateAsync).toHaveBeenCalledWith(
@@ -260,13 +263,14 @@ it('lässt eine erfolgreiche Vorratsspeicherung trotz Fehler im Nutzungsverlauf 
 it('speichert weder Bestand noch Lagerort ohne aktiven Haushalt', async () => {
   mockHousehold = null;
   mockSession = null;
+  const user = userEvent.setup();
   await renderScreen();
 
-  await fireEvent.changeText(screen.getByTestId('name-field'), 'Reis');
-  await fireEvent.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
-  await fireEvent.press(screen.getByText('+ Neuer Lagerort'));
-  await fireEvent.changeText(screen.getByLabelText('Name des Lagerorts'), 'Vorratskammer');
-  await fireEvent.press(screen.getByRole('button', { name: 'Erstellen' }));
+  await user.type(screen.getByTestId('name-field'), 'Reis');
+  await user.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
+  await user.press(screen.getByRole('button', { name: '+ Neuer Lagerort' }));
+  await user.type(screen.getByLabelText('Name des Lagerorts'), 'Vorratskammer');
+  await user.press(screen.getByRole('button', { name: 'Erstellen' }));
 
   expect(mockAddFridgeItemMutateAsync).not.toHaveBeenCalled();
   expect(mockAddStorageLocationMutateAsync).not.toHaveBeenCalled();
@@ -280,10 +284,11 @@ it('übernimmt eine zurückgekehrte Produktauswahl beim Fokus und erhält Packun
     unit: 'l',
     categoryTags: [],
   });
+  const user = userEvent.setup();
   await renderScreen();
 
   expect(await screen.findByText('Mandelmilch')).toBeOnTheScreen();
-  await fireEvent.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
+  await user.press(screen.getByRole('button', { name: 'Zum Vorrat hinzufügen' }));
 
   await waitFor(() =>
     expect(mockAddFridgeItemMutateAsync).toHaveBeenCalledWith(
@@ -299,12 +304,13 @@ it('übernimmt eine zurückgekehrte Produktauswahl beim Fokus und erhält Packun
 });
 
 it('öffnet und schließt den Barcode-Scanner über die Suchaktion', async () => {
+  const user = userEvent.setup();
   await renderScreen();
 
-  await fireEvent.press(screen.getByRole('button', { name: 'Barcode scannen' }));
-  await fireEvent.press(screen.getByRole('button', { name: 'Scanner schließen (Test)' }));
+  await user.press(screen.getByRole('button', { name: 'Barcode scannen' }));
+  await user.press(screen.getByRole('button', { name: 'Scanner schließen (Test)' }));
 
-  expect(screen.queryByRole('button', { name: 'Scanner schließen (Test)' })).toBeNull();
-  await fireEvent.press(screen.getByRole('button', { name: 'Barcode scannen' }));
+  expect(screen.queryByRole('button', { name: 'Scanner schließen (Test)' })).not.toBeOnTheScreen();
+  await user.press(screen.getByRole('button', { name: 'Barcode scannen' }));
   expect(screen.getByRole('button', { name: 'Scanner schließen (Test)' })).toBeOnTheScreen();
 });

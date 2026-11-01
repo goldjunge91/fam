@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -71,8 +71,10 @@ describe('AddProductScreen', () => {
     });
 
     await renderScreen();
-    await fireEvent.changeText(screen.getByPlaceholderText('z. B. Tomaten (lose)'), 'Bio-Karotten');
-    await fireEvent.press(screen.getByText('Speichern'));
+    await userEvent
+      .setup()
+      .type(screen.getByPlaceholderText('z. B. Tomaten (lose)'), 'Bio-Karotten');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
 
     expect(mockAddProductMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ name: 'Bio-Karotten', source: 'manual', created_by: 'user-1' }),
@@ -92,15 +94,16 @@ describe('AddProductScreen', () => {
     });
     await renderScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Name'), ' Haferdrink ');
-    await fireEvent.changeText(screen.getByLabelText('Marke (optional)'), ' Bio ');
-    await fireEvent.changeText(screen.getByLabelText('kcal pro 100g'), '42.5 kcal');
-    await fireEvent.changeText(screen.getByLabelText('Kohlenhydrate pro 100g'), 'ungültig');
-    await fireEvent.changeText(screen.getByLabelText('Eiweiß pro 100g'), '1.2');
-    await fireEvent.changeText(screen.getByLabelText('Fett pro 100g'), ' ');
-    await fireEvent.changeText(screen.getByLabelText('Portionsgröße in Gramm (optional)'), '30');
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText('Name'), ' Haferdrink ');
+    await user.type(screen.getByLabelText('Marke (optional)'), ' Bio ');
+    await user.type(screen.getByLabelText('kcal pro 100g'), '42.5 kcal');
+    await user.type(screen.getByLabelText('Kohlenhydrate pro 100g'), 'ungültig');
+    await user.type(screen.getByLabelText('Eiweiß pro 100g'), '1.2');
+    await user.type(screen.getByLabelText('Fett pro 100g'), ' ');
+    await user.type(screen.getByLabelText('Portionsgröße in Gramm (optional)'), '30');
 
-    await fireEvent.press(screen.getByText('Speichern'));
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     expect(mockAddProductMutateAsync).toHaveBeenCalledWith({
       name: 'Haferdrink',
@@ -120,16 +123,16 @@ describe('AddProductScreen', () => {
     mockAddProductMutateAsync.mockRejectedValueOnce(new Error('offline'));
     await renderScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Name'), 'Haferdrink');
-    await fireEvent.press(screen.getByText('Speichern'));
+    await userEvent.setup().type(screen.getByLabelText('Name'), 'Haferdrink');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
     await waitFor(() => expect(alert).toHaveBeenCalledWith('Fehler', 'offline'));
   });
 
   it('speichert nicht ohne angemeldete Person', async () => {
     mockSession = null;
     await renderScreen();
-    await fireEvent.changeText(screen.getByLabelText('Name'), 'Haferdrink');
-    await fireEvent.press(screen.getByText('Speichern'));
+    await userEvent.setup().type(screen.getByLabelText('Name'), 'Haferdrink');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
     expect(mockAddProductMutateAsync).not.toHaveBeenCalled();
   });
 });

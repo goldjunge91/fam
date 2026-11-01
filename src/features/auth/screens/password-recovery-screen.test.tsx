@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { BackHandler } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { usePasswordRecoveryStore } from '@/features/auth/recovery-store';
@@ -213,9 +213,9 @@ describe('PasswordRecoveryScreen', () => {
     await store.verifyCode();
     await renderScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'Different123!');
-    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+    await userEvent.setup().type(screen.getByLabelText('Passwort wiederholen'), 'Different123!');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
     expect(await screen.findByText('Die Passwörter stimmen nicht überein.')).toBeOnTheScreen();
     expect(mockUpdatePasswordWithRecoveryClient).not.toHaveBeenCalled();
@@ -257,12 +257,11 @@ describe('PasswordRecoveryScreen', () => {
       expect(usePasswordRecoveryStore.getState().recoveryUserId).toBe(recoveredUserId);
       const view = await renderScreen();
 
-      await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-      await fireEvent.changeText(
-        screen.getByLabelText('Passwort wiederholen'),
-        'StrongPassword123!',
-      );
-      await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+      await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+      await userEvent
+        .setup()
+        .type(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+      await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
       expect(await screen.findByText('Passwort geändert')).toBeVisible();
       expect(usePasswordRecoveryStore.getState()).toMatchObject({
@@ -300,9 +299,11 @@ describe('PasswordRecoveryScreen', () => {
     await store.verifyCode();
     const view = await renderScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
-    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+    await userEvent
+      .setup()
+      .type(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
     expect(await screen.findByText('Passwort geändert')).toBeVisible();
     expect(mockRouterReplace).not.toHaveBeenCalled();
@@ -327,12 +328,14 @@ describe('PasswordRecoveryScreen', () => {
     await store.verifyCode();
     const view = await renderScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
-    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+    await userEvent
+      .setup()
+      .type(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
     expect(await screen.findByText('Passwort geändert')).toBeVisible();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Weiter' }));
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Weiter' }));
     expect(mockRouterReplace).toHaveBeenCalledTimes(1);
 
     mockAppEntryReadiness = { userId: recoveredUserId, isReady: true };
@@ -404,12 +407,11 @@ describe('PasswordRecoveryScreen', () => {
       await store.verifyCode();
       await renderScreen();
 
-      await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-      await fireEvent.changeText(
-        screen.getByLabelText('Passwort wiederholen'),
-        'StrongPassword123!',
-      );
-      await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+      await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+      await userEvent
+        .setup()
+        .type(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+      await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
       expect(await screen.findByText(expectedBody)).toBeVisible();
       expect(usePasswordRecoveryStore.getState()).toMatchObject({
@@ -450,12 +452,11 @@ describe('PasswordRecoveryScreen', () => {
       usePasswordRecoveryStore.setState({ recoveryUserId: null });
       const view = await renderScreen();
 
-      await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-      await fireEvent.changeText(
-        screen.getByLabelText('Passwort wiederholen'),
-        'StrongPassword123!',
-      );
-      await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+      await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+      await userEvent
+        .setup()
+        .type(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+      await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
       expect(
         await screen.findByText(
@@ -485,20 +486,22 @@ describe('PasswordRecoveryScreen', () => {
       .mockResolvedValueOnce({ error: new Error('save failed again') });
     await renderScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
-    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
-    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    await userEvent.setup().type(screen.getByLabelText('Neues Passwort'), 'StrongPassword123!');
+    await userEvent
+      .setup()
+      .type(screen.getByLabelText('Passwort wiederholen'), 'StrongPassword123!');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
     expect(await screen.findByText('save failed')).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Passwort speichern' })).toBeEnabled();
     expect(mockRouterReplace).not.toHaveBeenCalled();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Passwort speichern' }));
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Passwort speichern' }));
     expect(await screen.findByText('save failed again')).toBeOnTheScreen();
     expect(mockUpdatePasswordWithRecoveryClient).toHaveBeenCalledTimes(2);
     expect(screen.getByRole('button', { name: 'Abbrechen' })).toBeEnabled();
     expect(mockRouterReplace).not.toHaveBeenCalled();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Abbrechen' }));
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Abbrechen' }));
     await waitFor(() => expect(usePasswordRecoveryStore.getState().phase).toBe('entry'));
     expect(mockRouterReplace).toHaveBeenCalledWith('/');
     expect(mockDiscardPasswordRecoverySession).toHaveBeenCalledWith(mockClient);

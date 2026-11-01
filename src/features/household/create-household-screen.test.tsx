@@ -109,6 +109,6 @@ describe('CreateHouseholdScreen', () => {
 
     await user.press(screen.getByRole('button', { name: 'Erstellen' }));
     await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/'));
-    expect(screen.queryByText('Haushalt konnte nicht erstellt werden')).toBeNull();
+    expect(screen.queryByText('Haushalt konnte nicht erstellt werden')).not.toBeOnTheScreen();
   });
 });

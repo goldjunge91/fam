@@ -306,8 +306,8 @@ describe('ShoppingListScreen', () => {
     mockShoppingListEmpty = true;
     await renderScreen();
 
-    expect(screen.queryByText('Einkaufen')).toBeNull();
-    expect(screen.queryByText('Abschließen')).toBeNull();
+    expect(screen.queryByText('Einkaufen')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Abschließen')).not.toBeOnTheScreen();
     expect(screen.getAllByRole('button', { name: 'Artikel hinzufügen' })).toHaveLength(2);
   });
 
@@ -413,12 +413,13 @@ describe('ShoppingListScreen', () => {
   });
 
   it('schließt den Scanner nach der Schließen-Aktion', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderScreen();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Barcode scannen' }));
-    await fireEvent.press(await screen.findByRole('button', { name: 'Scanner schließen' }));
+    await user.press(screen.getByRole('button', { name: 'Barcode scannen' }));
+    await user.press(await screen.findByRole('button', { name: 'Scanner schließen' }));
 
-    expect(screen.queryByText('Barcode scanner geöffnet')).toBeNull();
+    expect(screen.queryByText('Barcode scanner geöffnet')).not.toBeOnTheScreen();
   });
 
   it('zeigt Barcode und Hinzufügen als Header-Aktionen', async () => {
@@ -447,9 +448,10 @@ describe('ShoppingListScreen', () => {
   });
 
   it('verschiebt mehrere ausgewählte Artikel in eine andere Liste', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderScreen();
 
-    await fireEvent.press(screen.getByText('Supermarkt'));
+    await user.press(screen.getByRole('button', { name: /Supermarkt/ }));
     await act(() => {
       jest.advanceTimersByTime(60);
     });
@@ -457,17 +459,17 @@ describe('ShoppingListScreen', () => {
     expect(
       await screen.findByRole('button', { name: 'Mehrfachauswahl starten' }),
     ).toBeOnTheScreen();
-    await fireEvent.press(screen.getByRole('button', { name: 'Mehrfachauswahl starten' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Alle Artikel auswählen' }));
+    await user.press(screen.getByRole('button', { name: 'Mehrfachauswahl starten' }));
+    await user.press(screen.getByRole('button', { name: 'Alle Artikel auswählen' }));
     expect(screen.getByRole('button', { name: 'Auswahl aufheben' })).toBeOnTheScreen();
-    await fireEvent.press(screen.getByRole('button', { name: 'Auswahl aufheben' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Bananen auswählen' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Hafermilch auswählen' }));
+    await user.press(screen.getByRole('button', { name: 'Auswahl aufheben' }));
+    await user.press(screen.getByRole('button', { name: 'Bananen auswählen' }));
+    await user.press(screen.getByRole('button', { name: 'Hafermilch auswählen' }));
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Verschieben' }));
+    await user.press(screen.getByRole('button', { name: 'Verschieben' }));
     expect(await screen.findByText('Artikel verschieben')).toBeOnTheScreen();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Auf Discounter verschieben' }));
+    await user.press(screen.getByRole('button', { name: 'Auf Discounter verschieben' }));
 
     expect(mockMoveMutateAsync).toHaveBeenCalledWith({
       household_id: 'hh-1',
@@ -478,15 +480,14 @@ describe('ShoppingListScreen', () => {
   });
 
   it('hakt Artikel im Einkaufsmodus ab', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderScreen();
-    await fireEvent.press(screen.getByText('Supermarkt'));
+    await user.press(screen.getByRole('button', { name: /Supermarkt/ }));
     await act(() => {
       jest.advanceTimersByTime(60);
     });
-    await fireEvent.press(
-      screen.getByRole('button', { name: 'Einkaufsmodus für Supermarkt starten' }),
-    );
-    await fireEvent.press(await screen.findByRole('checkbox', { name: 'Bananen' }));
+    await user.press(screen.getByRole('button', { name: 'Einkaufsmodus für Supermarkt starten' }));
+    await user.press(await screen.findByRole('checkbox', { name: 'Bananen' }));
 
     expect(mockToggleMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ id: 'item-1', household_id: 'hh-1', checked_by: 'user-1' }),
@@ -495,15 +496,16 @@ describe('ShoppingListScreen', () => {
 
   it('bestätigt den Einkaufsabschluss mit den abgehakten Artikeln', async () => {
     mockShoppingListChecked = true;
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderScreen();
-    await fireEvent.press(screen.getByText('Supermarkt'));
+    await user.press(screen.getByRole('button', { name: /Supermarkt/ }));
     await act(() => {
       jest.advanceTimersByTime(60);
     });
-    await fireEvent.press(
+    await user.press(
       screen.getByRole('button', { name: /Einkaufsliste bei Supermarkt abschließen/ }),
     );
-    await fireEvent.press(await screen.findByRole('button', { name: 'Testabschluss bestätigen' }));
+    await user.press(await screen.findByRole('button', { name: 'Testabschluss bestätigen' }));
 
     expect(mockCompleteRunMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({ householdId: 'hh-1', userId: 'user-1', transfers: [] }),
@@ -512,12 +514,13 @@ describe('ShoppingListScreen', () => {
 
   it('fragt vor dem Löschen eines Artikels nach Bestätigung', async () => {
     const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderScreen();
-    await fireEvent.press(screen.getByText('Supermarkt'));
+    await user.press(screen.getByRole('button', { name: /Supermarkt/ }));
     await act(() => {
       jest.advanceTimersByTime(60);
     });
-    await fireEvent(screen.getByRole('button', { name: 'Bananen bearbeiten' }), 'longPress');
+    await user.longPress(screen.getByRole('button', { name: 'Bananen bearbeiten' }));
 
     expect(alertSpy).toHaveBeenCalled();
     alertSpy.mock.calls[0]?.[2]?.find((button) => button.style === 'destructive')?.onPress?.();

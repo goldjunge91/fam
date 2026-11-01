@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { WeightTrackingScreen } from '@/features/calorie-tracking/weight-tracking-screen';
@@ -119,34 +119,39 @@ describe('WeightTrackingScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Lade Gewichtseinträge...')).toBeOnTheScreen();
-    expect(screen.queryByText('Die letzten 2 Messungen')).toBeNull();
+    expect(screen.queryByText('Die letzten 2 Messungen')).not.toBeOnTheScreen();
   });
 
   it('validiert unbrauchbare Gewichte und erlaubt das Verwerfen des Formulars', async () => {
     await renderScreen();
-    await fireEvent.press(screen.getByRole('button', { name: 'Neuer Eintrag' }));
-    await fireEvent.changeText(screen.getByLabelText('Gewicht (kg)'), '700');
-    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Neuer Eintrag' }));
+    await userEvent.setup().type(screen.getByLabelText('Gewicht (kg)'), '700');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Speichern' }));
 
     expect(screen.getByText('Bitte gib ein gültiges Gewicht unter 700 kg ein.')).toBeOnTheScreen();
     expect(mockAddWeightEntry).not.toHaveBeenCalled();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Abbrechen' }));
-    expect(screen.queryByLabelText('Gewicht (kg)')).toBeNull();
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Abbrechen' }));
+    expect(screen.queryByLabelText('Gewicht (kg)')).not.toBeOnTheScreen();
   });
 
   it('zeigt einen Speicherfehler an und löscht ihn beim Ändern des Gewichts', async () => {
     mockAddWeightEntry.mockRejectedValueOnce(new Error('offline'));
     await renderScreen();
-    await fireEvent.press(screen.getByRole('button', { name: 'Neuer Eintrag' }));
-    await fireEvent.changeText(screen.getByLabelText('Gewicht (kg)'), '79');
-    await fireEvent.press(screen.getByRole('button', { name: 'Speichern' }));
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Neuer Eintrag' }));
+    const weightInput = screen.getByLabelText('Gewicht (kg)');
+    await user.type(weightInput, '79');
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     expect(
       await screen.findByText('Der Gewichtseintrag konnte nicht gespeichert werden.'),
     ).toBeOnTheScreen();
 
-    await fireEvent.changeText(screen.getByLabelText('Gewicht (kg)'), '79,1');
-    expect(screen.queryByText('Der Gewichtseintrag konnte nicht gespeichert werden.')).toBeNull();
+    await user.clear(weightInput);
+    await user.type(weightInput, '79,1');
+    expect(
+      screen.queryByText('Der Gewichtseintrag konnte nicht gespeichert werden.'),
+    ).not.toBeOnTheScreen();
   });
 });

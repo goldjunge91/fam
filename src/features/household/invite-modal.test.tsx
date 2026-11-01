@@ -176,10 +176,12 @@ describe('InviteModal & QR Code Component', () => {
       />,
     );
 
-    await fireEvent.press(screen.getByText('+ Einladungs-Link erstellen'));
+    await userEvent
+      .setup()
+      .press(screen.getByRole('button', { name: '+ Einladungs-Link erstellen' }));
 
     expect(alert).toHaveBeenCalledWith('Fehler', 'Einladungen sind gerade nicht verfügbar');
-    expect(screen.queryByText('NEWA12')).toBeNull();
+    expect(screen.queryByText('NEWA12')).not.toBeOnTheScreen();
     alert.mockRestore();
   });
 
@@ -197,7 +199,7 @@ describe('InviteModal & QR Code Component', () => {
       />,
     );
 
-    await fireEvent.press(screen.getByLabelText('Zurückziehen'));
+    await userEvent.setup().press(screen.getByLabelText('Zurückziehen'));
 
     expect(alert).toHaveBeenCalledWith(
       'Einladung zurückziehen',
@@ -222,8 +224,9 @@ describe('InviteModal & QR Code Component', () => {
         onClose={jest.fn()}
       />,
     );
-    await fireEvent.press(screen.getByLabelText('QR-Code anzeigen'));
-    await fireEvent.press(screen.getByText('Code kopieren'));
+    const user = userEvent.setup();
+    await user.press(screen.getByLabelText('QR-Code anzeigen'));
+    await user.press(screen.getByRole('button', { name: 'Code kopieren' }));
 
     expect(mockDebugError).toHaveBeenCalledWith(
       'Fehler beim Kopieren des Codes:',
