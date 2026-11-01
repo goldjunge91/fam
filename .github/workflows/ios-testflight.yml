@@ -47,6 +47,18 @@ jobs:
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
 
+      - name: Configure curl for native artifact downloads
+        run: |
+          curl_home="$GITHUB_WORKSPACE/build/cache/curl-home"
+          mkdir -p "$curl_home"
+          cat > "$curl_home/.curlrc" <<'EOF'
+          http1.1
+          max-time = 1800
+          retry = 4
+          retry-delay = 2
+          retry-max-time = 3600
+          EOF
+
       - name: Build iOS IPA via EAS
         id: build
         run: |
@@ -70,6 +82,7 @@ jobs:
           APPROVE_REBUILD: ${{ inputs.approve_rebuild }}
           EAS_PROFILE: ${{ inputs.profile }}
           EAS_LOCAL_BUILD_ROOT: ${{ runner.temp }}/eas-local
+          CURL_HOME: ${{ github.workspace }}/build/cache/curl-home
 
       - name: Submit IPA to TestFlight via EAS
         run: >-

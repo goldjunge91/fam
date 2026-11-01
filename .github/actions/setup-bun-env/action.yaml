@@ -44,6 +44,17 @@ runs:
         restore-keys: |
           ${{ runner.os }}-bun-
 
+    - name: Cache CocoaPods
+      uses: actions/cache@v6
+      with:
+        # CP_HOME_DIR is set above; cache both the pod sources/specs and the
+        # downloaded pre-built React Native artifacts so that pod install never
+        # needs to re-download them on a cache hit.
+        path: build/cache/ios/cocoapods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+
     - name: Install dependencies
       shell: bash
       run: bun install --frozen-lockfile
