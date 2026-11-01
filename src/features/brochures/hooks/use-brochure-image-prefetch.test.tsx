@@ -37,7 +37,7 @@ jest.mock('expo-network', () => ({
 }));
 
 const references: BrochureImagePrefetchReference[] = [
-  { uri: 'https://images.example/weekly.jpg', validUntil: '2026-11-01T00:00:00.000Z' },
+  { uri: 'https://images.example/weekly.jpg', validUntil: '2099-11-01T00:00:00.000Z' },
 ];
 
 describe('useBrochureImagePrefetch', () => {
