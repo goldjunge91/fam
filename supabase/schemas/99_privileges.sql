@@ -90,6 +90,12 @@ grant select on public.brochures, public.brochure_pages, public.brochure_availab
 grant select on public.brochures, public.brochure_pages to service_role;
 revoke all on public.brochure_zip_scans from anon, authenticated, service_role;
 grant select, insert, update on public.brochure_zip_scans to service_role;
+revoke all on private.brochure_scan_budget_events
+  from public, anon, authenticated, service_role;
+revoke all on sequence private.brochure_scan_budget_events_id_seq
+  from public, anon, authenticated, service_role;
+revoke all on function private.brochure_supported_zip_codes()
+  from public, anon, authenticated, service_role;
 revoke all on function private.bonial_image_url_is_valid(text)
   from public, anon, authenticated, service_role;
 revoke all on function private.brochure_hotspots_are_valid(jsonb)

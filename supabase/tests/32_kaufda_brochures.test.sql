@@ -139,13 +139,13 @@ select is(
 
 select tests.authenticate_as('90909090-9090-4090-8090-909090909090');
 select lives_ok(
-  $$select * from public.request_brochure_zip_scan('30301')$$,
+  $$select * from public.request_brochure_zip_scan('30159')$$,
   'the app can request only an authenticated PLZ scan'
 );
 select ok(
   (select status.requested_at = queue.requested_at
-   from public.get_brochure_zip_scan_status('30301') as status
-   cross join lateral public.request_brochure_zip_scan('30301') as queue),
+   from public.get_brochure_zip_scan_status('30159') as status
+   cross join lateral public.request_brochure_zip_scan('30159') as queue),
   'repeated app opens do not enqueue a duplicate scan'
 );
 reset role;
@@ -153,15 +153,15 @@ reset role;
 set local role service_role;
 select results_eq(
   $$select zip_code from public.get_pending_brochure_zip_scans(25)$$,
-  $$values ('30301'::text)$$,
+  $$values ('30159'::text)$$,
   'the runner receives only a postal code explicitly requested by the app'
 );
 select lives_ok(
-  $$select public.record_brochure_zip_scan_failure('30301', 'source unavailable')$$,
+  $$select public.record_brochure_zip_scan_failure('30159', 'source unavailable')$$,
   'a failed run is recorded for delayed retry'
 );
 select is(
-  (select attempt_count from public.brochure_zip_scans where zip_code = '30301'),
+  (select attempt_count from public.brochure_zip_scans where zip_code = '30159'),
   1,
   'failure increments its retry count'
 );

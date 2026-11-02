@@ -21,17 +21,19 @@ Jede neue fünfstellige Zeichenfolge kann eine Queue-Zeile und einen GitHub-Work
 
 ## Vorgehen
 
-1. Die Budgetentscheidung im bestehenden Scan-Enqueue-Owner verankern und private dauerhafte Nutzer- und Globalgrenzen festlegen.
-2. Budget, Deduplizierung und Queue-Erzeugung atomar ausführen; gebündelte Requests verbrauchen nicht erneut das Enqueue-Budget.
-3. Neue Budgettabellen mit expliziten Rechten/RLS und pgTAP-Nachweisen ausstatten.
-4. Grenzüberschreitung und konkurrierende verschiedene PLZ prüfen: keine Queue-Zeile und kein net.http_post bei Ablehnung.
+1. Die von GeoNames unterstützten PLZ aus der vorhandenen Scraper-Quelle deklarativ in der Datenbank verfügbar machen und vor dem Enqueue prüfen.
+2. Neue Enqueues im bestehenden Owner atomar auf drei je Account und 25 global pro rollierenden 24 Stunden begrenzen. Deduplizierte offene oder frische Scans verbrauchen kein weiteres Budget.
+3. Retry-Backoff beibehalten und nach drei automatischen Wiederholungen stoppen; ein erneuter Nutzerwunsch startet danach einen budgetpflichtigen Versuch.
+4. Budgetereignisse privat halten, RLS und Rechte explizit setzen und Queue-Abrufe auf höchstens 25 Scans begrenzen.
+5. Grenzüberschreitung und konkurrierende verschiedene PLZ prüfen: keine Queue-Zeile und kein net.http_post bei Ablehnung.
 
 ## Dateiscope
 
 - `supabase/schemas/23_brochures.sql`
-- `supabase/schemas/20_privileges.sql falls erforderlich`
+- `supabase/schemas/99_privileges.sql`
 - `supabase/tests/33_brochure_scan_dispatch.test.sql`
-- `gezielter Budget-/Parallelitätstest`
+- `supabase/tests/35_brochure_scan_budget.test.sql`
+- `supabase/tests/36_brochure_scan_retries.test.sql`
 
 
 ## Abhängigkeiten
@@ -41,7 +43,8 @@ Jede neue fünfstellige Zeichenfolge kann eine Queue-Zeile und einen GitHub-Work
 ## Gezielte Verifikation
 
 - Gezielte Queue-/Dispatch-/Budget-pgTAP-Fälle mit Fake-Dispatch.
-- Parallelitätsfall für mehrere neue PLZ an der Budgetgrenze.
+- Gleichzeitige Anfragen verschiedener PLZ an der globalen Budgetgrenze.
+- PLZ aus der GeoNames-Quelle in der Datenbank gegen gültige und ungültige Eingaben prüfen.
 - Grenzwerte anhand Kapazität/Kosten festlegen; keine echten GitHub-Dispatches zur Verifikation.
 
 
@@ -50,13 +53,15 @@ Jede neue fünfstellige Zeichenfolge kann eine Queue-Zeile und einen GitHub-Work
 Die verbindlichen Akzeptanzkriterien und die tatsächlichen Nachweise besitzt
 `fam-r4ec`. Der vorgesehene fachliche Abnahmerahmen lautet:
 
-- Unterschiedliche PLZ unterliegen atomaren persistenten Nutzer- und Globalbudgets; neue Budgettabellen haben explizite Rechte/RLS und pgTAP-Nachweise.
+- Unterstützte PLZ werden serverseitig geprüft. Unterschiedliche PLZ unterliegen atomaren Limits von drei Enqueues pro Account und 25 global je rollierenden 24 Stunden.
 - Wiederholte bereits gebündelte Anfragen verbrauchen kein zweites Enqueue-Budget und erzeugen keinen zusätzlichen Dispatch.
-- Bei Limitüberschreitung entstehen weder Queue-Zeile noch net.http_post; normale Anfragen und Retry-Backoff bleiben korrekt.
+- Bei ungültiger PLZ oder Limitüberschreitung entstehen weder Queue-Zeile noch net.http_post.
+- Der Queue-Reader liefert höchstens 25 Scans; automatische Wiederholungen bleiben stündlich und enden nach drei Retries. Eine spätere Nutzeranfrage kann einen neuen budgetpflichtigen Versuch starten.
+- Die Budgetdaten sind per RLS aktiviert und für App- sowie Service-Rollen nicht direkt lesbar oder beschreibbar.
 
 
 ## Grenzen und Entscheidungen
 
-Kein neuer PLZ-Katalog für den ersten Fix und keine echten GitHub-Dispatches als Test.
+Keine echten GitHub-Dispatches als Test. Die GeoNames-Datei ist die Quelle für die serverseitige PLZ-Liste im bestehenden Brochure-Schema.
 
-Konkrete Nutzer-/Globalbudgets anhand vorhandener Kapazität und Kosten bestätigen.
+Die Startlimits sind bewusst konservativ: drei neue PLZ pro Account und 25 neue Enqueues global innerhalb von 24 Stunden.
