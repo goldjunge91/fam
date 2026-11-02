@@ -80,8 +80,8 @@ export function bringImageUrl(value: unknown): URL | null {
   const pathPrefix = hasBringHost
     ? BRING_PATH_PREFIX
     : hostname === PUBLITAS_HOST
-      ? PUBLITAS_PATH_PREFIX
-      : null;
+    ? PUBLITAS_PATH_PREFIX
+    : null;
 
   if (
     url.protocol !== 'https:' ||

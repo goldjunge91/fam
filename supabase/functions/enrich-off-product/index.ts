@@ -1,8 +1,8 @@
-import { createClient } from "jsr:@supabase/supabase-js@2";
+import { createClient } from 'jsr:@supabase/supabase-js@2';
 
-import { createEnrichOffProductHandler } from "./handler.ts";
-import { fetchOffProduct } from "./off-client.ts";
-import { SlidingWindowRateLimiter } from "./rate-limiter.ts";
+import { createEnrichOffProductHandler } from './handler.ts';
+import { fetchOffProduct } from './off-client.ts';
+import { SlidingWindowRateLimiter } from './rate-limiter.ts';
 
 /**
  * Wird ausschließlich von eingeloggten Nutzern der App aufgerufen (Standard-
@@ -19,8 +19,8 @@ import { SlidingWindowRateLimiter } from "./rate-limiter.ts";
 const rateLimiter = new SlidingWindowRateLimiter(12, 60_000);
 
 const adminClient = createClient(
-  Deno.env.get("SUPABASE_URL")!,
-  Deno.env.get("SUPABASE_SECRET_KEY")!,
+  Deno.env.get('SUPABASE_URL')!,
+  Deno.env.get('SUPABASE_SECRET_KEY')!,
 );
 
 Deno.serve(
@@ -30,16 +30,16 @@ Deno.serve(
     fetchOffProduct,
     updateIfNewer: async (ean, categoryTags, offLastModifiedAt) => {
       const { error, count } = await adminClient
-        .from("products")
+        .from('products')
         .update(
           {
             off_category_tags: categoryTags,
             off_last_modified_at: offLastModifiedAt,
           },
-          { count: "exact" },
+          { count: 'exact' },
         )
-        .eq("barcode", ean)
-        .eq("source", "off")
+        .eq('barcode', ean)
+        .eq('source', 'off')
         .or(
           `off_last_modified_at.is.null,off_last_modified_at.lt.${offLastModifiedAt}`,
         );
