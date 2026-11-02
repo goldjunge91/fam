@@ -82,6 +82,9 @@ create policy child_profiles_update_manager on public.child_profiles
 create policy child_profiles_delete_manager on public.child_profiles
   for delete to authenticated
   using (
-    managed_by = (select auth.uid())
-    or (select private.is_household_admin(household_id))
+    (select private.is_household_member(household_id))
+    and (
+      managed_by = (select auth.uid())
+      or (select private.is_household_admin(household_id))
+    )
   );

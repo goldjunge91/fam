@@ -202,12 +202,15 @@ begin
     return coalesce(new, old);
   end if;
 
-  -- Der ganze Haushalt wird gerade mitgeloescht (`delete from households`
-  -- kaskadiert hierher): Bei `on delete cascade` ist die Elternzeile zum
-  -- Zeitpunkt dieses Row-Triggers bereits weg (empirisch geprueft, nicht nur
-  -- angenommen). Dann gibt es keinen Haushalt mehr, den ein fehlender Admin
-  -- verwaisen liesse — die Sperre waere hier nur im Weg (#98/#64).
-  if not exists (select 1 from public.households where id = old.household_id) then
+  -- Rollenänderungen im selben Haushalt serialisieren, damit parallele
+  -- Herabstufungen nicht beide den jeweils anderen Admin als verbleibend sehen.
+  -- Bei einer Haushalts-Cascade ist die Elternzeile bereits entfernt.
+  perform 1
+  from public.households
+  where id = old.household_id
+  for update;
+
+  if not found then
     return coalesce(new, old);
   end if;
 
@@ -220,7 +223,7 @@ begin
   where household_id = old.household_id
     and user_id <> old.user_id;
 
-  if remaining = 0 then
+  if remaining = 0 and tg_op = 'DELETE' then
     return coalesce(new, old);
   end if;
 

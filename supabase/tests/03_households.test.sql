@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(24);
+select plan(26);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -120,6 +120,33 @@ select is_empty(
 );
 
 -- ------------------------------------------------------- letzter Admin bleibt
+-- Eine Rollenänderung darf den alleinigen Admin nicht entfernen: Im Gegensatz
+-- zum echten Austritt bleibt der Haushalt mit einem Nicht-Admin bewohnt.
+select tests.as_postgres();
+select tests.create_user('dddddddd-1111-1111-1111-111111111111', 'solo@example.com');
+select tests.authenticate_as('dddddddd-1111-1111-1111-111111111111');
+select public.create_household('Solo Admin') as hid_solo \gset
+
+select throws_ok(
+  format(
+    $$ update public.household_members set role = 'member'
+       where household_id = %L and user_id = %L $$,
+    :'hid_solo', 'dddddddd-1111-1111-1111-111111111111'
+  ),
+  'P0001',
+  'Der letzte Administrator kann den Haushalt nicht verlassen. Ernenne zuerst jemand anderen.',
+  'ein alleiniger Admin kann sich nicht herabstufen'
+);
+
+-- Beim echten Austritt wird der Haushalt dagegen leer und die Cascade bleibt erlaubt.
+select lives_ok(
+  format(
+    $$ delete from public.household_members where household_id = %L and user_id = %L $$,
+    :'hid_solo', 'dddddddd-1111-1111-1111-111111111111'
+  ),
+  'ein alleiniger Admin kann durch Austritt den Solo-Haushalt leeren'
+);
+
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
 
 select throws_ok(
