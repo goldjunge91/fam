@@ -1,13 +1,19 @@
-
-import { createClient } from "jsr:@supabase/supabase-js@2";
+import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import {
   activeAiAssignmentHouseholdId,
   createRevenueCatWebhookHandler,
   type SubscriberAttribute,
-} from "./handler.ts";
+} from './handler.ts';
 
-type AdminClient = ReturnType<typeof createClient>;
+function createAdminClient() {
+  return createClient(
+    Deno.env.get('SUPABASE_URL')!,
+    Deno.env.get('SUPABASE_SECRET_KEY')!,
+  );
+}
+
+type AdminClient = ReturnType<typeof createAdminClient>;
 
 async function resolveMemberHousehold(
   adminClient: AdminClient,
@@ -17,27 +23,27 @@ async function resolveMemberHousehold(
   const requestedHouseholdId = subscriberAttributes?.household_id?.value;
   if (requestedHouseholdId) {
     const { data, error } = await adminClient
-      .from("household_members")
-      .select("household_id")
-      .eq("household_id", requestedHouseholdId)
-      .eq("user_id", appUserId)
+      .from('household_members')
+      .select('household_id')
+      .eq('household_id', requestedHouseholdId)
+      .eq('user_id', appUserId)
       .maybeSingle();
 
     if (error) return { householdId: null, error };
     if (!data) {
       return {
         householdId: null,
-        error: { message: "target_household_forbidden" },
+        error: { message: 'target_household_forbidden' },
       };
     }
     return { householdId: data.household_id, error: null };
   }
 
   const { data, error } = await adminClient
-    .from("household_members")
-    .select("household_id")
-    .eq("user_id", appUserId)
-    .order("joined_at", { ascending: false })
+    .from('household_members')
+    .select('household_id')
+    .eq('user_id', appUserId)
+    .order('joined_at', { ascending: false })
     .limit(1)
     .maybeSingle();
 
@@ -57,25 +63,22 @@ async function resolveMemberHousehold(
  * `verify_jwt = false` eingetragen und prueft stattdessen die HMAC-Signatur
  * des unveraenderten Request-Bodys in `handler.ts`.
  *
- * Idempotenz, Stale-Event-Guard und die kanonische Kaeufer-Zuordnung (Plus
- * und AI) laufen jeweils atomar in einer einzigen DB-Funktion
- * (assign_ai_household, deactivate_ai_household, apply_plus_household_event)
- * — ein Fehlschlag dort rollt auch den Dedup-Eintrag zurueck, statt ein Event
- * faelschlich als verarbeitet zu markieren.
+ * Idempotenz, Stale-Event-Guard und die verbindliche Käufer-Zuordnung fuer Plus
+ * und AI laufen jeweils atomar in einer Datenbankfunktion
+ * (assign_ai_household, deactivate_ai_household, apply_plus_household_event).
+ * Bei einem Fehler wird auch der Dedup-Eintrag zurueckgerollt, damit das Event
+ * nicht faelschlich als verarbeitet gilt.
  */
 Deno.serve(
   createRevenueCatWebhookHandler({
-    expectedSecret: Deno.env.get("REVENUECAT_WEBHOOK_SECRET"),
+    expectedSecret: Deno.env.get('REVENUECAT_WEBHOOK_SECRET'),
     applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
-      const adminClient = createClient(
-        Deno.env.get("SUPABASE_URL")!,
-        Deno.env.get("SUPABASE_SECRET_KEY")!,
-      );
+      const adminClient = createAdminClient();
 
-      if (change.entitlementId === "AI") {
+      if (change.entitlementId === 'AI') {
         if (!change.active) {
           const { data, error } = await adminClient.rpc(
-            "deactivate_ai_household",
+            'deactivate_ai_household',
             {
               p_subscriber_user_id: appUserId,
               p_event_timestamp_ms: change.eventTimestampMs,
@@ -85,13 +88,14 @@ Deno.serve(
           return { error, count: error ? null : (data ? 1 : 0) };
         }
 
-        // Aktive Renewals bleiben auf der kanonischen AI-Zuordnung. Nach einer
-        // Expiration ist die Zeile nur noch ein Reihenfolge-/Cooldown-Tombstone;
-        // eine spaetere Reaktivierung loest den dann aktiven Haushalt neu auf.
+        // Aktive Renewals behalten die bestehende AI-Haushaltszuordnung. Nach
+        // einer Expiration dient die Zeile nur noch als Reihenfolge- und
+        // Cooldown-Marker. Bei spaeterer Reaktivierung wird der aktuelle
+        // Haushalt neu aufgeloest.
         const { data: assignment, error: assignmentError } = await adminClient
-          .from("revenuecat_ai_assignments")
-          .select("household_id, active")
-          .eq("subscriber_user_id", appUserId)
+          .from('revenuecat_ai_assignments')
+          .select('household_id, active')
+          .eq('subscriber_user_id', appUserId)
           .maybeSingle();
         if (assignmentError) return { error: assignmentError, count: null };
 
@@ -108,12 +112,12 @@ Deno.serve(
 
         if (!targetHouseholdId) {
           return {
-            error: { message: "target_household_missing" },
+            error: { message: 'target_household_missing' },
             count: null,
           };
         }
 
-        const { data, error } = await adminClient.rpc("assign_ai_household", {
+        const { data, error } = await adminClient.rpc('assign_ai_household', {
           p_subscriber_user_id: appUserId,
           p_target_household_id: targetHouseholdId,
           p_entitlement_expires_at: change.expiresAt,
@@ -123,14 +127,14 @@ Deno.serve(
         return { error, count: error ? null : (data ? 1 : 0) };
       }
 
-      // Plus bleibt am Kaufhaushalt: apply_plus_household_event ignoriert
-      // householdId, sobald der Subscriber bereits kanonisch gebunden ist.
-      const { data: plusAssignment, error: plusAssignmentError } =
-        await adminClient
-          .from("revenuecat_plus_assignments")
-          .select("household_id")
-          .eq("subscriber_user_id", appUserId)
-          .maybeSingle();
+      // Plus bleibt an den Kaufhaushalt gebunden. apply_plus_household_event
+      // ignoriert householdId, wenn der Subscriber bereits einem Haushalt
+      // zugeordnet ist.
+      const { data: plusAssignment, error: plusAssignmentError } = await adminClient
+        .from('revenuecat_plus_assignments')
+        .select('household_id')
+        .eq('subscriber_user_id', appUserId)
+        .maybeSingle();
       if (plusAssignmentError) {
         return { error: plusAssignmentError, count: null };
       }
@@ -147,11 +151,11 @@ Deno.serve(
       }
 
       if (!householdId) {
-        return { error: { message: "target_household_missing" }, count: null };
+        return { error: { message: 'target_household_missing' }, count: null };
       }
 
       const { data, error } = await adminClient.rpc(
-        "apply_plus_household_event",
+        'apply_plus_household_event',
         {
           p_subscriber_user_id: appUserId,
           p_household_id: householdId,
