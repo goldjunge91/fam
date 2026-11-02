@@ -1,17 +1,16 @@
 # Implementierungsplan: Canonical Brochure Pipeline
 
-> Historischer Analyseplan. Für den aktiven Produktionspfad gilt
-> `.agents/tasks/bring-cdn-migration-plan-2026-10-22.md`: regionale
-> Metadaten mit originalen Bring-CDN-URLs, ohne Bild-Upload nach R2.
+> Historischer Analyseplan. Der aktive Prospektpfad ist in
+> `.agents/tasks/bring-cdn-migration-plan-2026-10-22.md` beschrieben: Bring-CDN-
+> Bild-URLs bleiben als Metadaten in Supabase. Der aktuelle Workflow benötigt
+> keine R2-Zugangsdaten und lädt oder überträgt keine Bildbytes. Die hier
+> beschriebenen R2-Publikationsschritte sind veraltet; lokale Byte- und
+> Hash-Verifikation bleibt davon getrennt und ist nicht automatisch erledigt.
 
-Status: BRN-Vollscan, Detailseitenzahlen, Gruppierung und Cover-only-Auswertung
-sind abgeschlossen. `fam-gvnp.5`, `.6` und `.7` sind offen. Der lokale
-123-BRN-Händlerpilot ist nach 56 BRNs unterbrochen. Ein vollständiger
-PLZ-Sample-Lauf für 22043 hat 25 BRNs und 590 Seiten geladen; alle 25
-vollständigen Seitenvektoren sind verschieden. Die lokale Bildübersicht wird
-erst ergänzt, wenn der Gesamtworkflow steht. Cloudflare-/R2-Uploads bleiben bis
-zu diesem Schritt und Marcos visueller Prüfung der vollständigen Prospekte
-gesperrt.
+Status: Die folgenden Messungen und Phasen dokumentieren den früheren
+Byte-Download- und R2-Entwurf. Sie beschreiben nicht den aktiven Workflow.
+Lokale Byte-/Hash-Arbeit wird separat über Beads nach ihren eigenen
+Akzeptanzkriterien verfolgt.
 Kernlösung: `# Lösung für Prospekte.md`; operative Anleitung:
 `docs/features/BROCHURE/how_to_use.md` (Abschnitt Listing-Only)
 Prior-Beads: `fam-kl22` (geschlossene Analyse), `fam-zarz` (Voll-Scan)
