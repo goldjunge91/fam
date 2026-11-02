@@ -101,6 +101,18 @@ describe('useAppDeepLinks', () => {
     expect(mockSetAuthDeepLinkError).not.toHaveBeenCalled();
   });
 
+  it('ignores a cold-start OAuth code when no browser flow is active', async () => {
+    const callbackUrl = 'fam:///sign-in?code=orphaned-code';
+    mockGetInitialURL.mockResolvedValue(callbackUrl);
+    await renderHook(() => useAppDeepLinks());
+
+    await waitFor(() => expect(mockParseAuthTokensFromUrl).toHaveBeenCalledWith(callbackUrl));
+
+    expect(mockOpenLegacyRecoveryLink).not.toHaveBeenCalled();
+    expect(mockSetAuthDeepLinkError).not.toHaveBeenCalled();
+    expect(mockSavePendingInviteToken).not.toHaveBeenCalled();
+  });
+
   it('stores a parsed auth error and reports it as a warning', async () => {
     mockGetInitialURL.mockResolvedValue('fam://auth/callback?error=expired');
     mockParseAuthErrorFromUrl.mockReturnValue('Der Link ist abgelaufen.');

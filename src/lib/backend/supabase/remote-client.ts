@@ -2,6 +2,7 @@ import 'react-native-url-polyfill/auto';
 
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { fetch as expoFetch } from 'expo/fetch';
+import { CryptoDigestAlgorithm, digest, getRandomValues } from 'expo-crypto';
 import { AppState, type AppStateStatus, Platform } from 'react-native';
 
 import { createFetchWithResponseTimeout } from '@/lib/backend/supabase/fetch-response-timeout';
@@ -12,6 +13,49 @@ import { LocalSupabaseSessionStorage } from '@/lib/storage/local-supabase-sessio
 import { createServerClock } from '@/lib/sync/server-clock';
 
 export type TypedSupabaseClient = SupabaseClient<Database>;
+
+// Supabase Auth falls back to plain PKCE when native WebCrypto.subtle is absent.
+function ensureNativePkceS256Crypto() {
+  if (Platform.OS === 'web') return;
+
+  const existingCrypto = globalThis.crypto as Crypto | undefined;
+  if (
+    typeof existingCrypto?.getRandomValues === 'function' &&
+    typeof existingCrypto.subtle?.digest === 'function'
+  ) {
+    return;
+  }
+
+  const nativeCrypto = existingCrypto ?? ({} as Crypto);
+  if (typeof nativeCrypto.getRandomValues !== 'function') {
+    Object.defineProperty(nativeCrypto, 'getRandomValues', {
+      configurable: true,
+      value: getRandomValues,
+    });
+  }
+  if (typeof nativeCrypto.subtle?.digest !== 'function') {
+    Object.defineProperty(nativeCrypto, 'subtle', {
+      configurable: true,
+      value: {
+        digest: (algorithm: AlgorithmIdentifier, data: BufferSource) => {
+          if (typeof algorithm !== 'string' || algorithm.toUpperCase() !== 'SHA-256') {
+            throw new TypeError('Native PKCE crypto only supports SHA-256 digests.');
+          }
+          return digest(CryptoDigestAlgorithm.SHA256, data);
+        },
+      },
+    });
+  }
+
+  if (!existingCrypto) {
+    Object.defineProperty(globalThis, 'crypto', {
+      configurable: true,
+      value: nativeCrypto,
+    });
+  }
+}
+
+ensureNativePkceS256Crypto();
 
 let client: TypedSupabaseClient | null = null;
 // Ein Transport für Supabase, einschließlich binärer Receipt-Uploads.
@@ -32,6 +76,7 @@ export function getSupabase(): TypedSupabaseClient {
       // bereits beim Konstruktor einen Timer, der auch im Hintergrund weiterlaeuft.
       autoRefreshToken: Platform.OS === 'web',
       persistSession: true,
+      flowType: 'pkce',
       detectSessionInUrl: false,
     },
   });

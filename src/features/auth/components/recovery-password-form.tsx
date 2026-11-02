@@ -36,12 +36,23 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
   const [formError, setFormError] = useState<string | null>(null);
   const [pendingSessionUserId, setPendingSessionUserId] = useState<string | null>(null);
   const navigationStartedRef = useRef(false);
-  const navigateToApp = useCallback(() => {
-    if (navigationStartedRef.current) return;
-    navigationStartedRef.current = true;
-    setPendingSessionUserId(null);
-    router.replace('/');
-  }, []);
+  const recoveredSessionReady =
+    pendingSessionUserId !== null &&
+    accountReady &&
+    !sessionError &&
+    session?.user.id === pendingSessionUserId &&
+    readyUserId === pendingSessionUserId &&
+    appEntryReady;
+  const navigateToApp = useCallback(
+    (requiresReadiness = false) => {
+      if (requiresReadiness && !recoveredSessionReady) return;
+      if (navigationStartedRef.current) return;
+      navigationStartedRef.current = true;
+      setPendingSessionUserId(null);
+      router.replace('/');
+    },
+    [recoveredSessionReady],
+  );
   const {
     control,
     setValue,
@@ -57,27 +68,8 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
   const passwordConfirmation = watch('passwordConfirmation');
 
   useEffect(() => {
-    if (
-      !pendingSessionUserId ||
-      !accountReady ||
-      sessionError ||
-      session?.user.id !== pendingSessionUserId ||
-      readyUserId !== pendingSessionUserId ||
-      !appEntryReady
-    ) {
-      return;
-    }
-
-    navigateToApp();
-  }, [
-    accountReady,
-    appEntryReady,
-    navigateToApp,
-    pendingSessionUserId,
-    readyUserId,
-    session?.user.id,
-    sessionError,
-  ]);
+    if (recoveredSessionReady) navigateToApp(true);
+  }, [navigateToApp, recoveredSessionReady]);
 
   async function submit(values: NewPasswordInput) {
     setFormError(null);
@@ -124,7 +116,10 @@ export function RecoveryPasswordForm({ onCancel }: { onCancel: () => void }) {
             )}
           </Txt>
         </ContentCard>
-        <Button title={t('auth.passwordReset.continue')} onPress={navigateToApp} />
+        <Button
+          title={t('auth.passwordReset.continue')}
+          onPress={() => navigateToApp(outcome === 'signed-in')}
+        />
       </Screen>
     );
   }

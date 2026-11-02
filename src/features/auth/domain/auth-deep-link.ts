@@ -48,31 +48,28 @@ export function parseAuthErrorFromUrl(url: string): string | null {
   return description ? description.replace(/\+/g, ' ') : params.get('error_code');
 }
 
-export function parseOAuthTokensFromUrl(
-  url: string,
-  expectedRedirect: string,
-): AuthDeepLinkTokens | null {
+export function parseOAuthCodeFromUrl(url: string, expectedRedirect: string): string | null {
   try {
     const actual = new URL(url);
     const expected = new URL(expectedRedirect);
 
     if (
       actual.protocol !== expected.protocol ||
-      actual.hostname !== expected.hostname ||
-      actual.pathname !== expected.pathname
+      actual.host !== expected.host ||
+      actual.username !== expected.username ||
+      actual.password !== expected.password ||
+      actual.pathname !== expected.pathname ||
+      expected.search ||
+      expected.hash
     ) {
       return null;
     }
 
-    const params = new URLSearchParams(actual.hash.slice(1));
-    const accessToken = params.get('access_token');
-    const refreshToken = params.get('refresh_token');
+    const queryKeys = [...actual.searchParams.keys()];
+    const codes = actual.searchParams.getAll('code');
+    if (actual.hash || queryKeys.length !== 1 || codes.length !== 1) return null;
 
-    if (!accessToken || !refreshToken) {
-      return null;
-    }
-
-    return { accessToken, refreshToken };
+    return codes[0]?.trim() ? codes[0] : null;
   } catch {
     return null;
   }

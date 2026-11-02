@@ -1,6 +1,7 @@
 const mockSignInWithOAuth = jest.fn();
 const mockSignInWithIdToken = jest.fn();
 const mockOpenAuthSessionAsync = jest.fn();
+const mockExchangeCodeForSession = jest.fn();
 const mockSetSession = jest.fn();
 const mockSignInWithApple = jest.fn();
 const mockDigestStringAsync = jest.fn();
@@ -11,6 +12,7 @@ jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
     auth: {
       setSession: mockSetSession,
+      exchangeCodeForSession: mockExchangeCodeForSession,
       signInWithOAuth: mockSignInWithOAuth,
       signInWithIdToken: mockSignInWithIdToken,
     },
@@ -47,32 +49,34 @@ import { signInWithApple, signInWithOAuthProvider } from '@/features/auth/oauth-
 describe('provider auth', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockExchangeCodeForSession.mockResolvedValue({ error: null });
     mockSetSession.mockResolvedValue({ error: null });
     mockDigestStringAsync.mockResolvedValue('hashed-nonce');
     mockRandomUUID.mockReturnValue('raw-nonce');
   });
 
-  it('öffnet die von Supabase gelieferte OAuth-URL in einer nativen Browser-Session', async () => {
+  it('tauscht den Callback-Code mit dem Verifier des gestarteten PKCE-Flows aus', async () => {
     mockSignInWithOAuth.mockResolvedValue({
-      data: { url: 'https://accounts.example.com/oauth' },
+      data: { url: 'https://accounts.example.com/oauth', flowId: 'flow-google' },
       error: null,
     });
     mockOpenAuthSessionAsync.mockResolvedValue({
       type: 'success',
-      url: 'fam:///sign-in#access_token=abc123&refresh_token=def456',
+      url: 'fam:///sign-in?code=auth-code',
     });
-    mockSetSession.mockResolvedValue({ error: null });
 
     await signInWithOAuthProvider('google');
 
+    expect(mockSignInWithOAuth).toHaveBeenCalledWith({
+      provider: 'google',
+      options: { redirectTo: 'fam:///sign-in', skipBrowserRedirect: true },
+    });
     expect(mockOpenAuthSessionAsync).toHaveBeenCalledWith(
       'https://accounts.example.com/oauth',
       'fam:///sign-in',
     );
-    expect(mockSetSession).toHaveBeenCalledWith({
-      access_token: 'abc123',
-      refresh_token: 'def456',
-    });
+    expect(mockExchangeCodeForSession).toHaveBeenCalledWith('auth-code', { flowId: 'flow-google' });
+    expect(mockSetSession).not.toHaveBeenCalled();
   });
 
   it('liefert einen stabilen Fehler-Key, wenn keine OAuth-URL vorhanden ist', async () => {
@@ -85,17 +89,31 @@ describe('provider auth', () => {
 
   it('liefert einen stabilen Fehler-Key bei ungültigem OAuth-Callback', async () => {
     mockSignInWithOAuth.mockResolvedValue({
-      data: { url: 'https://accounts.example.com/oauth' },
+      data: { url: 'https://accounts.example.com/oauth', flowId: 'flow-google' },
       error: null,
     });
     mockOpenAuthSessionAsync.mockResolvedValue({
       type: 'success',
-      url: 'fam:///other-route#access_token=abc123&refresh_token=def456',
+      url: 'fam:///sign-in#access_token=abc123&refresh_token=def456',
     });
 
     const result = await signInWithOAuthProvider('google');
 
     expect(result.error?.message).toBe(AUTH_ERROR_KEYS.callbackInvalid);
+    expect(mockExchangeCodeForSession).not.toHaveBeenCalled();
+    expect(mockSetSession).not.toHaveBeenCalled();
+  });
+
+  it('fails closed when Supabase does not return a PKCE flow id', async () => {
+    mockSignInWithOAuth.mockResolvedValue({
+      data: { url: 'https://accounts.example.com/oauth' },
+      error: null,
+    });
+
+    await expect(signInWithOAuthProvider('google')).resolves.toMatchObject({
+      error: { message: AUTH_ERROR_KEYS.callbackInvalid },
+    });
+    expect(mockOpenAuthSessionAsync).not.toHaveBeenCalled();
   });
 
   it('returns Supabase OAuth errors without opening a browser', async () => {
@@ -108,34 +126,75 @@ describe('provider auth', () => {
   });
 
   it('treats an OAuth browser dismissal as a non-error result', async () => {
-    const data = { url: 'https://accounts.example.com/oauth' };
-    mockSignInWithOAuth.mockResolvedValue({ data, error: null });
-    mockOpenAuthSessionAsync.mockResolvedValue({ type: 'cancel' });
+    const firstData = { url: 'https://accounts.example.com/oauth', flowId: 'flow-first' };
+    const secondData = { url: 'https://accounts.example.com/oauth', flowId: 'flow-second' };
+    mockSignInWithOAuth
+      .mockResolvedValueOnce({ data: firstData, error: null })
+      .mockResolvedValueOnce({ data: secondData, error: null });
+    mockOpenAuthSessionAsync
+      .mockResolvedValueOnce({ type: 'cancel' })
+      .mockResolvedValueOnce({ type: 'success', url: 'fam:///sign-in?code=second-code' });
 
-    await expect(signInWithOAuthProvider('google')).resolves.toEqual({ data, error: null });
+    await expect(signInWithOAuthProvider('google')).resolves.toEqual({
+      data: firstData,
+      error: null,
+    });
+    await expect(signInWithOAuthProvider('apple')).resolves.toEqual({
+      data: secondData,
+      error: null,
+    });
+    expect(mockExchangeCodeForSession).toHaveBeenCalledWith('second-code', {
+      flowId: 'flow-second',
+    });
     expect(mockSetSession).not.toHaveBeenCalled();
   });
 
-  it('reports and returns a session error after a valid OAuth callback', async () => {
-    const error = Object.assign(new Error('session rejected'), { code: 'session_failed' });
+  it('reports and returns a code-exchange error after a valid OAuth callback', async () => {
+    const error = Object.assign(new Error('code exchange rejected'), { code: 'exchange_failed' });
     mockSignInWithOAuth.mockResolvedValue({
-      data: { url: 'https://accounts.example.com/oauth' },
+      data: { url: 'https://accounts.example.com/oauth', flowId: 'flow-apple' },
       error: null,
     });
     mockOpenAuthSessionAsync.mockResolvedValue({
       type: 'success',
-      url: 'fam:///sign-in#access_token=abc123&refresh_token=def456',
+      url: 'fam:///sign-in?code=auth-code',
     });
-    mockSetSession.mockResolvedValue({ error });
+    mockExchangeCodeForSession.mockResolvedValue({ error });
 
     await expect(signInWithOAuthProvider('apple')).resolves.toEqual({
-      data: { url: 'https://accounts.example.com/oauth' },
+      data: { url: 'https://accounts.example.com/oauth', flowId: 'flow-apple' },
       error,
     });
+    expect(mockExchangeCodeForSession).toHaveBeenCalledWith('auth-code', { flowId: 'flow-apple' });
     expect(mockReportError).toHaveBeenCalledWith(error, {
       operation: 'auth.oauth_session',
-      error_code: 'session_failed',
+      error_code: 'exchange_failed',
     });
+  });
+
+  it('rejects a second browser OAuth start while the first one is active', async () => {
+    mockSignInWithOAuth.mockResolvedValue({
+      data: { url: 'https://accounts.example.com/oauth', flowId: 'flow-google' },
+      error: null,
+    });
+    let finishBrowser: ((result: { type: 'success'; url: string }) => void) | undefined;
+    mockOpenAuthSessionAsync.mockReturnValue(
+      new Promise((resolve) => {
+        finishBrowser = resolve;
+      }),
+    );
+
+    const firstSignIn = signInWithOAuthProvider('google');
+    await Promise.resolve();
+    const secondResult = await signInWithOAuthProvider('apple');
+
+    expect(secondResult.error?.message).toBe(AUTH_ERROR_KEYS.callbackInvalid);
+    expect(mockSignInWithOAuth).toHaveBeenCalledTimes(1);
+    expect(mockOpenAuthSessionAsync).toHaveBeenCalledTimes(1);
+
+    finishBrowser?.({ type: 'success', url: 'fam:///sign-in?code=auth-code' });
+    await firstSignIn;
+    expect(mockExchangeCodeForSession).toHaveBeenCalledWith('auth-code', { flowId: 'flow-google' });
   });
 
   it('uses native Apple sign-in with a hashed nonce', async () => {

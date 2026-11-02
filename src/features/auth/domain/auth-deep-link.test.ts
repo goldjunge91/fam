@@ -1,4 +1,8 @@
-import { parseAuthErrorFromUrl, parseAuthTokensFromUrl } from './auth-deep-link';
+import {
+  parseAuthErrorFromUrl,
+  parseAuthTokensFromUrl,
+  parseOAuthCodeFromUrl,
+} from './auth-deep-link';
 
 describe('parseAuthTokensFromUrl', () => {
   it('extrahiert Tokens aus einem gültigen Recovery-Callback', () => {
@@ -53,5 +57,35 @@ describe('parseAuthErrorFromUrl', () => {
 
   it('gibt null zurück, wenn kein Fragment vorhanden ist', () => {
     expect(parseAuthErrorFromUrl('fam:///household/join?token=abc')).toBeNull();
+  });
+});
+
+describe('parseOAuthCodeFromUrl', () => {
+  it('extrahiert genau einen Code aus dem erwarteten Callback-Pfad', () => {
+    expect(parseOAuthCodeFromUrl('fam:///sign-in?code=auth-code', 'fam:///sign-in')).toBe(
+      'auth-code',
+    );
+  });
+
+  it('lehnt implizite Token-Fragmente ab', () => {
+    expect(
+      parseOAuthCodeFromUrl(
+        'fam:///sign-in#access_token=abc123&refresh_token=def456',
+        'fam:///sign-in',
+      ),
+    ).toBeNull();
+  });
+
+  it('lehnt abweichende Redirects, zusätzliche Parameter und mehrdeutige Codes ab', () => {
+    expect(parseOAuthCodeFromUrl('fam:///other-route?code=auth-code', 'fam:///sign-in')).toBeNull();
+    expect(
+      parseOAuthCodeFromUrl('fam://other/sign-in?code=auth-code', 'fam:///sign-in'),
+    ).toBeNull();
+    expect(
+      parseOAuthCodeFromUrl('fam:///sign-in?code=auth-code&access_token=abc', 'fam:///sign-in'),
+    ).toBeNull();
+    expect(
+      parseOAuthCodeFromUrl('fam:///sign-in?code=first&code=second', 'fam:///sign-in'),
+    ).toBeNull();
   });
 });

@@ -1,3 +1,4 @@
+import { webcrypto } from 'node:crypto';
 import {
   AppState,
   type AppStateStatus,
@@ -7,6 +8,8 @@ import {
 
 const mockStartAutoRefresh = jest.fn().mockResolvedValue(undefined);
 const mockStopAutoRefresh = jest.fn().mockResolvedValue(undefined);
+const mockExpoCryptoDigest = jest.fn();
+const mockExpoCryptoGetRandomValues = jest.fn();
 const mockCreateClient = jest.fn((..._args: unknown[]) => ({
   auth: {
     startAutoRefresh: mockStartAutoRefresh,
@@ -16,6 +19,12 @@ const mockCreateClient = jest.fn((..._args: unknown[]) => ({
 
 jest.mock('@supabase/supabase-js', () => ({
   createClient: (...args: unknown[]) => mockCreateClient(...args),
+}));
+
+jest.mock('expo-crypto', () => ({
+  CryptoDigestAlgorithm: { SHA256: 'SHA-256' },
+  digest: (...args: unknown[]) => mockExpoCryptoDigest(...args),
+  getRandomValues: (array: unknown) => mockExpoCryptoGetRandomValues(array),
 }));
 
 jest.mock('@/lib/config/env', () => ({
@@ -71,13 +80,74 @@ describe('Supabase Native Lifecycle', () => {
     jest.resetModules();
     const { getSupabase: freshGetSupabase, serverClock: freshServerClock } =
       require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
+    const { LocalSupabaseSessionStorage: FreshSessionStorage } =
+      require('@/lib/storage/local-supabase-session-storage') as typeof import('@/lib/storage/local-supabase-session-storage');
     freshGetSupabase();
 
-    const options = mockCreateClient.mock.calls[0]?.[2] as { global?: { fetch?: unknown } };
+    const options = mockCreateClient.mock.calls[0]?.[2] as {
+      global?: { fetch?: unknown };
+      auth?: {
+        detectSessionInUrl?: boolean;
+        flowType?: string;
+        storage?: unknown;
+      };
+    };
     // Der native Supabase-Client muss den begrenzten Expo-Fetch-Wrapper nutzen.
     expect(options.global?.fetch).toBe(freshServerClock.fetch);
+    expect(options.auth?.flowType).toBe('pkce');
+    expect(options.auth?.detectSessionInUrl).toBe(false);
+    expect(options.auth?.storage).toBeInstanceOf(FreshSessionStorage);
     // Der serverClock-Wrapper kapselt expo/fetch: ein Aufruf muss durchreichen.
     expect(mockExpoFetch).not.toHaveBeenCalled();
+  });
+
+  it('erzeugt native OAuth-Challenges mit S256, wenn WebCrypto subtil fehlt', async () => {
+    const originalCryptoDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'crypto');
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: 'ios' });
+    Object.defineProperty(globalThis, 'crypto', { configurable: true, value: {} });
+    mockExpoCryptoDigest.mockImplementation((algorithm: string, data: BufferSource) =>
+      webcrypto.subtle.digest(algorithm, data),
+    );
+    mockExpoCryptoGetRandomValues.mockImplementation((array: Uint8Array | Uint32Array) => {
+      const bytes = new Uint8Array(array.buffer, array.byteOffset, array.byteLength);
+      bytes.set(webcrypto.getRandomValues(new Uint8Array(bytes.byteLength)));
+      return array;
+    });
+
+    try {
+      jest.resetModules();
+      const { getSupabase: freshGetSupabase } =
+        require('@/lib/backend/supabase/remote-client') as typeof import('@/lib/backend/supabase/remote-client');
+      freshGetSupabase();
+
+      const { createClient: createActualClient } =
+        jest.requireActual<typeof import('@supabase/supabase-js')>('@supabase/supabase-js');
+      const actualClient = createActualClient('https://example.supabase.co', 'test-key', {
+        auth: {
+          autoRefreshToken: false,
+          detectSessionInUrl: false,
+          flowType: 'pkce',
+          persistSession: false,
+        },
+      });
+      const { data, error } = await actualClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: { skipBrowserRedirect: true },
+      });
+
+      expect(error).toBeNull();
+      if (error) throw error;
+      if (!data.url) throw new Error('Expected Supabase to return the OAuth URL.');
+      expect(new URL(data.url).searchParams.get('code_challenge_method')).toBe('s256');
+      expect(mockExpoCryptoDigest).toHaveBeenCalledWith('SHA-256', expect.any(Uint8Array));
+      expect(mockExpoCryptoGetRandomValues).toHaveBeenCalled();
+    } finally {
+      if (originalCryptoDescriptor) {
+        Object.defineProperty(globalThis, 'crypto', originalCryptoDescriptor);
+      } else {
+        Reflect.deleteProperty(globalThis, 'crypto');
+      }
+    }
   });
 
   it('leitet Uint8Array-Upload-Bodies unverändert an expo/fetch weiter', async () => {

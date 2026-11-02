@@ -18,6 +18,34 @@ const SECURE_STORE_OPTIONS: SecureStore.SecureStoreOptions =
         keychainAccessible: SecureStore.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
       }
     : {};
+const PKCE_FLOW_INDEX_SUFFIX = '-flows-code-verifier';
+const PKCE_VERIFIER_SUFFIX = '-code-verifier';
+
+function getAuthStorageKey(key: string): string {
+  if (key.endsWith(PKCE_FLOW_INDEX_SUFFIX)) {
+    return key.slice(0, -PKCE_FLOW_INDEX_SUFFIX.length);
+  }
+  if (key.endsWith(PKCE_VERIFIER_SUFFIX)) {
+    const flowMarker = key.lastIndexOf('-flow-');
+    return flowMarker === -1
+      ? key.slice(0, -PKCE_VERIFIER_SUFFIX.length)
+      : key.slice(0, flowMarker);
+  }
+  if (key.endsWith('-user')) return key.slice(0, -'-user'.length);
+  return key;
+}
+
+function isAuthStorageEntry(key: string, storageKey: string): boolean {
+  if (key === storageKey) return true;
+
+  const suffix = key.slice(storageKey.length);
+  return (
+    suffix === '-user' ||
+    suffix === PKCE_FLOW_INDEX_SUFFIX ||
+    suffix === PKCE_VERIFIER_SUFFIX ||
+    (suffix.startsWith('-flow-') && suffix.endsWith(PKCE_VERIFIER_SUFFIX))
+  );
+}
 
 function bytesToBase64(bytes: Uint8Array): string {
   let binary = '';
@@ -109,6 +137,13 @@ export class LocalSupabaseSessionStorage {
 
   async removeItem(key: string): Promise<void> {
     await AsyncStorage.removeItem(key);
+
+    const storageKey = getAuthStorageKey(key);
+    const remainingAuthEntries = (await AsyncStorage.getAllKeys()).some((storedKey) =>
+      isAuthStorageEntry(storedKey, storageKey),
+    );
+    if (remainingAuthEntries) return;
+
     await SecureStore.deleteItemAsync(ENCRYPTION_KEY_STORAGE_KEY);
     this.encryptionKeyPromise = null;
   }

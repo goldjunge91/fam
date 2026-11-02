@@ -315,7 +315,7 @@ describe('PasswordRecoveryScreen', () => {
     expect(mockRouterReplace).toHaveBeenCalledWith('/');
   });
 
-  it('does not navigate twice when manual continue races automatic readiness', async () => {
+  it('does not let an early continue tap consume navigation after app readiness', async () => {
     mockSessionState = {
       session: { user: { id: recoveredUserId } },
       accountReady: true,
@@ -336,11 +336,15 @@ describe('PasswordRecoveryScreen', () => {
     expect(await screen.findByText('Passwort geändert')).toBeVisible();
 
     await userEvent.setup().press(screen.getByRole('button', { name: 'Weiter' }));
-    expect(mockRouterReplace).toHaveBeenCalledTimes(1);
+    expect(mockRouterReplace).not.toHaveBeenCalled();
 
     mockAppEntryReadiness = { userId: recoveredUserId, isReady: true };
     await view.rerender(passwordRecoveryScreen());
 
+    await waitFor(() => expect(mockRouterReplace).toHaveBeenCalledTimes(1));
+    expect(mockRouterReplace).toHaveBeenCalledWith('/');
+
+    await view.rerender(passwordRecoveryScreen());
     expect(mockRouterReplace).toHaveBeenCalledTimes(1);
   });
 

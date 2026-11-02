@@ -14,6 +14,7 @@ const mockFromCombined = jest.fn();
 
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(),
+  getAllKeys: jest.fn(),
   setItem: jest.fn(),
   removeItem: jest.fn(),
 }));
@@ -44,6 +45,7 @@ describe('LocalSupabaseSessionStorage', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.mocked(AsyncStorage.getItem).mockResolvedValue(null);
+    jest.mocked(AsyncStorage.getAllKeys).mockResolvedValue([]);
     jest.mocked(AsyncStorage.setItem).mockResolvedValue(undefined);
     jest.mocked(AsyncStorage.removeItem).mockResolvedValue(undefined);
     jest.mocked(SecureStore.getItemAsync).mockResolvedValue(null);
@@ -131,11 +133,50 @@ describe('LocalSupabaseSessionStorage', () => {
     );
   });
 
-  it('entfernt Session und Verschlüsselungsschlüssel beim Logout', async () => {
-    await new LocalSupabaseSessionStorage().removeItem('sb-example-auth-token');
+  it('entfernt den Schlüssel erst nach der vollständigen Auth-Bereinigung', async () => {
+    const sessionKey = 'sb-example-auth-token';
+    const verifierKey = `${sessionKey}-flow-pending-code-verifier`;
+    const remainingKeys = new Set([sessionKey, verifierKey]);
+    jest.mocked(AsyncStorage.getAllKeys).mockImplementation(async () => [...remainingKeys]);
+    jest.mocked(AsyncStorage.removeItem).mockImplementation(async (key) => {
+      remainingKeys.delete(key);
+    });
 
-    expect(AsyncStorage.removeItem).toHaveBeenCalledWith('sb-example-auth-token');
+    const storage = new LocalSupabaseSessionStorage();
+    await storage.removeItem(sessionKey);
+
+    expect(AsyncStorage.removeItem).toHaveBeenCalledWith(sessionKey);
+    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalled();
+
+    await storage.removeItem(verifierKey);
+
+    expect(remainingKeys.size).toBe(0);
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('fam.supabase-auth.encryption-key.v1');
+  });
+
+  it('behält den Schlüssel, solange Session und weitere PKCE-Verifier gespeichert sind', async () => {
+    const sessionKey = 'sb-example-auth-token';
+    const firstVerifierKey = `${sessionKey}-flow-first-code-verifier`;
+    const secondVerifierKey = `${sessionKey}-flow-second-code-verifier`;
+    const remainingKeys = new Set([sessionKey, firstVerifierKey, secondVerifierKey]);
+    jest.mocked(AsyncStorage.getAllKeys).mockImplementation(async () => [...remainingKeys]);
+    jest
+      .mocked(AsyncStorage.getItem)
+      .mockImplementation(async (key) => (remainingKeys.has(key) ? 'encrypted-session' : null));
+    jest.mocked(AsyncStorage.removeItem).mockImplementation(async (key) => {
+      remainingKeys.delete(key);
+    });
+    jest.mocked(SecureStore.getItemAsync).mockResolvedValue('stored-key');
+    jest.mocked(SecureStore.deleteItemAsync).mockImplementation(async () => {
+      jest.mocked(SecureStore.getItemAsync).mockResolvedValue(null);
+    });
+
+    const storage = new LocalSupabaseSessionStorage();
+    await storage.removeItem(firstVerifierKey);
+
+    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalled();
+    await expect(storage.getItem(sessionKey)).resolves.toBe('session-value');
+    await expect(storage.getItem(secondVerifierKey)).resolves.toBe('session-value');
   });
 
   it('gibt keinen Klartext zurück, wenn der Verschlüsselungsschlüssel fehlt', async () => {

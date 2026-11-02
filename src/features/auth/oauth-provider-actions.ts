@@ -4,51 +4,64 @@ import * as Linking from 'expo-linking';
 import * as WebBrowser from 'expo-web-browser';
 import { Platform } from 'react-native';
 
-import { parseOAuthTokensFromUrl } from '@/features/auth/domain/auth-deep-link';
+import { parseOAuthCodeFromUrl } from '@/features/auth/domain/auth-deep-link';
 import { AUTH_ERROR_KEYS } from '@/features/auth/domain/auth-error-message';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { reportError } from '@/lib/telemetry';
 
+let isBrowserOAuthFlowActive = false;
+
 export async function signInWithOAuthProvider(provider: 'apple' | 'google') {
-  const redirectTo = Linking.createURL('/sign-in');
-  const supabase = getSupabase();
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider,
-    options: {
-      redirectTo,
-      skipBrowserRedirect: true,
-    },
-  });
-
-  if (error) return { data, error };
-  if (!data.url) {
-    return {
-      data,
-      error: new Error(AUTH_ERROR_KEYS.redirectUrlMissing),
-    };
+  if (isBrowserOAuthFlowActive) {
+    return { data: null, error: new Error(AUTH_ERROR_KEYS.callbackInvalid) };
   }
 
-  const result = await WebBrowser.openAuthSessionAsync(data.url, redirectTo);
-  if (result.type !== 'success') return { data, error: null };
-
-  const tokens = parseOAuthTokensFromUrl(result.url, redirectTo);
-  if (!tokens) {
-    return { data, error: new Error(AUTH_ERROR_KEYS.callbackInvalid) };
-  }
-
-  const { error: sessionError } = await supabase.auth.setSession({
-    access_token: tokens.accessToken,
-    refresh_token: tokens.refreshToken,
-  });
-
-  if (sessionError) {
-    reportError(sessionError, {
-      operation: 'auth.oauth_session',
-      error_code: sessionError.code ?? 'oauth_session_failed',
+  isBrowserOAuthFlowActive = true;
+  try {
+    const redirectTo = Linking.createURL('/sign-in');
+    const supabase = getSupabase();
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo,
+        skipBrowserRedirect: true,
+      },
     });
-  }
 
-  return { data, error: sessionError };
+    if (error) return { data, error };
+    if (!data.url) {
+      return {
+        data,
+        error: new Error(AUTH_ERROR_KEYS.redirectUrlMissing),
+      };
+    }
+    if (typeof data.flowId !== 'string' || !data.flowId.trim()) {
+      return { data, error: new Error(AUTH_ERROR_KEYS.callbackInvalid) };
+    }
+
+    const result = await WebBrowser.openAuthSessionAsync(data.url, redirectTo);
+    if (result.type !== 'success') return { data, error: null };
+
+    const code = parseOAuthCodeFromUrl(result.url, redirectTo);
+    if (!code) {
+      return { data, error: new Error(AUTH_ERROR_KEYS.callbackInvalid) };
+    }
+
+    const { error: sessionError } = await supabase.auth.exchangeCodeForSession(code, {
+      flowId: data.flowId,
+    });
+
+    if (sessionError) {
+      reportError(sessionError, {
+        operation: 'auth.oauth_session',
+        error_code: sessionError.code ?? 'oauth_session_failed',
+      });
+    }
+
+    return { data, error: sessionError };
+  } finally {
+    isBrowserOAuthFlowActive = false;
+  }
 }
 
 export async function signInWithApple() {
