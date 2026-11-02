@@ -105,8 +105,8 @@ jobs:
         if: steps.cache-supabase-docker.outputs.cache-hit == 'true'
         run: docker load -i build/cache/docker/supabase-docker-images.tar
 
-      - name: Lokalen Supabase-Stack starten
-        run: supabase start
+      - name: Lokalen Supabase-Stack ohne Mailpit starten
+        run: supabase start --exclude mailpit
 
       - uses: ./.github/actions/setup-bun-env
         with:
