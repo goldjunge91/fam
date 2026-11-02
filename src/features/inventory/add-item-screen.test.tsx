@@ -95,6 +95,10 @@ jest.mock('@/features/inventory/frequent-products-quick-select', () => ({
   FrequentProductsQuickSelect: () => null,
 }));
 
+jest.mock('@/features/inventory/trigger-off-enrichment', () => ({
+  triggerOffEnrichment: jest.fn(),
+}));
+
 jest.mock('@/features/inventory/product-search-dropdown', () => {
   const { TextInput, View } = require('react-native');
   type MockProps = {

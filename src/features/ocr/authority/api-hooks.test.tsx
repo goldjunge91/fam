@@ -96,7 +96,10 @@ describe('receipt authority queries', () => {
     await applyLocalSchema(testDatabase);
     mockDb = testDatabase;
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { gcTime: Number.POSITIVE_INFINITY },
+      },
     });
   });
 

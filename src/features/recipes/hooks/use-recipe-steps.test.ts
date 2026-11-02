@@ -48,7 +48,10 @@ describe('recipe step mutations', () => {
 
   beforeEach(() => {
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+      defaultOptions: {
+        queries: { retry: false },
+        mutations: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+      },
     });
     mockGetAllAsync.mockReset().mockResolvedValue([]);
     mockGetFirstAsync.mockReset().mockResolvedValue(null);

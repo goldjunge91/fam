@@ -47,7 +47,10 @@ describe('use-stores', () => {
     mockEnqueueMutation.mockReset().mockResolvedValue(undefined);
     mockApplyLocalMirrorWrite.mockReset().mockResolvedValue(undefined);
     queryClient = new QueryClient({
-      defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
+      defaultOptions: {
+        queries: { retry: false, gcTime: Number.POSITIVE_INFINITY },
+        mutations: { gcTime: Number.POSITIVE_INFINITY },
+      },
     });
   });
 
