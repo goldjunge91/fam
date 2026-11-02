@@ -53,7 +53,7 @@ export function parsePostalCodes(content: string): ScrapeLocation[] {
 }
 
 export async function loadPostalCodes(): Promise<ScrapeLocation[]> {
-  const filePath = join(process.cwd(), 'tools/crawler/brochures/geonames-DE.txt');
+  const filePath = join(process.cwd(), 'scripts/scrapers/geonames-DE.txt');
   const locations = parsePostalCodes(await readFile(filePath, 'utf8'));
   if (locations.length === 0) throw new Error(`No postal codes found in ${filePath}.`);
   return locations;
