@@ -113,7 +113,7 @@ supabase functions deploy revenuecat-webhook \
 
 Das Secret darf weder im Repository noch in einer `EXPO_PUBLIC_*`-Variable
 stehen. Für den Handler werden zusätzlich `SUPABASE_URL` und
-`SUPABASE_SERVICE_ROLE_KEY` benötigt. Diese Werte werden von Supabase für die
+`SUPABASE_SECRET_KEY` benötigt. Diese Werte werden von Supabase für die
 Function bereitgestellt und dürfen ebenfalls nicht in den Mobile-Client
 gelangen.
 
@@ -230,7 +230,7 @@ Für einen schnellen Scan der versionierten Dateien (keine Ausgabe bedeutet
 keine Treffer; die lokalen `.env`-Dateien zusätzlich nicht committen):
 
 ```bash
-git grep -nE 'sk_[A-Za-z0-9]{20,}|REVENUECAT_WEBHOOK_SECRET=[^$[:space:]]+|SUPABASE_SERVICE_ROLE_KEY=[^$[:space:]]+' -- \
+git grep -nE 'sk_[A-Za-z0-9]{20,}|REVENUECAT_WEBHOOK_SECRET=[^$[:space:]]+|SUPABASE_SECRET_KEY=[^$[:space:]]+' -- \
   . ':(exclude)docs/**' ':(exclude).agents/**' ':(exclude).claude/**'
 ```
 

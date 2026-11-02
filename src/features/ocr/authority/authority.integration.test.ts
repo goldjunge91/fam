@@ -24,7 +24,7 @@ import {
 
 jest.mock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
 
-const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SECRET_KEY ?? '';
 
 function randomId(): string {
   return crypto.randomUUID();
@@ -42,7 +42,7 @@ async function createOutsider(): Promise<{
   userId: string;
   cleanup: () => Promise<void>;
 }> {
-  if (!SERVICE_ROLE_KEY) throw new Error('SUPABASE_SERVICE_ROLE_KEY fehlt.');
+  if (!SERVICE_ROLE_KEY) throw new Error('SUPABASE_SECRET_KEY fehlt.');
   const admin = createClient<Database>(
     process.env.EXPO_PUBLIC_SUPABASE_URL ?? '',
     SERVICE_ROLE_KEY,

@@ -5,7 +5,7 @@ import { createDeleteAccountHandler } from './handler.ts';
 
 const supabaseUrl = requireEnv('SUPABASE_URL');
 const anonKey = requireEnv('SUPABASE_ANON_KEY');
-const adminClient = createClient(supabaseUrl, requireEnv('SUPABASE_SERVICE_ROLE_KEY'));
+const adminClient = createClient(supabaseUrl, requireEnv('SUPABASE_SECRET_KEY'));
 
 const userClient = (authorization: string) =>
   createClient(supabaseUrl, anonKey, { global: { headers: { Authorization: authorization } } });

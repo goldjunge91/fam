@@ -503,8 +503,7 @@ async function main() {
 
   const supabaseUrl: string =
     process.env.SUPABASE_URL ?? process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
-  const supabaseSecretKey: string =
-    process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
+  const supabaseSecretKey: string = process.env.SUPABASE_SECRET_KEY ?? '';
 
   const runStartedAt = new Date().toISOString();
   const startTime = Date.now();

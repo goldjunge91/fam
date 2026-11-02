@@ -55,11 +55,7 @@ function resolveSupabaseEnv() {
   const env = readDotenv();
   const url = process.env.EXPO_PUBLIC_SUPABASE_URL || env.EXPO_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.EXPO_PUBLIC_SUPABASE_KEY || env.EXPO_PUBLIC_SUPABASE_KEY;
-  const serviceRoleKey =
-    process.env.SUPABASE_SECRET_KEY ||
-    env.SUPABASE_SECRET_KEY ||
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    env.SUPABASE_SERVICE_ROLE_KEY;
+  const serviceRoleKey = process.env.SUPABASE_SECRET_KEY || env.SUPABASE_SECRET_KEY;
 
   if (!url || !anonKey) {
     throw new Error(
@@ -74,7 +70,7 @@ const config = resolveSupabaseEnv();
 
 process.env.EXPO_PUBLIC_SUPABASE_URL = config.url;
 process.env.EXPO_PUBLIC_SUPABASE_KEY = config.anonKey;
-process.env.SUPABASE_SERVICE_ROLE_KEY = config.serviceRoleKey;
+process.env.SUPABASE_SECRET_KEY = config.serviceRoleKey;
 
 jest.mock('@sentry/react-native', () => ({
   captureException: jest.fn(),

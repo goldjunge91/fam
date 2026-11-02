@@ -353,10 +353,10 @@ function resolveConfig() {
 
   assertSafeSeedTarget(url, allowNonLocal);
 
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  const serviceRoleKey = process.env.SUPABASE_SECRET_KEY?.trim();
   if (!serviceRoleKey) {
     throw new Error(
-      'SUPABASE_SERVICE_ROLE_KEY fehlt. Lies den lokalen Key mit supabase status aus und übergib ihn ausschließlich als Umgebungsvariable.',
+      'SUPABASE_SECRET_KEY fehlt. Lies den lokalen Key mit supabase status aus und übergib ihn ausschließlich als Umgebungsvariable.',
     );
   }
 

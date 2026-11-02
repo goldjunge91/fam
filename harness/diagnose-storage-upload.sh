@@ -53,7 +53,7 @@ fi
 
 echo "== 2/4 Test-Account anlegen ($EMAIL) =="
 # test-users.ts verlangt den lokalen Service-Role-Key als Umgebungsvariable.
-export SUPABASE_SERVICE_ROLE_KEY="$(supabase status --output json | python3 -c "import json,sys; print(json.load(sys.stdin)['SERVICE_ROLE_KEY'])")"
+export SUPABASE_SECRET_KEY="$(supabase status --output json | python3 -c "import json,sys; print(json.load(sys.stdin)['SERVICE_ROLE_KEY'])")"
 # Idempotent: existiert der Account schon, ist das kein Fehler.
 bun scripts/test-users.ts create "$EMAIL" "$PASSWORD" "Storage Diag" 2>&1 | grep -v "already been registered" || true
 

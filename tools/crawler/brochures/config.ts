@@ -32,10 +32,7 @@ export function assertCrawlerEnvironment(
     if (!environment.SUPABASE_URL?.trim() && !environment.EXPO_PUBLIC_SUPABASE_URL?.trim()) {
       missing.add('SUPABASE_URL');
     }
-    if (
-      !environment.SUPABASE_SECRET_KEY?.trim() &&
-      !environment.SUPABASE_SERVICE_ROLE_KEY?.trim()
-    ) {
+    if (!environment.SUPABASE_SECRET_KEY?.trim()) {
       missing.add('SUPABASE_SECRET_KEY');
     }
   }

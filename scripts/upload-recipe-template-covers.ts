@@ -14,9 +14,7 @@ const ASSET_DIRECTORY = path.resolve(
 );
 
 function requireEnv(name: 'EXPO_PUBLIC_SUPABASE_URL' | 'SUPABASE_SECRET_KEY'): string {
-  const value =
-    process.env[name] ||
-    (name === 'SUPABASE_SECRET_KEY' ? process.env.SUPABASE_SERVICE_ROLE_KEY : undefined);
+  const value = process.env[name];
   if (!value) throw new Error(`${name} fehlt in .env.`);
   return value;
 }

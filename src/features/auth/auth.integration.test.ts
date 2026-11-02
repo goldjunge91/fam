@@ -13,13 +13,13 @@ type SessionStorage = {
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
-const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SECRET_KEY ?? '';
 
 let _admin: SupabaseClient<Database> | null = null;
 function adminClient(): SupabaseClient<Database> {
   if (_admin) return _admin;
   if (!SERVICE_ROLE_KEY) {
-    throw new Error('SUPABASE_SERVICE_ROLE_KEY fehlt.');
+    throw new Error('SUPABASE_SECRET_KEY fehlt.');
   }
   _admin = createClient<Database>(SUPABASE_URL, SERVICE_ROLE_KEY, {
     auth: { persistSession: false, autoRefreshToken: false },

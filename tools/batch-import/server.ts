@@ -166,7 +166,7 @@ async function importBatch(
 ) {
   const db = createClient(
     required('SUPABASE_URL', 'EXPO_PUBLIC_SUPABASE_URL'),
-    required('SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_SECRET_KEY'),
+    required('SUPABASE_SECRET_KEY'),
     { auth: { autoRefreshToken: false, persistSession: false } },
   );
   const report = [];
@@ -412,7 +412,7 @@ const server = Bun.serve({
       console.log(`[${id}] Template-Import gestartet`);
       void (async () => {
         try {
-          const db = createClient(required('SUPABASE_URL', 'EXPO_PUBLIC_SUPABASE_URL'), required('SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_SECRET_KEY'), { auth: { autoRefreshToken: false, persistSession: false } });
+          const db = createClient(required('SUPABASE_URL', 'EXPO_PUBLIC_SUPABASE_URL'), required('SUPABASE_SECRET_KEY'), { auth: { autoRefreshToken: false, persistSession: false } });
           job.result = await importLegacyTemplates(db, (progress) => {
             Object.assign(job, progress);
             if (progress.current) console.log(`[${id}] ${progress.completed}/${progress.total}: ${progress.current}`);

@@ -55,17 +55,17 @@ jobs:
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.zip == '')
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           set -euo pipefail
-          if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_SERVICE_ROLE_KEY" ]]; then
+          if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_SECRET_KEY" ]]; then
             printf '::error::Supabase runner credentials are missing.\n'
             exit 1
           fi
           response=$(curl --fail --silent --show-error --retry 3 --retry-delay 2 \
             "${SUPABASE_URL%/}/rest/v1/rpc/get_pending_brochure_zip_scans" \
-            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "apikey: $SUPABASE_SECRET_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SECRET_KEY" \
             -H 'Content-Type: application/json' \
             --data '{"p_limit":25}')
           zip_codes=$(jq -ce '[.[] | .zip_code]' <<< "$response")
@@ -103,7 +103,7 @@ jobs:
         env:
           TARGET_ZIP: ${{ matrix.zip_code }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP"
 
   dry-run:

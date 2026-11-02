@@ -69,7 +69,7 @@ Deno.serve(
     applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
       const adminClient = createClient(
         Deno.env.get("SUPABASE_URL")!,
-        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+        Deno.env.get("SUPABASE_SECRET_KEY")!,
       );
 
       if (change.entitlementId === "AI") {

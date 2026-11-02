@@ -7,7 +7,7 @@
 #   bash scripts/sync-eas-env.sh development
 #   bash scripts/sync-eas-env.sh all --dry-run
 #
-# Absichtlich nicht enthalten: SUPABASE_SERVICE_ROLE_KEY und andere Backend-Secrets.
+# Absichtlich nicht enthalten: SUPABASE_SECRET_KEY und andere Backend-Secrets.
 set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
