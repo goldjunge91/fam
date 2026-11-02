@@ -8,7 +8,8 @@
       "action": {
         "type": "command",
         "command": "bash \"$PWD/.kiro/hooks/simplify-ignore.sh\""
-      }
+      },
+      "enabled": false
     },
     {
       "name": "simplify-ignore-after-write",
@@ -17,7 +18,8 @@
       "action": {
         "type": "command",
         "command": "bash \"$PWD/.kiro/hooks/simplify-ignore.sh\""
-      }
+      },
+      "enabled": false
     },
     {
       "name": "simplify-ignore-stop-restore",
@@ -25,7 +27,8 @@
       "action": {
         "type": "command",
         "command": "bash \"$PWD/.kiro/hooks/simplify-ignore.sh\""
-      }
+      },
+      "enabled": false
     }
   ]
 }
