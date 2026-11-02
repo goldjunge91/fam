@@ -52,14 +52,39 @@ describe('bug-bubble', () => {
   });
 
   describe('isBugBubbleEnabledForUser', () => {
-    const originalEnv = process.env;
+    const originalAllowedEmails = process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_EMAILS;
+    const originalAllowedUserIds = process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_USER_IDS;
+    const originalDevTools = process.env.EXPO_PUBLIC_DEV_TOOLS;
+    const originalDevDescriptor = Object.getOwnPropertyDescriptor(globalThis, '__DEV__');
 
     beforeEach(() => {
-      process.env = { ...originalEnv };
+      delete process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_EMAILS;
+      delete process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_USER_IDS;
+      delete process.env.EXPO_PUBLIC_DEV_TOOLS;
+      Object.defineProperty(globalThis, '__DEV__', { configurable: true, value: false });
     });
 
     afterEach(() => {
-      process.env = originalEnv;
+      if (originalAllowedEmails === undefined) {
+        delete process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_EMAILS;
+      } else {
+        process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_EMAILS = originalAllowedEmails;
+      }
+      if (originalAllowedUserIds === undefined) {
+        delete process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_USER_IDS;
+      } else {
+        process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_USER_IDS = originalAllowedUserIds;
+      }
+      if (originalDevTools === undefined) {
+        delete process.env.EXPO_PUBLIC_DEV_TOOLS;
+      } else {
+        process.env.EXPO_PUBLIC_DEV_TOOLS = originalDevTools;
+      }
+      if (originalDevDescriptor) {
+        Object.defineProperty(globalThis, '__DEV__', originalDevDescriptor);
+      } else {
+        Reflect.deleteProperty(globalThis, '__DEV__');
+      }
     });
 
     it('erlaubt Zugriff wenn flagEnabled true ist', () => {
@@ -84,6 +109,30 @@ describe('bug-bubble', () => {
           flagEnabled: false,
         }),
       ).toBe(true);
+    });
+
+    it('normalisiert erlaubte E-Mail-Adressen und ignoriert leere Einträge', () => {
+      process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_EMAILS = ' , ADMIN@example.com , ';
+
+      expect(
+        isBugBubbleEnabledForUser({
+          email: 'admin@EXAMPLE.com',
+          flagEnabled: false,
+        }),
+      ).toBe(true);
+    });
+
+    it('erfordert eine exakte passende Freigabe wenn Flag und Umgebungsmodus aus sind', () => {
+      delete process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_EMAILS;
+      delete process.env.EXPO_PUBLIC_BUGBUBBLE_ALLOWED_USER_IDS;
+
+      expect(
+        isBugBubbleEnabledForUser({
+          email: 'unknown@example.com',
+          userId: 'unknown-user',
+          flagEnabled: false,
+        }),
+      ).toBe(false);
     });
   });
 });

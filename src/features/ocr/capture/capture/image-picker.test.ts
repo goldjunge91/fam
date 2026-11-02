@@ -168,7 +168,93 @@ describe('receipt image capture', () => {
     expect(result).toEqual({ kind: 'permission_denied', source: 'camera' });
   });
 
-  it('accepts HEIC input and stores only a canonical JPEG page', async () => {
+  it('maps unavailable, rejected, empty and cancelled picker results safely', async () => {
+    const noResult = await captureReceiptPages(
+      { captureId: 'no-picker-result', source: 'gallery' },
+      {
+        imagePicker: {
+          ...pickerAdapter({ canceled: true, assets: null }),
+          getPendingResultAsync: async () => null,
+          launchImageLibraryAsync: async () => null,
+        },
+        fileSystem: fileAdapter([]),
+      },
+    );
+    const pickerError = await captureReceiptPages(
+      { captureId: 'picker-error', source: 'gallery' },
+      {
+        imagePicker: {
+          ...pickerAdapter({ canceled: true, assets: null }),
+          getPendingResultAsync: async () => null,
+          launchImageLibraryAsync: async () => ({
+            code: 'picker_failed',
+            message: 'Picker failed',
+          }),
+        },
+        fileSystem: fileAdapter([]),
+      },
+    );
+    const emptySelection = await captureReceiptPages(
+      { captureId: 'picker-empty', source: 'gallery' },
+      {
+        imagePicker: {
+          ...pickerAdapter({ canceled: true, assets: null }),
+          getPendingResultAsync: async () => ({ canceled: false, assets: [] }),
+        },
+        fileSystem: fileAdapter([]),
+      },
+    );
+
+    expect(noResult).toMatchObject({ kind: 'failed', failure: { code: 'picker_unavailable' } });
+    expect(pickerError).toMatchObject({
+      kind: 'failed',
+      failure: { code: 'picker_failed', message: 'Picker failed' },
+    });
+    expect(emptySelection).toEqual({ kind: 'cancelled', source: 'gallery' });
+  });
+
+  it('rejects invalid live assets and preserves concrete adapter errors', async () => {
+    const video = await captureReceiptPages(
+      {
+        captureId: 'live-video',
+        source: 'camera',
+        sourceAsset: { uri: 'file:///clip.mov', mimeType: 'video/quicktime', type: 'video' },
+      },
+      { imagePicker: pickerAdapter({ canceled: true, assets: null }), fileSystem: fileAdapter([]) },
+    );
+    const invalidSize = await captureReceiptPages(
+      {
+        captureId: 'invalid-size',
+        source: 'camera',
+        sourceAsset: { uri: 'file:///receipt.jpg', mimeType: 'image/jpeg', fileSize: Number.NaN },
+      },
+      { imagePicker: pickerAdapter({ canceled: true, assets: null }), fileSystem: fileAdapter([]) },
+    );
+    const pickerThrows = await captureReceiptPages(
+      { captureId: 'picker-throws', source: 'camera' },
+      {
+        imagePicker: {
+          ...pickerAdapter({ canceled: true, assets: null }),
+          getPendingResultAsync: async () => {
+            throw new Error('Native picker unavailable');
+          },
+        },
+        fileSystem: fileAdapter([]),
+      },
+    );
+
+    expect(video).toMatchObject({ kind: 'failed', failure: { code: 'unsupported_format' } });
+    expect(invalidSize).toMatchObject({
+      kind: 'failed',
+      failure: { code: 'invalid_asset_metadata' },
+    });
+    expect(pickerThrows).toMatchObject({
+      kind: 'failed',
+      failure: { code: 'capture_failed', message: 'Native picker unavailable' },
+    });
+  });
+
+  it('accepts HEIC input and stores a normalized JPEG page', async () => {
     const normalized = await captureReceiptPages(
       { captureId: 'heic', source: 'gallery', createdAt: CREATED_AT },
       {

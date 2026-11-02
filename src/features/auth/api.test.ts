@@ -2,6 +2,7 @@ import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import {
   confirmSignUpWithCode,
   discardPasswordRecoverySession,
+  getPrimarySessionUserId,
   requestPasswordReset,
   resendConfirmationEmail,
   signIn,
@@ -220,5 +221,114 @@ describe('auth API', () => {
 
     expect(mockRecoveryAuth.signOut).toHaveBeenCalledWith({ scope: 'local' });
     expect(mockPrimaryAuth.signOut).not.toHaveBeenCalled();
+  });
+
+  it('reads the current primary account and surfaces session lookup errors', async () => {
+    mockPrimaryAuth.getSession.mockResolvedValueOnce({
+      data: { session: { user: { id: 'primary-user' } } },
+      error: null,
+    });
+    await expect(getPrimarySessionUserId()).resolves.toBe('primary-user');
+
+    mockPrimaryAuth.getSession.mockResolvedValueOnce({ data: { session: null }, error: null });
+    await expect(getPrimarySessionUserId()).resolves.toBeNull();
+
+    const error = new Error('session unavailable');
+    mockPrimaryAuth.getSession.mockResolvedValueOnce({ data: { session: null }, error });
+    await expect(getPrimarySessionUserId()).rejects.toBe(error);
+  });
+
+  it('requires sign-in when either session cannot be read or the recovery session is absent', async () => {
+    mockPrimaryAuth.getSession.mockResolvedValueOnce({
+      data: { session: null },
+      error: new Error(),
+    });
+    await expect(
+      transferPasswordRecoverySession(mockRecoveryClient as unknown as TypedSupabaseClient, null),
+    ).resolves.toBe('sign-in-required');
+
+    mockPrimaryAuth.getSession.mockResolvedValueOnce({ data: { session: null }, error: null });
+    mockRecoveryAuth.getSession.mockResolvedValueOnce({ data: { session: null }, error: null });
+    await expect(
+      transferPasswordRecoverySession(mockRecoveryClient as unknown as TypedSupabaseClient, null),
+    ).resolves.toBe('sign-in-required');
+
+    mockPrimaryAuth.getSession.mockResolvedValueOnce({ data: { session: null }, error: null });
+    mockRecoveryAuth.getSession.mockResolvedValueOnce({
+      data: {
+        session: {
+          access_token: 'access',
+          refresh_token: 'refresh',
+          user: { id: 'recovered-user' },
+        },
+      },
+      error: new Error('expired recovery session'),
+    });
+    await expect(
+      transferPasswordRecoverySession(mockRecoveryClient as unknown as TypedSupabaseClient, null),
+    ).resolves.toBe('sign-in-required');
+  });
+
+  it('checks the primary session after a rejected or ambiguous transfer', async () => {
+    const recoverySession = {
+      access_token: 'access',
+      refresh_token: 'refresh',
+      user: { id: 'recovered-user' },
+    };
+    const client = mockRecoveryClient as unknown as TypedSupabaseClient;
+
+    mockPrimaryAuth.getSession
+      .mockResolvedValueOnce({ data: { session: null }, error: null })
+      .mockResolvedValueOnce({
+        data: { session: { user: { id: 'recovered-user' } } },
+        error: null,
+      });
+    mockRecoveryAuth.getSession.mockResolvedValueOnce({
+      data: { session: recoverySession },
+      error: null,
+    });
+    mockPrimaryAuth.setSession.mockResolvedValueOnce({
+      data: { session: null },
+      error: new Error(),
+    });
+    await expect(transferPasswordRecoverySession(client, null)).resolves.toBe('transferred');
+
+    mockPrimaryAuth.getSession
+      .mockResolvedValueOnce({ data: { session: null }, error: null })
+      .mockResolvedValueOnce({ data: { session: { user: { id: 'other-user' } } }, error: null });
+    mockRecoveryAuth.getSession.mockResolvedValueOnce({
+      data: { session: recoverySession },
+      error: null,
+    });
+    mockPrimaryAuth.setSession.mockRejectedValueOnce(new Error('ambiguous transfer'));
+    await expect(transferPasswordRecoverySession(client, null)).resolves.toBe(
+      'primary-session-preserved',
+    );
+
+    mockPrimaryAuth.getSession
+      .mockResolvedValueOnce({ data: { session: null }, error: null })
+      .mockResolvedValueOnce({ data: { session: null }, error: null });
+    mockRecoveryAuth.getSession.mockResolvedValueOnce({
+      data: { session: recoverySession },
+      error: null,
+    });
+    mockPrimaryAuth.setSession.mockResolvedValueOnce({
+      data: { session: null },
+      error: new Error(),
+    });
+    await expect(transferPasswordRecoverySession(client, null)).resolves.toBe('sign-in-required');
+
+    mockPrimaryAuth.getSession
+      .mockResolvedValueOnce({ data: { session: null }, error: null })
+      .mockResolvedValueOnce({ data: { session: null }, error: new Error('lookup failed') });
+    mockRecoveryAuth.getSession.mockResolvedValueOnce({
+      data: { session: recoverySession },
+      error: null,
+    });
+    mockPrimaryAuth.setSession.mockResolvedValueOnce({
+      data: { session: null },
+      error: new Error(),
+    });
+    await expect(transferPasswordRecoverySession(client, null)).resolves.toBe('transfer-uncertain');
   });
 });

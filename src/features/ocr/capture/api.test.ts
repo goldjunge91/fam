@@ -1,8 +1,10 @@
 import {
   captureReceipt,
+  getPendingReceiptAssetUpload,
   getPendingReceiptAssetUploadRefetchInterval,
   getResumableReceiptDraft,
   type ReceiptCaptureApiDependencies,
+  retryPendingReceiptAssetUpload,
   uploadReceiptCapture,
 } from './api';
 import type { ReceiptCaptureFileAdapter, ReceiptImagePickerAdapter } from './capture/contracts';
@@ -15,6 +17,37 @@ const CREATED_AT = '2026-09-21T10:00:00.000Z';
 const mockGetEncryptedAccountStorage = jest.fn();
 jest.mock('@/lib/storage/local-account-storage', () => ({
   getEncryptedAccountStorage: (accountId: string) => mockGetEncryptedAccountStorage(accountId),
+}));
+
+jest.mock('./capture/supabase-upload', () => ({
+  createSupabaseReceiptAssetUploadAdapter: () => ({
+    upload: async ({ assetId, storagePath }: { assetId: string; storagePath: string }) => ({
+      assetId,
+      storagePath,
+    }),
+  }),
+}));
+
+jest.mock('./capture/native-adapters', () => ({
+  createExpoFileSystemAdapter: () => ({
+    normalizeToPersistentStorage: async () => ({
+      localUri: 'file:///documents/receipt-captures/mock.jpg',
+      mimeType: 'image/jpeg',
+      byteSize: 3,
+      width: 2_400,
+      height: 1_800,
+    }),
+    readBytes: async () => new Uint8Array([1, 2, 3]),
+    deleteLocalFile: async () => undefined,
+    cleanupSourceUri: async () => undefined,
+  }),
+  createExpoImagePickerAdapter: () => ({
+    getPendingResultAsync: async () => null,
+    requestCameraPermissionsAsync: async () => ({ granted: true }),
+    requestMediaLibraryPermissionsAsync: async () => ({ granted: true }),
+    launchCameraAsync: async () => ({ canceled: true, assets: null }),
+    launchImageLibraryAsync: async () => ({ canceled: true, assets: null }),
+  }),
 }));
 
 function imagePicker(): ReceiptImagePickerAdapter {
@@ -276,5 +309,85 @@ describe('getResumableReceiptDraft', () => {
     await persistence.save({ ...draft, phase: 'saved' });
 
     expect(await getResumableReceiptDraft('user-1')).toBeNull();
+  });
+});
+
+describe('pending receipt asset upload', () => {
+  beforeEach(() => mockGetEncryptedAccountStorage.mockReset());
+
+  function inMemoryStorage(): ReceiptCaptureMetadataStorage {
+    const values = new Map<string, string>();
+    return {
+      getString: (key) => values.get(key),
+      set: (key, value) => values.set(key, value),
+      remove: (key) => values.delete(key),
+    };
+  }
+
+  it('returns only a failed upload draft for an active account', async () => {
+    const storage = inMemoryStorage();
+    mockGetEncryptedAccountStorage.mockResolvedValue(storage);
+    const persistence = createReceiptCapturePersistence('user-pending', { storage });
+    const captured = await captureReceipt(
+      { captureId: 'capture-pending-upload', source: 'camera', createdAt: CREATED_AT },
+      { ...dependencies(), persistence },
+    );
+    if (captured.kind !== 'captured') throw new Error('Expected capture to succeed.');
+
+    await uploadReceiptCapture(
+      {
+        draft: captured.draft,
+        householdId: 'household-1',
+        receiptId: 'receipt-1',
+        createdBy: 'user-pending',
+      },
+      {
+        ...dependencies(),
+        persistence,
+        assetUploader: { upload: async () => Promise.reject(new Error('offline')) },
+      },
+    );
+
+    await expect(getPendingReceiptAssetUpload(undefined)).resolves.toBeNull();
+    await expect(getPendingReceiptAssetUpload('user-pending')).resolves.toMatchObject({
+      receiptId: 'capture-pending-upload',
+      pageCount: 1,
+      updatedAt: CREATED_AT,
+      errorMessage: 'offline',
+    });
+  });
+
+  it('retries a persisted upload failure and discards the draft after success', async () => {
+    const storage = inMemoryStorage();
+    mockGetEncryptedAccountStorage.mockResolvedValue(storage);
+    const persistence = createReceiptCapturePersistence('user-retry', { storage });
+    const captured = await captureReceipt(
+      { captureId: 'capture-retry-upload', source: 'camera', createdAt: CREATED_AT },
+      { ...dependencies(), persistence },
+    );
+    if (captured.kind !== 'captured') throw new Error('Expected capture to succeed.');
+
+    await uploadReceiptCapture(
+      {
+        draft: captured.draft,
+        householdId: 'household-1',
+        receiptId: 'receipt-1',
+        createdBy: 'user-retry',
+      },
+      {
+        ...dependencies(),
+        persistence,
+        assetUploader: { upload: async () => Promise.reject(new Error('offline')) },
+      },
+    );
+
+    const result = await retryPendingReceiptAssetUpload({
+      accountId: 'user-retry',
+      householdId: 'household-fallback',
+      createdBy: 'user-retry',
+    });
+
+    expect(result?.draft.status).toBe('uploaded');
+    await expect(persistence.load()).resolves.toBeNull();
   });
 });

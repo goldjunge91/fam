@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useLocalSearchParams, useNavigation } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -32,6 +32,10 @@ export function PasswordRecoveryScreen() {
     token_hash?: string | string[];
     type?: string | string[];
   }>();
+  const navigation = useNavigation<{
+    setParams(params: { token_hash?: string; type?: string }): void;
+  }>();
+  const handledRecoveryLinkKeyRef = useRef<string | null>(null);
   const phase = usePasswordRecoveryStore((state) => state.phase);
   const emailFromStore = usePasswordRecoveryStore((state) => state.email);
   const codeFromStore = usePasswordRecoveryStore((state) => state.code);
@@ -60,7 +64,12 @@ export function PasswordRecoveryScreen() {
   useEffect(() => {
     if (tokenHashParam === undefined) return;
 
-    router.setParams({ token_hash: undefined, type: undefined });
+    // An inactive stack route can reconnect with its original local parameters.
+    const recoveryLinkKey = JSON.stringify([tokenHashParam, linkTypeParam]);
+    if (handledRecoveryLinkKeyRef.current === recoveryLinkKey) return;
+    handledRecoveryLinkKeyRef.current = recoveryLinkKey;
+
+    navigation.setParams({ token_hash: undefined, type: undefined });
     if (
       typeof tokenHashParam !== 'string' ||
       tokenHashParam.trim() === '' ||
@@ -71,7 +80,7 @@ export function PasswordRecoveryScreen() {
     }
 
     void usePasswordRecoveryStore.getState().openRecoveryTokenHash(tokenHashParam);
-  }, [linkTypeParam, tokenHashParam]);
+  }, [linkTypeParam, navigation, tokenHashParam]);
 
   useEffect(() => {
     if (!cooldownUntil || secondsLeft <= 0) return;

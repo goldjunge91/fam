@@ -58,6 +58,9 @@ jest.mock('@/features/auth/session-provider', () => ({
   SessionProvider: ({ children }: { children: ReactNode }) => children,
   useSession: () => ({ session: mockSession }),
 }));
+jest.mock('@/features/onboarding/app-entry-readiness', () => ({
+  AppEntryReadinessProvider: ({ children }: { children: ReactNode }) => children,
+}));
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
   NavigationChromeProvider: ({ children }: { children: ReactNode }) => children,
 }));

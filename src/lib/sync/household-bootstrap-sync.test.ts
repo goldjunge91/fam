@@ -2,6 +2,9 @@ const mockPullHousehold = jest.fn();
 const mockGetDatabase = jest.fn();
 const mockGetSupabase = jest.fn();
 const mockServerNowMs = jest.fn(() => null);
+const mockBeginAccountSyncRun = jest.fn();
+const mockRegisterAccountSyncStopper = jest.fn();
+const mockStartNetworkReconnectTrigger = jest.fn();
 
 jest.mock('@/lib/sync/pull', () => ({
   pullHousehold: (...args: unknown[]) => mockPullHousehold(...args),
@@ -24,11 +27,25 @@ jest.mock('@/lib/telemetry', () => ({
   reportError: jest.fn(),
 }));
 
+jest.mock('@/lib/sync/remote-sync-gate', () => ({
+  beginAccountSyncRun: (...args: unknown[]) => mockBeginAccountSyncRun(...args),
+  registerAccountSyncStopper: (...args: unknown[]) => mockRegisterAccountSyncStopper(...args),
+}));
+
+jest.mock('@/lib/sync/network-trigger', () => ({
+  startNetworkReconnectTrigger: (...args: unknown[]) => mockStartNetworkReconnectTrigger(...args),
+}));
+
 jest.mock('@/features/household/query-keys', () => ({
   householdsQueryKey: (userId: string | undefined) => ['households', 'by-user', userId] as const,
 }));
 
-import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
+import { act, renderHook } from '@testing-library/react-native';
+import { AppState } from 'react-native';
+import {
+  triggerHouseholdsPull,
+  useHouseholdsBootstrapSync,
+} from '@/lib/sync/household-bootstrap-sync';
 
 function fakeQueryClient() {
   return { invalidateQueries: jest.fn() };
@@ -40,6 +57,9 @@ describe('triggerHouseholdsPull', () => {
     mockGetDatabase.mockResolvedValue({});
     mockGetSupabase.mockReturnValue({});
     mockServerNowMs.mockReturnValue(null);
+    mockBeginAccountSyncRun.mockReturnValue(jest.fn());
+    mockRegisterAccountSyncStopper.mockReturnValue(jest.fn());
+    mockStartNetworkReconnectTrigger.mockReturnValue(jest.fn());
   });
 
   afterEach(() => {
@@ -104,5 +124,85 @@ describe('triggerHouseholdsPull', () => {
     mockPullHousehold.mockRejectedValue(new Error('offline'));
 
     await expect(triggerHouseholdsPull('user-1')).resolves.toBeNull();
+  });
+});
+
+describe('useHouseholdsBootstrapSync', () => {
+  let appStateHandler: ((state: string) => void) | undefined;
+  let currentStateDescriptor: PropertyDescriptor | undefined;
+
+  beforeEach(() => {
+    appStateHandler = undefined;
+    mockPullHousehold.mockReset().mockResolvedValue([]);
+    mockGetDatabase.mockResolvedValue({});
+    mockGetSupabase.mockReturnValue({});
+    mockBeginAccountSyncRun.mockReset().mockReturnValue(jest.fn());
+    mockRegisterAccountSyncStopper.mockReset().mockReturnValue(jest.fn());
+    mockStartNetworkReconnectTrigger.mockReset().mockReturnValue(jest.fn());
+    currentStateDescriptor = Object.getOwnPropertyDescriptor(AppState, 'currentState');
+    Object.defineProperty(AppState, 'currentState', {
+      configurable: true,
+      value: 'active',
+    });
+    jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, handler) => {
+      appStateHandler = handler as (state: string) => void;
+      return { remove: jest.fn() } as ReturnType<typeof AppState.addEventListener>;
+    });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+    if (currentStateDescriptor) {
+      Object.defineProperty(AppState, 'currentState', currentStateDescriptor);
+    } else {
+      Reflect.deleteProperty(AppState, 'currentState');
+    }
+    jest.useRealTimers();
+  });
+
+  it('liefert ohne Nutzer den leeren Bootstrap-Zustand und startet keine Poller', async () => {
+    const { result } = await renderHook(() => useHouseholdsBootstrapSync(undefined));
+
+    expect(result.current).toEqual({
+      isInitialSyncComplete: false,
+      isInitialSyncError: false,
+    });
+    expect(mockPullHousehold).not.toHaveBeenCalled();
+    expect(mockStartNetworkReconnectTrigger).not.toHaveBeenCalled();
+  });
+
+  it('pollt nur im Vordergrund und reagiert auf den Wechsel zur aktiven App', async () => {
+    jest.useFakeTimers();
+    mockPullHousehold.mockResolvedValue([
+      { entity: 'households', pagesFetched: 1, rowsWritten: 1, rowsSkippedAsLocalWins: 0 },
+    ]);
+    const { unmount } = await renderHook(() => useHouseholdsBootstrapSync('user-1'));
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(mockPullHousehold).toHaveBeenCalledTimes(1);
+
+    mockPullHousehold.mockClear();
+    await act(async () => {
+      await jest.advanceTimersByTimeAsync(20_000);
+    });
+    expect(mockPullHousehold).toHaveBeenCalledTimes(1);
+
+    mockPullHousehold.mockClear();
+    Object.defineProperty(AppState, 'currentState', { configurable: true, value: 'background' });
+    await act(async () => {
+      await jest.advanceTimersByTimeAsync(20_000);
+      appStateHandler?.('inactive');
+    });
+    expect(mockPullHousehold).not.toHaveBeenCalled();
+
+    await act(async () => {
+      appStateHandler?.('active');
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(mockPullHousehold).toHaveBeenCalledTimes(1);
+
+    await unmount();
   });
 });

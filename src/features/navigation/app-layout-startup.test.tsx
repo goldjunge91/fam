@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 
 import AppLayout from '@/app/(app)/_layout';
+import { AppEntryReadinessProvider } from '@/features/onboarding/app-entry-readiness';
 
 let mockProfileResult: {
   data: { onboarding_completed_at: string | null } | undefined;
@@ -11,6 +12,7 @@ let mockProfileResult: {
 let mockOnboardingSessionCompleted = false;
 let mockSessionResult: {
   session: { user: { id: string } } | null;
+  accountReady: boolean;
   seenOnboarding: boolean;
 };
 let mockPendingInviteToken: string | null = null;
@@ -125,7 +127,9 @@ async function renderLayout(queryClient = createQueryClient()) {
     queryClient,
     ...(await render(
       <QueryClientProvider client={queryClient}>
-        <AppLayout />
+        <AppEntryReadinessProvider>
+          <AppLayout />
+        </AppEntryReadinessProvider>
       </QueryClientProvider>,
     )),
   };
@@ -134,7 +138,11 @@ async function renderLayout(queryClient = createQueryClient()) {
 describe('AppLayout startup gate', () => {
   beforeEach(() => {
     mockOnboardingSessionCompleted = false;
-    mockSessionResult = { session: { user: { id: 'user-1' } }, seenOnboarding: true };
+    mockSessionResult = {
+      session: { user: { id: 'user-1' } },
+      accountReady: true,
+      seenOnboarding: true,
+    };
     mockPendingInviteToken = null;
     mockProfileResult = {
       data: { onboarding_completed_at: '2026-09-16T00:00:00.000Z' },
@@ -240,11 +248,15 @@ describe('AppLayout startup gate', () => {
   });
 
   it('skips onboarding redirects when the session or profile data is absent', async () => {
-    mockSessionResult = { session: null, seenOnboarding: false };
+    mockSessionResult = { session: null, accountReady: true, seenOnboarding: false };
     await renderLayout();
     expect(screen.getByText('redirect:/onboarding')).toBeOnTheScreen();
 
-    mockSessionResult = { session: { user: { id: 'user-1' } }, seenOnboarding: true };
+    mockSessionResult = {
+      session: { user: { id: 'user-1' } },
+      accountReady: true,
+      seenOnboarding: true,
+    };
     mockProfileResult.data = undefined;
     await renderLayout();
     expect(screen.getByText('app-shell')).toBeOnTheScreen();

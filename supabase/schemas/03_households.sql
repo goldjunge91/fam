@@ -16,7 +16,7 @@ create table if not exists public.households (
   -- Plus und AI bleiben getrennt, weil beide unabhaengig aktiv sein koennen.
   -- Serverseitig gepflegt vom RevenueCat-Webhook
   -- (supabase/functions/revenuecat-webhook) — siehe Schreibschutz in
-  -- 20_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
+  -- 99_privileges.sql, sonst koennte sich jeder Haushalts-Admin selbst
   -- freischalten.
   plus_active boolean not null default false,
   plus_expires_at timestamptz,

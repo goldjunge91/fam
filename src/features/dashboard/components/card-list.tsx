@@ -375,6 +375,7 @@ function EditingCardGrid({
                         onDelete={() => hideCard(card.id)}
                         onToggleSize={() => onToggleSize(card.id, size)}>
                         <View
+                          testID="dashboard-card-layout-measurement"
                           onLayout={(event) => {
                             const height = Math.ceil(event.nativeEvent.layout.height);
                             if (height <= 0 || dragActive.current) return;

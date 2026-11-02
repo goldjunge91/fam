@@ -16,6 +16,7 @@ import { PostHogIdentitySync } from '@/features/app-shell/posthog-identity-sync'
 import { SessionProvider, useSession } from '@/features/auth/session-provider';
 import { NavigationChromeProvider } from '@/features/navigation/navigation-chrome-provider';
 import { ProfileSheet } from '@/features/navigation/profile-sheet';
+import { AppEntryReadinessProvider } from '@/features/onboarding/app-entry-readiness';
 import { ScreenTracker } from '@/lib/analytics';
 import { isBugBubbleEnabledForUser, setBugBubbleActive } from '@/lib/analytics/bug-bubble';
 import { queryClient } from '@/lib/data/query-client';
@@ -69,15 +70,17 @@ export function AppProviders({ children }: { children: ReactNode }) {
           <KeyboardProvider>
             <QueryClientProvider client={queryClient}>
               <SessionProvider>
-                <PostHogAppProvider>
-                  <PostHogIdentitySync />
-                  <ScreenTracker />
-                  <AccountProviderGate>
-                    <FamThemeProvider>
-                      <ThemeRuntime screenshotMode={screenshotMode}>{children}</ThemeRuntime>
-                    </FamThemeProvider>
-                  </AccountProviderGate>
-                </PostHogAppProvider>
+                <AppEntryReadinessProvider>
+                  <PostHogAppProvider>
+                    <PostHogIdentitySync />
+                    <ScreenTracker />
+                    <AccountProviderGate>
+                      <FamThemeProvider>
+                        <ThemeRuntime screenshotMode={screenshotMode}>{children}</ThemeRuntime>
+                      </FamThemeProvider>
+                    </AccountProviderGate>
+                  </PostHogAppProvider>
+                </AppEntryReadinessProvider>
               </SessionProvider>
             </QueryClientProvider>
           </KeyboardProvider>

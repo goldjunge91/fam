@@ -5,12 +5,13 @@ import * as React from 'react';
 import {
   groupByCategory,
   type LocalShoppingItem,
+  useCheckedShoppingItems,
   useShoppingList,
 } from '@/features/shopping-list/hooks/use-shopping-list';
 
 const mockDbGetAllAsync = jest.fn();
 
-function shoppingRow(name: string) {
+function shoppingRow(name: string, checkedAt: string | null = null) {
   return {
     id: `item-${name.toLowerCase()}`,
     household_id: 'hh-1',
@@ -26,7 +27,7 @@ function shoppingRow(name: string) {
     store_id: null,
     price_estimate: null,
     recipe_names: '[]',
-    checked_at: null,
+    checked_at: checkedAt,
     checked_by: null,
     sort_index: 0,
     created_at: '',
@@ -69,6 +70,16 @@ describe('use-shopping-list', () => {
     const { result } = await renderHook(() => useShoppingList('hh-1'), { wrapper });
 
     await waitFor(() => expect(result.current.data?.[0]?.items[0]?.name).toBe('Milch'));
+    expect(mockDbGetAllAsync).toHaveBeenCalledTimes(1);
+  });
+
+  it('liest nur abgehakte Artikel für den Transfer aus SQLite', async () => {
+    const checked = shoppingRow('Milch', '2026-10-28T09:00:00Z');
+    mockDbGetAllAsync.mockResolvedValue([checked]);
+
+    const { result } = await renderHook(() => useCheckedShoppingItems('hh-1'), { wrapper });
+
+    await waitFor(() => expect(result.current.data?.[0]?.checked_at).toBe(checked.checked_at));
     expect(mockDbGetAllAsync).toHaveBeenCalledTimes(1);
   });
 

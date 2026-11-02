@@ -137,6 +137,119 @@ describe('discardInventoryConflict', () => {
       db.close();
     }
   });
+
+  it('entfernt beide spekulativen Ledgerzeilen einer verworfenen Move-Operation', async () => {
+    const { db, conflict } = await makeDbWithConflict();
+    const sourceId = conflict.sourceIds[0];
+    if (sourceId === undefined) throw new Error('Konflikt hat keine Outbox-Quelle.');
+
+    await db.runAsync(
+      `insert into transactions
+       (id, household_id, fridge_item_id, type, quantity, undone, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?), (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        'move-out',
+        'hh-1',
+        'item-1',
+        'out',
+        1,
+        0,
+        '2026-09-07T10:00:00Z',
+        0,
+        'move-in',
+        'hh-1',
+        'item-1',
+        'in',
+        1,
+        0,
+        '2026-09-07T10:00:00Z',
+        0,
+      ],
+    );
+    await db.runAsync('update outbox set op = ?, payload = ? where id = ?', [
+      'move',
+      JSON.stringify({ out_transaction_id: 'move-out', in_transaction_id: 'move-in' }),
+      sourceId,
+    ]);
+    const maybeSingle = jest.fn().mockResolvedValue({ data: null, error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const supabase = {
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await discardInventoryConflict(db, supabase, conflict);
+
+      expect(
+        await db.getAllAsync('select id from transactions where id in (?, ?)', [
+          'move-out',
+          'move-in',
+        ]),
+      ).toEqual([]);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('entfernt die spekulative Gegenbuchung einer verworfenen Mengenrücknahme', async () => {
+    const { db, conflict } = await makeDbWithConflict();
+    const sourceId = conflict.sourceIds[0];
+    if (sourceId === undefined) throw new Error('Konflikt hat keine Outbox-Quelle.');
+
+    await db.runAsync(
+      `insert into transactions
+       (id, household_id, fridge_item_id, type, quantity, undone, created_at, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      ['quantity-reversal', 'hh-1', 'item-1', 'in', 2, 0, '2026-09-07T10:00:00Z', 0],
+    );
+    await db.runAsync('update outbox set op = ?, payload = ? where id = ?', [
+      'reverse_quantity',
+      JSON.stringify({ reversal_transaction_id: 'quantity-reversal' }),
+      sourceId,
+    ]);
+    const maybeSingle = jest.fn().mockResolvedValue({ data: null, error: null, status: 200 });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const supabase = {
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await discardInventoryConflict(db, supabase, conflict);
+
+      expect(
+        await db.getFirstAsync('select id from transactions where id = ?', ['quantity-reversal']),
+      ).toBeNull();
+    } finally {
+      db.close();
+    }
+  });
+
+  it('behält lokale Daten, wenn der kanonische Serverbestand nicht gelesen werden kann', async () => {
+    const { db, conflict } = await makeDbWithConflict();
+    const maybeSingle = jest.fn().mockResolvedValue({
+      data: null,
+      error: { message: 'Server nicht erreichbar' },
+      status: 503,
+    });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const supabase = {
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await expect(discardInventoryConflict(db, supabase, conflict)).rejects.toThrow(
+        'Server nicht erreichbar',
+      );
+      expect(
+        await db.getFirstAsync('select id from outbox where id = ?', [conflict.sourceIds[0]]),
+      ).not.toBeNull();
+      expect(
+        await db.getFirstAsync('select id from fridge_items where id = ?', ['item-1']),
+      ).not.toBeNull();
+    } finally {
+      db.close();
+    }
+  });
 });
 
 describe('reconfirmInventoryQuantityCorrection', () => {
@@ -274,6 +387,35 @@ describe('reconfirmInventoryQuantityCorrection', () => {
           transactionId: 'tx-2',
         }),
       ).rejects.toThrow(/nicht.*neu bestaetigen/i);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('lehnt eine Serverantwort ohne numerischen Bestand ab', async () => {
+    const { db, conflict } = await makeDbWithConflict();
+    const maybeSingle = jest.fn().mockResolvedValue({
+      data: { ...canonicalRow(1), quantity: '1' },
+      error: null,
+      status: 200,
+    });
+    const eq = jest.fn().mockReturnValue({ maybeSingle });
+    const supabase = {
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await expect(
+        reconfirmInventoryQuantityCorrection(db, supabase, conflict, {
+          actor: 'user-1',
+          operationId: 'op-2',
+          transactionId: 'tx-2',
+          nowMs: 5,
+        }),
+      ).rejects.toThrow('Aktueller Bestand konnte nicht ermittelt werden.');
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-1']),
+      ).not.toBeNull();
     } finally {
       db.close();
     }

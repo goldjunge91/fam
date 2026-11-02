@@ -12,11 +12,12 @@ Statische, responsive Website ohne Build-Schritt, JavaScript-Runtime oder extern
 | `agb.html` | Nutzungsbedingungen, keine als Apple-EULA ausgegebene Vereinbarung |
 | `styles.css` | Gemeinsames Layout, Hell-/Dunkelmodus, Druckdarstellung |
 | `favicon.svg` | Lokales Website-Icon |
+| `wrangler.jsonc` | Statische Asset-Konfiguration für Cloudflare Workers Builds |
 | `RELEASE-CHECK.md` | Geprüfte Apple-Webanforderungen und offene Veröffentlichungsnachweise |
 
-## Veröffentlichung auf Cloudflare Pages
+## Veröffentlichung auf Cloudflare
 
-Im bestehenden Pages-Projekt den Ordner `website` als Website-Quelle bzw. Root Directory verwenden, ohne Build-Befehl; Ausgabeordner `.`. Bestehende `.html`-Adressen bleiben erhalten. Die FAQ ist zusätzlich unter `faq.html` erreichbar. Es wurden keine Cloudflare-Einstellungen verändert und kein Deployment ausgelöst.
+Das Verzeichnis `website` wird über Cloudflare Workers Builds (Service `fam`) bereitgestellt. Die Konfiguration in `wrangler.jsonc` definiert das aktuelle Verzeichnis als statische Assets (`assets.directory = "."`), sodass sowohl Produktions-Deployments (`wrangler deploy`) als auch Branch-Previews (`wrangler preview`) zuverlässig ausgeliefert werden. Bestehende `.html`-Adressen bleiben erhalten. Die FAQ ist zusätzlich unter `faq.html` erreichbar.
 
 Die Navigation ist absichtlich einfach und auf jeder HTML-Seite enthalten. Änderungen an Navigation oder Footer auf allen Seiten nachziehen. Es ist kein Framework oder Generator nötig.
 

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { JoinHouseholdScreen } from '@/features/household/join-household-screen';
@@ -66,8 +66,8 @@ describe('JoinHouseholdScreen', () => {
 
     expect(screen.getAllByText('Haushalt beitreten')).toHaveLength(2); // Title and Submit button
     expect(screen.getByText('Mit Code oder Einladungs-Link')).toBeTruthy();
-    expect(screen.queryByText(/^‹/)).toBeNull();
-    expect(screen.queryByText('Abbrechen')).toBeNull();
+    expect(screen.queryByText(/^‹/)).not.toBeOnTheScreen();
+    expect(screen.queryByText('Abbrechen')).not.toBeOnTheScreen();
   });
 
   it('zeigt bei vorhandener Historie den Haushalte-Zurueck-Knopf und den Abbrechen-Knopf', async () => {
@@ -89,12 +89,26 @@ describe('JoinHouseholdScreen', () => {
     await renderScreen();
 
     const input = screen.getByPlaceholderText('z. B. AB12CD');
-    await fireEvent.changeText(input, '123e4567-e89b-12d3-a456-426614174000');
+    await userEvent.setup().type(input, '123e4567-e89b-12d3-a456-426614174000');
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Haushalt beitreten' }));
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Haushalt beitreten' }));
 
     expect(mockMutateAsync).toHaveBeenCalledWith('123e4567-e89b-12d3-a456-426614174000');
     expect(mockClearPendingInviteToken).toHaveBeenCalled();
     expect(mockReplace).toHaveBeenCalledWith('/');
+  });
+
+  it('lädt einen gespeicherten Einladungstoken und zeigt einen Beitrittsfehler', async () => {
+    mockPeekPendingInviteToken.mockResolvedValueOnce('pending-token');
+    mockMutateAsync.mockRejectedValueOnce(new Error('Einladung ist abgelaufen'));
+    await renderScreen();
+
+    expect(await screen.findByDisplayValue('pending-token')).toBeTruthy();
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Haushalt beitreten' }));
+
+    expect(mockMutateAsync).toHaveBeenCalledWith('pending-token');
+    expect(await screen.findByText('Einladung ist abgelaufen')).toBeTruthy();
+    expect(mockClearPendingInviteToken).not.toHaveBeenCalled();
+    expect(mockReplace).not.toHaveBeenCalled();
   });
 });

@@ -129,7 +129,6 @@ grant delete, insert, select, update on public.feedback_tickets to service_role;
 revoke all on public.feedback_messages from anon, authenticated, service_role;
 grant select, insert on public.feedback_messages to authenticated;
 grant delete, insert, select, update on public.feedback_messages to service_role;
-
 -- -------------------------------------------- Entitlement-Spalten schuetzen
 -- RLS wirkt auf Zeilen, nicht auf Spalten (siehe Kommentar in 03_households.sql
 -- bei household_member_profiles): `households_update_admin` erlaubt jedem

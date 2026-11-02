@@ -171,6 +171,27 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
     expect(screen.queryByText('REWE Angebote')).not.toBeOnTheScreen();
   });
 
+  it('applies a market filter and restores all markets after reset', async () => {
+    const user = userEvent.setup();
+    await render(<ScreenComponent />);
+
+    await user.press(screen.getByRole('button', { name: 'Filter öffnen' }));
+    await user.press(screen.getByRole('checkbox', { name: 'Aldi' }));
+    expect(screen.getByRole('button', { name: '1 Prospekte anzeigen' })).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: '1 Prospekte anzeigen' }));
+
+    expect(screen.getByText('REWE Angebote')).toBeOnTheScreen();
+    expect(screen.queryByText('Aldi Angebote')).not.toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Filter öffnen, 1 ausgewählt' }));
+    await user.press(screen.getByText('Zurücksetzen'));
+    expect(screen.getByRole('button', { name: '2 Prospekte anzeigen' })).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: '2 Prospekte anzeigen' }));
+
+    expect(screen.getByText('REWE Angebote')).toBeOnTheScreen();
+    expect(screen.getByText('Aldi Angebote')).toBeOnTheScreen();
+  });
+
   it('shows loading, an empty catalog and the manual-location switch', async () => {
     mockSync = {
       isSyncing: true,

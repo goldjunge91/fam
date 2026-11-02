@@ -1,5 +1,7 @@
+import { PostgrestError } from '@supabase/postgrest-js';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { updatePassword } from '@/features/auth/api';
@@ -11,6 +13,9 @@ import { saveProfileFoodRules, useProfileFoodRules } from '@/features/profile/fo
 import { i18n } from '@/i18n';
 
 const mockRemoveAvatar = jest.fn().mockResolvedValue({ error: null });
+const mockAuthUpdateUser = jest.fn().mockResolvedValue({ error: null });
+const mockPickAvatarImage = jest.fn().mockResolvedValue('file:///local/image.jpg');
+const mockUploadAvatarImage = jest.fn().mockResolvedValue('https://example.com/avatar.jpg');
 let mockCaloriesTrackingEnabled = true;
 
 jest.mock('expo-router', () => ({
@@ -35,7 +40,7 @@ jest.mock('@/features/profile/api', () => ({
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
   getSupabase: () => ({
-    auth: { updateUser: jest.fn().mockResolvedValue({ error: null }) },
+    auth: { updateUser: (...args: unknown[]) => mockAuthUpdateUser(...args) },
     storage: { from: () => ({ remove: mockRemoveAvatar }) },
   }),
 }));
@@ -53,13 +58,16 @@ jest.mock('@/features/settings/use-feature-access', () => ({
 }));
 
 jest.mock('@/features/profile/avatar-uploader', () => ({
-  pickAvatarImage: jest.fn().mockResolvedValue('file:///local/image.jpg'),
-  uploadAvatarImage: jest.fn().mockResolvedValue('https://example.com/avatar.jpg'),
+  pickAvatarImage: (...args: unknown[]) => mockPickAvatarImage(...args),
+  uploadAvatarImage: (...args: unknown[]) => mockUploadAvatarImage(...args),
 }));
 
 async function renderScreen(
   avatarUrl: string | null = null,
   Screen: typeof EditProfileScreen = EditProfileScreen,
+  session: { user: { id: string; email: string } } | null = {
+    user: { id: 'user-1', email: 'max@example.com' },
+  },
 ) {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -69,9 +77,7 @@ async function renderScreen(
   });
 
   (useSession as jest.Mock).mockReturnValue({
-    session: {
-      user: { id: 'user-1', email: 'max@example.com' },
-    },
+    session,
   });
 
   (useProfile as jest.Mock).mockReturnValue({
@@ -114,6 +120,11 @@ describe('EditProfileScreen', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     mockRemoveAvatar.mockResolvedValue({ error: null });
+    mockAuthUpdateUser.mockResolvedValue({ error: null });
+    mockPickAvatarImage.mockResolvedValue('file:///local/image.jpg');
+    mockUploadAvatarImage.mockResolvedValue('https://example.com/avatar.jpg');
+    jest.mocked(updateProfile).mockResolvedValue({ error: null });
+    jest.mocked(updatePassword).mockResolvedValue({ error: null });
     mockCaloriesTrackingEnabled = true;
     await i18n.changeLanguage('de');
   });
@@ -252,6 +263,11 @@ describe('EditProfileScreen Android', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     mockRemoveAvatar.mockResolvedValue({ error: null });
+    mockAuthUpdateUser.mockResolvedValue({ error: null });
+    mockPickAvatarImage.mockResolvedValue('file:///local/image.jpg');
+    mockUploadAvatarImage.mockResolvedValue('https://example.com/avatar.jpg');
+    jest.mocked(updateProfile).mockResolvedValue({ error: null });
+    jest.mocked(updatePassword).mockResolvedValue({ error: null });
     mockCaloriesTrackingEnabled = true;
     await i18n.changeLanguage('de');
   });
@@ -299,5 +315,120 @@ describe('EditProfileScreen Android', () => {
     await user.press(screen.getByRole('button', { name: 'Passwort speichern' }));
 
     await waitFor(() => expect(updatePassword).toHaveBeenCalledWith('sicheres-passwort'));
+  });
+});
+
+describe.each([
+  ['iOS', EditProfileScreen],
+  ['Android', EditProfileScreenAndroid],
+] as const)('EditProfileScreen %s behavior', (_platform, Screen) => {
+  beforeEach(async () => {
+    jest.clearAllMocks();
+    mockRemoveAvatar.mockResolvedValue({ error: null });
+    mockAuthUpdateUser.mockResolvedValue({ error: null });
+    mockPickAvatarImage.mockResolvedValue('file:///local/image.jpg');
+    mockUploadAvatarImage.mockResolvedValue('https://example.com/avatar.jpg');
+    jest.mocked(updateProfile).mockResolvedValue({ error: null });
+    jest.mocked(updatePassword).mockResolvedValue({ error: null });
+    mockCaloriesTrackingEnabled = true;
+    await i18n.changeLanguage('de');
+  });
+
+  afterEach(() => jest.restoreAllMocks());
+
+  it('uploads a selected avatar and reports a picker cancellation and upload failure', async () => {
+    const user = userEvent.setup();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    mockPickAvatarImage.mockResolvedValueOnce(null);
+    await renderScreen(null, Screen);
+
+    await user.press(screen.getByRole('button', { name: 'Bild auswählen' }));
+    expect(mockUploadAvatarImage).not.toHaveBeenCalled();
+
+    mockPickAvatarImage.mockResolvedValueOnce('file:///local/image.jpg');
+    mockUploadAvatarImage.mockRejectedValueOnce(new Error('upload failed'));
+    await user.press(screen.getByRole('button', { name: 'Bild auswählen' }));
+    await waitFor(() => expect(alert).toHaveBeenCalledWith('Fehler', 'upload failed'));
+
+    mockUploadAvatarImage.mockResolvedValue('https://example.com/avatar.jpg');
+    await user.press(screen.getByRole('button', { name: 'Bild auswählen' }));
+    await waitFor(() =>
+      expect(updateProfile).toHaveBeenCalledWith('user-1', {
+        avatarUrl: 'https://example.com/avatar.jpg',
+      }),
+    );
+    expect(mockPickAvatarImage).toHaveBeenCalledTimes(3);
+  });
+
+  it('reports avatar write failures and removes an existing avatar', async () => {
+    const user = userEvent.setup();
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    jest.mocked(updateProfile).mockRejectedValueOnce(new Error('avatar write failed'));
+    await renderScreen('https://example.com/avatar.jpg', Screen);
+
+    await user.press(screen.getByRole('button', { name: 'Bild ändern' }));
+    await waitFor(() => expect(alert).toHaveBeenCalledWith('Fehler', 'avatar write failed'));
+
+    await user.press(screen.getByText('Bild entfernen'));
+    await waitFor(() => expect(updateProfile).toHaveBeenCalledWith('user-1', { avatarUrl: null }));
+    expect(await screen.findByRole('button', { name: 'Bild auswählen' })).toBeOnTheScreen();
+  });
+
+  it('saves a changed email and reports profile update errors', async () => {
+    const user = userEvent.setup();
+    await renderScreen(null, Screen);
+
+    await user.clear(screen.getByLabelText('E-Mail-Adresse'));
+    await user.type(screen.getByLabelText('E-Mail-Adresse'), 'neu@example.com');
+    await user.press(screen.getByRole('button', { name: 'Änderungen speichern' }));
+    await waitFor(() =>
+      expect(mockAuthUpdateUser).toHaveBeenCalledWith({ email: 'neu@example.com' }),
+    );
+
+    jest.mocked(updateProfile).mockResolvedValueOnce({
+      error: new PostgrestError({
+        code: 'XX000',
+        details: '',
+        hint: '',
+        message: 'Profil kann nicht gespeichert werden',
+      }),
+    });
+    await user.press(screen.getByRole('button', { name: 'Änderungen speichern' }));
+    expect(await screen.findByText('Profil kann nicht gespeichert werden')).toBeOnTheScreen();
+  });
+
+  it('applies edited biometrics and food rules to the private profile writes', async () => {
+    const user = userEvent.setup();
+    await renderScreen(null, Screen);
+
+    await user.press(screen.getByRole('button', { name: /Körper & Aktivität bearbeiten/ }));
+    await user.clear(screen.getByLabelText('Körpergröße (cm)'));
+    await user.type(screen.getByLabelText('Körpergröße (cm)'), '177');
+    await user.press(screen.getByRole('button', { name: 'Angaben übernehmen' }));
+
+    await user.press(screen.getByRole('button', { name: /Allergien bearbeiten/ }));
+    await user.press(screen.getByRole('checkbox', { name: 'Erdnüsse' }));
+    await user.press(screen.getByRole('button', { name: 'Auswahl übernehmen' }));
+    await user.press(screen.getByRole('button', { name: 'Änderungen speichern' }));
+
+    await waitFor(() =>
+      expect(updateProfile).toHaveBeenCalledWith(
+        'user-1',
+        expect.objectContaining({ heightCm: 177 }),
+      ),
+    );
+    expect(saveProfileFoodRules).toHaveBeenCalledWith(
+      'user-1',
+      expect.objectContaining({ allergies: [] }),
+    );
+  });
+
+  it('does not open the native image picker when the account is signed out', async () => {
+    const user = userEvent.setup();
+    await renderScreen(null, Screen, null);
+
+    await user.press(screen.getByRole('button', { name: 'Bild auswählen' }));
+    expect(mockPickAvatarImage).not.toHaveBeenCalled();
+    expect(updateProfile).not.toHaveBeenCalled();
   });
 });

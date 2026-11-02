@@ -1,8 +1,32 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, userEvent } from '@testing-library/react-native';
 import type React from 'react';
 import { i18n } from '@/i18n';
 import { RowStorePicker } from './row-store-picker';
+
+jest.mock('react-native', () => {
+  const React = jest.requireActual<typeof import('react')>('react');
+  const Native = jest.requireActual<typeof import('react-native')>('react-native');
+  const View = React.forwardRef<
+    {
+      measureInWindow: (
+        callback: (x: number, y: number, width: number, height: number) => void,
+      ) => void;
+    },
+    React.ComponentProps<typeof Native.View>
+  >((props, ref) => {
+    React.useImperativeHandle(ref, () => ({
+      measureInWindow: (callback) => callback(12, 24, 200, 44),
+    }));
+    return React.createElement(Native.View, props);
+  });
+  return new Proxy(
+    {},
+    {
+      get: (_target, key: keyof typeof Native) => (key === 'View' ? View : Native[key]),
+    },
+  );
+});
 
 jest.mock('@/features/shopping-list/hooks/use-stores', () => ({
   useStores: () => ({
@@ -37,13 +61,8 @@ function wrapper({ children }: { children: React.ReactNode }) {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }
 
-// Das Dropdown misst seine Position beim Oeffnen per `measureInWindow`
-// (siehe row-store-picker.tsx, gleicher Mechanismus wie
-// store-picker-menu.tsx) — im RNTL-Testrenderer feuert die native Bridge
-// dafuer nie zurueck, das eigentliche Oeffnen ist damit hier nicht
-// abbildbar (gilt ebenso fuer store-picker-menu.tsx, siehe
-// store-picker.test.tsx). Getestet wird daher der Trigger-Zustand: welche
-// Beschriftung/welcher Markt je nach `storeId` angezeigt wird.
+// Der RN-View-Mock liefert für `measureInWindow` eine feste Position, damit
+// das Öffnen des Menüs im Test deterministisch geprüft werden kann.
 describe('RowStorePicker', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('de');
@@ -86,6 +105,20 @@ describe('RowStorePicker', () => {
       { wrapper },
     );
     expect(screen.getByText('Allen einen Markt zuweisen')).toBeOnTheScreen();
+    expect(screen.queryByText('Rewe')).not.toBeOnTheScreen();
+  });
+
+  it('öffnet das Menü und weist den ausgewählten Markt zu', async () => {
+    const user = userEvent.setup();
+    const onChange = jest.fn();
+    await render(<RowStorePicker householdId="hh-1" storeId={null} onChange={onChange} />, {
+      wrapper,
+    });
+
+    await user.press(screen.getByRole('button', { name: 'Markt wählen, aktuell: Ohne Markt' }));
+    await user.press(screen.getByText('Rewe'));
+
+    expect(onChange).toHaveBeenCalledWith('store-1');
     expect(screen.queryByText('Rewe')).not.toBeOnTheScreen();
   });
 });

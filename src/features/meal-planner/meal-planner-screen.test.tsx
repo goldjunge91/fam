@@ -1,4 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { router } from 'expo-router';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
@@ -20,13 +22,40 @@ function renderScreen() {
 
 const mockEnsureMutate = jest.fn();
 const mockEnsureMutateAsync = jest.fn().mockResolvedValue({ id: 'plan-1' });
-const mockReuseMutate = jest.fn();
+type MutationCallbacks = { onSuccess?: () => void };
+type ReuseCallbacks = { onSuccess?: (result: { copied: number }) => void };
+const mockReuseMutate = jest.fn((_input: unknown, options?: ReuseCallbacks) =>
+  options?.onSuccess?.({ copied: 0 }),
+);
+const mockUpdateMutate = jest.fn((_input: unknown, options?: MutationCallbacks) =>
+  options?.onSuccess?.(),
+);
+const mockDeleteMutate = jest.fn((_input: unknown, options?: MutationCallbacks) =>
+  options?.onSuccess?.(),
+);
 let mockRecipesPreference = true;
 let mockRecipesFeatureFlag: boolean | undefined = true;
 let mockRecipesFeatureFlagOverride: boolean | undefined;
 let mockHasPlus = true;
 let mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
 let mockRecipeCoverUrl: string | null = null;
+let mockEntries = [
+  {
+    id: 'entry-1',
+    meal_plan_id: 'plan-1',
+    household_id: 'hh-1',
+    recipe_id: 'r1' as string | null,
+    custom_title: null as string | null,
+    custom_ingredients: [] as { name: string; quantity: number; unit: string }[],
+    entry_date: '2026-08-17',
+    meal_slot: 'dinner' as const,
+    servings_mode: 'portions' as const,
+    portions: 4,
+    people_count: null as number | null,
+    recipe_title: 'Spaghetti Bolognese',
+    recipe_cover_image_path: null as string | null,
+  },
+];
 
 // Stabile Objektidentitaet noetig: `AutoBackButton` (Screen) haengt seinen
 // Effekt an `[navigation]` - ein bei jedem Aufruf neu erzeugtes Objekt
@@ -135,7 +164,9 @@ jest.mock('@/features/navigation/use-profile-initials', () => ({
   useProfileAvatar: () => ({ initials: 'MM', avatarUrl: null }),
 }));
 
-const mockAddMutate = jest.fn();
+const mockAddMutate = jest.fn((_input: unknown, options?: MutationCallbacks) =>
+  options?.onSuccess?.(),
+);
 
 jest.mock('./use-meal-plans', () => ({
   useMealPlan: () => ({
@@ -143,28 +174,15 @@ jest.mock('./use-meal-plans', () => ({
     isLoading: false,
   }),
   useMealPlanEntriesInRange: (_householdId?: string, startDate?: string) => ({
-    data: [
-      {
-        id: 'entry-1',
-        meal_plan_id: 'plan-1',
-        household_id: 'hh-1',
-        recipe_id: 'r1',
-        entry_date: startDate ?? '2026-08-17',
-        meal_slot: 'dinner',
-        servings_mode: 'portions',
-        portions: 4,
-        people_count: null,
-        recipe_title: 'Spaghetti Bolognese',
-      },
-    ],
+    data: mockEntries.map((entry) => ({ ...entry, entry_date: startDate ?? entry.entry_date })),
   }),
   useEnsureMealPlanMutation: () => ({
     mutate: mockEnsureMutate,
     mutateAsync: mockEnsureMutateAsync,
   }),
   useAddEntryMutation: () => ({ mutate: mockAddMutate }),
-  useUpdateEntryMutation: () => ({ mutate: jest.fn() }),
-  useDeleteEntryMutation: () => ({ mutate: jest.fn() }),
+  useUpdateEntryMutation: () => ({ mutate: mockUpdateMutate }),
+  useDeleteEntryMutation: () => ({ mutate: mockDeleteMutate }),
   useReuseLastWeekMutation: () => ({ mutate: mockReuseMutate }),
 }));
 
@@ -173,12 +191,36 @@ beforeEach(() => {
   mockEnsureMutateAsync.mockClear();
   mockReuseMutate.mockClear();
   mockAddMutate.mockClear();
+  mockUpdateMutate.mockClear();
+  mockDeleteMutate.mockClear();
+  jest.mocked(router.push).mockClear();
   mockRecipesPreference = true;
   mockRecipesFeatureFlag = true;
   mockRecipesFeatureFlagOverride = undefined;
   mockHasPlus = true;
   mockRecipes = [{ id: 'r1', title: 'Spaghetti Bolognese', cover_image_path: null }];
   mockRecipeCoverUrl = null;
+  mockEntries = [
+    {
+      id: 'entry-1',
+      meal_plan_id: 'plan-1',
+      household_id: 'hh-1',
+      recipe_id: 'r1',
+      custom_title: null,
+      custom_ingredients: [],
+      entry_date: '2026-08-17',
+      meal_slot: 'dinner',
+      servings_mode: 'portions',
+      portions: 4,
+      people_count: null,
+      recipe_title: 'Spaghetti Bolognese',
+      recipe_cover_image_path: null,
+    },
+  ];
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
 });
 
 describe('MealPlannerScreen', () => {
@@ -223,6 +265,7 @@ describe('MealPlannerScreen', () => {
 
   it('loest "letzte Woche erneut verwenden" ueber die Mutation aus', async () => {
     const user = userEvent.setup();
+    const alertSpy = jest.spyOn(Alert, 'alert');
     await renderScreen();
 
     await user.press(screen.getByRole('button', { name: 'Vorwoche übernehmen' }));
@@ -231,6 +274,53 @@ describe('MealPlannerScreen', () => {
       expect.objectContaining({ household_id: 'hh-1', target_meal_plan_id: 'plan-1' }),
       expect.anything(),
     );
+    expect(alertSpy).toHaveBeenCalledWith(
+      'Keine Vorwoche',
+      'Für die vorherige Woche gibt es keinen Wochenplan.',
+    );
+    alertSpy.mockRestore();
+  });
+
+  it('schließt den Rezept-Picker sowie neue Freitext- und Rezeptformulare', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+    await user.press(screen.getByRole('button', { name: 'Schließen' }));
+    expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+    await user.press(screen.getByRole('button', { name: 'Freies Gericht eintragen' }));
+    await user.press(screen.getByRole('button', { name: 'Schließen' }));
+    expect(screen.queryByLabelText('Gericht')).not.toBeOnTheScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+    await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' }));
+    await user.press(screen.getByRole('button', { name: 'Schließen' }));
+    expect(screen.queryByRole('button', { name: 'Speichern' })).not.toBeOnTheScreen();
+  });
+
+  it('verschiebt den Zeitraum und springt zur aktuellen Woche zurück', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+    const currentPeriod = () => screen.getByText(/–/).props.children;
+    const initialPeriod = currentPeriod();
+
+    await user.press(screen.getByRole('button', { name: 'Nächster Zeitraum' }));
+    expect(currentPeriod()).not.toBe(initialPeriod);
+
+    await user.press(screen.getByRole('button', { name: 'Vorheriger Zeitraum' }));
+    expect(currentPeriod()).toBe(initialPeriod);
+
+    await user.press(screen.getByRole('button', { name: 'Nächster Zeitraum' }));
+    await user.press(screen.getByRole('button', { name: 'Aktuelle Woche anzeigen' }));
+    expect(currentPeriod()).toBe(initialPeriod);
   });
 
   it('oeffnet beim Tippen auf eine leere Zelle den Rezept-Picker und traegt die Auswahl ein (#129-Nachtrag)', async () => {
@@ -248,6 +338,125 @@ describe('MealPlannerScreen', () => {
     // Rezept-Picker schliesst sich, Portionen-/Personen-Formular oeffnet sich fuer die Auswahl.
     expect(screen.queryByText('Rezept auswählen')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Speichern' })).toBeOnTheScreen();
+  });
+
+  it('speichert ein Rezept mit Plan, Zelle und aufgelöster Portionswahl', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(
+      screen.getByRole('button', { name: 'Frühstück am Montag, Gericht hinzufügen' }),
+    );
+    await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese eintragen' }));
+    await user.clear(screen.getByLabelText('Portionen'));
+    await user.type(screen.getByLabelText('Portionen'), '5');
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockEnsureMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ household_id: 'hh-1', week_start_date: expect.any(String) }),
+    );
+    expect(mockAddMutate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        recipe_id: 'r1',
+        meal_slot: 'breakfast',
+        servings_mode: 'portions',
+        portions: 5,
+        people_count: null,
+        created_by: 'user-1',
+      }),
+      expect.anything(),
+    );
+  });
+
+  it('aktualisiert oder entfernt einen bestehenden Rezept-Eintrag', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese, 4 Portionen' }));
+    await user.clear(screen.getByLabelText('Portionen'));
+    await user.type(screen.getByLabelText('Portionen'), '6');
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockUpdateMutate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 'entry-1',
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        portions: 6,
+      }),
+      expect.anything(),
+    );
+
+    await user.press(screen.getByRole('button', { name: 'Spaghetti Bolognese, 4 Portionen' }));
+    await user.press(screen.getByRole('button', { name: 'Eintrag entfernen' }));
+
+    expect(mockDeleteMutate).toHaveBeenCalledWith(
+      expect.objectContaining({ id: 'entry-1', meal_plan_id: 'plan-1', household_id: 'hh-1' }),
+      expect.anything(),
+    );
+  });
+
+  it('aktualisiert oder entfernt einen bestehenden Freitext-Eintrag', async () => {
+    mockEntries = [
+      {
+        id: 'entry-1',
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        recipe_id: null,
+        custom_title: 'Gemüsepfanne',
+        custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+        entry_date: '2026-08-17',
+        meal_slot: 'dinner',
+        servings_mode: 'portions',
+        portions: 4,
+        people_count: null,
+        recipe_title: 'Gemüsepfanne',
+        recipe_cover_image_path: null,
+      },
+    ];
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Gemüsepfanne, 4 Portionen' }));
+    await user.clear(screen.getByLabelText('Gericht'));
+    await user.type(screen.getByLabelText('Gericht'), 'Ofengemüse');
+    await user.clear(screen.getByLabelText('Portionen'));
+    await user.type(screen.getByLabelText('Portionen'), '3');
+    await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+    expect(mockUpdateMutate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 'entry-1',
+        custom_title: 'Ofengemüse',
+        custom_ingredients: [{ name: 'Paprika', quantity: 2, unit: 'piece' }],
+        servings_mode: 'portions',
+        portions: 3,
+        people_count: null,
+      }),
+      expect.anything(),
+    );
+
+    await user.press(screen.getByRole('button', { name: 'Gemüsepfanne, 4 Portionen' }));
+    await user.press(screen.getByRole('button', { name: 'Eintrag entfernen' }));
+
+    expect(mockDeleteMutate).toHaveBeenCalledWith(
+      expect.objectContaining({ id: 'entry-1', meal_plan_id: 'plan-1', household_id: 'hh-1' }),
+      expect.anything(),
+    );
+  });
+
+  it('öffnet die Einkaufsvorbereitung für den aktuellen Wochenplan', async () => {
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Einkauf vorbereiten' }));
+
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: '/meal-planner/shopping-needs',
+      params: { mealPlanId: 'plan-1' },
+    });
   });
 
   it('bietet Freitext zusätzlich zur Rezeptwahl an, wenn Rezepte verfügbar sind', async () => {

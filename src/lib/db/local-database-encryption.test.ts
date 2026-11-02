@@ -117,6 +117,33 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
     expect(storage.setItem).not.toHaveBeenCalled();
   });
 
+  it('weist einen beschädigten Datei-Key zurück, ohne den Keychain-Key neu zu erzeugen', async () => {
+    const storage = createStore(null);
+    const mirror = createStore('kaputt');
+    const randomBytes = jest.fn(async () => new Uint8Array(32));
+
+    await expect(createDatabaseKeyManager({ storage, mirror, randomBytes })()).rejects.toThrow(
+      'Der gespiegelte SQLCipher-Schlüssel ist ungültig.',
+    );
+
+    expect(randomBytes).not.toHaveBeenCalled();
+    expect(storage.setItem).not.toHaveBeenCalled();
+  });
+
+  it('weist eine Zufallsquelle zurück, die keine 256 Bit liefert', async () => {
+    const storage = createStore(null);
+    const mirror = createStore(null);
+    const randomBytes = jest.fn(async () => new Uint8Array(31));
+
+    await expect(createDatabaseKeyManager({ storage, mirror, randomBytes })()).rejects.toThrow(
+      'Die Zufallsquelle lieferte nicht 32 Bytes.',
+    );
+
+    expect(randomBytes).toHaveBeenCalledWith(32);
+    expect(storage.setItem).not.toHaveBeenCalled();
+    expect(mirror.setItem).not.toHaveBeenCalled();
+  });
+
   it('baut das PRAGMA nur aus einem validierten Raw-Key', () => {
     const key = '01'.repeat(32);
     expect(toSqlCipherKeyPragma(key)).toBe(`PRAGMA key = "x'${key}'"`);
@@ -339,6 +366,21 @@ describe('SQLCipher-Cutover', () => {
     await expect(keyAndVerifyDatabase(db, key)).rejects.toThrow('file is not a database');
   });
 
+  it('weist einen Handle zurück, bei dem SQLCipher explizit deaktiviert ist', async () => {
+    const db: CipherDatabase = {
+      async execAsync() {},
+      async getFirstAsync<T>(source: string) {
+        if (source === 'PRAGMA cipher_status') return { cipher_status: 0 } as T;
+        throw new Error(`Unerwartete Abfrage: ${source}`);
+      },
+      async closeAsync() {},
+    };
+
+    await expect(keyAndVerifyDatabase(db, key)).rejects.toThrow(
+      'SQLCipher ist für diesen Datenbank-Handle nicht aktiv.',
+    );
+  });
+
   it('erhält Schemaversion, Ownership und Outbox und entfernt Recovery erst nach Reopen', async () => {
     const harness = createCutoverHarness();
 
@@ -362,6 +404,19 @@ describe('SQLCipher-Cutover', () => {
     expect(harness.files.has(harness.main)).toBe(true);
     expect(harness.snapshots.get(harness.main)).toEqual(harness.sourceSnapshot);
     expect(harness.moves).toEqual([]);
+  });
+
+  it('bricht vor dem Export ab, wenn die Schemaversion ungültig ist', async () => {
+    const harness = createCutoverHarness();
+    harness.snapshots.set(harness.main, { ...harness.sourceSnapshot, schemaVersion: -1 });
+
+    await expect(migratePlaintextDatabase(harness.dependencies, key)).rejects.toThrow(
+      'SQLite-Schemaversion konnte nicht gelesen werden.',
+    );
+
+    expect(harness.files.has(harness.main)).toBe(true);
+    expect(harness.moves).toEqual([]);
+    expect(harness.executed).toEqual([]);
   });
 
   it('stellt die Klartextquelle wieder her, wenn der Prozess beim Aktivieren abbricht', async () => {

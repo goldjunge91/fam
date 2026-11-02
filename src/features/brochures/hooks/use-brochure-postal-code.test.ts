@@ -82,6 +82,32 @@ describe('useBrochurePostalCode', () => {
     expect(mockSetPostalCode).toHaveBeenCalledWith('user-a', '10115');
   });
 
+  it('holt eine aktuelle Position ein, wenn kein letzter Standort verfügbar ist', async () => {
+    mockLastKnownPosition.mockResolvedValue(null);
+    mockCurrentPosition.mockResolvedValue({ coords: { latitude: 48.14, longitude: 11.58 } });
+
+    const { result } = await renderHook(() => useBrochurePostalCode());
+
+    await waitFor(() => expect(result.current.status).toBe('ready'));
+    expect(mockCurrentPosition).toHaveBeenCalledWith({ accuracy: 3 });
+    expect(mockReverseGeocode).toHaveBeenCalledWith({ latitude: 48.14, longitude: 11.58 });
+    expect(result.current.postalCode).toBe('10115');
+  });
+
+  it('meldet einen Fehler, wenn Geocoding weder deutsche noch gültige PLZ liefert', async () => {
+    mockGetPostalCode.mockResolvedValue('12');
+    mockReverseGeocode.mockResolvedValue([
+      { isoCountryCode: 'AT', postalCode: '10115', city: 'Vienna' },
+      { isoCountryCode: 'DE', postalCode: '10A15', city: 'Berlin' },
+    ]);
+
+    const { result } = await renderHook(() => useBrochurePostalCode());
+
+    await waitFor(() => expect(result.current.status).toBe('error'));
+    expect(result.current.postalCode).toBeNull();
+    expect(mockSetPostalCode).not.toHaveBeenCalled();
+  });
+
   it('verwendet bei einem temporären Geocoding-Fehler nur die PLZ desselben Nutzers', async () => {
     mockGetPostalCode.mockResolvedValue('22043');
     mockReverseGeocode.mockRejectedValue(new Error('offline'));
@@ -154,5 +180,23 @@ describe('useBrochurePostalCode', () => {
     await waitFor(() => expect(mockMarkAsDeviceLocation).toHaveBeenCalledWith('user-a'));
     await waitFor(() => expect(result.current.postalCode).toBe('10115'));
     expect(result.current.isManual).toBe(false);
+  });
+
+  it('fängt Fehler beim Wechsel zur Geräteposition ab und startet eine neue Ermittlung', async () => {
+    mockGetPostalCode.mockResolvedValue('80331');
+    mockGetPostalCodeSource.mockResolvedValue('manual');
+    mockMarkAsDeviceLocation.mockRejectedValue(new Error('storage unavailable'));
+    const { result } = await renderHook(() => useBrochurePostalCode());
+    await waitFor(() => expect(result.current.isManual).toBe(true));
+
+    await act(async () => {
+      result.current.useDeviceLocation();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    await waitFor(() => expect(mockMarkAsDeviceLocation).toHaveBeenCalledWith('user-a'));
+    expect(result.current.status).toBe('ready');
+    expect(result.current.postalCode).toBe('80331');
   });
 });

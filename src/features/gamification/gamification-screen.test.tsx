@@ -68,4 +68,40 @@ describe('GamificationScreen', () => {
     expect(celebrate).toHaveBeenNthCalledWith(2, '🎉 Celebration getestet');
     expect(celebrate).toHaveBeenNthCalledWith(3, '🔥 7 Tage Streak!');
   });
+
+  it('erklärt den Start der ersten Serie und zeigt das erste Ziel', async () => {
+    mockStreak = { count: 0, best: 0, activeToday: false };
+
+    await renderScreen();
+
+    expect(screen.getByText('Starte deine erste Serie')).toBeOnTheScreen();
+    expect(screen.getByText('0')).toBeOnTheScreen();
+    expect(screen.getByText('3 Tage')).toBeOnTheScreen();
+  });
+
+  it('bietet nach einem früheren Rekord einen Neustart an', async () => {
+    mockStreak = { count: 0, best: 4, activeToday: false };
+
+    await renderScreen();
+
+    expect(screen.getByText('Neue Serie starten')).toBeOnTheScreen();
+  });
+
+  it('zeigt den gestrigen Aktivstatus, Einzahl und das nächste Meilensteinziel', async () => {
+    mockStreak = { count: 1, best: 1, activeToday: false };
+
+    await renderScreen();
+
+    expect(screen.getByText('Gestern aktiv')).toBeOnTheScreen();
+    expect(screen.getByText('Tag am Stück')).toBeOnTheScreen();
+    expect(screen.getByText('3 Tage')).toBeOnTheScreen();
+  });
+
+  it('setzt nach dem letzten Meilenstein das nächste Ziel fort', async () => {
+    mockStreak = { count: 365, best: 365, activeToday: true };
+
+    await renderScreen();
+
+    expect(screen.getByText('366 Tage')).toBeOnTheScreen();
+  });
 });

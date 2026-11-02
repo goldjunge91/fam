@@ -1,4 +1,7 @@
-import { createReceiptCaptureDraft } from '@/features/ocr/capture/domain/actions';
+import {
+  createReceiptCaptureDraft,
+  markReceiptCaptureUploaded,
+} from '@/features/ocr/capture/domain/actions';
 import type { ReceiptCaptureDraft } from '@/features/ocr/capture/domain/types';
 import { REWE_RECEIPT_LINES } from './domain/fixtures/german-receipts';
 import { parseGermanReceipt } from './domain/parser';
@@ -204,6 +207,111 @@ describe('finalizeReceiptReview', () => {
     expect(uploadAssets).not.toHaveBeenCalled();
     expect(testAuthority.calls).toContain('confirmReceipt');
   });
+
+  it('uses the atomic review writer when available', async () => {
+    const testAuthority = authority();
+    const saveReceiptReview = jest.fn(async () => undefined);
+
+    const result = await finalizeReceiptReview(
+      {
+        capture: capture(),
+        draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+        householdId: 'household-1',
+        createdBy: 'user-1',
+        storeId: 'store-1',
+        existingStoreIds: ['store-1'],
+      },
+      {
+        authority: { ...testAuthority.writer, saveReceiptReview },
+      },
+    );
+
+    expect(result).toMatchObject({ kind: 'saved', assets: { kind: 'skipped' } });
+    expect(saveReceiptReview).toHaveBeenCalledWith(
+      expect.objectContaining({ receipt: expect.objectContaining({ id: 'capture-1' }) }),
+      undefined,
+    );
+    expect(testAuthority.calls).toEqual([]);
+  });
+
+  it('reports successful image upload and retains the uploaded capture draft', async () => {
+    const uploadedDraft = markReceiptCaptureUploaded(capture(), {
+      uploadedAssets: [{ localAssetId: 'page-1', assetId: 'asset-1' }],
+      updatedAt: '2026-09-21T10:01:00.000Z',
+    });
+
+    const result = await finalizeReceiptReview(
+      {
+        capture: capture(),
+        draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+        householdId: 'household-1',
+        createdBy: 'user-1',
+        storeId: 'store-1',
+        existingStoreIds: ['store-1'],
+      },
+      {
+        authority: authority().writer,
+        uploadAssets: async () => ({ draft: uploadedDraft }),
+      },
+    );
+
+    expect(result).toMatchObject({ kind: 'saved', assets: { kind: 'uploaded' } });
+    if (result.kind !== 'saved') throw new Error('Expected review to save successfully.');
+    expect(result.assets).toEqual({ kind: 'uploaded', draft: uploadedDraft });
+  });
+
+  it('keeps the authority error intact when its message must fall back to the error code', async () => {
+    const testAuthority = authority();
+    const saveReceiptReview = jest.fn(async () => {
+      throw { code: 'AUTHORITY_OFFLINE', message: ' ' };
+    });
+
+    await expect(
+      finalizeReceiptReview(
+        {
+          capture: capture(),
+          draft: parseGermanReceipt(REWE_RECEIPT_LINES),
+          householdId: 'household-1',
+          createdBy: 'user-1',
+          storeId: 'store-1',
+          existingStoreIds: ['store-1'],
+        },
+        { authority: { ...testAuthority.writer, saveReceiptReview } },
+      ),
+    ).rejects.toMatchObject({ code: 'AUTHORITY_OFFLINE', message: ' ' });
+  });
+
+  it('maps uncommon and unsupported reviewed units before writing receipt items', async () => {
+    const testAuthority = authority();
+    const source = parseGermanReceipt(REWE_RECEIPT_LINES);
+    const units = ['Portion', 'g', null, 'Karton'];
+    const draft = {
+      ...source,
+      items: Array.from({ length: units.length }, (_, index) => {
+        const item = source.items[index % source.items.length];
+        if (!item) throw new Error('Receipt fixture must contain at least one item.');
+        return { ...item, unit: units[index] ?? null, sourceLineIndex: -1 };
+      }),
+    };
+
+    await finalizeReceiptReview(
+      {
+        capture: capture(),
+        draft,
+        householdId: 'household-1',
+        createdBy: 'user-1',
+        storeId: 'store-1',
+        existingStoreIds: ['store-1'],
+      },
+      { authority: testAuthority.writer },
+    );
+
+    expect(
+      testAuthority.createdItems.map((item) => (item as { unit: string | null }).unit),
+    ).toEqual(['portion', 'g', null, null]);
+    const itemIds = testAuthority.createdItems.map((item) => (item as { id: string }).id);
+    expect(new Set(itemIds).size).toBe(itemIds.length);
+  });
 });
 
 describe('processReceiptCapture', () => {
@@ -232,6 +340,58 @@ describe('processReceiptCapture', () => {
     expect(recognizePage).toHaveBeenCalledWith(capture().pages[0]?.localUri, {
       provider: 'google-mlkit',
     });
+    getAvailability.mockRestore();
+    recognizePage.mockRestore();
+  });
+
+  it('returns a preparation failure with its original message and preparing progress', async () => {
+    const getAvailability = jest
+      .spyOn(receiptNative, 'getReceiptOcrAvailability')
+      .mockRejectedValue(new Error('Vision service unavailable'));
+    const onProgress = jest.fn();
+
+    await expect(processReceiptCapture({ capture: capture(), onProgress })).resolves.toMatchObject({
+      kind: 'failed',
+      captureId: 'capture-1',
+      failure: {
+        code: 'RECEIPT_PROCESSING_FAILED',
+        message: 'Vision service unavailable',
+        pageIndex: 0,
+      },
+    });
+    expect(onProgress).toHaveBeenCalledWith({ phase: 'preparing', progress: 0 });
+    expect(onProgress).toHaveBeenCalledTimes(1);
+    getAvailability.mockRestore();
+  });
+
+  it('stops on the first page OCR failure and preserves the native error code', async () => {
+    const getAvailability = jest
+      .spyOn(receiptNative, 'getReceiptOcrAvailability')
+      .mockResolvedValue({ status: 'available' });
+    const recognizePage = jest
+      .spyOn(receiptSections, 'recognizeReceiptPageSections')
+      .mockResolvedValueOnce({ imageSize: { width: 100, height: 200 }, lines: [] })
+      .mockRejectedValueOnce({ code: 'IMAGE_DECODE_FAILED', message: ' ' });
+    const onProgress = jest.fn();
+    const twoPages = {
+      ...capture(),
+      pages: [
+        ...capture().pages,
+        {
+          id: 'page-2',
+          localUri: 'file:///documents/receipt-captures/capture-1/page-2.jpg',
+          mimeType: 'image/jpeg',
+          byteSize: null,
+        },
+      ],
+    };
+
+    await expect(processReceiptCapture({ capture: twoPages, onProgress })).resolves.toMatchObject({
+      kind: 'failed',
+      failure: { code: 'IMAGE_DECODE_FAILED', message: 'IMAGE_DECODE_FAILED', pageIndex: 1 },
+    });
+    expect(recognizePage).toHaveBeenCalledTimes(2);
+    expect(onProgress).toHaveBeenCalledWith({ phase: 'reading', pageIndex: 1, pageCount: 2 });
     getAvailability.mockRestore();
     recognizePage.mockRestore();
   });

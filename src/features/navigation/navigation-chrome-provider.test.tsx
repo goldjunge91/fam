@@ -50,4 +50,17 @@ describe('NavigationChromeProvider', () => {
       expect(result.current.isQuickAddOpen).toBe(false);
     });
   });
+
+  it('öffnet das Profil und behandelt wiederholtes Schliessen als No-op', async () => {
+    const { result } = await renderHook(() => useNavigationChrome(), { wrapper });
+
+    await act(() => result.current.openProfile());
+    await waitFor(() => expect(result.current.isProfileOpen).toBe(true));
+    expect(result.current.isDrawerOpen).toBe(false);
+    expect(result.current.isQuickAddOpen).toBe(false);
+
+    await act(() => result.current.closeProfile());
+    await act(() => result.current.closeProfile());
+    await waitFor(() => expect(result.current.isProfileOpen).toBe(false));
+  });
 });
