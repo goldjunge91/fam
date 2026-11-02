@@ -21,9 +21,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Muss mit der lokal verwendeten Version uebereinstimmen (siehe AGENTS.md:
-  # die pg-delta-Engine wurde gegen CLI 2.111 gegengeprueft).
-  SUPABASE_CLI_VERSION: 2.111.0
+  # Muss mit der lokal verwendeten Version uebereinstimmen, damit die
+  # generierten DB-Typen in CI und Workspace identisch sind.
+  SUPABASE_CLI_VERSION: 2.119.0
 
 jobs:
   # Schnelles Feedback ohne Docker: Typecheck, Linter, mock-freie Unit-Tests.
