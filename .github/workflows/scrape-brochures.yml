@@ -1,8 +1,6 @@
 name: Scrape requested KaufDA brochures
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       zip:
@@ -52,7 +50,7 @@ jobs:
 
       - name: Read only pending app requests
         id: pending-targets
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.zip == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.zip == ''
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
