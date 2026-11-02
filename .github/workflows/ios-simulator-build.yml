@@ -16,6 +16,8 @@ jobs:
 
       - name: Set up Bun environment
         uses: ./.github/actions/setup-bun-env
+        with:
+          cache-executorch-libs: true
 
       - name: Build iOS simulator app
         shell: bash

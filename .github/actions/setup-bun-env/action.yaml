@@ -6,6 +6,14 @@ inputs:
     description: "Bun version to install"
     required: false
     default: "1.4.2"
+  skip-executorch-download:
+    description: "Skip ExecuTorch native artifact downloads for jobs that do not build native code"
+    required: false
+    default: "false"
+  cache-executorch-libs:
+    description: "Cache ExecuTorch native artifacts for native builds"
+    required: false
+    default: "false"
 
 runs:
   using: "composite"
@@ -25,6 +33,10 @@ runs:
           printf 'NODE_COMPILE_CACHE=%s\n' "$NODE_COMPILE_CACHE"
           printf 'XDG_CACHE_HOME=%s\n' "$XDG_CACHE_HOME"
           printf '__UNSAFE_EXPO_HOME_DIRECTORY=%s\n' "$__UNSAFE_EXPO_HOME_DIRECTORY"
+          printf 'RNET_LIBS_CACHE_DIR=%s\n' "$GITHUB_WORKSPACE/build/cache/react-native-executorch"
+          if [[ "${{ inputs.skip-executorch-download }}" == "true" ]]; then
+            printf 'RNET_SKIP_DOWNLOAD=1\n'
+          fi
           if [[ -n "${CCACHE_BINARY:-}" ]]; then
             printf 'CCACHE_BINARY=%s\n' "$CCACHE_BINARY"
             printf 'CCACHE_DIR=%s\n' "$CCACHE_DIR"
@@ -54,6 +66,16 @@ runs:
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-pods-
+
+    - name: Cache ExecuTorch native libraries
+      if: inputs.cache-executorch-libs == 'true'
+      uses: actions/cache@v6
+      with:
+        path: build/cache/react-native-executorch
+        save-always: true
+        # bun.lock pins the exact package tarball, which carries nativeLibsVersion;
+        # package.json also contains the enabled backend/library configuration.
+        key: ${{ runner.os }}-executorch-${{ hashFiles('bun.lock', 'bunfig.toml', 'package.json') }}
 
     - name: Install dependencies
       shell: bash

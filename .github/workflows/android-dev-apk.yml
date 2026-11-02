@@ -19,6 +19,8 @@ jobs:
 
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
+        with:
+          cache-executorch-libs: true
 
       - name: Setup Java 17 & Expo
         uses: ./.github/actions/setup-expo

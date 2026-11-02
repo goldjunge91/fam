@@ -46,6 +46,8 @@ jobs:
 
       - name: Setup Bun Environment
         uses: ./.github/actions/setup-bun-env
+        with:
+          cache-executorch-libs: true
 
       - name: Configure curl for native artifact downloads
         run: |
