@@ -1,13 +1,13 @@
 # Audit-Behebung: Übersicht der Einzelpläne
 
-Status: Planung zur Freigabe; die Umsetzung hat noch nicht begonnen.
 Stand: 27. Oktober 2026. Ausgangsaudit: `fam-aen4`.
 Planaufteilung: `fam-h6op`; ursprüngliche Gesamtplanung: `fam-b0ig`.
 
-**Jedes Problem besitzt einen eigenen Plan und einen eigenen vorhandenen
-Bead.** Es gibt 20 Audit-Einzelpläne und zwei ergänzende Pläne für
-Edge-Qualität und Dependency-Advisories. Größere Probleme behalten ihre
-kleinen Umsetzungs-Beads innerhalb des jeweiligen Einzelplans.
+Für 19 Audit-Befunde bleibt ein Einzelplan mit eigenem Bead bestehen. Der
+Einzelplan zu H5 wurde entfernt; Status und Abnahme bleiben im Bead `fam-521t`.
+Zwei ergänzende Pläne betreffen Edge-Qualität und Dependency-Advisories.
+Größere Probleme behalten ihre kleinen Umsetzungs-Beads innerhalb des
+jeweiligen Einzelplans.
 
 Beads besitzt Status, Akzeptanzkriterien, Dateiscope und Nachweise. Diese
 Datei ist die Übersicht. Die fachlichen Entscheidungen stehen im jeweiligen
@@ -32,7 +32,7 @@ Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 | H6 | [Sandbox und Produktionsberechtigungen trennen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h6-revenuecat-sandbox/plan.md) | `fam-fp4t` | 1 |
 | H7 | [Kaufübertragungen korrekt abgleichen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h7-revenuecat-transfer/plan.md) | `fam-nl7e.1` | 2 |
 | M8 | [Abo-Zugriff bei verlorenen Ablaufereignissen begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m8-abo-gueltigkeit/plan.md) | `fam-nl7e.2` | 2 |
-| H5 | [Browser-OAuth auf PKCE umstellen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h5-oauth-pkce/plan.md) | `fam-521t` | 3 |
+| H5 | Einzelplan entfernt; Abnahme in `fam-521t` | `fam-521t` | 3 |
 | H8 | [Gesamten Einkaufsabschluss atomar speichern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h8-einkaufsabschluss/plan.md) | `fam-o1f1` | 3 |
 | H9 | [Offline-Änderungen beim manuellen Logout erhalten](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h9-offline-logout/plan.md) | `fam-ncux` | 3 |
 | M1 | [SQLCipher-Schlüssel sicher löschen und teilen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m1-sqlcipher-schluessel/plan.md) | `fam-pbd8` | 3 und 5 |
@@ -55,7 +55,7 @@ Zusammenfassung ihrer getrennten Probleme.
 | 0 | C1 identifizieren und Betriebsvorgang vorbereiten; H10, H3, M7 und G1 korrigieren; G2 triagieren |
 | 1 | H4, M3, atomare Credit-Grundlage aus H1, H2 und H6 |
 | 2 | H7 → M8 → Gateway-Integration aus H1 |
-| 3 | H5, H8, H9, Schlüssel-Cleanup aus M1 und M2 |
+| 3 | H8, H9, Schlüssel-Cleanup aus M1 und M2; H5-Abnahme in `fam-521t` |
 | 4 | M4, M5, M6 und L1 |
 | 5 | Native Keychain-Abnahme aus M1, erforderliche einzelne Paketupdates und Abschlussabnahme |
 
