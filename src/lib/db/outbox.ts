@@ -53,6 +53,32 @@ export type OutboxHistoryEntry = {
 type OutboxChangedListener = () => void;
 const outboxChangedListeners = new Set<OutboxChangedListener>();
 const exclusiveQueues = new WeakMap<SqlDatabase, Promise<void>>();
+const signOutGuards = new WeakMap<
+  SqlDatabase,
+  { released: Promise<void>; queuedWriteCount: number; release(): void }
+>();
+let activeOutboxWriteProducers = 0;
+let activeSignOutGuards = 0;
+
+export class OutboxWriteProducerActiveError extends Error {
+  constructor(readonly count: number) {
+    super();
+    this.name = 'OutboxWriteProducerActiveError';
+  }
+}
+
+/** Marks a local operation that may enqueue later, before its first await. */
+export function beginOutboxWriteProducer(): (() => void) | null {
+  if (activeSignOutGuards > 0) return null;
+
+  activeOutboxWriteProducers += 1;
+  let active = true;
+  return () => {
+    if (!active) return;
+    active = false;
+    activeOutboxWriteProducers -= 1;
+  };
+}
 
 export function onOutboxChanged(listener: OutboxChangedListener): () => void {
   outboxChangedListeners.add(listener);
@@ -65,7 +91,17 @@ function notifyOutboxChanged(): void {
   for (const listener of outboxChangedListeners) listener();
 }
 
-async function runQueuedExclusive(db: SqlDatabase, task: () => Promise<void>): Promise<void> {
+async function runQueuedExclusive(
+  db: SqlDatabase,
+  task: () => Promise<void>,
+  allowSignOutGuard = false,
+): Promise<void> {
+  const signOutGuard = signOutGuards.get(db);
+  if (signOutGuard && !allowSignOutGuard) {
+    signOutGuard.queuedWriteCount += 1;
+    await signOutGuard.released;
+  }
+
   const previous = exclusiveQueues.get(db) ?? Promise.resolve();
   const current = previous.then(task, task);
   const settled = current.catch(() => undefined);
@@ -75,6 +111,77 @@ async function runQueuedExclusive(db: SqlDatabase, task: () => Promise<void>): P
     await current;
   } finally {
     if (exclusiveQueues.get(db) === settled) exclusiveQueues.delete(db);
+  }
+}
+
+export type OutboxSignOutGuard = {
+  pendingCount: number;
+  failedCount: number;
+  readonly queuedWriteCount: number;
+  release(): void;
+};
+
+/** Pauses new outbox mutations while a manual logout checks for unsynced writes. */
+export async function acquireOutboxSignOutGuard(db: SqlDatabase): Promise<OutboxSignOutGuard> {
+  if (signOutGuards.has(db)) {
+    throw new Error('Ein Abmeldevorgang prüft bereits die lokale Outbox.');
+  }
+  if (activeOutboxWriteProducers > 0) {
+    throw new OutboxWriteProducerActiveError(activeOutboxWriteProducers);
+  }
+
+  let releaseGate: () => void = () => undefined;
+  const released = new Promise<void>((resolve) => {
+    releaseGate = resolve;
+  });
+  const guard = {
+    released,
+    queuedWriteCount: 0,
+    release() {
+      if (signOutGuards.get(db) !== guard) return;
+      signOutGuards.delete(db);
+      activeSignOutGuards -= 1;
+      releaseGate();
+    },
+  };
+  signOutGuards.set(db, guard);
+  activeSignOutGuards += 1;
+
+  try {
+    let counts = { pendingCount: 0, failedCount: 0 };
+    await runQueuedExclusive(
+      db,
+      async () => {
+        await db.withExclusiveTransactionAsync(async (txn) => {
+          const row = await txn.getFirstAsync<{
+            pending_count: number;
+            failed_count: number;
+          }>(
+            `select
+               coalesce(sum(case when attempts < ? then 1 else 0 end), 0) as pending_count,
+               coalesce(sum(case when attempts >= ? then 1 else 0 end), 0) as failed_count
+             from outbox`,
+            [MAX_ATTEMPTS, MAX_ATTEMPTS],
+          );
+          counts = {
+            pendingCount: row?.pending_count ?? 0,
+            failedCount: row?.failed_count ?? 0,
+          };
+        });
+      },
+      true,
+    );
+
+    return {
+      ...counts,
+      get queuedWriteCount() {
+        return guard.queuedWriteCount;
+      },
+      release: guard.release,
+    };
+  } catch (error) {
+    guard.release();
+    throw error;
   }
 }
 

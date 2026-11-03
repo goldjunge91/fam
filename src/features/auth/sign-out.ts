@@ -3,7 +3,8 @@ import type { QueryClient } from '@tanstack/react-query';
 import { signOut as signOutSession } from '@/features/auth/api';
 import { setStoredActiveHouseholdId } from '@/features/household/active-household-store';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
-import { deleteLocalDatabase, setActiveUserId } from '@/lib/db/local-client';
+import { deleteLocalDatabase, getDatabase, setActiveUserId } from '@/lib/db/local-client';
+import { acquireOutboxSignOutGuard, OutboxWriteProducerActiveError } from '@/lib/db/outbox';
 import { debugLogEvent, debugWarn } from '@/lib/observability/debug-log';
 import { cancelUserNotificationReminders } from '@/lib/platform/notifications';
 import { resetLocalAccountModuleCaches } from '@/lib/storage/local-account-cache-registry';
@@ -99,9 +100,20 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
   return cleanup;
 }
 
-export async function signOutAndClearLocalData(queryClient: QueryClient): Promise<{
-  error: Error | null;
-}> {
+export class UnsyncedLocalWritesError extends Error {
+  constructor(
+    readonly pendingCount: number,
+    readonly failedCount: number,
+  ) {
+    super('unsynced-local-writes');
+    this.name = 'UnsyncedLocalWritesError';
+  }
+}
+
+export async function signOutAndClearLocalData(
+  queryClient: QueryClient,
+  options: { protectUnsyncedWrites?: boolean } = {},
+): Promise<{ error: Error | null }> {
   debugLogEvent('auth.sign-out.started');
   let userId: string | null = null;
   try {
@@ -114,34 +126,73 @@ export async function signOutAndClearLocalData(queryClient: QueryClient): Promis
     userId = sessionData.session?.user.id ?? userId;
   } catch {}
 
-  let serverError: Error | null = null;
-  let localSessionRemovalError: Error | null = null;
+  let releaseOutboxGuard: (() => void) | null = null;
   try {
-    ({ error: serverError } = await signOutSession());
-    debugLogEvent('auth.sign-out.server-completed', { failed: serverError !== null });
-  } catch (error) {
-    serverError = error as Error;
-    try {
-      // Lokale Session auch bei einem fehlgeschlagenen Server-Logout entfernen.
-      await getSupabase().auth.signOut({ scope: 'local' });
-      debugLogEvent('auth.sign-out.local-fallback-completed');
-    } catch (fallbackError) {
-      localSessionRemovalError = fallbackError as Error;
+    if (options.protectUnsyncedWrites && userId) {
+      const db = await getDatabase();
+      const guard = await acquireOutboxSignOutGuard(db);
+      releaseOutboxGuard = guard.release;
+      const activeMutations = queryClient.isMutating();
+
+      if (
+        guard.pendingCount > 0 ||
+        guard.failedCount > 0 ||
+        activeMutations > 0 ||
+        guard.queuedWriteCount > 0
+      ) {
+        guard.release();
+        releaseOutboxGuard = null;
+        return {
+          error: new UnsyncedLocalWritesError(
+            Math.max(guard.pendingCount, activeMutations, guard.queuedWriteCount),
+            guard.failedCount,
+          ),
+        };
+      }
+
+      // Prevent a new local mutation from starting after the outbox check.
+      setActiveUserId(null);
     }
-  }
-  // TODO force delete
-  // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
-  if (userId) {
-    debugLogEvent('auth.sign-out.local-cleanup-started');
-    await clearLocalAccountData(queryClient, userId);
-    debugLogEvent('auth.sign-out.completed');
-  } else {
-    debugLogEvent('auth.sign-out.completed', { localCleanup: 'skipped-no-user-id' });
+  } catch (error) {
+    releaseOutboxGuard?.();
+    if (error instanceof OutboxWriteProducerActiveError) {
+      return { error: new UnsyncedLocalWritesError(error.count, 0) };
+    }
+    return { error: error instanceof Error ? error : new Error(String(error)) };
   }
 
-  if (serverError) {
-    debugWarn('[auth] Server-Session konnte nicht widerrufen werden:', serverError);
-  }
+  try {
+    let serverError: Error | null = null;
+    let localSessionRemovalError: Error | null = null;
+    try {
+      ({ error: serverError } = await signOutSession());
+      debugLogEvent('auth.sign-out.server-completed', { failed: serverError !== null });
+    } catch (error) {
+      serverError = error as Error;
+      try {
+        // Lokale Session auch bei einem fehlgeschlagenen Server-Logout entfernen.
+        await getSupabase().auth.signOut({ scope: 'local' });
+        debugLogEvent('auth.sign-out.local-fallback-completed');
+      } catch (fallbackError) {
+        localSessionRemovalError = fallbackError as Error;
+      }
+    }
+    // TODO force delete
+    // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
+    if (userId) {
+      debugLogEvent('auth.sign-out.local-cleanup-started');
+      await clearLocalAccountData(queryClient, userId);
+      debugLogEvent('auth.sign-out.completed');
+    } else {
+      debugLogEvent('auth.sign-out.completed', { localCleanup: 'skipped-no-user-id' });
+    }
 
-  return { error: localSessionRemovalError };
+    if (serverError) {
+      debugWarn('[auth] Server-Session konnte nicht widerrufen werden:', serverError);
+    }
+
+    return { error: localSessionRemovalError };
+  } finally {
+    releaseOutboxGuard?.();
+  }
 }

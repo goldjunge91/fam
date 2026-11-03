@@ -72,6 +72,7 @@ const html = `<!doctype html>
   (function () {
     var params = new URLSearchParams(location.hash.slice(1));
     var error = params.get('error_description') || params.get('error_code') || params.get('error');
+    history.replaceState(null, '', location.pathname + location.search);
     if (!error) return;
 
     document.getElementById('icon').textContent = '!';

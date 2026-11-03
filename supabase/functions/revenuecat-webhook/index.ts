@@ -5,6 +5,7 @@ import {
   createRevenueCatWebhookHandler,
   type SubscriberAttribute,
 } from './handler.ts';
+import { createRevenueCatSubscriberStatusReader } from './subscriber-status.ts';
 
 function createAdminClient() {
   return createClient(
@@ -72,6 +73,9 @@ async function resolveMemberHousehold(
 Deno.serve(
   createRevenueCatWebhookHandler({
     expectedSecret: Deno.env.get('REVENUECAT_WEBHOOK_SECRET'),
+    readSubscriberStatus: createRevenueCatSubscriberStatusReader(
+      Deno.env.get('REVENUECAT_SECRET_API_KEY'),
+    ),
     applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
       const adminClient = createAdminClient();
 
@@ -137,6 +141,10 @@ Deno.serve(
         .maybeSingle();
       if (plusAssignmentError) {
         return { error: plusAssignmentError, count: null };
+      }
+
+      if (!change.active && !plusAssignment?.household_id) {
+        return { error: null, count: 0 };
       }
 
       let householdId = plusAssignment?.household_id;

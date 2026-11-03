@@ -16,15 +16,30 @@ export type SubscriberAttribute = {
   updated_at_ms?: number;
 };
 
-export type RevenueCatEvent = {
+type RevenueCatEventBase = {
   id: string;
   type: string;
-  app_user_id: string;
   environment?: string | null;
   entitlement_ids?: string[] | null;
   expiration_at_ms?: number | null;
   event_timestamp_ms: number;
   subscriber_attributes?: Record<string, SubscriberAttribute> | null;
+};
+
+export type RevenueCatTransferEvent = RevenueCatEventBase & {
+  type: 'TRANSFER';
+  app_user_id?: string | null;
+  transferred_from: string[];
+  transferred_to: string[];
+};
+
+export type RevenueCatEvent =
+  | (RevenueCatEventBase & { app_user_id: string })
+  | RevenueCatTransferEvent;
+
+export type RevenueCatSubscriberStatus = {
+  entitlements: Partial<Record<EntitlementId, { active: boolean; expiresAt: string | null }>>;
+  subscriberAttributes?: Record<string, SubscriberAttribute> | null;
 };
 
 export type RevenueCatEntitlementChange = {
@@ -60,6 +75,7 @@ type Dependencies = {
     change: RevenueCatEntitlementChange,
     subscriberAttributes?: Record<string, SubscriberAttribute> | null,
   ) => Promise<UpdateResult>;
+  readSubscriberStatus?: (appUserId: string) => Promise<RevenueCatSubscriberStatus>;
   now?: () => Date;
   signatureToleranceSeconds?: number;
 };
@@ -131,17 +147,23 @@ export async function verifyRevenueCatWebhookSignature(
   return false;
 }
 
+function isNonEmptyStringArray(value: unknown): value is string[] {
+  return (
+    Array.isArray(value) &&
+    value.length > 0 &&
+    value.every((entry) => typeof entry === 'string' && entry.trim().length > 0)
+  );
+}
+
 function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
   if (!value || typeof value !== 'object') return false;
 
   const event = value as Record<string, unknown>;
-  return (
+  const validBase =
     typeof event.id === 'string' &&
     event.id.length > 0 &&
     typeof event.type === 'string' &&
     event.type.length > 0 &&
-    typeof event.app_user_id === 'string' &&
-    event.app_user_id.length > 0 &&
     (event.environment == null || typeof event.environment === 'string') &&
     (event.entitlement_ids == null ||
       (Array.isArray(event.entitlement_ids) &&
@@ -154,8 +176,31 @@ function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
     Number.isFinite(event.event_timestamp_ms) &&
     (event.subscriber_attributes == null ||
       (typeof event.subscriber_attributes === 'object' &&
-        !Array.isArray(event.subscriber_attributes)))
-  );
+        !Array.isArray(event.subscriber_attributes)));
+
+  if (!validBase) return false;
+
+  if (event.type === 'TRANSFER') {
+    return (
+      (event.app_user_id === undefined ||
+        event.app_user_id === null ||
+        (typeof event.app_user_id === 'string' && event.app_user_id.length > 0)) &&
+      isNonEmptyStringArray(event.transferred_from) &&
+      isNonEmptyStringArray(event.transferred_to)
+    );
+  }
+
+  return typeof event.app_user_id === 'string' && event.app_user_id.length > 0;
+}
+
+function isRevenueCatTransferEvent(event: RevenueCatEvent): event is RevenueCatTransferEvent {
+  return event.type === 'TRANSFER' &&
+    'transferred_from' in event &&
+    'transferred_to' in event;
+}
+
+function transferSubscriberEventId(eventId: string, appUserId: string): string {
+  return `transfer:${eventId}:${appUserId}`;
 }
 
 /**
@@ -171,6 +216,7 @@ function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
 export function createRevenueCatWebhookHandler({
   expectedSecret,
   applyEntitlementEvent,
+  readSubscriberStatus,
   now = () => new Date(),
   signatureToleranceSeconds = DEFAULT_SIGNATURE_TOLERANCE_SECONDS,
 }: Dependencies) {
@@ -208,6 +254,55 @@ export function createRevenueCatWebhookHandler({
         },
         400,
       );
+    }
+
+    if (isRevenueCatTransferEvent(event)) {
+      if (event.environment != null && event.environment !== 'PRODUCTION') {
+        return json({ ignored: 'non_production' });
+      }
+      if (!readSubscriberStatus) {
+        return json({ error: 'subscriber_status_unavailable' }, 503);
+      }
+
+      const appUserIds = Array.from(new Set([...event.transferred_from, ...event.transferred_to]));
+      let statuses: RevenueCatSubscriberStatus[];
+      try {
+        statuses = await Promise.all(appUserIds.map((appUserId) => readSubscriberStatus(appUserId)));
+      } catch {
+        return json({ error: 'subscriber_status_lookup_failed' }, 502);
+      }
+
+      let updated = 0;
+      const processedAt = now().toISOString();
+      for (const [index, appUserId] of appUserIds.entries()) {
+        const status = statuses[index];
+        for (const entitlementId of ENTITLEMENT_IDS) {
+          const entitlement = status.entitlements[entitlementId] ?? {
+            active: false,
+            expiresAt: null,
+          };
+          const result = await applyEntitlementEvent(
+            appUserId,
+            {
+              entitlementId,
+              active: entitlement.active,
+              expiresAt: entitlement.expiresAt,
+              eventId: transferSubscriberEventId(event.id, appUserId),
+              eventTimestampMs: event.event_timestamp_ms,
+              processedAt,
+            },
+            status.subscriberAttributes ??
+              (event.app_user_id === appUserId ? event.subscriber_attributes : null),
+          );
+
+          if (result.error) {
+            return json({ error: 'update_failed', message: result.error.message }, 500);
+          }
+          updated += result.count ?? 0;
+        }
+      }
+
+      return json({ updated });
     }
 
     if (!RELEVANT_EVENT_TYPES.has(event.type)) {

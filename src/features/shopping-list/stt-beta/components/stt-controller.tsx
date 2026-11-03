@@ -7,6 +7,7 @@ import { Alert } from 'react-native';
 import { useSession } from '@/features/auth/session-provider';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { getDatabase } from '@/lib/db/local-client';
+import { beginOutboxWriteProducer } from '@/lib/db/outbox';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import type { Store } from '../../hooks/use-stores';
 import {
@@ -376,6 +377,9 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       return;
     }
 
+    const releaseWriteProducer = beginOutboxWriteProducer();
+    if (!releaseWriteProducer) return;
+
     confirmInFlightRef.current = true;
     const confirmationStartedAt = performance.now();
     try {
@@ -414,6 +418,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       const message = error instanceof Error ? error.message : String(error);
       Alert.alert('Artikel konnten nicht hinzugefügt werden', message);
     } finally {
+      releaseWriteProducer();
       confirmInFlightRef.current = false;
     }
   }

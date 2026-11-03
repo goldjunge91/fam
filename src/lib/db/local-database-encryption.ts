@@ -1,7 +1,11 @@
 import { Platform } from 'react-native';
 import { FAM_KEYCHAIN_ACCESS_GROUP } from '@/lib/apple/shared-app-group';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
-import { createSharedKeyFileStore } from '@/lib/db/database-key-file-store';
+import {
+  createSharedKeyFileStore,
+  DATABASE_KEY_CLEANUP_MARKER_KEY,
+  DATABASE_KEY_CLEANUP_MARKER_VALUE,
+} from '@/lib/db/database-key-file-store';
 import { addDiagnosticStep } from '@/lib/telemetry';
 
 export type KeyValueStore = {
@@ -25,6 +29,57 @@ type DatabaseKeyDependencies = {
   mirror?: KeyValueStore;
 };
 
+let databaseKeyCleanupBlocked = false;
+
+function getDatabaseKeyStores(
+  dependencies: Pick<DatabaseKeyDependencies, 'storage' | 'mirror'>,
+): KeyValueStore[] {
+  return dependencies.mirror ? [dependencies.storage, dependencies.mirror] : [dependencies.storage];
+}
+
+async function runKeyStoreOperations(
+  stores: KeyValueStore[],
+  operation: (store: KeyValueStore) => Promise<void>,
+  message: string,
+): Promise<void> {
+  const results = await Promise.allSettled(
+    stores.map((store) => Promise.resolve().then(() => operation(store))),
+  );
+  const failure = results.find((result) => result.status === 'rejected');
+  if (failure?.status === 'rejected') {
+    throw new Error(message, { cause: failure.reason });
+  }
+}
+
+async function retryPendingDatabaseKeyCleanup(
+  dependencies: DatabaseKeyDependencies,
+): Promise<void> {
+  const stores = getDatabaseKeyStores(dependencies);
+  const markers = await Promise.all(
+    stores.map((store) => store.getItem(DATABASE_KEY_CLEANUP_MARKER_KEY)),
+  );
+  if (!markers.some((marker) => marker === DATABASE_KEY_CLEANUP_MARKER_VALUE)) {
+    if (databaseKeyCleanupBlocked) {
+      throw new Error(
+        'SQLCipher-Key-Cleanup ist unvollständig und besitzt keinen lesbaren Marker.',
+      );
+    }
+    return;
+  }
+
+  await runKeyStoreOperations(
+    stores,
+    (store) => store.removeItem(DATABASE_KEY_STORAGE_KEY),
+    'Der vorherige SQLCipher-Key-Cleanup konnte nicht abgeschlossen werden.',
+  );
+  await runKeyStoreOperations(
+    stores,
+    (store) => store.removeItem(DATABASE_KEY_CLEANUP_MARKER_KEY),
+    'Der SQLCipher-Key-Cleanup-Marker konnte nicht entfernt werden.',
+  );
+  databaseKeyCleanupBlocked = false;
+}
+
 function bytesToHex(bytes: Uint8Array): string {
   return [...bytes].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
@@ -34,6 +89,8 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
 
   return async function getOrCreateDatabaseKey(): Promise<string> {
     loading ??= (async () => {
+      await retryPendingDatabaseKeyCleanup(dependencies);
+
       const stored = await dependencies.storage.getItem(DATABASE_KEY_STORAGE_KEY);
       if (stored !== null) {
         if (!KEY_HEX_PATTERN.test(stored)) {
@@ -115,14 +172,29 @@ function loadNativeDependencies(): DatabaseKeyDependencies {
         },
         setItem: (key, value) => SecureStore.setItemAsync(key, value, sharedKeychainOptions),
         async removeItem(key) {
-          await SecureStore.deleteItemAsync(key, sharedKeychainOptions);
+          const deletions = [
+            Promise.resolve().then(() => SecureStore.deleteItemAsync(key, sharedKeychainOptions)),
+          ];
           if (Platform.OS === 'ios') {
-            await SecureStore.deleteItemAsync(key, legacyKeychainOptions);
+            deletions.push(
+              Promise.resolve().then(() => SecureStore.deleteItemAsync(key, legacyKeychainOptions)),
+            );
+          }
+
+          const results = await Promise.allSettled(deletions);
+          const failure = results.find((result) => result.status === 'rejected');
+          if (failure?.status === 'rejected') {
+            throw new Error(
+              'Mindestens ein SQLCipher-Keychain-Eintrag konnte nicht gelöscht werden.',
+              {
+                cause: failure.reason,
+              },
+            );
           }
         },
       },
       randomBytes: (byteCount) => Crypto.getRandomBytesAsync(byteCount),
-      mirror: createSharedKeyFileStore(),
+      mirror: Platform.OS === 'ios' ? createSharedKeyFileStore() : undefined,
     };
   } catch {
     throw new Error(REBUILD_HINT);
@@ -139,8 +211,41 @@ export function getOrCreateDatabaseEncryptionKey(): Promise<string> {
 
 /** Erst nach bestätigter Löschung aller verschlüsselten DB-Dateien aufrufen. */
 export async function deleteDatabaseEncryptionKey(): Promise<void> {
-  await loadNativeDependencies().storage.removeItem(DATABASE_KEY_STORAGE_KEY);
-  nativeManager = null;
+  databaseKeyCleanupBlocked = true;
+  const { storage, mirror } = loadNativeDependencies();
+  const stores = getDatabaseKeyStores({ storage, mirror });
+  const markerResults = await Promise.allSettled(
+    stores.map((store) =>
+      Promise.resolve().then(() =>
+        store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE),
+      ),
+    ),
+  );
+  const markerFailure = markerResults.find((result) => result.status === 'rejected');
+  if (markerFailure?.status === 'rejected') {
+    nativeManager = null;
+    throw new Error(
+      'Der SQLCipher-Key-Cleanup-Marker konnte nicht in allen Stores gesichert werden.',
+      { cause: markerFailure.reason },
+    );
+  }
+
+  try {
+    await runKeyStoreOperations(
+      stores,
+      (store) => store.removeItem(DATABASE_KEY_STORAGE_KEY),
+      'Der SQLCipher-Schlüssel konnte nicht vollständig entfernt werden.',
+    );
+    await runKeyStoreOperations(
+      stores,
+      (store) => store.removeItem(DATABASE_KEY_CLEANUP_MARKER_KEY),
+      'Der SQLCipher-Key-Cleanup-Marker konnte nicht entfernt werden.',
+    );
+    // Keep key access blocked until every stored copy and both markers are gone.
+    databaseKeyCleanupBlocked = false;
+  } finally {
+    nativeManager = null;
+  }
 }
 
 /** SQLCipher-Raw-Key-Syntax; akzeptiert ausschließlich intern erzeugte 256-Bit-Schlüssel. */

@@ -110,6 +110,37 @@ function invalidateEntityQueries(queryClient: QueryClient, entity: Entity, house
   if (entity === 'fridge_items') {
     queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', householdId] });
   }
+
+  if (entity === 'meal_plans') {
+    queryClient.invalidateQueries({ queryKey: ['meal-plan', householdId] });
+  }
+
+  if (entity === 'meal_plan_entries') {
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-entries'] });
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range', householdId] });
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+  }
+
+  if (
+    entity === 'recipes' ||
+    entity === 'recipe_components' ||
+    entity === 'recipe_component_items' ||
+    entity === 'recipe_steps' ||
+    entity === 'recipe_step_images' ||
+    entity === 'recipe_step_ingredients'
+  ) {
+    queryClient.invalidateQueries({ queryKey: ['recipes', householdId] });
+    queryClient.invalidateQueries({ queryKey: ['recipe-detail'] });
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-entries'] });
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range', householdId] });
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+    queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
+  }
+
+  if (entity === 'products' || entity === 'fridge_items' || entity === 'shopping_list_items') {
+    queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] });
+    queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] });
+  }
 }
 
 function getSyncScopeKey(householdIds: string[]) {

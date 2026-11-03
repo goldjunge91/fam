@@ -44,6 +44,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/auth/sign-out', () => ({
   signOutAndClearLocalData: (...args: unknown[]) => mockSignOutAndClearLocalData(...args),
+  UnsyncedLocalWritesError: class UnsyncedLocalWritesError extends Error {},
 }));
 
 jest.mock('@/features/onboarding/onboarding-completion', () => ({

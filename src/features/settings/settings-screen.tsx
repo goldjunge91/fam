@@ -12,7 +12,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { MenuButton } from '@/components/ui/menu-button';
 import { Button, Card, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
-import { signOutAndClearLocalData } from '@/features/auth/sign-out';
+import { signOutAndClearLocalData, UnsyncedLocalWritesError } from '@/features/auth/sign-out';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
   DEFAULT_FAB_POSITION,
@@ -101,12 +101,27 @@ export function SettingsScreen() {
     debugLogEvent('auth.sign-out.button-clicked');
     setSigningOut(true);
 
-    const { error } = await signOutAndClearLocalData(queryClient);
+    const { error } = await signOutAndClearLocalData(queryClient, {
+      protectUnsyncedWrites: true,
+    });
 
     setSigningOut(false);
 
     if (error) {
-      Alert.alert(t('settings.signOutFailedTitle'), error.message);
+      const message =
+        error instanceof UnsyncedLocalWritesError
+          ? [
+              error.pendingCount > 0
+                ? t('settings.sync.status.offlinePending', { count: error.pendingCount })
+                : null,
+              error.failedCount > 0
+                ? t('settings.sync.status.failed', { count: error.failedCount })
+                : null,
+            ]
+              .filter((text): text is string => text !== null)
+              .join('\n')
+          : error.message;
+      Alert.alert(t('settings.signOutFailedTitle'), message);
     } else {
       // Bekannte Nutzer starten nach dem Logout direkt im Auth-Screen,
       // statt beim naechsten Kaltstart erneut das Welcome-Onboarding zu sehen.

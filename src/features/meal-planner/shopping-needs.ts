@@ -96,6 +96,9 @@ export type StockRow = {
   product_id: string;
   quantity: number;
   unit: string;
+  /** Decimal amount of one package at this boundary, when known. */
+  package_size?: number | null;
+  package_size_unit?: string | null;
 };
 
 export function stockInGrams(
@@ -105,6 +108,32 @@ export function stockInGrams(
   const result = new Map<string, number>();
   for (const row of stock) {
     const servingWeightG = productsById.get(row.product_id)?.serving_size_g ?? undefined;
+
+    if (
+      row.package_size !== null &&
+      row.package_size !== undefined &&
+      (row.unit === 'piece' || row.unit === 'package' || row.unit === 'portion')
+    ) {
+      if (
+        !Number.isFinite(row.package_size) ||
+        row.package_size <= 0 ||
+        row.package_size_unit == null
+      ) {
+        continue;
+      }
+
+      const packageEquivalent = toGramsEquivalent(row.package_size, row.package_size_unit, {
+        servingWeightG,
+      });
+      if (!packageEquivalent.convertible || packageEquivalent.grams <= 0) continue;
+
+      result.set(
+        row.product_id,
+        (result.get(row.product_id) ?? 0) + row.quantity * packageEquivalent.grams,
+      );
+      continue;
+    }
+
     const equivalent = toGramsEquivalent(row.quantity, row.unit, { servingWeightG });
     if (!equivalent.convertible) continue;
     result.set(row.product_id, (result.get(row.product_id) ?? 0) + equivalent.grams);

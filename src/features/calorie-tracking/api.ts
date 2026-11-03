@@ -216,6 +216,7 @@ export function useLatestWeightEntry(userId: string | undefined) {
         .select('*')
         .eq('user_id', userId as string)
         .is('deleted_at', null)
+        .is('child_profile_id', null)
         .order('measured_on', { ascending: false })
         .limit(1)
         .maybeSingle();
