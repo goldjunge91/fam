@@ -20,9 +20,9 @@ Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 | Problem | Eigener Plan | Zuständiger Bead | Phase |
 | --- | --- | --- | --- |
 | C1 | [Historischen Supabase-Serverkey behandeln](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/c1-supabase-serverkey/plan.md) | `fam-w1w0` | 0 |
-| H10 | [DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md) | `fam-0mww` | 0 |
+| H10 | [DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md) | `fam-0yeu` | 0 |
 | H3 | [Privilegierten Batch-Importer absichern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h3-batch-importer/plan.md) | `fam-7iu0.1` | 0 |
-| M7 | [Bildproxy gegen Zugriffe auf interne Dienste begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m7-bildproxy-ssrf/plan.md) | `fam-7iu0.2` | 0 |
+| M7 | [Bildproxy gegen Zugriffe auf interne Dienste begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m7-bildproxy-ssrf/plan.md) | `fam-hujx` | 0 |
 | G1 | [Edge-Qualitätsgate reproduzierbar grün herstellen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/g1-edge-qualitaetsgate/plan.md) | `fam-z33t.1` | 0 |
 | G2 | [Dependency-Advisories nach Erreichbarkeit beheben](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/g2-dependency-advisories/plan.md) | `fam-z33t.2` | 0, Updates nach Priorität |
 | H4 | [Kind-Profil-Löschung nach Haushaltsaustritt sperren](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h4-kind-profil-loeschrechte/plan.md) | `fam-qdjx` | 1 |

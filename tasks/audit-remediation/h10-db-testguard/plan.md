@@ -1,7 +1,7 @@
 # H10: DB-Teststarter ohne automatischen Reset ausführen
 
 Priorität: High. Reihenfolge: Phase 0.
-Maßgeblicher Bead: `fam-0mww`. Umsetzungsstatus ausschließlich in Beads.
+Maßgeblicher Bead: `fam-0yeu`. Umsetzungsstatus ausschließlich in Beads.
 Ausgangsbasis: Audit `fam-aen4` vom 27. Oktober 2026.
 Dieser Einzelplan ersetzt für H10 den entsprechenden Abschnitt des bisherigen Gesamtplans.
 
@@ -16,7 +16,7 @@ Der aktuelle DB-Teststarter setzt eine als benutzt erkannte Datenbank ungefragt 
 
 | Reihenfolge | Bead | Verantwortung |
 | --- | --- | --- |
-| 1 | `fam-0mww` | DB-Teststarter ohne automatischen Reset ausführen |
+| 1 | `fam-0yeu` | DB-Teststarter ohne automatischen Reset ausführen |
 
 
 ## Vorgehen
@@ -48,7 +48,7 @@ Keine fachliche Vorbedingung aus einem anderen Problemplan. Gemeinsame Dateigren
 ## Abnahme
 
 Die verbindlichen Akzeptanzkriterien und die tatsächlichen Nachweise besitzt
-`fam-0mww`. Der vorgesehene fachliche Abnahmerahmen lautet:
+`fam-0yeu`. Der vorgesehene fachliche Abnahmerahmen lautet:
 
 - Guard und lokaler DB-Teststart löschen niemals selbstständig Daten; Dirty-Zustand beendet mit verständlicher Fehlermeldung.
 - Es wird eindeutig die lokale Projektinstanz ausgewählt; fremde Projekte werden nicht geprüft oder zurückgesetzt.
