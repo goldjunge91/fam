@@ -1,16 +1,12 @@
 # Implementierungsplan: Canonical Brochure Pipeline
 
-> Historischer Analyseplan. Der aktive Prospektpfad ist in
-> `.agents/tasks/bring-cdn-migration-plan-2026-10-22.md` beschrieben: Bring-CDN-
-> Bild-URLs bleiben als Metadaten in Supabase. Der aktuelle Workflow benötigt
-> keine R2-Zugangsdaten und lädt oder überträgt keine Bildbytes. Die hier
-> beschriebenen R2-Publikationsschritte sind veraltet; lokale Byte- und
-> Hash-Verifikation bleibt davon getrennt und ist nicht automatisch erledigt.
+> Historischer Analyseplan. Der darin beschriebene Bring-Viewer und Bring-Crawler
+> wurden am 4. November 2026 entfernt. Der aktive Prospektpfad ist KaufDA über
+> `scripts/scrapers/run-kaufda.ts` und `.github/workflows/scrape-brochures.yml`.
+> Die offenen Bring-Phasen darunter sind beendet und keine aktiven Aufgaben.
 
 Status: Die folgenden Messungen und Phasen dokumentieren den früheren
-Byte-Download- und R2-Entwurf. Sie beschreiben nicht den aktiven Workflow.
-Lokale Byte-/Hash-Arbeit wird separat über Beads nach ihren eigenen
-Akzeptanzkriterien verfolgt.
+Bring-Byte-Download- und R2-Entwurf. Sie beschreiben nicht den aktiven Workflow.
 Kernlösung: `# Lösung für Prospekte.md`; operative Anleitung:
 `docs/features/BROCHURE/how_to_use.md` (Abschnitt Listing-Only)
 Prior-Beads: `fam-kl22` (geschlossene Analyse), `fam-zarz` (Voll-Scan)

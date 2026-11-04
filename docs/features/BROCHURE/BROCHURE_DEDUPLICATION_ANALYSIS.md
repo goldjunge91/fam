@@ -5,7 +5,8 @@ lokalen Läufen und sind kein aktueller Prospektbestand. Die aktive
 KaufDA-Pipeline ist im
 [Produktionsplan](./KAUFDA_GITHUB_RUNNER_PLAN.md) beschrieben. Die Cover-,
 OCR- und Stichprobenmessungen in diesem Dokument bleiben historische
-Beobachtungen und steuern keine Prospektzusammenführung.
+Beobachtungen und steuern keine Prospektzusammenführung. Die unten genannten
+Bring-Viewer- und Crawler-Dateien wurden am 4. November 2026 entfernt.
 
 ## Listing-only-Messung vom 2026-10-07
 
@@ -168,7 +169,7 @@ Vollseitenverifikation ausgegeben werden.
   tatsächlich identische `uncertain`-Paare getrennt bleiben und etwas mehr
   Speicher benötigen.
 
-## Aktuelle Implementierung
+## Historische Implementierung vor der KaufDA-Ablösung
 
 - `tools/crawler/brochures/listing-only/all-stores-full.ts`: vollständiger Offers-Scan
 - `tools/crawler/brochures/listing-only/fetch-detail-pages.ts`: echte Seitenzahlen

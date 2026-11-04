@@ -29,9 +29,6 @@ export const UNIT_TEST_ENV = {
   SUPABASE_URL: '',
   SUPABASE_SECRET_KEY: '',
   OPENROUTER_API_KEY: '',
-  BRING_AUTH_TOKEN: '',
-  BRING_API_KEY: '',
-  BRING_USER_UUID: '',
 } as const;
 
 export function applyUnitTestEnv(environment: NodeJS.ProcessEnv = process.env): void {

@@ -9,11 +9,9 @@ const SOURCE_FILE = /\.(?:[cm]?[jt]sx?)$/u;
 const TEST_FILE = /\.(?:test|spec)\.(?:[cm]?[jt]sx?)$/u;
 const TOOL_PATHS = [
   'tools/batch-import/',
-  'tools/brochure-viewer/',
   'tools/build-gui/',
   'tools/category-debugger/',
   'tools/classify.ts',
-  'tools/crawler/brochures/listing-only/',
   'tools/llm-test-platform/',
   'tools/product-search-lab/',
   'tools/receipt-ocr-tesseract/',

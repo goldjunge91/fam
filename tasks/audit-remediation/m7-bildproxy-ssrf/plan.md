@@ -1,22 +1,28 @@
 # M7: Bildproxy gegen Zugriffe auf interne Dienste begrenzen
 
 Priorität: Medium. Reihenfolge: Phase 0.
-Maßgeblicher Bead: `fam-7iu0.2`. Umsetzungsstatus ausschließlich in Beads.
+Maßgeblicher Bead: `fam-hujx`. Umsetzungsstatus ausschließlich in Beads.
 Ausgangsbasis: Audit `fam-aen4` vom 27. Oktober 2026.
 Dieser Einzelplan ersetzt für M7 den entsprechenden Abschnitt des bisherigen Gesamtplans.
+
+Historischer Task: Der lokale Bring-Viewer und sein Bildproxy wurden am
+4. November 2026 nach Übernahme durch die KaufDA-Pipeline entfernt. Die
+abgeschlossene Absicherung bleibt in Bead `fam-hujx` dokumentiert.
 
 [Übersicht](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/plan.md) · [Gemeinsamer Arbeitsrahmen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/workflow.md) · [Auditbericht](/Volumes/Programme/github/family_app/fam/reports/code-security-review-2026-10-27.md)
 
 ## Problem und Ziel
 
-Der lokale Prospekt-Viewer ruft jede übergebene URL ab, folgt Redirects und gibt den Body mit wildcard-CORS zurück. Bei erreichbarem Tool kann der Rechner zum Proxy ins interne Netz werden.
+Zum Zeitpunkt des Audits rief der lokale Prospekt-Viewer jede übergebene URL
+ab, folgte Redirects und gab den Body mit wildcard-CORS zurück. Bei
+erreichbarem Tool konnte der Rechner als Proxy ins interne Netz dienen.
 
 
 ## Eigener Task und begrenzte Umsetzungspakete
 
 | Reihenfolge | Bead | Verantwortung |
 | --- | --- | --- |
-| 1 | `fam-7iu0.2` | Prospekt-Bildproxy auf freigegebene Bildquellen begrenzen |
+| 1 | `fam-hujx` | Prospekt-Bildproxy auf freigegebene Bildquellen begrenzen |
 
 
 ## Vorgehen
@@ -46,8 +52,8 @@ Keine fachliche Vorbedingung aus einem anderen Problemplan. Gemeinsame Dateigren
 
 ## Abnahme
 
-Die verbindlichen Akzeptanzkriterien und die tatsächlichen Nachweise besitzt
-`fam-7iu0.2`. Der vorgesehene fachliche Abnahmerahmen lautet:
+Die Akzeptanzkriterien und die tatsächlichen Nachweise besitzt
+`fam-hujx`. Der vorgesehene fachliche Abnahmerahmen lautet:
 
 - Nur bestehende freigegebene HTTPS-Bildquellen werden abgerufen; Loopback, private IPs, fremde Hosts und Redirects werden abgewiesen.
 - Request- und Response-Größe sowie Laufzeit sind begrenzt; Server bindet Loopback und kontrolliert Browser-Origins.
