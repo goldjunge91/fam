@@ -1,8 +1,14 @@
 import type { DatabaseFileOps } from '@/lib/db/database-files';
 import {
+  DATABASE_KEY_CLEANUP_MARKER_KEY,
+  DATABASE_KEY_CLEANUP_MARKER_VALUE,
+} from '@/lib/db/database-key-file-store';
+import {
   type CipherDatabase,
   createDatabaseKeyManager,
   type DatabaseEncryptionCutoverDependencies,
+  deleteDatabaseEncryptionKey,
+  getOrCreateDatabaseEncryptionKey,
   type KeyValueStore,
   keyAndVerifyDatabase,
   migratePlaintextDatabase,
@@ -10,7 +16,52 @@ import {
   toSqlCipherKeyPragma,
 } from '@/lib/db/local-database-encryption';
 
+const mockNativeSecureStoreValues = new Map<string, string>();
+const mockNativeMirrorValues = new Map<string, string>();
+const mockSecureStoreGet = jest.fn(
+  async (key: string) => mockNativeSecureStoreValues.get(key) ?? null,
+);
+const mockSecureStoreSet = jest.fn(async (key: string, value: string) => {
+  mockNativeSecureStoreValues.set(key, value);
+});
+const mockSecureStoreDelete = jest.fn(async (key: string) => {
+  mockNativeSecureStoreValues.delete(key);
+});
+const mockRandomBytes = jest.fn(async (_byteCount: number) => new Uint8Array(32).fill(9));
+const mockNativeMirrorStore: KeyValueStore = {
+  getItem: jest.fn(async (key) => mockNativeMirrorValues.get(key) ?? null),
+  setItem: jest.fn(async (key, value) => {
+    mockNativeMirrorValues.set(key, value);
+  }),
+  removeItem: jest.fn(async (key) => {
+    mockNativeMirrorValues.delete(key);
+  }),
+};
+
 jest.mock('@/lib/telemetry', () => ({ addDiagnosticStep: jest.fn() }));
+
+jest.mock('expo-secure-store', () => ({
+  AFTER_FIRST_UNLOCK: 'after-first-unlock',
+  AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY: 'after-first-unlock-this-device-only',
+  getItemAsync: (...args: [string]) => mockSecureStoreGet(...args),
+  setItemAsync: (...args: [string, string]) => mockSecureStoreSet(...args),
+  deleteItemAsync: (...args: [string]) => mockSecureStoreDelete(...args),
+}));
+
+jest.mock('expo-crypto', () => ({
+  getRandomBytesAsync: (...args: [number]) => mockRandomBytes(...args),
+}));
+
+jest.mock('react-native', () => {
+  return { Platform: { OS: 'ios' } };
+});
+
+jest.mock('@/lib/db/database-key-file-store', () => {
+  const actual = jest.requireActual<typeof import('@/lib/db/database-key-file-store')>(
+    '@/lib/db/database-key-file-store',
+  );
+  return { ...actual, createSharedKeyFileStore: () => mockNativeMirrorStore };
+});
 
 function createStore(initial: string | null = null) {
   let value = initial;
@@ -27,6 +78,13 @@ function createStore(initial: string | null = null) {
 }
 
 describe('SQLCipher-Schlüsselverwaltung', () => {
+  beforeEach(() => {
+    mockNativeSecureStoreValues.clear();
+    mockNativeMirrorValues.clear();
+    jest.clearAllMocks();
+    mockRandomBytes.mockResolvedValue(new Uint8Array(32).fill(9));
+  });
+
   it('spiegelt den Keychain-Schlüssel in den gemeinsamen Container', async () => {
     // Die Extension liest den Key aus der Datei, weil das Keychain-Entitlement
     // fehlt. Ohne Spiegel kann sie die verschluesselte Datei nicht oeffnen.
@@ -142,6 +200,31 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
     expect(randomBytes).toHaveBeenCalledWith(32);
     expect(storage.setItem).not.toHaveBeenCalled();
     expect(mirror.setItem).not.toHaveBeenCalled();
+  });
+
+  it('schließt einen unterbrochenen Key-Cleanup vor dem Erzeugen eines neuen Schlüssels ab', async () => {
+    const oldKey = 'ab'.repeat(32);
+    mockNativeSecureStoreValues.set('fam.database.sqlcipher-key.v1', oldKey);
+    mockNativeMirrorValues.set('fam.database.sqlcipher-key.v1', oldKey);
+    mockSecureStoreDelete.mockRejectedValueOnce(new Error('keychain temporarily unavailable'));
+
+    await expect(deleteDatabaseEncryptionKey()).rejects.toThrow(
+      'Der SQLCipher-Schlüssel konnte nicht vollständig entfernt werden.',
+    );
+    expect(mockNativeSecureStoreValues.get(DATABASE_KEY_CLEANUP_MARKER_KEY)).toBe(
+      DATABASE_KEY_CLEANUP_MARKER_VALUE,
+    );
+    expect(mockNativeMirrorValues.get(DATABASE_KEY_CLEANUP_MARKER_KEY)).toBe(
+      DATABASE_KEY_CLEANUP_MARKER_VALUE,
+    );
+
+    const replacement = await getOrCreateDatabaseEncryptionKey();
+
+    expect(replacement).not.toBe(oldKey);
+    expect(mockNativeSecureStoreValues.get('fam.database.sqlcipher-key.v1')).toBe(replacement);
+    expect(mockNativeMirrorValues.get('fam.database.sqlcipher-key.v1')).toBe(replacement);
+    expect(mockNativeSecureStoreValues.has(DATABASE_KEY_CLEANUP_MARKER_KEY)).toBe(false);
+    expect(mockNativeMirrorValues.has(DATABASE_KEY_CLEANUP_MARKER_KEY)).toBe(false);
   });
 
   it('baut das PRAGMA nur aus einem validierten Raw-Key', () => {

@@ -147,6 +147,49 @@ describe('stockInGrams', () => {
     );
     expect(result.get('tomaten')).toBe(300);
   });
+
+  it('rechnet Packungsgrößen um und ignoriert ungültige oder nicht umrechenbare Angaben', () => {
+    const result = stockInGrams(
+      [
+        {
+          product_id: 'hafermilch',
+          quantity: 2,
+          unit: 'package',
+          package_size: 250,
+          package_size_unit: 'g',
+        },
+        {
+          product_id: 'ungültig',
+          quantity: 1,
+          unit: 'piece',
+          package_size: 0,
+          package_size_unit: 'g',
+        },
+        {
+          product_id: 'nicht-endlich',
+          quantity: 1,
+          unit: 'portion',
+          package_size: Number.NaN,
+          package_size_unit: 'g',
+        },
+        {
+          product_id: 'stück-packung',
+          quantity: 1,
+          unit: 'package',
+          package_size: 3,
+          package_size_unit: 'piece',
+        },
+        { product_id: 'ohne-einheit', quantity: 1, unit: 'package', package_size: 3 },
+      ],
+      new Map(),
+    );
+
+    expect(result.get('hafermilch')).toBe(500);
+    expect(result.has('ungültig')).toBe(false);
+    expect(result.has('nicht-endlich')).toBe(false);
+    expect(result.has('stück-packung')).toBe(false);
+    expect(result.has('ohne-einheit')).toBe(false);
+  });
 });
 
 describe('computeMissingIngredients', () => {

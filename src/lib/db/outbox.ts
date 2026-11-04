@@ -172,13 +172,16 @@ export async function acquireOutboxSignOutGuard(db: SqlDatabase): Promise<Outbox
       true,
     );
 
-    return {
+    const outboxGuard: OutboxSignOutGuard = {
       ...counts,
-      get queuedWriteCount() {
-        return guard.queuedWriteCount;
-      },
+      queuedWriteCount: 0,
       release: guard.release,
     };
+    Object.defineProperty(outboxGuard, 'queuedWriteCount', {
+      enumerable: true,
+      get: () => guard.queuedWriteCount,
+    });
+    return outboxGuard;
   } catch (error) {
     guard.release();
     throw error;

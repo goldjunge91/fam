@@ -1,10 +1,50 @@
-import { enqueueMutations, onOutboxChanged } from '@/lib/db/outbox';
+import {
+  acquireOutboxSignOutGuard,
+  beginOutboxWriteProducer,
+  enqueueMutations,
+  OutboxWriteProducerActiveError,
+  onOutboxChanged,
+  parseOutboxEntry,
+} from '@/lib/db/outbox';
+import type { OutboxEntry } from '@/lib/db/types';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 
 jest.mock('@/lib/telemetry', () => ({
   addDiagnosticStep: jest.fn(),
   reportError: jest.fn(),
 }));
+
+function outboxEntry(payload: string, entity: OutboxEntry['entity'] = 'fridge_items'): OutboxEntry {
+  return {
+    id: 1,
+    entity,
+    entity_id: 'item-1',
+    op: 'insert',
+    payload,
+    created_at: 1,
+    attempts: 0,
+    last_error: null,
+    last_error_kind: null,
+    next_attempt_at: 0,
+  };
+}
+
+describe('parseOutboxEntry', () => {
+  it('normalizes inventory units from older outbox payloads', () => {
+    expect(parseOutboxEntry(outboxEntry('{"unit":"gramm"}'))).toEqual({ unit: 'g' });
+  });
+
+  it.each(['null', '1', '"text"', '[]'])('rejects non-object payload %s', (payload) => {
+    expect(() => parseOutboxEntry(outboxEntry(payload))).toThrow('kein Objekt');
+  });
+
+  it('preserves payloads without a normalizable inventory unit', () => {
+    expect(parseOutboxEntry(outboxEntry('{"unit":4}'))).toEqual({ unit: 4 });
+    expect(parseOutboxEntry(outboxEntry('{"unit":"gramm"}', 'products'))).toEqual({
+      unit: 'gramm',
+    });
+  });
+});
 
 async function insertStorageLocation(db: TestDatabase, id: string): Promise<void> {
   await db.runAsync(
@@ -168,5 +208,87 @@ describe('enqueueMutations', () => {
       { entity_id: 'a' },
       { entity_id: 'b' },
     ]);
+  });
+
+  it('blocks the sign-out guard while a local write producer is active', async () => {
+    const releaseProducer = beginOutboxWriteProducer();
+    expect(releaseProducer).not.toBeNull();
+
+    const guardError = await acquireOutboxSignOutGuard(db).catch((error: unknown) => error);
+    expect(guardError).toBeInstanceOf(OutboxWriteProducerActiveError);
+    expect(guardError).toMatchObject({ count: 1 });
+
+    releaseProducer?.();
+    const afterRelease = beginOutboxWriteProducer();
+    expect(afterRelease).not.toBeNull();
+    afterRelease?.();
+  });
+
+  it('allows only one sign-out guard per database', async () => {
+    const guard = await acquireOutboxSignOutGuard(db);
+
+    try {
+      await expect(acquireOutboxSignOutGuard(db)).rejects.toThrow('bereits');
+    } finally {
+      guard.release();
+    }
+  });
+
+  it('counts pending and failed rows while pausing new outbox writes', async () => {
+    await db.runAsync(
+      'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, ?, ?)',
+      ['storage_locations', 'pending', 'update', '{}', 10, 0, 0],
+    );
+    await db.runAsync(
+      'insert into outbox (entity, entity_id, op, payload, created_at, attempts, next_attempt_at) values (?, ?, ?, ?, ?, ?, ?)',
+      ['storage_locations', 'failed', 'update', '{}', 11, 5, 0],
+    );
+
+    const guard = await acquireOutboxSignOutGuard(db);
+    expect(guard).toMatchObject({ pendingCount: 1, failedCount: 1, queuedWriteCount: 0 });
+    expect(beginOutboxWriteProducer()).toBeNull();
+
+    const waitingWrite = enqueueMutations(db, [
+      {
+        entity: 'storage_locations',
+        entityId: 'queued',
+        op: 'delete',
+        payload: { id: 'queued' },
+        applyLocally: async () => undefined,
+      },
+    ]);
+    await new Promise<void>((resolve) => setImmediate(resolve));
+    try {
+      const writeFinishedBeforeRelease = await Promise.race([
+        waitingWrite.then(() => true),
+        new Promise<boolean>((resolve) => setImmediate(() => resolve(false))),
+      ]);
+      expect(writeFinishedBeforeRelease).toBe(false);
+      expect(guard.queuedWriteCount).toBe(1);
+    } finally {
+      guard.release();
+      guard.release();
+      await waitingWrite;
+    }
+
+    expect(await db.getAllAsync('select entity_id from outbox order by id')).toEqual([
+      { entity_id: 'pending' },
+      { entity_id: 'failed' },
+      { entity_id: 'queued' },
+    ]);
+    const afterRelease = beginOutboxWriteProducer();
+    expect(afterRelease).not.toBeNull();
+    afterRelease?.();
+  });
+
+  it('releases the sign-out guard when its database check fails', async () => {
+    const error = new Error('database check failed');
+    jest.spyOn(db, 'withExclusiveTransactionAsync').mockRejectedValueOnce(error);
+
+    await expect(acquireOutboxSignOutGuard(db)).rejects.toBe(error);
+
+    const releaseProducer = beginOutboxWriteProducer();
+    expect(releaseProducer).not.toBeNull();
+    releaseProducer?.();
   });
 });

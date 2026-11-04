@@ -61,11 +61,128 @@ jest.mock('@/features/inventory/use-storage-locations', () => ({
   useStorageLocations: () => ({ data: [{ id: 'fridge-location', kind: 'fridge' }] }),
 }));
 
+type ShoppingRunInput = {
+  householdId: string;
+  userId: string | null;
+  checkedItems: LocalShoppingItem[];
+  transfers: TransferItem[];
+};
+
+type InvalidInputCase = {
+  name: string;
+  error: string;
+  householdId?: string;
+  itemOverrides?: Partial<LocalShoppingItem>;
+  transferOverrides?: Partial<TransferItem>;
+  omitTransfer?: boolean;
+};
+
+const invalidInputCases: InvalidInputCase[] = [
+  { name: 'rejects a missing household', error: 'Haushalt', householdId: '  ' },
+  { name: 'rejects a missing item id', error: 'passen', itemOverrides: { id: '' } },
+  {
+    name: 'rejects an item from another household',
+    error: 'passen',
+    itemOverrides: { household_id: 'hh-2' },
+  },
+  {
+    name: 'rejects an unchecked item',
+    error: 'passen',
+    itemOverrides: { checked_at: null },
+  },
+  {
+    name: 'requires a transfer for each checked item',
+    error: 'genau ein Transfer',
+    omitTransfer: true,
+  },
+  {
+    name: 'rejects a transfer for another product',
+    error: 'Transferinhalt',
+    transferOverrides: { productId: 'other-product' },
+  },
+  {
+    name: 'rejects a transfer with a changed name',
+    error: 'Transferinhalt',
+    transferOverrides: { name: 'Andere Ware' },
+  },
+  {
+    name: 'rejects a transfer with a changed unit',
+    error: 'Transferinhalt',
+    transferOverrides: { unit: 'kg' },
+  },
+  {
+    name: 'rejects a transfer with a changed package size',
+    error: 'Transferinhalt',
+    transferOverrides: { packageSize: 2 },
+  },
+  {
+    name: 'rejects a transfer with a changed package unit',
+    error: 'Transferinhalt',
+    transferOverrides: { packageSizeUnit: 'g' },
+  },
+  {
+    name: 'rejects a non-finite transfer quantity',
+    error: 'positive Menge',
+    transferOverrides: { quantity: Number.NaN },
+  },
+  {
+    name: 'rejects a quantity below one inventory unit',
+    error: 'Nachkommastellen',
+    transferOverrides: { quantity: 0.0001 },
+  },
+  {
+    name: 'rejects a package size without its unit',
+    error: 'gemeinsam gültig',
+    itemOverrides: { package_size_unit: 'g' },
+  },
+  {
+    name: 'rejects a non-positive package size',
+    error: 'gemeinsam gültig',
+    itemOverrides: { package_size: 0, package_size_unit: 'g' },
+  },
+  {
+    name: 'rejects a blank package-size unit',
+    error: 'gemeinsam gültig',
+    itemOverrides: { package_size: 1, package_size_unit: '  ' },
+  },
+  {
+    name: 'rejects a malformed expiry date',
+    error: 'Mindesthaltbarkeitsdatum',
+    transferOverrides: { expiryDate: '2026-2-3' },
+  },
+  {
+    name: 'rejects an impossible expiry date',
+    error: 'Mindesthaltbarkeitsdatum',
+    transferOverrides: { expiryDate: '2026-02-30' },
+  },
+  {
+    name: 'rejects an unknown storage location kind',
+    error: 'Lagerort',
+    transferOverrides: { locationKind: 'garage' as TransferItem['locationKind'] },
+  },
+];
+
 describe('useCompleteShoppingRun', () => {
   let queryClient: QueryClient;
 
   function wrapper({ children }: { children: React.ReactNode }) {
     return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+  }
+
+  async function mutateRun(input: ShoppingRunInput) {
+    const { result, unmount } = await renderHook(() => useCompleteShoppingRun('hh-1'), { wrapper });
+    try {
+      await act(async () => {
+        await result.current.mutateAsync(input);
+      });
+      await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    } catch (error) {
+      await waitFor(() => expect(result.current.isError).toBe(true));
+      throw error;
+    } finally {
+      await unmount();
+      queryClient.clear();
+    }
   }
 
   beforeEach(() => {
@@ -285,6 +402,167 @@ describe('useCompleteShoppingRun', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+  });
+
+  it.each(invalidInputCases)('$name', async (testCase) => {
+    const item = createCheckedItem(testCase.itemOverrides);
+    const transfers = testCase.omitTransfer
+      ? []
+      : [{ ...createTransfer(item), ...testCase.transferOverrides }];
+
+    await expect(
+      mutateRun({
+        householdId: testCase.householdId ?? 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item],
+        transfers,
+      }),
+    ).rejects.toThrow(testCase.error);
+
+    expect(mockEnqueueMutationStepsInExclusiveTransaction).not.toHaveBeenCalled();
+  });
+
+  it('rejects duplicate checked-item ids before writing', async () => {
+    const item = createCheckedItem();
+
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item, { ...item }],
+        transfers: [createTransfer(item), createTransfer(item)],
+      }),
+    ).rejects.toThrow('passen');
+    expect(mockEnqueueMutationStepsInExclusiveTransaction).not.toHaveBeenCalled();
+  });
+
+  it('rejects a transfer whose item is not in the checked set', async () => {
+    const item = createCheckedItem();
+
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item],
+        transfers: [{ ...createTransfer(item), shoppingItemId: 'other-item' }],
+      }),
+    ).rejects.toThrow('eindeutig zugeordnet');
+  });
+
+  it('does not enqueue a second transfer when the checked item is already deleted', async () => {
+    const item = createCheckedItem();
+    mockDbGetAllAsync.mockResolvedValue([{ ...item, deleted_at: '2026-11-04T10:00:00Z' }]);
+
+    await mutateRun({
+      householdId: 'hh-1',
+      userId: 'user-1',
+      checkedItems: [item],
+      transfers: [createTransfer(item)],
+    });
+
+    expect(mockQueuedMutations).toHaveLength(0);
+    expect(recordActivity).not.toHaveBeenCalled();
+  });
+
+  it('rejects a checked set whose source rows changed during completion', async () => {
+    const item = createCheckedItem({ id: 'item-1' });
+    const second = createCheckedItem({ id: 'item-2', name: 'Milch' });
+    mockDbGetAllAsync.mockResolvedValue([
+      { ...item, deleted_at: null },
+      { ...second, deleted_at: '2026-11-04T10:00:00Z' },
+    ]);
+
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item, second],
+        transfers: [createTransfer(item), createTransfer(second)],
+      }),
+    ).rejects.toThrow('während des Abschlusses geändert');
+    expect(mockQueuedMutations).toHaveLength(0);
+  });
+
+  it('rejects source rows that disappeared or moved to another household', async () => {
+    const item = createCheckedItem();
+    mockDbGetAllAsync.mockResolvedValue([]);
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item],
+        transfers: [createTransfer(item)],
+      }),
+    ).rejects.toThrow('nicht mehr verfügbar');
+
+    mockDbGetAllAsync.mockResolvedValue([{ ...item, household_id: 'hh-2', deleted_at: null }]);
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item],
+        transfers: [createTransfer(item)],
+      }),
+    ).rejects.toThrow('anderen Haushalt');
+  });
+
+  it('rejects invalid source quantities and changed source contents', async () => {
+    const item = createCheckedItem({ quantity: 0 });
+    mockDbGetAllAsync.mockResolvedValue([{ ...item, deleted_at: null }]);
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [item],
+        transfers: [createTransfer(item, 1)],
+      }),
+    ).rejects.toThrow('Menge eines Einkaufsartikels');
+
+    const checkedItem = createCheckedItem();
+    mockDbGetAllAsync.mockResolvedValue([{ ...checkedItem, name: 'Geändert', deleted_at: null }]);
+    await expect(
+      mutateRun({
+        householdId: 'hh-1',
+        userId: 'user-1',
+        checkedItems: [checkedItem],
+        transfers: [createTransfer(checkedItem)],
+      }),
+    ).rejects.toThrow('während des Abschlusses geändert');
+  });
+
+  it('saves valid package metadata and leaves unknown storage locations unset', async () => {
+    const item = createCheckedItem({
+      product_id: 'prod-1',
+      unit: 'package',
+      package_size: 250,
+      package_size_unit: 'g',
+    });
+    mockDbGetAllAsync.mockResolvedValue([{ ...item, deleted_at: null }]);
+    const transfer = {
+      ...createTransfer(item),
+      locationKind: 'pantry' as const,
+      expiryDate: '2026-11-04',
+    };
+
+    await mutateRun({
+      householdId: 'hh-1',
+      userId: 'user-1',
+      checkedItems: [item],
+      transfers: [transfer],
+    });
+
+    expect(mockQueuedMutations).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          entity: 'fridge_items',
+          payload: expect.objectContaining({
+            package_size: 250_000,
+            location_id: null,
+            expiry_date: '2026-11-04',
+          }),
+        }),
+      ]),
+    );
   });
 });
 

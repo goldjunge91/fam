@@ -1,6 +1,11 @@
 import type { QueryClient } from '@tanstack/react-query';
+import { OutboxWriteProducerActiveError } from '@/lib/db/outbox';
 
-import { clearLocalAccountData, signOutAndClearLocalData } from './sign-out';
+import {
+  clearLocalAccountData,
+  signOutAndClearLocalData,
+  UnsyncedLocalWritesError,
+} from './sign-out';
 
 const mockSignOut = jest.fn();
 const mockDeleteLocalDatabase = jest.fn();
@@ -11,8 +16,11 @@ const mockGetRememberedLocalAccountUserId = jest.fn();
 const mockStopAccountSyncAndWait = jest.fn();
 const mockResetLocalAccountModuleCaches = jest.fn();
 const mockGetSession = jest.fn();
+const mockGetDatabase = jest.fn();
 const mockLocalSignOut = jest.fn();
 const mockCancelUserNotificationReminders = jest.fn();
+const mockSetActiveUserId = jest.fn();
+const mockAcquireOutboxSignOutGuard = jest.fn();
 const mockConsoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
 
 jest.mock('@/features/auth/api', () => ({
@@ -25,8 +33,17 @@ jest.mock('@/features/household/active-household-store', () => ({
 
 jest.mock('@/lib/db/local-client', () => ({
   deleteLocalDatabase: (...args: unknown[]) => mockDeleteLocalDatabase(...args),
-  setActiveUserId: jest.fn(),
+  getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
+  setActiveUserId: (...args: unknown[]) => mockSetActiveUserId(...args),
 }));
+
+jest.mock('@/lib/db/outbox', () => {
+  const actual = jest.requireActual<typeof import('@/lib/db/outbox')>('@/lib/db/outbox');
+  return {
+    ...actual,
+    acquireOutboxSignOutGuard: (...args: unknown[]) => mockAcquireOutboxSignOutGuard(...args),
+  };
+});
 
 jest.mock('@/lib/storage/local-account-storage', () => ({
   deleteEncryptedAccountStorage: (...args: unknown[]) => mockDeleteEncryptedAccountStorage(...args),
@@ -61,7 +78,19 @@ function queryClient(): QueryClient {
   return {
     cancelQueries: jest.fn().mockResolvedValue(undefined),
     clear: jest.fn(),
+    isMutating: jest.fn().mockReturnValue(0),
   } as unknown as QueryClient;
+}
+
+function outboxGuard(
+  overrides: { pendingCount?: number; failedCount?: number; queuedWriteCount?: number } = {},
+) {
+  return {
+    pendingCount: overrides.pendingCount ?? 0,
+    failedCount: overrides.failedCount ?? 0,
+    queuedWriteCount: overrides.queuedWriteCount ?? 0,
+    release: jest.fn(),
+  };
 }
 
 describe('lokaler Account-Cleanup', () => {
@@ -76,6 +105,9 @@ describe('lokaler Account-Cleanup', () => {
     mockDeleteEncryptedAccountStorage.mockResolvedValue(undefined);
     mockForgetLocalAccountUserId.mockResolvedValue(undefined);
     mockGetRememberedLocalAccountUserId.mockResolvedValue(null);
+    mockGetDatabase.mockResolvedValue({});
+    mockAcquireOutboxSignOutGuard.mockReset();
+    mockSetActiveUserId.mockReset();
     mockStopAccountSyncAndWait.mockResolvedValue(undefined);
     mockSignOut.mockResolvedValue({ error: null });
     mockLocalSignOut.mockResolvedValue({ error: null });
@@ -203,5 +235,88 @@ describe('lokaler Account-Cleanup', () => {
     await expect(signOutAndClearLocalData(client)).resolves.toEqual({ error: null });
 
     expect(mockDeleteEncryptedAccountStorage).toHaveBeenCalledWith('orphan-user');
+  });
+
+  it('verhindert die Abmeldung bei offenen und fehlgeschlagenen lokalen Schreibvorgängen', async () => {
+    const guard = outboxGuard({ pendingCount: 2, failedCount: 1 });
+    mockAcquireOutboxSignOutGuard.mockResolvedValue(guard);
+
+    const result = await signOutAndClearLocalData(queryClient(), {
+      protectUnsyncedWrites: true,
+    });
+
+    expect(result.error).toBeInstanceOf(UnsyncedLocalWritesError);
+    expect(result.error).toMatchObject({ pendingCount: 2, failedCount: 1 });
+    expect(guard.release).toHaveBeenCalledTimes(1);
+    expect(mockSignOut).not.toHaveBeenCalled();
+    expect(mockDeleteLocalDatabase).not.toHaveBeenCalled();
+  });
+
+  it('berücksichtigt laufende React-Query-Mutationen beim Abmeldeschutz', async () => {
+    const guard = outboxGuard();
+    mockAcquireOutboxSignOutGuard.mockResolvedValue(guard);
+    const client = queryClient();
+    jest.mocked(client.isMutating).mockReturnValue(3);
+
+    const result = await signOutAndClearLocalData(client, { protectUnsyncedWrites: true });
+
+    expect(result.error).toMatchObject({ pendingCount: 3, failedCount: 0 });
+    expect(guard.release).toHaveBeenCalledTimes(1);
+    expect(mockSignOut).not.toHaveBeenCalled();
+  });
+
+  it('berücksichtigt bereits wartende Outbox-Schreibvorgänge beim Abmeldeschutz', async () => {
+    const guard = outboxGuard({ queuedWriteCount: 1 });
+    mockAcquireOutboxSignOutGuard.mockResolvedValue(guard);
+
+    const result = await signOutAndClearLocalData(queryClient(), { protectUnsyncedWrites: true });
+
+    expect(result.error).toMatchObject({ pendingCount: 1, failedCount: 0 });
+    expect(guard.release).toHaveBeenCalledTimes(1);
+    expect(mockSignOut).not.toHaveBeenCalled();
+  });
+
+  it('gibt den Outbox-Schutz nach erfolgreicher Abmeldung frei', async () => {
+    const guard = outboxGuard();
+    mockAcquireOutboxSignOutGuard.mockResolvedValue(guard);
+
+    await expect(
+      signOutAndClearLocalData(queryClient(), { protectUnsyncedWrites: true }),
+    ).resolves.toEqual({ error: null });
+
+    expect(mockSetActiveUserId).toHaveBeenCalledWith(null);
+    expect(guard.release).toHaveBeenCalledTimes(1);
+    expect(mockSignOut).toHaveBeenCalledTimes(1);
+  });
+
+  it('übersetzt einen aktiven Outbox-Produzenten in einen Abmeldeschutzfehler', async () => {
+    mockAcquireOutboxSignOutGuard.mockRejectedValue(new OutboxWriteProducerActiveError(2));
+
+    const result = await signOutAndClearLocalData(queryClient(), { protectUnsyncedWrites: true });
+
+    expect(result.error).toMatchObject({ pendingCount: 2, failedCount: 0 });
+    expect(mockSignOut).not.toHaveBeenCalled();
+  });
+
+  it('gibt einen nicht-Error-Wert aus dem Datenbankzugriff als Error zurück', async () => {
+    mockGetDatabase.mockRejectedValue('database unavailable');
+
+    const result = await signOutAndClearLocalData(queryClient(), { protectUnsyncedWrites: true });
+
+    expect(result.error).toEqual(new Error('database unavailable'));
+    expect(mockAcquireOutboxSignOutGuard).not.toHaveBeenCalled();
+    expect(mockSignOut).not.toHaveBeenCalled();
+  });
+
+  it('schützt keine Abmeldung ohne ermittelten lokalen Account', async () => {
+    mockGetSession.mockResolvedValue({ data: { session: null } });
+    const client = queryClient();
+
+    await expect(
+      signOutAndClearLocalData(client, { protectUnsyncedWrites: true }),
+    ).resolves.toEqual({ error: null });
+
+    expect(mockAcquireOutboxSignOutGuard).not.toHaveBeenCalled();
+    expect(client.clear).not.toHaveBeenCalled();
   });
 });
