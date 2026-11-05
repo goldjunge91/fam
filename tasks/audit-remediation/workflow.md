@@ -29,7 +29,7 @@ vorbereitet, danach darauf angewiesene Functions und App-Konsumenten.
 
 Vor einem Fix wird der konkrete Fehler im bestehenden Test-Owner belegt.
 Bei H4 muss es ausdrücklich ein ehemaliges Mitglied und DELETE ohne
-Spaltenzugriff sein; bei H8 ein echter SQLite-Rollback; bei H1/H2 echte
+Spaltenzugriff sein; bei H8 ein echter SQLite-Rollback; bei H1 echte
 konkurrierende Grenzfälle. Falsche Annahmen werden dabei korrigiert.
 
 Danach folgen die kleinste Korrektur, die betroffenen fokussierten Tests,
@@ -75,10 +75,9 @@ gestartet.**
 
 Die empfohlenen Entscheidungen zur Receipt-Autorenschaft und zum
 Logout-Verhalten können mit der Planfreigabe bestätigt werden.
-Credit-Aktionsmapping/-Fehlerabbuchung, Scan-Budgetwerte und das bestätigte
-Offline-/Grace-Fenster werden vor den betroffenen Slices konkret festgehalten.
-Daraus entsteht kein Anlass, unabhängige Guard-/RLS-/Berechnungsfixes liegen
-zu lassen.
+Credit-Aktionsmapping/-Fehlerabbuchung und das bestätigte Offline-/Grace-Fenster
+werden vor den betroffenen Slices konkret festgehalten. Daraus entsteht kein
+Anlass, unabhängige Guard-/RLS-/Berechnungsfixes liegen zu lassen.
 
 Für das native Keychain-Sharing muss das tatsächliche Provisioning-Profil die
 Gruppe erlauben. Ohne diesen Nachweis bleibt die zugehörige Aufgabe offen;
