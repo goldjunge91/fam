@@ -47,7 +47,6 @@ export function clearLocalAccountData(queryClient: QueryClient, userId: string):
     } catch (cleanupError) {
       debugWarn('[auth] geplante Account-Erinnerungen nicht entfernt:', cleanupError);
     }
-    // TODO Force delete needed
     try {
       queryClient.clear();
     } catch (cleanupError) {
@@ -177,7 +176,6 @@ export async function signOutAndClearLocalData(
         localSessionRemovalError = fallbackError as Error;
       }
     }
-    // TODO force delete
     // Lokale Daten unabhängig vom Server-Ergebnis bereinigen.
     if (userId) {
       debugLogEvent('auth.sign-out.local-cleanup-started');

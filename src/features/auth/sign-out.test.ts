@@ -319,4 +319,33 @@ describe('lokaler Account-Cleanup', () => {
     expect(mockAcquireOutboxSignOutGuard).not.toHaveBeenCalled();
     expect(client.clear).not.toHaveBeenCalled();
   });
+
+  it('teilt den Account-Cleanup zwischen parallelen Logout-Aufrufen', async () => {
+    let resolveCleanupStarted: (() => void) | undefined;
+    let finishCleanup: (() => void) | undefined;
+    const cleanupStarted = new Promise<void>((resolve) => {
+      resolveCleanupStarted = resolve;
+    });
+    mockStopAccountSyncAndWait.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          finishCleanup = resolve;
+          resolveCleanupStarted?.();
+        }),
+    );
+    const client = queryClient();
+
+    const firstLogout = signOutAndClearLocalData(client);
+    await cleanupStarted;
+    const secondLogout = signOutAndClearLocalData(client);
+    finishCleanup?.();
+
+    await expect(Promise.all([firstLogout, secondLogout])).resolves.toEqual([
+      { error: null },
+      { error: null },
+    ]);
+    expect(mockDeleteLocalDatabase).toHaveBeenCalledTimes(1);
+    expect(mockDeleteEncryptedAccountStorage).toHaveBeenCalledTimes(1);
+    expect(mockForgetLocalAccountUserId).toHaveBeenCalledTimes(1);
+  });
 });

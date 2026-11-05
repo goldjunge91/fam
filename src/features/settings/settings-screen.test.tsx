@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { CONTENT_MAX_WIDTH } from '@/components/theme/index';
+import { UnsyncedLocalWritesError } from '@/features/auth/sign-out';
 import { SettingsScreen } from '@/features/settings/settings-screen';
 import { i18n } from '@/i18n';
 
@@ -44,7 +45,16 @@ jest.mock('@/features/auth/session-provider', () => ({
 
 jest.mock('@/features/auth/sign-out', () => ({
   signOutAndClearLocalData: (...args: unknown[]) => mockSignOutAndClearLocalData(...args),
-  UnsyncedLocalWritesError: class UnsyncedLocalWritesError extends Error {},
+  UnsyncedLocalWritesError: class extends Error {
+    readonly pendingCount: number;
+    readonly failedCount: number;
+
+    constructor(pending: number, failed: number) {
+      super('unsynced-local-writes');
+      this.pendingCount = pending;
+      this.failedCount = failed;
+    }
+  },
 }));
 
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
@@ -406,6 +416,24 @@ describe('SettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Abmelden' }));
 
     expect(alert).toHaveBeenCalledWith('Abmelden fehlgeschlagen', 'logout failed');
+    expect(mockPersistOnboardingCompleted).not.toHaveBeenCalled();
+    expect(router.replace).not.toHaveBeenCalled();
+  });
+
+  it('zeigt offene und fehlgeschlagene Änderungen und bleibt angemeldet', async () => {
+    mockSignOutAndClearLocalData.mockResolvedValue({
+      error: new UnsyncedLocalWritesError(2, 1),
+    });
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Abmelden' }));
+
+    expect(alert).toHaveBeenCalledWith(
+      'Abmelden fehlgeschlagen',
+      'Offline (2 Änderungen ausstehend)\n1 Änderungen konnten nicht synchronisiert werden.',
+    );
     expect(mockPersistOnboardingCompleted).not.toHaveBeenCalled();
     expect(router.replace).not.toHaveBeenCalled();
   });
