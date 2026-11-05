@@ -37,7 +37,7 @@ Die gespeicherten Active-Flags besitzen bei verpasstem EXPIRATION kein begrenzte
 
 ## Abhängigkeiten
 
-- [H7: Kaufübertragungen korrekt abgleichen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h7-revenuecat-transfer/plan.md): Den aktuellen serverseitigen Produktionsstatus-Reader wiederverwenden.
+- H7 ist in `fam-nl7e.1` abgeschlossen. M8 verwendet den dort eingeführten aktuellen serverseitigen Produktionsstatus-Reader weiter.
 
 ## Gezielte Verifikation
 

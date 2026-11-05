@@ -3,58 +3,58 @@
 Stand: 5. November 2026. Ausgangsaudit: `fam-aen4`.
 Planaufteilung: `fam-h6op`; ursprüngliche Gesamtplanung: `fam-b0ig`.
 
-Für 14 Audit-Befunde besteht weiterhin ein Einzelplan mit eigenem Bead. Die
-Einzelpläne zu H2 und H5 wurden nach Abschluss der Arbeiten entfernt; ihre
-Historie und Abnahme bleiben in den geschlossenen Beads `fam-r4ec` und
-`fam-521t` nachvollziehbar. Die ausschließlich interne Werkzeuge unter `tools/`
-betreffenden Befunde H3 und M7 wurden als nicht anwendbar aus der
-Behebungsplanung entfernt. Größere Probleme behalten ihre kleinen
-Umsetzungs-Beads innerhalb des jeweiligen Einzelplans.
+Für vier noch offene Audit-Befunde besteht ein Einzelplan mit eigenem Bead.
+Die Einzelpläne abgeschlossener Arbeiten wurden entfernt; Status,
+Akzeptanzkriterien und Nachweise bleiben in den geschlossenen Beads erhalten.
+Der Qualitätsplan G1 ist ebenfalls abgeschlossen und entfernt. Die ausschließlich
+interne Werkzeuge unter `tools/` betreffenden Befunde H3 und M7 wurden als nicht
+anwendbar aus der Behebungsplanung entfernt.
 
-Beads besitzt Status, Akzeptanzkriterien, Dateiscope und Nachweise. Diese
-Datei ist die Übersicht. Die fachlichen Entscheidungen stehen im jeweiligen
-Einzelplan; gemeinsame Regeln stehen im
+Beads besitzt Status, Akzeptanzkriterien, Dateiscope und Nachweise. Diese Datei
+ordnet nur die verbleibenden Arbeiten und bewahrt eine knappe Abschlusshistorie.
+Die fachlichen Entscheidungen stehen im jeweiligen offenen Einzelplan;
+gemeinsame Regeln stehen im
 [Arbeitsrahmen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/workflow.md).
 Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 
-## Historisch entfernte Einzelpläne
+## Entfernte abgeschlossene Einzelpläne
 
-| Problem | Abschluss |
+| Problem | Maßgeblicher geschlossener Bead |
 | --- | --- |
-| H2 | Umsetzung und Abnahme abgeschlossen; geschlossener Bead `fam-r4ec` |
-| H5 | Umsetzung und Abnahme abgeschlossen; geschlossener Bead `fam-521t` |
+| G1 | `fam-z33t.1` |
+| H2 | `fam-r4ec` |
+| H4 | `fam-qdjx` |
+| H5 | `fam-521t` |
+| H6 | `fam-fp4t` |
+| H7 | `fam-nl7e.1` |
+| H8 | `fam-o1f1` |
+| H9 | `fam-ncux` |
+| L1 | `fam-9qox` |
+| M1 | `fam-pbd8` |
+| M3 | `fam-1tju` |
+| M4 | `fam-vyb2` |
+| M5 | `fam-ninv` |
 
-## Vorhandene Einzelpläne
+## Vorhandene offene Einzelpläne
 
 | Problem | Eigener Plan | Zuständiger Bead | Phase |
 | --- | --- | --- | --- |
-| H4 | [Kind-Profil-Löschung nach Haushaltsaustritt sperren](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h4-kind-profil-loeschrechte/plan.md) | `fam-qdjx` | 1 |
-| M3 | [Demotion des einzigen Haushaltsadmins verhindern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m3-letzter-admin/plan.md) | `fam-1tju` | 1 |
 | H1 | [AI-Gateway an Abo und Credits binden](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h1-ai-gateway-zugriff/plan.md) | `fam-koxq` | 1 und 2 |
-| H6 | [Sandbox und Produktionsberechtigungen trennen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h6-revenuecat-sandbox/plan.md) | `fam-fp4t` | 1 |
-| H7 | [Kaufübertragungen korrekt abgleichen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h7-revenuecat-transfer/plan.md) | `fam-nl7e.1` | 2 |
 | M8 | [Abo-Zugriff bei verlorenen Ablaufereignissen begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m8-abo-gueltigkeit/plan.md) | `fam-nl7e.2` | 2 |
-| H8 | [Gesamten Einkaufsabschluss atomar speichern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h8-einkaufsabschluss/plan.md) | `fam-o1f1` | 3 |
-| H9 | [Offline-Änderungen beim manuellen Logout erhalten](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h9-offline-logout/plan.md) | `fam-ncux` | 3 |
-| M1 | [SQLCipher-Schlüssel sicher löschen und teilen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m1-sqlcipher-schluessel/plan.md) | `fam-pbd8` | 3 und 5 |
 | M2 | [Account-Löschung für Receipt-Autoren ermöglichen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m2-receipt-autoren-loeschen/plan.md) | `fam-i0om` | 3 |
-| M4 | [Erwachsenengewicht von Kind-Einträgen trennen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m4-erwachsenen-gewicht/plan.md) | `fam-vyb2` | 4 |
-| M5 | [Tatsächliche Feature-Queries nach Sync invalidieren](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m5-sync-query-keys/plan.md) | `fam-ninv` | 4 |
 | M6 | [Packungsmaße im Einkaufsbedarf berücksichtigen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m6-packungsmengen/plan.md) | `fam-n71d` | 4 |
-| L1 | [Session-Fragment auf der Bestätigungsseite entfernen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/l1-bestaetigungs-fragment/plan.md) | `fam-9qox` | 4 |
 
-`fam-nl7e.1` besitzt H7, `fam-nl7e.2` besitzt M8. Der Eltern-Bead
-`fam-nl7e` dient weiter der Zusammenfassung dieser getrennten Probleme.
+`fam-nl7e.1` besitzt den abgeschlossenen H7-Befund, `fam-nl7e.2` den offenen
+M8-Befund. Der Eltern-Bead `fam-nl7e` fasst beide weiterhin zusammen.
 
 ## Empfohlene Reihenfolge
 
 | Phase | Schwerpunkt |
 | --- | --- |
-| 1 | H4, M3, atomare Credit-Grundlage aus H1 und H6 |
-| 2 | H7 → M8 → Gateway-Integration aus H1 |
-| 3 | H8, H9, Schlüssel-Cleanup aus M1 und M2 |
-| 4 | M4, M5, M6 und L1 |
-| 5 | Native Keychain-Abnahme aus M1 und Abschlussabnahme |
+| 1 | Atomare Credit-Grundlage aus H1 |
+| 2 | M8, danach Gateway-Integration aus H1 |
+| 3 | M2 |
+| 4 | M6 |
 
 Die Phasen sind Prioritäten. Unabhängige kleine Korrekturen benötigen keinen
 künstlichen Abschluss aller vorigen Phasen.
@@ -63,16 +63,13 @@ künstlichen Abschluss aller vorigen Phasen.
 
 ```mermaid
 flowchart TD
-  sandbox["H6: Produktionsgrenze"] --> transfer["H7: Transfer"]
-  transfer --> validity["M8: Gültigkeit und Grace"]
   credits["H1: atomare Credits"] --> gateway["H1: Gateway-Integration"]
-  validity --> gateway
+  validity["M8: Gültigkeit und Grace"] --> gateway
   packs["M6: Mengen-Owner"] --> needs["M6: beide Bedarfshooks"]
-  cleanup["M1: Key-Cleanup"] --> sharing["M1: signiertes Keychain-Sharing"]
 ```
 
-Die zugehörigen Beads-Abhängigkeiten bleiben erhalten. Innerhalb von H1, M1
-und M6 erklären die eigenen Pläne die Reihenfolge der Teilaufgaben.
+Die zugehörigen Beads-Abhängigkeiten bleiben erhalten. Innerhalb von H1 und M6
+erklären die eigenen Pläne die Reihenfolge der Teilaufgaben.
 
 ## Kontrollpunkte
 
@@ -84,5 +81,5 @@ und M6 erklären die eigenen Pläne die Reihenfolge der Teilaufgaben.
 | `fam-aja5` | alle Audit-Befunde nachgewiesen behoben |
 
 Der Abschluss verlangt Nachweise für alle verbleibenden Audit-Befunde.
-Ungeklärte Risiken oder fehlende native/betriebliche Voraussetzungen bleiben
-offen. Die Planaufteilung selbst schließt keinen Fehlerbehebungs-Bead.
+Ungeklärte Risiken oder fehlende betriebliche Voraussetzungen bleiben offen.
+Die Planbereinigung selbst schließt keinen Fehlerbehebungs-Bead.
