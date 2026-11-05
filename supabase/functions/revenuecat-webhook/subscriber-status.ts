@@ -1,8 +1,4 @@
-import type {
-  EntitlementId,
-  RevenueCatSubscriberStatus,
-  SubscriberAttribute,
-} from './handler.ts';
+import type { EntitlementId, RevenueCatSubscriberStatus, SubscriberAttribute } from './handler.ts';
 
 type RevenueCatApiEntitlement = {
   expires_date: string | null;
@@ -117,14 +113,16 @@ function parseSubscriberStatus(value: unknown): RevenueCatSubscriberStatus {
     !isRecord(value) ||
     typeof value.request_date_ms !== 'number' ||
     !Number.isFinite(value.request_date_ms) ||
-    !isRecord(value.subscriber) ||
-    !isRecord(value.subscriber.entitlements) ||
-    !isRecord(value.subscriber.subscriptions)
+    !isRecord(value.subscriber)
   ) {
     throw new Error('RevenueCat returned an invalid customer response.');
   }
 
   const subscriber = value.subscriber;
+  if (!isRecord(subscriber.entitlements) || !isRecord(subscriber.subscriptions)) {
+    throw new Error('RevenueCat returned an invalid customer response.');
+  }
+
   const entitlements = subscriber.entitlements;
   const subscriptions: Record<string, RevenueCatApiSubscription> = {};
   for (const [productIdentifier, candidate] of Object.entries(subscriber.subscriptions)) {

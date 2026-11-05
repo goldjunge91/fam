@@ -26,8 +26,8 @@ env:
   SUPABASE_CLI_VERSION: 2.119.0
 
 jobs:
-  # Schnelles Feedback ohne Docker: Typecheck, Linter, mock-freie Unit-Tests.
-  # Aufgeteilt in 3 parallele Matrix-Jobs fuer maximalen Durchsatz auf separaten Runners.
+  # Schnelles Feedback ohne Docker: Typecheck, Linter, Edge-Pruefungen und mock-freie Unit-Tests.
+  # Als parallele Matrix-Jobs fuer maximalen Durchsatz auf separaten Runners.
   checks:
     name: ${{ matrix.task.name }}
     runs-on: ubuntu-latest
@@ -39,6 +39,8 @@ jobs:
             command: bun run typecheck
           - name: Linter und Formatter (Biome)
             command: bun run check
+          - name: Edge-Function-Qualitätsgate
+            command: bun run check:functions
           - name: Unit-Tests
             command: bun run test:unit
           - name: Unit-Coverage

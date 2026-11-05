@@ -159,8 +159,7 @@ function isRevenueCatEvent(value: unknown): value is RevenueCatEvent {
   if (!value || typeof value !== 'object') return false;
 
   const event = value as Record<string, unknown>;
-  const validBase =
-    typeof event.id === 'string' &&
+  const validBase = typeof event.id === 'string' &&
     event.id.length > 0 &&
     typeof event.type === 'string' &&
     event.type.length > 0 &&
@@ -267,7 +266,9 @@ export function createRevenueCatWebhookHandler({
       const appUserIds = Array.from(new Set([...event.transferred_from, ...event.transferred_to]));
       let statuses: RevenueCatSubscriberStatus[];
       try {
-        statuses = await Promise.all(appUserIds.map((appUserId) => readSubscriberStatus(appUserId)));
+        statuses = await Promise.all(
+          appUserIds.map((appUserId) => readSubscriberStatus(appUserId)),
+        );
       } catch {
         return json({ error: 'subscriber_status_lookup_failed' }, 502);
       }

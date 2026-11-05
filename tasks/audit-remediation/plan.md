@@ -1,11 +1,11 @@
 # Audit-Behebung: Übersicht der Einzelpläne
 
-Stand: 27. Oktober 2026. Ausgangsaudit: `fam-aen4`.
+Stand: 5. November 2026. Ausgangsaudit: `fam-aen4`.
 Planaufteilung: `fam-h6op`; ursprüngliche Gesamtplanung: `fam-b0ig`.
 
 Für 19 Audit-Befunde bleibt ein Einzelplan mit eigenem Bead bestehen. Der
 Einzelplan zu H5 wurde entfernt; Status und Abnahme bleiben im Bead `fam-521t`.
-Zwei ergänzende Pläne betreffen Edge-Qualität und Dependency-Advisories.
+Ein ergänzender Plan betrifft Dependency-Advisories.
 Größere Probleme behalten ihre kleinen Umsetzungs-Beads innerhalb des
 jeweiligen Einzelplans.
 
@@ -23,7 +23,6 @@ Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 | H10 | [DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md) | `fam-0yeu` | 0 |
 | H3 | [Privilegierten Batch-Importer absichern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h3-batch-importer/plan.md) | `fam-7iu0.1` | 0 |
 | M7 | [Bildproxy gegen Zugriffe auf interne Dienste begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m7-bildproxy-ssrf/plan.md) | `fam-hujx` | 0 |
-| G1 | [Edge-Qualitätsgate reproduzierbar grün herstellen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/g1-edge-qualitaetsgate/plan.md) | `fam-z33t.1` | 0 |
 | G2 | [Dependency-Advisories nach Erreichbarkeit beheben](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/g2-dependency-advisories/plan.md) | `fam-z33t.2` | 0, Updates nach Priorität |
 | H4 | [Kind-Profil-Löschung nach Haushaltsaustritt sperren](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h4-kind-profil-loeschrechte/plan.md) | `fam-qdjx` | 1 |
 | M3 | [Demotion des einzigen Haushaltsadmins verhindern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m3-letzter-admin/plan.md) | `fam-1tju` | 1 |
@@ -45,14 +44,14 @@ Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 Zusammengefasste ehemalige Sammel-Beads werden nicht dupliziert:
 `fam-7iu0.1` besitzt H3, `fam-7iu0.2` besitzt M7;
 `fam-nl7e.1` besitzt H7, `fam-nl7e.2` besitzt M8.
-Die Eltern `fam-7iu0`, `fam-nl7e` und `fam-z33t` dienen weiter der
+Die Eltern `fam-7iu0` und `fam-nl7e` dienen weiter der
 Zusammenfassung ihrer getrennten Probleme.
 
 ## Empfohlene Reihenfolge
 
 | Phase | Schwerpunkt |
 | --- | --- |
-| 0 | C1 identifizieren und Betriebsvorgang vorbereiten; H10, H3, M7 und G1 korrigieren; G2 triagieren |
+| 0 | C1 identifizieren und Betriebsvorgang vorbereiten; H10, H3 und M7 korrigieren; G2 triagieren |
 | 1 | H4, M3, atomare Credit-Grundlage aus H1, H2 und H6 |
 | 2 | H7 → M8 → Gateway-Integration aus H1 |
 | 3 | H8, H9, Schlüssel-Cleanup aus M1 und M2; H5-Abnahme in `fam-521t` |
@@ -92,6 +91,6 @@ und M6 erklären die eigenen Pläne die Reihenfolge der Teilaufgaben.
 | `fam-aja5` | alle Audit-Befunde nachgewiesen behoben |
 
 Der Abschluss verlangt Nachweise für alle 20 Befunde sowie die notwendige
-Gate-/Dependency-Nacharbeit. Ungeklärte Risiken oder fehlende native/
+Dependency-Nacharbeit. Ungeklärte Risiken oder fehlende native/
 betriebliche Voraussetzungen bleiben offen. Die Planaufteilung selbst
 schließt keinen Fehlerbehebungs-Bead.
