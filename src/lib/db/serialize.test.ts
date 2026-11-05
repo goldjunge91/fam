@@ -238,6 +238,32 @@ describe('serializeDatabase', () => {
     expect(row).toEqual({ v: 'danach' });
   });
 
+  it('wartet mit dem Close auf reservierte mehrstufige Lifecycle-Vorgänge', async () => {
+    const db = serializeDatabase(harness.driver);
+    const close = jest.fn().mockResolvedValue(undefined);
+    let releaseOperation: (() => void) | undefined;
+    const operationReleased = new Promise<void>((resolve) => {
+      releaseOperation = resolve;
+    });
+
+    const operation = db.withLifecycleOperationAsync(async (operationDb) => {
+      await operationDb.runAsync('insert into t (v) values (?)', ['vor close']);
+      await operationReleased;
+      await operationDb.runAsync('insert into t (v) values (?)', ['nach close']);
+    });
+    await Promise.resolve();
+    await Promise.resolve();
+    const closing = db.closeForLifecycle(close);
+
+    await expect(db.getAllAsync('select too late')).rejects.toThrow(/geschlossen/);
+    expect(close).not.toHaveBeenCalled();
+    releaseOperation?.();
+    await expect(operation).resolves.toBeUndefined();
+    await expect(closing).resolves.toBeUndefined();
+    expect(close).toHaveBeenCalledTimes(1);
+    expect(harness.log).toEqual(['insert into t (v) values (?)', 'insert into t (v) values (?)']);
+  });
+
   it('drained reservierte Abfragen und blockiert neue Zugriffe vor dem Close', async () => {
     let releaseQuery: (() => void) | undefined;
     const queryFinished = new Promise<void>((resolve) => {

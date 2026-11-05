@@ -62,8 +62,8 @@ export async function installBaseline(
     return { ok: false, reason: 'corrupted' };
   }
 
-  // 5+6. Zugriffe serialisieren (Aufrufer hält die Verbindung exklusiv,
-  // solange dieser Aufruf läuft), alten Dump detachen.
+  // 5+6. Der OFF-Owner ordnet den gesamten Vorgang und hält die Connection
+  // während aller Datei- und DB-Schritte für Lifecycle-Close reserviert.
   await detachOffDumpIfAttached(db);
   setOffDumpAttached(false);
 

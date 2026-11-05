@@ -6,6 +6,12 @@ export type SqlStatementDriver = Omit<SqlDatabase, 'withExclusiveTransactionAsyn
 
 export type SerializedSqlDatabase = SqlDatabase & {
   /**
+   * Reserviert die Verbindung für einen mehrstufigen Vorgang. Ein bereits
+   * angeforderter Lifecycle-Close wartet, bis der Vorgang vollständig beendet
+   * ist; neue normale Zugriffe bleiben ab der Close-Anforderung gesperrt.
+   */
+  withLifecycleOperationAsync<T>(task: (db: SqlDatabase) => Promise<T>): Promise<T>;
+  /**
    * Schließt den Port exklusiv hinter allen bereits reservierten Operationen.
    * Ab dem synchronen Aufruf werden keine neuen Statements mehr angenommen.
    */
@@ -58,6 +64,8 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
   let tail: Promise<void> = Promise.resolve();
   let acceptingStatements = true;
   let lifecycleClose: Promise<void> | null = null;
+  let activeLifecycleOperations = 0;
+  const lifecycleOperationWaiters = new Set<() => void>();
 
   function enqueue<T>(task: () => Promise<T>): Promise<T> {
     const result = tail.then(task);
@@ -75,6 +83,18 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
     return enqueue(task);
   }
 
+  function waitForLifecycleOperations(): Promise<void> {
+    if (activeLifecycleOperations === 0) return Promise.resolve();
+    return new Promise((resolve) => lifecycleOperationWaiters.add(resolve));
+  }
+
+  function finishLifecycleOperation(): void {
+    activeLifecycleOperations -= 1;
+    if (activeLifecycleOperations !== 0) return;
+    for (const resolve of lifecycleOperationWaiters) resolve();
+    lifecycleOperationWaiters.clear();
+  }
+
   const transactionPort: SqlDatabase = {
     execAsync: async (source) => {
       try {
@@ -89,6 +109,43 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
     getFirstAsync: (source, params) => driver.getFirstAsync(source, params),
     getAllRawAsync,
     withExclusiveTransactionAsync: () => Promise.reject(new Error(NESTED_TRANSACTION_MESSAGE)),
+  };
+
+  async function runExclusiveTransaction(task: (txn: SqlDatabase) => Promise<void>): Promise<void> {
+    // BEGIN vor dem try, damit ein fehlgeschlagenes BEGIN nicht durch ROLLBACK verdeckt wird.
+    await beginImmediateWithRetry(driver);
+
+    try {
+      await task(transactionPort);
+      await execWithBusyRetry(driver, 'COMMIT');
+    } catch (error) {
+      try {
+        await driver.execAsync('ROLLBACK');
+      } catch (rollbackError) {
+        // Den ursprünglichen Fehler erhalten; ein Rollback-Fehler wird nur protokolliert.
+        debugWarn('[db] ROLLBACK fehlgeschlagen:', rollbackError);
+      }
+      throw error;
+    }
+  }
+
+  const lifecycleOperationPort: SqlDatabase = {
+    execAsync: (source) =>
+      enqueue(async () => {
+        try {
+          await driver.execAsync(source);
+        } catch (error) {
+          traceSqlFailure('lifecycleOperation.execAsync', source, error);
+          throw error;
+        }
+      }),
+    runAsync: (source, params) => enqueue(() => driver.runAsync(source, params)),
+    getAllAsync: (source, params) => enqueue(() => driver.getAllAsync(source, params)),
+    getFirstAsync: (source, params) => enqueue(() => driver.getFirstAsync(source, params)),
+    getAllRawAsync: getAllRawAsync
+      ? (source, params) => enqueue(() => getAllRawAsync(source, params))
+      : undefined,
+    withExclusiveTransactionAsync: (task) => enqueue(() => runExclusiveTransaction(task)),
   };
 
   return {
@@ -108,30 +165,26 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
       ? (source, params) => withLock(() => getAllRawAsync(source, params))
       : undefined,
 
-    withExclusiveTransactionAsync: (task) =>
-      withLock(async () => {
-        // BEGIN vor dem try, damit ein fehlgeschlagenes BEGIN nicht durch ROLLBACK verdeckt wird.
-        await beginImmediateWithRetry(driver);
+    withExclusiveTransactionAsync: (task) => withLock(() => runExclusiveTransaction(task)),
+    withLifecycleOperationAsync: <T>(task: (db: SqlDatabase) => Promise<T>) => {
+      if (!acceptingStatements) {
+        return Promise.reject(new Error('Die lokale Datenbank wird geschlossen.'));
+      }
 
-        try {
-          await task(transactionPort);
-          await execWithBusyRetry(driver, 'COMMIT');
-        } catch (error) {
-          try {
-            await driver.execAsync('ROLLBACK');
-          } catch (rollbackError) {
-            // Den ursprünglichen Fehler erhalten; ein Rollback-Fehler wird nur protokolliert.
-            debugWarn('[db] ROLLBACK fehlgeschlagen:', rollbackError);
-          }
-          throw error;
-        }
-      }),
+      activeLifecycleOperations += 1;
+      return Promise.resolve()
+        .then(() => task(lifecycleOperationPort))
+        .finally(finishLifecycleOperation);
+    },
     closeForLifecycle: (task) => {
       if (lifecycleClose) return lifecycleClose;
       // Synchron sperren, bevor der erste await-Zyklus einem neuen Aufrufer
       // Gelegenheit gibt, sich hinter dem Close einzureihen.
       acceptingStatements = false;
-      const closing = enqueue(task);
+      const closing =
+        activeLifecycleOperations === 0
+          ? enqueue(task)
+          : waitForLifecycleOperations().then(() => enqueue(task));
       lifecycleClose = closing;
       void closing.catch(() => {
         // Der Port bleibt für Statements gesperrt, aber ein späterer

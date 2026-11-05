@@ -1,4 +1,5 @@
 import { DATABASE_FILE_NAMES } from '@/lib/db/database-files';
+import type { SerializedSqlDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
 import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import { installBaseline } from './baseline-installer';
@@ -32,7 +33,33 @@ const LAST_ERROR_KEY = 'off_dump_last_error';
 
 const CHECK_TTL_MS = 6 * 60 * 60 * 1000;
 let offDumpSequence = 0;
-const initializationByDatabase = new WeakMap<SqlDatabase, Promise<void>>();
+const initializationByDatabase = new WeakMap<SerializedSqlDatabase, Promise<void>>();
+const operationTailByDatabase = new WeakMap<SerializedSqlDatabase, Promise<void>>();
+
+/**
+ * Alle OFF-Vorgänge derselben Connection laufen geordnet und halten dabei eine
+ * Lifecycle-Reservierung. So kann ein Close weder ATTACH/DETACH noch einen
+ * anschließenden Metadaten-Write in der Mitte trennen.
+ */
+function runOffDumpOperation<T>(
+  db: SerializedSqlDatabase,
+  task: (operationDb: SqlDatabase) => Promise<T>,
+): Promise<T> {
+  const previous = operationTailByDatabase.get(db) ?? Promise.resolve();
+  const operation = db.withLifecycleOperationAsync(async (operationDb) => {
+    await previous;
+    return task(operationDb);
+  });
+  const settled = operation.then(
+    () => undefined,
+    () => undefined,
+  );
+  operationTailByDatabase.set(db, settled);
+  void settled.then(() => {
+    if (operationTailByDatabase.get(db) === settled) operationTailByDatabase.delete(db);
+  });
+  return operation;
+}
 
 type OffDumpTraceDetails = Record<string, boolean | number | string | undefined>;
 
@@ -119,7 +146,7 @@ async function detachOffDumpIfAttached(db: SqlDatabase): Promise<void> {
   await db.execAsync('DETACH DATABASE off_dump');
 }
 
-export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
+async function readOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> {
   const { File, Paths } = loadFileSystem();
   const target = new File(Paths.document, DUMP_FILE_NAME);
   const attachedInspection = target.exists ? await inspectAttachedOffDump(db) : undefined;
@@ -140,7 +167,11 @@ export async function getOffDumpStatus(db: SqlDatabase): Promise<OffDumpStatus> 
   };
 }
 
-export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
+export function getOffDumpStatus(db: SerializedSqlDatabase): Promise<OffDumpStatus> {
+  return runOffDumpOperation(db, readOffDumpStatus);
+}
+
+async function attachOffDumpInOperation(db: SqlDatabase): Promise<boolean> {
   const attachedInspection = await inspectAttachedOffDump(db);
   if (attachedInspection) {
     setOffDumpAttached(true);
@@ -186,6 +217,10 @@ export async function attachOffDump(db: SqlDatabase): Promise<boolean> {
   return true;
 }
 
+export function attachOffDump(db: SerializedSqlDatabase): Promise<boolean> {
+  return runOffDumpOperation(db, attachOffDumpInOperation);
+}
+
 async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
   offDumpSequence += 1;
   const updateId = offDumpSequence;
@@ -209,7 +244,7 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
     if (outcome.kind === 'patched' || outcome.kind === 'baseline-installed') {
       await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
       await setMetaValue(db, LAST_ERROR_KEY, '');
-      await attachOffDump(db);
+      await attachOffDumpInOperation(db);
     } else if (outcome.kind === 'baseline-failed') {
       await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');
     }
@@ -223,7 +258,7 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
   }
 }
 
-async function checkForUpdateIfDue(db: SqlDatabase): Promise<void> {
+async function checkForUpdateIfDueInOperation(db: SqlDatabase): Promise<void> {
   offDumpSequence += 1;
   const checkId = offDumpSequence;
   offDumpTrace('DUE-START', { checkId });
@@ -242,7 +277,11 @@ async function checkForUpdateIfDue(db: SqlDatabase): Promise<void> {
   await runUpdateCheck(db);
 }
 
-export async function forceRefreshOffDump(db: SqlDatabase): Promise<UpdateOutcome> {
+function checkForUpdateIfDue(db: SerializedSqlDatabase): Promise<void> {
+  return runOffDumpOperation(db, checkForUpdateIfDueInOperation);
+}
+
+async function forceRefreshOffDumpInOperation(db: SqlDatabase): Promise<UpdateOutcome> {
   const outcome = await runUpdateCheck(db);
   if (outcome.kind === 'manifest-unavailable') {
     throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
@@ -256,7 +295,11 @@ export async function forceRefreshOffDump(db: SqlDatabase): Promise<UpdateOutcom
   return outcome;
 }
 
-export async function reinstallOffDumpBaseline(db: SqlDatabase): Promise<UpdateOutcome> {
+export function forceRefreshOffDump(db: SerializedSqlDatabase): Promise<UpdateOutcome> {
+  return runOffDumpOperation(db, forceRefreshOffDumpInOperation);
+}
+
+async function reinstallOffDumpBaselineInOperation(db: SqlDatabase): Promise<UpdateOutcome> {
   const manifest = await fetchManifest(MANIFEST_URL);
   if (!manifest) {
     throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
@@ -280,22 +323,33 @@ export async function reinstallOffDumpBaseline(db: SqlDatabase): Promise<UpdateO
 
   await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
   await setMetaValue(db, LAST_ERROR_KEY, '');
-  await attachOffDump(db);
+  await attachOffDumpInOperation(db);
   return { kind: 'baseline-installed', dataVersion: result.dataVersion };
+}
+
+export function reinstallOffDumpBaseline(db: SerializedSqlDatabase): Promise<UpdateOutcome> {
+  return runOffDumpOperation(db, reinstallOffDumpBaselineInOperation);
 }
 
 /**
  * Prueft die Integritaet der lokal angehaengten Dump-Datei (`quick_check`)
  * — fuer den "Integritaet pruefen"-Knopf im Entwickler-Bereich.
  */
-export async function checkOffDumpIntegrity(db: SqlDatabase): Promise<boolean> {
+async function checkOffDumpIntegrityInOperation(db: SqlDatabase): Promise<boolean> {
   const inspected =
     (await inspectAttachedOffDump(db)) ??
     (await createExpoFileOps(db).inspectDump(dumpPaths().activePath));
   return inspected?.integrityOk ?? false;
 }
 
-async function initializeOffDump(db: SqlDatabase): Promise<void> {
+export function checkOffDumpIntegrity(db: SerializedSqlDatabase): Promise<boolean> {
+  return runOffDumpOperation(db, checkOffDumpIntegrityInOperation);
+}
+
+async function initializeOffDump(
+  db: SqlDatabase,
+  lifecycleDb: SerializedSqlDatabase,
+): Promise<void> {
   offDumpSequence += 1;
   const initId = offDumpSequence;
   offDumpTrace('INIT-START', { initId });
@@ -305,7 +359,7 @@ async function initializeOffDump(db: SqlDatabase): Promise<void> {
     await reconcileOnStart(fileOps, dumpPaths());
     offDumpTrace('INIT-RECONCILE-OK', { initId });
     offDumpTrace('INIT-ATTACH-START', { initId });
-    await attachOffDump(db);
+    await attachOffDumpInOperation(db);
     offDumpTrace('INIT-ATTACH-OK', { initId });
   } catch (error) {
     offDumpTrace('INIT-FAIL', { error: errorMessage(error), initId });
@@ -313,7 +367,7 @@ async function initializeOffDump(db: SqlDatabase): Promise<void> {
   }
 
   offDumpTrace('INIT-UPDATE-SCHEDULED', { initId });
-  checkForUpdateIfDue(db).catch((err) => {
+  void checkForUpdateIfDue(lifecycleDb).catch((err) => {
     offDumpTrace('DUE-FAIL', { error: errorMessage(err), initId });
     debugWarn('[OffDump] Update-Check fehlgeschlagen:', err);
   });
@@ -324,11 +378,13 @@ async function initializeOffDump(db: SqlDatabase): Promise<void> {
  * React-Effect-Replays und Root-Remounts; ein Guard im Navigator würde andere
  * Off-Dump-Einstiege nicht erfassen.
  */
-export function initOffDump(db: SqlDatabase): Promise<void> {
+export function initOffDump(db: SerializedSqlDatabase): Promise<void> {
   const runningInitialization = initializationByDatabase.get(db);
   if (runningInitialization) return runningInitialization;
 
-  const initialization = initializeOffDump(db).catch((error: unknown) => {
+  const initialization = runOffDumpOperation(db, (operationDb) =>
+    initializeOffDump(operationDb, db),
+  ).catch((error: unknown) => {
     // Ein echter Fehlschlag darf einen späteren Retry auf derselben Verbindung
     // nicht dauerhaft blockieren.
     initializationByDatabase.delete(db);

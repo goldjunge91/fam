@@ -1,3 +1,4 @@
+import { serializeDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase, SqlParam } from '@/lib/db/types';
 import {
   attachOffDump,
@@ -90,7 +91,10 @@ type DbOptions = {
   attachError?: Error;
 };
 
-function createDb(attachedDatabases: readonly string[] = [], options: DbOptions = {}): SqlDatabase {
+function createRawDb(
+  attachedDatabases: readonly string[] = [],
+  options: DbOptions = {},
+): SqlDatabase {
   const metadata = new Map(Object.entries(options.metadata ?? {}));
   return {
     execAsync: async (source) => {
@@ -116,6 +120,17 @@ function createDb(attachedDatabases: readonly string[] = [], options: DbOptions 
     },
     withExclusiveTransactionAsync: async () => undefined,
   };
+}
+
+function createDb(attachedDatabases: readonly string[] = [], options: DbOptions = {}) {
+  const db = createRawDb(attachedDatabases, options);
+  return serializeDatabase({
+    execAsync: db.execAsync,
+    getAllAsync: db.getAllAsync,
+    getAllRawAsync: db.getAllRawAsync,
+    getFirstAsync: db.getFirstAsync,
+    runAsync: db.runAsync,
+  });
 }
 
 beforeEach(() => {
@@ -166,10 +181,6 @@ describe('attachOffDump', () => {
   it('verifiziert ein vorhandenes Attach-Flag gegen die aktuelle Connection', async () => {
     setOffDumpAttached(true);
     const db = createDb();
-    db.getFirstAsync = async <T>(source: string) => {
-      if (source.includes('dump_meta')) return null;
-      return { quick_check: 'ok' } as T;
-    };
 
     await attachOffDump(db);
 
@@ -178,13 +189,10 @@ describe('attachOffDump', () => {
 
   it('überspringt den Attach nur bei einem tatsächlich erreichbaren Dump', async () => {
     setOffDumpAttached(true);
-    const db = createDb();
-    db.getFirstAsync = async <T>(source: string) => {
-      if (source.includes('dump_meta')) {
-        return { schema_version: 3, data_version: '2026-09-01T00:00:00.000Z' } as T;
-      }
-      return { quick_check: 'ok' } as T;
-    };
+    const db = createDb([], {
+      attachedMeta: { schema_version: 3, data_version: '2026-09-01T00:00:00.000Z' },
+      quickCheck: { quick_check: 'ok' },
+    });
 
     await attachOffDump(db);
 
@@ -215,6 +223,35 @@ describe('attachOffDump', () => {
 
     expect(reconcileOnStart).toHaveBeenCalledTimes(1);
     expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
+  });
+
+  it('hält den geplanten Start-Update-Check bis vor den Lifecycle-Close offen', async () => {
+    let markUpdateStarted: (() => void) | undefined;
+    const updateStarted = new Promise<void>((resolve) => {
+      markUpdateStarted = resolve;
+    });
+    let releaseUpdate: (() => void) | undefined;
+    const updateReleased = new Promise<void>((resolve) => {
+      releaseUpdate = resolve;
+    });
+    jest.mocked(checkForUpdate).mockImplementationOnce(async () => {
+      markUpdateStarted?.();
+      await updateReleased;
+      return { kind: 'up-to-date' };
+    });
+    const db = createDb();
+    const close = jest.fn().mockResolvedValue(undefined);
+
+    await initOffDump(db);
+    await updateStarted;
+    const closing = db.closeForLifecycle(close);
+    await Promise.resolve();
+
+    expect(close).not.toHaveBeenCalled();
+    releaseUpdate?.();
+    await expect(closing).resolves.toBeUndefined();
+    expect(executedRuns.map(({ params }) => params?.[0])).toContain('off_dump_last_check_at');
+    expect(mockDebugWarn).not.toHaveBeenCalled();
   });
 
   it('returns false when the active dump file is absent', async () => {
@@ -284,6 +321,40 @@ describe('off-dump status and integrity', () => {
     expect(mockFileOps.inspectDump).not.toHaveBeenCalled();
   });
 
+  it('liest einen vorhandenen Dump vollständig vor einem Lifecycle-Close', async () => {
+    let markInspectionStarted: (() => void) | undefined;
+    const inspectionStarted = new Promise<void>((resolve) => {
+      markInspectionStarted = resolve;
+    });
+    let releaseInspection: (() => void) | undefined;
+    const inspectionReleased = new Promise<void>((resolve) => {
+      releaseInspection = resolve;
+    });
+    mockFileOps.inspectDump.mockImplementationOnce(async () => {
+      markInspectionStarted?.();
+      await inspectionReleased;
+      return { schemaVersion: 3, dataVersion: 'v3', integrityOk: true };
+    });
+    const db = createDb();
+    const close = jest.fn().mockResolvedValue(undefined);
+
+    const status = getOffDumpStatus(db);
+    await inspectionStarted;
+    const closing = db.closeForLifecycle(close);
+    releaseInspection?.();
+
+    await expect(status).resolves.toEqual(
+      expect.objectContaining({
+        attached: false,
+        fileExists: true,
+        fileSizeBytes: 123,
+        schemaVersion: 3,
+        dataVersion: 'v3',
+      }),
+    );
+    await expect(closing).resolves.toBeUndefined();
+  });
+
   it('falls back to file inspection and reports failed integrity checks', async () => {
     mockFileOps.inspectDump.mockResolvedValueOnce({
       schemaVersion: 3,
@@ -309,6 +380,117 @@ describe('off-dump update operations', () => {
     },
     patches: [],
   };
+
+  it('beendet eine laufende Aktualisierung vor einem Lifecycle-Close', async () => {
+    let markUpdateStarted: (() => void) | undefined;
+    const updateStarted = new Promise<void>((resolve) => {
+      markUpdateStarted = resolve;
+    });
+    let releaseUpdate: (() => void) | undefined;
+    const updateReleased = new Promise<void>((resolve) => {
+      releaseUpdate = resolve;
+    });
+    jest.mocked(checkForUpdate).mockImplementationOnce(async () => {
+      markUpdateStarted?.();
+      await updateReleased;
+      return { kind: 'up-to-date' };
+    });
+    const db = createDb();
+    const close = jest.fn().mockResolvedValue(undefined);
+
+    const refresh = forceRefreshOffDump(db);
+    await updateStarted;
+    const closing = db.closeForLifecycle(close);
+    releaseUpdate?.();
+
+    await expect(refresh).resolves.toEqual({ kind: 'up-to-date' });
+    await expect(closing).resolves.toBeUndefined();
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it('beendet eine laufende Baseline-Installation vor einem Lifecycle-Close', async () => {
+    let markInstallStarted: (() => void) | undefined;
+    const installStarted = new Promise<void>((resolve) => {
+      markInstallStarted = resolve;
+    });
+    let releaseInstall: (() => void) | undefined;
+    const installReleased = new Promise<void>((resolve) => {
+      releaseInstall = resolve;
+    });
+    mockFetchManifest.mockResolvedValueOnce(manifest);
+    mockInstallBaseline.mockImplementationOnce(async () => {
+      markInstallStarted?.();
+      await installReleased;
+      return { ok: true, dataVersion: 'v3' };
+    });
+    const db = createDb();
+    const close = jest.fn().mockResolvedValue(undefined);
+
+    const reinstall = reinstallOffDumpBaseline(db);
+    await installStarted;
+    const closing = db.closeForLifecycle(close);
+    releaseInstall?.();
+
+    await expect(reinstall).resolves.toEqual({ kind: 'baseline-installed', dataVersion: 'v3' });
+    await expect(closing).resolves.toBeUndefined();
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it('beendet eine laufende Integritätsprüfung vor einem Lifecycle-Close', async () => {
+    let markInspectionStarted: (() => void) | undefined;
+    const inspectionStarted = new Promise<void>((resolve) => {
+      markInspectionStarted = resolve;
+    });
+    let releaseInspection: (() => void) | undefined;
+    const inspectionReleased = new Promise<void>((resolve) => {
+      releaseInspection = resolve;
+    });
+    mockFileOps.inspectDump.mockImplementationOnce(async () => {
+      markInspectionStarted?.();
+      await inspectionReleased;
+      return { schemaVersion: 3, dataVersion: 'v3', integrityOk: true };
+    });
+    const db = createDb();
+    const close = jest.fn().mockResolvedValue(undefined);
+
+    const integrity = checkOffDumpIntegrity(db);
+    await inspectionStarted;
+    const closing = db.closeForLifecycle(close);
+    await Promise.resolve();
+
+    expect(close).not.toHaveBeenCalled();
+    releaseInspection?.();
+    await expect(integrity).resolves.toBe(true);
+    await expect(closing).resolves.toBeUndefined();
+  });
+
+  it('ordnet parallele Aktualisierung und Integritätsprüfung auf derselben Connection', async () => {
+    let markUpdateStarted: (() => void) | undefined;
+    const updateStarted = new Promise<void>((resolve) => {
+      markUpdateStarted = resolve;
+    });
+    let releaseUpdate: (() => void) | undefined;
+    const updateReleased = new Promise<void>((resolve) => {
+      releaseUpdate = resolve;
+    });
+    jest.mocked(checkForUpdate).mockImplementationOnce(async () => {
+      markUpdateStarted?.();
+      await updateReleased;
+      return { kind: 'up-to-date' };
+    });
+    const db = createDb();
+
+    const refresh = forceRefreshOffDump(db);
+    await updateStarted;
+    const integrity = checkOffDumpIntegrity(db);
+    await Promise.resolve();
+
+    expect(mockFileOps.inspectDump).not.toHaveBeenCalled();
+    releaseUpdate?.();
+    await expect(refresh).resolves.toEqual({ kind: 'up-to-date' });
+    await expect(integrity).resolves.toBe(true);
+    expect(mockFileOps.inspectDump).toHaveBeenCalledTimes(1);
+  });
 
   it('maps an unavailable manifest to the user-facing refresh error', async () => {
     jest.mocked(checkForUpdate).mockResolvedValue({ kind: 'manifest-unavailable' });

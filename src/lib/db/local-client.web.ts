@@ -7,7 +7,6 @@ import {
   type SqlStatementDriver,
   serializeDatabase,
 } from '@/lib/db/serialize';
-import type { SqlDatabase } from '@/lib/db/types';
 import { resetOffDumpAttachment } from '@/lib/off-dump/off-dump-state';
 import { measureOperation } from '@/lib/telemetry';
 import localMigrations from '../../../drizzle/local/migrations';
@@ -69,7 +68,7 @@ async function runLocalDrizzleMigrations(db: import('expo-sqlite').SQLiteDatabas
 let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
 let database: SerializedSqlDatabase | null = null;
 let drizzleDatabase: DrizzleDatabase | null = null;
-let opening: Promise<SqlDatabase> | null = null;
+let opening: Promise<SerializedSqlDatabase> | null = null;
 let wipeInProgress: Promise<void> | null = null;
 let lifecycleGeneration = 0;
 let openSequence = 0;
@@ -155,7 +154,7 @@ async function openAndVerify(
   openId: number,
   generation: number,
   userId: string,
-): Promise<SqlDatabase> {
+): Promise<SerializedSqlDatabase> {
   dbTrace('VERIFY-START', { hasCachedConnection: Boolean(database && rawDatabase), openId });
   let connection =
     database && rawDatabase ? { db: database, raw: rawDatabase } : await open(openId);
@@ -204,7 +203,7 @@ async function openAndVerify(
   }
 }
 
-export function getDatabase(): Promise<SqlDatabase> {
+export function getDatabase(): Promise<SerializedSqlDatabase> {
   if (activeUserId === null) {
     return Promise.reject(new Error('Ohne angemeldeten Nutzer ist die lokale Datenbank gesperrt.'));
   }
