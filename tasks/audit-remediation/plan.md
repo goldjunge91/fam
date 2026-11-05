@@ -3,11 +3,12 @@
 Stand: 5. November 2026. Ausgangsaudit: `fam-aen4`.
 Planaufteilung: `fam-h6op`; ursprüngliche Gesamtplanung: `fam-b0ig`.
 
-Für 19 Audit-Befunde bleibt ein Einzelplan mit eigenem Bead bestehen. Der
+Für 15 Audit-Befunde bleibt ein Einzelplan mit eigenem Bead bestehen. Der
 Einzelplan zu H5 wurde entfernt; Status und Abnahme bleiben im Bead `fam-521t`.
-Ein ergänzender Plan betrifft Dependency-Advisories.
-Größere Probleme behalten ihre kleinen Umsetzungs-Beads innerhalb des
-jeweiligen Einzelplans.
+Die ausschließlich interne Werkzeuge unter `tools/` betreffenden Befunde H3
+und M7 wurden als nicht anwendbar aus der Behebungsplanung entfernt. Größere
+Probleme behalten ihre kleinen Umsetzungs-Beads innerhalb des jeweiligen
+Einzelplans.
 
 Beads besitzt Status, Akzeptanzkriterien, Dateiscope und Nachweise. Diese
 Datei ist die Übersicht. Die fachlichen Entscheidungen stehen im jeweiligen
@@ -19,11 +20,6 @@ Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 
 | Problem | Eigener Plan | Zuständiger Bead | Phase |
 | --- | --- | --- | --- |
-| C1 | [Historischen Supabase-Serverkey behandeln](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/c1-supabase-serverkey/plan.md) | `fam-w1w0` | 0 |
-| H10 | [DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md) | `fam-0yeu` | 0 |
-| H3 | [Privilegierten Batch-Importer absichern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h3-batch-importer/plan.md) | `fam-7iu0.1` | 0 |
-| M7 | [Bildproxy gegen Zugriffe auf interne Dienste begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m7-bildproxy-ssrf/plan.md) | `fam-hujx` | 0 |
-| G2 | [Dependency-Advisories nach Erreichbarkeit beheben](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/g2-dependency-advisories/plan.md) | `fam-z33t.2` | 0, Updates nach Priorität |
 | H4 | [Kind-Profil-Löschung nach Haushaltsaustritt sperren](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h4-kind-profil-loeschrechte/plan.md) | `fam-qdjx` | 1 |
 | M3 | [Demotion des einzigen Haushaltsadmins verhindern](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m3-letzter-admin/plan.md) | `fam-1tju` | 1 |
 | H1 | [AI-Gateway an Abo und Credits binden](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h1-ai-gateway-zugriff/plan.md) | `fam-koxq` | 1 und 2 |
@@ -41,37 +37,29 @@ Der bestehende Dashboard-Plan `tasks/plan.md` bleibt unverändert.
 | M6 | [Packungsmaße im Einkaufsbedarf berücksichtigen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m6-packungsmengen/plan.md) | `fam-n71d` | 4 |
 | L1 | [Session-Fragment auf der Bestätigungsseite entfernen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/l1-bestaetigungs-fragment/plan.md) | `fam-9qox` | 4 |
 
-Zusammengefasste ehemalige Sammel-Beads werden nicht dupliziert:
-`fam-7iu0.1` besitzt H3, `fam-7iu0.2` besitzt M7;
-`fam-nl7e.1` besitzt H7, `fam-nl7e.2` besitzt M8.
-Die Eltern `fam-7iu0` und `fam-nl7e` dienen weiter der
-Zusammenfassung ihrer getrennten Probleme.
+`fam-nl7e.1` besitzt H7, `fam-nl7e.2` besitzt M8. Der Eltern-Bead
+`fam-nl7e` dient weiter der Zusammenfassung dieser getrennten Probleme.
 
 ## Empfohlene Reihenfolge
 
 | Phase | Schwerpunkt |
 | --- | --- |
-| 0 | C1 identifizieren und Betriebsvorgang vorbereiten; H10, H3 und M7 korrigieren; G2 triagieren |
 | 1 | H4, M3, atomare Credit-Grundlage aus H1, H2 und H6 |
 | 2 | H7 → M8 → Gateway-Integration aus H1 |
 | 3 | H8, H9, Schlüssel-Cleanup aus M1 und M2; H5-Abnahme in `fam-521t` |
 | 4 | M4, M5, M6 und L1 |
-| 5 | Native Keychain-Abnahme aus M1, erforderliche einzelne Paketupdates und Abschlussabnahme |
+| 5 | Native Keychain-Abnahme aus M1 und Abschlussabnahme |
 
 Die Phasen sind Prioritäten. Unabhängige kleine Korrekturen benötigen keinen
-künstlichen Abschluss aller vorigen Phasen. Ein tatsächlich erreichbarer
-High-/Critical-Dependency-Pfad wird nach Triage vorgezogen.
+künstlichen Abschluss aller vorigen Phasen.
 
 ## Verbindliche Abhängigkeiten
 
 ```mermaid
 flowchart TD
-  guard["H10: sicherer DB-Testguard"] --> credits["H1: atomare Credits"]
-  guard --> rights["H4 / M3 / M2: DB-Rechte und Löschregeln"]
-  guard --> scans["H2: Scan-Budget"]
   sandbox["H6: Produktionsgrenze"] --> transfer["H7: Transfer"]
   transfer --> validity["M8: Gültigkeit und Grace"]
-  credits --> gateway["H1: Gateway-Integration"]
+  credits["H1: atomare Credits"] --> gateway["H1: Gateway-Integration"]
   validity --> gateway
   packs["M6: Mengen-Owner"] --> needs["M6: beide Bedarfshooks"]
   cleanup["M1: Key-Cleanup"] --> sharing["M1: signiertes Keychain-Sharing"]
@@ -84,13 +72,11 @@ und M6 erklären die eigenen Pläne die Reihenfolge der Teilaufgaben.
 
 | Bead | Abnahme |
 | --- | --- |
-| `fam-vul8` | sichere lokale Prüfungen und Tool-Grenzen |
 | `fam-1e31` | Haushaltsrechte und Kostenbudgets |
 | `fam-f98c` | vollständiger Zahlungs- und AI-Zugriffspfad |
 | `fam-o9ze` | Account-Wechsel und lokale Datensicherheit |
 | `fam-aja5` | alle Audit-Befunde nachgewiesen behoben |
 
-Der Abschluss verlangt Nachweise für alle 20 Befunde sowie die notwendige
-Dependency-Nacharbeit. Ungeklärte Risiken oder fehlende native/
-betriebliche Voraussetzungen bleiben offen. Die Planaufteilung selbst
-schließt keinen Fehlerbehebungs-Bead.
+Der Abschluss verlangt Nachweise für alle verbleibenden Audit-Befunde.
+Ungeklärte Risiken oder fehlende native/betriebliche Voraussetzungen bleiben
+offen. Die Planaufteilung selbst schließt keinen Fehlerbehebungs-Bead.

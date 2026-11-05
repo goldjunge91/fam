@@ -38,7 +38,6 @@ Die gespeicherten Active-Flags besitzen bei verpasstem EXPIRATION kein begrenzte
 ## Abhängigkeiten
 
 - [H7: Kaufübertragungen korrekt abgleichen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h7-revenuecat-transfer/plan.md): Den aktuellen serverseitigen Produktionsstatus-Reader wiederverwenden.
-- [H10: DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md): Vor eventuell erforderlichen Schema-/Entitlement-Tests.
 
 ## Gezielte Verifikation
 

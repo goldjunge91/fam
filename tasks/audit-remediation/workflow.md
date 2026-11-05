@@ -24,8 +24,6 @@ Vor Produktionsänderungen werden Live-Konfiguration, Key-Status,
 Webhook-Umgebung, benötigte Server-Secrets, Migrationen und Kompatibilität
 installierter Clients konkret geprüft. Schema und RLS werden kompatibel
 vorbereitet, danach darauf angewiesene Functions und App-Konsumenten.
-Die Key-Rotation folgt dem eigenen C1-Plan; es werden keine Betriebsmaßnahmen
-durch die Planaufteilung ausgeführt.
 
 ## Prüfablauf je Änderungspaket
 
@@ -42,18 +40,14 @@ und Verifikationsangaben in ihrem Bead.
 
 Für App-Tests immer `bun run test <konkrete Dateien>`, niemals `bun test`
 oder die vollständige App-Suite. Vor RNTL-Teständerungen gelten die
-installierten LLM-Guidelines und die Projektregeln. Sobald Phase 0 den
-DB-Runner korrigiert hat, muss `bun run test:db <Dateien>` tatsächlich nur
-diese Dateien ausführen. Bis dahin ausschließlich der nicht löschende Guard
-und direkte freigegebene lokale Dateiauswahl.
+installierten LLM-Guidelines und die Projektregeln.
 
 Datenbankänderungen werden ausschließlich in `supabase/schemas/*.sql`
 beschrieben. Dann `bun run db:diff`, erzeugte Migration prüfen, Anwendung
-auf einer ausdrücklich freigegebenen lokalen Testinstanz über
-`bun run db:reset`, anschließend `bun run db:types` und gezielte pgTAP-Tests.
-Eine benutzte Instanz wird nicht selbstständig zurückgesetzt. Manuelle
-Migrationen, Einweg-SQL und manuell editierte DB-Typen bleiben ausgeschlossen.
-Neue Tabellen erhalten explizite RLS-/Rechte- und pgTAP-Nachweise.
+auf der lokalen fam-Testinstanz über `bun run db:reset`, anschließend
+`bun run db:types` und gezielte pgTAP-Tests. Manuelle Migrationen, Einweg-SQL
+und manuell editierte DB-Typen bleiben ausgeschlossen. Neue Tabellen erhalten
+explizite RLS-/Rechte- und pgTAP-Nachweise.
 
 Schema-Erweiterungen werden auf SQLite, Push, Pull, Realtime und Outbox
 abgeglichen. M2 besitzt lokal bereits eine nullable Receipt-Autorenspalte;
@@ -74,9 +68,10 @@ beziehungsweise Siri-Workflow liefert den Nachweis.
 
 ## Freigaben und verbleibende Betriebsabhängigkeiten
 
-Die Ablage dieses Plans ist freigegeben. **Quellcodeumsetzung, Secret-Rotation,
-Remote-Konfiguration, Migrationen gegen benutzte Instanzen, native Builds
-und Deployment sind durch den Planungsauftrag noch nicht gestartet.**
+Die Ablage dieses Plans ist freigegeben. **Quellcodeumsetzung,
+Remote-Konfiguration, Migrationen gegen verknüpfte oder gehostete Instanzen,
+native Builds und Deployment sind durch den Planungsauftrag noch nicht
+gestartet.**
 
 Die empfohlenen Entscheidungen zur Receipt-Autorenschaft und zum
 Logout-Verhalten können mit der Planfreigabe bestätigt werden.
@@ -85,11 +80,9 @@ Offline-/Grace-Fenster werden vor den betroffenen Slices konkret festgehalten.
 Daraus entsteht kein Anlass, unabhängige Guard-/RLS-/Berechnungsfixes liegen
 zu lassen.
 
-Für C1 wird nur anhand maskierter Metadaten entschieden, ob überhaupt noch
-ein aktiver Key betroffen ist. Für das native Keychain-Sharing muss das
-tatsächliche Provisioning-Profil die Gruppe erlauben. Ohne diese Nachweise
-bleiben die zugehörigen Aufgaben offen; eine TS-Test-Suite ersetzt diese
-Abnahme nicht.
+Für das native Keychain-Sharing muss das tatsächliche Provisioning-Profil die
+Gruppe erlauben. Ohne diesen Nachweis bleibt die zugehörige Aufgabe offen;
+eine TS-Test-Suite ersetzt diese Abnahme nicht.
 
 Der abschließende Kontrollpunkt `fam-aja5` verlangt zusätzlich einen
 erneuten gezielten Qualitäts-/Sicherheitsdurchlauf gegen den dann aktuellen

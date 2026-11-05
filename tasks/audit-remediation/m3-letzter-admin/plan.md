@@ -34,7 +34,7 @@ Der Last-Admin-Guard erlaubt remaining = 0 auch bei einer Rollenänderung. Dadur
 
 ## Abhängigkeiten
 
-- [H10: DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md): Vor den gezielten Household-pgTAP-Fällen.
+Keine fachliche Vorbedingung aus einem anderen Problemplan.
 
 ## Gezielte Verifikation
 

@@ -34,7 +34,7 @@ Nach dem Haushaltsaustritt kann managed_by weiter auf den ehemaligen Manager zei
 
 ## Abhängigkeiten
 
-- [H10: DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md): Vor gezielten pgTAP-Nachweisen.
+Keine fachliche Vorbedingung aus einem anderen Problemplan.
 
 ## Gezielte Verifikation
 

@@ -39,7 +39,6 @@ Der Gateway prüft Auth und Mitgliedschaft, ruft den Provider aber ohne AI-Abo-P
 
 ## Abhängigkeiten
 
-- [H10: DB-Teststarter ohne automatischen Reset ausführen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/h10-db-testguard/plan.md): Vor DB-Nachweisen der Credit-Buchung.
 - [M8: Abo-Zugriff bei verlorenen Ablaufereignissen begrenzen](/Volumes/Programme/github/family_app/fam/tasks/audit-remediation/m8-abo-gueltigkeit/plan.md): Vor der Gateway-Integration des gültigen Abo-Status.
 
 ## Gezielte Verifikation
