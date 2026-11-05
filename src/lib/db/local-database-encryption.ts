@@ -98,8 +98,8 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
           // verschlüsselte Datei unwiederbringlich unlesbar machen.
           throw new Error('Der gespeicherte SQLCipher-Schlüssel ist ungültig.');
         }
-        // In den App-Group-Container spiegeln. Die Siri-Extension liest
-        // dort, weil das Keychain-Sharing-Entitlement fehlt.
+        // Für Altinstallationen bleibt die Datei verfügbar, bis der Zugriff
+        // der signierten Siri-Extension auf die gemeinsame Keychain belegt ist.
         await dependencies.mirror?.setItem(DATABASE_KEY_STORAGE_KEY, stored);
         return stored;
       }

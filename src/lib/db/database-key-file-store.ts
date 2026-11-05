@@ -9,19 +9,11 @@ const DATABASE_KEY_CLEANUP_FILE = DATABASE_KEY_CLEANUP_MARKER_KEY;
 const KEY_HEX_PATTERN = /^[0-9a-f]{64}$/;
 
 /**
- * Der SQLCipher-Schluessel im gemeinsamen App-Group-Container.
+ * Kompatibilitätskopie des SQLCipher-Schlüssels im gemeinsamen App-Group-Container.
  *
- * Warum eine Datei statt der Keychain: Apple entfernt beim Signieren jedes
- * `keychain-access-groups`-Entitlement, das das Provisioning-Profil nicht
- * abdeckt. Das Projekt-Profil erlaubt nur `SW8RP7PA3W.*`, also laesst sich
- * eine eigene Access-Group nicht aktivieren — die Siri-Extension konnte den
- * Key daher nicht lesen und scheiterte beim Entschlüsseln mit SQLITE_NOTADB
- * ("SQLite prepare"). Die App Group selbst ist freigeschaltet und traegt.
- *
- * Das hier ist dieselbe Schluesseldatei, die bereits neben der Datenbank
- * im Container liegt: ohne sie waere die verschluesselte Datei wertlos, mit
- * ihr haengt die Sicherheit an der Schluesselgrenze des Geräets. Die
- * Keychain bleibt als primaere Quelle erhalten und wird hier nur gespiegelt.
+ * Siri fragt zuerst die gemeinsame Keychain-Gruppe ab. Die Datei bleibt als
+ * Rückweg für bestehende Installationen erhalten, bis der Zugriff durch die
+ * tatsächlich signierte App und Siri nachgewiesen ist.
  */
 
 type SharedKeyFile = import('expo-file-system').File;
@@ -64,9 +56,9 @@ function writeSharedKey(file: SharedKeyFile, key: string): void {
 }
 
 /**
- * KeyValueStore auf den gemeinsamen Container. Wird von der Haupt-App als
- * Spiegel der Keychain benutzt; die Extension liest denselben Pfad direkt
- * aus dem Container, ohne JavaScript.
+ * KeyValueStore auf den gemeinsamen Container. Die Haupt-App hält die Datei
+ * vorerst für Altinstallationen vor; Siri verwendet sie nur als Rückweg, wenn
+ * die gemeinsame Keychain-Gruppe noch keinen Schlüssel liefert.
  */
 export function createSharedKeyFileStore(): KeyValueStore {
   return {

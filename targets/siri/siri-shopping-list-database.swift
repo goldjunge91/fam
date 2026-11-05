@@ -445,25 +445,26 @@ final class SiriShoppingDatabase {
         return householdID
     }
 
-    /// Der Schluessel kommt zuerst aus dem gemeinsamen App-Group-Container.
+    /// Fragt zuerst die provisionierte gemeinsame Keychain-Gruppe ab.
     ///
-    /// Die Keychain ist nicht nutzbar: Apple entfernt beim Signieren jedes
-    /// `keychain-access-groups`-Entitlement, das das Provisioning-Profil
-    /// nicht abdeckt, und das Projekt-Profil erlaubt nur `SW8RP7PA3W.*`. Die
-    /// App Group selbst ist freigeschaltet — deshalb der Weg ueber die Datei.
-    /// Die Keychain bleibt als Rueckfall fuer aeltere Installationen.
+    /// Die App-Group-Datei bleibt als Rueckweg fuer bestehende Installationen,
+    /// bis der Zugriff durch die signierte App und Siri nachgewiesen ist.
     private func sharedDatabaseKey(in container: URL, fileName: String) throws -> String {
-        let keyFileURL = container.appendingPathComponent(fileName)
-        if let data = try? Data(contentsOf: keyFileURL),
-           let value = String(data: data, encoding: .utf8)?
-           .trimmingCharacters(in: .whitespacesAndNewlines),
-           Self.isValidHexKey(value) {
-            return value
+        if let key = try keychainDatabaseKey() {
+            return key
         }
-        return try keychainDatabaseKey()
+
+        let keyFileURL = container.appendingPathComponent(fileName)
+        guard let data = try? Data(contentsOf: keyFileURL),
+              let value = String(data: data, encoding: .utf8)?
+                .trimmingCharacters(in: .whitespacesAndNewlines),
+              Self.isValidHexKey(value) else {
+            throw SiriShoppingDatabaseError.databaseKeyUnavailable
+        }
+        return value
     }
 
-    private func keychainDatabaseKey() throws -> String {
+    private func keychainDatabaseKey() throws -> String? {
         let key = Self.keychainKey.data(using: .utf8)!
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -476,10 +477,10 @@ final class SiriShoppingDatabase {
         ]
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
+        if status == errSecItemNotFound {
+            return nil
+        }
         guard status == errSecSuccess else {
-            if status == errSecItemNotFound {
-                throw SiriShoppingDatabaseError.databaseKeyUnavailable
-            }
             throw SiriShoppingDatabaseError.keychain(status: status)
         }
         guard let data = result as? Data,

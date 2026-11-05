@@ -86,8 +86,8 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
   });
 
   it('spiegelt den Keychain-Schlüssel in den gemeinsamen Container', async () => {
-    // Die Extension liest den Key aus der Datei, weil das Keychain-Entitlement
-    // fehlt. Ohne Spiegel kann sie die verschluesselte Datei nicht oeffnen.
+    // Die Datei bleibt als Rueckweg erhalten, bis der Siri-Keychain-Zugriff
+    // auf einem tatsächlich signierten Build nachgewiesen ist.
     const storage = createStore('ab'.repeat(32));
     const mirror = createStore();
 

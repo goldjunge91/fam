@@ -287,16 +287,19 @@ describe('Siri extension intent convention', () => {
     expect(source).not.toMatch(/^\s*.*exsqlite3_key\(/mu);
   });
 
-  it('liest den Schluessel zuerst aus dem Container, mit Keychain als Rueckfall', () => {
-    // Der Datei-Spiegel traegt den Simulator, wo der Simulator nicht
-    // signiert und Entitlements verwirft. Die Keychain bleibt Rueckfall.
+  it('fragt zuerst die gemeinsame Keychain ab und behaelt die Datei als Altinstallations-Rueckweg', () => {
     const sharedIntent = fs.readFileSync(DATABASE_PATH, 'utf8');
+    const sharedKeyFunction = sharedIntent.slice(
+      sharedIntent.indexOf('private func sharedDatabaseKey('),
+      sharedIntent.indexOf('private func keychainDatabaseKey('),
+    );
 
     expect(sharedIntent).toContain('static let databaseKeyFile = "fam.database.sqlcipher-key.v1"');
-    expect(sharedIntent).toContain(
-      'private func sharedDatabaseKey(in container: URL, fileName: String) throws -> String',
+    expect(sharedKeyFunction.indexOf('keychainDatabaseKey()')).toBeGreaterThanOrEqual(0);
+    expect(sharedKeyFunction.indexOf('keychainDatabaseKey()')).toBeLessThan(
+      sharedKeyFunction.indexOf('let keyFileURL = container.appendingPathComponent(fileName)'),
     );
-    expect(sharedIntent).toContain('private func keychainDatabaseKey() throws -> String');
+    expect(sharedIntent).toContain('private func keychainDatabaseKey() throws -> String?');
     expect(sharedIntent).toContain(
       'static let keychainAccessGroup = "SW8RP7PA3W.com.goldjunge91.fam1"',
     );
