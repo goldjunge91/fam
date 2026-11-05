@@ -99,7 +99,6 @@ func exsqlite3_last_insert_rowid(_ database: OpaquePointer) -> Int64 {
 private struct SiriShoppingDatabaseFiles {
     let databaseName: String
     let contextFileName: String
-    let keyFileName: String
 }
 
 enum SiriShoppingDatabaseError: Error, CustomLocalizedStringResourceConvertible {
@@ -274,7 +273,6 @@ final class SiriShoppingDatabase {
     private static let contextFileName = "fam-siri-context-v1.json"
     private static let keychainService = "app:no-auth"
     private static let keychainKey = "fam.database.sqlcipher-key.v1"
-    private static let databaseKeyFile = "fam.database.sqlcipher-key.v1"
 
     /// Parses Siri's response, writes the batch, and returns the number of spoken items.
     func add(items rawItems: [String], toStoreID storeID: String) throws -> Int {
@@ -381,7 +379,6 @@ final class SiriShoppingDatabase {
         let files = SiriShoppingDatabaseFiles(
             databaseName: Self.databaseName,
             contextFileName: Self.contextFileName,
-            keyFileName: Self.databaseKeyFile,
         )
         let databaseURL = container.appendingPathComponent(files.databaseName)
         guard FileManager.default.fileExists(atPath: databaseURL.path) else {
@@ -389,7 +386,9 @@ final class SiriShoppingDatabase {
         }
 
         let householdID = try activeHouseholdID(in: container, fileName: files.contextFileName)
-        let key = try sharedDatabaseKey(in: container, fileName: files.keyFileName)
+        // The main app migrates an old file key into the shared Keychain before
+        // opening the database. Siri never reads SQLCipher key material from disk.
+        let key = try keychainDatabaseKey()
 
         var database: OpaquePointer?
         let openFlags: Int32 = (readOnly ? 0x00000001 : 0x00000002) | 0x00010000
@@ -445,26 +444,7 @@ final class SiriShoppingDatabase {
         return householdID
     }
 
-    /// Fragt zuerst die provisionierte gemeinsame Keychain-Gruppe ab.
-    ///
-    /// Die App-Group-Datei bleibt als Rueckweg fuer bestehende Installationen,
-    /// bis der Zugriff durch die signierte App und Siri nachgewiesen ist.
-    private func sharedDatabaseKey(in container: URL, fileName: String) throws -> String {
-        if let key = try keychainDatabaseKey() {
-            return key
-        }
-
-        let keyFileURL = container.appendingPathComponent(fileName)
-        guard let data = try? Data(contentsOf: keyFileURL),
-              let value = String(data: data, encoding: .utf8)?
-                .trimmingCharacters(in: .whitespacesAndNewlines),
-              Self.isValidHexKey(value) else {
-            throw SiriShoppingDatabaseError.databaseKeyUnavailable
-        }
-        return value
-    }
-
-    private func keychainDatabaseKey() throws -> String? {
+    private func keychainDatabaseKey() throws -> String {
         let key = Self.keychainKey.data(using: .utf8)!
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -478,7 +458,7 @@ final class SiriShoppingDatabase {
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
         if status == errSecItemNotFound {
-            return nil
+            throw SiriShoppingDatabaseError.databaseKeyUnavailable
         }
         guard status == errSecSuccess else {
             throw SiriShoppingDatabaseError.keychain(status: status)

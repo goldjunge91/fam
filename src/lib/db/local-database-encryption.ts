@@ -25,7 +25,7 @@ const REBUILD_HINT =
 type DatabaseKeyDependencies = {
   storage: KeyValueStore;
   randomBytes(byteCount: number): Promise<Uint8Array>;
-  /** Spiegel in den App-Group-Container für die native Siri-Extension. */
+  /** Alte App-Group-Kopie für Einmalmigration und den wiederholbaren Cleanup-Marker. */
   mirror?: KeyValueStore;
 };
 
@@ -98,20 +98,22 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
           // verschlüsselte Datei unwiederbringlich unlesbar machen.
           throw new Error('Der gespeicherte SQLCipher-Schlüssel ist ungültig.');
         }
-        // Für Altinstallationen bleibt die Datei verfügbar, bis der Zugriff
-        // der signierten Siri-Extension auf die gemeinsame Keychain belegt ist.
-        await dependencies.mirror?.setItem(DATABASE_KEY_STORAGE_KEY, stored);
+        // Der gemeinsame Keychain-Eintrag ist dauerhaft; Klartextreste aus
+        // älteren Versionen können jetzt entfernt werden.
+        await dependencies.mirror?.removeItem(DATABASE_KEY_STORAGE_KEY);
         return stored;
       }
 
-      // Vorhandenen Datei-Key übernehmen, bevor ein neuer entsteht — sonst
-      // würde die bestehende verschlüsselte Datei unlesbar.
+      // Vorhandenen Datei-Key zuerst sicher in die Keychain migrieren — sonst
+      // würde die bestehende verschlüsselte Datei unlesbar. Danach wird die
+      // Klartextkopie entfernt.
       const mirrored = await dependencies.mirror?.getItem(DATABASE_KEY_STORAGE_KEY);
       if (mirrored !== null && mirrored !== undefined) {
         if (!KEY_HEX_PATTERN.test(mirrored)) {
           throw new Error('Der gespiegelte SQLCipher-Schlüssel ist ungültig.');
         }
         await dependencies.storage.setItem(DATABASE_KEY_STORAGE_KEY, mirrored);
+        await dependencies.mirror?.removeItem(DATABASE_KEY_STORAGE_KEY);
         return mirrored;
       }
 
@@ -122,7 +124,7 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
 
       const key = bytesToHex(bytes);
       await dependencies.storage.setItem(DATABASE_KEY_STORAGE_KEY, key);
-      await dependencies.mirror?.setItem(DATABASE_KEY_STORAGE_KEY, key);
+      await dependencies.mirror?.removeItem(DATABASE_KEY_STORAGE_KEY);
       return key;
     })();
 

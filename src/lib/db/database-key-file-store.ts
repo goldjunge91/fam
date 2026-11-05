@@ -9,11 +9,9 @@ const DATABASE_KEY_CLEANUP_FILE = DATABASE_KEY_CLEANUP_MARKER_KEY;
 const KEY_HEX_PATTERN = /^[0-9a-f]{64}$/;
 
 /**
- * Kompatibilitätskopie des SQLCipher-Schlüssels im gemeinsamen App-Group-Container.
- *
- * Siri fragt zuerst die gemeinsame Keychain-Gruppe ab. Die Datei bleibt als
- * Rückweg für bestehende Installationen erhalten, bis der Zugriff durch die
- * tatsächlich signierte App und Siri nachgewiesen ist.
+ * Liest alte Schlüsseldateien für die Einmalmigration und hält den Cleanup-Marker
+ * über App- und Siri-Lebenszyklen hinweg verfügbar. Neue Schlüssel werden hier
+ * nicht mehr gespeichert.
  */
 
 type SharedKeyFile = import('expo-file-system').File;
@@ -49,16 +47,14 @@ async function readSharedValue(file: SharedKeyFile, key: string): Promise<string
   }
 }
 
-function writeSharedKey(file: SharedKeyFile, key: string): void {
+function writeCleanupMarker(file: SharedKeyFile, value: string): void {
   if (file.exists) file.delete();
   file.create({ overwrite: true });
-  file.write(key);
+  file.write(value);
 }
 
 /**
- * KeyValueStore auf den gemeinsamen Container. Die Haupt-App hält die Datei
- * vorerst für Altinstallationen vor; Siri verwendet sie nur als Rückweg, wenn
- * die gemeinsame Keychain-Gruppe noch keinen Schlüssel liefert.
+ * KeyValueStore für alte Schlüsseldateien und den wiederholbaren Cleanup-Marker.
  */
 export function createSharedKeyFileStore(): KeyValueStore {
   return {
@@ -70,24 +66,21 @@ export function createSharedKeyFileStore(): KeyValueStore {
       return file ? readSharedValue(file, key) : null;
     },
     setItem: async (key, value) => {
+      if (key !== DATABASE_KEY_CLEANUP_MARKER_KEY) return;
+
       const file = getSharedKeyFile(key);
       if (!file) {
-        if (Platform.OS === 'ios' && key === DATABASE_KEY_CLEANUP_MARKER_KEY) {
+        if (Platform.OS === 'ios') {
           throw new Error('Der App-Group-Cleanup-Marker ist nicht erreichbar.');
         }
         return;
       }
-      try {
-        if (key === DATABASE_KEY_CLEANUP_MARKER_KEY && file.exists) {
-          const current = (await file.text()).trim();
-          if (current === DATABASE_KEY_CLEANUP_MARKER_VALUE) return;
-          throw new Error('Der SQLCipher-Key-Cleanup-Marker ist ungültig.');
-        }
-        writeSharedKey(file, value);
-      } catch (error) {
-        if (key === DATABASE_KEY_CLEANUP_MARKER_KEY) throw error;
-        // Ohne Container bleibt die Keychain die alleinige Quelle.
+      if (file.exists) {
+        const current = (await file.text()).trim();
+        if (current === DATABASE_KEY_CLEANUP_MARKER_VALUE) return;
+        throw new Error('Der SQLCipher-Key-Cleanup-Marker ist ungültig.');
       }
+      writeCleanupMarker(file, value);
     },
     async removeItem(key) {
       const file = getSharedKeyFile(key);

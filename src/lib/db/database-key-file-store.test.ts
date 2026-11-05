@@ -1,5 +1,9 @@
 import { Platform } from 'react-native';
-import { createSharedKeyFileStore } from './database-key-file-store';
+import {
+  createSharedKeyFileStore,
+  DATABASE_KEY_CLEANUP_MARKER_KEY,
+  DATABASE_KEY_CLEANUP_MARKER_VALUE,
+} from './database-key-file-store';
 
 type MockSharedKeyFile = {
   exists: boolean;
@@ -99,19 +103,35 @@ describe('shared SQLCipher key file', () => {
     await expect(store.getItem('key')).resolves.toBeNull();
   });
 
-  it('replaces a key, tolerates file write failures, and removes an existing file', async () => {
+  it('never writes key material and keeps the cleanup marker durable', async () => {
     setPlatform('ios');
     const store = createSharedKeyFileStore();
-    mockNextFileExists = true;
 
-    await store.setItem('ignored-key-name', 'cd'.repeat(32));
-    expect(mockFiles[0]?.delete).toHaveBeenCalledTimes(1);
+    await store.setItem('fam.database.sqlcipher-key.v1', 'cd'.repeat(32));
+    expect(mockFiles).toHaveLength(0);
+
+    mockNextFileExists = false;
+    await store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE);
+    expect(mockFiles).toHaveLength(1);
     expect(mockFiles[0]?.create).toHaveBeenCalledWith({ overwrite: true });
-    expect(mockFiles[0]?.write).toHaveBeenCalledWith('cd'.repeat(32));
+    expect(mockFiles[0]?.write).toHaveBeenCalledWith(DATABASE_KEY_CLEANUP_MARKER_VALUE);
 
     mockNextFileExists = true;
+    mockFileText = DATABASE_KEY_CLEANUP_MARKER_VALUE;
+    await store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE);
+    expect(mockFiles.at(-1)?.write).not.toHaveBeenCalled();
+
+    mockNextFileExists = true;
+    mockFileText = 'unexpected';
+    await expect(
+      store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE),
+    ).rejects.toThrow('Der SQLCipher-Key-Cleanup-Marker ist ungültig.');
+
+    mockNextFileExists = false;
     mockFileWriteFails = true;
-    await expect(store.setItem('key', 'ef'.repeat(32))).resolves.toBeUndefined();
+    await expect(
+      store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE),
+    ).rejects.toThrow('write failed');
 
     mockNextFileExists = true;
     await store.removeItem('key');

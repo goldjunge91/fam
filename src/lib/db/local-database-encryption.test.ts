@@ -85,23 +85,38 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
     mockRandomBytes.mockResolvedValue(new Uint8Array(32).fill(9));
   });
 
-  it('spiegelt den Keychain-Schlüssel in den gemeinsamen Container', async () => {
-    // Die Datei bleibt als Rueckweg erhalten, bis der Siri-Keychain-Zugriff
-    // auf einem tatsächlich signierten Build nachgewiesen ist.
-    const storage = createStore('ab'.repeat(32));
-    const mirror = createStore();
+  it('entfernt einen alten Klartextspiegel bei vorhandenem Keychain-Schlüssel', async () => {
+    const key = 'ab'.repeat(32);
+    const storage = createStore(key);
+    const mirror = createStore(key);
 
     const getKey = createDatabaseKeyManager({ storage, mirror, randomBytes: jest.fn() });
-    const key = await getKey();
 
-    expect(key).toBe('ab'.repeat(32));
-    expect(mirror.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+    await expect(getKey()).resolves.toBe(key);
+    expect(storage.setItem).not.toHaveBeenCalled();
+    expect(mirror.removeItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1');
   });
 
-  it('uebernimmt einen vorhandenen Datei-Key statt einen neuen zu erzeugen', async () => {
+  it('migriert einen vorhandenen Datei-Key in die Keychain und entfernt danach die Datei', async () => {
     // Ein neuer Key wuerde die bestehende verschluesselte Datei unlesbar machen.
-    const storage = createStore(null);
-    const mirror = createStore('cd'.repeat(32));
+    const legacyKey = 'cd'.repeat(32);
+    const operationOrder: string[] = [];
+    const storage: KeyValueStore = {
+      getItem: jest.fn(async () => null),
+      setItem: jest.fn(async () => {
+        operationOrder.push('keychain');
+      }),
+      removeItem: jest.fn(async () => undefined),
+    };
+    const mirror: KeyValueStore = {
+      getItem: jest.fn(async (storageKey) =>
+        storageKey === 'fam.database.sqlcipher-key.v1' ? legacyKey : null,
+      ),
+      setItem: jest.fn(async () => undefined),
+      removeItem: jest.fn(async () => {
+        operationOrder.push('file');
+      }),
+    };
     const randomBytes = jest.fn();
 
     const getKey = createDatabaseKeyManager({ storage, mirror, randomBytes });
@@ -110,9 +125,11 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
     expect(key).toBe('cd'.repeat(32));
     expect(randomBytes).not.toHaveBeenCalled();
     expect(storage.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+    expect(mirror.removeItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1');
+    expect(operationOrder).toEqual(['keychain', 'file']);
   });
 
-  it('schreibt einen neu erzeugten Key in beide Quellen', async () => {
+  it('schreibt neue Schlüssel nur in die sichere Quelle', async () => {
     const storage = createStore(null);
     const mirror = createStore(null);
     const randomBytes = jest.fn(async () => Uint8Array.from({ length: 32 }, (_, i) => i));
@@ -121,7 +138,21 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
     const key = await getKey();
 
     expect(storage.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
-    expect(mirror.setItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1', key);
+    expect(mirror.setItem).not.toHaveBeenCalled();
+    expect(mirror.removeItem).toHaveBeenCalledWith('fam.database.sqlcipher-key.v1');
+  });
+
+  it('behält den Alt-Key, wenn die Keychain-Migration nicht gespeichert werden kann', async () => {
+    const key = 'cd'.repeat(32);
+    const storage = createStore(null);
+    const mirror = createStore(key);
+    jest.mocked(storage.setItem).mockRejectedValueOnce(new Error('Keychain nicht verfügbar'));
+
+    await expect(
+      createDatabaseKeyManager({ storage, mirror, randomBytes: jest.fn() })(),
+    ).rejects.toThrow('Keychain nicht verfügbar');
+
+    expect(mirror.removeItem).not.toHaveBeenCalled();
   });
 
   it('haelt die Keychain auch ohne Container als Quelle', async () => {
@@ -222,7 +253,7 @@ describe('SQLCipher-Schlüsselverwaltung', () => {
 
     expect(replacement).not.toBe(oldKey);
     expect(mockNativeSecureStoreValues.get('fam.database.sqlcipher-key.v1')).toBe(replacement);
-    expect(mockNativeMirrorValues.get('fam.database.sqlcipher-key.v1')).toBe(replacement);
+    expect(mockNativeMirrorValues.has('fam.database.sqlcipher-key.v1')).toBe(false);
     expect(mockNativeSecureStoreValues.has(DATABASE_KEY_CLEANUP_MARKER_KEY)).toBe(false);
     expect(mockNativeMirrorValues.has(DATABASE_KEY_CLEANUP_MARKER_KEY)).toBe(false);
   });
