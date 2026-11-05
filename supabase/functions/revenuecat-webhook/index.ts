@@ -3,6 +3,7 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 import {
   activeAiAssignmentHouseholdId,
   createRevenueCatWebhookHandler,
+  type LocalProfileMappings,
   type SubscriberAttribute,
 } from './handler.ts';
 import { createRevenueCatSubscriberStatusReader } from './subscriber-status.ts';
@@ -15,6 +16,35 @@ function createAdminClient() {
 }
 
 type AdminClient = ReturnType<typeof createAdminClient>;
+
+async function resolveLocalProfiles(
+  adminClient: AdminClient,
+  subscriberIds: string[],
+): Promise<LocalProfileMappings> {
+  const candidates = Array.from(new Set(subscriberIds));
+  if (candidates.length === 0) return new Map();
+
+  const { data, error } = await adminClient
+    .schema('public')
+    .from('profiles')
+    .select('id')
+    .in('id', candidates);
+  if (error) throw error;
+
+  const returnedProfileIds = new Map<string, string>();
+  for (const row of data ?? []) {
+    if (typeof row.id === 'string') {
+      returnedProfileIds.set(row.id.toLowerCase(), row.id);
+    }
+  }
+
+  return new Map(
+    candidates.flatMap((subscriberId) => {
+      const profileId = returnedProfileIds.get(subscriberId.toLowerCase());
+      return profileId ? [[subscriberId, profileId] as const] : [];
+    }),
+  );
+}
 
 async function resolveMemberHousehold(
   adminClient: AdminClient,
@@ -76,6 +106,8 @@ Deno.serve(
     readSubscriberStatus: createRevenueCatSubscriberStatusReader(
       Deno.env.get('REVENUECAT_SECRET_API_KEY'),
     ),
+    resolveLocalProfiles: (subscriberIds) =>
+      resolveLocalProfiles(createAdminClient(), subscriberIds),
     applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
       const adminClient = createAdminClient();
 

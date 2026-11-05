@@ -68,6 +68,9 @@ export function activeAiAssignmentHouseholdId(
   return assignment?.active ? assignment.household_id : null;
 }
 
+/** External subscriber ID to a confirmed value returned by public.profiles.id. */
+export type LocalProfileMappings = ReadonlyMap<string, string>;
+
 type Dependencies = {
   expectedSecret: string | undefined;
   applyEntitlementEvent: (
@@ -76,6 +79,7 @@ type Dependencies = {
     subscriberAttributes?: Record<string, SubscriberAttribute> | null,
   ) => Promise<UpdateResult>;
   readSubscriberStatus?: (appUserId: string) => Promise<RevenueCatSubscriberStatus>;
+  resolveLocalProfiles?: (subscriberIds: string[]) => Promise<LocalProfileMappings>;
   now?: () => Date;
   signatureToleranceSeconds?: number;
 };
@@ -198,6 +202,10 @@ function isRevenueCatTransferEvent(event: RevenueCatEvent): event is RevenueCatT
     'transferred_to' in event;
 }
 
+function isUuidShaped(value: string): boolean {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+}
+
 function transferSubscriberEventId(eventId: string, appUserId: string): string {
   return `transfer:${eventId}:${appUserId}`;
 }
@@ -216,6 +224,7 @@ export function createRevenueCatWebhookHandler({
   expectedSecret,
   applyEntitlementEvent,
   readSubscriberStatus,
+  resolveLocalProfiles,
   now = () => new Date(),
   signatureToleranceSeconds = DEFAULT_SIGNATURE_TOLERANCE_SECONDS,
 }: Dependencies) {
@@ -263,28 +272,61 @@ export function createRevenueCatWebhookHandler({
         return json({ error: 'subscriber_status_unavailable' }, 503);
       }
 
-      const appUserIds = Array.from(new Set([...event.transferred_from, ...event.transferred_to]));
-      let statuses: RevenueCatSubscriberStatus[];
+      const subscriberIds = Array.from(
+        new Set([...event.transferred_from, ...event.transferred_to]),
+      );
+      let subscriberStatuses: Array<{
+        subscriberId: string;
+        status: RevenueCatSubscriberStatus;
+      }>;
       try {
-        statuses = await Promise.all(
-          appUserIds.map((appUserId) => readSubscriberStatus(appUserId)),
+        subscriberStatuses = await Promise.all(
+          subscriberIds.map(async (subscriberId) => ({
+            subscriberId,
+            status: await readSubscriberStatus(subscriberId),
+          })),
         );
       } catch {
         return json({ error: 'subscriber_status_lookup_failed' }, 502);
       }
 
-      let updated = 0;
+      if (!resolveLocalProfiles) {
+        return json({ error: 'local_profile_resolver_unavailable' }, 503);
+      }
+
+      const profileCandidates = subscriberIds.filter(isUuidShaped);
+      let localProfiles: LocalProfileMappings = new Map();
+      if (profileCandidates.length > 0) {
+        try {
+          localProfiles = await resolveLocalProfiles(profileCandidates);
+        } catch {
+          return json({ error: 'local_profile_lookup_failed' }, 500);
+        }
+      }
+
       const processedAt = now().toISOString();
-      for (const [index, appUserId] of appUserIds.entries()) {
-        const status = statuses[index];
+      const plan: Array<{
+        appUserId: string;
+        change: RevenueCatEntitlementChange;
+        subscriberAttributes: Record<string, SubscriberAttribute> | null | undefined;
+      }> = [];
+
+      for (const { subscriberId, status } of subscriberStatuses) {
+        if (!isUuidShaped(subscriberId)) continue;
+
+        const appUserId = localProfiles.get(subscriberId);
+        if (!appUserId) continue;
+
+        const subscriberAttributes = status.subscriberAttributes ??
+          (event.app_user_id === subscriberId ? event.subscriber_attributes : null);
         for (const entitlementId of ENTITLEMENT_IDS) {
           const entitlement = status.entitlements[entitlementId] ?? {
             active: false,
             expiresAt: null,
           };
-          const result = await applyEntitlementEvent(
+          plan.push({
             appUserId,
-            {
+            change: {
               entitlementId,
               active: entitlement.active,
               expiresAt: entitlement.expiresAt,
@@ -292,15 +334,23 @@ export function createRevenueCatWebhookHandler({
               eventTimestampMs: event.event_timestamp_ms,
               processedAt,
             },
-            status.subscriberAttributes ??
-              (event.app_user_id === appUserId ? event.subscriber_attributes : null),
-          );
-
-          if (result.error) {
-            return json({ error: 'update_failed', message: result.error.message }, 500);
-          }
-          updated += result.count ?? 0;
+            subscriberAttributes,
+          });
         }
+      }
+
+      let updated = 0;
+      for (const { appUserId, change, subscriberAttributes } of plan) {
+        const result = await applyEntitlementEvent(
+          appUserId,
+          change,
+          subscriberAttributes,
+        );
+
+        if (result.error) {
+          return json({ error: 'update_failed', message: result.error.message }, 500);
+        }
+        updated += result.count ?? 0;
       }
 
       return json({ updated });
