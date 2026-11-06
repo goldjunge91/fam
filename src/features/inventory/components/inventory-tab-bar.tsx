@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -144,9 +144,11 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         transparent
         animationType="fade"
         onRequestClose={() => setIsOpen(false)}>
-        {/* The full-screen scrim is a native dismiss target, not a visible action;
-            Press would add haptics and scale feedback to the backdrop. */}
-        <Pressable
+        {/* The shared interaction stays neutral for a full-screen dismiss target. */}
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={styles.overlay}
           style={styles.overlay}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
@@ -191,7 +193,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               })}
             </View>
           ) : null}
-        </Pressable>
+        </Press>
       </Modal>
     </View>
   );

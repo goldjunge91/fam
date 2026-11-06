@@ -9,7 +9,11 @@ const ACTIVATION_EVENT_TYPES = new Set([
   'PRODUCT_CHANGE',
 ]);
 
-const RELEVANT_EVENT_TYPES = new Set([...ACTIVATION_EVENT_TYPES, 'EXPIRATION']);
+const RELEVANT_EVENT_TYPES = new Set([
+  ...ACTIVATION_EVENT_TYPES,
+  'BILLING_ISSUE',
+  'EXPIRATION',
+]);
 
 export type SubscriberAttribute = {
   value: string;
@@ -40,6 +44,7 @@ export type RevenueCatEvent =
 export type RevenueCatSubscriberStatus = {
   entitlements: Partial<Record<EntitlementId, { active: boolean; expiresAt: string | null }>>;
   subscriberAttributes?: Record<string, SubscriberAttribute> | null;
+  requestDateMs?: number;
 };
 
 export type RevenueCatEntitlementChange = {
@@ -216,7 +221,9 @@ function transferSubscriberEventId(eventId: string, appUserId: string): string {
  *
  * Event-ID und RevenueCat-Zeitpunkt werden an den Datenbankadapter
  * weitergereicht, damit er Wiederholungen und veraltete Events atomar
- * verwerfen kann. CANCELLATION und BILLING_ISSUE aendern bewusst nichts.
+ * verwerfen kann. CANCELLATION aendert bewusst nichts. BILLING_ISSUE liest den
+ * serverseitig bestaetigten Status erneut, damit die offizielle Grace Period
+ * in der Projektion beruecksichtigt wird.
  * RevenueCat sendet EXPIRATION, sobald bezahlter Zugriff beziehungsweise die
  * Grace Period endet.
  */
@@ -372,6 +379,49 @@ export function createRevenueCatWebhookHandler({
     );
     if (relevantEntitlements.length === 0) {
       return json({ ignored: 'unrelated_entitlement' });
+    }
+
+    if (event.type === 'BILLING_ISSUE') {
+      if (!readSubscriberStatus) {
+        return json({ error: 'status_refresh_unavailable' }, 503);
+      }
+
+      let status: RevenueCatSubscriberStatus;
+      try {
+        status = await readSubscriberStatus(event.app_user_id);
+      } catch {
+        return json({ error: 'status_refresh_failed' }, 503);
+      }
+
+      let updated = 0;
+      const processedAt = now().toISOString();
+      for (const entitlementId of relevantEntitlements) {
+        const entitlement = status.entitlements[entitlementId] ?? {
+          active: false,
+          expiresAt: null,
+        };
+        const result = await applyEntitlementEvent(
+          event.app_user_id,
+          {
+            entitlementId,
+            active: entitlement.active,
+            expiresAt: entitlement.expiresAt,
+            eventId: event.id,
+            eventTimestampMs: status.requestDateMs ?? event.event_timestamp_ms,
+            processedAt,
+          },
+          event.subscriber_attributes,
+        );
+
+        if (result.error) {
+          return json(
+            { error: 'update_failed', message: result.error.message },
+            500,
+          );
+        }
+        updated += result.count ?? 0;
+      }
+      return json({ updated });
     }
 
     let updated = 0;

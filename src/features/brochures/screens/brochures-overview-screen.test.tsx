@@ -192,6 +192,19 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
     expect(screen.getByText('Aldi Angebote')).toBeOnTheScreen();
   });
 
+  it('exposes brochure scopes as accessible selected tabs', async () => {
+    const user = userEvent.setup();
+    await render(<ScreenComponent />);
+
+    expect(screen.getByRole('tab', { name: 'Alle Märkte', selected: true })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'Favoriten', selected: false })).not.toBeSelected();
+
+    await user.press(screen.getByRole('tab', { name: 'Favoriten' }));
+
+    expect(screen.getByRole('tab', { name: 'Favoriten', selected: true })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'Alle Märkte', selected: false })).not.toBeSelected();
+  });
+
   it('shows loading, an empty catalog and the manual-location switch', async () => {
     mockSync = {
       isSyncing: true,

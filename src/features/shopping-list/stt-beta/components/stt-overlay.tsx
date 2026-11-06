@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Modal, Pressable, View } from 'react-native';
+import { ActivityIndicator, Modal, View } from 'react-native';
 import Animated, {
   cancelAnimation,
   useAnimatedStyle,
@@ -13,7 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { motion } from '@/constants/motion';
-import { Button, Surface, Txt } from '@/constants/ui';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
 import { debugLog, debugLogEvent } from '@/lib/observability/debug-log';
 import { nativeSpeechRecognitionAdapter } from '../services/native-speech-recognition';
 import { getDeviceSpeechLocale } from '../services/speech-locale';
@@ -211,7 +211,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
       onShow={startSession}
       accessibilityViewIsModal>
       <View style={[styles.overlay, { backgroundColor: withAlpha(colors.shadowCard, 0.42) }]}>
-        <Pressable
+        <Press
           style={StyleSheet.absoluteFill}
           onPress={status === 'listening' ? onCancel : undefined}
           accessibilityRole="button"

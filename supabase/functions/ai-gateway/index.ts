@@ -4,14 +4,17 @@ import {
   ALLOWED_MODELS,
   createAiGatewayHandler,
   type GatewayCookingContext,
+  type GatewayCreditAction,
   type GatewayInventoryContext,
   type GatewayLot,
   type GatewayRecipe,
 } from './handler.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
+import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+const supabaseSecretKey = Deno.env.get('SUPABASE_SECRET_KEY')!;
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1')
   .replace(/\/$/, '');
@@ -23,6 +26,9 @@ const allowedModels = (Deno.env.get('AI_GATEWAY_ALLOWED_MODELS') ?? '')
 const rateLimiter = new SlidingWindowRateLimiter(
   Number(Deno.env.get('AI_GATEWAY_RATE_LIMIT') ?? 30),
   60_000,
+);
+const readRevenueCatStatus = createRevenueCatSubscriberStatusReader(
+  Deno.env.get('REVENUECAT_SECRET_API_KEY'),
 );
 
 function userClient(request: Request) {
@@ -72,6 +78,113 @@ async function assertHouseholdMember(
     return { ok: false as const, status: 403, error: 'household_forbidden' };
   }
   return { ok: true as const, userId, authorization };
+}
+
+async function authorizeAiEntitlement(householdId: string, authorization: string) {
+  const client = createClient(supabaseUrl, anonKey, {
+    global: { headers: { Authorization: authorization } },
+  });
+  const { data, error } = await client
+    .from('households')
+    .select('ai_active, ai_expires_at, ai_subscriber_id')
+    .eq('id', householdId)
+    .maybeSingle();
+
+  if (error) {
+    return { ok: false as const, status: 500, error: 'ai_household_lookup_failed' };
+  }
+  const subscriberUserId = data?.ai_subscriber_id;
+  if (!subscriberUserId) {
+    return { ok: false as const, status: 403, error: 'ai_entitlement_missing' };
+  }
+
+  try {
+    const status = await readRevenueCatStatus(subscriberUserId);
+    const entitlement = status.entitlements.AI ?? {
+      active: false,
+      expiresAt: null,
+    };
+    const requestDateMs = status.requestDateMs ?? Date.now();
+    const adminClient = createClient(supabaseUrl, supabaseSecretKey);
+
+    if (entitlement.active) {
+      const currentExpiryMs = data.ai_expires_at === null ? null : Date.parse(data.ai_expires_at);
+      const confirmedExpiryMs = entitlement.expiresAt === null
+        ? null
+        : Date.parse(entitlement.expiresAt);
+      const projectionMatches = data.ai_active &&
+        data.ai_subscriber_id === subscriberUserId &&
+        currentExpiryMs === confirmedExpiryMs;
+
+      if (!projectionMatches) {
+        const { data: applied, error: updateError } = await adminClient.rpc(
+          'assign_ai_household',
+          {
+            p_subscriber_user_id: subscriberUserId,
+            p_target_household_id: householdId,
+            p_entitlement_expires_at: entitlement.expiresAt,
+            p_event_timestamp_ms: requestDateMs,
+          },
+        );
+        if (updateError || !applied) {
+          return { ok: false as const, status: 503, error: 'ai_status_refresh_failed' };
+        }
+      }
+      return { ok: true as const, subscriberUserId };
+    }
+
+    if (data.ai_active && data.ai_subscriber_id === subscriberUserId) {
+      const { data: applied, error: updateError } = await adminClient.rpc(
+        'deactivate_ai_household',
+        {
+          p_subscriber_user_id: subscriberUserId,
+          p_event_timestamp_ms: requestDateMs,
+        },
+      );
+      if (updateError || !applied) {
+        return { ok: false as const, status: 503, error: 'ai_status_refresh_failed' };
+      }
+    }
+    return { ok: false as const, status: 402, error: 'ai_subscription_required' };
+  } catch {
+    return { ok: false as const, status: 503, error: 'ai_status_unavailable' };
+  }
+}
+
+async function bookAiCredit(input: {
+  householdId: string;
+  subscriberUserId: string;
+  action: GatewayCreditAction;
+  requestId: string;
+}) {
+  const client = createClient(supabaseUrl, supabaseSecretKey);
+  const { error } = await client.rpc('book_ai_credit', {
+    p_household_id: input.householdId,
+    p_action: input.action,
+    p_request_id: input.requestId,
+    p_expected_subscriber_user_id: input.subscriberUserId,
+  });
+
+  if (!error) return { ok: true as const };
+  if (error.message.includes('ai_credit_limit_exceeded')) {
+    return { ok: false as const, status: 429, error: 'ai_credit_limit_exceeded' };
+  }
+  if (error.message.includes('ai_subscriber_changed')) {
+    return { ok: false as const, status: 409, error: 'ai_subscriber_changed' };
+  }
+  if (error.message.includes('ai_household_not_assigned')) {
+    return { ok: false as const, status: 403, error: 'ai_entitlement_missing' };
+  }
+  return { ok: false as const, status: 500, error: 'ai_credit_booking_failed' };
+}
+
+async function refundAiCredit(subscriberUserId: string, requestId: string) {
+  const client = createClient(supabaseUrl, supabaseSecretKey);
+  const { error } = await client.rpc('refund_ai_credit', {
+    p_subscriber_user_id: subscriberUserId,
+    p_request_id: requestId,
+  });
+  if (error) throw error;
 }
 
 function storageKind(value: unknown): GatewayLot['storage'] {
@@ -366,6 +479,9 @@ async function complete(
 const handler = createAiGatewayHandler({
   authenticate,
   assertHouseholdMember,
+  authorizeAiEntitlement,
+  bookAiCredit,
+  refundAiCredit,
   loadCookingContext,
   complete,
   isRateLimited: () => rateLimiter.isLimited(),

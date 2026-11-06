@@ -1,13 +1,13 @@
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { Linking, Pressable, ScrollView, TextInput, View } from 'react-native';
+import { Linking, ScrollView, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
 import { Screen } from '@/components/layout/screen';
 import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Press, SegmentedControl, Txt } from '@/constants/ui';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 import { BrochureFilterSheet } from '../components/brochure-filter-sheet';
@@ -68,34 +68,34 @@ export default function BrochuresOverviewScreen() {
       <Txt variant="body" tone="primary" weight="500">
         PLZ {postalCode}
       </Txt>
-      <Pressable
+      <Press
         accessibilityRole="button"
         style={styles.postalCodeAction}
         onPress={() => setIsEditingPostalCode(true)}>
         <Txt variant="body" tone="primary" weight="500">
           PLZ ändern
         </Txt>
-      </Pressable>
+      </Press>
       {location.isManual ? (
-        <Pressable
+        <Press
           accessibilityRole="button"
           style={styles.postalCodeAction}
           onPress={location.useDeviceLocation}>
           <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
             Standort verwenden
           </Txt>
-        </Pressable>
+        </Press>
       ) : null}
     </View>
   ) : (
-    <Pressable
+    <Press
       accessibilityRole="button"
       style={styles.postalCodeAction}
       onPress={() => setIsEditingPostalCode(true)}>
       <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
         PLZ manuell eingeben
       </Txt>
-    </Pressable>
+    </Press>
   );
 
   if (location.status === 'locating') {
@@ -132,7 +132,7 @@ export default function BrochuresOverviewScreen() {
             postalCodeSettings
           ) : (
             <>
-              <Pressable
+              <Press
                 accessibilityRole="button"
                 style={[styles.locationButton, { backgroundColor: colors.accent }]}
                 onPress={() => {
@@ -142,7 +142,7 @@ export default function BrochuresOverviewScreen() {
                 <Txt variant="body" tone="onAccent" weight="700">
                   {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
                 </Txt>
-              </Pressable>
+              </Press>
               {postalCodeSettings}
             </>
           )}
@@ -270,35 +270,21 @@ export default function BrochuresOverviewScreen() {
         </View>
 
         <View style={styles.controlsRow}>
-          <View style={styles.scopeTabs}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: !showFavoritesOnly }}
-              onPress={() => setShowFavoritesOnly(false)}
-              style={[
-                styles.scopeTab,
-                !showFavoritesOnly && { borderBottomColor: colors.accent, borderBottomWidth: 2 },
-              ]}>
-              <Txt variant="body" tone={!showFavoritesOnly ? 'primary' : 'secondary'} weight="500">
-                Alle Märkte
-              </Txt>
-            </Pressable>
-            {favorites.length > 0 ? (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityState={{ selected: showFavoritesOnly }}
-                onPress={() => setShowFavoritesOnly(true)}
-                style={[
-                  styles.scopeTab,
-                  showFavoritesOnly && { borderBottomColor: colors.accent, borderBottomWidth: 2 },
-                ]}>
-                <Txt variant="body" tone={showFavoritesOnly ? 'primary' : 'secondary'} weight="500">
-                  Favoriten
-                </Txt>
-              </Pressable>
-            ) : null}
+          <View style={styles.scopeControl}>
+            <SegmentedControl
+              label="Prospektansicht"
+              selectionRole="tab"
+              appearance="surface"
+              size="compact"
+              options={[
+                { value: 'all', label: 'Alle Märkte' },
+                ...(favorites.length > 0 ? [{ value: 'favorites', label: 'Favoriten' }] : []),
+              ]}
+              selected={showFavoritesOnly ? 'favorites' : 'all'}
+              onSelect={(scope) => setShowFavoritesOnly(scope === 'favorites')}
+            />
           </View>
-          <Pressable
+          <Press
             accessibilityRole="button"
             accessibilityLabel={
               selectedStoreIds === null
@@ -319,7 +305,7 @@ export default function BrochuresOverviewScreen() {
                 {selectedStoreIds.size}
               </Txt>
             ) : null}
-          </Pressable>
+          </Press>
         </View>
 
         <View style={styles.sectionHeading}>
@@ -338,7 +324,7 @@ export default function BrochuresOverviewScreen() {
             </Txt>
             {group.stores.map(({ store, brochures: storeBrochures }) => (
               <View key={store.id} style={styles.marketSection}>
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   accessibilityLabel={store.name}
                   accessibilityState={{
@@ -355,13 +341,13 @@ export default function BrochuresOverviewScreen() {
                   <Txt variant="caption" tone="secondary">
                     {storeBrochures.length} Prospekte
                   </Txt>
-                </Pressable>
+                </Press>
                 <ScrollView
                   horizontal
                   showsHorizontalScrollIndicator={false}
                   contentContainerStyle={styles.brochureRow}>
                   {storeBrochures.map((brochure) => (
-                    <Pressable
+                    <Press
                       key={brochure.id}
                       style={[
                         styles.brochureCard,
@@ -385,7 +371,7 @@ export default function BrochuresOverviewScreen() {
                           Bis {new Date(brochure.validUntil).toLocaleDateString()}
                         </Txt>
                       </View>
-                    </Pressable>
+                    </Press>
                   ))}
                 </ScrollView>
               </View>
@@ -510,15 +496,7 @@ const styles = StyleSheet.create({
     gap: space.md,
     marginBottom: space.lg,
   },
-  scopeTabs: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: space.lg,
-  },
-  scopeTab: {
-    minHeight: MIN_TOUCH_SIZE,
-    justifyContent: 'center',
-  },
+  scopeControl: { flex: 1, minWidth: 0 },
   filterButton: {
     minHeight: MIN_TOUCH_SIZE,
     flexDirection: 'row',

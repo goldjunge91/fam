@@ -1,6 +1,6 @@
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { AvatarImage } from '@/features/profile/avatar-image';
 
 type ProfileAvatarEditorProps = {
@@ -43,15 +43,11 @@ export function ProfileAvatarEditor({
           loading={uploading}
         />
         {avatarUrl ? (
-          <Pressable
-            onPress={onDelete}
-            disabled={uploading}
-            hitSlop={8}
-            style={styles.removeButton}>
+          <Press onPress={onDelete} disabled={uploading} hitSlop={8} style={styles.removeButton}>
             <Txt variant="caption" tone="danger">
               Bild entfernen
             </Txt>
-          </Pressable>
+          </Press>
         ) : null}
       </View>
     </View>

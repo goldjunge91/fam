@@ -38,12 +38,15 @@ describe('Household & Invites Domain Logic', () => {
     expect(isInviteExpired(futureDate, refNow)).toBe(false);
   });
 
-  it('sollte prüfen, ob Admin den Haushalt verlassen darf (nur wenn >1 Admin existiert)', () => {
+  it('lässt den letzten Admin nur mit dem letzten Haushaltsmitglied gehen', () => {
     const singleAdminMembers = [{ role: 'admin' }, { role: 'member' }];
     const multiAdminMembers = [{ role: 'admin' }, { role: 'admin' }];
+    const lastAdmin = [{ role: 'admin' }];
 
     expect(canAdminLeaveHousehold(singleAdminMembers)).toBe(false);
     expect(canAdminLeaveHousehold(multiAdminMembers)).toBe(true);
+    expect(canAdminLeaveHousehold(lastAdmin)).toBe(true);
+    expect(canAdminLeaveHousehold([])).toBe(false);
   });
 
   it('sollte Löschrecht für Haushalt nur für Admins gewähren', () => {

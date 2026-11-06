@@ -4,6 +4,7 @@ import {
   activeAiAssignmentHouseholdId,
   createRevenueCatWebhookHandler,
   type RevenueCatEntitlementChange,
+  type RevenueCatSubscriberStatus,
   type SubscriberAttribute,
 } from './handler.ts';
 
@@ -73,7 +74,7 @@ function event(
   };
 }
 
-function setup(count = 1) {
+function setup(count = 1, status?: RevenueCatSubscriberStatus | Error) {
   const updates: CapturedUpdate[] = [];
   const handler = createRevenueCatWebhookHandler({
     expectedSecret: SECRET,
@@ -82,6 +83,10 @@ function setup(count = 1) {
       updates.push({ appUserId, change, subscriberAttributes });
       return Promise.resolve({ error: null, count });
     },
+    ...(status === undefined ? {} : {
+      readSubscriberStatus: () =>
+        status instanceof Error ? Promise.reject(status) : Promise.resolve(status),
+    }),
   });
 
   return { handler, updates };
@@ -234,7 +239,7 @@ Deno.test('applies Plus and AI independently when both are present', async () =>
   );
 });
 
-for (const type of ['CANCELLATION', 'BILLING_ISSUE']) {
+for (const type of ['CANCELLATION']) {
   Deno.test(`${type} keeps paid or grace-period access unchanged`, async () => {
     const { handler, updates } = setup();
 
@@ -245,6 +250,37 @@ for (const type of ['CANCELLATION', 'BILLING_ISSUE']) {
     assertEquals(updates, []);
   });
 }
+
+Deno.test('BILLING_ISSUE refreshes the official grace-period expiry from RevenueCat', async () => {
+  const graceExpiry = '2026-08-23T08:00:00.000Z';
+  const requestDateMs = NOW.getTime() + 60_000;
+  const { handler, updates } = setup(1, {
+    entitlements: { Plus: { active: true, expiresAt: graceExpiry } },
+    requestDateMs,
+  });
+
+  const response = await handler(await request(event('BILLING_ISSUE')));
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), { updated: 1 });
+  assertEquals(updates[0]?.change, {
+    entitlementId: 'Plus',
+    active: true,
+    expiresAt: graceExpiry,
+    eventId: 'event-BILLING_ISSUE',
+    eventTimestampMs: requestDateMs,
+    processedAt: NOW.toISOString(),
+  });
+});
+
+Deno.test('BILLING_ISSUE fails closed when fresh RevenueCat status is unavailable', async () => {
+  const { handler, updates } = setup(1, new Error('RevenueCat unavailable'));
+  const response = await handler(await request(event('BILLING_ISSUE')));
+
+  assertEquals(response.status, 503);
+  assertEquals(await response.json(), { error: 'status_refresh_failed' });
+  assertEquals(updates, []);
+});
 
 Deno.test('ignores unrelated event types even without entitlement data', async () => {
   const { handler, updates } = setup();

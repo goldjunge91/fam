@@ -54,6 +54,21 @@ type OwnedCustomerInfo = {
   userId: string;
 };
 
+const OFFLINE_ENTITLEMENT_ALLOWANCE_MS = 24 * 60 * 60 * 1000;
+
+/** Keeps a household projection usable offline for one day past RC's confirmed expiry. */
+export function isHouseholdEntitlementActive(
+  active: boolean,
+  expiresAt: string | null,
+  nowMs = Date.now(),
+): boolean {
+  if (!active) return false;
+  if (expiresAt === null) return true;
+
+  const expirationMs = Date.parse(expiresAt);
+  return Number.isFinite(expirationMs) && nowMs <= expirationMs + OFFLINE_ENTITLEMENT_ALLOWANCE_MS;
+}
+
 const PremiumContext = createContext<PremiumContextValue | null>(null);
 
 export function PremiumProvider({ children }: { children: ReactNode }) {
@@ -239,8 +254,18 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
   const forceAiOverride = useForceAiOverrideStore((state) => state.override);
   const isForced = forcePremiumOverride ?? env.forcePremium;
   const isAiForced = forceAiOverride ?? false;
-  const hasPlus = isForced || (activeHousehold?.plus_active ?? false);
-  const hasAI = isAiForced || (activeHousehold?.ai_active ?? false);
+  const hasPlus =
+    isForced ||
+    isHouseholdEntitlementActive(
+      activeHousehold?.plus_active ?? false,
+      activeHousehold?.plus_expires_at ?? null,
+    );
+  const hasAI =
+    isAiForced ||
+    isHouseholdEntitlementActive(
+      activeHousehold?.ai_active ?? false,
+      activeHousehold?.ai_expires_at ?? null,
+    );
   const customerInfo =
     ownedCustomerInfo !== null && ownedCustomerInfo.userId === userId
       ? ownedCustomerInfo.info

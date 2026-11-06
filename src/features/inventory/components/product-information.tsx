@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { ActivityIndicator, Modal, Pressable, ScrollView, View } from 'react-native';
+import { ActivityIndicator, Modal, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { CloseButton, Txt } from '@/constants/ui';
+import { CloseButton, Press, Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
 import { debugLog } from '@/lib/observability/debug-log';
@@ -226,7 +226,10 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={styles.overlay}>
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={StyleSheet.absoluteFill}
           style={[styles.backdrop, { backgroundColor: colors.scrim }]}
           onPress={onClose}
           accessibilityRole="button"

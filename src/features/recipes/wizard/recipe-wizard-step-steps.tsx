@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { memo, useState } from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
@@ -383,18 +383,18 @@ const StepCard = memo(function StepCard({
   return (
     <View style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
       <View style={styles.stepHeader}>
-        <TouchableOpacity
+        <Press
           onLongPress={drag}
           style={styles.dragButton}
           accessibilityLabel="Schritt verschieben">
           <Txt variant="heading" tone="secondary">
             ≡
           </Txt>
-        </TouchableOpacity>
+        </Press>
         <Txt variant="label" tone="primary" weight="700" style={styles.stepTitle}>
           Schritt {index + 1}
         </Txt>
-        <TouchableOpacity
+        <Press
           onPress={() => onRemoveStep(step.id)}
           style={styles.deleteStep}
           accessibilityRole="button"
@@ -410,7 +410,7 @@ const StepCard = memo(function StepCard({
               />
             </Svg>
           </View>
-        </TouchableOpacity>
+        </Press>
       </View>
 
       <View style={styles.editorWrap}>
@@ -435,7 +435,7 @@ const StepCard = memo(function StepCard({
               { backgroundColor: colors.background, borderColor: colors.border },
             ]}>
             {autocomplete.matches.slice(0, 6).map((ing) => (
-              <TouchableOpacity
+              <Press
                 key={ing.itemId}
                 style={[styles.mentionRow, { borderBottomColor: colors.border }]}
                 onPress={() => insertMention(ing)}>
@@ -446,7 +446,7 @@ const StepCard = memo(function StepCard({
                     {ing.unit}
                   </Txt>
                 </Txt>
-              </TouchableOpacity>
+              </Press>
             ))}
             <View style={styles.mentionHint}>
               <Txt variant="caption" tone="secondary">
@@ -496,11 +496,11 @@ const StepCard = memo(function StepCard({
         </View>
       ) : null}
       {step.existingImages.length + step.localImageUris.length < MAX_RECIPE_STEP_IMAGES ? (
-        <TouchableOpacity style={styles.inlineLink} onPress={() => onPickImage(step.id)}>
+        <Press style={styles.inlineLink} onPress={() => onPickImage(step.id)}>
           <Txt variant="label" tone="primary" weight="600">
             + Bild hinzufügen
           </Txt>
-        </TouchableOpacity>
+        </Press>
       ) : null}
 
       <StepTimerField
@@ -538,16 +538,16 @@ function StepImage({
         style={styles.stepImage}
         contentFit="cover"
       />
-      <TouchableOpacity style={styles.inlineLink} onPress={onInsert}>
+      <Press style={styles.inlineLink} onPress={onInsert}>
         <Txt variant="label" tone="primary" weight="600">
           Bild {imageIndex + 1} im Text einfügen
         </Txt>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.inlineLink} onPress={onRemove}>
+      </Press>
+      <Press style={styles.inlineLink} onPress={onRemove}>
         <Txt variant="label" tone="primary" weight="600">
           Bild entfernen
         </Txt>
-      </TouchableOpacity>
+      </Press>
     </View>
   );
 }
@@ -568,11 +568,11 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
         <Txt variant="label" tone="primary" weight="600">
           ⏱ {minutes} Min. Timer
         </Txt>
-        <TouchableOpacity onPress={() => onChange(null)}>
+        <Press onPress={() => onChange(null)}>
           <Txt variant="label" tone="primary" weight="600">
             Entfernen
           </Txt>
-        </TouchableOpacity>
+        </Press>
       </View>
     );
   }
@@ -599,7 +599,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
             setEditing(false);
           }}
         />
-        <TouchableOpacity
+        <Press
           onPress={() => {
             const parsed = Number.parseInt(draft, 10);
             if (parsed > 0) onChange(parsed);
@@ -609,8 +609,8 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
           <Txt variant="label" tone="primary" weight="600">
             Übernehmen
           </Txt>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </Press>
+        <Press
           onPress={() => {
             setDraft('');
             setEditing(false);
@@ -618,17 +618,17 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
           <Txt variant="label" tone="secondary" weight="600">
             Abbrechen
           </Txt>
-        </TouchableOpacity>
+        </Press>
       </View>
     );
   }
 
   return (
-    <TouchableOpacity style={styles.inlineLink} onPress={() => setEditing(true)}>
+    <Press style={styles.inlineLink} onPress={() => setEditing(true)}>
       <Txt variant="label" tone="primary" weight="600">
         + Timer hinzufügen
       </Txt>
-    </TouchableOpacity>
+    </Press>
   );
 }
 
@@ -719,13 +719,13 @@ export function RecipeWizardStepSteps({
         )}
         ListFooterComponent={
           <>
-            <TouchableOpacity
+            <Press
               style={[styles.addStep, { backgroundColor: colors.backgroundElement }]}
               onPress={addStep}>
               <Txt variant="caption" tone="primary" weight="600">
                 + Schritt hinzufügen
               </Txt>
-            </TouchableOpacity>
+            </Press>
 
             <View style={styles.actions}>
               <Press

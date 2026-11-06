@@ -1,5 +1,6 @@
 import { act, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
+import type { SerializedSqlDatabase } from '@/lib/db/serialize';
 import { DevDataScreen } from './dev-data-screen';
 
 let mockHasAccess = true;
@@ -22,6 +23,10 @@ const mockGetDatabase = jest.fn(async () => {
   if (mockDbError !== null) throw mockDbError;
   return { getFirstAsync: mockGetFirstAsync };
 });
+const mockRunWithCurrentDatabase = jest.fn(
+  async <T,>(action: (db: SerializedSqlDatabase) => Promise<T>): Promise<T> =>
+    action((await mockGetDatabase()) as unknown as SerializedSqlDatabase),
+);
 const mockQueryClient = { resetQueries: jest.fn() };
 const mockDeleteLocalDatabase = jest.fn();
 const mockForceRefreshOffDump = jest.fn();
@@ -113,6 +118,8 @@ jest.mock('@/hooks/use-dev-tools-access', () => ({
 jest.mock('@/lib/db/local-client', () => ({
   deleteLocalDatabase: (...args: unknown[]) => mockDeleteLocalDatabase(...args),
   getDatabase: () => mockGetDatabase(),
+  runWithCurrentDatabase: <T,>(action: (db: SerializedSqlDatabase) => Promise<T>) =>
+    mockRunWithCurrentDatabase(action),
 }));
 
 jest.mock('@/lib/off-dump/off-dump', () => ({
@@ -269,6 +276,7 @@ describe('DevDataScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Jetzt aktualisieren' }));
     await waitFor(() => expect(mockForceRefreshOffDump).toHaveBeenCalled());
     expect(mockGetOffDumpStatus).toHaveBeenCalled();
+    expect(mockRunWithCurrentDatabase).toHaveBeenCalledTimes(2);
 
     await user.press(screen.getByRole('button', { name: 'Baseline neu installieren' }));
     expect(alert).toHaveBeenLastCalledWith(
@@ -284,6 +292,7 @@ describe('DevDataScreen', () => {
       await actions?.find((action) => action.text === 'Neu installieren')?.onPress?.();
     });
     expect(mockReinstallOffDumpBaseline).toHaveBeenCalled();
+    expect(mockRunWithCurrentDatabase).toHaveBeenCalledTimes(4);
   });
 
   it('meldet beide Integritätsergebnisse und zeigt Aktualisierungsfehler', async () => {
@@ -299,6 +308,7 @@ describe('DevDataScreen', () => {
         'Der OpenFoodFacts-Dump ist intakt.',
       ),
     );
+    expect(mockRunWithCurrentDatabase).toHaveBeenCalledTimes(2);
     await user.press(screen.getByRole('button', { name: 'Integrität prüfen' }));
     await waitFor(() =>
       expect(alert).toHaveBeenLastCalledWith(
@@ -306,9 +316,11 @@ describe('DevDataScreen', () => {
         'Der OpenFoodFacts-Dump ist beschädigt.',
       ),
     );
+    expect(mockRunWithCurrentDatabase).toHaveBeenCalledTimes(4);
 
     mockForceRefreshOffDump.mockRejectedValue(new Error('refresh failed'));
     await user.press(screen.getByRole('button', { name: 'Jetzt aktualisieren' }));
     await waitFor(() => expect(alert).toHaveBeenLastCalledWith('Fehlgeschlagen', 'refresh failed'));
+    expect(mockRunWithCurrentDatabase).toHaveBeenCalledTimes(6);
   });
 });

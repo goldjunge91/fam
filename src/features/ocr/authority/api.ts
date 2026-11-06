@@ -26,7 +26,7 @@ export type LocalReceiptRow = {
   currency: string;
   total_cents: number | null;
   processing_status: ReceiptProcessingStatus;
-  created_by: string;
+  created_by: string | null;
   confirmed_by: string | null;
   confirmed_at: string | null;
   created_at: string;

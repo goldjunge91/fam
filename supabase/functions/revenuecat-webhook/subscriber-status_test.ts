@@ -61,6 +61,7 @@ Deno.test('Property 2: encodes subscriber IDs and authorizes only the injected f
   assertEquals(result, {
     entitlements: {},
     subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
   });
 });
 
@@ -113,6 +114,7 @@ Deno.test('Property 2: reads production subscriptions and non-subscriptions for 
       household_id: { value: 'household-1', updated_at_ms: 1_776_240_000_000 },
       source: { value: 'revenuecat' },
     },
+    requestDateMs: REQUEST_DATE_MS,
   });
 });
 
@@ -155,6 +157,7 @@ Deno.test('Property 2: evaluates expiry and grace period at RevenueCat request t
       AI: { active: true, expiresAt: graceExpiry },
     },
     subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
   });
 });
 
@@ -215,6 +218,7 @@ Deno.test('Property 2: excludes sandbox-only purchases and accepts production pu
       AI: { active: false, expiresAt: null },
     },
     subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
   });
   assertEquals(await reader('mixed-environments'), {
     entitlements: {
@@ -222,6 +226,7 @@ Deno.test('Property 2: excludes sandbox-only purchases and accepts production pu
       AI: { active: true, expiresAt: FUTURE_EXPIRY },
     },
     subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
   });
   assertEquals(responseIndex, 2);
 });

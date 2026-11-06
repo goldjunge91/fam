@@ -3,6 +3,7 @@ import {
   deleteLocalDatabase,
   getDatabase,
   getDrizzleDatabase,
+  runWithCurrentDatabase,
   setActiveUserId,
 } from '@/lib/db/local-client';
 import {
@@ -189,6 +190,83 @@ describe('database client lifecycle', () => {
     await getDrizzleDatabase();
     expect(createDrizzleDatabase).toHaveBeenCalledTimes(2);
     expect(mockRawDatabase.closeAsync).toHaveBeenCalledTimes(2);
+  });
+
+  it('wartet einen OFF-Lifecycle-Aufruf ab, wenn der App-Close dazwischen startet', async () => {
+    setActiveUserId('user-a');
+    await getDatabase();
+
+    let finishClose: (() => void) | undefined;
+    mockRawDatabase.closeAsync.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          finishClose = resolve;
+        }),
+    );
+
+    let markActionStarted: (() => void) | undefined;
+    const actionStarted = new Promise<void>((resolve) => {
+      markActionStarted = resolve;
+    });
+    let attempts = 0;
+    const action = runWithCurrentDatabase(async (db) => {
+      attempts += 1;
+      markActionStarted?.();
+      return db.withLifecycleOperationAsync((operationDb) =>
+        operationDb.getFirstAsync<{ value: number }>('select 1'),
+      );
+    });
+
+    const closing = closeDatabaseForLifecycle();
+    await actionStarted;
+    await Promise.resolve();
+    finishClose?.();
+    await closing;
+
+    await expect(action).resolves.toBeNull();
+    expect(attempts).toBe(2);
+  });
+
+  it('startet einen wiederholten Lifecycle-Aufruf nach Accountwechsel nicht im neuen Konto', async () => {
+    setActiveUserId('user-a');
+    await getDatabase();
+
+    let finishClose: (() => void) | undefined;
+    mockRawDatabase.closeAsync.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          finishClose = resolve;
+        }),
+    );
+
+    let markActionStarted: (() => void) | undefined;
+    const actionStarted = new Promise<void>((resolve) => {
+      markActionStarted = resolve;
+    });
+    let releaseAction: (() => void) | undefined;
+    const actionReleased = new Promise<void>((resolve) => {
+      releaseAction = resolve;
+    });
+    let attempts = 0;
+    const action = runWithCurrentDatabase(async (db) => {
+      attempts += 1;
+      markActionStarted?.();
+      await actionReleased;
+      return db.withLifecycleOperationAsync((operationDb) =>
+        operationDb.getFirstAsync<{ value: number }>('select 1'),
+      );
+    });
+
+    await actionStarted;
+    const closing = closeDatabaseForLifecycle();
+    setActiveUserId('user-b');
+    releaseAction?.();
+    await Promise.resolve();
+    finishClose?.();
+    await closing;
+
+    await expect(action).rejects.toThrow(/Accountwechsel/);
+    expect(attempts).toBe(1);
   });
 
   it('blockiert ohne Session und drained eine laufende Query vor einem fail-closed Wipe', async () => {

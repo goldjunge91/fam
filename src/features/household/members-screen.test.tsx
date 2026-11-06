@@ -181,6 +181,32 @@ describe('MembersScreen', () => {
     expect(mockLeaveMutateAsync).not.toHaveBeenCalled();
   });
 
+  it('lässt den letzten Admin gehen, wenn er das letzte Haushaltsmitglied ist', async () => {
+    const user = setupUser();
+    mockMembers = mockMembers.slice(0, 1);
+    let confirm: (() => void) | undefined;
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation((_title, _message, buttons) => {
+      confirm = buttons?.find((button) => button.text === 'Verlassen')?.onPress;
+    });
+    await renderScreen();
+
+    const leaveButton = screen.getByRole('button', { name: 'Haushalt verlassen' });
+    expect(leaveButton).toBeEnabled();
+    expect(
+      screen.queryByText('Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.'),
+    ).not.toBeOnTheScreen();
+
+    await user.press(leaveButton);
+    expect(alert).toHaveBeenCalledWith('Haushalt verlassen', expect.any(String), expect.any(Array));
+    await act(async () => {
+      await confirm?.();
+    });
+
+    expect(mockLeaveMutateAsync).toHaveBeenCalledWith('hh-1');
+    expect(mockReplace).toHaveBeenCalledWith('/');
+    alert.mockRestore();
+  });
+
   it('entfernt ein anderes Mitglied nach Bestätigung', async () => {
     const user = setupUser();
     let confirm: (() => void) | undefined;

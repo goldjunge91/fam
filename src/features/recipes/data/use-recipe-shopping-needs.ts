@@ -58,13 +58,25 @@ export function useRecipeShoppingNeeds(
       const productIds = [...needs.keys()];
       const placeholders = productIds.map(() => '?').join(', ');
       const [rawStockRows, rawShoppingListRows, products] = await Promise.all([
-        db.getAllAsync<{ product_id: string; quantity: number; unit: string }>(
-          `select product_id, quantity, unit from fridge_items
+        db.getAllAsync<{
+          product_id: string;
+          quantity: number;
+          unit: string;
+          package_size?: number | null;
+          package_size_unit?: string | null;
+        }>(
+          `select product_id, quantity, unit, package_size, package_size_unit from fridge_items
            where household_id = ? and product_id is not null and deleted_at is null`,
           [householdId],
         ),
-        db.getAllAsync<{ product_id: string; quantity: number; unit: string }>(
-          `select product_id, quantity, unit from shopping_list_items
+        db.getAllAsync<{
+          product_id: string;
+          quantity: number;
+          unit: string;
+          package_size?: number | null;
+          package_size_unit?: string | null;
+        }>(
+          `select product_id, quantity, unit, package_size, package_size_unit from shopping_list_items
            where household_id = ? and product_id is not null and deleted_at is null and checked_at is null`,
           [householdId],
         ),
@@ -78,6 +90,10 @@ export function useRecipeShoppingNeeds(
       const stockRows = rawStockRows.map((row) => ({
         ...row,
         quantity: fromInventoryQuantityUnits(row.quantity),
+        package_size:
+          row.package_size === null || row.package_size === undefined
+            ? null
+            : fromInventoryQuantityUnits(row.package_size),
       }));
       const productsById = new Map(products.map((product) => [product.id, product]));
       const stock = stockInGrams(stockRows, productsById);

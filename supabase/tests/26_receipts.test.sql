@@ -3,12 +3,24 @@
 begin;
 \ir helpers.sql
 
-select plan(39);
+select plan(49);
 
-select has_table('public', 'purchase_receipts', 'Receipts haben eine eigene kanonische Tabelle');
-select has_table('public', 'purchase_receipt_items', 'Receipt-Positionen haben eine eigene kanonische Tabelle');
+select has_table('public', 'purchase_receipts', 'Receipts haben eine eigene Tabelle');
+select has_table('public', 'purchase_receipt_items', 'Receipt-Positionen haben eine eigene Tabelle');
 select has_column('public', 'purchase_receipts', 'deleted_at', 'Receipts tragen Tombstones');
 select has_column('public', 'purchase_receipt_items', 'deleted_at', 'Receipt-Positionen tragen Tombstones');
+select ok(
+  (select count(*)::int
+   from pg_attribute
+   where attrelid in (
+       'public.purchase_receipts'::regclass,
+       'public.receipt_assets'::regclass
+     )
+     and attname = 'created_by'
+     and not attisdropped
+     and not attnotnull) = 2,
+  'Bon und Bildindex behalten die Autorenschaft optional'
+);
 select ok(
   (select relrowsecurity from pg_class where oid = 'public.purchase_receipts'::regclass),
   'Receipts haben aktiviertes RLS'
@@ -101,6 +113,24 @@ select is(
   (select created_by from public.purchase_receipts where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
   '11111111-1111-1111-1111-111111111111'::uuid,
   'created_by wird auf das authentifizierte Mitglied gebunden'
+);
+select throws_ok(
+  format(
+    $$ insert into public.purchase_receipts (id, household_id, currency, created_by)
+       values ('19191919-1919-4191-8191-191919191919', %L, 'EUR', null) $$,
+    :'household_id'
+  ),
+  '42501',
+  null,
+  'ein neuer Bon braucht weiterhin den eigenen Ersteller'
+);
+select throws_ok(
+  $$ update public.purchase_receipts
+     set created_by = null
+     where id = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa' $$,
+  '42501',
+  null,
+  'ein authentifiziertes Mitglied kann die Bon-Autorenschaft nicht umschreiben'
 );
 
 insert into public.purchase_receipt_items (
@@ -347,6 +377,147 @@ select throws_ok(
   ),
   '23514', null,
   'negative Receipt-Positionen werden abgelehnt'
+);
+
+-- --------------------------- Konto loeschen, gemeinsame Belege erhalten
+select tests.as_postgres();
+select tests.create_user('44444444-4444-4444-8444-444444444444', 'hannah@example.com');
+select tests.create_user('55555555-5555-4555-8555-555555555555', 'maria@example.com');
+select tests.create_user('66666666-6666-4666-8666-666666666666', 'noah@example.com');
+
+select tests.authenticate_as('44444444-4444-4444-8444-444444444444');
+select public.create_household('Bon-Autoren-Loeschtest') as deletion_household_id \gset
+
+select tests.as_postgres();
+insert into public.household_members (household_id, user_id, role)
+values
+  (:'deletion_household_id', '55555555-5555-4555-8555-555555555555', 'member'),
+  (:'deletion_household_id', '66666666-6666-4666-8666-666666666666', 'admin');
+
+select tests.authenticate_as('44444444-4444-4444-8444-444444444444');
+insert into public.purchase_receipts (id, household_id, currency, created_by)
+values (
+  '42424242-4242-4242-8424-424242424242',
+  :'deletion_household_id',
+  'EUR',
+  '44444444-4444-4444-8444-444444444444'
+);
+insert into public.purchase_receipt_items (id, receipt_id, household_id, position, name)
+values (
+  '43434343-4343-4343-8343-434343434343',
+  '42424242-4242-4242-8424-424242424242',
+  :'deletion_household_id',
+  0,
+  'Milch Hannah'
+);
+insert into public.receipt_assets (
+  id, receipt_id, household_id, storage_path, mime_type, byte_size, sort_order, created_by
+)
+values (
+  '44444444-4444-4444-8444-444444444445',
+  '42424242-4242-4242-8424-424242424242',
+  :'deletion_household_id',
+  :'deletion_household_id' || '/42424242-4242-4242-8424-424242424242/44444444-4444-4444-8444-444444444445.jpg',
+  'image/jpeg',
+  1024,
+  0,
+  '44444444-4444-4444-8444-444444444444'
+);
+
+select lives_ok(
+  $$ select public.prepare_account_deletion() $$,
+  'die Vorbereitung der Loeschung ist unter Hannahs JWT erfolgreich'
+);
+select tests.as_postgres();
+select lives_ok(
+  $$ delete from auth.users where id = '44444444-4444-4444-8444-444444444444' $$,
+  'die Auth-Admin-Loeschung von Hannah wird nicht durch geteilte Belege blockiert'
+);
+select is(
+  (select jsonb_build_object(
+    'auth_users', (select count(*)::int from auth.users where id = '44444444-4444-4444-8444-444444444444'),
+    'receipts', (select count(*)::int from public.purchase_receipts where id = '42424242-4242-4242-8424-424242424242'),
+    'receipt_author_removed', coalesce((select created_by is null from public.purchase_receipts where id = '42424242-4242-4242-8424-424242424242'), false),
+    'items', (select count(*)::int from public.purchase_receipt_items where receipt_id = '42424242-4242-4242-8424-424242424242'),
+    'assets', (select count(*)::int from public.receipt_assets where receipt_id = '42424242-4242-4242-8424-424242424242'),
+    'asset_author_removed', coalesce((select created_by is null from public.receipt_assets where receipt_id = '42424242-4242-4242-8424-424242424242'), false)
+  )),
+  jsonb_build_object(
+    'auth_users', 0,
+    'receipts', 1,
+    'receipt_author_removed', true,
+    'items', 1,
+    'assets', 1,
+    'asset_author_removed', true
+  ),
+  'Bon, Position und Bild bleiben nach Hannahs Loeschung erhalten; beide Erstellerverweise sind entfernt'
+);
+
+-- Maria verlaesst denselben geteilten Haushalt vor der Account-Loeschung.
+select tests.authenticate_as('55555555-5555-4555-8555-555555555555');
+insert into public.purchase_receipts (id, household_id, currency, created_by)
+values (
+  '45454545-4545-4545-8545-454545454545',
+  :'deletion_household_id',
+  'EUR',
+  '55555555-5555-4555-8555-555555555555'
+);
+insert into public.purchase_receipt_items (id, receipt_id, household_id, position, name)
+values (
+  '46464646-4646-4646-8646-464646464646',
+  '45454545-4545-4545-8545-454545454545',
+  :'deletion_household_id',
+  0,
+  'Milch Maria'
+);
+insert into public.receipt_assets (
+  id, receipt_id, household_id, storage_path, mime_type, byte_size, sort_order, created_by
+)
+values (
+  '47474747-4747-4747-8747-474747474747',
+  '45454545-4545-4545-8545-454545454545',
+  :'deletion_household_id',
+  :'deletion_household_id' || '/45454545-4545-4545-8545-454545454545/47474747-4747-4747-8747-474747474747.jpg',
+  'image/jpeg',
+  2048,
+  0,
+  '55555555-5555-4555-8555-555555555555'
+);
+select lives_ok(
+  format(
+    $$ delete from public.household_members where household_id = %L and user_id = %L $$,
+    :'deletion_household_id',
+    '55555555-5555-4555-8555-555555555555'
+  ),
+  'Maria kann den Haushalt vor dem Entfernen ihres Accounts verlassen'
+);
+select lives_ok(
+  $$ select public.prepare_account_deletion() $$,
+  'die Vorbereitung der Loeschung laeuft auch nach dem Haushaltsaustritt durch'
+);
+select tests.as_postgres();
+select lives_ok(
+  $$ delete from auth.users where id = '55555555-5555-4555-8555-555555555555' $$,
+  'die Auth-Admin-Loeschung von Maria wird nicht durch den verlassenen Haushalt blockiert'
+);
+select is(
+  (select jsonb_build_object(
+    'auth_users', (select count(*)::int from auth.users where id = '55555555-5555-4555-8555-555555555555'),
+    'receipts', (select count(*)::int from public.purchase_receipts where id = '45454545-4545-4545-8545-454545454545'),
+    'receipt_author_removed', coalesce((select created_by is null from public.purchase_receipts where id = '45454545-4545-4545-8545-454545454545'), false),
+    'items', (select count(*)::int from public.purchase_receipt_items where receipt_id = '45454545-4545-4545-8545-454545454545'),
+    'assets', (select count(*)::int from public.receipt_assets where receipt_id = '45454545-4545-4545-8545-454545454545'),
+    'asset_author_removed', coalesce((select created_by is null from public.receipt_assets where receipt_id = '45454545-4545-4545-8545-454545454545'), false)
+  )),
+  jsonb_build_object(
+    'auth_users', 0,
+    'receipts', 1,
+    'receipt_author_removed', true,
+    'items', 1,
+    'assets', 1,
+    'asset_author_removed', true
+  ),
+  'Bon, Position und Bild bleiben nach Marias Haushaltsaustritt erhalten; beide Erstellerverweise sind entfernt'
 );
 
 select * from finish();

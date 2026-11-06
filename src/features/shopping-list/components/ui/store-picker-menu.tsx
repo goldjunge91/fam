@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -124,7 +124,12 @@ export function StorePickerMenu({
       </View>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={closeMenu}>
-        <Pressable style={styles.backdrop} onPress={closeMenu}>
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={styles.backdrop}
+          style={styles.backdrop}
+          onPress={closeMenu}>
           {anchor && (
             <Card
               padded={false}
@@ -188,7 +193,7 @@ export function StorePickerMenu({
               </Press>
             </Card>
           )}
-        </Pressable>
+        </Press>
       </Modal>
     </>
   );

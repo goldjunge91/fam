@@ -162,6 +162,7 @@ function parseSubscriberStatus(value: unknown): RevenueCatSubscriberStatus {
   return {
     entitlements: resolvedEntitlements,
     subscriberAttributes: parseSubscriberAttributes(subscriber.subscriber_attributes),
+    requestDateMs: value.request_date_ms,
   };
 }
 

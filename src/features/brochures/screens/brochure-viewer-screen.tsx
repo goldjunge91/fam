@@ -2,14 +2,7 @@ import PagerView from '@expo/ui/community/pager-view';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import {
-  ActivityIndicator,
-  Alert,
-  type LayoutChangeEvent,
-  Linking,
-  Pressable,
-  View,
-} from 'react-native';
+import { ActivityIndicator, Alert, type LayoutChangeEvent, Linking, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   FadeIn,
@@ -22,7 +15,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { scheduleOnRN } from 'react-native-worklets';
 import { borderWidth, colors, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { findStoreByName, useStores } from '@/features/shopping-list/hooks/use-stores';
@@ -411,7 +404,10 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
           exiting={FadeOut.duration(150)}
           style={StyleSheet.absoluteFill}
           pointerEvents="box-none">
-          <Pressable
+          <Press
+            haptic="none"
+            scaleTo={1}
+            containerStyle={StyleSheet.absoluteFill}
             accessibilityRole="button"
             accessibilityLabel="Artikeldetails schließen"
             style={[styles.backdropPressArea, { backgroundColor: colors.scrim }]}
@@ -427,7 +423,8 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               },
             ]}>
             <View style={[styles.sheetHandle, { backgroundColor: colors.border }]} />
-            <Pressable
+            <Press
+              containerStyle={styles.sheetClosePosition}
               accessibilityRole="button"
               accessibilityLabel="Artikeldetails schließen"
               style={[styles.sheetClose, { backgroundColor: colors.background }]}
@@ -435,7 +432,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               <Txt variant="glyphLarge" tone="primary">
                 ×
               </Txt>
-            </Pressable>
+            </Press>
 
             {activePageImage && activePageImage.size.width > 0 ? (
               <ProductCropPreview
@@ -478,7 +475,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   styles.stepper,
                   { borderColor: colors.border, backgroundColor: colors.background },
                 ]}>
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   accessibilityLabel="Menge verringern"
                   disabled={quantity === 1}
@@ -487,11 +484,11 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   <Txt variant="subheading" tone={quantity === 1 ? 'secondary' : 'primary'}>
                     −
                   </Txt>
-                </Pressable>
+                </Press>
                 <Txt variant="body" weight="700" style={[styles.quantity, { color: colors.text }]}>
                   {quantity}×
                 </Txt>
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   accessibilityLabel="Menge erhöhen"
                   style={styles.stepperButton}
@@ -499,12 +496,13 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   <Txt variant="subheading" tone="primary">
                     +
                   </Txt>
-                </Pressable>
+                </Press>
               </View>
-              <Pressable
+              <Press
                 accessibilityRole="button"
                 accessibilityLabel="Auf die Einkaufsliste"
                 disabled={addShoppingItem.isPending}
+                containerStyle={{ flex: 1 }}
                 style={[
                   styles.addButton,
                   {
@@ -520,39 +518,38 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                     Auf die Liste
                   </Txt>
                 )}
-              </Pressable>
+              </Press>
             </View>
           </View>
         </Animated.View>
       ) : null}
 
-      <Pressable
+      <Press
+        containerStyle={[styles.hotspotTogglePosition, { top: Math.max(insets.top, 16) }]}
         accessibilityRole="switch"
         accessibilityState={{ checked: hotspotsVisible }}
         accessibilityLabel="Artikel-Hotspots"
         style={[
           styles.hotspotToggle,
-          {
-            top: Math.max(insets.top, 16),
-            backgroundColor: hotspotsVisible ? colors.accent : withAlpha(colors.text, 0.7),
-          },
+          { backgroundColor: hotspotsVisible ? colors.accent : withAlpha(colors.text, 0.7) },
         ]}
         onPress={() => setHotspotsVisible((visible) => !visible)}>
         <Txt variant="body" tone="onAccent" weight="700">
           Artikel
         </Txt>
-      </Pressable>
-      <Pressable
+      </Press>
+      <Press
+        containerStyle={[styles.closeButtonPosition, { top: Math.max(insets.top, 16) }]}
         accessibilityRole="button"
         accessibilityLabel="Prospekt schließen"
-        style={[styles.closeButton, { top: Math.max(insets.top, 16) }]}
+        style={styles.closeButton}
         onPress={() => router.back()}>
         <View style={[styles.closeButtonFace, { backgroundColor: withAlpha(colors.text, 0.7) }]}>
           <Txt variant="body" tone="onAccent" weight="700">
             ✕
           </Txt>
         </View>
-      </Pressable>
+      </Press>
     </View>
   );
 }
@@ -565,14 +562,16 @@ const styles = StyleSheet.create({
   pageContent: { ...StyleSheet.absoluteFillObject, transformOrigin: 'top left' },
   pageImage: { position: 'absolute', inset: 0, zIndex: 0 },
   hotspotsOverlay: { position: 'absolute', zIndex: 1 },
-  hotspotToggle: {
+  hotspotTogglePosition: {
     position: 'absolute',
     left: space.lg,
+    zIndex: 10,
+  },
+  hotspotToggle: {
     minHeight: MIN_TOUCH_SIZE,
     paddingHorizontal: space.md,
     borderRadius: radius.lg,
     justifyContent: 'center',
-    zIndex: 10,
   },
   // Der sichtbare Knopf bleibt bewusst kleiner als der Trefferbereich: die
   // 44-Punkt-Flaeche traegt nur die unsichtbare Interaktionsflaeche, das
@@ -584,15 +583,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  closeButton: {
+  closeButtonPosition: {
     position: 'absolute',
     right: space.lg,
     width: MIN_TOUCH_SIZE,
     height: MIN_TOUCH_SIZE,
-    justifyContent: 'center',
-    alignItems: 'center',
     zIndex: 10,
   },
+  closeButton: { justifyContent: 'center', alignItems: 'center' },
   backdropPressArea: { flex: 1, zIndex: 90 },
   bottomSheet: {
     position: 'absolute',
@@ -633,16 +631,18 @@ const styles = StyleSheet.create({
     borderRadius: radius.s,
   },
   productCrop: { alignSelf: 'center', overflow: 'hidden', borderRadius: radius.s },
-  sheetClose: {
+  sheetClosePosition: {
     position: 'absolute',
     top: space.xl,
     right: space.xl,
     width: 52,
     height: 52,
+    zIndex: 2,
+  },
+  sheetClose: {
     borderRadius: radius.famLarge,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 2,
   },
   actionRow: { flexDirection: 'row', gap: space.md },
   stepper: {

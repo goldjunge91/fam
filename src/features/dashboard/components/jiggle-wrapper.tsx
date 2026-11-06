@@ -1,7 +1,7 @@
 import * as Haptics from 'expo-haptics';
 import { type ReactNode, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import Animated, {
   cancelAnimation,
   useAnimatedStyle,
@@ -13,7 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { dashboardCardSizes, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { motion } from '@/constants/motion';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { CardSize } from '@/features/dashboard/registry';
 
 type JiggleWrapperProps = {
@@ -79,45 +79,37 @@ export function JiggleWrapper({
       </View>
 
       {isEditing && onDelete ? (
-        <Pressable
+        <Press
+          haptic="none"
+          containerStyle={[styles.badgePosition, styles.deleteBadge]}
           accessibilityRole="button"
           accessibilityLabel={t('dashboard.edit.removeCard')}
           onPress={() => {
             triggerHaptic();
             onDelete();
           }}
-          style={[
-            styles.badge,
-            styles.deleteBadge,
-            {
-              backgroundColor: colors.danger,
-            },
-          ]}>
+          style={[styles.badge, { backgroundColor: colors.danger }]}>
           <Txt variant="subheading" tone="onDanger" weight="700">
             −
           </Txt>
-        </Pressable>
+        </Press>
       ) : null}
 
       {isEditing ? (
-        <Pressable
+        <Press
+          haptic="none"
+          containerStyle={[styles.badgePosition, styles.resizeBadge]}
           accessibilityRole="button"
           accessibilityLabel={t('dashboard.edit.toggleSize')}
           onPress={() => {
             triggerHaptic();
             onToggleSize();
           }}
-          style={[
-            styles.badge,
-            styles.resizeBadge,
-            {
-              backgroundColor: colors.accent,
-            },
-          ]}>
+          style={[styles.badge, { backgroundColor: colors.accent }]}>
           <Txt variant="body" tone="onAccent" weight="700">
             ⤢
           </Txt>
-        </Pressable>
+        </Press>
       ) : null}
     </Animated.View>
   );
@@ -142,15 +134,17 @@ const styles = StyleSheet.create({
     width: '100%',
     minHeight: dashboardCardSizes.small.height,
   },
-  badge: {
+  badgePosition: {
     position: 'absolute',
     top: -space.xs,
     width: 28,
     height: 28,
+    zIndex: 100,
+  },
+  badge: {
     borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 100,
   },
   deleteBadge: {
     left: -space.xs,

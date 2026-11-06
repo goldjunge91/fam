@@ -285,7 +285,12 @@ const translationFindings = (
       sourceFields.map(([field, value]) => `${field}:${value}`),
     );
     for (const [field, value] of outputFields) {
-      const words = value.toLowerCase().match(/[a-z]+(?:-[a-z]+)?/g) ?? [];
+      const words =
+        value
+          .replace(/\bSpend With Pennies\b/gi, " ")
+          .replace(/https?:\/\/[^\s<>"')\]]+/gi, " ")
+          .toLowerCase()
+          .match(/[a-z]+(?:-[a-z]+)?/g) ?? [];
       const residue = words.find(
         (word) => englishResidue.has(word) && !allowedLoanwords.has(word),
       );

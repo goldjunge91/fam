@@ -240,19 +240,35 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
       paths,
       activeInspection,
     });
-    await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
+    const checkedAt = new Date().toISOString();
+    await setMetaValue(db, LAST_CHECK_KEY, checkedAt);
     if (outcome.kind === 'patched' || outcome.kind === 'baseline-installed') {
-      await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
+      await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, checkedAt);
       await setMetaValue(db, LAST_ERROR_KEY, '');
       await attachOffDumpInOperation(db);
+    } else if (outcome.kind === 'manifest-unavailable') {
+      await setMetaValue(
+        db,
+        LAST_ERROR_KEY,
+        'Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).',
+      );
     } else if (outcome.kind === 'baseline-failed') {
-      await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');
+      await setMetaValue(
+        db,
+        LAST_ERROR_KEY,
+        'Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).',
+      );
+    } else if (outcome.kind === 'update-failed') {
+      await setMetaValue(db, LAST_ERROR_KEY, outcome.error);
+    } else {
+      await setMetaValue(db, LAST_ERROR_KEY, '');
     }
     offDumpTrace('UPDATE-OK', { kind: outcome.kind, updateId });
     return outcome;
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     offDumpTrace('UPDATE-FAIL', { error: message, updateId });
+    await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
     await setMetaValue(db, LAST_ERROR_KEY, message);
     return { kind: 'update-failed', error: message };
   }
@@ -300,31 +316,38 @@ export function forceRefreshOffDump(db: SerializedSqlDatabase): Promise<UpdateOu
 }
 
 async function reinstallOffDumpBaselineInOperation(db: SqlDatabase): Promise<UpdateOutcome> {
-  const manifest = await fetchManifest(MANIFEST_URL);
-  if (!manifest) {
-    throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
-  }
+  try {
+    const manifest = await fetchManifest(MANIFEST_URL);
+    if (!manifest) {
+      throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
+    }
 
-  const fileOps = createExpoFileOps(db);
-  const paths = dumpPaths();
-  const result = await installBaseline(db, fileOps, {
-    downloadUrl: manifest.baseline.url,
-    expectedChecksum: manifest.baseline.checksum,
-    expectedSchemaVersion: manifest.schemaVersion,
-    activePath: paths.activePath,
-    nextPath: paths.nextPath,
-    recoveryPath: paths.recoveryPath,
-    attachmentMode: 'sqlcipher',
-  });
-  if (!result.ok) {
-    await setMetaValue(db, LAST_ERROR_KEY, 'Baseline-Installation fehlgeschlagen.');
-    throw new Error('Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).');
-  }
+    const fileOps = createExpoFileOps(db);
+    const paths = dumpPaths();
+    const result = await installBaseline(db, fileOps, {
+      downloadUrl: manifest.baseline.url,
+      expectedChecksum: manifest.baseline.checksum,
+      expectedSchemaVersion: manifest.schemaVersion,
+      activePath: paths.activePath,
+      nextPath: paths.nextPath,
+      recoveryPath: paths.recoveryPath,
+      attachmentMode: 'sqlcipher',
+    });
+    if (!result.ok) {
+      throw new Error('Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).');
+    }
 
-  await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, new Date().toISOString());
-  await setMetaValue(db, LAST_ERROR_KEY, '');
-  await attachOffDumpInOperation(db);
-  return { kind: 'baseline-installed', dataVersion: result.dataVersion };
+    const checkedAt = new Date().toISOString();
+    await setMetaValue(db, LAST_CHECK_KEY, checkedAt);
+    await setMetaValue(db, LAST_SUCCESSFUL_UPDATE_KEY, checkedAt);
+    await setMetaValue(db, LAST_ERROR_KEY, '');
+    await attachOffDumpInOperation(db);
+    return { kind: 'baseline-installed', dataVersion: result.dataVersion };
+  } catch (error) {
+    await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
+    await setMetaValue(db, LAST_ERROR_KEY, errorMessage(error));
+    throw error;
+  }
 }
 
 export function reinstallOffDumpBaseline(db: SerializedSqlDatabase): Promise<UpdateOutcome> {
@@ -336,10 +359,23 @@ export function reinstallOffDumpBaseline(db: SerializedSqlDatabase): Promise<Upd
  * — fuer den "Integritaet pruefen"-Knopf im Entwickler-Bereich.
  */
 async function checkOffDumpIntegrityInOperation(db: SqlDatabase): Promise<boolean> {
-  const inspected =
-    (await inspectAttachedOffDump(db)) ??
-    (await createExpoFileOps(db).inspectDump(dumpPaths().activePath));
-  return inspected?.integrityOk ?? false;
+  try {
+    const inspected =
+      (await inspectAttachedOffDump(db)) ??
+      (await createExpoFileOps(db).inspectDump(dumpPaths().activePath));
+    const integrityOk = inspected?.integrityOk ?? false;
+    await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
+    await setMetaValue(
+      db,
+      LAST_ERROR_KEY,
+      integrityOk ? '' : 'Die Integritätsprüfung des Dumps ist fehlgeschlagen.',
+    );
+    return integrityOk;
+  } catch (error) {
+    await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
+    await setMetaValue(db, LAST_ERROR_KEY, errorMessage(error));
+    throw error;
+  }
 }
 
 export function checkOffDumpIntegrity(db: SerializedSqlDatabase): Promise<boolean> {

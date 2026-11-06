@@ -1,13 +1,10 @@
-import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 
 /** Provider-unabhängiger Fallback für Fehler aus dem gesamten App-Baum. */
 export function CrashFallback({ resetError }: { resetError: () => void }) {
-  const [pressed, setPressed] = useState(false);
-
   return (
     <View style={styles.container}>
       <Txt variant="subheading" weight="600" style={styles.title}>
@@ -16,17 +13,15 @@ export function CrashFallback({ resetError }: { resetError: () => void }) {
       <Txt variant="label" weight="400" center style={styles.body}>
         Die App ist auf einen unerwarteten Fehler gestossen. Der Fehler wurde erfasst.
       </Txt>
-      <Pressable
+      <Press
         onPress={resetError}
-        onPressIn={() => setPressed(true)}
-        onPressOut={() => setPressed(false)}
         accessibilityRole="button"
         accessibilityLabel="Erneut versuchen"
-        style={[styles.button, pressed && styles.buttonPressed]}>
+        style={styles.button}>
         <Txt variant="label" weight="600" tone="accent" style={styles.buttonText}>
           Erneut versuchen
         </Txt>
-      </Pressable>
+      </Press>
     </View>
   );
 }
@@ -53,7 +48,6 @@ const styles = StyleSheet.create((theme) => ({
     borderRadius: radius.sm,
     borderCurve: 'continuous',
   },
-  buttonPressed: { opacity: 0.7 },
   buttonText: {
     color: theme.accent,
     textDecorationLine: 'underline',

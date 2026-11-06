@@ -1,7 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
-import { BackHandler, Pressable, View } from 'react-native';
+import { BackHandler, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -9,7 +9,7 @@ import { FamIcon } from '@/components/icons/fam-icon';
 import { borderWidth, radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getSpeedDialOptions } from '@/constants/feature-registry';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { DEFAULT_FAB_POSITION, useFabPosition } from '@/features/navigation/fab-position-settings';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { debugLogEvent } from '@/lib/observability/debug-log';
@@ -114,7 +114,10 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
       importantForAccessibility={isOpen ? 'yes' : 'no-hide-descendants'}
       pointerEvents={isOpen ? 'auto' : 'none'}
       style={[StyleSheet.absoluteFill, styles.overlay, isOpen ? styles.visible : styles.hidden]}>
-      <Pressable
+      <Press
+        haptic="none"
+        scaleTo={1}
+        containerStyle={StyleSheet.absoluteFill}
         style={styles.backdrop}
         onPress={closeQuickAdd}
         accessibilityRole="button"
@@ -133,7 +136,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
           },
         ]}>
         {shoppingListEnabled && shoppingSttEnabled ? (
-          <Pressable
+          <Press
             key="natural-language-addition-speech"
             onPress={() => {
               debugLogEvent('shopping-list.voice-action.pressed');
@@ -161,10 +164,10 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
                 Spracheingabe
               </Txt>
             </View>
-          </Pressable>
+          </Press>
         ) : null}
         {visibleOptions.map((option) => (
-          <Pressable
+          <Press
             key={option.title}
             onPress={() => go(typeof option.href === 'function' ? option.href() : option.href)}
             accessibilityRole="button"
@@ -189,7 +192,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
                 {option.title}
               </Txt>
             </View>
-          </Pressable>
+          </Press>
         ))}
       </View>
     </View>

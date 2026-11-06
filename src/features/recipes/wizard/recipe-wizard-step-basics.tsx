@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { type Control, Controller, useWatch } from 'react-hook-form';
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
@@ -228,9 +228,8 @@ export function RecipeWizardStepBasics({
       {mode === 'details' ? (
         <>
           {/* Titelbild */}
-          <TouchableOpacity
+          <Press
             style={[styles.cover, { backgroundColor: colors.backgroundElement }]}
-            activeOpacity={0.85}
             onPress={onPickCover}>
             {coverPreviewUri ? (
               <Image
@@ -251,7 +250,7 @@ export function RecipeWizardStepBasics({
                 </Txt>
               </View>
             )}
-          </TouchableOpacity>
+          </Press>
 
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
@@ -519,7 +518,7 @@ export function RecipeWizardStepBasics({
                   />
                 </View>
                 {components.length > 1 ? (
-                  <TouchableOpacity
+                  <Press
                     style={styles.squareButton}
                     onPress={() => onRemoveComponentGroup(comp.id)}
                     accessibilityRole="button"
@@ -530,7 +529,7 @@ export function RecipeWizardStepBasics({
                         ×
                       </Txt>
                     </View>
-                  </TouchableOpacity>
+                  </Press>
                 ) : null}
               </View>
 
@@ -560,7 +559,7 @@ export function RecipeWizardStepBasics({
                         onChange={(unit) => onUpdateUnit(comp.id, item.id, unit)}
                       />
                     </View>
-                    <TouchableOpacity
+                    <Press
                       style={styles.squareButton}
                       onPress={() => onRemoveIngredient(comp.id, item.id)}
                       accessibilityRole="button"
@@ -580,7 +579,7 @@ export function RecipeWizardStepBasics({
                           />
                         </Svg>
                       </View>
-                    </TouchableOpacity>
+                    </Press>
                   </View>
                   {item.notConvertible ? (
                     <Txt variant="caption" tone="danger">
@@ -591,13 +590,11 @@ export function RecipeWizardStepBasics({
                 </View>
               ))}
 
-              <TouchableOpacity
-                style={styles.addIngredient}
-                onPress={() => onAddIngredient(comp.id)}>
+              <Press style={styles.addIngredient} onPress={() => onAddIngredient(comp.id)}>
                 <Txt variant="caption" tone="primary" weight="600">
                   + Zutat hinzufügen
                 </Txt>
-              </TouchableOpacity>
+              </Press>
             </View>
           ))}
 

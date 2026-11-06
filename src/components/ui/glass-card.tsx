@@ -109,6 +109,7 @@ export function GlassCard({
   styles.useVariants({ shape });
   if (!canUseGlass) {
     return (
+      // Native interaction exception: keep Pressable at the GlassView boundary.
       <Pressable
         onPress={onPress}
         onLongPress={onLongPress}

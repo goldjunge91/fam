@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, withAlpha } from '@/components/theme/index';
@@ -126,8 +126,11 @@ export function WasteInventoryItemSheet({
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
-        {/* The scrim stays a native Pressable so dismissal has no button haptics or scale. */}
-        <Pressable
+        {/* Keep the shared press feedback neutral for a full-screen dismissal target. */}
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={StyleSheet.absoluteFill}
           style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"

@@ -46,3 +46,10 @@ Alle folgenden Quellen wurden am **25. Oktober 2026** abgerufen. Apple ist für 
 ## Freigabegrenze
 
 Vor Einreichung bestätigt Marco die echten Anbieterangaben, Produktionsdomain und Support-Adresse, vervollständigt die Datenverarbeitungsangaben anhand des produktiven Betriebs und prüft die URLs öffentlich. Danach werden Website, In-App-Datenschutz und App-Store-Datenschutzantworten mit dem tatsächlich eingereichten Build abgeglichen. Dieser Bericht bescheinigt keine Freigabe des gesamten iOS-Releases.
+
+## Nachprüfung am 5. November 2026
+
+- Ein HTTPS-Aufruf von `https://scrappy-app.de/` aus der aktuellen Arbeitsumgebung scheiterte bei der DNS-Auflösung (`Could not resolve host`). Damit ist die öffentliche Erreichbarkeit hier nicht belegt; der Befund beweist für sich allein keinen globalen DNS-Ausfall. Es wurde weder deployt noch eine E-Mail versendet.
+- Der Quelltext bestätigt, dass PostHog bei aktiver Konfiguration Konto-ID und E-Mail erhält (`src/features/app-shell/posthog-identity-sync.tsx`) und Sentry `sendDefaultPii: true` verwendet (`src/lib/observability/providers/sentry.ts`). Session Replay ist im Client deaktiviert. Welche produktiven SDK-Schlüssel aktiv sind und welche tatsächlichen Aufbewahrungsfristen, Hostingregionen, Verträge und Drittlandgarantien gelten, lässt sich daraus nicht ableiten.
+- Die statischen HTML-Seiten enthalten keine clientseitigen Skripte oder externen Schriftarten. Das klärt nicht, ob Cloudflare-seitige Web Analytics, Zugriffsprotokolle oder weitere Speicherfristen aktiviert sind.
+- Anbietername und ladungsfähige Anschrift, USt-ID oder Bestätigung, dass keine zugeteilt wurde, bestätigte Produktionsdomain, betreute Support-Adresse sowie die fehlenden Angaben zu Dienstleisterverträgen und Aufbewahrungsfristen bleiben Betreiber-Nachweise. Bis diese vorliegen, bleiben Impressum und Datenschutz zur Veröffentlichung gesperrt.

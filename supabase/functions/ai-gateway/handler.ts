@@ -79,6 +79,16 @@ type AuthResult =
   | { ok: true; userId: string; authorization: string }
   | { ok: false; status: number; error: string; message?: string };
 
+export type GatewayCreditAction = 'suggestion' | 'recipe';
+
+type EntitlementResult =
+  | { ok: true; subscriberUserId: string }
+  | { ok: false; status: number; error: string; message?: string };
+
+type CreditResult =
+  | { ok: true }
+  | { ok: false; status: number; error: string; message?: string };
+
 type ContextResult =
   | { ok: true; context: GatewayCookingContext }
   | { ok: false; status: number; error: string; message?: string };
@@ -94,6 +104,17 @@ type Dependencies = {
     householdId: string,
     authorization: string,
   ) => Promise<AuthResult>;
+  authorizeAiEntitlement: (
+    householdId: string,
+    authorization: string,
+  ) => Promise<EntitlementResult>;
+  bookAiCredit: (input: {
+    householdId: string;
+    subscriberUserId: string;
+    action: GatewayCreditAction;
+    requestId: string;
+  }) => Promise<CreditResult>;
+  refundAiCredit: (subscriberUserId: string, requestId: string) => Promise<void>;
   loadCookingContext: (
     userId: string,
     householdId: string,
@@ -210,6 +231,10 @@ function modelFor(
 ): string | null {
   const model = requestedModel ?? defaultModel;
   return allowedModels.includes(model) ? model : null;
+}
+
+function creditActionFor(request: GatewayRequest): GatewayCreditAction {
+  return request.skill === 'fam-inventory-capture' ? 'suggestion' : 'recipe';
 }
 
 function buildSystemPrompt(
@@ -523,6 +548,17 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     }
     dependencies.recordRateLimitAttempt?.();
 
+    const entitlement = await dependencies.authorizeAiEntitlement(
+      parsedRequest.householdId,
+      auth.authorization,
+    );
+    if (!entitlement.ok) {
+      return json({
+        error: entitlement.error,
+        ...(entitlement.message ? { message: entitlement.message } : {}),
+      }, entitlement.status);
+    }
+
     const contextResult = parsedRequest.skill === 'fam-cook-from-inventory'
       ? await dependencies.loadCookingContext(
         auth.userId,
@@ -555,36 +591,72 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       : contextResult.context;
     if (preparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
 
-    const provider = await dependencies.complete({
-      model,
-      messages: [
-        {
-          role: 'system',
-          content: buildSystemPrompt(parsedRequest, preparedContext),
-        },
-        { role: 'user', content: buildUserPrompt(parsedRequest) },
-      ],
+    const currentRequestId = requestId();
+    const booking = await dependencies.bookAiCredit({
+      householdId: parsedRequest.householdId,
+      subscriberUserId: entitlement.subscriberUserId,
+      action: creditActionFor(parsedRequest),
+      requestId: currentRequestId,
     });
-    if (!provider.ok) {
+    if (!booking.ok) {
       return json({
+        error: booking.error,
+        ...(booking.message ? { message: booking.message } : {}),
+      }, booking.status);
+    }
+
+    const refundAndRespond = async (body: unknown, status: number) => {
+      try {
+        await dependencies.refundAiCredit(entitlement.subscriberUserId, currentRequestId);
+      } catch (error) {
+        return json({
+          error: 'credit_refund_failed',
+          requestId: currentRequestId,
+          message: error instanceof Error ? error.message : String(error),
+        }, 500);
+      }
+      return json(body, status);
+    };
+
+    let provider: ProviderResult;
+    try {
+      provider = await dependencies.complete({
+        model,
+        messages: [
+          {
+            role: 'system',
+            content: buildSystemPrompt(parsedRequest, preparedContext),
+          },
+          { role: 'user', content: buildUserPrompt(parsedRequest) },
+        ],
+      });
+    } catch {
+      return await refundAndRespond({ error: 'provider_unavailable' }, 502);
+    }
+    if (!provider.ok) {
+      return await refundAndRespond({
         error: provider.error,
         ...(provider.message ? { message: provider.message } : {}),
       }, provider.status);
     }
     if (provider.model !== model || !allowedModels.includes(provider.model)) {
-      return json({ error: 'provider_model_mismatch' }, 502);
+      return await refundAndRespond({ error: 'provider_model_mismatch' }, 502);
     }
 
     const parsedResult = parseProviderJson(provider.content);
-    if (!parsedResult) return json({ error: 'provider_invalid_json' }, 502);
+    if (!parsedResult) {
+      return await refundAndRespond({ error: 'provider_invalid_json' }, 502);
+    }
 
     const validationError = parsedRequest.skill === 'fam-inventory-capture'
       ? validateCaptureResult(parsedResult, parsedRequest)
       : validateCookingResult(parsedResult, preparedContext, parsedRequest);
-    if (validationError) return json({ error: validationError }, 502);
+    if (validationError) {
+      return await refundAndRespond({ error: validationError }, 502);
+    }
 
     return json({
-      requestId: requestId(),
+      requestId: currentRequestId,
       skill: parsedRequest.skill,
       model: provider.model,
       result: parsedResult,

@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Card, IconButton, Press, Row, Txt } from '@/constants/ui';
+import { Button, Card, IconButton, MIN_TOUCH_SIZE, Press, Row, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import type { FridgeItemConflict } from '@/lib/db/outbox-conflicts';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
@@ -74,6 +74,8 @@ const androidStyles = StyleSheet.create((theme) => ({
   },
   headerCopy: {
     flex: 1,
+    minWidth: 0,
+    flexShrink: 1,
     gap: theme.space.xs,
   },
   stateSummary: {
@@ -351,7 +353,13 @@ export function InventoryItemGroupSheet({
 
           <View style={androidStyles.header}>
             <View style={androidStyles.headerCopy}>
-              <Txt variant="title">{displayGroup.name}</Txt>
+              <Txt
+                variant="title"
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                accessibilityLabel={displayGroup.name}>
+                {displayGroup.name}
+              </Txt>
               <Txt variant="caption" tone="secondary">
                 {formatAmount(displayGroup.quantity, displayGroup.unit)} gesamt ·{' '}
                 {displayGroup.lots.length} MHD-
@@ -573,9 +581,16 @@ function IosInventoryItemGroupView({
             <View style={styles.headerSide}>
               <BackButton label="Vorrat" variant="header" onPress={onClose} />
             </View>
-            <Txt variant="heading" center>
-              {group.name}
-            </Txt>
+            <View style={styles.headerTitle}>
+              <Txt
+                variant="heading"
+                center
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                accessibilityLabel={group.name}>
+                {group.name}
+              </Txt>
+            </View>
             <View style={[styles.headerSide, styles.headerRight]}>
               {/* Schließen-Button im Sheet beim ersten Klick auf ein Lebensmittel. */}
               <IconButton
@@ -749,6 +764,7 @@ function IosStateCard({
         accessibilityRole="button"
         accessibilityLabel={`${label} ${formatAmount(amount, unit)} anzeigen`}
         accessibilityState={{ disabled }}
+        containerStyle={{ flex: 1 }}
         style={[styles.stateCardMain, disabled && styles.disabledStateCard]}>
         <Txt variant="label" tone="secondary" weight="700">
           {label}
@@ -875,7 +891,14 @@ const groupStyles = StyleSheet.create((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  headerSide: { flex: 1, minWidth: 42, alignItems: 'flex-start' },
+  headerSide: {
+    flex: 1,
+    minWidth: MIN_TOUCH_SIZE,
+    minHeight: MIN_TOUCH_SIZE,
+    flexShrink: 0,
+    alignItems: 'flex-start',
+  },
+  headerTitle: { flex: 1, minWidth: 0, flexShrink: 1 },
   headerRight: { alignItems: 'flex-end' },
   scroll: { flex: 1 },
   content: { paddingHorizontal: space.lg, paddingBottom: space.xxxl },

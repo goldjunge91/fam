@@ -1,13 +1,13 @@
 import { FlashList } from '@shopify/flash-list';
 import { useEffect } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { BackButton } from '@/components/layout/back-button';
 import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, IconButton, Txt } from '@/constants/ui';
+import { Button, IconButton, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/format/package-size';
 
@@ -446,7 +446,7 @@ export function InventoryHistorySheet({
       onRequestClose={onBack ?? onClose}>
       <View style={StyleSheet.absoluteFill}>
         {!fullScreen ? (
-          <Pressable
+          <Press
             style={styles.backdrop}
             onPress={onClose}
             accessibilityRole="button"
@@ -582,7 +582,7 @@ function HistoryTransactionRow({
           {formatAmount(transaction.quantity, transaction.item_unit ?? '')}
         </Txt>
         {undoAvailable && onUndo ? (
-          <Pressable
+          <Press
             disabled={undoPending}
             onPress={() => onUndo(transaction)}
             accessibilityRole="button"
@@ -591,7 +591,7 @@ function HistoryTransactionRow({
             <Txt variant="caption" color={colors.accent} weight="700">
               Rückgängig
             </Txt>
-          </Pressable>
+          </Press>
         ) : null}
       </View>
     </View>

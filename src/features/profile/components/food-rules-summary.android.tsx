@@ -1,6 +1,6 @@
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 
-import { Card, Txt } from '@/constants/ui';
+import { Card, Press, Txt } from '@/constants/ui';
 import {
   ALLERGY_PRESETS,
   type FoodSelection,
@@ -43,7 +43,7 @@ function SummaryRow({
   onPress: () => void;
 }) {
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${label} bearbeiten. ${summary}`}
@@ -63,7 +63,7 @@ function SummaryRow({
           ›
         </Txt>
       </View>
-    </Pressable>
+    </Press>
   );
 }
 

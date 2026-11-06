@@ -18,8 +18,14 @@ describe('modal comparison content', () => {
     );
 
     const input = screen.getByLabelText('Artikel hinzufügen');
+    expect(input).toHaveProp('multiline', true);
+    expect(input).toHaveProp('numberOfLines', 3);
     expect(screen.getByRole('button', { name: 'Artikel prüfen' })).toBeDisabled();
-    await fireEvent.changeText(input, '3 Äpfel und Brot');
+    const longInput =
+      '3 Äpfel, Skyr von JA, Vollkornbrot und Hafermilch, dazu noch mehrere andere Artikel.\n'.repeat(
+        4,
+      );
+    await fireEvent.changeText(input, longInput);
     expect(screen.getByRole('button', { name: 'Artikel prüfen' })).toBeEnabled();
 
     await user.press(screen.getByRole('button', { name: 'Artikel prüfen' }));

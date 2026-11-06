@@ -1,11 +1,11 @@
 import { router } from 'expo-router';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { FamIcon, type FamIconName } from '@/components/icons/fam-icon';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { useProfile } from '@/features/profile/api';
@@ -43,7 +43,10 @@ function ProfileSheetContent() {
   return (
     <Modal visible={isProfileOpen} transparent animationType="slide" onRequestClose={closeProfile}>
       <View style={StyleSheet.absoluteFill}>
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={StyleSheet.absoluteFill}
           style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }]}
           onPress={closeProfile}
           accessibilityRole="button"
@@ -57,14 +60,14 @@ function ProfileSheetContent() {
               bottom: Math.max(insets.bottom / 2, 16),
             },
           ]}>
-          <Pressable
+          <Press
             onPress={closeProfile}
             accessibilityRole="button"
             accessibilityLabel="Profil schließen"
             hitSlop={12}
             style={styles.handleArea}>
             <View style={[styles.handle, { backgroundColor: colors.border }]} />
-          </Pressable>
+          </Press>
 
           <View style={[styles.profileCard, { borderBottomColor: colors.border }]}>
             <View style={[styles.avatar, { backgroundColor: colors.accent }]}>
@@ -137,7 +140,7 @@ function ProfileRow({
   isLast?: boolean;
 }) {
   return (
-    <Pressable
+    <Press
       onPress={onPress}
       accessibilityRole="button"
       style={[
@@ -158,7 +161,7 @@ function ProfileRow({
       <Txt variant="subheading" tone="secondary">
         ›
       </Txt>
-    </Pressable>
+    </Press>
   );
 }
 

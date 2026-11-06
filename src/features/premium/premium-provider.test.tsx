@@ -3,7 +3,11 @@ import type React from 'react';
 import { StrictMode } from 'react';
 import Purchases, { type CustomerInfo } from 'react-native-purchases';
 
-import { PremiumProvider, usePremium } from '@/features/premium/premium-provider';
+import {
+  isHouseholdEntitlementActive,
+  PremiumProvider,
+  usePremium,
+} from '@/features/premium/premium-provider';
 import {
   hasPlusEntitlement,
   isPurchasesConfigured,
@@ -12,7 +16,13 @@ import {
   syncPurchasesIdentity,
 } from '@/lib/backend/revenuecat';
 
-let mockActiveHousehold: { id: string; plus_active: boolean; ai_active?: boolean } | null = null;
+let mockActiveHousehold: {
+  id: string;
+  plus_active: boolean;
+  plus_expires_at?: string | null;
+  ai_active?: boolean;
+  ai_expires_at?: string | null;
+} | null = null;
 let mockSession: { user: { id: string; email?: string } } | null = null;
 let mockCustomerInfoListener: ((info: CustomerInfo) => void) | null = null;
 
@@ -59,6 +69,32 @@ describe('PremiumProvider', () => {
   function wrapper({ children }: { children: React.ReactNode }) {
     return <PremiumProvider>{children}</PremiumProvider>;
   }
+
+  it('bounds Plus and AI independently by expiry plus the 24-hour offline allowance', () => {
+    const now = Date.parse('2026-11-05T12:00:00.000Z');
+    const recentlyExpired = '2026-11-04T12:00:01.000Z';
+    const beyondOfflineWindow = '2026-11-04T11:59:59.000Z';
+
+    expect(isHouseholdEntitlementActive(true, recentlyExpired, now)).toBe(true);
+    expect(isHouseholdEntitlementActive(true, beyondOfflineWindow, now)).toBe(false);
+    expect(isHouseholdEntitlementActive(false, null, now)).toBe(false);
+    expect(isHouseholdEntitlementActive(true, null, now)).toBe(true);
+  });
+
+  it('keeps an active Plus projection separate from an expired AI projection', async () => {
+    mockActiveHousehold = {
+      id: 'hh-1',
+      plus_active: true,
+      plus_expires_at: '2099-01-01T00:00:00.000Z',
+      ai_active: true,
+      ai_expires_at: '2020-01-01T00:00:00.000Z',
+    };
+
+    const { result } = await renderHook(() => usePremium(), { wrapper });
+
+    expect(result.current.hasPlus).toBe(true);
+    expect(result.current.hasAI).toBe(false);
+  });
 
   beforeEach(() => {
     jest.resetAllMocks();

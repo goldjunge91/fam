@@ -12,7 +12,6 @@ import {
   ActivityIndicator,
   Image,
   Keyboard,
-  Pressable,
   ScrollView,
   type StyleProp,
   type TextStyle,
@@ -493,7 +492,7 @@ export const ProductSearchDropdown = forwardRef<
             </View>
           )}
           {}
-          <Pressable
+          <Press
             testID="product-search-dropdown-dismiss-area"
             style={styles.flex}
             accessible={false}

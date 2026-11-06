@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Dimensions, Modal, Platform, Pressable, View } from 'react-native';
+import { Dimensions, Modal, Platform, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -263,7 +263,7 @@ export function EditInventoryItemSheet({
       presentationStyle={Platform.OS === 'ios' ? 'overFullScreen' : undefined}
       onRequestClose={onClose}>
       <View style={[StyleSheet.absoluteFill, styles.modalRoot]}>
-        <Pressable
+        <Press
           style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"

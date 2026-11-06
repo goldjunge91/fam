@@ -60,7 +60,7 @@ create index if not exists household_members_user_id_idx
 create index if not exists households_created_by_idx
   on public.households (created_by);
 
--- Die kanonische AI-Zuordnung lebt pro RevenueCat-Subscriber genau einmal.
+-- Die verbindliche AI-Zuordnung lebt pro RevenueCat-Subscriber genau einmal.
 -- Inaktive Zeilen bleiben als Reihenfolge-/Cooldown-Tombstone erhalten; nur
 -- aktive Zuordnungen muessen pro Haushalt eindeutig sein. `households.ai_*`
 -- ist nur die gemeinsam lesbare Projektion fuer Mitglieder.
@@ -99,7 +99,7 @@ create table if not exists public.revenuecat_processed_events (
   primary key (event_id, entitlement_id)
 );
 
--- Kanonische Kaeufer-zu-Haushalt-Zuordnung fuer Plus, pro Subscriber. Kein
+-- Verbindliche Kaeufer-zu-Haushalt-Zuordnung fuer Plus, pro Subscriber. Kein
 -- unique(household_id): mehrere Accounts koennen Plus fuer denselben Haushalt halten.
 create table if not exists public.revenuecat_plus_assignments (
   subscriber_user_id uuid primary key references public.profiles (id) on delete cascade,
@@ -473,7 +473,7 @@ begin
 end;
 $$;
 
--- Wendet ein Plus-Event kanonisch auf den Kaufhaushalt des Subscribers an.
+-- Wendet ein Plus-Event auf den Kaufhaushalt des Subscribers an.
 -- `p_household_id` bindet nur beim allerersten Event; danach bleibt sie stabil.
 create or replace function public.apply_plus_household_event(
   p_subscriber_user_id uuid,
@@ -553,7 +553,7 @@ $$;
 -- uebertragen, aber nicht zurueckgesetzt" wird. Ein an household_id
 -- gebundener Ledger wuerde dem neuen Haushalt faelschlich volle 100 Credits
 -- geben, obwohl derselbe Subscriber im selben Monat schon Credits verbraucht
--- hat. `revenuecat_ai_assignments` ist bereits die kanonische, haushalts-
+-- hat. `revenuecat_ai_assignments` ist bereits die maßgebliche, haushalts-
 -- unabhaengige Subscriber-Identitaet — der Ledger nutzt dieselbe.
 --
 -- Buchungen sind ein Append-only-Ledger statt eines einzelnen Zaehlerfelds:
@@ -575,6 +575,19 @@ create table if not exists public.ai_credit_bookings (
 create index if not exists ai_credit_bookings_subscriber_created_idx
   on public.ai_credit_bookings (subscriber_user_id, created_at);
 
+-- Successful provider requests keep their original booking. A separate,
+-- append-only refund row lets failed requests restore the monthly balance
+-- without rewriting the booking history.
+create table if not exists public.ai_credit_refunds (
+  subscriber_user_id uuid not null,
+  request_id uuid not null,
+  created_at timestamptz not null default now(),
+  primary key (subscriber_user_id, request_id),
+  foreign key (subscriber_user_id, request_id)
+    references public.ai_credit_bookings (subscriber_user_id, request_id)
+    on delete cascade
+);
+
 -- Summiert den Verbrauch des laufenden UTC-Kalendermonats. Eigene Funktion
 -- statt Inline-Subquery, damit Buchung und reine Statusabfrage exakt dieselbe
 -- Monatsgrenze verwenden.
@@ -585,13 +598,16 @@ security invoker
 stable
 set search_path = ''
 as $$
-  select coalesce(sum(credits), 0)::integer
-  from public.ai_credit_bookings
-  where subscriber_user_id = p_subscriber_user_id
-    and created_at >= (date_trunc('month', (now() at time zone 'UTC')) at time zone 'UTC');
+  select coalesce(sum(booking.credits) filter (where refund.request_id is null), 0)::integer
+  from public.ai_credit_bookings as booking
+  left join public.ai_credit_refunds as refund
+    on refund.subscriber_user_id = booking.subscriber_user_id
+    and refund.request_id = booking.request_id
+  where booking.subscriber_user_id = p_subscriber_user_id
+    and booking.created_at >= (date_trunc('month', (now() at time zone 'UTC')) at time zone 'UTC');
 $$;
 
--- Loest den fuer einen Haushalt kanonisch zugeordneten AI-Subscriber auf.
+-- Loest den fuer einen Haushalt verbindlich zugeordneten AI-Subscriber auf.
 -- Beide oeffentlichen Funktionen nehmen bewusst `p_household_id` entgegen
 -- (das kennt die aufrufende AI-Funktion aus dem aktiven Haushalt des
 -- Nutzers), buchen intern aber gegen den Subscriber, damit das Kontingent
@@ -617,11 +633,14 @@ $$;
 -- Ueberschreitet die Buchung das Kontingent, schlaegt sie vollstaendig fehl
 -- (kein Teilverbrauch) — Plus bleibt davon unberuehrt, diese Funktion
 -- schreibt ausschliesslich in ai_credit_bookings.
+drop function if exists public.book_ai_credit(uuid, text, uuid, integer);
+
 create or replace function public.book_ai_credit(
   p_household_id uuid,
   p_action text,
   p_request_id uuid,
-  p_monthly_limit integer default 100
+  p_monthly_limit integer default 100,
+  p_expected_subscriber_user_id uuid default null
 )
 returns table (
   credits_used integer,
@@ -638,13 +657,31 @@ declare
   v_subscriber_user_id uuid;
   v_weight smallint;
   v_existing smallint;
+  v_refunded boolean;
   v_usage integer;
 begin
-  v_subscriber_user_id := private.ai_credit_subscriber_for_household(p_household_id);
+  -- Lock the subscriber assignment before reading the monthly total. Every
+  -- booking for one subscriber then shares this row lock through commit, so a
+  -- concurrent SUM-and-INSERT cannot admit more than the remaining balance.
+  select assignment.subscriber_user_id
+  into v_subscriber_user_id
+  from public.revenuecat_ai_assignments as assignment
+  where assignment.household_id = p_household_id
+    and assignment.active
+  for update of assignment;
+
   if v_subscriber_user_id is null then
     raise exception using
       errcode = '42501',
       message = 'ai_household_not_assigned';
+  end if;
+
+  if p_expected_subscriber_user_id is not null
+    and v_subscriber_user_id <> p_expected_subscriber_user_id
+  then
+    raise exception using
+      errcode = '40001',
+      message = 'ai_subscriber_changed';
   end if;
 
   v_weight := case p_action
@@ -657,7 +694,14 @@ begin
     raise exception using errcode = '22023', message = 'ai_credit_invalid_action';
   end if;
 
-  select b.credits into v_existing
+  select b.credits,
+    exists (
+      select 1
+      from public.ai_credit_refunds as refund
+      where refund.subscriber_user_id = b.subscriber_user_id
+        and refund.request_id = b.request_id
+    )
+  into v_existing, v_refunded
   from public.ai_credit_bookings as b
   where b.subscriber_user_id = v_subscriber_user_id and b.request_id = p_request_id;
 
@@ -672,6 +716,11 @@ begin
 
     v_usage := v_usage + v_weight;
   else
+    if v_refunded then
+      raise exception using
+        errcode = '22023',
+        message = 'ai_credit_request_refunded';
+    end if;
     v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
   end if;
 
@@ -681,6 +730,47 @@ begin
     p_monthly_limit,
     v_usage >= ceil(p_monthly_limit * 0.8),
     v_usage >= p_monthly_limit;
+end;
+$$;
+
+-- Refund a completed booking exactly once after the provider produced no
+-- usable result. The service-role gateway is the only caller.
+create or replace function public.refund_ai_credit(
+  p_subscriber_user_id uuid,
+  p_request_id uuid
+)
+returns boolean
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  v_credits smallint;
+begin
+  -- Booking and refund operations take the same subscriber lock. This keeps
+  -- an idempotent retry from passing between the booking and refund writes.
+  perform 1
+  from public.revenuecat_ai_assignments as assignment
+  where assignment.subscriber_user_id = p_subscriber_user_id
+  for update of assignment;
+
+  select booking.credits
+  into v_credits
+  from public.ai_credit_bookings as booking
+  where booking.subscriber_user_id = p_subscriber_user_id
+    and booking.request_id = p_request_id;
+
+  if v_credits is null then
+    raise exception using
+      errcode = 'P0002',
+      message = 'ai_credit_booking_not_found';
+  end if;
+
+  insert into public.ai_credit_refunds (subscriber_user_id, request_id)
+  values (p_subscriber_user_id, p_request_id)
+  on conflict (subscriber_user_id, request_id) do nothing;
+
+  return found;
 end;
 $$;
 
@@ -877,6 +967,12 @@ alter table public.revenuecat_ai_assignments enable row level security;
 alter table public.revenuecat_plus_assignments enable row level security;
 alter table public.revenuecat_processed_events enable row level security;
 alter table public.ai_credit_bookings enable row level security;
+alter table public.ai_credit_refunds enable row level security;
+
+create policy ai_credit_refunds_service_role_all on public.ai_credit_refunds
+  for all to service_role
+  using (true)
+  with check (true);
 
 -- households: sichtbar fuer Mitglieder, aenderbar nur durch Admins.
 -- Kein INSERT: Haushalte entstehen ausschliesslich ueber create_household().

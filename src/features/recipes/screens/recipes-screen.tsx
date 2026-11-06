@@ -18,7 +18,7 @@ import { rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { MenuButton } from '@/components/ui/menu-button';
-import { inputTextStyles, Press, SectionHeading, Txt } from '@/constants/ui';
+import { inputTextStyles, SectionHeading, SegmentedControl, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -231,24 +231,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: 0,
   },
   tabRow: {
-    flexDirection: 'row',
-    gap: theme.space.sm,
     marginBottom: theme.space.xl,
-  },
-  tabContainer: {
-    flex: 1,
-  },
-  tab: {
-    width: '100%',
-    height: theme.controlSizes.touchTarget,
-    borderRadius: theme.radius.sm,
-    borderWidth: theme.borderWidth.base,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tabLabel: {
-    flexShrink: 1,
-    textAlign: 'center',
   },
   headerActions: {
     flexDirection: 'row',
@@ -586,72 +569,17 @@ export function RecipesScreen() {
       {/* Tab-Leiste (Entdecken vs. Eigene Rezepte vs. Meine Favoriten) */}
       {view === 'discover' || view === 'favorites' || view === 'household' ? (
         <View style={styles.tabRow}>
-          <Press
-            onPress={() => setView('discover')}
-            accessibilityRole="button"
-            accessibilityLabel="Entdecken"
-            accessibilityState={{ selected: view === 'discover' }}
-            containerStyle={styles.tabContainer}
-            style={[
-              styles.tab,
-              {
-                backgroundColor: view === 'discover' ? colors.accent : colors.backgroundSoft,
-                borderColor: view === 'discover' ? colors.accent : colors.border,
-              },
-            ]}>
-            <Txt
-              variant="label"
-              tone={view === 'discover' ? 'onAccent' : 'secondary'}
-              weight="700"
-              numberOfLines={2}
-              style={styles.tabLabel}>
-              Entdecken
-            </Txt>
-          </Press>
-          <Press
-            onPress={() => setView('household')}
-            accessibilityRole="button"
-            accessibilityLabel="Eigene Rezepte"
-            accessibilityState={{ selected: view === 'household' }}
-            containerStyle={styles.tabContainer}
-            style={[
-              styles.tab,
-              {
-                backgroundColor: view === 'household' ? colors.accent : colors.backgroundSoft,
-                borderColor: view === 'household' ? colors.accent : colors.border,
-              },
-            ]}>
-            <Txt
-              variant="label"
-              tone={view === 'household' ? 'onAccent' : 'secondary'}
-              weight="700"
-              numberOfLines={2}
-              style={styles.tabLabel}>
-              Eigene Rezepte
-            </Txt>
-          </Press>
-          <Press
-            onPress={() => setView('favorites')}
-            accessibilityRole="button"
-            accessibilityLabel="Meine Favoriten"
-            accessibilityState={{ selected: view === 'favorites' }}
-            containerStyle={styles.tabContainer}
-            style={[
-              styles.tab,
-              {
-                backgroundColor: view === 'favorites' ? colors.accent : colors.backgroundSoft,
-                borderColor: view === 'favorites' ? colors.accent : colors.border,
-              },
-            ]}>
-            <Txt
-              variant="label"
-              tone={view === 'favorites' ? 'onAccent' : 'secondary'}
-              weight="700"
-              numberOfLines={2}
-              style={styles.tabLabel}>
-              Meine Favoriten
-            </Txt>
-          </Press>
+          <SegmentedControl
+            label="Rezeptansicht"
+            selectionRole="tab"
+            options={[
+              { value: 'discover', label: 'Entdecken' },
+              { value: 'household', label: 'Eigene Rezepte' },
+              { value: 'favorites', label: 'Meine Favoriten' },
+            ]}
+            selected={view}
+            onSelect={setView}
+          />
         </View>
       ) : null}
     </>

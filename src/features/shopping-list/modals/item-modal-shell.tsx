@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import {
   Keyboard,
   Modal,
-  Pressable,
   type ScrollViewProps,
   type StyleProp,
   View,
@@ -13,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { radius } from '@/components/theme/index';
-import { Surface } from '@/constants/ui';
+import { Press, Surface } from '@/constants/ui';
 
 type ItemModalShellProps = {
   visible: boolean;
@@ -80,13 +79,15 @@ export function ItemModalShell({
     <Surface style={[styles.root, rootStyle]}>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {}
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
           onPress={onHeaderPress ?? (() => Keyboard.dismiss())}
           accessible={false}
           style={styles.headerPressable}>
           {showHandle ? <View style={styles.handle} /> : null}
           {header}
-        </Pressable>
+        </Press>
 
         <KeyboardAwareScrollView
           style={styles.flex}

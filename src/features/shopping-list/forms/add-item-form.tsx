@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Keyboard, Pressable, View } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
@@ -592,7 +592,12 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
       </View>
 
       {}
-      <Pressable style={shoppingStyles.form} onPress={dismissKeyboard} accessible={false}>
+      <Press
+        haptic="none"
+        scaleTo={1}
+        style={shoppingStyles.form}
+        onPress={dismissKeyboard}
+        accessible={false}>
         {nameError ? (
           <Txt variant="body" tone="danger" weight="500">
             {nameError}
@@ -780,7 +785,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
           looking={barcodeLookup.looking}
           errorMessage={barcodeLookup.errorMessage}
         />
-      </Pressable>
+      </Press>
     </View>
   );
 });

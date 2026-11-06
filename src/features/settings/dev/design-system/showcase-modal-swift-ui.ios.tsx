@@ -45,7 +45,7 @@ export function SwiftUIBottomSheetDemo() {
           onDismiss={dismiss}>
           <Group
             modifiers={[
-              frame({ maxWidth: Infinity, alignment: 'topLeading' }),
+              frame({ maxWidth: Infinity, maxHeight: Infinity, alignment: 'topLeading' }),
               presentationDetents([{ fraction: 0.5 }, { fraction: 0.9 }]),
               presentationDragIndicator('visible'),
               presentationBackground(colors.backgroundElement),

@@ -25,12 +25,10 @@ export function isInviteExpired(expiresAt: string | Date, now: Date = new Date()
   return expiryTime <= now.getTime();
 }
 
-/**
- * Prüft, ob ein Admin den Haushalt verlassen kann (nur gestattet, wenn mindestens 1 weiterer Admin existiert).
- */
+/** A sole admin may leave only when they are also the household's last member. */
 export function canAdminLeaveHousehold(members: Array<{ role: string }>): boolean {
   const adminCount = members.filter((m) => m.role === 'admin').length;
-  return adminCount > 1;
+  return adminCount > 1 || (adminCount === 1 && members.length === 1);
 }
 
 /**

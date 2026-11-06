@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { formatEuro } from '@/lib/format/format-currency';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 
@@ -35,7 +35,7 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
 
   return (
     <View style={styles.itemRow}>
-      <Pressable
+      <Press
         onPress={selectionMode ? onSelect : onEdit}
         onLongPress={selectionMode ? undefined : onDelete}
         accessibilityRole="button"
@@ -49,6 +49,7 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
             : t('shoppingList.itemRow.editHint')
         }
         accessibilityState={selectionMode ? { selected } : undefined}
+        containerStyle={styles.itemMain}
         style={styles.itemMain}>
         {selectionMode ? (
           <View
@@ -100,7 +101,7 @@ export const ShoppingItemRow = memo(function ShoppingItemRow({
             </Txt>
           ) : null}
         </View>
-      </Pressable>
+      </Press>
     </View>
   );
 });

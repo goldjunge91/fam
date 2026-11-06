@@ -15,7 +15,7 @@
  */
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Alert, Modal, Pressable, ScrollView, Share, View } from 'react-native';
+import { Alert, Modal, ScrollView, Share, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
@@ -857,10 +857,15 @@ export function RecipeDetailScreen() {
         statusBarTranslucent
         animationType="slide"
         onRequestClose={() => setManageOpen(false)}>
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={styles.manageBackdrop}
           style={[styles.manageBackdrop, { backgroundColor: colors.scrim }]}
           onPress={() => setManageOpen(false)}>
-          <Pressable
+          <Press
+            haptic="none"
+            scaleTo={1}
             style={[styles.manageSheet, { backgroundColor: colors.backgroundElement }]}
             onPress={(event) => event.stopPropagation()}>
             <View style={[styles.manageHandle, { backgroundColor: colors.border }]} />
@@ -926,8 +931,8 @@ export function RecipeDetailScreen() {
                 deleteRecipe();
               }}
             />
-          </Pressable>
-        </Pressable>
+          </Press>
+        </Press>
       </Modal>
 
       {/* Einkaufs-Sheet für fehlende Zutaten */}

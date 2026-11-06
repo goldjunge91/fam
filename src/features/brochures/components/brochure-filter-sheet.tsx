@@ -1,8 +1,8 @@
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { MIN_TOUCH_SIZE, Txt } from '@/constants/ui';
+import { MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import type { BrochureMarketGroup } from '../market-groups';
 
 type BrochureFilterSheetProps = {
@@ -39,23 +39,29 @@ export function BrochureFilterSheet({
       statusBarTranslucent
       animationType="slide"
       onRequestClose={onClose}>
-      <Pressable
+      <Press
+        haptic="none"
+        scaleTo={1}
+        containerStyle={styles.backdrop}
         style={[styles.backdrop, { backgroundColor: colors.scrim }]}
         onPress={onClose}
         accessibilityRole="button"
         accessibilityLabel="Filter schließen">
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={styles.sheet}
           style={[styles.sheet, { backgroundColor: colors.backgroundElement }]}
           onPress={(event) => event.stopPropagation()}
           accessible={false}>
           <View style={[styles.handle, { backgroundColor: colors.border }]} />
           <View style={styles.header}>
             <Txt variant="heading">Filter</Txt>
-            <Pressable accessibilityRole="button" onPress={onReset} style={styles.headerAction}>
+            <Press accessibilityRole="button" onPress={onReset} style={styles.headerAction}>
               <Txt variant="body" tone="secondary" weight="500">
                 Zurücksetzen
               </Txt>
-            </Pressable>
+            </Press>
           </View>
 
           <ScrollView style={styles.groupList} showsVerticalScrollIndicator={false}>
@@ -69,7 +75,7 @@ export function BrochureFilterSheet({
 
               return (
                 <View key={group.id}>
-                  <Pressable
+                  <Press
                     accessibilityRole="checkbox"
                     accessibilityLabel={`${group.label}, ${selectedCount} von ${storeIds.length} Märkten`}
                     accessibilityState={{ checked: groupCheckState }}
@@ -89,13 +95,13 @@ export function BrochureFilterSheet({
                       surfaceColor={colors.backgroundElement}
                       borderColor={colors.border}
                     />
-                  </Pressable>
+                  </Press>
                   {group.stores.map((store) => {
                     const isSelected = selectedStoreIds.has(store.id);
                     const brochureCount = brochureCounts.get(store.id) ?? 0;
 
                     return (
-                      <Pressable
+                      <Press
                         key={store.id}
                         accessibilityRole="checkbox"
                         accessibilityLabel={store.name}
@@ -114,7 +120,7 @@ export function BrochureFilterSheet({
                           surfaceColor={colors.backgroundElement}
                           borderColor={colors.border}
                         />
-                      </Pressable>
+                      </Press>
                     );
                   })}
                 </View>
@@ -122,16 +128,16 @@ export function BrochureFilterSheet({
             })}
           </ScrollView>
 
-          <Pressable
+          <Press
             accessibilityRole="button"
             onPress={onApply}
             style={[styles.applyButton, { backgroundColor: colors.accent }]}>
             <Txt variant="body" tone="onAccent" weight="600">
               {resultCount} Prospekte anzeigen
             </Txt>
-          </Pressable>
-        </Pressable>
-      </Pressable>
+          </Press>
+        </Press>
+      </Press>
     </Modal>
   );
 }

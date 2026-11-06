@@ -40,7 +40,8 @@ Status. `docs/archive/` ist historisch und nicht normativ.
 
 | Datenklasse | Eigentümer | Sichtbarkeit und Grenze |
 | --- | --- | --- |
-| Household, Members, Inventory, Shopping List, Recipes, Meal Plans | Haushalt | für berechtigte Household Members über RLS |
+| Household, Members, Inventory, Shopping List, Recipes, Meal Plans, Receipts und Receipt Items | Haushalt | für berechtigte Household Members über RLS |
+| Receipt Assets | Haushalt | privater serverseitiger Index und Bilder; über Household Membership zugänglich |
 | Product | globaler Produktkatalog | unabhängig von einem Haushalt; keine Identität mit Inventory oder Shopping List Items |
 | Product Usage | einzelner Account auf einem Gerät | lokal und accountbezogen; kein Server-Gegenstück |
 | Tracking eines erwachsenen Accounts | einzelner Account | privat über RLS; Household-Admins erhalten keinen Zugriff |
@@ -274,6 +275,25 @@ Mengenangabe zu. Freitextgerichte gehören zum Meal Plan und erzeugen kein
 Recipe. Ihre Zutaten bestehen aus Name, Menge und Einheit ohne Product-Bezug.
 Eine Zuordnung zu einzelnen Household Members oder Child Profiles ist nicht
 Teil dieses Modells.
+
+### Purchase Receipt
+
+Geteilter Kassenbon eines Haushalts mit einer oder mehreren Receipt Items.
+Erstellerangaben dienen der Herkunft und sind keine Voraussetzung für den
+Fortbestand des Bons. Beim Löschen eines Accounts wird die Erstellerreferenz
+entfernt; Bon, Positionen und Receipt Assets bleiben erhalten.
+
+### Receipt Item
+
+Eine geordnete Produktposition eines Purchase Receipt. Sie bleibt zusammen mit
+dem Bon erhalten und ist nicht an das Konto des Erstellers gebunden.
+
+### Receipt Asset
+
+Privates Bild und serverseitiger Index für einen Purchase Receipt. Die
+Haushaltsmitgliedschaft steuert den Zugriff. Beim Löschen des ursprünglichen
+Ersteller-Accounts bleiben Bild und Index erhalten; nur die Erstellerreferenz
+wird entfernt.
 
 Abweichungen zwischen freigegebenem Zielvertrag und aktuellem Verhalten werden
 als offene Implementierungs- oder Dokumentationsabweichung benannt. Die

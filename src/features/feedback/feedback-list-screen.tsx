@@ -1,13 +1,13 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
-import { Button, Surface, Txt } from '@/constants/ui';
+import { Button, Press, Surface, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackTicket, useMyTickets } from '@/features/feedback/api';
 import {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create((theme) => ({
 
 function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
   return (
-    <Pressable onPress={() => router.push(`/settings/feedback/${ticket.id}`)}>
+    <Press onPress={() => router.push(`/settings/feedback/${ticket.id}`)}>
       <ContentCard>
         <View style={styles.ticketContent}>
           <View style={styles.ticketCopy}>
@@ -66,7 +66,7 @@ function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
           </Txt>
         </View>
       </ContentCard>
-    </Pressable>
+    </Press>
   );
 }
 

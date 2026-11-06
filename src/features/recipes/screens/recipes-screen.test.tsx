@@ -236,8 +236,9 @@ describe('RecipesScreen — Entdecken', () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Eigene Rezepte' }));
+    await user.press(screen.getByRole('tab', { name: 'Eigene Rezepte' }));
 
+    expect(screen.getByRole('tab', { name: 'Eigene Rezepte', selected: true })).toBeSelected();
     expect(screen.getAllByText('Eigene Rezepte').length).toBeGreaterThan(0);
     expect(screen.getByRole('button', { name: 'Suppe Fremd' })).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Menü öffnen' })).toBeOnTheScreen();
@@ -258,9 +259,20 @@ describe('RecipesScreen — Entdecken', () => {
     const user = userEvent.setup();
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'Meine Favoriten' }));
+    await user.press(screen.getByRole('tab', { name: 'Meine Favoriten' }));
 
+    expect(screen.getByRole('tab', { name: 'Meine Favoriten', selected: true })).toBeSelected();
     expect(screen.getByText('Noch keine Favoriten gespeichert.')).toBeOnTheScreen();
+  });
+
+  it('meldet die Rezeptansichten als Tabs mit nativem Auswahlzustand', async () => {
+    await render(<RecipesScreen />);
+
+    expect(screen.getByRole('tab', { name: 'Entdecken', selected: true })).toBeSelected();
+    expect(screen.getByRole('tab', { name: 'Eigene Rezepte', selected: false })).not.toBeSelected();
+    expect(
+      screen.getByRole('tab', { name: 'Meine Favoriten', selected: false }),
+    ).not.toBeSelected();
   });
 
   it('öffnet den Vollbildfilter mit Kategorien, Kalorien, Mahlzeiten und Rezept-Tags', async () => {
@@ -325,7 +337,7 @@ describe('RecipesScreen — SectionHeading-Hierarchie', () => {
     ];
   });
 
-  it('rendert die Abschnittstitel als kanonische SectionHeading-Zeile', async () => {
+  it('rendert die Abschnittstitel als gemeinsame SectionHeading-Zeile', async () => {
     await render(<RecipesScreen />);
 
     for (const title of ['Kategorien', 'Rezepte nach Kalorien', 'Nach Mahlzeiten']) {

@@ -1,10 +1,10 @@
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   useAddWeightEntryMutation,
@@ -282,9 +282,10 @@ export function GoalSetupScreen() {
                 </Txt>
                 <View style={styles.segmentedRow}>
                   {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
-                    <Pressable
+                    <Press
                       key={type}
                       onPress={() => setGoalType(type)}
+                      containerStyle={{ flex: 1 }}
                       style={[
                         styles.segmentButton,
                         goalType === type ? styles.segmentButtonSelected : styles.segmentButtonIdle,
@@ -292,7 +293,7 @@ export function GoalSetupScreen() {
                       <Txt variant="body" tone={goalType === type ? 'onAccent' : 'primary'}>
                         {GOAL_LABELS[type]}
                       </Txt>
-                    </Pressable>
+                    </Press>
                   ))}
                 </View>
 
@@ -311,9 +312,10 @@ export function GoalSetupScreen() {
                 </Txt>
                 <View style={styles.segmentedRow}>
                   {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
-                    <Pressable
+                    <Press
                       key={p}
                       onPress={() => setPreset(p)}
+                      containerStyle={{ flex: 1 }}
                       style={[
                         styles.segmentButton,
                         preset === p ? styles.segmentButtonSelected : styles.segmentButtonIdle,
@@ -321,7 +323,7 @@ export function GoalSetupScreen() {
                       <Txt variant="body" tone={preset === p ? 'onAccent' : 'primary'}>
                         {SEGMENT_LABELS[p]}
                       </Txt>
-                    </Pressable>
+                    </Press>
                   ))}
                 </View>
 

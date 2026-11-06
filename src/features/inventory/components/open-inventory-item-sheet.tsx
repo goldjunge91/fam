@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, withAlpha } from '@/components/theme/index';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
 import { formatAmount } from '@/lib/format/package-size';
 import { subtractInventoryQuantities } from '@/lib/inventory-quantity';
@@ -140,7 +140,7 @@ export function OpenInventoryItemSheet({
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
         {/* The scrim stays a native Pressable so dismissal has no button haptics or scale. */}
-        <Pressable
+        <Press
           style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"

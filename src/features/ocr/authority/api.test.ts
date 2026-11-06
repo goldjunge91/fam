@@ -124,6 +124,15 @@ describe('receipt-authority local-first API', () => {
     });
   });
 
+  it('liest einen synchronisierten Receipt nach dem Entfernen seines Erstellers', async () => {
+    await createReceiptFixture(db);
+    await db.runAsync('update purchase_receipts set created_by = null where id = ?', [RECEIPT_ID]);
+
+    const receipt = await getReceipt(db, HOUSEHOLD_ID, RECEIPT_ID);
+
+    expect(receipt?.created_by).toBeNull();
+  });
+
   it('weist ungültige Receipt-Item-Werte vor dem lokalen Schreiben zurück', async () => {
     const base = {
       id: ITEM_ID,

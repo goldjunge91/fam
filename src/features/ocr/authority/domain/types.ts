@@ -25,7 +25,7 @@ export type Receipt = {
   currency: ReceiptCurrency;
   totalCents: EuroCents | null;
   processingStatus: ReceiptProcessingStatus;
-  createdBy: string;
+  createdBy: string | null;
   confirmedBy: string | null;
   confirmedAt: string | null;
   createdAt: string;
@@ -33,8 +33,9 @@ export type Receipt = {
   deletedAt: string | null;
 };
 
-export type ReceiptCreateInput = Pick<Receipt, 'id' | 'householdId' | 'currency' | 'createdBy'> &
-  Partial<Pick<Receipt, 'storeId' | 'purchaseDate' | 'totalCents' | 'processingStatus'>>;
+export type ReceiptCreateInput = Pick<Receipt, 'id' | 'householdId' | 'currency'> & {
+  createdBy: string;
+} & Partial<Pick<Receipt, 'storeId' | 'purchaseDate' | 'totalCents' | 'processingStatus'>>;
 
 export type ReceiptUpdateInput = Partial<Pick<Receipt, 'storeId' | 'purchaseDate' | 'totalCents'>>;
 
@@ -82,12 +83,17 @@ export type ReceiptAsset = {
   mimeType: string;
   byteSize: number;
   sortOrder: number;
-  createdBy: string;
+  createdBy: string | null;
   createdAt: string;
   deletedAt: string | null;
 };
 
-export type ReceiptAssetCreateInput = Omit<ReceiptAsset, 'createdAt' | 'deletedAt'>;
+export type ReceiptAssetCreateInput = Omit<
+  ReceiptAsset,
+  'createdAt' | 'deletedAt' | 'createdBy'
+> & {
+  createdBy: string;
+};
 
 export type ReceiptAssetUpdateInput = Partial<
   Pick<ReceiptAsset, 'storagePath' | 'mimeType' | 'byteSize' | 'sortOrder'>

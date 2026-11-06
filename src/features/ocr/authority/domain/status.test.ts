@@ -18,6 +18,8 @@ import {
   type ReceiptItemCreateInput,
 } from './types';
 
+const RECEIPT_AUTHOR = 'member-1';
+
 const RECEIPT: Receipt = {
   id: 'receipt-1',
   householdId: 'household-1',
@@ -26,7 +28,7 @@ const RECEIPT: Receipt = {
   currency: 'EUR',
   totalCents: assertEuroCents(1299),
   processingStatus: 'confirmed',
-  createdBy: 'member-1',
+  createdBy: RECEIPT_AUTHOR,
   confirmedBy: 'member-2',
   confirmedAt: '2026-09-21T12:00:00.000Z',
   createdAt: '2026-09-21T11:00:00.000Z',
@@ -59,7 +61,7 @@ describe('receipt-authority domain contract', () => {
       id: RECEIPT.id,
       householdId: RECEIPT.householdId,
       currency: 'EUR',
-      createdBy: RECEIPT.createdBy,
+      createdBy: RECEIPT_AUTHOR,
       totalCents: assertEuroCents(1299),
     };
     const itemInput: ReceiptItemCreateInput = {
@@ -85,7 +87,7 @@ describe('receipt-authority domain contract', () => {
       mimeType: 'image/jpeg',
       byteSize: 120_000,
       sortOrder: 0,
-      createdBy: RECEIPT.createdBy,
+      createdBy: RECEIPT_AUTHOR,
     };
 
     expect(receiptInput).toMatchObject({ currency: 'EUR', totalCents: 1299 });

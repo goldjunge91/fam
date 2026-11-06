@@ -169,6 +169,68 @@ describe('useMealPlanShoppingNeeds', () => {
     );
   });
 
+  it('verrechnet Inventar- und Einkaufslistenpackungen mit ihrem jeweiligen Maßstab', async () => {
+    mockDbGetAllAsync
+      .mockResolvedValueOnce([{ recipe_id: 'rec-1', portions: 2 }])
+      .mockResolvedValueOnce([{ id: 'comp-1', recipe_id: 'rec-1', serving_grams: 500 }])
+      .mockResolvedValueOnce([
+        {
+          component_id: 'comp-1',
+          recipe_id: 'rec-1',
+          product_id: 'prod-mehl',
+          sub_component_id: null,
+          grams: 500,
+        },
+      ])
+      .mockResolvedValueOnce([{ id: 'rec-1', title: 'Brot' }])
+      .mockResolvedValueOnce([
+        {
+          product_id: 'prod-mehl',
+          quantity: 1000,
+          unit: 'package',
+          package_size: 500_000,
+          package_size_unit: 'g',
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          product_id: 'prod-mehl',
+          quantity: 1,
+          unit: 'package',
+          package_size: 500,
+          package_size_unit: 'g',
+        },
+      ])
+      .mockResolvedValueOnce([{ id: 'prod-mehl', name: 'Mehl', serving_size_g: 50 }]);
+
+    const { result } = await renderHook(() => useMealPlanShoppingNeeds('plan-1', 'hh-1', true), {
+      wrapper,
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.[0]).toEqual(
+      expect.objectContaining({
+        productId: 'prod-mehl',
+        neededGrams: 1000,
+        stockGrams: 500,
+        shoppingListGrams: 500,
+        availableGrams: 1000,
+        missingGrams: 0,
+      }),
+    );
+    expect(mockDbGetAllAsync).toHaveBeenNthCalledWith(
+      5,
+      expect.stringContaining('package_size, package_size_unit'),
+      ['hh-1'],
+    );
+    expect(mockDbGetAllAsync).toHaveBeenNthCalledWith(
+      6,
+      expect.stringContaining('package_size, package_size_unit'),
+      ['hh-1'],
+    );
+  });
+
   it('liefert Freitext-Zutaten ohne Produkt- oder Vorratsabgleich zur Einkaufsvorbereitung', async () => {
     mockDbGetAllAsync.mockResolvedValueOnce([
       {

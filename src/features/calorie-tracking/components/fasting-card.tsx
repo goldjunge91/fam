@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ContentCard } from '@/components/ui/content-card';
 import { ProgressBar } from '@/components/ui/progress-bar';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import {
   FASTING_PROTOCOL_DURATIONS,
   type FastingProtocol,
@@ -197,11 +197,12 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             {PROTOCOLS.map((p) => {
               const isSelected = selectedProtocol === p.key;
               return (
-                <Pressable
+                <Press
                   key={p.key}
                   onPress={() => setSelectedProtocol(p.key)}
                   accessibilityRole="radio"
                   accessibilityState={{ selected: isSelected }}
+                  containerStyle={{ flex: 1 }}
                   style={[
                     styles.protocolButton,
                     isSelected ? styles.protocolButtonSelected : styles.protocolButtonIdle,
@@ -209,7 +210,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
                   <Txt variant="label" weight="700" tone={isSelected ? 'onAccent' : 'primary'}>
                     {p.label}
                   </Txt>
-                </Pressable>
+                </Press>
               );
             })}
           </View>
@@ -218,14 +219,14 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             <Txt variant="body">{PROTOCOLS.find((p) => p.key === selectedProtocol)?.desc}</Txt>
           </View>
 
-          <Pressable
+          <Press
             onPress={handleStartFast}
             disabled={startFastMutation.isPending}
             style={styles.startButton}>
             <Txt variant="label" tone="onAccent" weight="700">
               {startFastMutation.isPending ? 'Wird gestartet...' : 'Fasten starten'}
             </Txt>
-          </Pressable>
+          </Press>
         </View>
       ) : (
         // Aktiver Zustand: Laufender Timer
@@ -267,14 +268,14 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             </View>
           </View>
 
-          <Pressable
+          <Press
             onPress={handleEndFast}
             disabled={endFastMutation.isPending}
             style={styles.endButton}>
             <Txt variant="label" tone="danger" weight="700">
               {endFastMutation.isPending ? 'Wird beendet...' : 'Fasten beenden'}
             </Txt>
-          </Pressable>
+          </Press>
         </View>
       )}
     </ContentCard>

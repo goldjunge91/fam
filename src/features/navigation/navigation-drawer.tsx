@@ -1,6 +1,6 @@
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -15,7 +15,7 @@ import { radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { getDrawerGroups } from '@/constants/feature-registry';
 import { motion } from '@/constants/motion';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import { useDeferredMount } from '@/hooks/use-deferred-mount';
 import { debugLogEvent } from '@/lib/observability/debug-log';
@@ -128,7 +128,10 @@ export function NavigationDrawer() {
   return (
     <Modal visible={isDrawerOpen} transparent animationType="fade" onRequestClose={closeDrawer}>
       <View style={StyleSheet.absoluteFill}>
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={StyleSheet.absoluteFill}
           // Laufzeitwert für die Abdunklung.
           style={[styles.backdrop, { backgroundColor: withAlpha(colors.text, 0.3) }]}
           onPress={closeDrawer}
@@ -181,14 +184,14 @@ function DrawerContent() {
     <>
       <View style={[styles.header, { borderBottomColor: withAlpha(colors.text, 0.15) }]}>
         <Txt variant="brand">fam</Txt>
-        <Pressable
+        <Press
           onPress={closeDrawer}
           accessibilityRole="button"
           accessibilityLabel="Menü schließen"
           style={[styles.closeButton, { backgroundColor: colors.backgroundSoft }]}
           hitSlop={8}>
           <Txt variant="glyph">×</Txt>
-        </Pressable>
+        </Press>
       </View>
 
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
@@ -210,7 +213,7 @@ function DrawerContent() {
             {group.routes.map((route) => {
               const isActive = isRouteActive(pathname, route.href);
               return (
-                <Pressable
+                <Press
                   key={route.href}
                   onPress={() => navigateTo(route.href)}
                   accessibilityRole="button"
@@ -235,14 +238,14 @@ function DrawerContent() {
                     {route.label}
                   </Txt>
                   <Txt tone="secondary">›</Txt>
-                </Pressable>
+                </Press>
               );
             })}
           </View>
         ))}
       </ScrollView>
 
-      <Pressable
+      <Press
         testID="navigation-drawer-settings"
         onPress={() => navigateTo('/settings')}
         accessibilityRole="button"
@@ -259,7 +262,7 @@ function DrawerContent() {
           Einstellungen
         </Txt>
         <Txt tone="secondary">›</Txt>
-      </Pressable>
+      </Press>
     </>
   );
 }

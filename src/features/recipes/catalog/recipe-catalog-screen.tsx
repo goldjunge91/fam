@@ -1,11 +1,11 @@
 import { FlashList } from '@shopify/flash-list';
 import { type Href, router } from 'expo-router';
 import { useCallback } from 'react';
-import { ActivityIndicator, Pressable, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { space } from '@/components/theme/index';
-import { SectionHeading, Txt } from '@/constants/ui';
+import { Press, SectionHeading, Txt } from '@/constants/ui';
 import { RecipePreviewCard } from '../components/recipe-preview-card';
 import { getCatalogCoverPath } from './recipe-catalog-image';
 import { type CatalogRecipe, useCatalogRecipes } from './use-recipe-catalog';
@@ -60,9 +60,9 @@ export function RecipeCatalogScreen() {
         title: 'Entdecken',
         align: 'center',
         leading: (
-          <Pressable onPress={() => router.back()}>
+          <Press onPress={() => router.back()}>
             <Txt variant="body">Zurück</Txt>
-          </Pressable>
+          </Press>
         ),
       }}>
       {/* Virtualisiert: nur sichtbare Karten laden ihr Coverbild, sonst kippt

@@ -163,4 +163,59 @@ describe('useRecipeShoppingNeeds', () => {
       }),
     );
   });
+
+  it('reicht Packungsmaße aus Vorrat und offener Einkaufsliste an den Mengen-Owner weiter', async () => {
+    mockDbGetAllAsync
+      .mockResolvedValueOnce([
+        {
+          product_id: 'prod-basilikum',
+          quantity: 1000,
+          unit: 'package',
+          package_size: 500_000,
+          package_size_unit: 'g',
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          product_id: 'prod-basilikum',
+          quantity: 1,
+          unit: 'package',
+          package_size: 500,
+          package_size_unit: 'g',
+        },
+      ])
+      .mockResolvedValueOnce([{ id: 'prod-basilikum', name: 'Basilikum', serving_size_g: 50 }]);
+
+    const packageRecipe: RecipeDetail = {
+      ...mockRecipe,
+      components: [{ ...mockRecipe.components[0], serving_grams: 500 }],
+      items: [{ ...mockRecipe.items[0], grams: 500 }],
+    };
+    const { result } = await renderHook(() => useRecipeShoppingNeeds(packageRecipe, 2, true), {
+      wrapper,
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.[0]).toEqual(
+      expect.objectContaining({
+        productId: 'prod-basilikum',
+        neededGrams: 1000,
+        stockGrams: 500,
+        shoppingListGrams: 500,
+        availableGrams: 1000,
+        missingGrams: 0,
+      }),
+    );
+    expect(mockDbGetAllAsync).toHaveBeenNthCalledWith(
+      1,
+      expect.stringContaining('package_size, package_size_unit'),
+      ['hh-1'],
+    );
+    expect(mockDbGetAllAsync).toHaveBeenNthCalledWith(
+      2,
+      expect.stringContaining('package_size, package_size_unit'),
+      ['hh-1'],
+    );
+  });
 });

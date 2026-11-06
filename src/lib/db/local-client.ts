@@ -121,6 +121,9 @@ let wipeInProgress: Promise<void> | null = null;
 let lifecycleGeneration = 0;
 let openSequence = 0;
 
+const NO_ACTIVE_USER_ERROR = 'Ohne angemeldeten Nutzer ist die lokale Datenbank gesperrt.';
+const DATABASE_CLOSING_ERROR = 'Die lokale Datenbank wird geschlossen.';
+
 type DbTraceDetails = Record<string, boolean | number | string | undefined>;
 
 function dbTrace(code: string, details: DbTraceDetails = {}): void {
@@ -323,7 +326,7 @@ async function openAndVerify(
 
 export function getDatabase(): Promise<SerializedSqlDatabase> {
   if (activeUserId === null) {
-    return Promise.reject(new Error('Ohne angemeldeten Nutzer ist die lokale Datenbank gesperrt.'));
+    return Promise.reject(new Error(NO_ACTIVE_USER_ERROR));
   }
   if (wipeInProgress) {
     return Promise.reject(new Error('Die lokale Datenbank wird gerade gelöscht.'));
@@ -362,6 +365,44 @@ export async function getDrizzleDatabase(): Promise<DrizzleDatabase> {
   const db = await getDatabase();
   drizzleDatabase ??= createDrizzleDatabase(db);
   return drizzleDatabase;
+}
+
+/**
+ * Runs a retryable, lifecycle-reserved action against the current account.
+ * An app-background close can begin between `getDatabase()` and the action's
+ * own lifecycle reservation; wait for that close and retry only while the
+ * same account generation remains active.
+ */
+export async function runWithCurrentDatabase<T>(
+  action: (db: SerializedSqlDatabase) => Promise<T>,
+): Promise<T> {
+  const userId = activeUserId;
+  if (userId === null) throw new Error(NO_ACTIVE_USER_ERROR);
+  const generation = lifecycleGeneration;
+
+  while (true) {
+    assertLifecycle(generation, userId);
+    const db = await getDatabase();
+    assertLifecycle(generation, userId);
+
+    try {
+      return await action(db);
+    } catch (error) {
+      const closing = lifecycleClosing;
+      if (errorMessage(error) !== DATABASE_CLOSING_ERROR) throw error;
+      if (closing) {
+        await closing;
+        continue;
+      }
+
+      // A very fast close can settle before this rejection is observed. Retry
+      // only if getDatabase has replaced the closed connection successfully.
+      assertLifecycle(generation, userId);
+      const reopenedDb = await getDatabase();
+      assertLifecycle(generation, userId);
+      if (reopenedDb === db) throw error;
+    }
+  }
 }
 
 /** Schließt die SQLite-Verbindung nach dem Leeren der serialisierten Query-Warteschlange. */

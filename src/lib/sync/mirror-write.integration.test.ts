@@ -361,6 +361,39 @@ describe('applyRemoteRow', () => {
     expect(row?._dirty).toBe(0);
   });
 
+  it('spiegelt entfernte Receipt-Autorenschaft aus Pull- und Realtime-Zeilen', async () => {
+    const receipt = {
+      id: 'receipt-author-cleared',
+      household_id: 'hh-1',
+      store_id: null,
+      purchase_date: null,
+      currency: 'EUR',
+      total_cents: 1299,
+      processing_status: 'confirmed',
+      created_by: 'user-1',
+      confirmed_by: null,
+      confirmed_at: null,
+      created_at: '2026-01-01T00:00:00Z',
+      updated_at: '2026-01-01T00:00:00Z',
+      deleted_at: null,
+    };
+    await upsertMirrorRow(db, 'purchase_receipts', receipt, { dirty: 0 });
+
+    const result = await applyRemoteRow(
+      db,
+      'purchase_receipts',
+      { ...receipt, created_by: null, updated_at: '2026-01-01T00:01:00Z' },
+      Date.now(),
+    );
+
+    expect(result).toBe('written');
+    const row = await db.getFirstAsync<{ created_by: string | null }>(
+      'select created_by from purchase_receipts where id = ?',
+      ['receipt-author-cleared'],
+    );
+    expect(row?.created_by).toBeNull();
+  });
+
   it("bei dirty lokal + neuerer Remote-Zeile gewinnt remote via resolve(), gibt 'written' zurueck", async () => {
     // Lokale, noch nicht gepushte Aenderung — aelter als die eingehende Remote-Zeile.
     await db.runAsync(

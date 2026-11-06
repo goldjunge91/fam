@@ -1,11 +1,11 @@
 import { router } from 'expo-router';
 import { Fragment, useEffect, useMemo, useState } from 'react';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Screen } from '@/components/layout/screen';
 import { useDevSettingsStore } from '@/constants/dev-settings';
-import { Button, CloseButton, Surface, TextField, Txt } from '@/constants/ui';
+import { Button, CloseButton, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import {
   type TrackingMethod,
@@ -222,11 +222,12 @@ function TimePicker({
     <View style={styles.timePicker}>
       {/* Große digitale Uhr & Stepper */}
       <Surface tone="surface" style={styles.timeDisplay}>
-        <Pressable
+        <Press
           onPress={handleOpenModal}
           disabled={disabled}
           accessibilityRole="button"
           accessibilityLabel="Uhrzeit für Tagesstart manuell anpassen"
+          containerStyle={{ flex: 1 }}
           style={styles.timeDisplayButton}>
           <Txt variant="caption" tone="secondary">
             Individueller Tagesstart (Tippen zum Anpassen)
@@ -234,11 +235,11 @@ function TimePicker({
           <Txt variant="display" style={styles.timeValue}>
             {value} Uhr ✏️
           </Txt>
-        </Pressable>
+        </Press>
 
         {/* Stepper Buttons (-1h / +1h) */}
         <View style={styles.stepper}>
-          <Pressable
+          <Press
             onPress={() => step(-1)}
             disabled={disabled}
             accessibilityRole="button"
@@ -247,8 +248,8 @@ function TimePicker({
             <Txt variant="body" weight="700">
               -1h
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             onPress={() => step(1)}
             disabled={disabled}
             accessibilityRole="button"
@@ -257,7 +258,7 @@ function TimePicker({
             <Txt variant="body" weight="700">
               +1h
             </Txt>
-          </Pressable>
+          </Press>
         </View>
       </Surface>
 
@@ -273,7 +274,7 @@ function TimePicker({
           {TIME_PRESETS.map((preset) => {
             const isSelected = value === preset.label;
             return (
-              <Pressable
+              <Press
                 key={preset.hour}
                 onPress={() => onChange(preset.label)}
                 disabled={disabled}
@@ -284,7 +285,7 @@ function TimePicker({
                 <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
                   {preset.tag}
                 </Txt>
-              </Pressable>
+              </Press>
             );
           })}
         </ScrollView>
@@ -396,7 +397,7 @@ export function TrackingScreen() {
               const isEnabled = trackingMethodEnabled[m.id];
               return (
                 <Fragment key={m.id}>
-                  <Pressable
+                  <Press
                     onPress={() => handleSelectMethod(m.id)}
                     disabled={!isEnabled}
                     accessibilityRole="radio"
@@ -426,7 +427,7 @@ export function TrackingScreen() {
                         Demnächst verfügbar
                       </Txt>
                     ) : null}
-                  </Pressable>
+                  </Press>
                   {m.id === 'glp1' && isSelected ? <InjectionPlanSection userId={userId} /> : null}
                 </Fragment>
               );

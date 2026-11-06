@@ -3,7 +3,7 @@ import * as Crypto from 'expo-crypto';
 import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
-import { Keyboard, Pressable, View } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -16,7 +16,7 @@ import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { type ItemSource, ItemSourceFilterRow } from '@/components/ui/item-source-filter';
 import { QuantityStepper } from '@/components/ui/quantity-stepper';
-import { Button, Surface, TextField, Txt } from '@/constants/ui';
+import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { useInterstitialAd } from '@/features/ads';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
@@ -326,7 +326,7 @@ export function AddItemScreen() {
     <Surface tone="page" style={styles.flex}>
       <SafeAreaView style={styles.modalSafeArea} edges={['top', 'left', 'right', 'bottom']}>
         {}
-        <Pressable
+        <Press
           onPress={() => {
             productSearchRef.current?.dismiss();
             Keyboard.dismiss();
@@ -344,7 +344,7 @@ export function AddItemScreen() {
               />
             </HeaderIconButton>
           </View>
-        </Pressable>
+        </Press>
 
         {}
         <KeyboardAwareScrollView
@@ -454,14 +454,14 @@ export function AddItemScreen() {
 
           {/* Formularbereich zum Anlegen eines neuen Lagerorts */}
           {!showAddLocation ? (
-            <Pressable
+            <Press
               onPress={() => setShowAddLocation(true)}
               accessibilityRole="button"
               style={styles.selfStart}>
               <Txt variant="body" tone="primary" weight="700">
                 + Neuer Lagerort
               </Txt>
-            </Pressable>
+            </Press>
           ) : (
             <View style={styles.newLocationBox}>
               <TextField
@@ -494,7 +494,7 @@ export function AddItemScreen() {
           )}
 
           {/* Aufklappbereich: Weitere Angaben (Einheit, Mindesthaltbarkeitsdatum) */}
-          <Pressable
+          <Press
             onPress={() => setDetailsOpen((current) => !current)}
             accessibilityRole="button"
             accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
@@ -504,7 +504,7 @@ export function AddItemScreen() {
             <Txt variant="body" tone="primary">
               Weitere Angaben
             </Txt>
-          </Pressable>
+          </Press>
 
           {detailsOpen ? (
             <View style={styles.details}>

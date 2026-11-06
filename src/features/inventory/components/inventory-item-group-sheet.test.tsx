@@ -105,6 +105,34 @@ describe('InventoryItemGroupSheet', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
+  it.each(['ios', 'android'] as const)(
+    'hält Header-Aktionen neben langem Titel auf %s erreichbar',
+    async (platform) => {
+      Object.defineProperty(Platform, 'OS', { configurable: true, value: platform });
+      const longName = 'Hafermilch mit einem ungewöhnlich langen dynamischen Produktnamen '
+        .repeat(3)
+        .trim();
+
+      await renderSheet(
+        <InventoryItemGroupSheet
+          visible
+          group={testGroup([lot('long-name', { name: longName })])}
+          onClose={jest.fn()}
+          onSelectLot={jest.fn()}
+          onHistory={jest.fn()}
+        />,
+      );
+
+      expect(screen.getByLabelText(longName)).toBeOnTheScreen();
+      if (platform === 'ios') {
+        expect(screen.getByRole('button', { name: 'Vorrat' })).toBeOnTheScreen();
+        expect(screen.getByRole('button', { name: 'MHD-Details schließen' })).toBeOnTheScreen();
+      } else {
+        expect(screen.getByRole('button', { name: 'Schließen' })).toBeOnTheScreen();
+      }
+    },
+  );
+
   it('bietet auf iOS Quick-Open und Quick-Consume an und sperrt die laufende Aktion', async () => {
     Object.defineProperty(Platform, 'OS', { configurable: true, value: 'ios' });
     const user = userEvent.setup();

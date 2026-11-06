@@ -57,6 +57,9 @@ describe('modal comparison showcase', () => {
     expect(source).toContain('ModalComparisonHostedContent');
     expect(source).toContain('presentationDetents');
     expect(source).toContain('presentationBackground(colors.backgroundElement)');
+    expect(source).toContain(
+      "frame({ maxWidth: Infinity, maxHeight: Infinity, alignment: 'topLeading' })",
+    );
     expect(source).toContain('onIsPresentedChange=');
     expect(source).toContain('ModalComparisonHostedContent');
     expect(source).toContain("mode={mode ?? 'preview'}");

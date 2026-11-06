@@ -38,6 +38,8 @@ revoke all on public.revenuecat_processed_events from anon, authenticated, servi
 grant insert, select on public.revenuecat_processed_events to service_role;
 revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_bookings to service_role;
+revoke all on public.ai_credit_refunds from anon, authenticated, service_role;
+grant insert, select on public.ai_credit_refunds to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
@@ -301,9 +303,13 @@ revoke execute on function private.ai_credit_subscriber_for_household(uuid)
   from public, anon, authenticated;
 grant execute on function private.ai_credit_subscriber_for_household(uuid)
   to service_role;
-revoke execute on function public.book_ai_credit(uuid, text, uuid, integer)
+revoke execute on function public.book_ai_credit(uuid, text, uuid, integer, uuid)
   from public, anon, authenticated;
-grant execute on function public.book_ai_credit(uuid, text, uuid, integer)
+grant execute on function public.book_ai_credit(uuid, text, uuid, integer, uuid)
+  to service_role;
+revoke execute on function public.refund_ai_credit(uuid, uuid)
+  from public, anon, authenticated;
+grant execute on function public.refund_ai_credit(uuid, uuid)
   to service_role;
 revoke execute on function public.get_ai_credit_status(uuid, integer)
   from public, anon, authenticated;

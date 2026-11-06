@@ -55,6 +55,32 @@ export type Database = {
           },
         ];
       };
+      ai_credit_refunds: {
+        Row: {
+          created_at: string;
+          request_id: string;
+          subscriber_user_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          request_id: string;
+          subscriber_user_id: string;
+        };
+        Update: {
+          created_at?: string;
+          request_id?: string;
+          subscriber_user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ai_credit_refunds_subscriber_user_id_request_id_fkey";
+            columns: ["subscriber_user_id", "request_id"];
+            isOneToOne: true;
+            referencedRelation: "ai_credit_bookings";
+            referencedColumns: ["subscriber_user_id", "request_id"];
+          },
+        ];
+      };
       brochure_availability: {
         Row: {
           brochure_id: string;
@@ -1841,7 +1867,7 @@ export type Database = {
           confirmed_at: string | null;
           confirmed_by: string | null;
           created_at: string;
-          created_by: string;
+          created_by: string | null;
           currency: string;
           deleted_at: string | null;
           household_id: string;
@@ -1856,7 +1882,7 @@ export type Database = {
           confirmed_at?: string | null;
           confirmed_by?: string | null;
           created_at?: string;
-          created_by: string;
+          created_by?: string | null;
           currency?: string;
           deleted_at?: string | null;
           household_id: string;
@@ -1871,7 +1897,7 @@ export type Database = {
           confirmed_at?: string | null;
           confirmed_by?: string | null;
           created_at?: string;
-          created_by?: string;
+          created_by?: string | null;
           currency?: string;
           deleted_at?: string | null;
           household_id?: string;
@@ -1917,7 +1943,7 @@ export type Database = {
         Row: {
           byte_size: number;
           created_at: string;
-          created_by: string;
+          created_by: string | null;
           deleted_at: string | null;
           household_id: string;
           id: string;
@@ -1929,7 +1955,7 @@ export type Database = {
         Insert: {
           byte_size: number;
           created_at?: string;
-          created_by: string;
+          created_by?: string | null;
           deleted_at?: string | null;
           household_id: string;
           id?: string;
@@ -1941,7 +1967,7 @@ export type Database = {
         Update: {
           byte_size?: number;
           created_at?: string;
-          created_by?: string;
+          created_by?: string | null;
           deleted_at?: string | null;
           household_id?: string;
           id?: string;
@@ -3574,6 +3600,7 @@ export type Database = {
       book_ai_credit: {
         Args: {
           p_action: string;
+          p_expected_subscriber_user_id?: string;
           p_household_id: string;
           p_monthly_limit?: number;
           p_request_id: string;
@@ -3670,6 +3697,10 @@ export type Database = {
       redeem_invite:
         | { Args: { invite_code: string }; Returns: string }
         | { Args: { invite_token: string }; Returns: string };
+      refund_ai_credit: {
+        Args: { p_request_id: string; p_subscriber_user_id: string };
+        Returns: boolean;
+      };
       replace_brochure_zip: { Args: { p_records: Json; p_zip_code: string }; Returns: undefined };
       request_brochure_zip_scan: {
         Args: { p_zip_code: string };

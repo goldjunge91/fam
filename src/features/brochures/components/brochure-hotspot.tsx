@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -13,7 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { borderWidth, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { motion } from '@/constants/motion';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import type { Hotspot } from '../types';
 
 interface BrochureHotspotProps {
@@ -76,7 +76,8 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
         pointerEvents="none"
         style={[StyleSheet.absoluteFill, styles.aura, { borderColor: colors.accent }, auraStyle]}
       />
-      <Pressable
+      <Press
+        containerStyle={styles.pressableArea}
         accessibilityRole="button"
         accessibilityLabel={`${hotspot.title}${hotspot.discount ? `, ${hotspot.discount}` : ''}`}
         style={styles.pressableArea}
@@ -92,7 +93,7 @@ export function BrochureHotspot({ hotspot, onPress, isActive, isVisible }: Broch
             ↗
           </Txt>
         ) : null}
-      </Pressable>
+      </Press>
     </Animated.View>
   );
 }

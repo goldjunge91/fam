@@ -1,6 +1,6 @@
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 
-import { Card, Txt } from '@/constants/ui';
+import { Card, Press, Txt } from '@/constants/ui';
 import {
   ACTIVITY_OPTIONS,
   formatBirthDate,
@@ -37,7 +37,7 @@ export function BiometricsSummary({
         <Txt variant="body" weight="700">
           Körper &amp; Aktivität
         </Txt>
-        <Pressable
+        <Press
           onPress={onPress}
           accessibilityRole="button"
           accessibilityLabel={`Körper & Aktivität bearbeiten. ${accessibleSummary}`}
@@ -45,7 +45,7 @@ export function BiometricsSummary({
           <Txt variant="body" tone="primary" weight="700">
             Bearbeiten
           </Txt>
-        </Pressable>
+        </Press>
       </View>
 
       <View style={profileEditStyles.biometricsWeight}>

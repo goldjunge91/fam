@@ -1,12 +1,5 @@
 import type { ReactNode } from 'react';
-import {
-  KeyboardAvoidingView,
-  Modal,
-  Pressable,
-  type StyleProp,
-  View,
-  type ViewStyle,
-} from 'react-native';
+import { KeyboardAvoidingView, Modal, type StyleProp, View, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { radius, rs } from '@/components/theme/index';
@@ -37,6 +30,7 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.xl,
     backgroundColor: theme.backgroundElement,
   },
+  sheetContainer: { flexShrink: 1 },
   handle: {
     width: rs(36),
     height: rs(4),
@@ -88,8 +82,16 @@ export function RecipeBottomSheet({
   if (!visible) return null;
 
   const body = (
-    <Pressable style={[styles.backdrop, { backgroundColor: colors.scrim }]} onPress={onClose}>
-      <Pressable
+    <Press
+      haptic="none"
+      scaleTo={1}
+      containerStyle={styles.backdrop}
+      style={[styles.backdrop, { backgroundColor: colors.scrim }]}
+      onPress={onClose}>
+      <Press
+        haptic="none"
+        scaleTo={1}
+        containerStyle={styles.sheetContainer}
         style={[styles.sheet, { backgroundColor: colors.backgroundElement }, sheetStyle]}
         onPress={(event) => event.stopPropagation()}>
         <View style={[styles.handle, { backgroundColor: colors.border }]} />
@@ -110,8 +112,8 @@ export function RecipeBottomSheet({
           </Press>
         </View>
         {children}
-      </Pressable>
-    </Pressable>
+      </Press>
+    </Press>
   );
 
   if (process.env.NODE_ENV === 'test') {

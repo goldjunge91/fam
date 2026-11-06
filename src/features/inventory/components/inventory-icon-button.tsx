@@ -1,6 +1,6 @@
 import { GlassView } from 'expo-glass-effect';
 import type { ReactNode } from 'react';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -12,7 +12,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BUTTON_DEPTH } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { motion } from '@/constants/motion';
-import { PRESS_SPRING } from '@/constants/ui';
+import { PRESS_SPRING, Press } from '@/constants/ui';
 import { medium as hapticMedium } from '@/lib/platform/haptics';
 
 const ICON_BUTTON_DEPTH = BUTTON_DEPTH / 2;
@@ -75,7 +75,9 @@ export function InventoryIconButton({
   return (
     <View style={[styles.outer, active && styles.activeOuter]}>
       <Animated.View style={faceStyle}>
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
           onPress={() => {
             hapticMedium();
             onPress();
@@ -97,7 +99,7 @@ export function InventoryIconButton({
           ) : (
             children
           )}
-        </Pressable>
+        </Press>
       </Animated.View>
     </View>
   );

@@ -1,11 +1,11 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Pressable, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { withAlpha } from '@/components/theme/index';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import {
@@ -15,7 +15,7 @@ import {
   useRemoveMemberMutation,
   useUpdateMemberRoleMutation,
 } from '@/features/household/api';
-import { isHouseholdAdmin } from '@/features/household/household-helpers';
+import { canAdminLeaveHousehold, isHouseholdAdmin } from '@/features/household/household-helpers';
 import { HouseholdSwitcherModal } from '@/features/household/household-switcher-modal';
 import { InviteModal } from '@/features/household/invite-modal';
 import { AvatarImage } from '@/features/profile/avatar-image';
@@ -122,7 +122,7 @@ export function MembersScreen() {
 
   const myMembership = members?.find((m) => m.user_id === currentUserId);
   const isAdmin = isHouseholdAdmin(myMembership?.role);
-  const adminCount = members?.filter((m) => m.role === 'admin').length ?? 0;
+  const canAdminLeave = canAdminLeaveHousehold(members ?? []);
 
   async function handleToggleRole(userId: string, currentRole: string, name: string) {
     if (!isAdmin || !householdId) return;
@@ -176,7 +176,7 @@ export function MembersScreen() {
 
   async function handleLeave() {
     if (!householdId) return;
-    if (isAdmin && adminCount <= 1) {
+    if (isAdmin && !canAdminLeave) {
       Alert.alert(
         'Haushalt verlassen nicht möglich',
         'Du bist der einzige Administrator dieses Haushalts. Ernenne zuerst ein anderes Mitglied zum Admin, bevor du den Haushalt verlässt.',
@@ -307,7 +307,7 @@ export function MembersScreen() {
 
               {isAdmin && !isMe && (
                 <View style={styles.memberActions}>
-                  <Pressable
+                  <Press
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
                     accessibilityRole="button"
                     accessibilityLabel={`${item.role === 'admin' ? 'Admin' : 'Mitglied'}-Rolle ändern`}
@@ -315,8 +315,8 @@ export function MembersScreen() {
                     <Txt variant="caption" tone="primary">
                       {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
                     </Txt>
-                  </Pressable>
-                  <Pressable
+                  </Press>
+                  <Press
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
                     accessibilityRole="button"
                     accessibilityLabel={`${displayName} entfernen`}
@@ -324,7 +324,7 @@ export function MembersScreen() {
                     <Txt variant="caption" tone="danger">
                       Entfernen
                     </Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               )}
             </View>
@@ -352,10 +352,10 @@ export function MembersScreen() {
                     onPress={handleLeave}
                     loading={loadingAction === 'leave'}
                     disabled={
-                      adminCount <= 1 || (loadingAction !== null && loadingAction !== 'leave')
+                      !canAdminLeave || (loadingAction !== null && loadingAction !== 'leave')
                     }
                   />
-                  {adminCount <= 1 && (
+                  {!canAdminLeave && (
                     <Txt variant="caption" tone="secondary" center>
                       Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
                     </Txt>

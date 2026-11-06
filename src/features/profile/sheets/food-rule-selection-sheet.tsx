@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 
-import { Button, TextField, Txt } from '@/constants/ui';
+import { Button, Press, TextField, Txt } from '@/constants/ui';
 import {
   addFoodSelection,
   createCustomFoodSelection,
@@ -116,7 +116,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                   : 'Eigene Lebensmittel ergänzen'}
               </Txt>
             </View>
-            <Pressable
+            <Press
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel={`${title} schließen`}
@@ -128,7 +128,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                 importantForAccessibility="no">
                 ✕
               </Txt>
-            </Pressable>
+            </Press>
           </View>
 
           <TextField
@@ -152,7 +152,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
             {filteredPresets.map((preset, index) => {
               const selected = isPresetSelected(preset.code);
               return (
-                <Pressable
+                <Press
                   key={preset.code}
                   onPress={() => togglePreset(preset.code)}
                   accessibilityRole="checkbox"
@@ -178,7 +178,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                       </Txt>
                     ) : null}
                   </View>
-                </Pressable>
+                </Press>
               );
             })}
 
@@ -191,7 +191,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                   <Txt variant="body" style={foodRuleSelectionSheetStyles.customLabel}>
                     {selection.label}
                   </Txt>
-                  <Pressable
+                  <Press
                     onPress={() =>
                       setDraft((current) =>
                         current.filter(
@@ -207,7 +207,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                     <Txt variant="label" tone="primary" weight="700">
                       Entfernen
                     </Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               ))}
           </ScrollView>

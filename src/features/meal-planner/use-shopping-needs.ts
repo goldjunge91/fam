@@ -137,8 +137,10 @@ export function useMealPlanShoppingNeeds(
           product_id: string;
           quantity: number;
           unit: string;
+          package_size?: number | null;
+          package_size_unit?: string | null;
         }>(
-          `select product_id, quantity, unit from fridge_items
+          `select product_id, quantity, unit, package_size, package_size_unit from fridge_items
            where household_id = ? and product_id is not null and deleted_at is null`,
           [householdId],
         ),
@@ -146,8 +148,10 @@ export function useMealPlanShoppingNeeds(
           product_id: string;
           quantity: number;
           unit: string;
+          package_size?: number | null;
+          package_size_unit?: string | null;
         }>(
-          `select product_id, quantity, unit from shopping_list_items
+          `select product_id, quantity, unit, package_size, package_size_unit from shopping_list_items
            where household_id = ? and product_id is not null and deleted_at is null and checked_at is null`,
           [householdId],
         ),
@@ -157,6 +161,10 @@ export function useMealPlanShoppingNeeds(
       const stockRows = rawStockRows.map((row) => ({
         ...row,
         quantity: fromInventoryQuantityUnits(row.quantity),
+        package_size:
+          row.package_size === null || row.package_size === undefined
+            ? null
+            : fromInventoryQuantityUnits(row.package_size),
       }));
 
       const productIds = [...needs.keys()];

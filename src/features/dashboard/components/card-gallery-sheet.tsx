@@ -1,11 +1,11 @@
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, ScrollView, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { borderWidth, radius, space, withAlpha } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { type CardSize, getCards } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
 
@@ -72,7 +72,10 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={StyleSheet.absoluteFill}>
-        <Pressable
+        <Press
+          haptic="none"
+          scaleTo={1}
+          containerStyle={StyleSheet.absoluteFill}
           style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }]}
           onPress={onClose}
           accessibilityRole="button"
@@ -97,7 +100,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                 {t('dashboard.gallery.description')}
               </Txt>
             </View>
-            <Pressable
+            <Press
               onPress={onClose}
               accessibilityRole="button"
               accessibilityLabel={t('dashboard.gallery.done')}
@@ -105,7 +108,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
               <Txt variant="label" tone="onAccent" weight="600">
                 {t('dashboard.gallery.done')}
               </Txt>
-            </Pressable>
+            </Press>
           </View>
 
           <ScrollView
@@ -148,7 +151,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                       </Txt>
                     </View>
 
-                    <Pressable
+                    <Press
                       onPress={() => handleToggleCard(card.id, isHidden)}
                       accessibilityRole="button"
                       accessibilityLabel={
@@ -165,14 +168,15 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                       <Txt variant="label" tone={isHidden ? 'onAccent' : 'danger'} weight="600">
                         {isHidden ? t('dashboard.gallery.add') : t('dashboard.gallery.remove')}
                       </Txt>
-                    </Pressable>
+                    </Press>
                   </View>
 
                   {/* Größen-Auswahl nur sichtbar wenn Karte aktiv ist */}
                   {!isHidden ? (
                     <View style={styles.sizeSegmentWrap}>
-                      <Pressable
+                      <Press
                         onPress={() => handleSelectSize(card.id, 'small')}
+                        containerStyle={{ flex: 1 }}
                         style={[
                           styles.sizeBtn,
                           currentSize === 'small'
@@ -185,9 +189,10 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           weight="600">
                           {t('dashboard.gallery.small')}
                         </Txt>
-                      </Pressable>
-                      <Pressable
+                      </Press>
+                      <Press
                         onPress={() => handleSelectSize(card.id, 'large')}
+                        containerStyle={{ flex: 1 }}
                         style={[
                           styles.sizeBtn,
                           currentSize === 'large'
@@ -200,7 +205,7 @@ export function CardGallerySheet({ visible, onClose }: CardGallerySheetProps) {
                           weight="600">
                           {t('dashboard.gallery.large')}
                         </Txt>
-                      </Pressable>
+                      </Press>
                     </View>
                   ) : null}
                 </View>

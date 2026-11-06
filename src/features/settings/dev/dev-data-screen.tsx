@@ -9,7 +9,8 @@ import { Button, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { describeDatabaseOwnership } from '@/features/settings/dev/dev-info';
 import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
-import { deleteLocalDatabase, getDatabase } from '@/lib/db/local-client';
+import { deleteLocalDatabase, getDatabase, runWithCurrentDatabase } from '@/lib/db/local-client';
+import type { SerializedSqlDatabase } from '@/lib/db/serialize';
 import {
   checkOffDumpIntegrity,
   forceRefreshOffDump,
@@ -83,6 +84,25 @@ export function DevDataScreen() {
     } finally {
       setBusy(null);
     }
+  }
+
+  async function runOffDumpAction<T>(
+    action: (db: SerializedSqlDatabase) => Promise<T>,
+  ): Promise<T> {
+    let result: T;
+    try {
+      result = await runWithCurrentDatabase(action);
+    } catch (error) {
+      try {
+        setOffDump(await runWithCurrentDatabase(getOffDumpStatus));
+      } catch {
+        // Preserve the operation error; status cannot be refreshed without a usable connection.
+      }
+      throw error;
+    }
+
+    setOffDump(await runWithCurrentDatabase(getOffDumpStatus));
+    return result;
   }
 
   function handleWipe() {
@@ -187,9 +207,7 @@ export function DevDataScreen() {
             variant="secondary"
             onPress={() =>
               void mitBusy('off-dump-update', async () => {
-                const db = await getDatabase();
-                await forceRefreshOffDump(db);
-                setOffDump(await getOffDumpStatus(db));
+                await runOffDumpAction(forceRefreshOffDump);
               })
             }
             loading={busy === 'off-dump-update'}
@@ -207,9 +225,7 @@ export function DevDataScreen() {
                     text: 'Neu installieren',
                     onPress: () =>
                       void mitBusy('off-dump-baseline', async () => {
-                        const db = await getDatabase();
-                        await reinstallOffDumpBaseline(db);
-                        setOffDump(await getOffDumpStatus(db));
+                        await runOffDumpAction(reinstallOffDumpBaseline);
                       }),
                   },
                 ],
@@ -222,8 +238,7 @@ export function DevDataScreen() {
             variant="secondary"
             onPress={() =>
               void mitBusy('off-dump-integrity', async () => {
-                const db = await getDatabase();
-                const ok = await checkOffDumpIntegrity(db);
+                const ok = await runOffDumpAction(checkOffDumpIntegrity);
                 Alert.alert(
                   'Integritätsprüfung',
                   ok

@@ -1,9 +1,9 @@
 import * as Haptics from 'expo-haptics';
 import { useEffect, useRef } from 'react';
-import { ActivityIndicator, Modal, Pressable, View } from 'react-native';
+import { ActivityIndicator, Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Txt } from '@/constants/ui';
+import { Button, Press, Txt } from '@/constants/ui';
 import { debugLog } from '@/lib/observability/debug-log';
 
 const styles = StyleSheet.create((theme) => ({
@@ -132,7 +132,7 @@ export function BarcodeScannerModal({
         <View style={styles.modalBox}>
           <View style={styles.header}>
             <Txt variant="title">📷 Barcode scannen</Txt>
-            <Pressable
+            <Press
               onPress={onClose}
               hitSlop={10}
               accessibilityRole="button"
@@ -141,7 +141,7 @@ export function BarcodeScannerModal({
               <Txt variant="subheading" tone="secondary">
                 ✕
               </Txt>
-            </Pressable>
+            </Press>
           </View>
 
           {!isCameraSupported ? (

@@ -114,6 +114,10 @@ function InputContent({
           label="Artikel hinzufügen"
           value={value}
           onChangeText={onChangeText}
+          multiline
+          numberOfLines={3}
+          textAlignVertical="top"
+          style={styles.transcriptInput}
           placeholder="z. B. 3 Äpfel und Brot"
           onSubmitEditing={submit}
           returnKeyType="done"

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { space } from '@/components/theme/index';
+import { MIN_TOUCH_SIZE, space } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 
 type PageHeaderProps = {
@@ -15,7 +15,7 @@ type PageHeaderProps = {
 
 const styles = StyleSheet.create({
   header: {
-    height: 74,
+    minHeight: 74,
     flexGrow: 0,
     flexShrink: 0,
     flexDirection: 'row',
@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
     paddingVertical: space.sm,
   },
   side: {
-    minWidth: 39,
-    minHeight: 39,
+    minWidth: MIN_TOUCH_SIZE,
+    minHeight: MIN_TOUCH_SIZE,
+    flexShrink: 0,
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.sm,
@@ -68,7 +69,7 @@ export function PageHeader({
             {subtitle}
           </Txt>
         ) : null}
-        <Txt variant="title" numberOfLines={1}>
+        <Txt variant="title" numberOfLines={1} accessibilityLabel={title}>
           {title}
         </Txt>
       </View>

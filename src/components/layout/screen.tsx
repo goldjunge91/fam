@@ -28,12 +28,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: space.sm,
-    height: 94,
+    minHeight: 94,
     paddingTop: space.sm,
     paddingBottom: space.xl,
   },
   chromeTitle: {
     flex: 1,
+    minWidth: 0,
+    flexShrink: 1,
     alignItems: 'center',
     gap: SCREEN_TITLE_GAP,
   },
@@ -53,7 +55,8 @@ const styles = StyleSheet.create({
     paddingBottom: space.xxl,
   },
   titleBlock: {
-    flexShrink: 1,
+    flex: 1,
+    minWidth: 0,
     gap: SCREEN_TITLE_GAP,
   },
   fill: {

@@ -207,7 +207,10 @@ describe('attachOffDump', () => {
     await expect(forceRefreshOffDump(createDb())).rejects.toThrow(
       'attempt to write a readonly database',
     );
-    expect(executedRuns.map(({ params }) => params?.[0])).toEqual(['off_dump_last_error']);
+    expect(executedRuns.map(({ params }) => params?.[0])).toEqual([
+      'off_dump_last_check_at',
+      'off_dump_last_error',
+    ]);
   });
 
   it('teilt parallele Initialisierungen pro Datenbankverbindung', async () => {
@@ -366,6 +369,38 @@ describe('off-dump status and integrity', () => {
     await expect(checkOffDumpIntegrity(db)).resolves.toBe(false);
     expect(mockFileOps.inspectDump).toHaveBeenCalledWith('/documents/off-dump-v2.db');
   });
+
+  it('records integrity check time and reports the actual result in status', async () => {
+    const healthyDb = createDb([], { metadata: { off_dump_last_error: 'older failure' } });
+    mockFileOps.inspectDump.mockResolvedValueOnce({
+      schemaVersion: 3,
+      dataVersion: 'v3',
+      integrityOk: true,
+    });
+
+    await expect(checkOffDumpIntegrity(healthyDb)).resolves.toBe(true);
+    await expect(getOffDumpStatus(healthyDb)).resolves.toEqual(
+      expect.objectContaining({
+        lastCheckAt: expect.any(String),
+        lastError: null,
+      }),
+    );
+
+    const damagedDb = createDb();
+    mockFileOps.inspectDump.mockResolvedValueOnce({
+      schemaVersion: 3,
+      dataVersion: 'v3',
+      integrityOk: false,
+    });
+
+    await expect(checkOffDumpIntegrity(damagedDb)).resolves.toBe(false);
+    await expect(getOffDumpStatus(damagedDb)).resolves.toEqual(
+      expect.objectContaining({
+        lastCheckAt: expect.any(String),
+        lastError: 'Die Integritätsprüfung des Dumps ist fehlgeschlagen.',
+      }),
+    );
+  });
 });
 
 describe('off-dump update operations', () => {
@@ -494,8 +529,15 @@ describe('off-dump update operations', () => {
 
   it('maps an unavailable manifest to the user-facing refresh error', async () => {
     jest.mocked(checkForUpdate).mockResolvedValue({ kind: 'manifest-unavailable' });
+    const db = createDb();
 
-    await expect(forceRefreshOffDump(createDb())).rejects.toThrow('Kein Manifest gefunden');
+    await expect(forceRefreshOffDump(db)).rejects.toThrow('Kein Manifest gefunden');
+    await expect(getOffDumpStatus(db)).resolves.toEqual(
+      expect.objectContaining({
+        lastCheckAt: expect.any(String),
+        lastError: 'Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).',
+      }),
+    );
   });
 
   it('records failed baseline updates and maps them to the user-facing error', async () => {
@@ -527,7 +569,14 @@ describe('off-dump update operations', () => {
   });
 
   it('reinstalls a manifest baseline and maps manifest or installer failures', async () => {
-    await expect(reinstallOffDumpBaseline(createDb())).rejects.toThrow('Kein Manifest gefunden');
+    const unavailableDb = createDb();
+    await expect(reinstallOffDumpBaseline(unavailableDb)).rejects.toThrow('Kein Manifest gefunden');
+    await expect(getOffDumpStatus(unavailableDb)).resolves.toEqual(
+      expect.objectContaining({
+        lastCheckAt: expect.any(String),
+        lastError: 'Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).',
+      }),
+    );
 
     mockFetchManifest.mockResolvedValueOnce(manifest);
     mockInstallBaseline.mockResolvedValueOnce({ ok: false, reason: 'checksum_mismatch' });

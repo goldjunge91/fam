@@ -46,6 +46,19 @@ describe('HubScreen', () => {
     expect(mockOpenProfile).toHaveBeenCalledTimes(1);
   });
 
+  it('behält den vollständigen langen Hub-Titel zugänglich und den Profilbutton verfügbar', async () => {
+    const title = 'Ein außergewöhnlich langer dynamischer Bereichstitel';
+
+    await render(
+      <HubScreen header={{ title }}>
+        <Text>Inhalt</Text>
+      </HubScreen>,
+    );
+
+    expect(screen.getByLabelText(title)).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Profil öffnen' })).toBeOnTheScreen();
+  });
+
   it('keeps the top safe area for the visible sync banner', async () => {
     mockBannerVisible = true;
 

@@ -1,6 +1,6 @@
 -- Gewuenschter Endzustand — NICHT von Hand migrieren.
 --
--- Kanonische Receipt-Daten. Receipts und Positionen sind synchronisierte
+-- Verbindliche Receipt-Daten. Receipts und Positionen sind synchronisierte
 -- Haushaltsdaten; receipt_assets bleibt ein serverseitiger Storage-Index.
 
 create table if not exists public.purchase_receipts (
@@ -15,7 +15,7 @@ create table if not exists public.purchase_receipts (
   processing_status text not null default 'draft'
     check (processing_status in ('draft', 'processing', 'needs_review', 'confirmed', 'failed')),
 
-  created_by uuid not null references public.profiles (id) on delete restrict,
+  created_by uuid references public.profiles (id) on delete set null,
   confirmed_by uuid references public.profiles (id) on delete set null,
   confirmed_at timestamptz,
 
@@ -120,7 +120,7 @@ create table if not exists public.receipt_assets (
   mime_type text not null check (mime_type in ('image/jpeg', 'image/png', 'image/webp')),
   byte_size bigint not null check (byte_size > 0 and byte_size <= 5242880),
   sort_order integer not null default 0 check (sort_order >= 0),
-  created_by uuid not null references public.profiles (id) on delete restrict,
+  created_by uuid references public.profiles (id) on delete set null,
   created_at timestamptz not null default now(),
   deleted_at timestamptz,
 
