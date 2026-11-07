@@ -590,7 +590,12 @@ const styles = StyleSheet.create({
     height: MIN_TOUCH_SIZE,
     zIndex: 10,
   },
-  closeButton: { justifyContent: 'center', alignItems: 'center' },
+  closeButton: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   backdropPressArea: { flex: 1, zIndex: 90 },
   bottomSheet: {
     position: 'absolute',
