@@ -84,6 +84,7 @@ module.exports = {
   // React-Native-Tests einsammeln.
   testPathIgnorePatterns: [
     "/node_modules/",
+    "/supabase/functions/",
     "/\\.push-clean-worktree/",
     "/\\.tmp/",
     "/tools/",

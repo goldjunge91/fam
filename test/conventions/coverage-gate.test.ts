@@ -11,6 +11,7 @@ const jestConfig = require('../../jest.config.js') as {
       statements?: number;
     };
   };
+  testPathIgnorePatterns?: string[];
 };
 
 // Kanonischer Unit-Scope laut package.json. Der native-build-Ausschluss ist mit
@@ -35,6 +36,10 @@ describe('Coverage-Gate-Konfiguration', () => {
     expect(packageJson.scripts['test:coverage:unit']).toBe(
       'bun run test:unit -- --coverage && bun scripts/check-per-file-coverage.ts',
     );
+  });
+
+  it('führt Edge-Function-Suiten nicht im Jest-Unitlauf aus', () => {
+    expect(jestConfig.testPathIgnorePatterns).toContain('/supabase/functions/');
   });
 
   it('sammelt alle produktiven Quellformate und schließt nur Test- und Deklarationsdateien aus', () => {
