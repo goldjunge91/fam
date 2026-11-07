@@ -13,6 +13,13 @@
       "url": "https://mcp.cloudflare.com/mcp",
       "disabled": false
     },
+    "revenuecat": {
+  "url": "https://mcp.revenuecat.ai/mcp",
+  "headers": {
+    "Authorization": "Bearer ${REVENUECAT_MCP_API_KEY}"
+  },
+  "disabled": false
+},
     "jev": {
       "command": "npx",
       "args": [

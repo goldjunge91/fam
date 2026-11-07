@@ -1,7 +1,7 @@
 # fam: Projektkontext
 
 **Status:** Freigegeben
-**Letzte fachliche Prüfung:** 2026-10-06
+**Letzte fachliche Prüfung:** 2026-11-07
 
 `fam` ist eine datenschutzorientierte Haushaltsapp für Familien und andere
 gemeinsame Haushalte. Sie verbindet geteilte Bestände, Einkaufslisten, Rezepte
@@ -48,6 +48,8 @@ Status. `docs/archive/` ist historisch und nicht normativ.
 | Child Profile | Haushalt | Profil für Household Members sichtbar; Änderungen durch Manager oder Admin |
 | Kind-Tracking | fachlich Child Profile, aktuell noch teilweise Account-gebunden | Zielmodell und aktueller Übergangszustand sind unten getrennt beschrieben |
 | Recipe Template | global kuratierter Katalog | global lesbar, kein Household- oder Nutzer-Content |
+| Chef-Koch-Conversation | Haushalt | für aktuelle Household Members über RLS lesbar; serverseitig erzeugt und bis zur Haushaltslöschung aufbewahrt |
+| Chef-Rezept-History | Haushalt | ein unveränderlicher Snapshot pro erfolgreicher Antwort mit validierten Rezeptdaten; unabhängig von aktuellem Inventar und Live-Rezept |
 
 Ein optionaler Product-Bezug reichert einen Bestands-, Einkaufs- oder
 Trackingeintrag an. Er überträgt weder dessen Identität noch dessen Eigentümer.
@@ -262,6 +264,28 @@ ist kein Nutzer-Content, besitzt keinen Autor und kein Soft-Delete. Ein
 Household kopiert ein Template in ein eigenes Recipe. Recipe Templates gehören
 nicht zum lokalen SQLite-Spiegel. Maßgeblich ist
 [ADR 0002](docs/adr/0002-recipe-templates-separate-table-family.md).
+
+### Chef-Koch-Conversation
+
+Serverseitig erzeugter, haushaltsweit sichtbarer Verlauf erfolgreicher
+Chef-Koch-Exchanges. Gespeichert werden sichtbare Nutzertexte und validierte
+Chef-Koch-Antworten, keine internen Systemnachrichten oder Kontextdaten. Eine
+Fortsetzung erzeugt eine neue Conversation mit Parent-Link; die Quelle bleibt
+unverändert. Die 48-Stunden-Grenze betrifft nur das Fortsetzen, nicht das Lesen
+oder die Aufbewahrung.
+
+### Chef-Rezept-History
+
+Unveränderlicher, haushaltseigener Snapshot einer erfolgreichen
+Chef-Koch-Antwort mit Rezeptvorschlägen. Ein Eintrag enthält alle validierten
+Mahlzeiten der Antwort und die damals aufgelösten Inventarangaben. Änderungen
+oder Löschungen am späteren Inventar und an Live-Rezepten verändern den
+Snapshot nicht.
+
+Beide Chef-Koch-Datenklassen bleiben bis zur Haushaltslöschung erhalten. Eine
+Account-Löschung entfernt nur optionale Autor-Referenzen. Manuelle Löschung,
+Archivierung und Wiederherstellung gehören nicht zu diesem Vertrag. Maßgeblich
+ist [ADR 0008](docs/adr/0008-chef-koch-history-retention.md).
 
 ### Meal Plan
 
