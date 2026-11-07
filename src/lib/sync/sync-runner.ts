@@ -107,6 +107,14 @@ function invalidateEntityQueries(queryClient: QueryClient, entity: Entity, house
   }
 
   queryClient.invalidateQueries({ queryKey: [entity, householdId] });
+  if (
+    entity === 'chef_conversations' ||
+    entity === 'chef_conversation_turns' ||
+    entity === 'chef_recipe_history'
+  ) {
+    queryClient.invalidateQueries({ queryKey: ['chef-history', householdId] });
+  }
+
   if (entity === 'fridge_items') {
     queryClient.invalidateQueries({ queryKey: ['fridge_items_grouped', householdId] });
   }

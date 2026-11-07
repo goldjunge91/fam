@@ -16,6 +16,7 @@ Schema und in den Tests.
 | [0005](0005-kind-tracking-gehoert-dem-kindprofil.md) | Kind-Tracking gehört fachlich zum Kindprofil; der Umbau ist bis zu einem konkreten Auslöser eingefroren. | Akzeptiert, Umbau eingefroren |
 | [0006](0006-nativewind-als-auslaufende-layout-hilfe.md) | NativeWind wird nicht weiter ausgebaut und nach der Verbrauchermigration entfernt. | Superseded durch ADR 0007 |
 | [0007](0007-nativewind-retirement-unistyles-v3.md) | Vollständige NativeWind-Ablösung durch Unistyles v3; `className` verboten; drei Design-System-Owner bleiben verbindlich. | Akzeptiert |
+| [0008](0008-chef-koch-history-retention.md) | Chef-Koch-History gehört dem Haushalt und bleibt bis zur Haushaltslöschung erhalten. | Akzeptiert |
 
 ## Lebenszyklus
 

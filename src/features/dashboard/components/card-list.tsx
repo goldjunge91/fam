@@ -22,6 +22,7 @@ import { JiggleWrapper } from './jiggle-wrapper';
 import { WidgetRow } from './widget-row';
 
 // Registriert Dashboard-Karten beim Laden.
+import '@/features/chef-koch/components/chef-koch-dashboard-card';
 import '@/features/calorie-tracking/components/dashboard-card';
 import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';

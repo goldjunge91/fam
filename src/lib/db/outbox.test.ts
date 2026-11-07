@@ -210,6 +210,25 @@ describe('enqueueMutations', () => {
     ]);
   });
 
+  it('weist servererzeugte Chef-History vor lokalem Write und Outbox ab', async () => {
+    const applyLocally = jest.fn().mockResolvedValue(undefined);
+
+    await expect(
+      enqueueMutations(db, [
+        {
+          entity: 'chef_conversation_turns',
+          entityId: 'turn-1',
+          op: 'insert',
+          payload: { id: 'turn-1' },
+          applyLocally,
+        },
+      ]),
+    ).rejects.toThrow('servererzeugt');
+
+    expect(applyLocally).not.toHaveBeenCalled();
+    expect(await db.getAllAsync('select * from outbox')).toEqual([]);
+  });
+
   it('blocks the sign-out guard while a local write producer is active', async () => {
     const releaseProducer = beginOutboxWriteProducer();
     expect(releaseProducer).not.toBeNull();

@@ -20,6 +20,9 @@ describe('entities', () => {
       'fridge_items',
       'shopping_list_items',
       'shopping_category_preferences',
+      'chef_conversations',
+      'chef_conversation_turns',
+      'chef_recipe_history',
       'products',
       'recipes',
       'recipe_components',
@@ -40,7 +43,7 @@ describe('entities', () => {
   // mit drin, damit der Typ `Record<Entity, boolean>` vollstaendig bleibt und
   // die Aussage "products UND households sind global" an einer Stelle sichtbar
   // ist (die eigentliche Zusicherung dafuer steckt im Test weiter unten).
-  it('hasServerTombstone ist nur bei products und households false', () => {
+  it('hasServerTombstone ist bei globalen und servererzeugten Tabellen false', () => {
     const expected: Record<Entity, boolean> = {
       storage_locations: true,
       stores: true,
@@ -51,6 +54,9 @@ describe('entities', () => {
       shopping_list_items: true,
       shopping_category_preferences: true,
       shopping_category_feedback_events: false,
+      chef_conversations: false,
+      chef_conversation_turns: false,
+      chef_recipe_history: false,
       products: false,
       households: false,
       recipes: true,
@@ -82,6 +88,9 @@ describe('entities', () => {
       shopping_list_items: true,
       shopping_category_preferences: true,
       shopping_category_feedback_events: false,
+      chef_conversations: true,
+      chef_conversation_turns: true,
+      chef_recipe_history: true,
       products: false,
       households: false,
       recipes: true,
@@ -153,6 +162,24 @@ describe('entities', () => {
     expect(ENTITIES.households.columns).not.toEqual(
       expect.arrayContaining(['premium_active', 'premium_expires_at', 'premium_updated_at']),
     );
+  });
+
+  it('Chef-History bleibt pull-only und speichert JSON-Spalten als Text', () => {
+    expect(ENTITIES.chef_conversations.serverGenerated).toBe(true);
+    expect(ENTITIES.chef_conversations.appendOnly).toBeUndefined();
+    expect(ENTITIES.chef_conversations.syncCursorColumn).toBeUndefined();
+    expect(ENTITIES.chef_conversation_turns).toMatchObject({
+      appendOnly: true,
+      serverGenerated: true,
+      syncCursorColumn: 'created_at',
+      jsonColumns: ['request_payload', 'response_payload'],
+    });
+    expect(ENTITIES.chef_recipe_history).toMatchObject({
+      appendOnly: true,
+      serverGenerated: true,
+      syncCursorColumn: 'created_at',
+      jsonColumns: ['recipe_payload'],
+    });
   });
 
   it('Feedback ist push-only und bleibt aus dem Pull-Entity-Set heraus', () => {

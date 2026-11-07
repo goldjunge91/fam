@@ -1,5 +1,5 @@
 import { toEpochMs } from '@/lib/sync/cursor';
-import { applyRemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
+import { applyLocalMirrorWrite, applyRemoteRow, upsertMirrorRow } from '@/lib/sync/mirror-write';
 import {
   applyLocalSchema,
   createTestDatabase,
@@ -179,6 +179,57 @@ describe('applyRemoteRow — bestätigte Remote-Aktualität', () => {
       'Remote-Zeile fuer storage_locations hat keinen gültigen updated_at-Zeitstempel.',
     );
   });
+
+  it('serialisiert Chef-History-JSON und markiert die Serverzeile als clean', async () => {
+    await upsertMirrorRow(
+      db,
+      'chef_conversation_turns',
+      {
+        id: 'turn-1',
+        conversation_id: 'conversation-1',
+        household_id: 'household-1',
+        created_by: 'user-1',
+        client_request_id: 'request-1',
+        request_fingerprint: 'a'.repeat(64),
+        user_text: 'Was soll ich kochen?',
+        request_payload: { schema_version: 1, shopping_decision: null },
+        response_payload: { schema_version: 1, shopping_question: 'Einkaufen?', result: null },
+        created_at: '2026-01-01T12:00:00.000Z',
+      },
+      { dirty: 0 },
+    );
+
+    expect(
+      await db.getFirstAsync<{
+        request_payload: string;
+        response_payload: string;
+        updated_at: number;
+        dirty: number;
+      }>(
+        `select request_payload, response_payload, updated_at, _dirty as dirty
+         from chef_conversation_turns where id = ?`,
+        ['turn-1'],
+      ),
+    ).toEqual({
+      request_payload: JSON.stringify({ schema_version: 1, shopping_decision: null }),
+      response_payload: JSON.stringify({
+        schema_version: 1,
+        shopping_question: 'Einkaufen?',
+        result: null,
+      }),
+      updated_at: toEpochMs('2026-01-01T12:00:00.000Z'),
+      dirty: 0,
+    });
+  });
+
+  it.each(['insert', 'update', 'delete', 'restore'] as const)(
+    'weist den lokalen %s-Pfad fuer servererzeugte History ab',
+    async (op) => {
+      await expect(
+        applyLocalMirrorWrite(db, 'chef_conversations', op, { id: 'conversation-1' }, Date.now()),
+      ).rejects.toThrow('servererzeugt');
+    },
+  );
 
   it('behält Dirty-Reconciliation und append-only-Duplikat-Upserts bei', async () => {
     await db.runAsync(

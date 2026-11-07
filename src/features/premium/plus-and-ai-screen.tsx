@@ -5,6 +5,9 @@ import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { rs, withAlpha } from '@/components/theme/index';
 import { Button, SegmentedControl, Txt } from '@/constants/ui';
+import { useAiCreditStatus } from '@/features/ai-credits/api';
+import { AiCreditCard } from '@/features/ai-credits/components/ai-credit-card';
+import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PaywallPlanCard } from '@/features/premium/paywall-plan-card';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -69,6 +72,8 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
   const [managing, setManaging] = useState(false);
 
   const owned = tier === 'plus' ? hasPlus : hasAI;
+  const { activeHouseholdId } = useActiveHousehold();
+  const aiCreditQuery = useAiCreditStatus(tier === 'ai' && owned ? activeHouseholdId : null);
   const otherTier: PaywallTier = tier === 'plus' ? 'ai' : 'plus';
   const otherOwned = otherTier === 'plus' ? hasPlus : hasAI;
   const content = TIER_CONTENT[tier];
@@ -191,6 +196,15 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
               </Txt>
             </View>
+            {tier === 'ai' ? (
+              <AiCreditCard
+                householdId={activeHouseholdId}
+                status={aiCreditQuery.data}
+                isLoading={aiCreditQuery.isPending}
+                isError={aiCreditQuery.isError}
+                onRetry={() => void aiCreditQuery.refetch()}
+              />
+            ) : null}
             <Button title="Abo verwalten" onPress={handleManage} loading={managing} />
 
             {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}

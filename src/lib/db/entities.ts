@@ -23,6 +23,10 @@ export type EntityMeta = {
   normalizeQuantityUnits?: true;
   /** Append-only-Tabelle ohne updated_at/deleted_at auf dem Server. */
   appendOnly?: true;
+  /** Serverseitig erzeugter Spiegel ohne lokalen Outbox-Schreibvertrag. */
+  serverGenerated?: true;
+  /** Postgres-JSON-Spalten, die SQLite als validen JSON-Text speichert. */
+  jsonColumns?: readonly string[];
   /** Remote-Pull-Cursor; Transaktionen werden nach der Server-Reihenfolge geladen. */
   syncCursorColumn?: 'updated_at' | 'created_at' | 'sync_sequence';
   /** Spalten ohne updated_at/deleted_at/_dirty, id zuerst. 1:1 aus migrations.ts's V1_MIRRORS. */
@@ -219,6 +223,62 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'app_version',
       'build_channel',
       'client_created_at',
+    ],
+  },
+  chef_conversations: {
+    entity: 'chef_conversations',
+    table: 'chef_conversations',
+    hasServerTombstone: false,
+    householdScoped: true,
+    serverGenerated: true,
+    columns: [
+      'id',
+      'household_id',
+      'created_by',
+      'created_at',
+      'last_activity_at',
+      'continued_from_id',
+    ],
+  },
+  chef_conversation_turns: {
+    entity: 'chef_conversation_turns',
+    table: 'chef_conversation_turns',
+    hasServerTombstone: false,
+    householdScoped: true,
+    appendOnly: true,
+    serverGenerated: true,
+    syncCursorColumn: 'created_at',
+    jsonColumns: ['request_payload', 'response_payload'],
+    columns: [
+      'id',
+      'conversation_id',
+      'household_id',
+      'created_by',
+      'client_request_id',
+      'request_fingerprint',
+      'user_text',
+      'request_payload',
+      'response_payload',
+      'created_at',
+    ],
+  },
+  chef_recipe_history: {
+    entity: 'chef_recipe_history',
+    table: 'chef_recipe_history',
+    hasServerTombstone: false,
+    householdScoped: true,
+    appendOnly: true,
+    serverGenerated: true,
+    syncCursorColumn: 'created_at',
+    jsonColumns: ['recipe_payload'],
+    columns: [
+      'id',
+      'conversation_id',
+      'turn_id',
+      'household_id',
+      'title',
+      'recipe_payload',
+      'created_at',
     ],
   },
   products: {
@@ -454,6 +514,9 @@ export const ALL_ENTITIES: readonly Entity[] = [
   'fridge_items',
   'shopping_list_items',
   'shopping_category_preferences',
+  'chef_conversations',
+  'chef_conversation_turns',
+  'chef_recipe_history',
   'products',
   'recipes',
   'recipe_components',

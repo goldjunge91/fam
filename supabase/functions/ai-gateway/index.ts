@@ -1,6 +1,15 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import {
+  type ChefRecipeSnapshotInput,
+  type ChefRequestPayload,
+  type ChefResponsePayload,
+  parseChefConversationContext,
+  parseChefConversationPreflight,
+  parseChefExchangeLookup,
+  parseChefHistoryHydration,
+} from './chef-history.ts';
+import {
   ALLOWED_MODELS,
   createAiGatewayHandler,
   type GatewayCookingContext,
@@ -9,42 +18,67 @@ import {
   type GatewayLot,
   type GatewayRecipe,
 } from './handler.ts';
+import { resolveDefaultModel } from './config.ts';
+import {
+  createAiEntitlementAuthorizer,
+  readAiEntitlementServerConfig,
+} from './entitlement-authorization.ts';
+import { createOpenRouterChatBody, parseOpenRouterChatCompletion } from './openrouter-request.ts';
+import { projectRecipeAllergens } from './recipe-allergen-projection.ts';
+import type { RecipeSuggestionContext } from './recipe-suggestion-contract.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
+import { withRequestId } from '../_shared/http.ts';
+import { requireDefaultSupabaseKey } from '../_shared/supabase-keys.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
-const supabaseSecretKey = Deno.env.get('SUPABASE_SECRET_KEY')!;
+const publishableKey = requireDefaultSupabaseKey('SUPABASE_PUBLISHABLE_KEYS');
+const aiEntitlementServerConfig = readAiEntitlementServerConfig((name) => Deno.env.get(name));
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1')
   .replace(/\/$/, '');
-const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? 'z-ai/glm-5.3-flash';
-const allowedModels = (Deno.env.get('AI_GATEWAY_ALLOWED_MODELS') ?? '')
-  .split(',')
-  .map((model) => model.trim())
-  .filter(Boolean);
+const defaultModel = resolveDefaultModel(Deno.env.get('AI_GATEWAY_MODEL'));
+const MAX_CATALOG_RECIPES_PER_REQUEST = 100;
 const rateLimiter = new SlidingWindowRateLimiter(
   Number(Deno.env.get('AI_GATEWAY_RATE_LIMIT') ?? 30),
   60_000,
 );
 const readRevenueCatStatus = createRevenueCatSubscriberStatusReader(
   Deno.env.get('REVENUECAT_SECRET_API_KEY'),
+  fetch,
+  {
+    allowSandboxAiEntitlement: aiEntitlementServerConfig.allowSandboxEntitlements,
+  },
 );
 
-function userClient(request: Request) {
-  const authorization = request.headers.get('Authorization');
-  return createClient(supabaseUrl, anonKey, {
-    global: { headers: authorization ? { Authorization: authorization } : {} },
+function createAdminClient() {
+  return createClient(supabaseUrl, aiEntitlementServerConfig.supabaseSecretKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
   });
 }
 
-async function authenticate(request: Request) {
+function userClient(request: Request, requestId: string) {
+  const authorization = request.headers.get('Authorization');
+  return createClient(supabaseUrl, publishableKey, {
+    global: {
+      headers: {
+        ...(authorization ? { Authorization: authorization } : {}),
+        'X-Request-Id': requestId,
+      },
+    },
+  });
+}
+
+async function authenticate(request: Request, requestId: string) {
   const authorization = request.headers.get('Authorization');
   if (!authorization) {
     return { ok: false as const, status: 401, error: 'missing_authorization' };
   }
 
-  const { data, error } = await userClient(request).auth.getUser();
+  const { data, error } = await userClient(request, requestId).auth.getUser();
   if (error || !data.user) {
     return { ok: false as const, status: 401, error: 'unauthorized' };
   }
@@ -55,9 +89,10 @@ async function assertHouseholdMember(
   userId: string,
   householdId: string,
   authorization: string,
+  requestId: string,
 ) {
-  const client = createClient(supabaseUrl, anonKey, {
-    global: { headers: { Authorization: authorization } },
+  const client = createClient(supabaseUrl, publishableKey, {
+    global: { headers: { Authorization: authorization, 'X-Request-Id': requestId } },
   });
   const { data, error } = await client
     .from('household_members')
@@ -71,7 +106,6 @@ async function assertHouseholdMember(
       ok: false as const,
       status: 500,
       error: 'household_lookup_failed',
-      message: error.message,
     };
   }
   if (!data) {
@@ -80,76 +114,159 @@ async function assertHouseholdMember(
   return { ok: true as const, userId, authorization };
 }
 
-async function authorizeAiEntitlement(householdId: string, authorization: string) {
-  const client = createClient(supabaseUrl, anonKey, {
-    global: { headers: { Authorization: authorization } },
-  });
-  const { data, error } = await client
-    .from('households')
-    .select('ai_active, ai_expires_at, ai_subscriber_id')
-    .eq('id', householdId)
-    .maybeSingle();
-
-  if (error) {
-    return { ok: false as const, status: 500, error: 'ai_household_lookup_failed' };
+function historyRpcFailure(
+  message: string,
+  fallback: string,
+): { ok: false; status: number; error: string } {
+  for (
+    const [needle, status, error] of [
+      ['household_forbidden', 403, 'household_forbidden'],
+      ['invalid_request', 400, 'invalid_request'],
+      ['chef_history_payload_invalid', 400, 'invalid_request'],
+      ['chef_recipe_snapshot_invalid', 400, 'invalid_request'],
+      ['chef_conversation_not_found', 404, 'chef_conversation_not_found'],
+      ['chef_request_replay_mismatch', 409, 'chef_request_replay_mismatch'],
+      ['chef_request_already_refunded', 409, 'chef_request_already_refunded'],
+      ['chef_conversation_source_immutable', 409, 'chef_conversation_source_immutable'],
+      ['chef_conversation_continuation_expired', 409, 'chef_conversation_continuation_expired'],
+    ] as const
+  ) {
+    if (message.includes(needle)) return { ok: false, status, error };
   }
-  const subscriberUserId = data?.ai_subscriber_id;
-  if (!subscriberUserId) {
-    return { ok: false as const, status: 403, error: 'ai_entitlement_missing' };
-  }
-
-  try {
-    const status = await readRevenueCatStatus(subscriberUserId);
-    const entitlement = status.entitlements.AI ?? {
-      active: false,
-      expiresAt: null,
-    };
-    const requestDateMs = status.requestDateMs ?? Date.now();
-    const adminClient = createClient(supabaseUrl, supabaseSecretKey);
-
-    if (entitlement.active) {
-      const currentExpiryMs = data.ai_expires_at === null ? null : Date.parse(data.ai_expires_at);
-      const confirmedExpiryMs = entitlement.expiresAt === null
-        ? null
-        : Date.parse(entitlement.expiresAt);
-      const projectionMatches = data.ai_active &&
-        data.ai_subscriber_id === subscriberUserId &&
-        currentExpiryMs === confirmedExpiryMs;
-
-      if (!projectionMatches) {
-        const { data: applied, error: updateError } = await adminClient.rpc(
-          'assign_ai_household',
-          {
-            p_subscriber_user_id: subscriberUserId,
-            p_target_household_id: householdId,
-            p_entitlement_expires_at: entitlement.expiresAt,
-            p_event_timestamp_ms: requestDateMs,
-          },
-        );
-        if (updateError || !applied) {
-          return { ok: false as const, status: 503, error: 'ai_status_refresh_failed' };
-        }
-      }
-      return { ok: true as const, subscriberUserId };
-    }
-
-    if (data.ai_active && data.ai_subscriber_id === subscriberUserId) {
-      const { data: applied, error: updateError } = await adminClient.rpc(
-        'deactivate_ai_household',
-        {
-          p_subscriber_user_id: subscriberUserId,
-          p_event_timestamp_ms: requestDateMs,
-        },
-      );
-      if (updateError || !applied) {
-        return { ok: false as const, status: 503, error: 'ai_status_refresh_failed' };
-      }
-    }
-    return { ok: false as const, status: 402, error: 'ai_subscription_required' };
-  } catch {
-    return { ok: false as const, status: 503, error: 'ai_status_unavailable' };
-  }
+  return { ok: false, status: 500, error: fallback };
 }
+
+async function lookupChefExchange(input: {
+  householdId: string;
+  actorUserId: string;
+  clientRequestId: string;
+  requestFingerprint: string;
+}) {
+  const { data, error } = await createAdminClient().rpc('lookup_chef_exchange', {
+    p_household_id: input.householdId,
+    p_actor_user_id: input.actorUserId,
+    p_client_request_id: input.clientRequestId,
+    p_request_fingerprint: input.requestFingerprint,
+  });
+  if (error) return historyRpcFailure(error.message, 'chef_history_lookup_failed');
+  const value = parseChefExchangeLookup(data);
+  return value === null
+    ? { ok: false as const, status: 500, error: 'chef_history_lookup_failed' }
+    : { ok: true as const, value };
+}
+
+async function preflightChefExchange(input: {
+  householdId: string;
+  actorUserId: string;
+  conversationId: string | null;
+  continuedFromConversationId: string | null;
+}) {
+  const { data, error } = await createAdminClient().rpc('preflight_chef_exchange', {
+    p_household_id: input.householdId,
+    p_actor_user_id: input.actorUserId,
+    p_conversation_id: input.conversationId,
+    p_continued_from_conversation_id: input.continuedFromConversationId,
+  });
+  if (error) return historyRpcFailure(error.message, 'chef_conversation_preflight_failed');
+  const value = parseChefConversationPreflight(data);
+  return value === null
+    ? { ok: false as const, status: 500, error: 'chef_conversation_preflight_failed' }
+    : { ok: true as const, value };
+}
+
+async function loadChefConversationContext(input: {
+  householdId: string;
+  actorUserId: string;
+  conversationId: string;
+}) {
+  const { data, error } = await createAdminClient().rpc('get_chef_conversation_context', {
+    p_household_id: input.householdId,
+    p_actor_user_id: input.actorUserId,
+    p_conversation_id: input.conversationId,
+    p_max_depth: 20,
+    p_max_chars: 32_000,
+  });
+  if (error) return historyRpcFailure(error.message, 'chef_history_context_lookup_failed');
+  const value = parseChefConversationContext(data);
+  return value === null
+    ? { ok: false as const, status: 500, error: 'chef_history_context_lookup_failed' }
+    : { ok: true as const, value };
+}
+
+async function persistChefExchange(input: {
+  householdId: string;
+  actorUserId: string;
+  conversationId: string | null;
+  continuedFromConversationId: string | null;
+  clientRequestId: string;
+  requestFingerprint: string;
+  requestPayload: ChefRequestPayload;
+  userText: string;
+  responsePayload: ChefResponsePayload;
+  recipeSnapshots: ChefRecipeSnapshotInput[];
+}) {
+  const { data, error } = await createAdminClient().rpc('persist_chef_exchange', {
+    p_household_id: input.householdId,
+    p_actor_user_id: input.actorUserId,
+    p_conversation_id: input.conversationId,
+    p_continued_from_conversation_id: input.continuedFromConversationId,
+    p_client_request_id: input.clientRequestId,
+    p_request_fingerprint: input.requestFingerprint,
+    p_request_payload: input.requestPayload,
+    p_user_text: input.userText,
+    p_response_payload: input.responsePayload,
+    p_recipe_snapshots: input.recipeSnapshots,
+  });
+  if (error) return historyRpcFailure(error.message, 'chef_history_persist_failed');
+  const value = parseChefHistoryHydration(data);
+  return value === null
+    ? { ok: false as const, status: 500, error: 'chef_history_persist_failed' }
+    : { ok: true as const, value };
+}
+
+const authorizeAiEntitlement = createAiEntitlementAuthorizer({
+  allowAuthenticatedUserRecovery: aiEntitlementServerConfig.allowSandboxEntitlements,
+  readHouseholdProjection: async ({ householdId, authorization, requestId }) => {
+    const client = createClient(supabaseUrl, publishableKey, {
+      global: { headers: { Authorization: authorization, 'X-Request-Id': requestId } },
+    });
+    const { data, error } = await client
+      .from('households')
+      .select('ai_active, ai_expires_at, ai_subscriber_id')
+      .eq('id', householdId)
+      .maybeSingle();
+
+    return error ? { ok: false as const } : { ok: true as const, projection: data };
+  },
+  readSubscriberStatus: readRevenueCatStatus,
+  assignAiHousehold: async ({
+    subscriberUserId,
+    householdId,
+    entitlementExpiresAt,
+    eventTimestampMs,
+  }) => {
+    const { data: applied, error } = await createAdminClient().rpc(
+      'assign_ai_household',
+      {
+        p_subscriber_user_id: subscriberUserId,
+        p_target_household_id: householdId,
+        p_entitlement_expires_at: entitlementExpiresAt,
+        p_event_timestamp_ms: eventTimestampMs,
+      },
+    );
+    return !error && applied === true;
+  },
+  deactivateAiHousehold: async ({ subscriberUserId, eventTimestampMs }) => {
+    const { data: applied, error } = await createAdminClient().rpc(
+      'deactivate_ai_household',
+      {
+        p_subscriber_user_id: subscriberUserId,
+        p_event_timestamp_ms: eventTimestampMs,
+      },
+    );
+    return !error && applied === true;
+  },
+});
 
 async function bookAiCredit(input: {
   householdId: string;
@@ -157,15 +274,26 @@ async function bookAiCredit(input: {
   action: GatewayCreditAction;
   requestId: string;
 }) {
-  const client = createClient(supabaseUrl, supabaseSecretKey);
-  const { error } = await client.rpc('book_ai_credit', {
+  const client = createAdminClient();
+  const { data, error } = await client.rpc('book_ai_credit', {
     p_household_id: input.householdId,
     p_action: input.action,
     p_request_id: input.requestId,
     p_expected_subscriber_user_id: input.subscriberUserId,
   });
 
-  if (!error) return { ok: true as const };
+  if (!error) {
+    const row = Array.isArray(data) ? data[0] : data;
+    if (
+      typeof row === 'object' &&
+      row !== null &&
+      'booking_created' in row &&
+      typeof row.booking_created === 'boolean'
+    ) {
+      return { ok: true as const, created: row.booking_created };
+    }
+    return { ok: false as const, status: 500, error: 'ai_credit_booking_failed' };
+  }
   if (error.message.includes('ai_credit_limit_exceeded')) {
     return { ok: false as const, status: 429, error: 'ai_credit_limit_exceeded' };
   }
@@ -175,11 +303,17 @@ async function bookAiCredit(input: {
   if (error.message.includes('ai_household_not_assigned')) {
     return { ok: false as const, status: 403, error: 'ai_entitlement_missing' };
   }
+  if (error.message.includes('ai_credit_request_refunded')) {
+    return { ok: false as const, status: 409, error: 'chef_request_already_refunded' };
+  }
+  if (error.message.includes('ai_credit_request_mismatch')) {
+    return { ok: false as const, status: 409, error: 'chef_request_replay_mismatch' };
+  }
   return { ok: false as const, status: 500, error: 'ai_credit_booking_failed' };
 }
 
 async function refundAiCredit(subscriberUserId: string, requestId: string) {
-  const client = createClient(supabaseUrl, supabaseSecretKey);
+  const client = createAdminClient();
   const { error } = await client.rpc('refund_ai_credit', {
     p_subscriber_user_id: subscriberUserId,
     p_request_id: requestId,
@@ -191,36 +325,6 @@ function storageKind(value: unknown): GatewayLot['storage'] {
   return value === 'fridge' || value === 'freezer' || value === 'pantry' ? value : 'unknown';
 }
 
-function classifyPerishability(tags: unknown): 'perishable' | 'unknown' {
-  const perishableSuffixes = new Set([
-    'dairy',
-    'dairy-products',
-    'eggs',
-    'fish-and-seafood',
-    'fresh-foods',
-    'fruits',
-    'fruits-and-vegetables',
-    'meat',
-    'meats',
-    'milchprodukte',
-    'poultry',
-    'refrigerated-foods',
-    'seafood',
-    'vegetables',
-    'yogurts',
-  ]);
-  if (!Array.isArray(tags)) return 'unknown';
-  const hasPerishable = tags.some((tag) => {
-    if (typeof tag !== 'string') return false;
-    const normalized = tag.trim().toLocaleLowerCase('en-US');
-    const separator = normalized.indexOf(':');
-    return perishableSuffixes.has(
-      separator === -1 ? normalized : normalized.slice(separator + 1),
-    );
-  });
-  return hasPerishable ? 'perishable' : 'unknown';
-}
-
 function normalizeDate(value: unknown): string | null {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
     return null;
@@ -228,178 +332,316 @@ function normalizeDate(value: unknown): string | null {
   return value;
 }
 
+function finiteNumber(value: unknown): number | null {
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (typeof value !== 'string' || value.trim().length === 0) return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function stringArray(value: unknown): string[] {
+  return Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0)
+    : [];
+}
+
+function uniqueStrings(values: readonly string[]): string[] {
+  const seen = new Set<string>();
+  return values.filter((value) => {
+    const key = value.trim().toLocaleLowerCase('de-DE');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function logLookupFailure(
+  requestId: string,
+  operation: string,
+  error: { code?: string; message: string },
+): void {
+  console.error(JSON.stringify({
+    event: 'ai_gateway_database_lookup_failed',
+    requestId,
+    operation,
+    upstreamCode: error.code ?? null,
+    upstreamMessage: error.message,
+  }));
+}
+
 async function loadCookingContext(
-  _userId: string,
+  userId: string,
   householdId: string,
   authorization: string,
+  requestId: string,
 ) {
-  const client = createClient(supabaseUrl, anonKey, {
-    global: { headers: { Authorization: authorization } },
+  const client = createClient(supabaseUrl, publishableKey, {
+    global: { headers: { Authorization: authorization, 'X-Request-Id': requestId } },
   });
 
-  const { data: inventoryRows, error: inventoryError } = await client
-    .from('fridge_items')
-    .select('id, product_id, name, quantity, unit, expiry_date, location_id')
-    .eq('household_id', householdId)
-    .is('deleted_at', null)
-    .gt('quantity', 0);
-  if (inventoryError) {
+  const [inventoryResult, shoppingResult, rulesResult, recipesResult] = await Promise.all([
+    client
+      .from('fridge_items')
+      .select('id, product_id, name, quantity, unit, expiry_date, location_id')
+      .eq('household_id', householdId)
+      .is('deleted_at', null)
+      .gt('quantity', 0),
+    client
+      .from('shopping_list_items')
+      .select('id, name, quantity, unit, created_at')
+      .eq('household_id', householdId)
+      .is('deleted_at', null)
+      .is('checked_at', null)
+      .gt('quantity', 0)
+      .order('created_at', { ascending: true }),
+    client
+      .from('profile_food_rules')
+      .select(
+        'allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods',
+      )
+      .eq('user_id', userId)
+      .maybeSingle(),
+    client
+      .from('catalog_recipes')
+      .select('id, title, cook_time_minutes, default_servings, dietary_tags')
+      .eq('status', 'published')
+      .order('sort_order', { ascending: true })
+      .order('title', { ascending: true })
+      .limit(MAX_CATALOG_RECIPES_PER_REQUEST),
+  ]);
+
+  const initialError = inventoryResult.error ?? shoppingResult.error ??
+    rulesResult.error ?? recipesResult.error;
+  if (initialError) {
+    logLookupFailure(requestId, 'cooking_context', initialError);
     return {
       ok: false as const,
       status: 500,
-      error: 'inventory_lookup_failed',
-      message: inventoryError.message,
+      error: 'cooking_context_lookup_failed',
     };
   }
 
-  const rows = inventoryRows ?? [];
+  const inventoryRows = inventoryResult.data ?? [];
   const locationIds = [
-    ...new Set(rows.map((row) => row.location_id).filter(Boolean)),
+    ...new Set(inventoryRows.map((row) => row.location_id).filter(Boolean)),
   ];
-  const productIds = [
-    ...new Set(rows.map((row) => row.product_id).filter(Boolean)),
-  ];
-  const [locationsResult, productsResult] = await Promise.all([
-    locationIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from('storage_locations').select('id, kind').in(
-        'id',
-        locationIds,
-      ),
-    productIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from('products').select('id, name, off_category_tags').in(
-        'id',
-        productIds,
-      ),
-  ]);
-  if (locationsResult.error || productsResult.error) {
+  const locationsResult = locationIds.length === 0
+    ? { data: [], error: null }
+    : await client.from('storage_locations').select('id, kind').in('id', locationIds);
+  if (locationsResult.error) {
+    logLookupFailure(requestId, 'inventory_locations', locationsResult.error);
     return {
       ok: false as const,
       status: 500,
-      error: 'inventory_enrichment_failed',
-      message: locationsResult.error?.message ?? productsResult.error?.message,
+      error: 'inventory_locations_lookup_failed',
     };
   }
 
   const locations = new Map(
     (locationsResult.data ?? []).map((row) => [row.id, row.kind]),
   );
-  const products = new Map(
-    (productsResult.data ?? []).map((row) => [row.id, row]),
-  );
-  const lots: GatewayLot[] = rows
-    .map((row) => {
-      const product = row.product_id ? products.get(row.product_id) : undefined;
-      return {
-        lotId: row.id,
-        productId: row.product_id ?? null,
-        normalizedName: String(row.name).trim(),
-        quantity: typeof row.quantity === 'number' ? row.quantity : null,
-        unit: typeof row.unit === 'string' ? row.unit : null,
-        bestBefore: normalizeDate(row.expiry_date),
-        useBy: null,
-        storage: storageKind(
-          row.location_id ? locations.get(row.location_id) : null,
-        ),
-        perishability: classifyPerishability(product?.off_category_tags),
-      };
-    })
-    .filter((lot) => lot.normalizedName.length > 0 && lot.perishability === 'perishable')
-    .map(({ perishability: _perishability, ...lot }) => lot)
-    .sort((a, b) => {
-      const aDate = a.useBy ?? a.bestBefore;
-      const bDate = b.useBy ?? b.bestBefore;
-      if (aDate !== bDate) {
-        if (aDate === null) return 1;
-        if (bDate === null) return -1;
-        return aDate.localeCompare(bDate);
+  const lots: GatewayLot[] = inventoryRows
+    .map((row) => ({
+      lotId: row.id,
+      productId: row.product_id ?? null,
+      normalizedName: String(row.name).trim(),
+      quantity: finiteNumber(row.quantity),
+      unit: typeof row.unit === 'string' ? row.unit : null,
+      bestBefore: normalizeDate(row.expiry_date),
+      useBy: null,
+      storage: storageKind(row.location_id ? locations.get(row.location_id) : null),
+    }))
+    .filter((lot) => lot.normalizedName.length > 0)
+    .sort((left, right) => {
+      const leftDate = left.useBy ?? left.bestBefore;
+      const rightDate = right.useBy ?? right.bestBefore;
+      if (leftDate !== rightDate) {
+        if (leftDate === null) return 1;
+        if (rightDate === null) return -1;
+        return leftDate.localeCompare(rightDate);
       }
-      return a.normalizedName.localeCompare(b.normalizedName, 'de') ||
-        a.lotId.localeCompare(b.lotId);
+      return left.normalizedName.localeCompare(right.normalizedName, 'de') ||
+        left.lotId.localeCompare(right.lotId);
     });
 
-  const { data: recipeRows, error: recipeError } = await client
-    .from('catalog_recipes')
-    .select('id, title, cook_time_minutes, default_servings, dietary_tags')
-    .eq('status', 'published')
-    .order('sort_order', { ascending: true })
-    .order('title', { ascending: true });
-  if (recipeError) {
+  const shoppingItems: GatewayCookingContext['shoppingItems'] = [];
+  for (const row of shoppingResult.data ?? []) {
+    const quantity = finiteNumber(row.quantity);
+    if (
+      typeof row.name === 'string' &&
+      row.name.trim().length > 0 &&
+      quantity !== null &&
+      quantity > 0 &&
+      typeof row.unit === 'string' &&
+      row.unit.trim().length > 0
+    ) {
+      shoppingItems.push({
+        shoppingItemId: row.id,
+        name: row.name.trim(),
+        quantity,
+        unit: row.unit,
+      });
+    }
+  }
+
+  const recipeRows = recipesResult.data ?? [];
+  const recipeIds = recipeRows.map((row) => row.id);
+  const [itemsResult, stepsResult] = recipeIds.length === 0
+    ? [{ data: [], error: null }, { data: [], error: null }]
+    : await Promise.all([
+      client
+        .from('catalog_recipe_component_items')
+        .select('id, recipe_id, product_id, ingredient_name, quantity, grams, unit, position')
+        .in('recipe_id', recipeIds)
+        .order('position', { ascending: true }),
+      client
+        .from('catalog_recipe_steps')
+        .select('recipe_id, text, position')
+        .in('recipe_id', recipeIds)
+        .order('position', { ascending: true }),
+    ]);
+  const recipeDetailError = itemsResult.error ?? stepsResult.error;
+  if (recipeDetailError) {
+    logLookupFailure(requestId, 'recipe_details', recipeDetailError);
     return {
       ok: false as const,
       status: 500,
-      error: 'recipe_lookup_failed',
-      message: recipeError.message,
+      error: 'recipe_details_lookup_failed',
     };
   }
 
-  const recipeIds = (recipeRows ?? []).map((row) => row.id);
-  const { data: itemRows, error: itemError } = recipeIds.length === 0
-    ? { data: [], error: null }
-    : await client
-      .from('catalog_recipe_component_items')
-      .select(
-        'recipe_id, product_id, ingredient_name, quantity, unit, position',
-      )
-      .in('recipe_id', recipeIds)
-      .order('position', { ascending: true });
-  if (itemError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'recipe_ingredients_lookup_failed',
-      message: itemError.message,
-    };
-  }
-
+  const itemRows = itemsResult.data ?? [];
   const recipeProductIds = [
-    ...new Set((itemRows ?? []).map((row) => row.product_id).filter(Boolean)),
+    ...new Set(itemRows.map((row) => row.product_id).filter(Boolean)),
   ];
-  const { data: recipeProducts, error: recipeProductsError } = recipeProductIds.length === 0
-    ? { data: [], error: null }
-    : await client.from('products').select('id, name').in(
-      'id',
-      recipeProductIds,
-    );
-  if (recipeProductsError) {
+  const rules = rulesResult.data;
+  const allergies = uniqueStrings([
+    ...stringArray(rules?.allergy_codes),
+    ...stringArray(rules?.custom_allergies),
+    ...stringArray(rules?.intolerance_codes),
+    ...stringArray(rules?.custom_intolerances),
+  ]);
+  const catalogItemIds = itemRows.map((row) => row.id);
+  const [recipeProductsResult, recipeIngredientLinksResult] = await Promise.all([
+    recipeProductIds.length === 0
+      ? Promise.resolve({ data: [], error: null })
+      : client.from('products').select('id, name').in('id', recipeProductIds),
+    allergies.length === 0 || catalogItemIds.length === 0
+      ? Promise.resolve({ data: [], error: null })
+      : client
+        .from('catalog_recipe_item_ingredient_links')
+        .select('catalog_item_id, ingredient_id, confidence, reviewed_at')
+        .in('catalog_item_id', catalogItemIds),
+  ]);
+  if (recipeProductsResult.error) {
+    logLookupFailure(requestId, 'recipe_products', recipeProductsResult.error);
     return {
       ok: false as const,
       status: 500,
       error: 'recipe_products_lookup_failed',
-      message: recipeProductsError.message,
+    };
+  }
+  if (recipeIngredientLinksResult.error) {
+    logLookupFailure(requestId, 'recipe_ingredient_links', recipeIngredientLinksResult.error);
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'recipe_allergen_lookup_failed',
     };
   }
 
-  const recipeProductNames = new Map(
-    (recipeProducts ?? []).map((row) => [row.id, row.name]),
+  const recipeIngredientLinks = recipeIngredientLinksResult.data ?? [];
+  const linkedIngredientIds = [
+    ...new Set(recipeIngredientLinks.map((link) => link.ingredient_id)),
+  ];
+  const [ingredientKnowledgeResult, ingredientMappingsResult] = linkedIngredientIds.length === 0
+    ? [{ data: [], error: null }, { data: [], error: null }]
+    : await Promise.all([
+      client
+        .from('food_ingredients')
+        .select('id, allergen_reviewed_at')
+        .in('id', linkedIngredientIds),
+      client
+        .from('ingredient_allergen_mappings')
+        .select('ingredient_id, allergen_id, relation')
+        .in('ingredient_id', linkedIngredientIds),
+    ]);
+  const ingredientKnowledgeError = ingredientKnowledgeResult.error ??
+    ingredientMappingsResult.error;
+  if (ingredientKnowledgeError) {
+    logLookupFailure(requestId, 'ingredient_allergen_knowledge', ingredientKnowledgeError);
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'recipe_allergen_lookup_failed',
+    };
+  }
+
+  const allergensByRecipeId = projectRecipeAllergens({
+    recipes: recipeRows.map((row) => ({ recipeId: row.id })),
+    items: itemRows.map((row) => ({ itemId: row.id, recipeId: row.recipe_id })),
+    links: recipeIngredientLinks.map((link) => ({
+      catalogItemId: link.catalog_item_id,
+      ingredientId: link.ingredient_id,
+      confidence: link.confidence,
+      reviewedAt: link.reviewed_at,
+    })),
+    ingredients: (ingredientKnowledgeResult.data ?? []).map((ingredient) => ({
+      ingredientId: ingredient.id,
+      allergenReviewedAt: ingredient.allergen_reviewed_at,
+    })),
+    mappings: (ingredientMappingsResult.data ?? []).map((mapping) => ({
+      ingredientId: mapping.ingredient_id,
+      allergenId: mapping.allergen_id,
+      relation: mapping.relation,
+    })),
+  });
+
+  const productNames = new Map(
+    (recipeProductsResult.data ?? []).map((row) => [row.id, row.name]),
   );
   const ingredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
-  for (const row of itemRows ?? []) {
-    const name = typeof row.ingredient_name === 'string' &&
-        row.ingredient_name.trim().length > 0
+  for (const row of itemRows) {
+    const name = typeof row.ingredient_name === 'string' && row.ingredient_name.trim().length > 0
       ? row.ingredient_name.trim()
       : row.product_id
-      ? String(recipeProductNames.get(row.product_id) ?? '').trim()
+      ? String(productNames.get(row.product_id) ?? '').trim()
       : '';
-    if (!name) continue;
+    if (name.length === 0) continue;
+
+    const explicitQuantity = finiteNumber(row.quantity);
+    const quantity = explicitQuantity ?? finiteNumber(row.grams);
     const current = ingredientsByRecipe.get(row.recipe_id) ?? [];
     current.push({
       productId: row.product_id ?? null,
       normalizedName: name,
-      quantity: typeof row.quantity === 'number' ? row.quantity : null,
-      unit: typeof row.unit === 'string' ? row.unit : null,
+      quantity,
+      unit: explicitQuantity === null
+        ? quantity === null ? null : 'g'
+        : typeof row.unit === 'string'
+        ? row.unit
+        : null,
     });
     ingredientsByRecipe.set(row.recipe_id, current);
   }
 
-  const recipes: GatewayRecipe[] = (recipeRows ?? []).map((row) => ({
+  const stepsByRecipe = new Map<string, string[]>();
+  for (const row of stepsResult.data ?? []) {
+    if (typeof row.text !== 'string' || row.text.trim().length === 0) continue;
+    const current = stepsByRecipe.get(row.recipe_id) ?? [];
+    current.push(row.text.trim());
+    stepsByRecipe.set(row.recipe_id, current);
+  }
+
+  const recipes: GatewayRecipe[] = recipeRows.map((row) => ({
     recipeId: row.id,
     title: String(row.title).trim(),
-    estimatedMinutes: typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : null,
-    servings: typeof row.default_servings === 'number' ? row.default_servings : null,
-    dietaryTags: Array.isArray(row.dietary_tags) ? row.dietary_tags : [],
-    allergens: null,
+    source: 'catalog',
+    estimatedMinutes: finiteNumber(row.cook_time_minutes),
+    servings: finiteNumber(row.default_servings),
+    dietaryTags: stringArray(row.dietary_tags),
+    allergens: allergensByRecipeId.get(row.id) ?? null,
+    steps: stepsByRecipe.get(row.id) ?? [],
     ingredients: ingredientsByRecipe.get(row.id) ?? [],
   }));
 
@@ -410,14 +652,21 @@ async function loadCookingContext(
       lots,
     } satisfies GatewayInventoryContext,
     recipes,
+    shoppingItems,
+    allergies,
+    preferences: [],
+    forbiddenIngredients: uniqueStrings(stringArray(rules?.disliked_foods)),
   };
   return { ok: true as const, context };
 }
 
 async function complete(
-  { model, messages }: {
+  { requestId, model, messages, skill, cookingContext }: {
+    requestId: string;
     model: string;
     messages: Array<{ role: 'system' | 'user'; content: string }>;
+    skill: 'fam-cook-from-inventory' | 'fam-inventory-capture';
+    cookingContext: RecipeSuggestionContext | null;
   },
 ) {
   if (!openRouterKey) {
@@ -435,6 +684,7 @@ async function complete(
       headers: {
         Authorization: `Bearer ${openRouterKey}`,
         'Content-Type': 'application/json',
+        'X-Request-Id': requestId,
         ...(Deno.env.get('OPENROUTER_SITE_URL')
           ? { 'HTTP-Referer': Deno.env.get('OPENROUTER_SITE_URL')! }
           : {}),
@@ -442,43 +692,57 @@ async function complete(
           ? { 'X-Title': Deno.env.get('OPENROUTER_SITE_NAME')! }
           : {}),
       },
-      body: JSON.stringify({
+      body: JSON.stringify(createOpenRouterChatBody({
         model,
         messages,
-        max_tokens: 1536,
-        response_format: { type: 'json_object' },
-        ...(model === 'ibm-granite/granite-4.2-8b' ? { reasoning: { enabled: false } } : {}),
-      }),
+        skill,
+        ...(cookingContext === null ? {} : { recipeSuggestionContext: cookingContext }),
+      })),
       signal: AbortSignal.timeout(
         Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 45_000),
       ),
     });
   } catch {
+    console.error(JSON.stringify({
+      event: 'ai_gateway_provider_request_failed',
+      requestId,
+      error: 'provider_unavailable',
+    }));
     return { ok: false as const, status: 502, error: 'provider_unavailable' };
   }
 
   if (!response.ok) {
+    console.error(JSON.stringify({
+      event: 'ai_gateway_provider_request_failed',
+      requestId,
+      error: 'provider_request_failed',
+      upstreamStatus: response.status,
+    }));
     return {
       ok: false as const,
       status: 502,
       error: 'provider_request_failed',
     };
   }
-  const body = await response.json();
-  const content = body?.choices?.[0]?.message?.content;
-  if (typeof content !== 'string' || content.trim().length === 0) {
+  const body: unknown = await response.json();
+  const completion = parseOpenRouterChatCompletion(body);
+  if (!completion.ok) {
     return {
       ok: false as const,
       status: 502,
-      error: 'provider_empty_response',
+      error: completion.error,
     };
   }
-  return { ok: true as const, content, model, usage: body?.usage };
+  return completion;
 }
 
 const handler = createAiGatewayHandler({
   authenticate,
   assertHouseholdMember,
+  lookupChefExchange,
+  preflightChefExchange,
+  loadChefConversationContext,
+  persistChefExchange,
   authorizeAiEntitlement,
   bookAiCredit,
   refundAiCredit,
@@ -486,32 +750,8 @@ const handler = createAiGatewayHandler({
   complete,
   isRateLimited: () => rateLimiter.isLimited(),
   recordRateLimitAttempt: () => rateLimiter.record(),
-  allowedModels: allowedModels.length > 0 ? allowedModels : ALLOWED_MODELS,
+  allowedModels: ALLOWED_MODELS,
   defaultModel,
 });
 
-Deno.serve(async (request) => {
-  const startedAt = performance.now();
-  let response: Response;
-  try {
-    response = await handler(request);
-  } catch (error) {
-    console.error('ai_gateway_unhandled_error', error);
-    response = new Response(JSON.stringify({ error: 'gateway_unavailable' }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Cache-Control': 'no-store',
-      },
-    });
-  }
-  console.info(
-    JSON.stringify({
-      event: 'ai_gateway_request',
-      method: request.method,
-      status: response.status,
-      durationMs: Math.round(performance.now() - startedAt),
-    }),
-  );
-  return response;
-});
+Deno.serve(withRequestId('ai-gateway', (request, requestId) => handler(request, requestId)));

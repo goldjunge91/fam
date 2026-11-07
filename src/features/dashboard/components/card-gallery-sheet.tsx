@@ -15,6 +15,7 @@ type CardGallerySheetProps = {
 };
 
 type DashboardCardMetadataKey =
+  | 'chefKoch'
   | 'streak'
   | 'calories'
   | 'mealPlanner'
@@ -22,6 +23,10 @@ type DashboardCardMetadataKey =
   | 'shoppingList';
 
 const CARD_METADATA: Record<string, { key: DashboardCardMetadataKey; icon: string }> = {
+  chefKoch: {
+    key: 'chefKoch',
+    icon: '✦',
+  },
   streak: {
     key: 'streak',
     icon: '🔥',

@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { getSettingsModules } from '@/constants/feature-registry';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import type { ReceiptOcrProvider } from '@/features/ocr/processing/native';
+import { type ChefKochModel, isChefKochModel } from '@/features/recipes/domain/ai-gateway-model';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
 import { debugWarn } from '@/lib/observability/debug-log';
 import type { FeatureFlagKey } from '@/lib/observability/providers/posthog';
@@ -31,6 +32,7 @@ const FEATURE_FLAG_OVERRIDES_STORAGE_KEY = 'dev.feature_flag_overrides.v1';
 const SPEECH_TEST_PROVIDER_STORAGE_KEY = 'dev.speech_test_provider.v1';
 const RECEIPT_OCR_TEST_ENABLED_STORAGE_KEY = 'dev.receipt_ocr_test_enabled.v1';
 const RECEIPT_OCR_PROVIDER_STORAGE_KEY = 'dev.receipt_ocr_provider.v1';
+const AI_GATEWAY_MODEL_STORAGE_KEY = 'dev.ai_gateway_model.v1';
 const MODULE_FEATURE_KEYS = getSettingsModules().map(({ key }) => key);
 const FEATURE_FLAG_OVERRIDE_KEYS: readonly FeatureFlagKey[] = ['shopping-stt'];
 
@@ -167,6 +169,28 @@ function persistReceiptOcrProvider(provider: ReceiptOcrProvider): void {
   }
 }
 
+function readAiGatewayModel(): ChefKochModel | null {
+  try {
+    const value = getDeviceStorage().getString(AI_GATEWAY_MODEL_STORAGE_KEY);
+    return isChefKochModel(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function persistAiGatewayModel(model: ChefKochModel | null): void {
+  try {
+    const storage = getDeviceStorage();
+    if (model === null) {
+      storage.remove(AI_GATEWAY_MODEL_STORAGE_KEY);
+      return;
+    }
+    storage.set(AI_GATEWAY_MODEL_STORAGE_KEY, model);
+  } catch (error) {
+    debugWarn('[DevSettings] Chef-Koch-Modell konnte nicht gespeichert werden:', error);
+  }
+}
+
 function readFeatureFlagOverrides(): FeatureFlagOverrides {
   try {
     const raw = getDeviceStorage().getString(FEATURE_FLAG_OVERRIDES_STORAGE_KEY);
@@ -206,6 +230,7 @@ export type DevSettings = {
   speechTestProvider: SpeechTestProvider;
   receiptOcrTestEnabled: boolean;
   receiptOcrProvider: ReceiptOcrProvider;
+  aiGatewayModel: ChefKochModel | null;
 };
 
 type DevSettingsStore = DevSettings & {
@@ -218,6 +243,7 @@ type DevSettingsStore = DevSettings & {
   setSpeechTestProvider: (provider: SpeechTestProvider) => void;
   setReceiptOcrTestEnabled: (enabled: boolean) => void;
   setReceiptOcrProvider: (provider: ReceiptOcrProvider) => void;
+  setAiGatewayModel: (model: ChefKochModel | null) => void;
 };
 
 export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
@@ -227,6 +253,7 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   speechTestProvider: readSpeechTestProvider(),
   receiptOcrTestEnabled: readReceiptOcrTestEnabled(),
   receiptOcrProvider: readReceiptOcrProvider(),
+  aiGatewayModel: readAiGatewayModel(),
   setTrackingMethodOverride: (method, value) =>
     set((state) => {
       const trackingMethodOverrides = { ...state.trackingMethodOverrides };
@@ -274,5 +301,9 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   setReceiptOcrProvider: (provider) => {
     persistReceiptOcrProvider(provider);
     set({ receiptOcrProvider: provider });
+  },
+  setAiGatewayModel: (model) => {
+    persistAiGatewayModel(model);
+    set({ aiGatewayModel: model });
   },
 }));

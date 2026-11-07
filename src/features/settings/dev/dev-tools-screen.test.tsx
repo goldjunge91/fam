@@ -21,6 +21,7 @@ jest.mock('@/lib/storage/local-device-storage', () => ({
 
 const mockRedirect = jest.fn();
 let mockHasDevToolsAccess = true;
+const initialDevMode = __DEV__;
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn() },
@@ -61,14 +62,19 @@ describe('DevToolsScreen', () => {
   beforeEach(() => {
     mockStorageData.clear();
     mockHasDevToolsAccess = true;
+    Object.defineProperty(globalThis, '__DEV__', { configurable: true, value: true });
     mockRedirect.mockClear();
     useDevSettingsStore.getState().setSpeechTestProvider('native');
     useDevSettingsStore.getState().setReceiptOcrTestEnabled(false);
+    useDevSettingsStore.getState().setAiGatewayModel(null);
     jest.mocked(router.push).mockClear();
     jest.mocked(ExpoSpeechRecognitionModule.requestMicrophonePermissionsAsync).mockReset();
   });
 
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(() => {
+    Object.defineProperty(globalThis, '__DEV__', { configurable: true, value: initialDevMode });
+    jest.restoreAllMocks();
+  });
 
   it('schaltet zwischen Apple Speech und Whisper um', async () => {
     await renderScreen();
@@ -84,14 +90,30 @@ describe('DevToolsScreen', () => {
     expect(useDevSettingsStore.getState().speechTestProvider).toBe('whisper');
   });
 
-  it('öffnet den Testscreen des ausgewählten Anbieters', async () => {
+  it('schaltet das Chef-Koch-Modell um und setzt den Server-Default zurück', async () => {
     await renderScreen();
     const user = userEvent.setup();
 
-    await user.press(screen.getByRole('radio', { name: 'Whisper' }));
-    await user.press(screen.getByRole('button', { name: 'Whisper testen' }));
+    expect(
+      screen.getByRole('radio', {
+        name: 'google/gemma-4-31b-it:free',
+        selected: false,
+      }),
+    ).toBeOnTheScreen();
+    expect(screen.getByRole('radio', { name: 'Server-Default', selected: true })).toBeOnTheScreen();
 
-    expect(router.push).toHaveBeenCalledWith('/settings/dev-executorch-speech-to-text');
+    await user.press(screen.getByRole('radio', { name: 'google/gemma-4-26b-a4b-it:free' }));
+    expect(useDevSettingsStore.getState().aiGatewayModel).toBe('google/gemma-4-26b-a4b-it:free');
+
+    await user.press(screen.getByRole('radio', { name: 'Server-Default' }));
+    expect(useDevSettingsStore.getState().aiGatewayModel).toBeNull();
+  });
+
+  it('blendet die Modell-Auswahl außerhalb von Development aus', async () => {
+    Object.defineProperty(globalThis, '__DEV__', { configurable: true, value: false });
+    await renderScreen();
+
+    expect(screen.queryByRole('radiogroup', { name: 'AI-Gateway-Modell' })).not.toBeOnTheScreen();
   });
 
   it('öffnet den OCR-Pipeline-Inspector', async () => {

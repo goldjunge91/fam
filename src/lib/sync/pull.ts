@@ -225,11 +225,25 @@ async function reconcileHouseholdOrphans(db: SqlDatabase, supabase: TypedSupabas
   const localRows = await db.getAllAsync<{ id: string }>('select id from households');
   const orphanIds = localRows.map((r) => r.id).filter((id) => !remoteIds.has(id));
 
-  if (orphanIds.length > 0)
-    await db.runAsync(
-      `delete from households where id in (${orphanIds.map(() => '?').join(',')})`,
-      orphanIds,
-    );
+  if (orphanIds.length > 0) {
+    const placeholders = orphanIds.map(() => '?').join(',');
+    await db.withExclusiveTransactionAsync(async (txn) => {
+      // History besitzt absichtlich keine Tombstones. Wenn ein Haushalt aus
+      // der RLS-Sicht verschwindet, muss sein lokaler servererzeugter Spiegel
+      // vor der Household-Zeile entfernt werden.
+      for (const table of [
+        'chef_recipe_history',
+        'chef_conversation_turns',
+        'chef_conversations',
+      ]) {
+        await txn.runAsync(
+          `delete from ${table} where household_id in (${placeholders})`,
+          orphanIds,
+        );
+      }
+      await txn.runAsync(`delete from households where id in (${placeholders})`, orphanIds);
+    });
+  }
 }
 
 async function reconcileOrphans(

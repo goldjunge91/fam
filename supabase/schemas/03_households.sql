@@ -562,9 +562,12 @@ $$;
 -- Buchungen des Vormonats faellen einfach aus dem Summenfenster, es gibt
 -- explizit keinen Uebertrag zwischen Monaten (kein Rollover). `primary key
 -- (subscriber_user_id, request_id)` macht Retries idempotent: Derselbe
--- Request kann nie doppelt verbucht werden.
+-- Request kann nie doppelt verbucht werden. Der nullable Haushaltsscope wird
+-- fuer neue Buchungen gesetzt; bestehende Zeilen ohne Scope bleiben bei einer
+-- Schemaumstellung absichtlich als nicht zuordenbar erhalten.
 create table if not exists public.ai_credit_bookings (
   subscriber_user_id uuid not null references public.profiles (id) on delete cascade,
+  household_id uuid references public.households (id) on delete set null,
   request_id uuid not null,
   action text not null check (action in ('suggestion', 'recipe', 'voice')),
   credits smallint not null check (credits > 0),
@@ -574,6 +577,8 @@ create table if not exists public.ai_credit_bookings (
 
 create index if not exists ai_credit_bookings_subscriber_created_idx
   on public.ai_credit_bookings (subscriber_user_id, created_at);
+create unique index if not exists ai_credit_bookings_request_idx
+  on public.ai_credit_bookings (request_id);
 
 -- Successful provider requests keep their original booking. A separate,
 -- append-only refund row lets failed requests restore the monthly balance
@@ -634,6 +639,7 @@ $$;
 -- (kein Teilverbrauch) — Plus bleibt davon unberuehrt, diese Funktion
 -- schreibt ausschliesslich in ai_credit_bookings.
 drop function if exists public.book_ai_credit(uuid, text, uuid, integer);
+drop function if exists public.book_ai_credit(uuid, text, uuid, integer, uuid);
 
 create or replace function public.book_ai_credit(
   p_household_id uuid,
@@ -647,7 +653,8 @@ returns table (
   credits_remaining integer,
   credit_limit integer,
   warning_reached boolean,
-  blocked boolean
+  blocked boolean,
+  booking_created boolean
 )
 language plpgsql
 security invoker
@@ -656,9 +663,13 @@ as $$
 declare
   v_subscriber_user_id uuid;
   v_weight smallint;
+  v_existing_subscriber_user_id uuid;
+  v_existing_household_id uuid;
+  v_existing_action text;
   v_existing smallint;
   v_refunded boolean;
   v_usage integer;
+  v_booking_created boolean := false;
 begin
   -- Lock the subscriber assignment before reading the monthly total. Every
   -- booking for one subscriber then shares this row lock through commit, so a
@@ -694,16 +705,34 @@ begin
     raise exception using errcode = '22023', message = 'ai_credit_invalid_action';
   end if;
 
-  select b.credits,
+  select b.subscriber_user_id,
+    b.household_id,
+    b.action,
+    b.credits,
     exists (
       select 1
       from public.ai_credit_refunds as refund
       where refund.subscriber_user_id = b.subscriber_user_id
         and refund.request_id = b.request_id
     )
-  into v_existing, v_refunded
+  into v_existing_subscriber_user_id,
+    v_existing_household_id,
+    v_existing_action,
+    v_existing,
+    v_refunded
   from public.ai_credit_bookings as b
-  where b.subscriber_user_id = v_subscriber_user_id and b.request_id = p_request_id;
+  where b.request_id = p_request_id;
+
+  if v_existing is not null and (
+    v_existing_subscriber_user_id <> v_subscriber_user_id
+    or v_existing_household_id is distinct from p_household_id
+    or v_existing_action <> p_action
+    or v_existing <> v_weight
+  ) then
+    raise exception using
+      errcode = '22023',
+      message = 'ai_credit_request_mismatch';
+  end if;
 
   if v_existing is null then
     v_usage := private.ai_credit_month_usage(v_subscriber_user_id);
@@ -711,9 +740,16 @@ begin
       raise exception using errcode = 'P0001', message = 'ai_credit_limit_exceeded';
     end if;
 
-    insert into public.ai_credit_bookings (subscriber_user_id, request_id, action, credits)
-    values (v_subscriber_user_id, p_request_id, p_action, v_weight);
+    insert into public.ai_credit_bookings (
+      subscriber_user_id,
+      household_id,
+      request_id,
+      action,
+      credits
+    )
+    values (v_subscriber_user_id, p_household_id, p_request_id, p_action, v_weight);
 
+    v_booking_created := true;
     v_usage := v_usage + v_weight;
   else
     if v_refunded then
@@ -729,7 +765,8 @@ begin
     greatest(p_monthly_limit - v_usage, 0),
     p_monthly_limit,
     v_usage >= ceil(p_monthly_limit * 0.8),
-    v_usage >= p_monthly_limit;
+    v_usage >= p_monthly_limit,
+    v_booking_created;
 end;
 $$;
 

@@ -1,11 +1,11 @@
--- AI-Fair-Use-Vertrag: haushaltsweites Monatskontingent fuer AI-Credits.
--- Der Ledger folgt der serverseitigen AI-Zuordnung (Subscriber), nicht dem
--- Haushalt direkt — siehe Kommentar in 03_households.sql.
+-- Der Monatsverbrauch folgt dem serverseitigen AI-Subscriber. Jede Request-ID
+-- behaelt zusaetzlich ihren Haushaltsscope, damit der interne Replay-Lookup
+-- keine Buchungs- oder Erstattungszustaende zwischen Haushalten offenlegt.
 
 begin;
 \ir helpers.sql
 
-select plan(57);
+select plan(59);
 
 select tests.create_user('44444444-4444-4444-4444-444444444444', 'alice-credits@example.com');
 select tests.create_user('55555555-5555-5555-5555-555555555555', 'bob-credits@example.com');
@@ -137,21 +137,41 @@ select is(
 
 -- -------------------------------------------------------- Gewichtung und Buchung
 set local role service_role;
-select is(
-  (select credits_used
+select ok(
+  (select credits_used = 1 and booking_created
    from public.book_ai_credit(:'hid_one'::uuid, 'suggestion', 'a0000000-0000-0000-0000-000000000001'::uuid)),
-  1,
-  'eine Vorschlags-Aktion kostet 1 Credit'
+  'eine neue Vorschlags-Aktion kostet 1 Credit und wird als neue Buchung markiert'
 );
 reset role;
 
+select is(
+  (select household_id
+   from public.ai_credit_bookings
+   where request_id = 'a0000000-0000-0000-0000-000000000001'::uuid),
+  :'hid_one'::uuid,
+  'eine neue Credit-Buchung speichert den zugehoerigen Haushalt'
+);
+
 -- Ein wiederholter Aufruf mit derselben Request-ID (Retry) bucht nicht doppelt.
 set local role service_role;
-select is(
-  (select credits_used
+select ok(
+  (select credits_used = 1 and not booking_created
    from public.book_ai_credit(:'hid_one'::uuid, 'suggestion', 'a0000000-0000-0000-0000-000000000001'::uuid)),
-  1,
-  'ein wiederholter Aufruf mit derselben Request-ID ist idempotent'
+  'ein wiederholter Aufruf bucht nicht doppelt und wird als bestehend markiert'
+);
+reset role;
+
+set local role service_role;
+select throws_ok(
+  format(
+    $$ select public.book_ai_credit(
+         %L::uuid, 'recipe', 'a0000000-0000-0000-0000-000000000001'::uuid
+       ) $$,
+    :'hid_one'
+  ),
+  '22023',
+  'ai_credit_request_mismatch',
+  'dieselbe Request-ID darf nicht fuer eine andere Aktion wiederverwendet werden'
 );
 reset role;
 

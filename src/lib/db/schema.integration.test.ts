@@ -18,6 +18,9 @@ const MIRROR_TABLES = [
   'transactions',
   'shopping_list_items',
   'shopping_category_preferences',
+  'chef_conversations',
+  'chef_conversation_turns',
+  'chef_recipe_history',
   'products',
   'households',
 ] as const;
@@ -92,6 +95,28 @@ describe('lokales Schema', () => {
       custom_title: 'Gemüsepfanne',
       custom_ingredients: '[{"name":"Paprika","quantity":2,"unit":"piece"}]',
     });
+  });
+
+  it('legt den Chef-History-Spiegel mit response-level Rezeptdaten an', async () => {
+    expect((await columnsOf(db, 'chef_conversations')).map(({ name }) => name)).toEqual(
+      expect.arrayContaining([
+        'id',
+        'household_id',
+        'created_by',
+        'created_at',
+        'last_activity_at',
+        'continued_from_id',
+        'updated_at',
+        'deleted_at',
+        '_dirty',
+      ]),
+    );
+    expect((await columnsOf(db, 'chef_conversation_turns')).map(({ name }) => name)).toEqual(
+      expect.arrayContaining(['request_payload', 'response_payload', 'client_request_id']),
+    );
+    expect((await columnsOf(db, 'chef_recipe_history')).map(({ name }) => name)).toEqual(
+      expect.arrayContaining(['turn_id', 'title', 'recipe_payload']),
+    );
   });
 
   it('legt die Inventory-Lifecycle-Spalten und das Transaktionsschema an', async () => {

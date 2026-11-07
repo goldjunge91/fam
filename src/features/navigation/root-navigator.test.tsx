@@ -59,6 +59,8 @@ const privateRootRoutes = [
   'household',
   'profile',
   'recipe',
+  'chef-koch',
+  'chef-koch-history',
   'settings',
   'gamification',
   'add-item',

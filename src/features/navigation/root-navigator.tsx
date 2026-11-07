@@ -89,6 +89,9 @@ export function RootNavigator() {
         <Stack.Screen name="household" />
         <Stack.Screen name="profile" />
         <Stack.Screen name="recipe" />
+        <Stack.Screen name="chef-koch" />
+        <Stack.Screen name="chef-koch-history" />
+        <Stack.Screen name="chef-koch-history/[id]" />
         <Stack.Screen name="settings" />
         <Stack.Screen name="gamification" />
         <Stack.Screen name="meal-planner/shopping-needs" />

@@ -1058,6 +1058,55 @@ describe('pullHousehold – lokale Wins und Reconciliation', () => {
       1,
       0,
     ]);
+    for (const householdId of ['keep-household', 'orphan-household']) {
+      const suffix = householdId === 'keep-household' ? 'keep' : 'orphan';
+      await db.runAsync(
+        `insert into chef_conversations
+           (id, household_id, last_activity_at, created_at, updated_at, _dirty)
+         values (?, ?, ?, ?, ?, 0)`,
+        [
+          `conversation-${suffix}`,
+          householdId,
+          '2026-01-01T00:00:00.000Z',
+          '2026-01-01T00:00:00.000Z',
+          1,
+        ],
+      );
+      await db.runAsync(
+        `insert into chef_conversation_turns
+           (id, conversation_id, household_id, client_request_id, request_fingerprint,
+            user_text, request_payload, response_payload, created_at, updated_at, _dirty)
+         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
+        [
+          `turn-${suffix}`,
+          `conversation-${suffix}`,
+          householdId,
+          `request-${suffix}`,
+          'a'.repeat(64),
+          'Frage',
+          '{"schema_version":1}',
+          '{"schema_version":1}',
+          '2026-01-01T00:00:00.000Z',
+          1,
+        ],
+      );
+      await db.runAsync(
+        `insert into chef_recipe_history
+           (id, conversation_id, turn_id, household_id, title, recipe_payload,
+            created_at, updated_at, _dirty)
+         values (?, ?, ?, ?, ?, ?, ?, ?, 0)`,
+        [
+          `recipe-${suffix}`,
+          `conversation-${suffix}`,
+          `turn-${suffix}`,
+          householdId,
+          'Vorschlag',
+          '{"schema_version":1}',
+          '2026-01-01T00:00:00.000Z',
+          1,
+        ],
+      );
+    }
 
     const pull = responseQuery({ data: [], error: null });
     const reconcile = responseQuery({ data: [{ id: 'keep-household' }], error: null });
@@ -1071,6 +1120,15 @@ describe('pullHousehold – lokale Wins und Reconciliation', () => {
 
     expect(await db.getAllAsync<{ id: string }>('select id from households')).toEqual([
       { id: 'keep-household' },
+    ]);
+    expect(await db.getAllAsync<{ id: string }>('select id from chef_conversations')).toEqual([
+      { id: 'conversation-keep' },
+    ]);
+    expect(await db.getAllAsync<{ id: string }>('select id from chef_conversation_turns')).toEqual([
+      { id: 'turn-keep' },
+    ]);
+    expect(await db.getAllAsync<{ id: string }>('select id from chef_recipe_history')).toEqual([
+      { id: 'recipe-keep' },
     ]);
   });
 });

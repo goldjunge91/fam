@@ -5,6 +5,7 @@ import { Alert, Linking, Platform } from 'react-native';
 import { Screen } from '@/components/layout/screen';
 import { type SpeechTestProvider, useDevSettingsStore } from '@/constants/dev-settings';
 import { SegmentedControl } from '@/constants/ui';
+import type { ChefKochModel } from '@/features/recipes/domain/ai-gateway-model';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { debugLogEvent } from '@/lib/observability/debug-log';
@@ -12,6 +13,13 @@ import { debugLogEvent } from '@/lib/observability/debug-log';
 const SPEECH_PROVIDER_OPTIONS = [
   { value: 'native', label: 'Apple Speech' },
   { value: 'whisper', label: 'Whisper' },
+] as const;
+
+const SERVER_DEFAULT_MODEL = 'server-default' as const;
+const AI_GATEWAY_MODEL_OPTIONS = [
+  { value: SERVER_DEFAULT_MODEL, label: 'Server-Default' },
+  { value: 'google/gemma-4-31b-it:free', label: 'google/gemma-4-31b-it:free' },
+  { value: 'google/gemma-4-26b-a4b-it:free', label: 'google/gemma-4-26b-a4b-it:free' },
 ] as const;
 
 const DEV_CATEGORIES = [
@@ -67,6 +75,8 @@ export function DevToolsScreen() {
   const receiptOcrProvider = useDevSettingsStore((state) => state.receiptOcrProvider);
   const setReceiptOcrProvider = useDevSettingsStore((state) => state.setReceiptOcrProvider);
   const setReceiptOcrTestEnabled = useDevSettingsStore((state) => state.setReceiptOcrTestEnabled);
+  const aiGatewayModel = useDevSettingsStore((state) => state.aiGatewayModel);
+  const setAiGatewayModel = useDevSettingsStore((state) => state.setAiGatewayModel);
 
   if (!hasAccess) {
     return <Redirect href="/settings" />;
@@ -155,6 +165,20 @@ export function DevToolsScreen() {
           last
         />
       </SettingsGroup>
+      {__DEV__ ? (
+        <SettingsGroup title="Chef-Koch">
+          <SegmentedControl
+            label="AI-Gateway-Modell"
+            options={AI_GATEWAY_MODEL_OPTIONS}
+            selected={aiGatewayModel ?? SERVER_DEFAULT_MODEL}
+            onSelect={(model) =>
+              setAiGatewayModel(model === SERVER_DEFAULT_MODEL ? null : (model as ChefKochModel))
+            }
+            appearance="surface"
+            size="compact"
+          />
+        </SettingsGroup>
+      ) : null}
       {Platform.OS === 'ios' ? (
         <SettingsGroup title="Kassenbon-OCR">
           <SegmentedControl

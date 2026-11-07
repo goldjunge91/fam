@@ -372,6 +372,11 @@ verify_jwt = false
 [functions.ai-gateway]
 verify_jwt = true
 
+# Liefert den haushaltsbezogenen Credit-Stand nur nach eigener JWT- und
+# Mitgliedschaftsprüfung; der Request darf keine Household-ID vorgeben.
+[functions.ai-credit-status]
+verify_jwt = true
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.

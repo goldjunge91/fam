@@ -231,6 +231,183 @@ Deno.test('Property 2: excludes sandbox-only purchases and accepts production pu
   assertEquals(responseIndex, 2);
 });
 
+Deno.test('honors production and server-enabled sandbox AI entitlements', async () => {
+  const responses = [
+    customerResponse({
+      entitlements: {
+        AI: {
+          product_identifier: 'ai_production',
+          expires_date: FUTURE_EXPIRY,
+          grace_period_expires_date: null,
+        },
+      },
+      subscriptions: {
+        ai_production: { is_sandbox: false },
+      },
+    }),
+    customerResponse({
+      entitlements: {
+        Plus: {
+          product_identifier: 'plus_sandbox',
+          expires_date: FUTURE_EXPIRY,
+          grace_period_expires_date: null,
+        },
+        AI: {
+          product_identifier: 'ai_sandbox',
+          expires_date: FUTURE_EXPIRY,
+          grace_period_expires_date: null,
+        },
+      },
+      subscriptions: {
+        plus_sandbox: { is_sandbox: true },
+        ai_sandbox: { is_sandbox: true },
+      },
+    }),
+  ];
+  let responseIndex = 0;
+  const reader = createRevenueCatSubscriberStatusReader(
+    SECRET_API_KEY,
+    () => Promise.resolve(jsonResponse(responses[responseIndex++])),
+    { allowSandboxAiEntitlement: true },
+  );
+
+  assertEquals(await reader('production-ai'), {
+    entitlements: {
+      AI: { active: true, expiresAt: FUTURE_EXPIRY },
+    },
+    subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
+  });
+  assertEquals(await reader('sandbox-ai'), {
+    entitlements: {
+      Plus: { active: false, expiresAt: null },
+      AI: { active: true, expiresAt: FUTURE_EXPIRY },
+    },
+    subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
+  });
+  assertEquals(responseIndex, 2);
+});
+
+Deno.test('keeps a recorded sandbox purchase closed when RevenueCat omits its AI entitlement', async () => {
+  const reader = createRevenueCatSubscriberStatusReader(
+    SECRET_API_KEY,
+    () =>
+      Promise.resolve(
+        jsonResponse(
+          customerResponse({
+            entitlements: {},
+            subscriptions: {
+              ai_recorded_without_access: { is_sandbox: true },
+            },
+          }),
+        ),
+      ),
+    { allowSandboxAiEntitlement: true },
+  );
+
+  assertEquals(await reader('sandbox-ai-without-entitlement'), {
+    entitlements: {},
+    subscriberAttributes: null,
+    requestDateMs: REQUEST_DATE_MS,
+  });
+});
+
+Deno.test('keeps expired and unlinked sandbox AI entitlements inactive', async () => {
+  const expiredAt = new Date(REQUEST_DATE_MS).toISOString();
+  const responses = [
+    customerResponse({
+      entitlements: {
+        AI: {
+          product_identifier: 'ai_expired',
+          expires_date: expiredAt,
+          grace_period_expires_date: null,
+        },
+      },
+      subscriptions: {
+        ai_expired: { is_sandbox: true },
+      },
+    }),
+    customerResponse({
+      entitlements: {
+        AI: {
+          product_identifier: 'ai_unlinked',
+          expires_date: FUTURE_EXPIRY,
+          grace_period_expires_date: null,
+        },
+      },
+      subscriptions: {},
+    }),
+  ];
+  let responseIndex = 0;
+  const reader = createRevenueCatSubscriberStatusReader(
+    SECRET_API_KEY,
+    () => Promise.resolve(jsonResponse(responses[responseIndex++])),
+    { allowSandboxAiEntitlement: true },
+  );
+
+  assertEquals((await reader('sandbox-ai-expired')).entitlements.AI, {
+    active: false,
+    expiresAt: expiredAt,
+  });
+  assertEquals((await reader('sandbox-ai-unlinked')).entitlements.AI, {
+    active: false,
+    expiresAt: null,
+  });
+  assertEquals(responseIndex, 2);
+});
+
+Deno.test('rejects JavaScript-parseable non-ISO production entitlement expiry', async () => {
+  const reader = createRevenueCatSubscriberStatusReader(
+    SECRET_API_KEY,
+    () =>
+      Promise.resolve(
+        jsonResponse(
+          customerResponse({
+            entitlements: {
+              AI: {
+                product_identifier: 'ai_production',
+                expires_date: '12/31/2099',
+                grace_period_expires_date: null,
+              },
+            },
+            subscriptions: {
+              ai_production: { is_sandbox: false },
+            },
+          }),
+        ),
+      ),
+  );
+
+  await assertRejects(() => reader('production-non-iso-expiry'), Error);
+});
+
+Deno.test('rejects JavaScript-parseable non-ISO sandbox AI grace expiry', async () => {
+  const reader = createRevenueCatSubscriberStatusReader(
+    SECRET_API_KEY,
+    () =>
+      Promise.resolve(
+        jsonResponse(
+          customerResponse({
+            entitlements: {
+              AI: {
+                product_identifier: 'ai_sandbox',
+                expires_date: FUTURE_EXPIRY,
+                grace_period_expires_date: '12/31/2099',
+              },
+            },
+            subscriptions: {
+              ai_sandbox: { is_sandbox: true },
+            },
+          }),
+        ),
+      ),
+    { allowSandboxAiEntitlement: true },
+  );
+
+  await assertRejects(() => reader('sandbox-non-iso-grace-expiry'), Error);
+});
+
 // **Validates: Requirements 3.7**
 Deno.test('Property 2: reports missing configuration and upstream response failures', async () => {
   let unconfiguredFetchCount = 0;
@@ -267,6 +444,14 @@ Deno.test('Property 2: reports missing configuration and upstream response failu
 });
 
 const INVALID_CUSTOMER_RESPONSES = [
+  {
+    label: 'a negative request timestamp',
+    body: customerResponse({ entitlements: {}, subscriptions: {} }, -1),
+  },
+  {
+    label: 'a fractional request timestamp',
+    body: customerResponse({ entitlements: {}, subscriptions: {} }, REQUEST_DATE_MS + 0.5),
+  },
   {
     label: 'a missing subscriber',
     body: { request_date_ms: REQUEST_DATE_MS },

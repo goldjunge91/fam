@@ -29,15 +29,25 @@ function remoteUpdatedAt(
   return value;
 }
 
-function toSqlParam(value: unknown): SqlParam {
+function toSqlParam(value: unknown, allowJsonObject = false): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
   // SQLite speichert Boolean als 0/1.
   if (typeof value === 'boolean') return value ? 1 : 0;
-  // Postgres-Arrays werden lokal als JSON gespeichert.
+  // Postgres-Arrays und ausdruecklich registrierte JSONB-Objekte werden lokal
+  // als JSON-Text gespeichert.
   if (Array.isArray(value)) return JSON.stringify(value);
+  if (allowJsonObject && typeof value === 'object') return JSON.stringify(value);
   // Andere Typen deuten auf Schema-Drift hin.
   throw new Error(`Unerwarteter Werttyp fuer Spiegel-Zeile: ${typeof value}`);
+}
+
+function mirrorColumnValue(
+  meta: ReturnType<typeof mirrorMetaOf>,
+  column: string,
+  value: unknown,
+): SqlParam {
+  return toSqlParam(value, meta.jsonColumns?.includes(column) ?? false);
 }
 
 /**
@@ -53,6 +63,9 @@ export async function upsertMirrorRow(
   options: UpsertMirrorRowOptions,
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
+  if (meta.serverGenerated && options.dirty !== 0) {
+    throw new Error(`${entity} ist servererzeugt und darf nicht dirty gespiegelt werden.`);
+  }
 
   const updatedAt = toEpochMs(remoteUpdatedAt(meta, remoteRow));
 
@@ -61,7 +74,7 @@ export async function upsertMirrorRow(
     meta.hasServerTombstone && typeof deletedAtRaw === 'string' ? toEpochMs(deletedAtRaw) : null;
 
   const columns = [...meta.columns, 'updated_at', 'deleted_at', '_dirty'];
-  const values = meta.columns.map((column) => toSqlParam(remoteRow[column]));
+  const values = meta.columns.map((column) => mirrorColumnValue(meta, column, remoteRow[column]));
   values.push(updatedAt, deletedAt, options.dirty);
 
   const placeholders = columns.map(() => '?').join(', ');
@@ -240,7 +253,7 @@ async function reconcileDirtyRowWithPendingOps(
     }
     if (column === 'quantity' && reconciledQuantity !== null) return reconciledQuantity;
     if (touched.has(column)) return currentRow[column] as SqlParam;
-    return toSqlParam(remoteRow[column]);
+    return mirrorColumnValue(meta, column, remoteRow[column]);
   });
 
   const placeholders = columns.map(() => '?').join(', ');
@@ -328,6 +341,10 @@ export async function applyLocalMirrorWrite(
 ): Promise<void> {
   const meta = mirrorMetaOf(entity);
 
+  if (meta.serverGenerated) {
+    throw new Error(`${entity} ist servererzeugt und akzeptiert keine lokalen Mutationen.`);
+  }
+
   if (meta.appendOnly && op !== 'insert')
     throw new Error(`${entity} ist append-only und akzeptiert ausschliesslich insert.`);
 
@@ -341,7 +358,7 @@ export async function applyLocalMirrorWrite(
 
   if (op === 'insert') {
     const columns = [...meta.columns, 'updated_at', '_dirty'];
-    const values = meta.columns.map((column) => toSqlParam(payload[column]));
+    const values = meta.columns.map((column) => mirrorColumnValue(meta, column, payload[column]));
     values.push(nowMs, 1);
     const placeholders = columns.map(() => '?').join(', ');
     await txn.runAsync(
@@ -354,7 +371,10 @@ export async function applyLocalMirrorWrite(
   // Nur bekannte Spalten setzen; `id` und `deleted_at` haben eigene Pfade.
   const fields = Object.keys(payload).filter((key) => key !== 'id' && meta.columns.includes(key));
   const setClauses = [...fields.map((field) => `${field} = ?`), 'updated_at = ?', '_dirty = 1'];
-  const values: SqlParam[] = [...fields.map((field) => toSqlParam(payload[field])), nowMs];
+  const values: SqlParam[] = [
+    ...fields.map((field) => mirrorColumnValue(meta, field, payload[field])),
+    nowMs,
+  ];
 
   await txn.runAsync(`update ${meta.table} set ${setClauses.join(', ')} where id = ?`, [
     ...values,

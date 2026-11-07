@@ -19,6 +19,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { MenuButton } from '@/components/ui/menu-button';
 import { inputTextStyles, SectionHeading, SegmentedControl, Txt } from '@/constants/ui';
+import { ChefKochEntry } from '@/features/chef-koch/components/chef-koch-entry';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -582,6 +583,8 @@ export function RecipesScreen() {
           />
         </View>
       ) : null}
+
+      <ChefKochEntry />
     </>
   );
 

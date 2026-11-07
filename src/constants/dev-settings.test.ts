@@ -42,6 +42,7 @@ describe('dev settings', () => {
     useDevSettingsStore.getState().setSpeechTestProvider('native');
     useDevSettingsStore.getState().setReceiptOcrTestEnabled(false);
     useDevSettingsStore.getState().setReceiptOcrProvider('apple-vision');
+    useDevSettingsStore.getState().setAiGatewayModel(null);
   });
 
   it('persistiert Tracking-Methoden-Overrides wie die Analytics-Overrides', () => {
@@ -115,11 +116,18 @@ describe('dev settings', () => {
     expect(mockStorageData.get('dev.speech_test_provider.v1')).toBe('whisper');
   });
 
-  it('kann zwischen den Speech-Testanbietern wechseln', () => {
-    useDevSettingsStore.getState().setSpeechTestProvider('whisper');
-    useDevSettingsStore.getState().setSpeechTestProvider('native');
+  it('persistiert das Chef-Koch-Modell und setzt den Server-Default zurück', () => {
+    useDevSettingsStore.getState().setAiGatewayModel('google/gemma-4-31b-it:free');
 
-    expect(useDevSettingsStore.getState().speechTestProvider).toBe('native');
+    expect(useDevSettingsStore.getState().aiGatewayModel).toBe('google/gemma-4-31b-it:free');
+    expect(mockStorageData.get('dev.ai_gateway_model.v1')).toBe('google/gemma-4-31b-it:free');
+
+    useDevSettingsStore.getState().setAiGatewayModel('google/gemma-4-26b-a4b-it:free');
+    expect(useDevSettingsStore.getState().aiGatewayModel).toBe('google/gemma-4-26b-a4b-it:free');
+
+    useDevSettingsStore.getState().setAiGatewayModel(null);
+    expect(useDevSettingsStore.getState().aiGatewayModel).toBeNull();
+    expect(mockStorageData.has('dev.ai_gateway_model.v1')).toBe(false);
   });
 
   it('persistiert den Receipt-OCR-Testmodus und den ausgewählten Anbieter', () => {
@@ -142,6 +150,7 @@ describe('dev settings', () => {
     mockStorageData.set('dev.speech_test_provider.v1', 'whisper');
     mockStorageData.set('dev.receipt_ocr_test_enabled.v1', 'true');
     mockStorageData.set('dev.receipt_ocr_provider.v1', 'apple-vision');
+    mockStorageData.set('dev.ai_gateway_model.v1', 'google/gemma-4-26b-a4b-it:free');
 
     const store = loadFreshDevSettingsStore();
 
@@ -152,6 +161,7 @@ describe('dev settings', () => {
       speechTestProvider: 'whisper',
       receiptOcrTestEnabled: true,
       receiptOcrProvider: 'apple-vision',
+      aiGatewayModel: 'google/gemma-4-26b-a4b-it:free',
     });
   });
 
@@ -162,6 +172,7 @@ describe('dev settings', () => {
     mockStorageData.set('dev.speech_test_provider.v1', 'unknown');
     mockStorageData.set('dev.receipt_ocr_test_enabled.v1', 'TRUE');
     mockStorageData.set('dev.receipt_ocr_provider.v1', 'unknown');
+    mockStorageData.set('dev.ai_gateway_model.v1', 'google/gemma-4-31b-it');
 
     const malformedStore = loadFreshDevSettingsStore();
     expect(malformedStore.getState()).toMatchObject({
@@ -171,6 +182,7 @@ describe('dev settings', () => {
       speechTestProvider: 'native',
       receiptOcrTestEnabled: false,
       receiptOcrProvider: 'google-mlkit',
+      aiGatewayModel: null,
     });
 
     mockStorageFailures.add('read');
@@ -182,6 +194,7 @@ describe('dev settings', () => {
       speechTestProvider: 'native',
       receiptOcrTestEnabled: false,
       receiptOcrProvider: 'google-mlkit',
+      aiGatewayModel: null,
     });
   });
 
@@ -195,6 +208,7 @@ describe('dev settings', () => {
     store.setSpeechTestProvider('whisper');
     store.setReceiptOcrTestEnabled(true);
     store.setReceiptOcrProvider('apple-vision');
+    store.setAiGatewayModel('google/gemma-4-31b-it:free');
 
     expect(useDevSettingsStore.getState()).toMatchObject({
       trackingMethodOverrides: { standard: true },
@@ -203,6 +217,7 @@ describe('dev settings', () => {
       speechTestProvider: 'whisper',
       receiptOcrTestEnabled: true,
       receiptOcrProvider: 'apple-vision',
+      aiGatewayModel: 'google/gemma-4-31b-it:free',
     });
   });
 });

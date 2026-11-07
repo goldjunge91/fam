@@ -3,11 +3,36 @@ import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { rs } from '@/components/theme/index';
+import { presentCustomerCenter } from '@/features/premium/paywall';
 import { PlusAndAiScreen } from '@/features/premium/plus-and-ai-screen';
 import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 
 let mockHasPlus = false;
 let mockHasAI = false;
+let mockActiveHouseholdId: string | null = 'household-1';
+const mockUseAiCreditStatus = jest.fn();
+const mockAiCreditQuery = {
+  data: {
+    householdId: 'household-1',
+    creditsUsed: 30,
+    creditsRemaining: 70,
+    creditLimit: 100,
+    warningReached: false,
+    blocked: false,
+  },
+  isPending: false,
+  isError: false,
+  refetch: jest.fn(),
+};
+
+jest.mock('@/features/ai-credits/api', () => ({
+  useAiCreditStatus: (...args: unknown[]) => mockUseAiCreditStatus(...args),
+}));
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useActiveHousehold: () => ({ activeHouseholdId: mockActiveHouseholdId }),
+  useOptionalActiveHousehold: () => ({ activeHouseholdId: mockActiveHouseholdId }),
+}));
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
   useNavigationChrome: () => ({ openProfile: jest.fn() }),
@@ -64,6 +89,11 @@ describe('PlusAndAiScreen', () => {
   beforeEach(() => {
     mockHasPlus = false;
     mockHasAI = false;
+    mockActiveHouseholdId = 'household-1';
+    mockUseAiCreditStatus.mockReset();
+    mockUseAiCreditStatus.mockReturnValue(mockAiCreditQuery);
+    mockAiCreditQuery.refetch.mockReset();
+    (presentCustomerCenter as jest.Mock).mockReset();
     (packagesForEntitlement as jest.Mock).mockReset();
     (packagesForEntitlement as jest.Mock).mockResolvedValue([]);
     (buyPackage as jest.Mock).mockReset();
@@ -129,6 +159,28 @@ describe('PlusAndAiScreen', () => {
     expect(screen.getByRole('tab', { name: 'KI', selected: true })).toBeOnTheScreen();
     expect(screen.getByText('Kochen mit KI')).toBeOnTheScreen();
     expect(screen.getByText('KI-Rezeptvorschläge')).toBeOnTheScreen();
+  });
+
+  it('zeigt die Credit-Karte im aktiven KI-Tab und lässt Abo verwalten erreichbar', async () => {
+    mockHasAI = true;
+    const user = userEvent.setup();
+    await renderScreen('ai');
+
+    expect(screen.getByText('70 von 100 Credits verfügbar')).toBeOnTheScreen();
+    expect(mockUseAiCreditStatus).toHaveBeenCalledWith('household-1');
+    expect(screen.getByRole('button', { name: 'Abo verwalten' })).toBeEnabled();
+
+    await user.press(screen.getByRole('button', { name: 'Abo verwalten' }));
+    expect(presentCustomerCenter).toHaveBeenCalledTimes(1);
+  });
+
+  it('zeigt den fehlenden aktiven Haushalt in der Credit-Karte', async () => {
+    mockHasAI = true;
+    mockActiveHouseholdId = null;
+    await renderScreen('ai');
+
+    expect(screen.getByText('Kein aktiver Haushalt verfügbar.')).toBeOnTheScreen();
+    expect(mockUseAiCreditStatus).toHaveBeenCalledWith(null);
   });
 
   it('wechselt per Segmented Tab das aktive Tier', async () => {

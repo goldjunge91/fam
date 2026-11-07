@@ -28,6 +28,16 @@ grant delete, insert, select, update on public.profiles to anon, authenticated, 
 revoke all on public.profile_food_rules from anon, authenticated, service_role;
 grant insert, select, update on public.profile_food_rules to authenticated;
 grant delete, insert, select, update on public.profile_food_rules to service_role;
+revoke all on public.allergen_taxonomy, public.food_ingredients,
+  public.ingredient_allergen_mappings, public.product_ingredient_links,
+  public.catalog_recipe_item_ingredient_links from anon, authenticated, service_role;
+grant select on public.allergen_taxonomy, public.food_ingredients,
+  public.ingredient_allergen_mappings, public.product_ingredient_links,
+  public.catalog_recipe_item_ingredient_links to authenticated;
+grant delete, insert, select, update on public.allergen_taxonomy,
+  public.food_ingredients, public.ingredient_allergen_mappings,
+  public.product_ingredient_links, public.catalog_recipe_item_ingredient_links
+  to service_role;
 grant delete, insert, select, update on public.households to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_members to anon, authenticated, service_role;
 revoke all on public.revenuecat_ai_assignments from anon, authenticated, service_role;
@@ -40,6 +50,10 @@ revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_bookings to service_role;
 revoke all on public.ai_credit_refunds from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_refunds to service_role;
+revoke all on public.chef_conversations, public.chef_conversation_turns,
+  public.chef_recipe_history from anon, authenticated, service_role;
+grant select on public.chef_conversations, public.chef_conversation_turns,
+  public.chef_recipe_history to authenticated;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
@@ -315,6 +329,27 @@ revoke execute on function public.get_ai_credit_status(uuid, integer)
   from public, anon, authenticated;
 grant execute on function public.get_ai_credit_status(uuid, integer)
   to service_role;
+
+-- Chef-Koch-History wird ausschliesslich durch den serverseitigen Gateway-
+-- Vertrag geschrieben. Mobile Clients lesen die Tabellen ueber RLS.
+revoke all on function public.lookup_chef_exchange(uuid, uuid, uuid, text)
+  from public, anon, authenticated, service_role;
+grant execute on function public.lookup_chef_exchange(uuid, uuid, uuid, text)
+  to service_role;
+revoke all on function public.preflight_chef_exchange(uuid, uuid, uuid, uuid)
+  from public, anon, authenticated, service_role;
+grant execute on function public.preflight_chef_exchange(uuid, uuid, uuid, uuid)
+  to service_role;
+revoke all on function public.get_chef_conversation_context(uuid, uuid, uuid, integer, integer)
+  from public, anon, authenticated, service_role;
+grant execute on function public.get_chef_conversation_context(uuid, uuid, uuid, integer, integer)
+  to service_role;
+revoke all on function public.persist_chef_exchange(
+  uuid, uuid, uuid, uuid, uuid, text, jsonb, text, jsonb, jsonb
+) from public, anon, authenticated, service_role;
+grant execute on function public.persist_chef_exchange(
+  uuid, uuid, uuid, uuid, uuid, text, jsonb, text, jsonb, jsonb
+) to service_role;
 
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
 -- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —

@@ -12,6 +12,16 @@
     "addCards": "+ Karten hinzufügen"
   },
   "cards": {
+    "chefKoch": {
+      "title": "Was kochen wir heute?",
+      "description": "Passende Mahlzeiten aus eurem Vorrat.",
+      "urgent": "{{name}} sollte bald verwendet werden.",
+      "locked": "Mit Fam KI aus dem Vorrat kochen.",
+      "cta": "Vorschläge ansehen",
+      "paywallCta": "Fam KI ansehen",
+      "accessibility": "Chef-Koch für Rezeptvorschläge öffnen",
+      "accessibilityLocked": "Fam KI für Chef-Koch ansehen"
+    },
     "inventory": {
       "title": "Läuft bald ab",
       "withoutExpiry": "ohne MHD",
@@ -101,6 +111,10 @@
     "large": "Groß",
     "fallbackDescription": "Dashboard Widget",
     "cards": {
+      "chefKoch": {
+        "title": "Chef-Koch",
+        "description": "Mahlzeiten aus dem vorhandenen Vorrat vorschlagen."
+      },
       "streak": {
         "title": "Streak",
         "description": "Sieben-Tage-Ansicht deiner Serie und persönlicher Rekord."

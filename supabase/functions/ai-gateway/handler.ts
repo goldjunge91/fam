@@ -1,18 +1,27 @@
-/**
- * Read-only AI gateway for the two scoped fam skills.
- *
- * The handler is dependency-injected so auth, database access and the model
- * provider can be tested without a Supabase instance or an OpenRouter key.
- */
+import { buildCatalogSuggestions } from './catalog-suggestions.ts';
+import {
+  buildChefRecipeSnapshot,
+  buildChefRequestPayload,
+  buildChefResponsePayload,
+  type ChefConversationContext,
+  type ChefConversationPreflight,
+  type ChefCookingHistoryRequest,
+  type ChefExchangeLookup,
+  type ChefHistoryHydration,
+  chefRequestFingerprint,
+  historyContextMessage,
+  isUuid,
+  normalizedInventoryIds,
+} from './chef-history.ts';
+import { ALLOWED_MODELS, DEFAULT_MODEL } from './config.ts';
+import { buildRecipeSuggestionContext } from './recipe-suggestion-context.ts';
+import {
+  type CandidateRecipeSource,
+  type RecipeSuggestionContext,
+  validateRecipeSuggestionResponse,
+} from './recipe-suggestion-contract.ts';
 
-export const ALLOWED_MODELS = [
-  'ibm-granite/granite-4.2-8b',
-  'google/gemma-4-26b-a4b-it',
-  'qwen/qwen3.8-flash',
-  'z-ai/glm-5.3-flash',
-  'google/gemma-4-31b-it',
-  'minimax/minimax-m3:free',
-] as const;
+export { ALLOWED_MODELS, DEFAULT_MODEL } from './config.ts';
 
 type CaptureRequest = {
   skill: 'fam-inventory-capture';
@@ -22,14 +31,8 @@ type CaptureRequest = {
   model?: string;
 };
 
-type CookingRequest = {
+type CookingRequest = ChefCookingHistoryRequest & {
   skill: 'fam-cook-from-inventory';
-  householdId: string;
-  userText: string;
-  servings: number | null;
-  maxMinutes: number | null;
-  dietaryPattern: string | null;
-  allergies: string[];
   model?: string;
 };
 
@@ -55,11 +58,13 @@ export type GatewayInventoryContext = {
 export type GatewayRecipe = {
   recipeId: string;
   title: string;
+  source: CandidateRecipeSource;
   estimatedMinutes: number | null;
   servings: number | null;
   dietaryTags: string[];
-  /** null means the catalog has no authoritative allergen metadata. */
+  /** Null means the recipe has no complete, reviewed allergen projection. */
   allergens: string[] | null;
+  steps: string[];
   ingredients: Array<{
     productId: string | null;
     normalizedName: string;
@@ -71,42 +76,87 @@ export type GatewayRecipe = {
 export type GatewayCookingContext = {
   inventory: GatewayInventoryContext;
   recipes: GatewayRecipe[];
+  shoppingItems: Array<{
+    shoppingItemId: string;
+    name: string;
+    quantity: number;
+    unit: string;
+  }>;
+  allergies: string[];
+  preferences: string[];
+  forbiddenIngredients: string[];
 };
 
 type JsonRecord = Record<string, unknown>;
 
 type AuthResult =
   | { ok: true; userId: string; authorization: string }
-  | { ok: false; status: number; error: string; message?: string };
+  | { ok: false; status: number; error: string };
 
 export type GatewayCreditAction = 'suggestion' | 'recipe';
 
 type EntitlementResult =
   | { ok: true; subscriberUserId: string }
-  | { ok: false; status: number; error: string; message?: string };
+  | { ok: false; status: number; error: string };
 
 type CreditResult =
-  | { ok: true }
-  | { ok: false; status: number; error: string; message?: string };
+  | { ok: true; created: boolean }
+  | { ok: false; status: number; error: string };
+
+type HistoryResult<T> =
+  | { ok: true; value: T }
+  | { ok: false; status: number; error: string };
 
 type ContextResult =
   | { ok: true; context: GatewayCookingContext }
-  | { ok: false; status: number; error: string; message?: string };
+  | { ok: false; status: number; error: string };
 
 type ProviderResult =
   | { ok: true; content: string; model: string; usage?: unknown }
-  | { ok: false; status: number; error: string; message?: string };
+  | { ok: false; status: number; error: string };
 
 type Dependencies = {
-  authenticate: (request: Request) => Promise<AuthResult>;
+  authenticate: (request: Request, requestId: string) => Promise<AuthResult>;
   assertHouseholdMember: (
     userId: string,
     householdId: string,
     authorization: string,
+    requestId: string,
   ) => Promise<AuthResult>;
+  lookupChefExchange: (input: {
+    householdId: string;
+    actorUserId: string;
+    clientRequestId: string;
+    requestFingerprint: string;
+  }) => Promise<HistoryResult<ChefExchangeLookup>>;
+  preflightChefExchange: (input: {
+    householdId: string;
+    actorUserId: string;
+    conversationId: string | null;
+    continuedFromConversationId: string | null;
+  }) => Promise<HistoryResult<ChefConversationPreflight>>;
+  loadChefConversationContext: (input: {
+    householdId: string;
+    actorUserId: string;
+    conversationId: string;
+  }) => Promise<HistoryResult<ChefConversationContext>>;
+  persistChefExchange: (input: {
+    householdId: string;
+    actorUserId: string;
+    conversationId: string | null;
+    continuedFromConversationId: string | null;
+    clientRequestId: string;
+    requestFingerprint: string;
+    requestPayload: ReturnType<typeof buildChefRequestPayload>;
+    userText: string;
+    responsePayload: ReturnType<typeof buildChefResponsePayload>;
+    recipeSnapshots: ReturnType<typeof buildChefRecipeSnapshot>[];
+  }) => Promise<HistoryResult<ChefHistoryHydration>>;
   authorizeAiEntitlement: (
+    userId: string,
     householdId: string,
     authorization: string,
+    requestId: string,
   ) => Promise<EntitlementResult>;
   bookAiCredit: (input: {
     householdId: string;
@@ -119,10 +169,14 @@ type Dependencies = {
     userId: string,
     householdId: string,
     authorization: string,
+    requestId: string,
   ) => Promise<ContextResult>;
   complete: (input: {
+    requestId: string;
     model: string;
     messages: Array<{ role: 'system' | 'user'; content: string }>;
+    skill: GatewayRequest['skill'];
+    cookingContext: RecipeSuggestionContext | null;
   }) => Promise<ProviderResult>;
   isRateLimited?: () => boolean;
   recordRateLimitAttempt?: () => void;
@@ -141,12 +195,17 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Origin': '*',
+  'Access-Control-Expose-Headers': 'X-Request-Id',
 };
 
-function json(body: unknown, status = 200): Response {
+export function createAiGatewayResponse(
+  body: JsonRecord,
+  status: number,
+  requestId: string,
+): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { ...JSON_HEADERS, ...CORS_HEADERS },
+    headers: { ...JSON_HEADERS, ...CORS_HEADERS, 'X-Request-Id': requestId },
   });
 }
 
@@ -155,35 +214,54 @@ function isRecord(value: unknown): value is JsonRecord {
 }
 
 function nonEmptyString(value: unknown): value is string {
-  return typeof value === 'string' && value.trim().length > 0;
+  return typeof value === 'string' && value.trim().length > 0 && value.length <= 8_000;
+}
+
+function validOptionalModel(value: unknown): value is string | undefined {
+  return value === undefined || nonEmptyString(value);
+}
+
+function validNullableInteger(value: unknown, maximum: number): value is number | null {
+  return (
+    value === null ||
+    (typeof value === 'number' && Number.isInteger(value) && value > 0 && value <= maximum)
+  );
+}
+
+function validOptionalUuid(value: unknown): value is string | undefined {
+  return value === undefined || isUuid(value);
+}
+
+function validOptionalInventoryItemIds(value: unknown): value is string[] | undefined {
+  return (
+    value === undefined ||
+    (Array.isArray(value) &&
+      value.length <= 100 &&
+      value.every(isUuid) &&
+      new Set(value).size === value.length)
+  );
 }
 
 function parseRequest(value: unknown): GatewayRequest | null {
-  if (
-    !isRecord(value) || !nonEmptyString(value.skill) ||
-    !nonEmptyString(value.householdId)
-  ) {
-    return null;
-  }
+  if (!isRecord(value) || !nonEmptyString(value.householdId)) return null;
 
   if (value.skill === 'fam-inventory-capture') {
-    const allowedKeys = new Set([
-      'skill',
-      'householdId',
-      'text',
-      'locale',
-      'model',
-    ]);
-    if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
-    return value.locale === 'de-DE' && nonEmptyString(value.text)
-      ? {
-        skill: value.skill,
-        householdId: value.householdId.trim(),
-        text: value.text.trim(),
-        locale: 'de-DE',
-        ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
-      }
-      : null;
+    const allowedKeys = new Set(['skill', 'householdId', 'text', 'locale', 'model']);
+    if (
+      Object.keys(value).some((key) => !allowedKeys.has(key)) ||
+      value.locale !== 'de-DE' ||
+      !nonEmptyString(value.text) ||
+      !validOptionalModel(value.model)
+    ) {
+      return null;
+    }
+    return {
+      skill: value.skill,
+      householdId: value.householdId.trim(),
+      text: value.text.trim(),
+      locale: value.locale,
+      ...(value.model === undefined ? {} : { model: value.model.trim() }),
+    };
   }
 
   if (value.skill !== 'fam-cook-from-inventory') return null;
@@ -194,34 +272,52 @@ function parseRequest(value: unknown): GatewayRequest | null {
     'servings',
     'maxMinutes',
     'dietaryPattern',
-    'allergies',
+    'shoppingDecision',
+    'selectedInventoryItemIds',
+    'clientRequestId',
+    'conversationId',
+    'continuedFromConversationId',
     'model',
   ]);
-  if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
-  const validNullableInteger = (
-    candidate: unknown,
-  ): candidate is number | null =>
-    candidate === null ||
-    (typeof candidate === 'number' && Number.isInteger(candidate) &&
-      candidate > 0);
+  const selectedInventoryItemIds = value.selectedInventoryItemIds;
+  if (
+    Object.keys(value).some((key) => !allowedKeys.has(key)) ||
+    !isUuid(value.householdId) ||
+    !isUuid(value.clientRequestId) ||
+    !nonEmptyString(value.userText) ||
+    !validNullableInteger(value.servings, 100) ||
+    !validNullableInteger(value.maxMinutes, 1440) ||
+    (value.dietaryPattern !== null && !nonEmptyString(value.dietaryPattern)) ||
+    (value.shoppingDecision !== null &&
+      value.shoppingDecision !== 'yes' &&
+      value.shoppingDecision !== 'no') ||
+    !validOptionalInventoryItemIds(selectedInventoryItemIds) ||
+    !validOptionalUuid(value.conversationId) ||
+    !validOptionalUuid(value.continuedFromConversationId) ||
+    (value.conversationId !== undefined && value.continuedFromConversationId !== undefined) ||
+    !validOptionalModel(value.model)
+  ) {
+    return null;
+  }
 
-  return nonEmptyString(value.userText) &&
-      validNullableInteger(value.servings) &&
-      validNullableInteger(value.maxMinutes) &&
-      (value.dietaryPattern === null || nonEmptyString(value.dietaryPattern)) &&
-      Array.isArray(value.allergies) &&
-      value.allergies.every(nonEmptyString)
-    ? {
-      skill: value.skill,
-      householdId: value.householdId.trim(),
-      userText: value.userText.trim(),
-      servings: value.servings,
-      maxMinutes: value.maxMinutes,
-      dietaryPattern: value.dietaryPattern === null ? null : value.dietaryPattern.trim(),
-      allergies: value.allergies.map((allergy) => allergy.trim()),
-      ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
-    }
-    : null;
+  return {
+    skill: value.skill,
+    householdId: value.householdId.trim(),
+    userText: value.userText.trim(),
+    servings: value.servings,
+    maxMinutes: value.maxMinutes,
+    dietaryPattern: value.dietaryPattern === null ? null : value.dietaryPattern.trim(),
+    shoppingDecision: value.shoppingDecision,
+    clientRequestId: value.clientRequestId,
+    ...(selectedInventoryItemIds === undefined
+      ? {}
+      : { selectedInventoryItemIds: normalizedInventoryIds(selectedInventoryItemIds) }),
+    ...(value.conversationId === undefined ? {} : { conversationId: value.conversationId }),
+    ...(value.continuedFromConversationId === undefined
+      ? {}
+      : { continuedFromConversationId: value.continuedFromConversationId }),
+    ...(value.model === undefined ? {} : { model: value.model.trim() }),
+  };
 }
 
 function modelFor(
@@ -239,7 +335,7 @@ function creditActionFor(request: GatewayRequest): GatewayCreditAction {
 
 function buildSystemPrompt(
   request: GatewayRequest,
-  context: GatewayCookingContext,
+  cookingContext: RecipeSuggestionContext | null,
 ): string {
   const common = `
 Du bist der read-only Haushaltsassistent von fam. Antworte ausschließlich als
@@ -251,27 +347,21 @@ Datenbankmutation und keine Aktion außerhalb dieses Aufrufs aus.`;
     return `${common}
 Szenario: natürliche Erfassung eines deutschen Inventartexts.
 Vertrag: inventory_capture_proposal.v1 mit exakt den Feldern kind, items,
-questions und warnings. Jedes Item enthält exakt rawText, normalizedName,
-quantity, unit, perishability, storage, date, dateKind, confidence, evidence
-und missingFields. "Etwas" bleibt bei quantity null. Evidence muss wörtlich aus
-dem Nutzereingabetext stammen. Das Ergebnis ist ausschließlich ein Proposal, niemals
-eine bestätigte Inventaränderung.`;
+questions und warnings. Das Ergebnis ist nur ein Vorschlag und niemals eine
+bestätigte Inventaränderung.`;
   }
 
   return `${common}
-Szenario: Kochvorschlag aus dem autorisierten Inventar.
-Vertrag: cooking_suggestion.v1 mit exakt kind, recipeId, title, usedLots,
-missingIngredients, estimatedMinutes, servings, rationale und constraintChecks.
-constraintChecks.allergies muss pass sein, dietaryPattern und time sind pass oder
-unknown. Verwende ausschließlich Rezept-IDs und Lot-IDs aus dem folgenden
-Kontext. Fehlende Zutaten gehören in missingIngredients. Liefere höchstens drei
-Vorschläge; wenn der Vertrag nur ein Objekt erlaubt, liefere den besten.
+Szenario: Rezeptvorschlag aus dem autorisierten Haushaltsbestand.
+Vertrag: exakt {schema_version, meals}. Liefere eine bis drei Mahlzeiten.
+Verwende ausschließlich Rezept- und Inventar-IDs aus dem bereitgestellten
+Kontext. Mengen dürfen den Bestand nicht überschreiten. Zusätzliche Zutaten
+müssen ausdrücklich in allowed_staples oder planned_shopping_items stehen.
+Ein Modellrezept ist nur erlaubt, wenn fallback_allowed true ist. Die Antwort
+schreibt niemals Daten.
 
-Verwendeter Inventarkontext:
-${JSON.stringify(context.inventory)}
-
-Freigegebene Rezeptbasis:
-${JSON.stringify(context.recipes)}`;
+Geprüfter Kontext:
+${JSON.stringify(cookingContext)}`;
 }
 
 function buildUserPrompt(request: GatewayRequest): string {
@@ -289,7 +379,7 @@ function buildUserPrompt(request: GatewayRequest): string {
     servings: request.servings,
     maxMinutes: request.maxMinutes,
     dietaryPattern: request.dietaryPattern,
-    allergies: request.allergies,
+    shoppingDecision: request.shoppingDecision,
   });
 }
 
@@ -311,67 +401,11 @@ function validMissingFields(value: unknown): value is string[] {
   return validStringArray(value) && value.every((field) => allowed.has(field));
 }
 
-function prepareCookingContext(
-  context: GatewayCookingContext,
-  request: CookingRequest,
-): GatewayCookingContext | null {
-  const recipes = context.recipes
-    .filter((recipe) => {
-      if (request.allergies.length > 0) {
-        if (recipe.allergens === null) return false;
-        const allergens = new Set(
-          recipe.allergens.map((allergen) => allergen.toLocaleLowerCase('de-DE')),
-        );
-        if (
-          request.allergies.some((allergy) => allergens.has(allergy.toLocaleLowerCase('de-DE')))
-        ) {
-          return false;
-        }
-      }
-      if (
-        request.dietaryPattern !== null &&
-        !recipe.dietaryTags.some((tag) =>
-          tag.toLocaleLowerCase('de-DE') ===
-            request.dietaryPattern?.toLocaleLowerCase('de-DE')
-        )
-      ) {
-        return false;
-      }
-      if (
-        request.maxMinutes !== null &&
-        (recipe.estimatedMinutes === null ||
-          recipe.estimatedMinutes > request.maxMinutes)
-      ) {
-        return false;
-      }
-      return !(request.servings !== null && recipe.servings === null);
-    })
-    .sort((a, b) => {
-      if (a.estimatedMinutes === null && b.estimatedMinutes !== null) return 1;
-      if (a.estimatedMinutes !== null && b.estimatedMinutes === null) return -1;
-      if (
-        a.estimatedMinutes !== null && b.estimatedMinutes !== null &&
-        a.estimatedMinutes !== b.estimatedMinutes
-      ) {
-        return a.estimatedMinutes - b.estimatedMinutes;
-      }
-      return a.title.localeCompare(b.title, 'de') ||
-        a.recipeId.localeCompare(b.recipeId);
-    })
-    .slice(0, 3);
-
-  return recipes.length === 0 ? null : { ...context, recipes };
-}
-
-function validateCaptureResult(
-  result: JsonRecord,
-  request: CaptureRequest,
-): string | null {
-  if (result.kind !== 'inventory_capture_proposal.v1') {
-    return 'invalid_capture_kind';
-  }
+function validateCaptureResult(result: JsonRecord, request: CaptureRequest): string | null {
+  if (result.kind !== 'inventory_capture_proposal.v1') return 'invalid_capture_kind';
   if (
-    !Array.isArray(result.items) || !validStringArray(result.questions) ||
+    !Array.isArray(result.items) ||
+    !validStringArray(result.questions) ||
     !validStringArray(result.warnings)
   ) {
     return 'invalid_capture_shape';
@@ -394,274 +428,398 @@ function validateCaptureResult(
     ];
     if (
       Object.keys(item).some((key) => !required.includes(key)) ||
-      required.some((key) => !(key in item))
+      required.some((key) => !Object.hasOwn(item, key))
     ) {
       return 'invalid_capture_item_fields';
     }
     if (
-      !nonEmptyString(item.rawText) || !nonEmptyString(item.evidence) ||
+      !nonEmptyString(item.rawText) ||
+      !nonEmptyString(item.evidence) ||
       !validMissingFields(item.missingFields)
     ) {
       return 'invalid_capture_item_values';
     }
-    if (
-      !request.text.includes(item.rawText) ||
-      !request.text.includes(item.evidence)
-    ) {
+    if (!request.text.includes(item.rawText) || !request.text.includes(item.evidence)) {
       return 'capture_evidence_not_grounded';
     }
     if (
-      typeof item.confidence !== 'number' || item.confidence < 0 ||
+      typeof item.confidence !== 'number' ||
+      item.confidence < 0 ||
       item.confidence > 1
     ) {
       return 'invalid_capture_confidence';
     }
   }
-
   return null;
 }
 
-function validateCookingResult(
-  result: JsonRecord,
-  context: GatewayCookingContext,
-  request: CookingRequest,
-): string | null {
-  if (result.kind !== 'cooking_suggestion.v1') return 'invalid_cooking_kind';
-  const required = [
-    'kind',
-    'recipeId',
-    'title',
-    'usedLots',
-    'missingIngredients',
-    'estimatedMinutes',
-    'servings',
-    'rationale',
-    'constraintChecks',
-  ];
-  if (
-    Object.keys(result).some((key) => !required.includes(key)) ||
-    required.some((key) => !(key in result))
-  ) {
-    return 'invalid_cooking_fields';
-  }
-  if (!nonEmptyString(result.recipeId) || !nonEmptyString(result.title)) {
-    return 'invalid_cooking_shape';
-  }
-  if (
-    !validStringArray(result.usedLots) ||
-    !validStringArray(result.missingIngredients)
-  ) {
-    return 'invalid_cooking_arrays';
-  }
-  if (!nonEmptyString(result.rationale)) return 'invalid_cooking_shape';
-  if (!isRecord(result.constraintChecks)) return 'invalid_cooking_constraints';
-  if (
-    result.constraintChecks.allergies !== 'pass' ||
-    !['pass', 'unknown'].includes(
-      String(result.constraintChecks.dietaryPattern),
-    ) ||
-    !['pass', 'unknown'].includes(String(result.constraintChecks.time))
-  ) {
-    return 'invalid_cooking_constraints';
-  }
-  if (
-    request.dietaryPattern !== null &&
-    result.constraintChecks.dietaryPattern !== 'pass'
-  ) {
-    return 'dietary_gate_failed';
-  }
-  if (request.maxMinutes !== null && result.constraintChecks.time !== 'pass') {
-    return 'time_gate_failed';
-  }
-
-  const recipe = context.recipes.find((candidate) => candidate.recipeId === result.recipeId);
-  if (!recipe) return 'recipe_not_allowed';
-  if (result.title.trim() !== recipe.title) return 'recipe_title_mismatch';
-
-  const seenLots = new Set<string>();
-  const allowedLots = new Set(context.inventory.lots.map((lot) => lot.lotId));
-  for (const lotId of result.usedLots) {
-    if (!allowedLots.has(lotId)) return 'lot_not_allowed';
-    if (seenLots.has(lotId)) return 'duplicate_lot';
-    seenLots.add(lotId);
-  }
-
-  if (
-    request.allergies.length > 0 && result.constraintChecks.allergies !== 'pass'
-  ) {
-    return 'allergy_gate_failed';
-  }
-
-  return null;
+function chefResponseFromHistory(history: ChefHistoryHydration): JsonRecord {
+  const response = history.turn.response_payload;
+  return {
+    skill: response.skill,
+    model: response.model,
+    result: response.result,
+    priorityFoodCount: response.priority_food_count,
+    shoppingQuestion: response.shopping_question,
+    generatedAt: response.generated_at,
+    clientRequestId: history.turn.client_request_id,
+    conversationId: history.conversation.id,
+    turnId: history.turn.id,
+    history,
+  };
 }
 
-/** Builds the HTTP handler used by the Deno entrypoint and its tests. */
+function preflightErrorStatus(errorCode: string | null): number {
+  if (errorCode === 'invalid_request') return 400;
+  if (errorCode === 'household_forbidden') return 403;
+  if (errorCode === 'chef_conversation_not_found') return 404;
+  return 409;
+}
+
+/** Creates the HTTP handler while keeping auth, storage, billing, and provider I/O injectable. */
 export function createAiGatewayHandler(dependencies: Dependencies) {
   const allowedModels = dependencies.allowedModels ?? ALLOWED_MODELS;
-  const defaultModel = dependencies.defaultModel ?? 'z-ai/glm-5.3-flash';
+  const defaultModel = dependencies.defaultModel ?? DEFAULT_MODEL;
   const now = dependencies.now ?? (() => new Date().toISOString());
-  const requestId = dependencies.requestId ?? (() => crypto.randomUUID());
+  const makeRequestId = dependencies.requestId ?? (() => crypto.randomUUID());
 
-  return async (request: Request): Promise<Response> => {
+  return async (request: Request, edgeRequestId?: string): Promise<Response> => {
+    const requestId = edgeRequestId ?? makeRequestId();
+    const respond = (body: JsonRecord, status = 200) =>
+      createAiGatewayResponse({ ...body, requestId }, status, requestId);
+
     if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: CORS_HEADERS });
+      return new Response(null, {
+        status: 204,
+        headers: { ...CORS_HEADERS, 'X-Request-Id': requestId },
+      });
     }
-    if (request.method !== 'POST') {
-      return json({ error: 'method_not_allowed' }, 405);
-    }
+    if (request.method !== 'POST') return respond({ error: 'method_not_allowed' }, 405);
 
-    const auth = await dependencies.authenticate(request);
-    if (!auth.ok) {
-      return json({
-        error: auth.error,
-        ...(auth.message ? { message: auth.message } : {}),
-      }, auth.status);
-    }
+    const auth = await dependencies.authenticate(request, requestId);
+    if (!auth.ok) return respond({ error: auth.error }, auth.status);
 
     let body: unknown;
     try {
       body = await request.json();
     } catch {
-      return json({ error: 'invalid_json' }, 400);
+      return respond({ error: 'invalid_json' }, 400);
     }
 
     const parsedRequest = parseRequest(body);
-    if (!parsedRequest) return json({ error: 'invalid_request' }, 400);
+    if (parsedRequest === null) return respond({ error: 'invalid_request' }, 400);
 
     const member = await dependencies.assertHouseholdMember(
       auth.userId,
       parsedRequest.householdId,
       auth.authorization,
+      requestId,
     );
-    if (!member.ok) {
-      return json({
-        error: member.error,
-        ...(member.message ? { message: member.message } : {}),
-      }, member.status);
-    }
+    if (!member.ok) return respond({ error: member.error }, member.status);
 
     const model = modelFor(parsedRequest.model, allowedModels, defaultModel);
-    if (!model) return json({ error: 'model_not_allowed' }, 400);
+    if (model === null) return respond({ error: 'model_not_allowed' }, 400);
 
-    if (dependencies.isRateLimited?.()) {
-      return json({ error: 'rate_limited' }, 429);
+    let requestFingerprint: string | null = null;
+    let requestPayload: ReturnType<typeof buildChefRequestPayload> | null = null;
+    let conversationContext: ChefConversationContext | null = null;
+
+    if (parsedRequest.skill === 'fam-cook-from-inventory') {
+      requestPayload = buildChefRequestPayload(parsedRequest);
+      requestFingerprint = await chefRequestFingerprint({ request: parsedRequest, model });
+
+      const lookup = await dependencies.lookupChefExchange({
+        householdId: parsedRequest.householdId,
+        actorUserId: auth.userId,
+        clientRequestId: parsedRequest.clientRequestId,
+        requestFingerprint,
+      });
+      if (!lookup.ok) return respond({ error: lookup.error }, lookup.status);
+      if (lookup.value.status === 'conflict') {
+        return respond({ error: 'chef_request_replay_mismatch' }, 409);
+      }
+      if (lookup.value.status === 'refunded') {
+        return respond({ error: 'chef_request_already_refunded' }, 409);
+      }
+      if (lookup.value.status === 'incomplete') {
+        return respond({ error: 'chef_request_incomplete' }, 409);
+      }
+      if (lookup.value.status === 'match') {
+        return respond(chefResponseFromHistory(lookup.value.hydration));
+      }
+
+      const preflight = await dependencies.preflightChefExchange({
+        householdId: parsedRequest.householdId,
+        actorUserId: auth.userId,
+        conversationId: parsedRequest.conversationId ?? null,
+        continuedFromConversationId: parsedRequest.continuedFromConversationId ?? null,
+      });
+      if (!preflight.ok) return respond({ error: preflight.error }, preflight.status);
+      if (!preflight.value.allowed) {
+        const error = preflight.value.error_code ?? 'chef_conversation_preflight_failed';
+        return respond({ error }, preflightErrorStatus(error));
+      }
     }
+
+    if (dependencies.isRateLimited?.()) return respond({ error: 'rate_limited' }, 429);
     dependencies.recordRateLimitAttempt?.();
 
     const entitlement = await dependencies.authorizeAiEntitlement(
+      auth.userId,
       parsedRequest.householdId,
       auth.authorization,
+      requestId,
     );
-    if (!entitlement.ok) {
-      return json({
-        error: entitlement.error,
-        ...(entitlement.message ? { message: entitlement.message } : {}),
-      }, entitlement.status);
-    }
+    if (!entitlement.ok) return respond({ error: entitlement.error }, entitlement.status);
 
-    const contextResult = parsedRequest.skill === 'fam-cook-from-inventory'
-      ? await dependencies.loadCookingContext(
+    const generatedAt = now();
+    let cookingContext: RecipeSuggestionContext | null = null;
+    let catalogMeals: ReturnType<typeof buildCatalogSuggestions> | null = null;
+
+    const persistCookingResponse = async (input: {
+      responsePayload: ReturnType<typeof buildChefResponsePayload>;
+      recipeSnapshots: ReturnType<typeof buildChefRecipeSnapshot>[];
+      bookedSubscriberUserId?: string;
+    }): Promise<Response> => {
+      if (
+        parsedRequest.skill !== 'fam-cook-from-inventory' ||
+        requestFingerprint === null ||
+        requestPayload === null
+      ) {
+        return respond({ error: 'chef_history_persist_failed' }, 500);
+      }
+
+      const persisted = await dependencies.persistChefExchange({
+        householdId: parsedRequest.householdId,
+        actorUserId: auth.userId,
+        conversationId: parsedRequest.conversationId ?? null,
+        continuedFromConversationId: parsedRequest.continuedFromConversationId ?? null,
+        clientRequestId: parsedRequest.clientRequestId,
+        requestFingerprint,
+        requestPayload,
+        userText: parsedRequest.userText,
+        responsePayload: input.responsePayload,
+        recipeSnapshots: input.recipeSnapshots,
+      });
+      if (persisted.ok) return respond(chefResponseFromHistory(persisted.value));
+
+      const reconciliation = await dependencies.lookupChefExchange({
+        householdId: parsedRequest.householdId,
+        actorUserId: auth.userId,
+        clientRequestId: parsedRequest.clientRequestId,
+        requestFingerprint,
+      });
+      if (!reconciliation.ok) {
+        return respond({ error: 'chef_history_persist_unknown' }, 500);
+      }
+      if (reconciliation.value.status === 'match') {
+        return respond(chefResponseFromHistory(reconciliation.value.hydration));
+      }
+      if (reconciliation.value.status === 'conflict') {
+        return respond({ error: 'chef_request_replay_mismatch' }, 409);
+      }
+
+      if (input.bookedSubscriberUserId !== undefined) {
+        try {
+          await dependencies.refundAiCredit(
+            input.bookedSubscriberUserId,
+            parsedRequest.clientRequestId,
+          );
+        } catch {
+          return respond({ error: 'credit_refund_failed' }, 500);
+        }
+      }
+      return respond({ error: persisted.error }, persisted.status);
+    };
+
+    if (parsedRequest.skill === 'fam-cook-from-inventory') {
+      const contextResult = await dependencies.loadCookingContext(
         auth.userId,
         parsedRequest.householdId,
         auth.authorization,
-      )
-      : {
-        ok: true as const,
-        context: {
-          inventory: {
-            source: 'inventory' as const,
-            fetchedAt: now(),
-            lots: [],
-          },
-          recipes: [],
-        },
-      };
-    if (!contextResult.ok) {
-      return json(
-        {
-          error: contextResult.error,
-          ...(contextResult.message ? { message: contextResult.message } : {}),
-        },
-        contextResult.status,
+        requestId,
+      );
+      if (!contextResult.ok) return respond({ error: contextResult.error }, contextResult.status);
+
+      const context = buildRecipeSuggestionContext({
+        inventory: contextResult.context.inventory,
+        recipes: contextResult.context.recipes,
+        shoppingItems: contextResult.context.shoppingItems,
+        servings: parsedRequest.servings ?? 1,
+        maxMinutes: parsedRequest.maxMinutes,
+        dietaryPattern: parsedRequest.dietaryPattern,
+        allergies: contextResult.context.allergies,
+        preferences: contextResult.context.preferences,
+        forbiddenIngredients: contextResult.context.forbiddenIngredients,
+        selectedInventoryItemIds: parsedRequest.selectedInventoryItemIds ?? [],
+        shoppingDecision: parsedRequest.shoppingDecision,
+        today: new Date(generatedAt),
+      });
+      if (context === null) return respond({ error: 'no_safe_recipe' }, 422);
+      cookingContext = context.context;
+
+      const historySourceId = parsedRequest.conversationId ??
+        parsedRequest.continuedFromConversationId;
+      if (historySourceId !== undefined) {
+        const loadedHistory = await dependencies.loadChefConversationContext({
+          householdId: parsedRequest.householdId,
+          actorUserId: auth.userId,
+          conversationId: historySourceId,
+        });
+        if (!loadedHistory.ok) {
+          return respond({ error: loadedHistory.error }, loadedHistory.status);
+        }
+        conversationContext = loadedHistory.value;
+      }
+
+      if (context.shoppingQuestion !== null) {
+        return persistCookingResponse({
+          responsePayload: buildChefResponsePayload({
+            model,
+            generatedAt,
+            priorityFoodCount: cookingContext.priority_foods.length,
+            shoppingQuestion: context.shoppingQuestion,
+            result: null,
+          }),
+          recipeSnapshots: [],
+        });
+      }
+
+      catalogMeals = buildCatalogSuggestions(
+        cookingContext,
+        contextResult.context.recipes,
+        parsedRequest.shoppingDecision === 'yes',
       );
     }
 
-    const preparedContext = parsedRequest.skill === 'fam-cook-from-inventory'
-      ? prepareCookingContext(contextResult.context, parsedRequest)
-      : contextResult.context;
-    if (preparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
-
-    const currentRequestId = requestId();
+    const creditRequestId = parsedRequest.skill === 'fam-cook-from-inventory'
+      ? parsedRequest.clientRequestId
+      : requestId;
     const booking = await dependencies.bookAiCredit({
       householdId: parsedRequest.householdId,
       subscriberUserId: entitlement.subscriberUserId,
       action: creditActionFor(parsedRequest),
-      requestId: currentRequestId,
+      requestId: creditRequestId,
     });
-    if (!booking.ok) {
-      return json({
-        error: booking.error,
-        ...(booking.message ? { message: booking.message } : {}),
-      }, booking.status);
+    if (!booking.ok) return respond({ error: booking.error }, booking.status);
+    if (!booking.created) {
+      return respond(
+        {
+          error: parsedRequest.skill === 'fam-cook-from-inventory'
+            ? 'chef_request_incomplete'
+            : 'ai_credit_request_incomplete',
+        },
+        409,
+      );
     }
 
-    const refundAndRespond = async (body: unknown, status: number) => {
+    const refundAndRespond = async (responseBody: JsonRecord, status: number) => {
       try {
-        await dependencies.refundAiCredit(entitlement.subscriberUserId, currentRequestId);
-      } catch (error) {
-        return json({
-          error: 'credit_refund_failed',
-          requestId: currentRequestId,
-          message: error instanceof Error ? error.message : String(error),
-        }, 500);
+        await dependencies.refundAiCredit(entitlement.subscriberUserId, creditRequestId);
+      } catch {
+        return respond({ error: 'credit_refund_failed' }, 500);
       }
-      return json(body, status);
+      return respond(responseBody, status);
     };
+
+    if (catalogMeals !== null && catalogMeals.length > 0) {
+      if (cookingContext === null) {
+        return await refundAndRespond({ error: 'gateway_context_invalid' }, 500);
+      }
+      const result = { schema_version: 1 as const, meals: catalogMeals };
+      return persistCookingResponse({
+        responsePayload: buildChefResponsePayload({
+          model,
+          generatedAt,
+          priorityFoodCount: cookingContext.priority_foods.length,
+          shoppingQuestion: null,
+          result,
+        }),
+        recipeSnapshots: [buildChefRecipeSnapshot(result, cookingContext)],
+        bookedSubscriberUserId: entitlement.subscriberUserId,
+      });
+    }
 
     let provider: ProviderResult;
     try {
       provider = await dependencies.complete({
+        requestId,
         model,
         messages: [
-          {
-            role: 'system',
-            content: buildSystemPrompt(parsedRequest, preparedContext),
-          },
+          { role: 'system', content: buildSystemPrompt(parsedRequest, cookingContext) },
+          ...(conversationContext === null || conversationContext.turns.length === 0
+            ? []
+            : [{ role: 'user' as const, content: historyContextMessage(conversationContext) }]),
           { role: 'user', content: buildUserPrompt(parsedRequest) },
         ],
+        skill: parsedRequest.skill,
+        cookingContext,
       });
     } catch {
       return await refundAndRespond({ error: 'provider_unavailable' }, 502);
     }
-    if (!provider.ok) {
-      return await refundAndRespond({
-        error: provider.error,
-        ...(provider.message ? { message: provider.message } : {}),
-      }, provider.status);
-    }
+    if (!provider.ok) return await refundAndRespond({ error: provider.error }, provider.status);
     if (provider.model !== model || !allowedModels.includes(provider.model)) {
       return await refundAndRespond({ error: 'provider_model_mismatch' }, 502);
     }
 
     const parsedResult = parseProviderJson(provider.content);
-    if (!parsedResult) {
+    if (parsedResult === null) {
       return await refundAndRespond({ error: 'provider_invalid_json' }, 502);
     }
 
-    const validationError = parsedRequest.skill === 'fam-inventory-capture'
-      ? validateCaptureResult(parsedResult, parsedRequest)
-      : validateCookingResult(parsedResult, preparedContext, parsedRequest);
-    if (validationError) {
-      return await refundAndRespond({ error: validationError }, 502);
+    if (parsedRequest.skill === 'fam-inventory-capture') {
+      const validationError = validateCaptureResult(parsedResult, parsedRequest);
+      if (validationError !== null) {
+        return await refundAndRespond({ error: validationError }, 502);
+      }
+      return respond({
+        skill: parsedRequest.skill,
+        model: provider.model,
+        result: parsedResult,
+        ...(provider.usage === undefined ? {} : { usage: provider.usage }),
+        generatedAt,
+      });
     }
 
-    return json({
-      requestId: currentRequestId,
-      skill: parsedRequest.skill,
-      model: provider.model,
-      result: parsedResult,
-      ...(provider.usage === undefined ? {} : { usage: provider.usage }),
-      generatedAt: now(),
+    if (cookingContext === null) {
+      return await refundAndRespond({ error: 'gateway_context_invalid' }, 500);
+    }
+    const validation = validateRecipeSuggestionResponse(cookingContext, parsedResult);
+    if (!validation.ok) {
+      console.error(
+        JSON.stringify({
+          event: 'ai_gateway_provider_contract_violation',
+          requestId,
+          issues: validation.issues.map(({ code, path }) => ({ code, path })),
+        }),
+      );
+      return await refundAndRespond(
+        {
+          error: 'provider_contract_violation',
+          issues: validation.issues.map(({ code, path }) => ({ code, path })),
+        },
+        502,
+      );
+    }
+
+    let recipeSnapshot: ReturnType<typeof buildChefRecipeSnapshot>;
+    try {
+      recipeSnapshot = buildChefRecipeSnapshot(validation.value, cookingContext);
+    } catch {
+      return await refundAndRespond({ error: 'provider_contract_violation' }, 502);
+    }
+
+    return persistCookingResponse({
+      responsePayload: buildChefResponsePayload({
+        model: provider.model,
+        generatedAt,
+        priorityFoodCount: cookingContext.priority_foods.length,
+        shoppingQuestion: null,
+        result: validation.value,
+      }),
+      recipeSnapshots: [recipeSnapshot],
+      bookedSubscriberUserId: entitlement.subscriberUserId,
     });
   };
 }

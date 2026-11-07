@@ -1,6 +1,7 @@
 -- check-clean-db.sql — siehe check-clean-db.sh fuer das Warum.
 --
--- supabase/seed.sql seedet feste Referenzdaten (Produkte, Rezeptvorlagen) bei
+-- supabase/seed.sql seedet feste Referenzdaten (Produkte, Rezeptvorlagen,
+-- Allergentaxonomie) bei
 -- jedem `supabase db reset` — diese Tabellen sind danach nie leer und muessen
 -- von der Pruefung ausgenommen werden (Liste unten synchron zu seed.sql
 -- halten). Jede andere public-Tabelle muss direkt nach einem Reset leer sein.
@@ -24,7 +25,8 @@ from (
       'recipe_templates',
       'recipe_template_items',
       'recipe_template_steps',
-      'recipe_template_components'
+      'recipe_template_components',
+      'allergen_taxonomy'
     )
 ) counts
 where cnt > 0;

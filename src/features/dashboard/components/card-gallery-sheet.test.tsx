@@ -26,8 +26,19 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ bottom: 4 }) }));
 jest.mock('@/constants/ui', () => {
   const { createElement } = require('react');
-  const { Text } = require('react-native');
-  return { Txt: ({ children }: { children: ReactNode }) => createElement(Text, null, children) };
+  const { Pressable, Text } = require('react-native');
+  return {
+    Press: ({
+      children,
+      containerStyle: _containerStyle,
+      ...props
+    }: {
+      children: ReactNode;
+      containerStyle?: unknown;
+      [key: string]: unknown;
+    }) => createElement(Pressable, props, children),
+    Txt: ({ children }: { children: ReactNode }) => createElement(Text, null, children),
+  };
 });
 jest.mock('@/features/dashboard/use-card-sizes', () => ({
   useCardSizes: jest.fn(),

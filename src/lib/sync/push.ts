@@ -354,6 +354,16 @@ async function applyOnePush(
   nowMs: number,
   currentAttempts: number,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  const meta = metaOf(entry.entity);
+
+  if (meta.serverGenerated) {
+    return rejectPermanent(
+      db,
+      entry,
+      `${entry.entity} ist servererzeugt und akzeptiert keine Outbox-Mutationen.`,
+    );
+  }
+
   if (entry.op === 'move') {
     return applyInventoryMovePush(db, supabase, entry, nowMs, currentAttempts);
   }
@@ -370,8 +380,6 @@ async function applyOnePush(
   if (entry.op === 'merge_undo_open') {
     return applyInventoryMergeUndoPush(db, supabase, entry, nowMs, currentAttempts);
   }
-
-  const meta = metaOf(entry.entity);
 
   if (meta.appendOnly && entry.op !== 'insert') {
     return rejectPermanent(

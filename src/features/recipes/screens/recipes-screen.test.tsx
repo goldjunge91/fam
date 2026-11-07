@@ -14,6 +14,19 @@ jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
 }));
 
+jest.mock('@/features/chef-koch/components/chef-koch-entry', () => {
+  const React = require('react') as typeof import('react');
+  const { Pressable, Text } = require('react-native') as typeof import('react-native');
+  return {
+    ChefKochEntry: () =>
+      React.createElement(
+        Pressable,
+        { accessibilityRole: 'button', accessibilityLabel: 'Aus Vorrat kochen' },
+        React.createElement(Text, null, 'Aus Vorrat kochen'),
+      ),
+  };
+});
+
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
   useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
@@ -111,6 +124,12 @@ beforeEach(() => {
 });
 
 describe('RecipesScreen — leerer Zustand', () => {
+  it('zeigt den dauerhaften Chef-Koch-Einstieg auch ohne gespeicherte Rezepte', async () => {
+    await render(<RecipesScreen />);
+
+    expect(screen.getByRole('button', { name: 'Aus Vorrat kochen' })).toBeOnTheScreen();
+  });
+
   it('zeigt einen Hinweis, wenn weder Haushaltsrezepte noch Vorlagen vorhanden sind', async () => {
     await render(<RecipesScreen />);
 

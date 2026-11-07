@@ -5,6 +5,7 @@ import {
   localBrochureStores,
   localBrochures,
 } from './brochures';
+import { chefConversations, chefConversationTurns, chefRecipeHistory } from './chef-koch';
 import { households } from './households';
 import { fridgeItems, storageLocations, transactions } from './inventory';
 import { mealPlanEntries, mealPlans } from './meal-planner';
@@ -30,6 +31,7 @@ import { appMeta, outbox, outboxHistory, syncState } from './system';
 import { injectionPlans, medicationLogs, symptomLogs } from './tracking';
 
 export * from './brochures';
+export * from './chef-koch';
 export * from './households';
 export * from './inventory';
 export * from './meal-planner';
@@ -42,6 +44,9 @@ export * from './tracking';
 
 export const localDrizzleSchema = {
   appMeta,
+  chefConversations,
+  chefConversationTurns,
+  chefRecipeHistory,
   favoriteBrochureStores,
   fridgeItems,
   households,

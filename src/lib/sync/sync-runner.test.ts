@@ -134,6 +134,20 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     });
   });
 
+  it('invalidiert alle Chef-History-Details nach einem History-Pull', async () => {
+    mockSyncHousehold.mockResolvedValue({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [{ entity: 'chef_conversation_turns', cursor: null, rowsWritten: 1 }],
+    });
+    const queryClient = fakeQueryClient();
+
+    await triggerHouseholdSync(['household-1'], false, queryClient as unknown as QueryClient);
+
+    expect(queryClient.invalidateQueries).toHaveBeenCalledWith({
+      queryKey: ['chef-history', 'household-1'],
+    });
+  });
+
   it('invalidiert auch fuer erfolgreich gepushte Entities (eigene Aenderung, andere Query-Beobachter)', async () => {
     mockSyncHousehold.mockResolvedValue({
       push: {

@@ -193,6 +193,9 @@ async function writeOutboxEntries(
   inputs: readonly EnqueueMutationInput[],
 ): Promise<void> {
   for (const input of inputs) {
+    if (metaOf(input.entity).serverGenerated) {
+      throw new Error(`${input.entity} ist servererzeugt und darf nicht in die Outbox.`);
+    }
     const createdAt = input.now ?? Date.now();
     await input.applyLocally(txn);
     const result = await txn.runAsync(

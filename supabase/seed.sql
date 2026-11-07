@@ -25,6 +25,24 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('receipt-images', 'receipt-images', false, 5242880)
 on conflict (id) do nothing;
 
+insert into public.allergen_taxonomy (id, sort_order)
+values
+  ('EU_01_GLUTEN_CEREALS', 1),
+  ('EU_02_CRUSTACEANS', 2),
+  ('EU_03_EGGS', 3),
+  ('EU_04_FISH', 4),
+  ('EU_05_PEANUTS', 5),
+  ('EU_06_SOYBEANS', 6),
+  ('EU_07_MILK', 7),
+  ('EU_08_NUTS', 8),
+  ('EU_09_CELERY', 9),
+  ('EU_10_MUSTARD', 10),
+  ('EU_11_SESAME', 11),
+  ('EU_12_SULPHITES', 12),
+  ('EU_13_LUPIN', 13),
+  ('EU_14_MOLLUSCS', 14)
+on conflict (id) do nothing;
+
 -- ============================================================
 -- Basis-Produkte fuer Rezeptvorlagen (#Recipe-Templates).
 --
