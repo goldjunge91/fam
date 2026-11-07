@@ -1,3 +1,5 @@
+import { json } from '../_shared/http.ts';
+
 const GITHUB_DISPATCH_URL =
   'https://api.github.com/repos/goldjunge91/fam/actions/workflows/scrape-brochures.yml/dispatches';
 const GITHUB_API_VERSION = '2022-11-28';
@@ -68,8 +70,8 @@ function safeSecretEquals(received: string, expected: string): boolean {
   return difference === 0;
 }
 
-function response(status: number): Response {
-  return new Response(null, { status });
+function response(status: number, error?: string): Response {
+  return error === undefined ? new Response(null, { status }) : json({ error }, status);
 }
 
 export function createBrochureDispatchHandler({
@@ -77,25 +79,28 @@ export function createBrochureDispatchHandler({
   githubToken,
   fetcher = fetch,
 }: Dependencies) {
-  return async (request: Request): Promise<Response> => {
-    if (request.method !== 'POST') return response(405);
-    if (!webhookSecret) return response(503);
+  return async (
+    request: Request,
+    requestId: string = crypto.randomUUID(),
+  ): Promise<Response> => {
+    if (request.method !== 'POST') return response(405, 'method_not_allowed');
+    if (!webhookSecret) return response(503, 'dispatch_not_configured');
 
     const suppliedSecret = request.headers.get('x-brochure-dispatch-secret');
     if (!suppliedSecret || !safeSecretEquals(suppliedSecret, webhookSecret)) {
-      return response(401);
+      return response(401, 'unauthorized');
     }
 
-    if (!githubToken) return response(503);
+    if (!githubToken) return response(503, 'dispatch_not_configured');
 
     let event: unknown;
     try {
       event = await request.json();
     } catch {
-      return response(400);
+      return response(400, 'invalid_payload');
     }
 
-    if (!hasValidDispatchEvent(event)) return response(400);
+    if (!hasValidDispatchEvent(event)) return response(400, 'invalid_payload');
     if (!isPendingScan(event.record)) return response(204);
 
     try {
@@ -114,18 +119,22 @@ export function createBrochureDispatchHandler({
       });
 
       if (githubResponse.status !== 200 && githubResponse.status !== 204) {
-        console.error('Brochure workflow dispatch failed', {
+        console.error(JSON.stringify({
+          event: 'brochure_workflow_dispatch_failed',
+          requestId,
           status: githubResponse.status,
-        });
-        return response(502);
+        }));
+        return response(502, 'github_dispatch_failed');
       }
 
       return response(202);
     } catch (error) {
-      console.error('Brochure workflow dispatch request failed', {
-        message: error instanceof Error ? error.message : 'unknown error',
-      });
-      return response(502);
+      console.error(JSON.stringify({
+        event: 'brochure_workflow_dispatch_failed',
+        requestId,
+        errorType: error instanceof Error ? error.name : typeof error,
+      }));
+      return response(502, 'github_dispatch_failed');
     }
   };
 }

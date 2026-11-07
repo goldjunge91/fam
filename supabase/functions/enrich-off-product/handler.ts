@@ -1,3 +1,5 @@
+import { json } from '../_shared/http.ts';
+
 /**
  * Vertrauenswürdige serverseitige Anreicherung globaler OFF-Produktdaten
  * (#223 Paket 10, Abschnitt 4 in docs/issue#223_V2.md — "Vertrauenswürdige
@@ -19,7 +21,7 @@ export type OffFetchResult =
   | { ok: false };
 
 export type UpdateResult = {
-  error: { message: string } | null;
+  error: { message: string; code?: string } | null;
   /**
    * `null` bei einem echten DB-Fehler; `0`, wenn die atomare
    * "nur wenn neuer"-Bedingung nicht griff (kein passendes Produkt oder
@@ -50,12 +52,6 @@ type Dependencies = {
 
 const EAN_PATTERN = /^\d{6,14}$/;
 
-const JSON_HEADERS = { 'Content-Type': 'application/json' };
-
-function json(body: unknown, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
-}
-
 /**
  * Baut den HTTP-Handler getrennt vom Deno-Einstiegspunkt (dasselbe Muster
  * wie `revenuecat-webhook/handler.ts`) — Rate-Limiting, OFF-Lookup und
@@ -68,7 +64,10 @@ export function createEnrichOffProductHandler({
   fetchOffProduct,
   updateIfNewer,
 }: Dependencies) {
-  return async (req: Request): Promise<Response> => {
+  return async (
+    req: Request,
+    requestId: string = crypto.randomUUID(),
+  ): Promise<Response> => {
     if (req.method !== 'POST') {
       return json({ error: 'method_not_allowed' }, 405);
     }
@@ -91,7 +90,7 @@ export function createEnrichOffProductHandler({
     }
 
     if (isRateLimited()) {
-      return json({ updated: false, reason: 'rate_limited' });
+      return json({ error: 'rate_limited' }, 429);
     }
     recordAttempt();
 
@@ -105,7 +104,7 @@ export function createEnrichOffProductHandler({
     try {
       const offResult = await fetchOffProduct(ean);
       if (!offResult.ok) {
-        return json({ updated: false, reason: 'off_lookup_failed' });
+        return json({ error: 'off_lookup_failed' }, 502);
       }
 
       const result = await updateIfNewer(
@@ -115,10 +114,13 @@ export function createEnrichOffProductHandler({
       );
 
       if (result.error) {
-        return json(
-          { error: 'update_failed', message: result.error.message },
-          500,
-        );
+        console.error(JSON.stringify({
+          event: 'enrich_off_product_failed',
+          requestId,
+          error: 'update_failed',
+          databaseErrorCode: result.error.code ?? null,
+        }));
+        return json({ error: 'update_failed' }, 500);
       }
 
       if (!result.count) {
@@ -126,9 +128,14 @@ export function createEnrichOffProductHandler({
       }
 
       return json({ updated: true });
-    } catch (err) {
-      const message = err instanceof Error ? err.message : String(err);
-      return json({ error: 'internal_error', message }, 500);
+    } catch (error) {
+      console.error(JSON.stringify({
+        event: 'enrich_off_product_failed',
+        requestId,
+        error: 'internal_error',
+        errorType: error instanceof Error ? error.name : typeof error,
+      }));
+      return json({ error: 'internal_error' }, 500);
     }
   };
 }

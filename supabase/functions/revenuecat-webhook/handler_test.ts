@@ -74,22 +74,30 @@ function event(
   };
 }
 
-function setup(count = 1, status?: RevenueCatSubscriberStatus | Error) {
+function setup(
+  count = 1,
+  status?: RevenueCatSubscriberStatus | Error,
+  allowSandboxAiEntitlement = false,
+) {
   const updates: CapturedUpdate[] = [];
+  const statusReads: string[] = [];
   const handler = createRevenueCatWebhookHandler({
     expectedSecret: SECRET,
     now: () => NOW,
+    allowSandboxAiEntitlement,
     applyEntitlementEvent: (appUserId, change, subscriberAttributes) => {
       updates.push({ appUserId, change, subscriberAttributes });
       return Promise.resolve({ error: null, count });
     },
     ...(status === undefined ? {} : {
-      readSubscriberStatus: () =>
-        status instanceof Error ? Promise.reject(status) : Promise.resolve(status),
+      readSubscriberStatus: (appUserId: string) => {
+        statusReads.push(appUserId);
+        return status instanceof Error ? Promise.reject(status) : Promise.resolve(status);
+      },
     }),
   });
 
-  return { handler, updates };
+  return { handler, updates, statusReads };
 }
 
 Deno.test('reuses only the current active AI assignment', () => {
@@ -165,6 +173,65 @@ for (
     });
   }
 }
+
+Deno.test('ignores sandbox AI purchases unless the development flag is enabled', async () => {
+  const { handler, updates, statusReads } = setup();
+  const response = await handler(
+    await request(event('INITIAL_PURCHASE', ['AI'], null, 'SANDBOX')),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), { ignored: 'non_production' });
+  assertEquals(statusReads, []);
+  assertEquals(updates, []);
+});
+
+Deno.test('refreshes sandbox AI only from RevenueCat status when enabled', async () => {
+  const sandboxExpiry = '2026-08-23T08:00:00.000Z';
+  const requestDateMs = NOW.getTime() + 60_000;
+  const subscriberAttributes = { household_id: { value: HOUSEHOLD_ID } };
+  const { handler, updates, statusReads } = setup(1, {
+    entitlements: {
+      AI: { active: true, expiresAt: sandboxExpiry },
+      Plus: { active: true, expiresAt: sandboxExpiry },
+    },
+    subscriberAttributes,
+    requestDateMs,
+  }, true);
+  const response = await handler(
+    await request(event('INITIAL_PURCHASE', ['AI', 'Plus'], null, 'SANDBOX')),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), { updated: 1 });
+  assertEquals(statusReads, [USER_ID]);
+  assertEquals(updates, [{
+    appUserId: USER_ID,
+    change: {
+      entitlementId: 'AI',
+      active: true,
+      expiresAt: sandboxExpiry,
+      eventId: 'event-INITIAL_PURCHASE',
+      eventTimestampMs: requestDateMs,
+      processedAt: NOW.toISOString(),
+    },
+    subscriberAttributes,
+  }]);
+});
+
+Deno.test('ignores sandbox Plus events even when sandbox AI is enabled', async () => {
+  const { handler, updates, statusReads } = setup(1, {
+    entitlements: { Plus: { active: true, expiresAt: null } },
+  }, true);
+  const response = await handler(
+    await request(event('INITIAL_PURCHASE', ['Plus'], null, 'SANDBOX')),
+  );
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), { ignored: 'non_production' });
+  assertEquals(statusReads, []);
+  assertEquals(updates, []);
+});
 
 for (const entitlementId of ['Plus', 'AI'] as const) {
   for (
@@ -1095,10 +1162,7 @@ Deno.test('Property 2: transfer replay keeps event IDs stable and resumes a miss
   const replayResponse = await handler(await request(transfer));
 
   assertEquals(firstResponse.status, 500);
-  assertEquals(await firstResponse.json(), {
-    error: 'update_failed',
-    message: 'temporary_failure',
-  });
+  assertEquals(await firstResponse.json(), { error: 'update_failed' });
   assertEquals(replayResponse.status, 200);
   assertEquals(await replayResponse.json(), { updated: 1 });
   assertEquals(statusReads, [subscriberId, subscriberId]);

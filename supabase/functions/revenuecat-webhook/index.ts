@@ -7,11 +7,20 @@ import {
   type SubscriberAttribute,
 } from './handler.ts';
 import { createRevenueCatSubscriberStatusReader } from './subscriber-status.ts';
+import { requireEnv } from '../_shared/env.ts';
+import { withRequestId } from '../_shared/http.ts';
+import { requireDefaultSupabaseKey } from '../_shared/supabase-keys.ts';
+
+const supabaseUrl = requireEnv('SUPABASE_URL');
+const secretKey = requireDefaultSupabaseKey('SUPABASE_SECRET_KEYS');
+const allowSandboxAiEntitlement = Deno.env.get('FAM_ENVIRONMENT')?.trim() === 'development' &&
+  Deno.env.get('AI_ALLOW_SANDBOX_ENTITLEMENTS')?.trim() === 'true';
 
 function createAdminClient() {
   return createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_SECRET_KEY')!,
+    supabaseUrl,
+    secretKey,
+    { auth: { autoRefreshToken: false, persistSession: false } },
   );
 }
 
@@ -101,111 +110,117 @@ async function resolveMemberHousehold(
  * nicht faelschlich als verarbeitet gilt.
  */
 Deno.serve(
-  createRevenueCatWebhookHandler({
-    expectedSecret: Deno.env.get('REVENUECAT_WEBHOOK_SECRET'),
-    readSubscriberStatus: createRevenueCatSubscriberStatusReader(
-      Deno.env.get('REVENUECAT_SECRET_API_KEY'),
-    ),
-    resolveLocalProfiles: (subscriberIds) =>
-      resolveLocalProfiles(createAdminClient(), subscriberIds),
-    applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
-      const adminClient = createAdminClient();
+  withRequestId(
+    'revenuecat-webhook',
+    createRevenueCatWebhookHandler({
+      expectedSecret: Deno.env.get('REVENUECAT_WEBHOOK_SECRET'),
+      readSubscriberStatus: createRevenueCatSubscriberStatusReader(
+        Deno.env.get('REVENUECAT_SECRET_API_KEY'),
+        fetch,
+        { allowSandboxAiEntitlement },
+      ),
+      allowSandboxAiEntitlement,
+      resolveLocalProfiles: (subscriberIds) =>
+        resolveLocalProfiles(createAdminClient(), subscriberIds),
+      applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {
+        const adminClient = createAdminClient();
 
-      if (change.entitlementId === 'AI') {
-        if (!change.active) {
-          const { data, error } = await adminClient.rpc(
-            'deactivate_ai_household',
-            {
-              p_subscriber_user_id: appUserId,
-              p_event_timestamp_ms: change.eventTimestampMs,
-              p_event_id: change.eventId,
-            },
-          );
+        if (change.entitlementId === 'AI') {
+          if (!change.active) {
+            const { data, error } = await adminClient.rpc(
+              'deactivate_ai_household',
+              {
+                p_subscriber_user_id: appUserId,
+                p_event_timestamp_ms: change.eventTimestampMs,
+                p_event_id: change.eventId,
+              },
+            );
+            return { error, count: error ? null : (data ? 1 : 0) };
+          }
+
+          // Aktive Renewals behalten die bestehende AI-Haushaltszuordnung. Nach
+          // einer Expiration dient die Zeile nur noch als Reihenfolge- und
+          // Cooldown-Marker. Bei spaeterer Reaktivierung wird der aktuelle
+          // Haushalt neu aufgeloest.
+          const { data: assignment, error: assignmentError } = await adminClient
+            .from('revenuecat_ai_assignments')
+            .select('household_id, active')
+            .eq('subscriber_user_id', appUserId)
+            .maybeSingle();
+          if (assignmentError) return { error: assignmentError, count: null };
+
+          let targetHouseholdId = activeAiAssignmentHouseholdId(assignment);
+          if (!targetHouseholdId) {
+            const resolved = await resolveMemberHousehold(
+              adminClient,
+              appUserId,
+              subscriberAttributes,
+            );
+            if (resolved.error) return { error: resolved.error, count: null };
+            targetHouseholdId = resolved.householdId;
+          }
+
+          if (!targetHouseholdId) {
+            return {
+              error: { message: 'target_household_missing' },
+              count: null,
+            };
+          }
+
+          const { data, error } = await adminClient.rpc('assign_ai_household', {
+            p_subscriber_user_id: appUserId,
+            p_target_household_id: targetHouseholdId,
+            p_entitlement_expires_at: change.expiresAt,
+            p_event_timestamp_ms: change.eventTimestampMs,
+            p_event_id: change.eventId,
+          });
           return { error, count: error ? null : (data ? 1 : 0) };
         }
 
-        // Aktive Renewals behalten die bestehende AI-Haushaltszuordnung. Nach
-        // einer Expiration dient die Zeile nur noch als Reihenfolge- und
-        // Cooldown-Marker. Bei spaeterer Reaktivierung wird der aktuelle
-        // Haushalt neu aufgeloest.
-        const { data: assignment, error: assignmentError } = await adminClient
-          .from('revenuecat_ai_assignments')
-          .select('household_id, active')
+        // Plus bleibt an den Kaufhaushalt gebunden. apply_plus_household_event
+        // ignoriert householdId, wenn der Subscriber bereits einem Haushalt
+        // zugeordnet ist.
+        const { data: plusAssignment, error: plusAssignmentError } = await adminClient
+          .from('revenuecat_plus_assignments')
+          .select('household_id')
           .eq('subscriber_user_id', appUserId)
           .maybeSingle();
-        if (assignmentError) return { error: assignmentError, count: null };
+        if (plusAssignmentError) {
+          return { error: plusAssignmentError, count: null };
+        }
 
-        let targetHouseholdId = activeAiAssignmentHouseholdId(assignment);
-        if (!targetHouseholdId) {
+        if (!change.active && !plusAssignment?.household_id) {
+          return { error: null, count: 0 };
+        }
+
+        let householdId = plusAssignment?.household_id;
+        if (!householdId) {
           const resolved = await resolveMemberHousehold(
             adminClient,
             appUserId,
             subscriberAttributes,
           );
           if (resolved.error) return { error: resolved.error, count: null };
-          targetHouseholdId = resolved.householdId;
+          householdId = resolved.householdId;
         }
 
-        if (!targetHouseholdId) {
-          return {
-            error: { message: 'target_household_missing' },
-            count: null,
-          };
+        if (!householdId) {
+          return { error: { message: 'target_household_missing' }, count: null };
         }
 
-        const { data, error } = await adminClient.rpc('assign_ai_household', {
-          p_subscriber_user_id: appUserId,
-          p_target_household_id: targetHouseholdId,
-          p_entitlement_expires_at: change.expiresAt,
-          p_event_timestamp_ms: change.eventTimestampMs,
-          p_event_id: change.eventId,
-        });
-        return { error, count: error ? null : (data ? 1 : 0) };
-      }
-
-      // Plus bleibt an den Kaufhaushalt gebunden. apply_plus_household_event
-      // ignoriert householdId, wenn der Subscriber bereits einem Haushalt
-      // zugeordnet ist.
-      const { data: plusAssignment, error: plusAssignmentError } = await adminClient
-        .from('revenuecat_plus_assignments')
-        .select('household_id')
-        .eq('subscriber_user_id', appUserId)
-        .maybeSingle();
-      if (plusAssignmentError) {
-        return { error: plusAssignmentError, count: null };
-      }
-
-      if (!change.active && !plusAssignment?.household_id) {
-        return { error: null, count: 0 };
-      }
-
-      let householdId = plusAssignment?.household_id;
-      if (!householdId) {
-        const resolved = await resolveMemberHousehold(
-          adminClient,
-          appUserId,
-          subscriberAttributes,
+        const { data, error } = await adminClient.rpc(
+          'apply_plus_household_event',
+          {
+            p_subscriber_user_id: appUserId,
+            p_household_id: householdId,
+            p_active: change.active,
+            p_expires_at: change.expiresAt,
+            p_event_timestamp_ms: change.eventTimestampMs,
+            p_event_id: change.eventId,
+          },
         );
-        if (resolved.error) return { error: resolved.error, count: null };
-        householdId = resolved.householdId;
-      }
-
-      if (!householdId) {
-        return { error: { message: 'target_household_missing' }, count: null };
-      }
-
-      const { data, error } = await adminClient.rpc(
-        'apply_plus_household_event',
-        {
-          p_subscriber_user_id: appUserId,
-          p_household_id: householdId,
-          p_active: change.active,
-          p_expires_at: change.expiresAt,
-          p_event_timestamp_ms: change.eventTimestampMs,
-          p_event_id: change.eventId,
-        },
-      );
-      return { error, count: error ? null : (data ? 1 : 0) };
-    },
-  }),
+        return { error, count: error ? null : (data ? 1 : 0) };
+      },
+    }),
+  ),
 );

@@ -1,4 +1,4 @@
-import { errorResponse, json } from '../_shared/http.ts';
+import { json } from '../_shared/http.ts';
 
 export type DbError = { message: string; code?: string };
 
@@ -13,7 +13,10 @@ type Dependencies = {
 export function createDeleteAccountHandler(
   { getUserId, prepareDeletion, deleteUser }: Dependencies,
 ) {
-  return async (req: Request): Promise<Response> => {
+  return async (
+    req: Request,
+    requestId: string = crypto.randomUUID(),
+  ): Promise<Response> => {
     if (req.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
 
     const authorization = req.headers.get('Authorization');
@@ -25,14 +28,28 @@ export function createDeleteAccountHandler(
     // Prepare under the user token so the RPC can rely on auth.uid().
     const prepareError = await prepareDeletion(authorization);
     if (prepareError) {
+      if (prepareError.code !== LAST_ADMIN_SQLSTATE) {
+        console.error(JSON.stringify({
+          event: 'delete_account_prepare_failed',
+          requestId,
+          databaseErrorCode: prepareError.code ?? null,
+        }));
+      }
       return prepareError.code === LAST_ADMIN_SQLSTATE
         ? json({ error: 'last_admin_with_members' }, 409)
-        : errorResponse('prepare_failed', 500, prepareError);
+        : json({ error: 'prepare_failed' }, 500);
     }
 
     // Use the service role only after the user-scoped cleanup succeeds.
     const deleteError = await deleteUser(userId);
-    if (deleteError) return errorResponse('delete_failed', 500, deleteError);
+    if (deleteError) {
+      console.error(JSON.stringify({
+        event: 'delete_account_delete_failed',
+        requestId,
+        databaseErrorCode: deleteError.code ?? null,
+      }));
+      return json({ error: 'delete_failed' }, 500);
+    }
 
     return json({ success: true });
   };

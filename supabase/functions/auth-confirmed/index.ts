@@ -1,3 +1,5 @@
+import { withRequestId } from '../_shared/http.ts';
+
 /**
  * Landeseite des E-Mail-Bestaetigungslinks.
  *
@@ -86,7 +88,7 @@ const html = `<!doctype html>
 </body>
 </html>`;
 
-Deno.serve(() => {
+Deno.serve(withRequestId('auth-confirmed', () => {
   return new Response(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
@@ -95,4 +97,4 @@ Deno.serve(() => {
       'Cache-Control': 'no-store',
     },
   });
-});
+}));

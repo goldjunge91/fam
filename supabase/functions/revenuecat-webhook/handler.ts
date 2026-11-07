@@ -1,3 +1,5 @@
+import { json } from '../_shared/http.ts';
+
 const ENTITLEMENT_IDS = ['Plus', 'AI'] as const;
 
 export type EntitlementId = (typeof ENTITLEMENT_IDS)[number];
@@ -57,7 +59,7 @@ export type RevenueCatEntitlementChange = {
 };
 
 type UpdateResult = {
-  error: { message: string } | null;
+  error: { message: string; code?: string } | null;
   count: number | null;
 };
 
@@ -84,17 +86,13 @@ type Dependencies = {
     subscriberAttributes?: Record<string, SubscriberAttribute> | null,
   ) => Promise<UpdateResult>;
   readSubscriberStatus?: (appUserId: string) => Promise<RevenueCatSubscriberStatus>;
+  allowSandboxAiEntitlement?: boolean;
   resolveLocalProfiles?: (subscriberIds: string[]) => Promise<LocalProfileMappings>;
   now?: () => Date;
   signatureToleranceSeconds?: number;
 };
 
-const JSON_HEADERS = { 'Content-Type': 'application/json' };
 const DEFAULT_SIGNATURE_TOLERANCE_SECONDS = 300;
-
-function json(body: unknown, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
-}
 
 function decodeHex(value: string): Uint8Array<ArrayBuffer> | null {
   if (!/^[0-9a-f]{64}$/i.test(value)) return null;
@@ -231,11 +229,15 @@ export function createRevenueCatWebhookHandler({
   expectedSecret,
   applyEntitlementEvent,
   readSubscriberStatus,
+  allowSandboxAiEntitlement = false,
   resolveLocalProfiles,
   now = () => new Date(),
   signatureToleranceSeconds = DEFAULT_SIGNATURE_TOLERANCE_SECONDS,
 }: Dependencies) {
-  return async (req: Request): Promise<Response> => {
+  return async (
+    req: Request,
+    requestId: string = crypto.randomUUID(),
+  ): Promise<Response> => {
     if (req.method !== 'POST') {
       return json({ error: 'method_not_allowed' }, 405);
     }
@@ -261,14 +263,8 @@ export function createRevenueCatWebhookHandler({
         : undefined;
       if (!isRevenueCatEvent(candidate)) throw new Error('invalid event');
       event = candidate;
-    } catch (error) {
-      return json(
-        {
-          error: 'invalid_payload',
-          message: error instanceof Error ? error.message : String(error),
-        },
-        400,
-      );
+    } catch {
+      return json({ error: 'invalid_payload' }, 400);
     }
 
     if (isRevenueCatTransferEvent(event)) {
@@ -355,7 +351,12 @@ export function createRevenueCatWebhookHandler({
         );
 
         if (result.error) {
-          return json({ error: 'update_failed', message: result.error.message }, 500);
+          console.error(JSON.stringify({
+            event: 'revenuecat_webhook_update_failed',
+            requestId,
+            databaseErrorCode: result.error.code ?? null,
+          }));
+          return json({ error: 'update_failed' }, 500);
         }
         updated += result.count ?? 0;
       }
@@ -367,10 +368,6 @@ export function createRevenueCatWebhookHandler({
       return json({ ignored: event.type });
     }
 
-    if (event.environment !== 'PRODUCTION') {
-      return json({ ignored: 'non_production' });
-    }
-
     // Nur die beiden bekannten Entitlements duerfen eine Haushaltsprojektion
     // veraendern. Plus und AI bleiben dabei auch in einem gemeinsamen Event
     // zwei unabhaengige Zustandsaenderungen.
@@ -379,6 +376,55 @@ export function createRevenueCatWebhookHandler({
     );
     if (relevantEntitlements.length === 0) {
       return json({ ignored: 'unrelated_entitlement' });
+    }
+
+    if (event.environment !== 'PRODUCTION') {
+      if (
+        event.environment !== 'SANDBOX' ||
+        !allowSandboxAiEntitlement ||
+        !relevantEntitlements.includes('AI')
+      ) {
+        return json({ ignored: 'non_production' });
+      }
+
+      if (!readSubscriberStatus) {
+        return json({ error: 'status_refresh_unavailable' }, 503);
+      }
+
+      let status: RevenueCatSubscriberStatus;
+      try {
+        status = await readSubscriberStatus(event.app_user_id);
+      } catch {
+        return json({ error: 'status_refresh_failed' }, 503);
+      }
+
+      const aiEntitlement = status.entitlements.AI ?? {
+        active: false,
+        expiresAt: null,
+      };
+      const result = await applyEntitlementEvent(
+        event.app_user_id,
+        {
+          entitlementId: 'AI',
+          active: aiEntitlement.active,
+          expiresAt: aiEntitlement.expiresAt,
+          eventId: event.id,
+          eventTimestampMs: status.requestDateMs ?? event.event_timestamp_ms,
+          processedAt: now().toISOString(),
+        },
+        status.subscriberAttributes ?? event.subscriber_attributes,
+      );
+
+      if (result.error) {
+        console.error(JSON.stringify({
+          event: 'revenuecat_webhook_update_failed',
+          requestId,
+          databaseErrorCode: result.error.code ?? null,
+        }));
+        return json({ error: 'update_failed' }, 500);
+      }
+
+      return json({ updated: result.count ?? 0 });
     }
 
     if (event.type === 'BILLING_ISSUE') {
@@ -414,8 +460,13 @@ export function createRevenueCatWebhookHandler({
         );
 
         if (result.error) {
+          console.error(JSON.stringify({
+            event: 'revenuecat_webhook_update_failed',
+            requestId,
+            databaseErrorCode: result.error.code ?? null,
+          }));
           return json(
-            { error: 'update_failed', message: result.error.message },
+            { error: 'update_failed' },
             500,
           );
         }
@@ -441,8 +492,13 @@ export function createRevenueCatWebhookHandler({
       );
 
       if (result.error) {
+        console.error(JSON.stringify({
+          event: 'revenuecat_webhook_update_failed',
+          requestId,
+          databaseErrorCode: result.error.code ?? null,
+        }));
         return json(
-          { error: 'update_failed', message: result.error.message },
+          { error: 'update_failed' },
           500,
         );
       }

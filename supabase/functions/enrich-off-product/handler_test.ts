@@ -127,15 +127,12 @@ Deno.test('überschreibt keinen gleich alten oder neueren Stand (DB meldet count
   assertEquals(updateCalls.length, 1);
 });
 
-Deno.test('ein fehlgeschlagener OFF-Lookup verändert den Produktdatensatz nicht', async () => {
+Deno.test('ein fehlgeschlagener OFF-Lookup liefert einen passenden Fehlerstatus', async () => {
   const { handler, updateCalls } = setup({ offResult: { ok: false } });
   const response = await handler(request({ ean: EAN }));
 
-  assertEquals(response.status, 200);
-  assertEquals(await response.json(), {
-    updated: false,
-    reason: 'off_lookup_failed',
-  });
+  assertEquals(response.status, 502);
+  assertEquals(await response.json(), { error: 'off_lookup_failed' });
   assertEquals(updateCalls, []);
 });
 
@@ -147,10 +144,10 @@ Deno.test('Rate-Limit blockiert den Aufruf, bevor OFF oder die DB angefasst werd
   const first = await handler(request({ ean: EAN }));
   const second = await handler(request({ ean: EAN }));
 
-  assertEquals(first.status, 200);
-  assertEquals(await first.json(), { updated: false, reason: 'rate_limited' });
-  assertEquals(second.status, 200);
-  assertEquals(await second.json(), { updated: false, reason: 'rate_limited' });
+  assertEquals(first.status, 429);
+  assertEquals(await first.json(), { error: 'rate_limited' });
+  assertEquals(second.status, 429);
+  assertEquals(await second.json(), { error: 'rate_limited' });
   assertEquals(offCalls, []);
   assertEquals(updateCalls, []);
   assertEquals(recordedAttempts, []);
@@ -169,8 +166,5 @@ Deno.test('ein DB-Fehler beim Update liefert 500, ohne einen falschen Erfolg vor
   const response = await handler(request({ ean: EAN }));
 
   assertEquals(response.status, 500);
-  assertEquals(await response.json(), {
-    error: 'update_failed',
-    message: 'connection lost',
-  });
+  assertEquals(await response.json(), { error: 'update_failed' });
 });
