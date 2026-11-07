@@ -115,7 +115,7 @@ function isEligibleForRecipeSuggestion(
 ): lot is typeof lot & { quantity: number; unit: string } {
   if (!isUsableLot(lot, today)) return false;
   const expiry = effectiveExpiry(lot);
-  return expiry !== null && daysUntil(expiry, today) <= 7;
+  return expiry === null || daysUntil(expiry, today) <= 7;
 }
 
 function lotPriority(
