@@ -6,6 +6,8 @@ import { ChefHistoryScreen } from './chef-history-screen';
 
 const mockConversationFetchNext = jest.fn();
 const mockRecipeFetchNext = jest.fn();
+const mockConversationRefetch = jest.fn();
+const mockRecipeRefetch = jest.fn();
 let mockHouseholdId: string | null = 'household-1';
 let mockConversations: Record<string, unknown>;
 let mockRecipes: Record<string, unknown>;
@@ -147,7 +149,7 @@ describe('ChefHistoryScreen', () => {
       hasNextPage: true,
       isFetchingNextPage: false,
       fetchNextPage: mockConversationFetchNext,
-      refetch: jest.fn(),
+      refetch: mockConversationRefetch,
     };
     mockRecipes = {
       data: [recipe],
@@ -156,10 +158,12 @@ describe('ChefHistoryScreen', () => {
       hasNextPage: true,
       isFetchingNextPage: false,
       fetchNextPage: mockRecipeFetchNext,
-      refetch: jest.fn(),
+      refetch: mockRecipeRefetch,
     };
     mockConversationFetchNext.mockReset();
     mockRecipeFetchNext.mockReset();
+    mockConversationRefetch.mockReset();
+    mockRecipeRefetch.mockReset();
     jest.mocked(router.push).mockClear();
   });
 
@@ -222,5 +226,50 @@ describe('ChefHistoryScreen', () => {
     await render(<ChefHistoryScreen />);
 
     expect(screen.getByText('Wähle zuerst einen Haushalt aus.')).toBeOnTheScreen();
+  });
+
+  it('shows loading and error states with a retry action', async () => {
+    mockConversations = { ...mockConversations, isPending: true };
+    const pendingRender = await render(<ChefHistoryScreen />);
+    expect(screen.getByLabelText('History wird geladen')).toBeOnTheScreen();
+    await pendingRender.unmount();
+
+    mockConversations = {
+      ...mockConversations,
+      isPending: false,
+      isError: true,
+      refetch: mockConversationRefetch,
+    };
+    await render(<ChefHistoryScreen />);
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Erneut versuchen' }));
+    expect(mockConversationRefetch).toHaveBeenCalledTimes(1);
+    expect(screen.getByText('History konnte nicht geladen werden.')).toBeOnTheScreen();
+  });
+
+  it('shows empty history and avoids loading another page without a next cursor', async () => {
+    mockConversations = {
+      ...mockConversations,
+      data: [],
+      hasNextPage: false,
+    };
+    await render(<ChefHistoryScreen />);
+
+    expect(screen.getByText('Noch keine Unterhaltungen.')).toBeOnTheScreen();
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Weitere laden' }));
+    expect(mockConversationFetchNext).not.toHaveBeenCalled();
+  });
+
+  it('does not fetch while the next history page is already loading', async () => {
+    mockConversations = {
+      ...mockConversations,
+      hasNextPage: true,
+      isFetchingNextPage: true,
+      data: [{ ...conversation, last_activity_at: 'not-a-date' }],
+    };
+    await render(<ChefHistoryScreen />);
+
+    expect(screen.getByText('Datum unbekannt')).toBeOnTheScreen();
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Weitere laden' }));
+    expect(mockConversationFetchNext).not.toHaveBeenCalled();
   });
 });

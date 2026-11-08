@@ -308,6 +308,23 @@ describe('RecipesScreen — Entdecken', () => {
     expect(within(filterSelection).getByRole('button', { name: 'Tag schnell' })).toBeOnTheScreen();
   });
 
+  it('filtert eigene Rezepte über eine schnelle Kategorie', async () => {
+    const user = userEvent.setup();
+    mockRecipes = [
+      makeRecipe({ id: 'r1', title: 'Schneller Salat', cook_time_minutes: 15 }),
+      makeRecipe({ id: 'r2', title: 'Langer Eintopf', cook_time_minutes: 45 }),
+    ];
+    await render(<RecipesScreen />);
+
+    await user.press(screen.getByRole('button', { name: 'Rezepte filtern' }));
+    const filterSelection = screen.getByLabelText('Filterauswahl');
+    await user.press(within(filterSelection).getByRole('button', { name: 'Schnell' }));
+    await user.press(screen.getByRole('button', { name: '1 Rezept anzeigen' }));
+
+    expect(screen.getByRole('button', { name: 'Schneller Salat' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Langer Eintopf' })).not.toBeOnTheScreen();
+  });
+
   it('filtert eigene Rezepte über ihre Tags', async () => {
     const user = userEvent.setup();
     mockRecipes = [

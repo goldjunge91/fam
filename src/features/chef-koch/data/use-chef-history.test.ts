@@ -7,13 +7,17 @@ import {
   rememberChefConversationContinuationRejection,
   useChefConversation,
   useChefConversations,
+  useChefConversationTurns,
+  useChefRecipeHistory,
   useChefRecipeHistoryList,
 } from './use-chef-history';
 
 const mockDatabase = { kind: 'test-database' };
 const mockListConversations = jest.fn();
 const mockListRecipes = jest.fn();
+const mockListTurns = jest.fn();
 const mockGetConversation = jest.fn();
+const mockGetRecipeHistory = jest.fn();
 const mockGetEncryptedAccountStorage = jest.fn();
 const storageValues = new Map<string, string>();
 const mockAccountStorage = {
@@ -31,8 +35,8 @@ jest.mock('@/features/chef-koch/data/chef-history-repository', () => ({
   listChefConversations: (...args: unknown[]) => mockListConversations(...args),
   listChefRecipeHistory: (...args: unknown[]) => mockListRecipes(...args),
   getChefConversation: (...args: unknown[]) => mockGetConversation(...args),
-  listChefConversationTurns: jest.fn(),
-  getChefRecipeHistory: jest.fn(),
+  listChefConversationTurns: (...args: unknown[]) => mockListTurns(...args),
+  getChefRecipeHistory: (...args: unknown[]) => mockGetRecipeHistory(...args),
 }));
 
 describe('use-chef-history', () => {
@@ -51,7 +55,9 @@ describe('use-chef-history', () => {
     });
     mockListConversations.mockResolvedValue({ items: [], nextCursor: null });
     mockListRecipes.mockResolvedValue({ items: [], nextCursor: null });
+    mockListTurns.mockResolvedValue({ items: [], nextCursor: null });
     mockGetConversation.mockResolvedValue(null);
+    mockGetRecipeHistory.mockResolvedValue(null);
   });
 
   afterEach(() => queryClient.clear());
@@ -149,5 +155,48 @@ describe('use-chef-history', () => {
 
     expect(mockGetEncryptedAccountStorage).toHaveBeenCalledWith('user-1');
     await reopened.unmount();
+  });
+
+  it('loads conversation turns and a saved recipe history entry', async () => {
+    const cursor = { timestamp: '2026-11-07T08:00:00.000Z', id: 'turn-1' };
+    mockListTurns.mockResolvedValueOnce({ items: [{ id: 'turn-1' }], nextCursor: cursor });
+    mockGetRecipeHistory.mockResolvedValueOnce({ id: 'recipe-history-1' });
+
+    const turns = await renderHook(
+      () => useChefConversationTurns('household-1', 'conversation-1'),
+      { wrapper },
+    );
+    const recipe = await renderHook(() => useChefRecipeHistory('household-1', 'recipe-history-1'), {
+      wrapper,
+    });
+
+    await waitFor(() => expect(turns.result.current.isSuccess).toBe(true));
+    await waitFor(() => expect(recipe.result.current.isSuccess).toBe(true));
+
+    expect(mockListTurns).toHaveBeenCalledWith(mockDatabase, 'household-1', 'conversation-1', null);
+    expect(mockGetRecipeHistory).toHaveBeenCalledWith(
+      mockDatabase,
+      'household-1',
+      'recipe-history-1',
+    );
+    expect(turns.result.current.data).toEqual([{ id: 'turn-1' }]);
+    expect(recipe.result.current.data).toEqual({ id: 'recipe-history-1' });
+  });
+
+  it('keeps a conversation readable when rejection storage is unavailable', async () => {
+    const conversation = {
+      id: 'conversation-1',
+      household_id: 'household-1',
+    };
+    mockGetConversation.mockResolvedValue(conversation);
+    mockGetEncryptedAccountStorage.mockRejectedValueOnce(new Error('storage unavailable'));
+
+    const result = await renderHook(
+      () => useChefConversation('household-1', 'conversation-1', 'user-1'),
+      { wrapper },
+    );
+    await waitFor(() => expect(result.result.current.isSuccess).toBe(true));
+
+    expect(result.result.current.data).toEqual(conversation);
   });
 });
