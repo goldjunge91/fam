@@ -36,6 +36,14 @@ const validProposal = {
   ],
 };
 
+const validShoppingItemProposal = {
+  kind: 'shopping_list_item_proposal.v1',
+  name: 'Hafermilch',
+  quantity: 2,
+  unit: 'package',
+  foodRuleStatus: 'unknown',
+};
+
 function thread(
   id: string,
   updatedAt: string,
@@ -80,6 +88,15 @@ describe('assistant account storage', () => {
             proposals: [validProposal],
             toolTrace: ['get_inventory'],
             suggestions: ['Noch eine Idee'],
+          },
+          {
+            id: 'shopping-message',
+            role: 'assistant',
+            text: 'Ich kann es vorschlagen.',
+            createdAt: '2026-11-08',
+            proposals: [validShoppingItemProposal],
+            toolTrace: ['propose_shopping_list_item'],
+            appliedProposalIndexes: [0],
           },
         ],
       }),
@@ -161,6 +178,54 @@ describe('assistant account storage', () => {
 
     const restored = await loadAssistantThreads('user-1');
     expect(restored.map(({ id }) => id)).toEqual(['valid-swap']);
+  });
+
+  it('restores applied shopping proposals and rejects malformed proposal state', async () => {
+    const valid = thread('valid-shopping', '2026-11-08', {
+      messages: [
+        {
+          id: 'message-1',
+          role: 'assistant',
+          text: 'Übernommen.',
+          createdAt: '2026-11-08',
+          proposals: [validShoppingItemProposal],
+          toolTrace: ['propose_shopping_list_item'],
+          appliedProposalIndexes: [0],
+        },
+      ],
+    });
+    const invalid = [
+      { ...validShoppingItemProposal, quantity: 0 },
+      { ...validShoppingItemProposal, unit: 'crate' },
+      { ...validShoppingItemProposal, foodRuleStatus: 'clear-ish' },
+      { ...validShoppingItemProposal, name: ' '.repeat(201) },
+    ].map((proposal, index) =>
+      thread(`bad-proposal-${String(index)}`, `2026-11-0${String(index + 1)}`, {
+        messages: [
+          { id: 'message', role: 'assistant', text: '', createdAt: '', proposals: [proposal] },
+        ],
+      }),
+    );
+    const invalidApplicationState = thread('bad-application-state', '2026-11-02', {
+      messages: [
+        {
+          id: 'message',
+          role: 'assistant',
+          text: '',
+          createdAt: '',
+          proposals: [validShoppingItemProposal],
+          appliedProposalIndexes: [1],
+        },
+      ],
+    });
+    values.set(
+      'ai-assistant.threads.v1',
+      JSON.stringify([valid, ...invalid, invalidApplicationState]),
+    );
+
+    const restored = await loadAssistantThreads('user-1');
+    expect(restored).toEqual([valid]);
+    expect(restored[0]?.messages[0]?.appliedProposalIndexes).toEqual([0]);
   });
 
   it('sorts and caps saved threads to the 20 most recently updated', async () => {

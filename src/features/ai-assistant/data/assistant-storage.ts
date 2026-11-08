@@ -32,6 +32,20 @@ function isAssistantProposal(value: unknown): value is AssistantProposal {
       )
     );
   }
+  if (value.kind === 'shopping_list_item_proposal.v1') {
+    return (
+      typeof value.name === 'string' &&
+      value.name.trim().length > 0 &&
+      value.name.trim().length <= 200 &&
+      typeof value.quantity === 'number' &&
+      Number.isFinite(value.quantity) &&
+      value.quantity > 0 &&
+      value.quantity <= 1_000 &&
+      Math.abs(Math.round(value.quantity * 1_000) - value.quantity * 1_000) < 1e-8 &&
+      ['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'].includes(String(value.unit)) &&
+      ['clear', 'unknown'].includes(String(value.foodRuleStatus))
+    );
+  }
   return (
     value.kind === 'ingredient_swap_proposal.v1' &&
     (typeof value.foodRulesUpdatedAt === 'string' || value.foodRulesUpdatedAt === null) &&
@@ -53,9 +67,10 @@ function isAssistantThread(value: unknown): value is AssistantThread {
     typeof value.createdAt === 'string' &&
     typeof value.updatedAt === 'string' &&
     Array.isArray(value.messages) &&
-    value.messages.every(
-      (message) =>
-        isRecord(message) &&
+    value.messages.every((message) => {
+      if (!isRecord(message)) return false;
+      const proposalCount = Array.isArray(message.proposals) ? message.proposals.length : -1;
+      return (
         typeof message.id === 'string' &&
         (message.role === 'user' || message.role === 'assistant') &&
         typeof message.text === 'string' &&
@@ -70,12 +85,27 @@ function isAssistantThread(value: unknown): value is AssistantThread {
                 'get_inventory',
                 'propose_meal_plan',
                 'suggest_ingredient_swap',
+                'propose_shopping_list_item',
               ].includes(String(tool)),
             ))) &&
+        (message.appliedProposalIndexes === undefined ||
+          (Array.isArray(message.appliedProposalIndexes) &&
+            Array.isArray(message.proposals) &&
+            message.appliedProposalIndexes.length <= message.proposals.length &&
+            message.appliedProposalIndexes.every(
+              (index) =>
+                typeof index === 'number' &&
+                Number.isInteger(index) &&
+                index >= 0 &&
+                index < proposalCount,
+            ) &&
+            new Set(message.appliedProposalIndexes).size ===
+              message.appliedProposalIndexes.length)) &&
         (message.suggestions === undefined ||
           (Array.isArray(message.suggestions) &&
-            message.suggestions.every((suggestion) => typeof suggestion === 'string'))),
-    )
+            message.suggestions.every((suggestion) => typeof suggestion === 'string')))
+      );
+    })
   );
 }
 

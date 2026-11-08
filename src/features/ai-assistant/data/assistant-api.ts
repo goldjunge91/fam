@@ -90,6 +90,20 @@ function isAssistantProposal(value: unknown): value is AssistantProposal {
       )
     );
   }
+  if (value.kind === 'shopping_list_item_proposal.v1') {
+    return (
+      typeof value.name === 'string' &&
+      value.name.trim().length > 0 &&
+      value.name.trim().length <= 200 &&
+      typeof value.quantity === 'number' &&
+      Number.isFinite(value.quantity) &&
+      value.quantity > 0 &&
+      value.quantity <= 1_000 &&
+      Math.abs(Math.round(value.quantity * 1_000) - value.quantity * 1_000) < 1e-8 &&
+      ['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'].includes(String(value.unit)) &&
+      ['clear', 'unknown'].includes(String(value.foodRuleStatus))
+    );
+  }
   const coverage = value.foodRuleCoverage;
   return (
     value.kind === 'ingredient_swap_proposal.v1' &&
@@ -112,6 +126,7 @@ const ASSISTANT_TOOL_NAMES: AssistantToolName[] = [
   'get_inventory',
   'propose_meal_plan',
   'suggest_ingredient_swap',
+  'propose_shopping_list_item',
 ];
 
 async function getGatewayErrorCode(error: unknown, data: unknown): Promise<string | null> {

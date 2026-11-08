@@ -1043,6 +1043,89 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
   assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
 });
 
+Deno.test('assistant returns a bounded shopping item proposal without mutating household data', async () => {
+  const { handler, calls } = setup({
+    context: {
+      ...CONTEXT,
+      foodRules: {
+        allergies: ['Nüsse'],
+        allergyCodes: ['tree_nuts'],
+        intolerances: [],
+        avoidFoods: [],
+        updatedAt: 'rules-v1',
+      },
+    },
+    providerToolCalls: [{
+      id: 'shopping-item-call',
+      name: 'propose_shopping_list_item',
+      arguments: JSON.stringify({ name: ' Hafermilch ', quantity: 2, unit: 'package' }),
+    }],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Ich würde zwei Packungen Hafermilch ergänzen.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Setze Hafermilch auf die Einkaufsliste.',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.result.proposals, [{
+    kind: 'shopping_list_item_proposal.v1',
+    name: 'Hafermilch',
+    quantity: 2,
+    unit: 'package',
+    foodRuleStatus: 'unknown',
+  }]);
+  assertEquals(body.result.toolTrace, ['propose_shopping_list_item']);
+  assertStringIncludes(calls[0].system, 'Einkaufsliste');
+  assertEquals(calls[1].transcript.includes('Hafermilch'), true);
+});
+
+Deno.test('assistant rejects invalid shopping item proposals', async () => {
+  const invalidArguments = [
+    { name: '   ', quantity: 1, unit: 'piece' },
+    { name: 'Tomaten', quantity: 0, unit: 'piece' },
+    { name: 'Tomaten', quantity: 1, unit: 'box' },
+    { name: 'a'.repeat(201), quantity: 1, unit: 'piece' },
+    { name: 'Tomaten', quantity: 1, unit: 'piece', productId: 'product-1' },
+  ];
+
+  for (const [index, args] of invalidArguments.entries()) {
+    const { handler } = setup({
+      providerToolCalls: [{
+        id: `invalid-shopping-item-${String(index)}`,
+        name: 'propose_shopping_list_item',
+        arguments: JSON.stringify(args),
+      }],
+      providerContent: JSON.stringify({
+        kind: 'assistant_reply.v1',
+        text: 'Bitte prüfe die Menge und Einheit.',
+        suggestions: [],
+      }),
+    });
+    const response = await handler(request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Füge etwas hinzu.',
+      history: [],
+      includeHouseholdContext: true,
+    }));
+    const body = await response.json();
+    assertEquals(response.status, 200);
+    assertEquals(body.result.proposals, []);
+    assertEquals(body.result.toolTrace, []);
+  }
+});
+
 Deno.test('assistant blocks meal proposals when current allergy coverage is unknown', async () => {
   const context: GatewayCookingContext = {
     ...CONTEXT,

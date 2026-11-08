@@ -41,6 +41,14 @@ const mealPlanProposal = {
   safetyNote: 'Geprüfte Regeln wurden berücksichtigt.',
 };
 
+const shoppingItemProposal = {
+  kind: 'shopping_list_item_proposal.v1',
+  name: 'Hafermilch',
+  quantity: 2,
+  unit: 'package',
+  foodRuleStatus: 'unknown',
+};
+
 function reply(overrides: Record<string, unknown> = {}) {
   return {
     skill: 'fam-assistant',
@@ -96,6 +104,29 @@ describe('assistant API', () => {
     });
     expect(result.result.proposals).toEqual([mealPlanProposal]);
     expect(result.usage).toEqual({ total_tokens: 124, cost: 0.002 });
+  });
+
+  it('parses a bounded shopping item proposal and its tool trace', async () => {
+    mockInvoke.mockResolvedValue({
+      data: reply({
+        result: {
+          ...reply().result,
+          proposals: [shoppingItemProposal],
+          toolTrace: ['propose_shopping_list_item'],
+        },
+      }),
+      error: null,
+    });
+
+    const result = await sendAssistantMessage({
+      householdId: 'household-1',
+      message: 'Setze Hafermilch auf die Liste.',
+      history: [],
+      includeHouseholdContext: true,
+    });
+
+    expect(result.result.proposals).toEqual([shoppingItemProposal]);
+    expect(result.result.toolTrace).toEqual(['propose_shopping_list_item']);
   });
 
   it('omits usage when the provider returned no token or cost data', async () => {
@@ -178,6 +209,25 @@ describe('assistant API', () => {
     { result: { ...reply().result, toolTrace: ['unknown_tool'] } },
     { result: { ...reply().result, suggestions: [5] } },
     { result: { ...reply().result, proposals: [{ kind: 'other' }] } },
+    {
+      result: {
+        ...reply().result,
+        proposals: [{ ...shoppingItemProposal, quantity: 0 }],
+      },
+    },
+    {
+      result: {
+        ...reply().result,
+        proposals: [{ ...shoppingItemProposal, unit: 'box' }],
+      },
+    },
+    {
+      result: {
+        ...reply().result,
+        toolTrace: ['propose_shopping_list_item'],
+        proposals: [{ ...shoppingItemProposal, foodRuleStatus: 'pass' }],
+      },
+    },
     {
       result: {
         ...reply().result,

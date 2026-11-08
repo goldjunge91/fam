@@ -175,7 +175,8 @@ type AssistantToolName =
   | 'search_recipes'
   | 'get_inventory'
   | 'propose_meal_plan'
-  | 'suggest_ingredient_swap';
+  | 'suggest_ingredient_swap'
+  | 'propose_shopping_list_item';
 
 type AssistantProposal =
   | {
@@ -219,6 +220,13 @@ type AssistantProposal =
     replacement: string;
     rationale: string;
     safetyNote: string;
+  }
+  | {
+    kind: 'shopping_list_item_proposal.v1';
+    name: string;
+    quantity: number;
+    unit: 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
+    foodRuleStatus: 'clear' | 'unknown';
   };
 
 export type GatewayLot = {
@@ -809,6 +817,7 @@ function buildSystemPrompt(
       'Wenn ein Werkzeug foodRuleStatus als unsupported, unknown oder conflict meldet, erkläre knapp, dass sich der Vorschlag mit den hinterlegten Regeln nicht vollständig prüfen lässt. Nenne oder errate keine privaten Freitextregeln.',
       'Schlage eine Planänderung nur vor, wenn der Nutzer danach fragt oder sie klar zum Anliegen passt. Erfinde keine Rezept-IDs.',
       'Bei Zutatenwechseln nenne den konkreten Ersatz und nur belegte Mengen oder Auswirkungen auf Geschmack und Konsistenz. Erfinde keine Mengen. Behaupte keine Prüfung von Verpackungshinweisen oder Kreuzkontamination.',
+      'Nutze propose_shopping_list_item nur, wenn der Nutzer ausdrücklich einen Artikel auf die Einkaufsliste setzen möchte. Ein Werkzeugaufruf speichert nichts; behaupte nie, dass der Artikel übernommen wurde. Bei foodRuleStatus unknown weise darauf hin, dass Freitextartikel nicht zuverlässig mit persönlichen Lebensmittelregeln abgeglichen werden können, und bitte den Nutzer, den Artikel vor dem Kauf zu prüfen.',
       'Gib ausschließlich gültiges JSON mit genau kind, text und suggestions zurück.',
       'kind muss assistant_reply.v1 sein. text ist eine Antwort, suggestions ist ein Array mit höchstens drei kurzen Folgefragen.',
       request.includeHouseholdContext
@@ -979,6 +988,24 @@ const ASSISTANT_TOOLS: ProviderTool[] = [
           },
         },
         required: ['meals'],
+        additionalProperties: false,
+      },
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'propose_shopping_list_item',
+      description:
+        'Erzeuge einen Vorschlag für genau einen ausdrücklich gewünschten Freitext-Einkaufsartikel. Speichert nichts. Die Einheit muss ein fam-Datenbankwert sein.',
+      parameters: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', minLength: 1, maxLength: 200 },
+          quantity: { type: 'number', minimum: 0.001, maximum: 1000 },
+          unit: { type: 'string', enum: ['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'] },
+        },
+        required: ['name', 'quantity', 'unit'],
         additionalProperties: false,
       },
     },
@@ -1338,6 +1365,26 @@ function runAssistantTool(
         'Der Ersatz und die verfügbare Zutatenliste wurden mit deinen hinterlegten Regeln abgeglichen (sofern vorhanden). Produktkennzeichnung und Kreuzkontamination werden nicht geprüft.',
     };
     return { result: proposal, proposal, toolName: 'suggest_ingredient_swap' };
+  }
+
+  if (call.name === 'propose_shopping_list_item') {
+    const allowedUnits = ['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'];
+    if (
+      Object.keys(args).length !== 3 || !nonEmptyString(args.name) ||
+      args.name.trim().length > 200 || typeof args.quantity !== 'number' ||
+      !Number.isFinite(args.quantity) || args.quantity <= 0 || args.quantity > 1_000 ||
+      Math.abs(Math.round(args.quantity * 1_000) - args.quantity * 1_000) >= 1e-8 ||
+      !allowedUnits.includes(String(args.unit))
+    ) return { result: { error: 'invalid_shopping_list_item' } };
+    const rules = context.foodRules ?? EMPTY_FOOD_RULES;
+    const proposal: AssistantProposal = {
+      kind: 'shopping_list_item_proposal.v1',
+      name: args.name.trim(),
+      quantity: args.quantity,
+      unit: args.unit as 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion',
+      foodRuleStatus: foodRuleStatusForUnmappedText(args.name, rules),
+    };
+    return { result: proposal, proposal, toolName: 'propose_shopping_list_item' };
   }
 
   return { result: { error: 'unknown_tool' } };

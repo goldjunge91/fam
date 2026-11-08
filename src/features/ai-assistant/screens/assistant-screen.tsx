@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
@@ -16,8 +16,10 @@ import { pollHouseholdUntilEntitlementActive } from '@/features/premium/househol
 import { usePremium } from '@/features/premium/premium-provider';
 import { syncRevenueCatAiEntitlement } from '@/features/premium/revenuecat-entitlement-sync';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
+import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { hasAIEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 import { getDatabase } from '@/lib/db/local-client';
+import { UNIT_OPTIONS } from '@/lib/units';
 import {
   ApplyMealPlanProposalError,
   applyAssistantMealPlanProposal,
@@ -291,6 +293,7 @@ export function AssistantScreen() {
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
   const { hasAI, refresh: refreshPremium } = usePremium();
+  const addShoppingItem = useAddShoppingItem();
   const [threads, setThreads] = useState<AssistantThread[]>([]);
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -302,6 +305,7 @@ export function AssistantScreen() {
   const [isSending, setIsSending] = useState(false);
   const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
   const [applyingProposalId, setApplyingProposalId] = useState<string | null>(null);
+  const applyingProposalRef = useRef<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const activeThread = useMemo(
@@ -510,7 +514,8 @@ export function AssistantScreen() {
     proposal: Extract<AssistantProposal, { kind: 'meal_plan_proposal.v1' }>,
     key: string,
   ) {
-    if (!userId || !activeHouseholdId || applyingProposalId) return;
+    if (!userId || !activeHouseholdId || applyingProposalRef.current) return;
+    applyingProposalRef.current = key;
     setApplyingProposalId(key);
     try {
       const result = await applyAssistantMealPlanProposal({
@@ -546,11 +551,73 @@ export function AssistantScreen() {
           : 'Der Wochenplan konnte nicht aktualisiert werden. Es wurde nichts übernommen.';
       Alert.alert('Vorschlag nicht übernommen', message);
     } finally {
+      applyingProposalRef.current = null;
       setApplyingProposalId(null);
     }
   }
 
-  function renderProposal(proposal: AssistantProposal, key: string) {
+  async function applyShoppingItemProposal(
+    proposal: Extract<AssistantProposal, { kind: 'shopping_list_item_proposal.v1' }>,
+    messageId: string,
+    proposalIndex: number,
+    key: string,
+  ) {
+    if (!activeThread || !userId || !activeHouseholdId || applyingProposalRef.current) return;
+    applyingProposalRef.current = key;
+    setApplyingProposalId(key);
+    let itemWasAdded = false;
+    try {
+      await addShoppingItem.mutateAsync({
+        household_id: activeHouseholdId,
+        name: proposal.name,
+        quantity: proposal.quantity,
+        unit: proposal.unit,
+        product_id: null,
+        category_id: null,
+        category_source: null,
+      });
+      itemWasAdded = true;
+      const appliedAt = new Date().toISOString();
+      const updatedThread: AssistantThread = {
+        ...activeThread,
+        messages: activeThread.messages.map((item) =>
+          item.id === messageId
+            ? {
+                ...item,
+                appliedProposalIndexes: [
+                  ...new Set([...(item.appliedProposalIndexes ?? []), proposalIndex]),
+                ],
+              }
+            : item,
+        ),
+        updatedAt: appliedAt,
+      };
+      await persistThreads(upsertThread(threads, updatedThread));
+      Alert.alert('Einkaufsliste aktualisiert', `${proposal.name} wurde lokal vorgemerkt.`);
+    } catch {
+      if (itemWasAdded) {
+        Alert.alert(
+          'Artikel vorgemerkt',
+          'Der Artikel wurde lokal vorgemerkt, aber der Gesprächsstatus konnte nicht gespeichert werden. Prüfe die Einkaufsliste, bevor du den Vorschlag erneut übernimmst.',
+        );
+      } else {
+        Alert.alert(
+          'Artikel nicht übernommen',
+          'Der Artikel konnte nicht vorgemerkt werden. Bitte versuche es erneut.',
+        );
+      }
+    } finally {
+      applyingProposalRef.current = null;
+      setApplyingProposalId(null);
+    }
+  }
+
+  function renderProposal(
+    proposal: AssistantProposal,
+    message: AssistantMessage,
+    proposalIndex: number,
+    key: string,
+  ) {
     if (proposal.kind === 'meal_plan_proposal.v1') {
       return (
         <Card key={key} style={styles.proposalCard}>
@@ -608,6 +675,53 @@ export function AssistantScreen() {
               style={styles.proposalAction}
             />
           </View>
+        </Card>
+      );
+    }
+
+    if (proposal.kind === 'shopping_list_item_proposal.v1') {
+      const isApplied = message.appliedProposalIndexes?.includes(proposalIndex) ?? false;
+      const unitLabel =
+        UNIT_OPTIONS.find((option) => option.value === proposal.unit)?.label ?? proposal.unit;
+      const warning =
+        proposal.foodRuleStatus === 'unknown'
+          ? 'Der Freitextartikel ist keiner geprüften Lebensmittelzuordnung zugeordnet. Bitte prüfe Produktetikett und persönliche Regeln.'
+          : 'Für diesen Haushalt sind keine persönlichen Lebensmittelregeln hinterlegt.';
+
+      return (
+        <Card key={key} style={styles.proposalCard}>
+          <Txt variant="body" weight="700">
+            Zur Einkaufsliste
+          </Txt>
+          <Txt variant="body">
+            {String(proposal.quantity)} {unitLabel} · {proposal.name}
+          </Txt>
+          <Txt variant="caption" tone="secondary">
+            {warning}
+          </Txt>
+          <Button
+            accessibilityLabel={`Einkaufsartikel übernehmen: ${proposal.name}`}
+            disabled={isApplied || applyingProposalId !== null}
+            onPress={() =>
+              Alert.alert(
+                'Artikel übernehmen?',
+                `${String(proposal.quantity)} ${unitLabel} · ${proposal.name}\n\n${warning}`,
+                [
+                  { text: 'Abbrechen', style: 'cancel' },
+                  {
+                    text: 'Übernehmen',
+                    onPress: () =>
+                      void applyShoppingItemProposal(proposal, message.id, proposalIndex, key),
+                  },
+                ],
+              )
+            }
+            variant="primary"
+            size="sm"
+            loading={applyingProposalId === key}
+            title={isApplied ? 'Hinzugefügt' : 'Übernehmen'}
+            style={styles.proposalAction}
+          />
         </Card>
       );
     }
@@ -830,16 +944,16 @@ export function AssistantScreen() {
                                 get_inventory: 'Vorrat geprüft',
                                 propose_meal_plan: 'Wochenvorschlag erstellt',
                                 suggest_ingredient_swap: 'Zutat geprüft',
+                                propose_shopping_list_item: 'Einkaufsartikel vorgeschlagen',
                               }[tool]
                             }
                           />
                         ))}
-                        <Pill label="Hinterlegte Regeln abgeglichen" tone="pantry" selected />
                       </View>
                     ) : null}
                     {item.role === 'assistant'
                       ? item.proposals?.map((proposal, index) =>
-                          renderProposal(proposal, `${item.id}-${String(index)}`),
+                          renderProposal(proposal, item, index, `${item.id}-${String(index)}`),
                         )
                       : null}
                     {item.role === 'assistant' && item.suggestions?.length ? (

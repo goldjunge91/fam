@@ -1,4 +1,4 @@
-import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { act, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 import { Alert, type PressableProps, type TextInputProps } from 'react-native';
 import type { AssistantThread } from '../types';
@@ -11,6 +11,7 @@ const mockSaveThreads = jest.fn();
 const mockGetCreditStatus = jest.fn();
 const mockSendMessage = jest.fn();
 const mockApplyProposal = jest.fn();
+const mockAddShoppingItem = jest.fn();
 const mockRestorePurchases = jest.fn();
 const mockRefreshPremium = jest.fn();
 const mockSyncEntitlement = jest.fn();
@@ -215,6 +216,9 @@ jest.mock('@/lib/backend/revenuecat', () => ({
   restorePurchases: (...args: unknown[]) => mockRestorePurchases(...args),
 }));
 jest.mock('@/lib/db/local-client', () => ({ getDatabase: jest.fn() }));
+jest.mock('@/features/shopping-list/hooks/use-shopping-list-mutations', () => ({
+  useAddShoppingItem: () => ({ mutateAsync: (...args: unknown[]) => mockAddShoppingItem(...args) }),
+}));
 jest.mock('../data/apply-meal-plan-proposal', () => ({
   ApplyMealPlanProposalError: class extends Error {
     code: string;
@@ -276,6 +280,14 @@ const ingredientSwap = {
   safetyNote: 'Etikett prüfen.',
 };
 
+const shoppingItemProposal = {
+  kind: 'shopping_list_item_proposal.v1' as const,
+  name: 'Hafermilch',
+  quantity: 2,
+  unit: 'package' as const,
+  foodRuleStatus: 'unknown' as const,
+};
+
 function assistantThread(messages: AssistantThread['messages'] = []): AssistantThread {
   return {
     id: 'thread-1',
@@ -326,6 +338,7 @@ describe('AssistantScreen', () => {
       },
     });
     mockApplyProposal.mockResolvedValue({ addedCount: 1 });
+    mockAddShoppingItem.mockResolvedValue('shopping-item-1');
     mockRestorePurchases.mockResolvedValue({ ok: true, customerInfo: { active: true } });
     mockSyncEntitlement.mockResolvedValue(true);
     mockPollEntitlement.mockResolvedValue(true);
@@ -396,7 +409,7 @@ describe('AssistantScreen', () => {
       ),
     );
     expect(screen.getByText('Hier sind Ideen.')).toBeOnTheScreen();
-    expect(screen.getByText('Hinterlegte Regeln abgeglichen')).toBeOnTheScreen();
+    expect(screen.queryByText('Hinterlegte Regeln abgeglichen')).not.toBeOnTheScreen();
     expect(screen.getByText('Linsensuppe: Sahne → Hafercuisine')).toBeOnTheScreen();
     expect(screen.getByText('8 Credits übrig')).toBeOnTheScreen();
     await user.press(screen.getByRole('button', { name: 'Mit Reis' }));
@@ -439,7 +452,7 @@ describe('AssistantScreen', () => {
     expect(screen.getByText('Gesprächsverlauf')).toBeOnTheScreen();
     await user.press(screen.getByRole('button', { name: 'Gespräch Abendessen löschen' }));
     const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
-    options?.find((option) => option.text === 'Löschen')?.onPress?.();
+    await act(async () => options?.find((option) => option.text === 'Löschen')?.onPress?.());
     await waitFor(() => expect(mockSaveThreads).toHaveBeenCalledWith('user-1', []));
   });
 
@@ -465,7 +478,9 @@ describe('AssistantScreen', () => {
       expect.any(Array),
     );
     const buttons = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
-    buttons?.find((button) => button.text === 'In Wochenplan übernehmen')?.onPress?.();
+    await act(async () =>
+      buttons?.find((button) => button.text === 'In Wochenplan übernehmen')?.onPress?.(),
+    );
     await waitFor(() =>
       expect(mockApplyProposal).toHaveBeenCalledWith({
         householdId: 'household-1',
@@ -477,6 +492,74 @@ describe('AssistantScreen', () => {
     expect(Alert.alert).toHaveBeenCalledWith(
       'Zum Wochenplan hinzugefügt',
       '1 Mahlzeiten wurden lokal vorgemerkt.',
+    );
+  });
+
+  it('requires confirmation before adding a shopping item and persists the applied state', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-1',
+          role: 'assistant',
+          text: 'Ich kann Hafermilch ergänzen.',
+          createdAt: 'now',
+          proposals: [shoppingItemProposal],
+          toolTrace: ['propose_shopping_list_item'],
+        },
+      ]),
+    ];
+    await renderAssistant();
+    const user = userEvent.setup();
+    const applyButton = screen.getByRole('button', {
+      name: 'Einkaufsartikel übernehmen: Hafermilch',
+    });
+
+    expect(screen.getByText(/keiner geprüften Lebensmittelzuordnung/u)).toBeOnTheScreen();
+    await user.press(applyButton);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      'Artikel übernehmen?',
+      expect.stringContaining('persönliche Regeln'),
+      expect.any(Array),
+    );
+    let options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Abbrechen')?.onPress?.());
+    expect(mockAddShoppingItem).not.toHaveBeenCalled();
+
+    await user.press(applyButton);
+    options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => {
+      const confirm = options?.find((option) => option.text === 'Übernehmen')?.onPress;
+      confirm?.();
+      confirm?.();
+      await new Promise<void>((resolve) => setTimeout(resolve, 0));
+    });
+    await waitFor(() =>
+      expect(mockAddShoppingItem).toHaveBeenCalledWith({
+        household_id: 'household-1',
+        name: 'Hafermilch',
+        quantity: 2,
+        unit: 'package',
+        product_id: null,
+        category_id: null,
+        category_source: null,
+      }),
+    );
+    expect(mockAddShoppingItem).toHaveBeenCalledTimes(1);
+    await waitFor(() =>
+      expect(mockSaveThreads).toHaveBeenCalledWith(
+        'user-1',
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: 'thread-1',
+            messages: [expect.objectContaining({ id: 'reply-1', appliedProposalIndexes: [0] })],
+          }),
+        ]),
+      ),
+    );
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Einkaufsartikel übernehmen: Hafermilch' }),
+      ).toBeDisabled(),
     );
   });
 

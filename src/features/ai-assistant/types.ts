@@ -6,6 +6,8 @@ export type AssistantMessage = {
   attachmentName?: string;
   suggestions?: string[];
   proposals?: AssistantProposal[];
+  /** Indizes erfolgreich übernommener Vorschläge, lokal im verschlüsselten Verlauf gespeichert. */
+  appliedProposalIndexes?: number[];
   toolTrace?: AssistantToolName[];
 };
 
@@ -13,7 +15,8 @@ export type AssistantToolName =
   | 'search_recipes'
   | 'get_inventory'
   | 'propose_meal_plan'
-  | 'suggest_ingredient_swap';
+  | 'suggest_ingredient_swap'
+  | 'propose_shopping_list_item';
 
 export type AssistantProposalFoodRuleCoverage = {
   status: 'clear';
@@ -53,6 +56,13 @@ export type AssistantProposal =
       replacement: string;
       rationale: string;
       safetyNote: string;
+    }
+  | {
+      kind: 'shopping_list_item_proposal.v1';
+      name: string;
+      quantity: number;
+      unit: 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
+      foodRuleStatus: 'clear' | 'unknown';
     };
 
 export type AssistantThread = {
