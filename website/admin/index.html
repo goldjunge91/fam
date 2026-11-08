@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="referrer" content="no-referrer">
+    <title>fam Admin · KI-Nutzung</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <script src="/admin/admin.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt</a>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Adminbereich">
+        <a class="brand" href="/" aria-label="fam Admin Startseite">
+          <span class="brand-mark" aria-hidden="true">f</span>
+          <span>fam <small>Admin</small></span>
+        </a>
+        <p class="side-label">Verwaltung</p>
+        <nav class="admin-nav" aria-label="Adminnavigation">
+          <a href="#overview"><span aria-hidden="true">⌂</span>Übersicht</a>
+          <a href="#users"><span aria-hidden="true">◎</span>Nutzer</a>
+          <a href="#users" aria-current="page"><span aria-hidden="true">◷</span>KI-Nutzung</a>
+        </nav>
+        <div class="account-role" id="account-role" hidden>
+          Plattformrolle
+          <strong>supa-admin</strong>
+        </div>
+      </aside>
+
+      <main class="main" id="main">
+        <section class="login-panel" id="login-panel" aria-labelledby="login-title">
+          <p class="eyebrow">Interne Verwaltung</p>
+          <h1 id="login-title">Anmelden</h1>
+          <p class="login-copy">Melde dich mit deinem Fam-Konto an. Zugriff erhalten nur Konten mit der Plattformrolle supa-admin.</p>
+          <form id="login-form" class="login-form">
+            <label for="email">E-Mail</label>
+            <input id="email" name="email" type="email" autocomplete="username" required>
+            <label for="password">Passwort</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <p class="form-error" id="login-error" role="alert" hidden></p>
+            <button class="button-primary" id="login-button" type="submit">Anmelden</button>
+          </form>
+        </section>
+
+        <section class="usage-panel" id="usage-panel" aria-labelledby="page-title" hidden>
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">Interne Verwaltung</p>
+              <h1 id="page-title">KI-Nutzung</h1>
+            </div>
+            <div class="header-actions">
+              <label class="visually-hidden" for="month-picker">Monat auswählen</label>
+              <input id="month-picker" class="period-picker" type="month">
+              <button class="button-quiet" id="refresh-button" type="button">Aktualisieren</button>
+              <button class="button-quiet" id="sign-out-button" type="button">Abmelden</button>
+            </div>
+          </header>
+          <p class="lede">Monatliche KI-Credits je Konto, nach Aktion aufgeteilt. Erstattete Anfragen sind abgezogen.</p>
+
+          <p class="status-message" id="page-status" role="status" aria-live="polite" hidden></p>
+
+          <dl class="overview" id="overview" aria-label="Monatsübersicht">
+            <div class="metric total-metric">
+              <dt>Gesamtverbrauch</dt>
+              <dd><span id="total-credits">0</span> <small>Credits</small></dd>
+            </div>
+            <div class="metric">
+              <dt><span class="dot suggestions" aria-hidden="true"></span>Vorschläge</dt>
+              <dd id="suggestion-credits">0</dd>
+            </div>
+            <div class="metric">
+              <dt><span class="dot recipes" aria-hidden="true"></span>Rezepte</dt>
+              <dd id="recipe-credits">0</dd>
+            </div>
+            <div class="metric">
+              <dt><span class="dot voice" aria-hidden="true"></span>Sprache</dt>
+              <dd id="voice-credits">0</dd>
+            </div>
+          </dl>
+
+          <section class="users-section" id="users" aria-labelledby="users-title">
+            <div class="list-heading">
+              <div>
+                <h2 id="users-title">Verbrauch nach Nutzer</h2>
+                <p id="user-count">Nutzerkonten werden geladen</p>
+              </div>
+              <label class="visually-hidden" for="user-search">Nutzer suchen</label>
+              <input id="user-search" class="search-input" type="search" placeholder="Name oder E-Mail suchen" autocomplete="off">
+            </div>
+            <div class="legend" aria-label="Legende">
+              <span><i class="suggestions" aria-hidden="true"></i>Vorschläge</span>
+              <span><i class="recipes" aria-hidden="true"></i>Rezepte</span>
+              <span><i class="voice" aria-hidden="true"></i>Sprache</span>
+            </div>
+            <div class="user-list" id="user-list" role="list" aria-busy="false"></div>
+            <p class="empty-state" id="empty-state" hidden>Keine passenden Nutzer gefunden.</p>
+          </section>
+
+          <footer class="page-footer">
+            <span>Monatsgrenze nach UTC. Credits sind keine Modell-Tokens.</span>
+            <span id="updated-at"></span>
+          </footer>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
