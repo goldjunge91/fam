@@ -1,3 +1,4 @@
+import { normalizeIngredientMappingReview } from '@/features/recipes/domain/ingredient-mapping';
 import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 import type { RecipeImportDraft, RecipeImportDraftRecord, SavedRecipeImportSource } from '../types';
 
@@ -10,26 +11,43 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function isRecipeImportDraft(value: unknown): value is RecipeImportDraft {
-  return (
-    isRecord(value) &&
-    value.kind === 'recipe_import_draft.v1' &&
-    typeof value.title === 'string' &&
-    (value.servings === null ||
-      (typeof value.servings === 'number' && Number.isInteger(value.servings))) &&
-    Array.isArray(value.ingredients) &&
-    value.ingredients.every(
+function normalizeRecipeImportDraft(value: unknown): RecipeImportDraft | null {
+  if (
+    !isRecord(value) ||
+    value.kind !== 'recipe_import_draft.v1' ||
+    typeof value.title !== 'string' ||
+    !(
+      value.servings === null ||
+      (typeof value.servings === 'number' && Number.isInteger(value.servings))
+    ) ||
+    !Array.isArray(value.ingredients) ||
+    !value.ingredients.every(
       (ingredient) =>
         isRecord(ingredient) &&
         typeof ingredient.text === 'string' &&
         ['high', 'medium', 'low'].includes(String(ingredient.confidence)),
-    ) &&
-    Array.isArray(value.steps) &&
-    value.steps.every((step) => typeof step === 'string') &&
-    (value.notes === null || typeof value.notes === 'string') &&
-    Array.isArray(value.warnings) &&
-    value.warnings.every((warning) => typeof warning === 'string')
-  );
+    ) ||
+    !Array.isArray(value.steps) ||
+    !value.steps.every((step) => typeof step === 'string') ||
+    !(value.notes === null || typeof value.notes === 'string') ||
+    !Array.isArray(value.warnings) ||
+    !value.warnings.every((warning) => typeof warning === 'string')
+  )
+    return null;
+
+  return {
+    kind: 'recipe_import_draft.v1',
+    title: value.title,
+    servings: value.servings,
+    ingredients: value.ingredients.map((ingredient) => ({
+      text: ingredient.text,
+      confidence: ingredient.confidence as 'high' | 'medium' | 'low',
+      mapping: normalizeIngredientMappingReview(ingredient.mapping),
+    })),
+    steps: value.steps,
+    notes: value.notes,
+    warnings: value.warnings,
+  };
 }
 
 function isRecipeImportDraftRecord(value: unknown): value is RecipeImportDraftRecord {
@@ -43,7 +61,7 @@ function isRecipeImportDraftRecord(value: unknown): value is RecipeImportDraftRe
     Array.isArray(value.mediaUris) &&
     value.mediaUris.every((uri) => typeof uri === 'string') &&
     ['structured', 'ai'].includes(String(value.method)) &&
-    isRecipeImportDraft(value.draft) &&
+    normalizeRecipeImportDraft(value.draft) !== null &&
     typeof value.createdAt === 'string'
   );
 }
@@ -96,6 +114,10 @@ async function saveArray<T>(userId: string, key: string, values: readonly T[]): 
 export async function loadRecipeImportDrafts(userId: string): Promise<RecipeImportDraftRecord[]> {
   const drafts = await loadArray(userId, DRAFTS_KEY, isRecipeImportDraftRecord);
   return drafts
+    .flatMap((draft) => {
+      const normalizedDraft = normalizeRecipeImportDraft(draft.draft);
+      return normalizedDraft ? [{ ...draft, draft: normalizedDraft }] : [];
+    })
     .sort((left, right) => right.createdAt.localeCompare(left.createdAt))
     .slice(0, MAX_DRAFTS);
 }

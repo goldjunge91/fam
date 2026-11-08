@@ -1,3 +1,5 @@
+import type { IngredientMappingReview } from '@/features/recipes/domain/ingredient-mapping';
+
 export type RecipeImportSourceType = 'url' | 'text' | 'image' | 'pdf' | 'video';
 export type RecipeImportMethod = 'structured' | 'ai';
 
@@ -8,6 +10,7 @@ export type RecipeImportDraft = {
   ingredients: Array<{
     text: string;
     confidence: 'high' | 'medium' | 'low';
+    mapping: IngredientMappingReview;
   }>;
   steps: string[];
   notes: string | null;

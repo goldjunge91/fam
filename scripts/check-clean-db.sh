@@ -7,8 +7,9 @@
 # INNERHALB der eigenen Transaktion. Bereits committete Zeilen — etwa aus
 # einer Simulator-Session gegen 127.0.0.1:54321 waehrend der Entwicklung —
 # sehen die Tests trotzdem, und zaehlen sie mit. supabase/seed.sql seedet
-# feste Referenzdaten (Produkte, Rezeptvorlagen); diese Tabellen sind von der
-# Pruefung ausgenommen (siehe check-clean-db.sql). Jede andere Tabelle muss
+# feste Referenzdaten (Allergen- und Zutatenbasis, Produkte, Rezeptvorlagen);
+# diese Tabellen sind von der Pruefung ausgenommen (siehe check-clean-db.sql).
+# Jede andere Tabelle muss
 # nach einem Reset leer sein; jede Zeile davor ist Symptom statt Fixture.
 #
 # Erstmals aufgefallen im August 2026: 05_products.test.sql zaehlte

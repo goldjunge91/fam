@@ -30,6 +30,7 @@ comment on table public.allergen_taxonomy is
 create table if not exists public.food_ingredients (
   id uuid primary key default gen_random_uuid(),
   canonical_name text not null check (length(trim(canonical_name)) between 1 and 200),
+  revision integer not null default 1 check (revision > 0),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -39,6 +40,8 @@ create unique index if not exists food_ingredients_canonical_name_idx
 
 comment on table public.food_ingredients is
   'Globale kanonische Zutatenidentitaeten; fehlende Allergenpruefungen sind unknown.';
+comment on column public.food_ingredients.revision is
+  'Steigt bei einer Aenderung der kanonischen Identitaet; Fakten mit aelterer Revision sind stale.';
 
 create table if not exists public.food_ingredient_aliases (
   id uuid primary key default gen_random_uuid(),
@@ -74,6 +77,7 @@ comment on table public.food_ingredient_aliases is
 create table if not exists public.ingredient_allergen_assessments (
   id uuid primary key default gen_random_uuid(),
   ingredient_id uuid not null references public.food_ingredients (id) on delete cascade,
+  ingredient_revision integer not null check (ingredient_revision > 0),
   allergen_id text not null references public.allergen_taxonomy (id),
   assessment text not null check (assessment in (
     'contains', 'derived_from', 'may_contain', 'not_detected'
@@ -114,8 +118,30 @@ comment on table public.ingredient_allergen_assessments is
   'Explizite, quellenbelegte positive und negative EU-Allergenpruefungen. Keine Zeile bedeutet unknown, niemals not_detected.';
 comment on column public.ingredient_allergen_assessments.review_scope is
   'Dokumentiert, welcher Teil der Quelle fuer genau diese Allergengruppe geprueft wurde.';
+comment on column public.ingredient_allergen_assessments.ingredient_revision is
+  'Revision der kanonischen Zutat zum Reviewzeitpunkt; Abweichungen markieren den Fakt als stale.';
 comment on column public.ingredient_allergen_assessments.evidence_snapshot is
   'Pruefbarer Quellenausschnitt oder Textsnapshot; darf bei not_detected nicht leer sein.';
+
+create or replace function private.bump_food_ingredient_revision()
+returns trigger
+language plpgsql
+set search_path = pg_catalog
+as $$
+begin
+  if new.canonical_name is distinct from old.canonical_name then
+    new.revision := old.revision + 1;
+  end if;
+  return new;
+end;
+$$;
+
+revoke execute on function private.bump_food_ingredient_revision()
+  from public, anon, authenticated, service_role;
+
+create or replace trigger food_ingredients_bump_revision
+  before update of canonical_name on public.food_ingredients
+  for each row execute function private.bump_food_ingredient_revision();
 
 create or replace trigger allergen_taxonomy_set_updated_at
   before update on public.allergen_taxonomy

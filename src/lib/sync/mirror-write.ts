@@ -29,13 +29,14 @@ function remoteUpdatedAt(
   return value;
 }
 
-function toSqlParam(value: unknown): SqlParam {
+function toSqlParam(value: unknown, jsonObject = false): SqlParam {
   if (value === undefined || value === null) return null;
   if (typeof value === 'string' || typeof value === 'number') return value;
   // SQLite speichert Boolean als 0/1.
   if (typeof value === 'boolean') return value ? 1 : 0;
   // Postgres-Arrays werden lokal als JSON gespeichert.
   if (Array.isArray(value)) return JSON.stringify(value);
+  if (jsonObject && typeof value === 'object') return JSON.stringify(value);
   // Andere Typen deuten auf Schema-Drift hin.
   throw new Error(`Unerwarteter Werttyp fuer Spiegel-Zeile: ${typeof value}`);
 }
@@ -61,7 +62,10 @@ export async function upsertMirrorRow(
     meta.hasServerTombstone && typeof deletedAtRaw === 'string' ? toEpochMs(deletedAtRaw) : null;
 
   const columns = [...meta.columns, 'updated_at', 'deleted_at', '_dirty'];
-  const values = meta.columns.map((column) => toSqlParam(remoteRow[column]));
+  const jsonObjectColumns = new Set(meta.jsonObjectColumns ?? []);
+  const values = meta.columns.map((column) =>
+    toSqlParam(remoteRow[column], jsonObjectColumns.has(column)),
+  );
   values.push(updatedAt, deletedAt, options.dirty);
 
   const placeholders = columns.map(() => '?').join(', ');
@@ -240,7 +244,7 @@ async function reconcileDirtyRowWithPendingOps(
     }
     if (column === 'quantity' && reconciledQuantity !== null) return reconciledQuantity;
     if (touched.has(column)) return currentRow[column] as SqlParam;
-    return toSqlParam(remoteRow[column]);
+    return toSqlParam(remoteRow[column], (meta.jsonObjectColumns ?? []).includes(column));
   });
 
   const placeholders = columns.map(() => '?').join(', ');
@@ -341,7 +345,9 @@ export async function applyLocalMirrorWrite(
 
   if (op === 'insert') {
     const columns = [...meta.columns, 'updated_at', '_dirty'];
-    const values = meta.columns.map((column) => toSqlParam(payload[column]));
+    const values = meta.columns.map((column) =>
+      toSqlParam(payload[column], (meta.jsonObjectColumns ?? []).includes(column)),
+    );
     values.push(nowMs, 1);
     const placeholders = columns.map(() => '?').join(', ');
     await txn.runAsync(
@@ -354,7 +360,11 @@ export async function applyLocalMirrorWrite(
   // Nur bekannte Spalten setzen; `id` und `deleted_at` haben eigene Pfade.
   const fields = Object.keys(payload).filter((key) => key !== 'id' && meta.columns.includes(key));
   const setClauses = [...fields.map((field) => `${field} = ?`), 'updated_at = ?', '_dirty = 1'];
-  const values: SqlParam[] = [...fields.map((field) => toSqlParam(payload[field])), nowMs];
+  const jsonObjectColumns = new Set(meta.jsonObjectColumns ?? []);
+  const values: SqlParam[] = [
+    ...fields.map((field) => toSqlParam(payload[field], jsonObjectColumns.has(field))),
+    nowMs,
+  ];
 
   await txn.runAsync(`update ${meta.table} set ${setClauses.join(', ')} where id = ?`, [
     ...values,

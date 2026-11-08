@@ -1,9 +1,11 @@
 -- check-clean-db.sql — siehe check-clean-db.sh fuer das Warum.
 --
--- supabase/seed.sql seedet feste Referenzdaten (Produkte, Rezeptvorlagen) bei
--- jedem `supabase db reset` — diese Tabellen sind danach nie leer und muessen
--- von der Pruefung ausgenommen werden (Liste unten synchron zu seed.sql
--- halten). Jede andere public-Tabelle muss direkt nach einem Reset leer sein.
+-- supabase/seed.sql und supabase/seeds/*.sql seedet feste Referenzdaten
+-- (Allergen- und Zutatenbasis, Produkte, Rezeptvorlagen) bei jedem
+-- `supabase db reset` — diese Tabellen sind danach
+-- nie leer und muessen von der Pruefung ausgenommen werden (Liste unten
+-- synchron zu seed.sql halten). Jede andere public-Tabelle muss direkt nach
+-- einem Reset leer sein.
 -- query_to_xml/xpath fuehrt dafuer pro Tabelle ein dynamisches `count(*)`
 -- aus, ganz ohne PL/pgSQL-Funktion — das Ergebnis ist ein JSON-Objekt
 -- {tabelle: anzahl} nur fuer nicht-leere, nicht-geseedete Tabellen, oder NULL.
@@ -20,6 +22,10 @@ from (
   where n.nspname = 'public'
     and c.relkind = 'r'
     and c.relname not in (
+      'allergen_taxonomy',
+      'food_ingredients',
+      'food_ingredient_aliases',
+      'ingredient_allergen_assessments',
       'products',
       'recipe_templates',
       'recipe_template_items',

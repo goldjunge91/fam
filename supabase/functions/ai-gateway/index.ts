@@ -3,16 +3,27 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 import {
   ALLOWED_MODELS,
   createAiGatewayHandler,
-  type GatewayCreditStatus,
   type GatewayCookingContext,
-  type GatewayFoodRules,
   type GatewayCreditAction,
+  type GatewayCreditStatus,
+  type GatewayFoodRules,
   type GatewayInventoryContext,
   type GatewayLot,
   type GatewayRecipe,
   type ProviderContentPart,
   type ProviderTool,
 } from './handler.ts';
+import {
+  allergenIdForProfileRule,
+  type EuAllergenId,
+  type IngredientAliasRecord,
+  type IngredientFactRecord,
+  type IngredientRevision,
+  projectRecipeAllergenSafety,
+  type RecipeIngredientMappingRow,
+  toReviewedRecipeIngredientMapping,
+} from './ingredient-knowledge.ts';
+import { fingerprintRecipeIngredientMappings } from './food-rule-coverage.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
 import { isLocalSupabaseUrl } from '../_shared/revenuecat-environment.ts';
@@ -42,6 +53,22 @@ const readRevenueCatStatus = createRevenueCatSubscriberStatusReader(
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function hasCurrentIngredientReview(
+  mapping: ReturnType<typeof toReviewedRecipeIngredientMapping>,
+): boolean {
+  return mapping.status === 'verified' && mapping.complete &&
+    mapping.ingredientIds.length > 0 &&
+    mapping.source.trim().length > 0 &&
+    mapping.sourceId.trim().length > 0 &&
+    mapping.sourceUrl !== null && mapping.sourceUrl.trim().length > 0 &&
+    mapping.sourceVersion.length > 0 &&
+    mapping.sourceVersion === mapping.currentSourceVersion &&
+    mapping.license !== null && mapping.license.trim().length > 0 &&
+    mapping.evidenceSnapshot.trim().length > 0 &&
+    mapping.reviewedAt !== null && Number.isFinite(Date.parse(mapping.reviewedAt)) &&
+    mapping.reviewedBy !== null && mapping.reviewedBy.trim().length > 0;
 }
 
 const ALLERGY_RULE_LABELS: Record<string, string> = {
@@ -286,6 +313,7 @@ async function loadCookingContext(
   householdId: string,
   authorization: string,
   includePersonalFoodRules: boolean,
+  requestedAllergies: string[] = [],
 ) {
   const client = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: authorization } },
@@ -301,7 +329,9 @@ async function loadCookingContext(
     // RLS on profile_food_rules permits this caller to see only their own row.
     const { data: foodRuleRow, error: foodRulesError } = await client
       .from('profile_food_rules')
-      .select('allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods, updated_at')
+      .select(
+        'allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods, updated_at',
+      )
       .eq('user_id', userId)
       .maybeSingle();
     if (foodRulesError) {
@@ -314,16 +344,82 @@ async function loadCookingContext(
     }
     foodRules = {
       allergies: [
-        ...(foodRuleRow?.allergy_codes ?? []).map((code: string) => ALLERGY_RULE_LABELS[code] ?? code),
+        ...(foodRuleRow?.allergy_codes ?? []).map((code: string) =>
+          ALLERGY_RULE_LABELS[code] ?? code
+        ),
         ...(foodRuleRow?.custom_allergies ?? []),
       ],
+      allergyCodes: foodRuleRow?.allergy_codes ?? [],
+      customAllergies: foodRuleRow?.custom_allergies ?? [],
       intolerances: [
-        ...(foodRuleRow?.intolerance_codes ?? []).map((code: string) => INTOLERANCE_RULE_LABELS[code] ?? code),
+        ...(foodRuleRow?.intolerance_codes ?? []).map((code: string) =>
+          INTOLERANCE_RULE_LABELS[code] ?? code
+        ),
         ...(foodRuleRow?.custom_intolerances ?? []),
       ],
+      intoleranceCodes: foodRuleRow?.intolerance_codes ?? [],
+      customIntolerances: foodRuleRow?.custom_intolerances ?? [],
       avoidFoods: foodRuleRow?.disliked_foods ?? [],
+      dislikedFoods: foodRuleRow?.disliked_foods ?? [],
       updatedAt: foodRuleRow?.updated_at ?? null,
     };
+  }
+
+  const activeAllergenIds = [
+    ...new Set(
+      (includePersonalFoodRules
+        ? [
+          ...(foodRules.allergyCodes ?? []),
+          ...(foodRules.customAllergies ?? []).filter((label) =>
+            allergenIdForProfileRule(label) !== null
+          ),
+        ]
+        : requestedAllergies)
+        .map(allergenIdForProfileRule)
+        .filter((allergenId): allergenId is EuAllergenId => allergenId !== null),
+    ),
+  ];
+
+  const ingredientAliases: IngredientAliasRecord[] = [];
+  const needsCanonicalRuleAliases = includePersonalFoodRules && (
+    (foodRules.customAllergies ?? []).some((label) => allergenIdForProfileRule(label) === null) ||
+    (foodRules.dislikedFoods ?? []).length > 0
+  );
+  if (needsCanonicalRuleAliases) {
+    const pageSize = 500;
+    for (let offset = 0;; offset += pageSize) {
+      const { data: aliasRows, error: aliasError } = await client
+        .from('food_ingredient_aliases')
+        .select(
+          'ingredient_id, alias, locale, source, source_id, source_url, source_version, license, confidence, reviewed_at, reviewed_by',
+        )
+        .eq('locale', 'de')
+        .order('id', { ascending: true })
+        .range(offset, offset + pageSize - 1);
+      if (aliasError) {
+        return {
+          ok: false as const,
+          status: 500,
+          error: 'food_ingredient_alias_lookup_failed',
+          message: aliasError.message,
+        };
+      }
+      const page = aliasRows ?? [];
+      ingredientAliases.push(...page.map((row) => ({
+        ingredientId: row.ingredient_id,
+        alias: row.alias,
+        locale: row.locale,
+        source: row.source,
+        sourceId: row.source_id,
+        sourceUrl: row.source_url,
+        sourceVersion: row.source_version,
+        license: row.license,
+        confidence: row.confidence,
+        reviewedAt: row.reviewed_at,
+        reviewedBy: row.reviewed_by,
+      })));
+      if (page.length < pageSize) break;
+    }
   }
 
   const { data: inventoryRows, error: inventoryError } = await client
@@ -365,17 +461,17 @@ async function loadCookingContext(
   );
   const lots: GatewayLot[] = rows
     .map((row) => ({
-        lotId: row.id,
-        productId: row.product_id ?? null,
-        normalizedName: String(row.name).trim(),
-        quantity: typeof row.quantity === 'number' ? row.quantity : null,
-        unit: typeof row.unit === 'string' ? row.unit : null,
-        bestBefore: normalizeDate(row.expiry_date),
-        useBy: null,
-        storage: storageKind(
-          row.location_id ? locations.get(row.location_id) : null,
-        ),
-      }))
+      lotId: row.id,
+      productId: row.product_id ?? null,
+      normalizedName: String(row.name).trim(),
+      quantity: typeof row.quantity === 'number' ? row.quantity : null,
+      unit: typeof row.unit === 'string' ? row.unit : null,
+      bestBefore: normalizeDate(row.expiry_date),
+      useBy: null,
+      storage: storageKind(
+        row.location_id ? locations.get(row.location_id) : null,
+      ),
+    }))
     .filter((lot) => lot.normalizedName.length > 0)
     .sort((a, b) => {
       const aDate = a.useBy ?? a.bestBefore;
@@ -477,7 +573,9 @@ async function loadCookingContext(
   // above use catalog recipe ids. Assistant apply proposals must use the former.
   const { data: householdRecipeRows, error: householdRecipesError } = await client
     .from('recipes')
-    .select('id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at')
+    .select(
+      'id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at',
+    )
     .eq('household_id', householdId)
     .is('deleted_at', null)
     .order('title', { ascending: true })
@@ -501,7 +599,9 @@ async function loadCookingContext(
         .is('deleted_at', null)
         .in('recipe_id', householdRecipeIds),
       client.from('recipe_component_items')
-        .select('recipe_id, product_id, sub_component_id, quantity, unit')
+        .select(
+          'id, recipe_id, product_id, sub_component_id, quantity, unit, ingredient_mapping, ingredient_source_type, ingredient_source_id, ingredient_source_url, ingredient_source_version, ingredient_source_license',
+        )
         .eq('household_id', householdId)
         .is('deleted_at', null)
         .in('recipe_id', householdRecipeIds),
@@ -521,9 +621,10 @@ async function loadCookingContext(
   const householdProductIds = [
     ...new Set((householdItemRowsResult.data ?? []).map((row) => row.product_id).filter(Boolean)),
   ];
-  const { data: householdProducts, error: householdProductsError } = householdProductIds.length === 0
-    ? { data: [], error: null }
-    : await client.from('products').select('id, name').in('id', householdProductIds);
+  const { data: householdProducts, error: householdProductsError } =
+    householdProductIds.length === 0
+      ? { data: [], error: null }
+      : await client.from('products').select('id, name').in('id', householdProductIds);
   if (householdProductsError) {
     return {
       ok: false as const,
@@ -535,14 +636,143 @@ async function loadCookingContext(
   const householdProductNames = new Map(
     (householdProducts ?? []).map((row) => [row.id, String(row.name).trim()]),
   );
-  const householdIngredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
+  const householdItemRows = householdItemRowsResult.data ?? [];
+  const foodIngredientRows = householdItemRows.filter((row) => !row.sub_component_id);
   const householdIngredientCounts = new Map<string, number>();
-  const incompleteHouseholdIngredients = new Set<string>();
-  for (const row of householdItemRowsResult.data ?? []) {
+  for (const row of foodIngredientRows) {
     householdIngredientCounts.set(
       row.recipe_id,
       (householdIngredientCounts.get(row.recipe_id) ?? 0) + 1,
     );
+  }
+  const mappingsByItem = new Map(foodIngredientRows.map((row) => [
+    row.id,
+    toReviewedRecipeIngredientMapping(row as RecipeIngredientMappingRow),
+  ]));
+  const mappingFingerprintItemsByRecipe = new Map<
+    string,
+    Array<Parameters<typeof fingerprintRecipeIngredientMappings>[0][number]>
+  >();
+  for (const row of foodIngredientRows) {
+    const mapping = mappingsByItem.get(row.id);
+    if (!mapping) continue;
+    const mappingPayload = typeof row.ingredient_mapping === 'object' &&
+        row.ingredient_mapping !== null && !Array.isArray(row.ingredient_mapping)
+      ? row.ingredient_mapping as Record<string, unknown>
+      : {};
+    const current = mappingFingerprintItemsByRecipe.get(row.recipe_id) ?? [];
+    current.push({
+      itemId: row.id,
+      mappingStatus: mapping.status,
+      submittedMappingStatus: typeof mappingPayload.status === 'string'
+        ? mappingPayload.status
+        : 'unknown',
+      ingredientIds: mapping.ingredientIds,
+      complete: mapping.complete,
+      mappingSource: mapping.source,
+      mappingSourceId: mapping.sourceId,
+      mappingSourceUrl: mapping.sourceUrl,
+      mappingSourceVersion: mapping.sourceVersion,
+      currentSourceVersion: mapping.currentSourceVersion,
+      rowSource: row.ingredient_source_type,
+      rowSourceId: row.ingredient_source_id,
+      rowSourceUrl: row.ingredient_source_url,
+      rowSourceVersion: row.ingredient_source_version,
+      rowLicense: row.ingredient_source_license,
+      mappingLicense: mapping.license,
+      reviewedAt: mapping.reviewedAt,
+      reviewedBy: mapping.reviewedBy,
+      evidenceSnapshot: mapping.evidenceSnapshot,
+    });
+    mappingFingerprintItemsByRecipe.set(row.recipe_id, current);
+  }
+  const ingredientMappingVersionByRecipe = new Map(
+    await Promise.all(householdRecipeIds.map(async (recipeId) =>
+      [
+        recipeId,
+        await fingerprintRecipeIngredientMappings(
+          mappingFingerprintItemsByRecipe.get(recipeId) ?? [],
+        ),
+      ] as const
+    )),
+  );
+  const ingredientIds = [
+    ...new Set(
+      [...mappingsByItem.values()].flatMap((mapping) =>
+        hasCurrentIngredientReview(mapping) ? mapping.ingredientIds : []
+      ),
+    ),
+  ];
+  let ingredientRevisions: IngredientRevision[] = [];
+  let ingredientFacts: IngredientFactRecord[] = [];
+  if (ingredientIds.length > 0) {
+    const [ingredientsResult, factsResult] = await Promise.all([
+      client.from('food_ingredients')
+        .select('id, revision')
+        .in('id', ingredientIds),
+      activeAllergenIds.length > 0
+        ? client.from('ingredient_allergen_assessments')
+          .select(
+            'ingredient_id, ingredient_revision, allergen_id, assessment, source, source_id, source_url, source_version, license, review_scope, evidence_snapshot, evidence_sha256, confidence, reviewed_at, reviewed_by',
+          )
+          .in('ingredient_id', ingredientIds)
+          .in('allergen_id', activeAllergenIds)
+        : Promise.resolve({ data: [], error: null }),
+    ]);
+    if (ingredientsResult.error || factsResult.error) {
+      return {
+        ok: false as const,
+        status: 500,
+        error: 'ingredient_allergen_knowledge_lookup_failed',
+        message: ingredientsResult.error?.message ?? factsResult.error?.message,
+      };
+    }
+    ingredientRevisions = (ingredientsResult.data ?? []).map((row) => ({
+      ingredientId: row.id,
+      revision: row.revision,
+    }));
+    ingredientFacts = (factsResult.data ?? []).map((row) => ({
+      ingredientId: row.ingredient_id,
+      ingredientRevision: row.ingredient_revision,
+      allergenId: row.allergen_id,
+      assessment: row.assessment,
+      source: row.source,
+      sourceId: row.source_id,
+      sourceUrl: row.source_url,
+      sourceVersion: row.source_version,
+      license: row.license,
+      reviewScope: row.review_scope,
+      evidenceSnapshot: row.evidence_snapshot,
+      evidenceSha256: row.evidence_sha256,
+      confidence: row.confidence,
+      reviewedAt: row.reviewed_at,
+      reviewedBy: row.reviewed_by,
+    }));
+  }
+  const knownIngredientIds = new Set(
+    ingredientRevisions.map((ingredient) => ingredient.ingredientId),
+  );
+  const canonicalIngredientIdsByRecipe = new Map<string, string[]>();
+  const incompleteCanonicalIngredientMappings = new Set<string>();
+  for (const row of foodIngredientRows) {
+    const mapping = mappingsByItem.get(row.id);
+    if (
+      !mapping || !hasCurrentIngredientReview(mapping) ||
+      !mapping.ingredientIds.every((ingredientId) => knownIngredientIds.has(ingredientId))
+    ) {
+      incompleteCanonicalIngredientMappings.add(row.recipe_id);
+      continue;
+    }
+    const current = canonicalIngredientIdsByRecipe.get(row.recipe_id) ?? [];
+    current.push(...mapping.ingredientIds);
+    canonicalIngredientIdsByRecipe.set(row.recipe_id, current);
+  }
+  const householdIngredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
+  const incompleteHouseholdIngredients = new Set<string>();
+  for (const row of householdItemRows) {
+    // Subcomponent links are structural. Their product rows are returned as
+    // separate items for this recipe and carry the actual ingredient reviews.
+    if (row.sub_component_id) continue;
     const name = row.product_id
       ? String(householdProductNames.get(row.product_id) ?? '').trim()
       : row.sub_component_id
@@ -566,13 +796,33 @@ async function loadCookingContext(
     title: String(row.title).trim(),
     updatedAt: row.updated_at,
     estimatedMinutes: (typeof row.prep_time_minutes === 'number' ? row.prep_time_minutes : 0) +
-      (typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : 0) || null,
+        (typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : 0) || null,
     servings: typeof row.default_servings === 'number' ? row.default_servings : null,
     dietaryTags: Array.isArray(row.dietary_tags) ? row.dietary_tags : [],
     allergens: null,
     ingredients: householdIngredientsByRecipe.get(row.id) ?? [],
     ingredientDataComplete: (householdIngredientCounts.get(row.id) ?? 0) > 0 &&
       !incompleteHouseholdIngredients.has(row.id),
+    ingredientMappingVersion: ingredientMappingVersionByRecipe.get(row.id),
+    canonicalIngredientIds: [...new Set(canonicalIngredientIdsByRecipe.get(row.id) ?? [])].sort(),
+    canonicalIngredientMappingComplete: (householdIngredientCounts.get(row.id) ?? 0) > 0 &&
+      !incompleteCanonicalIngredientMappings.has(row.id) &&
+      (canonicalIngredientIdsByRecipe.get(row.id)?.length ?? 0) > 0,
+    ...(activeAllergenIds.length > 0
+      ? {
+        allergenProjection: projectRecipeAllergenSafety({
+          expectedItemIds: foodIngredientRows
+            .filter((item) => item.recipe_id === row.id)
+            .map((item) => item.id),
+          mappings: foodIngredientRows.filter((item) => item.recipe_id === row.id)
+            .map((item) => mappingsByItem.get(item.id)!),
+          ingredients: ingredientRevisions,
+          facts: ingredientFacts,
+          activeAllergenIds,
+          rulesUpdatedAt: includePersonalFoodRules ? foodRules.updatedAt : null,
+        }),
+      }
+      : {}),
   }));
 
   const context: GatewayCookingContext = {
@@ -583,7 +833,7 @@ async function loadCookingContext(
     } satisfies GatewayInventoryContext,
     recipes,
     householdRecipes,
-    foodRules,
+    foodRules: includePersonalFoodRules ? { ...foodRules, ingredientAliases } : foodRules,
   };
   return { ok: true as const, context };
 }

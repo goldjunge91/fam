@@ -41,6 +41,7 @@ function buildServerPayload(
   columns: readonly string[],
   normalizeQuantityUnits: boolean,
   includeId: boolean,
+  jsonObjectColumns: readonly string[] = [],
 ): Record<string, unknown> {
   const serverColumns = new Set(columns);
   const result = Object.fromEntries(
@@ -51,6 +52,24 @@ function buildServerPayload(
   if (normalizeQuantityUnits && 'unit' in result) {
     result.unit = normalizeUnit(typeof result.unit === 'string' ? result.unit : undefined);
   }
+  for (const column of jsonObjectColumns) {
+    const value = result[column];
+    if (typeof value === 'string') {
+      try {
+        result[column] = JSON.parse(value) as unknown;
+      } catch {
+        throw new Error(`Lokales JSON-Feld ${column} ist ungueltig.`);
+      }
+    }
+    if (
+      result[column] !== undefined &&
+      (typeof result[column] !== 'object' ||
+        result[column] === null ||
+        Array.isArray(result[column]))
+    ) {
+      throw new Error(`Lokales JSON-Feld ${column} muss ein Objekt enthalten.`);
+    }
+  }
   return result;
 }
 
@@ -59,8 +78,9 @@ function buildInsertPayload(
   payload: Record<string, unknown>,
   columns: readonly string[],
   normalizeQuantityUnits: boolean,
+  jsonObjectColumns: readonly string[] = [],
 ): Record<string, unknown> {
-  return buildServerPayload(payload, columns, normalizeQuantityUnits, true);
+  return buildServerPayload(payload, columns, normalizeQuantityUnits, true, jsonObjectColumns);
 }
 
 /** Update-Payload: geaenderte Server-Felder ohne Sync-Spalten und id. */
@@ -68,8 +88,9 @@ function buildUpdatePayload(
   payload: Record<string, unknown>,
   columns: readonly string[],
   normalizeQuantityUnits: boolean,
+  jsonObjectColumns: readonly string[] = [],
 ): Record<string, unknown> {
-  return buildServerPayload(payload, columns, normalizeQuantityUnits, false);
+  return buildServerPayload(payload, columns, normalizeQuantityUnits, false, jsonObjectColumns);
 }
 
 export type AttemptResult = {
@@ -169,7 +190,12 @@ async function verifyAppendOnlyDuplicate(
   payload: Record<string, unknown>,
 ): Promise<{ matches: boolean; error?: string }> {
   const meta = metaOf(table);
-  const expected = buildInsertPayload(payload, meta.columns, meta.normalizeQuantityUnits === true);
+  const expected = buildInsertPayload(
+    payload,
+    meta.columns,
+    meta.normalizeQuantityUnits === true,
+    meta.jsonObjectColumns,
+  );
   const columns = Object.keys(expected);
   const idColumn = meta.columns[0];
   const query = supabase.from(table as never) as unknown as SingleRowQuery;
@@ -204,6 +230,7 @@ async function attempt(
       payload,
       meta.columns,
       meta.normalizeQuantityUnits === true,
+      meta.jsonObjectColumns,
     );
     const response = meta.pushOnly
       ? await query.insert(insertPayload)
@@ -214,7 +241,12 @@ async function attempt(
   if (op === 'delete') {
     const response = await query
       .update({
-        ...buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true),
+        ...buildUpdatePayload(
+          payload,
+          meta.columns,
+          meta.normalizeQuantityUnits === true,
+          meta.jsonObjectColumns,
+        ),
         deleted_at: new Date(nowMs).toISOString(),
       })
       .eq('id', entityId)
@@ -232,7 +264,12 @@ async function attempt(
     // Identitaetsfelder (z. B. household_id), ein Update darauf ist idempotent.
     const response = await query
       .update({
-        ...buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true),
+        ...buildUpdatePayload(
+          payload,
+          meta.columns,
+          meta.normalizeQuantityUnits === true,
+          meta.jsonObjectColumns,
+        ),
         deleted_at: null,
       })
       .eq('id', entityId)
@@ -241,7 +278,14 @@ async function attempt(
   }
 
   const response = await query
-    .update(buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true))
+    .update(
+      buildUpdatePayload(
+        payload,
+        meta.columns,
+        meta.normalizeQuantityUnits === true,
+        meta.jsonObjectColumns,
+      ),
+    )
     .eq('id', entityId)
     .select();
   return response as AttemptResult;

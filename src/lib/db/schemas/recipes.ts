@@ -84,6 +84,15 @@ export const recipeComponentItems = sqliteTable(
     unit: text('unit').notNull().default('g'),
     optional: integer('optional', { mode: 'boolean' }).notNull().default(false),
     note: text('note'),
+    sourceText: text('source_text'),
+    ingredientSourceType: text('ingredient_source_type'),
+    ingredientSourceId: text('ingredient_source_id'),
+    ingredientSourceUrl: text('ingredient_source_url'),
+    ingredientSourceVersion: text('ingredient_source_version'),
+    ingredientSourceLicense: text('ingredient_source_license'),
+    ingredientMapping: text('ingredient_mapping')
+      .notNull()
+      .default('{"version":1,"status":"unknown","ingredientIds":[],"complete":false}'),
   },
   (table) => [
     primaryKey({ columns: [table.id] }),

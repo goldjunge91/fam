@@ -39,6 +39,13 @@ import {
   useRecipeCoverUrl,
 } from '../data/household-recipe-images';
 import {
+  type IngredientMappingReview,
+  type IngredientMappingSourceContext,
+  isCurrentIngredientMappingReview,
+  normalizeIngredientMappingReview,
+  UNKNOWN_INGREDIENT_MAPPING,
+} from '../domain/ingredient-mapping';
+import {
   useAddComponentMutation,
   useAddItemMutation,
   useDeleteComponentMutation,
@@ -57,6 +64,7 @@ import {
   useUpdateStepMutation,
 } from '../hooks/use-recipe-steps';
 import {
+  type ProductRow,
   useAddRecipeMutation,
   useRecipeDetail,
   useUpdateRecipeMutation,
@@ -80,7 +88,65 @@ type ResolvedIngredient = {
   grams: number;
   quantity: number;
   unit: string;
+  sourceText: string | null;
+  ingredientSource: IngredientMappingSourceContext | null;
+  ingredientMapping: IngredientMappingReview;
 };
+
+function mappingForRecipeItem(
+  item: IngredientComponentGroup['items'][number],
+): IngredientMappingReview {
+  const mapping = normalizeIngredientMappingReview(item.ingredientMapping);
+  if (
+    mapping.status === 'verified' &&
+    isCurrentIngredientMappingReview(mapping, item.mappingSource ?? null) &&
+    mapping.evidenceSnapshot === (item.mappingEvidenceSnapshot ?? '').trim()
+  )
+    return mapping;
+  return { ...UNKNOWN_INGREDIENT_MAPPING };
+}
+
+function productLabelSource(product: CatalogProduct): IngredientMappingSourceContext | null {
+  const sourceVersion = product.offLastModifiedAt ?? product.recordUpdatedAt;
+  const sourceId = product.barcode || product.productId;
+  if (!sourceVersion || !sourceId) return null;
+  return {
+    source: 'product_label',
+    sourceId,
+    sourceUrl: product.barcode
+      ? `https://world.openfoodfacts.org/product/${encodeURIComponent(product.barcode)}`
+      : null,
+    sourceVersion,
+    license: product.offLastModifiedAt ? 'ODbL' : null,
+  };
+}
+
+function storedProductLabelSource(product: ProductRow): IngredientMappingSourceContext | null {
+  const sourceVersion =
+    product.off_last_modified_at ??
+    (product.updated_at ? new Date(product.updated_at).toISOString() : null);
+  const sourceId = product.barcode || product.id;
+  if (!sourceVersion || !sourceId) return null;
+  return {
+    source: 'product_label',
+    sourceId,
+    sourceUrl: product.barcode
+      ? `https://world.openfoodfacts.org/product/${encodeURIComponent(product.barcode)}`
+      : null,
+    sourceVersion,
+    license: product.source === 'off' ? 'ODbL' : null,
+  };
+}
+
+function importSourceContext(draft: RecipeImportDraftRecord): IngredientMappingSourceContext {
+  return {
+    source: 'import_source',
+    sourceId: draft.sourceUrl ?? draft.id,
+    sourceUrl: draft.sourceUrl,
+    sourceVersion: draft.createdAt,
+    license: null,
+  };
+}
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -218,6 +284,14 @@ export function RecipeCreateScreen() {
         .filter((item) => item.component_id === component.id && item.product_id !== null)
         .map((item) => {
           const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
+          const savedMapping = item.ingredientMapping ?? { ...UNKNOWN_INGREDIENT_MAPPING };
+          const mappingSource = product ? storedProductLabelSource(product) : item.ingredientSource;
+          const currentMapping = isCurrentIngredientMappingReview(
+            savedMapping,
+            mappingSource ?? null,
+          )
+            ? savedMapping
+            : { ...UNKNOWN_INGREDIENT_MAPPING };
           return {
             id: item.id,
             product: null,
@@ -227,6 +301,11 @@ export function RecipeCreateScreen() {
             notConvertible: false,
             existingItemId: item.id,
             existingProductId: item.product_id,
+            sourceText: item.sourceText ?? null,
+            ingredientMapping: currentMapping,
+            mappingEvidenceSnapshot:
+              currentMapping.status === 'verified' ? currentMapping.evidenceSnapshot : '',
+            mappingSource,
           };
         }),
     }));
@@ -285,6 +364,11 @@ export function RecipeCreateScreen() {
             items: imported.draft.ingredients.map((ingredient) => ({
               ...newIngredient(),
               productQuery: ingredient.text,
+              sourceText: ingredient.text,
+              ingredientExtractionConfidence: ingredient.confidence,
+              ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+              mappingEvidenceSnapshot: imported.originalText ?? '',
+              mappingSource: importSourceContext(imported),
             })),
           },
         ]);
@@ -338,7 +422,17 @@ export function RecipeCreateScreen() {
         return {
           ...comp,
           items: comp.items.map((item) =>
-            item.id === ingredientId ? { ...item, product, productQuery: product.name } : item,
+            item.id === ingredientId
+              ? {
+                  ...item,
+                  product,
+                  productQuery: product.name,
+                  existingProductId: null,
+                  ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+                  mappingEvidenceSnapshot: product.ingredients ?? '',
+                  mappingSource: productLabelSource(product),
+                }
+              : item,
           ),
         };
       }),
@@ -352,10 +446,62 @@ export function RecipeCreateScreen() {
         return {
           ...comp,
           items: comp.items.map((item) =>
-            item.id === ingredientId ? { ...item, productQuery: query, product: null } : item,
+            item.id === ingredientId
+              ? {
+                  ...item,
+                  productQuery: query,
+                  product: null,
+                  existingProductId: null,
+                  ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+                  mappingEvidenceSnapshot:
+                    item.mappingSource?.source === 'import_source'
+                      ? item.mappingEvidenceSnapshot
+                      : '',
+                  mappingSource:
+                    item.mappingSource?.source === 'import_source' ? item.mappingSource : null,
+                }
+              : item,
           ),
         };
       }),
+    );
+  }
+
+  function handleIngredientMappingChange(
+    componentId: string,
+    ingredientId: string,
+    ingredientMapping: IngredientMappingReview,
+  ) {
+    setComponents((prev) =>
+      prev.map((comp) =>
+        comp.id !== componentId
+          ? comp
+          : {
+              ...comp,
+              items: comp.items.map((item) =>
+                item.id === ingredientId ? { ...item, ingredientMapping } : item,
+              ),
+            },
+      ),
+    );
+  }
+
+  function handleIngredientEvidenceChange(
+    componentId: string,
+    ingredientId: string,
+    mappingEvidenceSnapshot: string,
+  ) {
+    setComponents((prev) =>
+      prev.map((comp) =>
+        comp.id !== componentId
+          ? comp
+          : {
+              ...comp,
+              items: comp.items.map((item) =>
+                item.id === ingredientId ? { ...item, mappingEvidenceSnapshot } : item,
+              ),
+            },
+      ),
     );
   }
 
@@ -489,6 +635,9 @@ export function RecipeCreateScreen() {
             grams: conversion.grams,
             quantity,
             unit: item.unit,
+            sourceText: item.sourceText ?? null,
+            ingredientSource: item.mappingSource ?? null,
+            ingredientMapping: mappingForRecipeItem(item),
           });
         }
 
@@ -626,9 +775,13 @@ export function RecipeCreateScreen() {
                 id: resolved.existingItemId,
                 recipe_id: newRecipeId,
                 household_id: householdId,
+                product_id: productId,
                 grams: resolved.grams,
                 quantity: resolved.quantity,
                 unit: resolved.unit,
+                source_text: resolved.sourceText,
+                ingredientSource: resolved.ingredientSource,
+                ingredientMapping: resolved.ingredientMapping,
               });
               localToRealItemId.set(resolved.sourceItemId, resolved.existingItemId);
             } else {
@@ -640,6 +793,9 @@ export function RecipeCreateScreen() {
                 grams: resolved.grams,
                 quantity: resolved.quantity,
                 unit: resolved.unit,
+                source_text: resolved.sourceText,
+                ingredientSource: resolved.ingredientSource,
+                ingredientMapping: resolved.ingredientMapping,
               });
               localToRealItemId.set(resolved.sourceItemId, added.id);
             }
@@ -937,6 +1093,9 @@ export function RecipeCreateScreen() {
                 onUpdateIngredientQuery={handleUpdateIngredientQuery}
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
+                reviewerId={userId}
+                onIngredientMappingChange={handleIngredientMappingChange}
+                onIngredientEvidenceChange={handleIngredientEvidenceChange}
                 onAddComponentGroup={handleAddComponentGroup}
                 onUpdateComponentTitle={handleUpdateComponentTitle}
                 onRemoveComponentGroup={handleRemoveComponentGroup}
@@ -964,6 +1123,9 @@ export function RecipeCreateScreen() {
                 onUpdateIngredientQuery={handleUpdateIngredientQuery}
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
+                reviewerId={userId}
+                onIngredientMappingChange={handleIngredientMappingChange}
+                onIngredientEvidenceChange={handleIngredientEvidenceChange}
                 onAddComponentGroup={handleAddComponentGroup}
                 onUpdateComponentTitle={handleUpdateComponentTitle}
                 onRemoveComponentGroup={handleRemoveComponentGroup}

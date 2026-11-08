@@ -244,6 +244,55 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
   assertStringIncludes(calls[0]?.user ?? '', 'vegetarian');
 });
 
+Deno.test('cooking rejects allergen rules when recipes have no current reviewed projection', async () => {
+  const { handler, calls, bookings } = setup();
+  const response = await handler(request({
+    skill: 'fam-cook-from-inventory',
+    householdId: 'household-1',
+    userText: 'Was kann ich kochen?',
+    servings: null,
+    maxMinutes: null,
+    dietaryPattern: null,
+    allergies: ['peanuts'],
+  }));
+
+  assertEquals(response.status, 422);
+  assertEquals(await response.json(), { error: 'no_safe_recipe' });
+  assertEquals(calls, []);
+  assertEquals(bookings, []);
+});
+
+Deno.test('cooking accepts a recipe only when the projection covers the exact active allergy set', async () => {
+  const { handler, calls } = setup({
+    context: {
+      ...CONTEXT,
+      recipes: [{
+        ...CONTEXT.recipes[0]!,
+        allergenProjection: {
+          status: 'clear',
+          allergenIds: ['EU_05_PEANUTS'],
+          conflictingAllergenIds: [],
+          unknownAllergenIds: [],
+          rulesUpdatedAt: null,
+          knowledgeVersion: 'v1',
+        },
+      }],
+    },
+  });
+  const response = await handler(request({
+    skill: 'fam-cook-from-inventory',
+    householdId: 'household-1',
+    userText: 'Was kann ich kochen?',
+    servings: null,
+    maxMinutes: null,
+    dietaryPattern: null,
+    allergies: ['peanuts'],
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(calls.length, 1);
+});
+
 Deno.test('rejects provider output that invents an inventory lot', async () => {
   const { handler, refunds } = setup({
     providerContent: JSON.stringify({
@@ -592,13 +641,286 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
 
   assertEquals(response.status, 200);
   assertStringIncludes(calls[0].system, 'Beginne mit einer konkreten Idee');
-  assertStringIncludes(calls[0].system, '"conflictsWithFoodRules":false');
+  assertStringIncludes(calls[0].system, '"foodRuleStatus":"clear"');
   assertStringIncludes(calls[0].system, 'Reis');
   assertStringIncludes(calls[0].system, 'Tomatenpfanne');
   assertStringIncludes(calls[1].transcript, 'Reis');
   assertStringIncludes(calls[1].transcript, 'Tomatenpfanne');
   const body = await response.json();
   assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
+});
+
+Deno.test('assistant blocks meal proposals when current allergy coverage is unknown', async () => {
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    foodRules: {
+      allergies: ['Erdnüsse'],
+      allergyCodes: ['peanuts'],
+      intolerances: [],
+      avoidFoods: [],
+      updatedAt: '2026-11-08T10:00:00.000Z',
+    },
+  };
+  const { handler, calls } = setup({
+    context,
+    providerToolCalls: [{
+      id: 'meal-plan-call',
+      name: 'propose_meal_plan',
+      arguments: JSON.stringify({
+        meals: [{
+          date: '2026-11-09',
+          mealSlot: 'dinner',
+          recipeId: 'recipe-1',
+          portions: 2,
+          rationale: 'Passt zum Abend.',
+        }],
+      }),
+    }],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Ich kann dieses Rezept mit deinen Regeln noch nicht sicher abgleichen.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Plane Abendessen.',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  assertStringIncludes(calls[0]?.system ?? '', '"foodRuleStatus":"unknown"');
+  assertStringIncludes(calls[1]?.transcript ?? '', 'recipe_food_rules_blocked');
+  const body = await response.json();
+  assertEquals(body.result.proposals, []);
+});
+
+Deno.test('assistant does not send custom private labels to the model and reports unsupported search coverage', async () => {
+  const privateLabel = 'Meine sehr private Allergie';
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    foodRules: {
+      allergies: [privateLabel],
+      allergyCodes: [],
+      customAllergies: [privateLabel],
+      intolerances: [],
+      intoleranceCodes: [],
+      customIntolerances: [],
+      avoidFoods: [],
+      dislikedFoods: [],
+      updatedAt: '2026-11-08T10:00:00.000Z',
+    },
+  };
+  const { handler, calls } = setup({
+    context,
+    providerToolCalls: [{
+      id: 'recipe-search',
+      name: 'search_recipes',
+      arguments: '{"query":"Tomate"}',
+    }],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Ich kann gespeicherte Rezepte mit den Regeln nicht vollständig abgleichen.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was kann ich kochen?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(calls[0]?.system.includes(privateLabel), false);
+  assertEquals(calls[1]?.transcript.includes(privateLabel), false);
+  assertStringIncludes(calls[0]?.system ?? '', '"foodRuleStatus":"unsupported"');
+  assertStringIncludes(calls[1]?.transcript ?? '', '"blockedByFoodRules":true');
+  assertStringIncludes(calls[1]?.transcript ?? '', '"foodRuleStatus":"unsupported"');
+});
+
+Deno.test('assistant keeps lactose intolerance unsupported even when milk allergy evidence is clear', async () => {
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    foodRules: {
+      allergies: [],
+      allergyCodes: [],
+      customAllergies: [],
+      intolerances: ['Laktose'],
+      intoleranceCodes: ['lactose'],
+      customIntolerances: [],
+      avoidFoods: [],
+      dislikedFoods: [],
+      updatedAt: '2026-11-08T10:00:00.000Z',
+    },
+    householdRecipes: [{
+      ...CONTEXT.recipes[0]!,
+      updatedAt: '2026-11-08T10:00:00.000Z',
+      allergenProjection: {
+        status: 'clear',
+        allergenIds: ['EU_07_MILK'],
+        conflictingAllergenIds: [],
+        unknownAllergenIds: [],
+        rulesUpdatedAt: '2026-11-08T10:00:00.000Z',
+        knowledgeVersion: 'allergen-knowledge-v3',
+      },
+    }],
+  };
+  const { handler, calls } = setup({
+    context,
+    providerToolCalls: [{
+      id: 'meal-plan-call',
+      name: 'propose_meal_plan',
+      arguments: JSON.stringify({
+        meals: [{
+          date: '2026-11-09',
+          mealSlot: 'dinner',
+          recipeId: 'recipe-1',
+          portions: 2,
+          rationale: 'Passt zum Abend.',
+        }],
+      }),
+    }],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Ich kann den Plan mit den hinterlegten Regeln nicht vollständig prüfen.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Plane Abendessen.',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(calls[0]?.system.includes('Laktose'), false);
+  assertStringIncludes(calls[1]?.transcript ?? '', '"foodRuleStatus":"unsupported"');
+  assertEquals((await response.json()).result.proposals, []);
+});
+
+Deno.test('assistant asks for usable context instead of suggesting a meal when rules are active and data is empty', async () => {
+  const privateLabel = 'Private individuelle Allergie';
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    inventory: { ...CONTEXT.inventory, lots: [] },
+    recipes: [],
+    householdRecipes: [],
+    foodRules: {
+      allergies: [privateLabel],
+      allergyCodes: [],
+      customAllergies: [privateLabel],
+      intolerances: [],
+      intoleranceCodes: [],
+      customIntolerances: [],
+      avoidFoods: [],
+      dislikedFoods: [],
+      updatedAt: '2026-11-08T10:00:00.000Z',
+    },
+  };
+  const { handler, calls } = setup({
+    context,
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text:
+        'Ich habe gerade keinen Bestand oder ein Rezept zum Abgleich. Nenne mir konkrete Zutaten oder füge ein Rezept hinzu.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was kann ich heute essen?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    '"foodRules":{"active":true,"coverageStatus":"unknown"}',
+  );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'Bei aktiven Regeln ohne clear-Abgleich nenne keine konkrete Zutaten- oder Rezeptempfehlung.',
+  );
+  assertEquals(calls[0]?.system.includes(privateLabel), false);
+  assertEquals(
+    (await response.json()).result.text,
+    'Ich habe gerade keinen Bestand oder ein Rezept zum Abgleich. Nenne mir konkrete Zutaten oder füge ein Rezept hinzu.',
+  );
+});
+
+Deno.test('meal proposals carry the rule and evidence versions used by coverage', async () => {
+  const rulesUpdatedAt = '2026-11-08T10:00:00.000Z';
+  const recipeUpdatedAt = '2026-11-08T09:30:00.000Z';
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    foodRules: {
+      allergies: ['Erdnüsse'],
+      allergyCodes: ['peanuts'],
+      intolerances: [],
+      avoidFoods: [],
+      updatedAt: rulesUpdatedAt,
+    },
+    householdRecipes: [{
+      ...CONTEXT.recipes[0]!,
+      updatedAt: recipeUpdatedAt,
+      allergenProjection: {
+        status: 'clear',
+        allergenIds: ['EU_05_PEANUTS'],
+        conflictingAllergenIds: [],
+        unknownAllergenIds: [],
+        rulesUpdatedAt,
+        knowledgeVersion: 'allergen-knowledge-v3',
+      },
+    }],
+  };
+  const { handler } = setup({
+    context,
+    providerToolCalls: [{
+      id: 'meal-plan-call',
+      name: 'propose_meal_plan',
+      arguments: JSON.stringify({
+        meals: [{
+          date: '2026-11-09',
+          mealSlot: 'dinner',
+          recipeId: 'recipe-1',
+          portions: 2,
+          rationale: 'Passt zum Abend.',
+        }],
+      }),
+    }],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Der Vorschlag ist bereit zur Prüfung.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Plane Abendessen.',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  const proposal = (await response.json()).result.proposals[0];
+  assertEquals(proposal.foodRuleCoverage.status, 'clear');
+  assertEquals(proposal.foodRuleCoverage.rulesUpdatedAt, rulesUpdatedAt);
+  assertEquals(proposal.foodRuleCoverage.recipeVersions[0].recipeUpdatedAt, recipeUpdatedAt);
+  assertStringIncludes(proposal.foodRuleCoverage.recipeVersions[0].coverageVersion, rulesUpdatedAt);
 });
 
 Deno.test('assistant prompt uses available stock directly when no saved or catalog recipes exist', async () => {
@@ -632,8 +954,12 @@ Deno.test('assistant prompt uses available stock directly when no saved or catal
 
   assertEquals(response.status, 200);
   assertStringIncludes(calls[0].system, 'Wenn die Rezeptsuche leer ist');
+  assertStringIncludes(calls[0].system, '"foodRules":{"active":false,"coverageStatus":"clear"}');
   assertStringIncludes(calls[1].transcript, 'Tomate');
   const body = await response.json();
-  assertEquals(body.result.text, 'Mit deiner Tomate kannst du eine schnelle Tomatenpfanne zubereiten.');
+  assertEquals(
+    body.result.text,
+    'Mit deiner Tomate kannst du eine schnelle Tomatenpfanne zubereiten.',
+  );
   assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
 });

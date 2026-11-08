@@ -1,5 +1,6 @@
 import { File } from 'expo-file-system';
 import { AI_CONSENT_VERSION, DEFAULT_AI_MODEL } from '@/features/ai-assistant/types';
+import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient-mapping';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { RecipeImportDraft, RecipeImportMethod, RecipeImportSourceType } from '../types';
 
@@ -63,6 +64,8 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
     ingredients: value.ingredients.map((ingredient) => ({
       text: ingredient.text,
       confidence: ingredient.confidence as 'high' | 'medium' | 'low',
+      // The model's extraction confidence is never a mapping review.
+      mapping: { ...UNKNOWN_INGREDIENT_MAPPING },
     })),
     steps: value.steps,
     notes: value.notes,

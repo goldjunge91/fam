@@ -193,6 +193,70 @@ describe('pushOutbox — medizinische Einheiten', () => {
   });
 });
 
+describe('pushOutbox — Rezeptzutatenmapping', () => {
+  it('sendet lokales JSON-Textmapping als JSONB-Objekt an Supabase', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+    const ingredientMapping = {
+      version: 1,
+      status: 'unknown',
+      ingredientIds: [],
+      complete: false,
+    };
+    const remoteRow = {
+      id: 'recipe-item-1',
+      component_id: 'component-1',
+      recipe_id: 'recipe-1',
+      household_id: 'hh-1',
+      product_id: 'product-1',
+      sub_component_id: null,
+      grams: 100,
+      quantity: 1,
+      unit: 'g',
+      optional: false,
+      note: null,
+      ingredient_mapping: ingredientMapping,
+      created_at: '2026-11-08T00:00:00.000Z',
+      updated_at: '2026-11-08T00:00:01.000Z',
+      deleted_at: null,
+    };
+    const select = jest.fn().mockResolvedValue({ data: [remoteRow], error: null, status: 201 });
+    const insert = jest.fn().mockReturnValue({ select });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await enqueueMutation(db, {
+        entity: 'recipe_component_items',
+        entityId: remoteRow.id,
+        op: 'insert',
+        payload: { ...remoteRow, ingredient_mapping: JSON.stringify(ingredientMapping) },
+        now: 1,
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_component_items', 'insert', remoteRow, 1),
+      });
+
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({
+        kind: 'pushed',
+        entity: 'recipe_component_items',
+      });
+      expect(insert).toHaveBeenCalledWith(
+        expect.objectContaining({ ingredient_mapping: ingredientMapping }),
+      );
+      const local = await db.getFirstAsync<{ ingredient_mapping: string }>(
+        'select ingredient_mapping from recipe_component_items where id = ?',
+        [remoteRow.id],
+      );
+      expect(JSON.parse(local?.ingredient_mapping ?? '{}')).toEqual(ingredientMapping);
+    } finally {
+      db.close();
+    }
+  });
+});
+
 describe('pushOutbox — append-only Ledger', () => {
   it('behandelt einen wiederholten Ledger-insert idempotent ohne UPDATE-Versuch', async () => {
     const db = createTestDatabase();
