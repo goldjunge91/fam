@@ -1,21 +1,28 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
+import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { PageHeader } from '@/components/layout/page-header';
 import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import type { CatalogProduct } from '@/features/product-search/types';
+import {
+  completeRecipeImportDraft,
+  loadRecipeImportDrafts,
+} from '@/features/recipe-import/data/recipe-import-storage';
+import type { RecipeImportDraftRecord } from '@/features/recipe-import/types';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/local-client';
 import {
@@ -99,6 +106,19 @@ const styles = StyleSheet.create((theme) => ({
     height: rs(4),
     borderRadius: radius.s,
   },
+  importInfo: {
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.xs,
+    paddingBottom: theme.space.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  importSourceImage: {
+    width: rs(112),
+    height: rs(84),
+    borderRadius: theme.radius.md,
+  },
   keyboard: {
     flex: 1,
   },
@@ -113,7 +133,7 @@ const styles = StyleSheet.create((theme) => ({
 
 export function RecipeCreateScreen() {
   const { colors } = useTheme();
-  const { id } = useLocalSearchParams<{ id?: string }>();
+  const { id, importDraftId } = useLocalSearchParams<{ id?: string; importDraftId?: string }>();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
@@ -173,6 +193,8 @@ export function RecipeCreateScreen() {
   ]);
 
   const [wizardSteps, setWizardSteps] = useState<WizardStepItem[]>([newWizardStep()]);
+  const [importedDraft, setImportedDraft] = useState<RecipeImportDraftRecord | null>(null);
+  const [showOriginalText, setShowOriginalText] = useState(false);
 
   useEffect(() => {
     if (!data) return;
@@ -233,6 +255,58 @@ export function RecipeCreateScreen() {
       }));
     if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
   }, [data, reset]);
+
+  useEffect(() => {
+    if (!importDraftId || !userId || data) return;
+    let current = true;
+    void loadRecipeImportDrafts(userId)
+      .then((drafts) => {
+        if (!current) return;
+        const imported = drafts.find((candidate) => candidate.id === importDraftId);
+        if (!imported) {
+          Alert.alert(
+            'Importentwurf fehlt',
+            'Der lokal gespeicherte Entwurf ist nicht mehr verfügbar.',
+          );
+          return;
+        }
+        setImportedDraft(imported);
+        reset({
+          ...RECIPE_FORM_DEFAULTS,
+          title: imported.draft.title,
+          description: imported.draft.notes ?? '',
+          defaultServings: imported.draft.servings ?? RECIPE_FORM_DEFAULTS.defaultServings,
+        });
+        setComponents([
+          {
+            id: 'imported-ingredients',
+            title: 'Zutaten',
+            existingComponentId: null,
+            items: imported.draft.ingredients.map((ingredient) => ({
+              ...newIngredient(),
+              productQuery: ingredient.text,
+            })),
+          },
+        ]);
+        setWizardSteps(
+          imported.draft.steps.map((text) => ({
+            ...newWizardStep(),
+            text,
+          })),
+        );
+      })
+      .catch((loadError: unknown) => {
+        if (current) {
+          Alert.alert(
+            'Importentwurf konnte nicht geöffnet werden',
+            loadError instanceof Error ? loadError.message : 'Bitte versuche es erneut.',
+          );
+        }
+      });
+    return () => {
+      current = false;
+    };
+  }, [data, importDraftId, reset, userId]);
 
   async function handlePickCover() {
     const uri = await pickRecipeImage();
@@ -751,6 +825,9 @@ export function RecipeCreateScreen() {
 
       trackAnalyticsEvent(isEditing ? 'recipe.update.completed' : 'recipe.create.completed');
 
+      if (importDraftId && userId) {
+        await completeRecipeImportDraft(userId, importDraftId, newRecipeId).catch(() => undefined);
+      }
       router.replace({ pathname: '/recipe/[id]', params: { id: newRecipeId } });
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
@@ -766,7 +843,9 @@ export function RecipeCreateScreen() {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         {/* Header mit Titel (Erstellen/Bearbeiten) und Abbrechen-Button */}
         <PageHeader
-          title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
+          title={
+            importedDraft ? 'Import prüfen' : isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'
+          }
           leading={<BackButton label="Zurück" variant="header" onPress={handleCancel} />}
         />
 
@@ -782,6 +861,58 @@ export function RecipeCreateScreen() {
             />
           ))}
         </View>
+        {importedDraft ? (
+          <View style={styles.importInfo}>
+            <Txt variant="caption" weight="700">
+              {importedDraft.sourceLabel}
+            </Txt>
+            <Txt variant="caption" tone="secondary">
+              Ordne jede Zutat einem Produkt zu und ergänze eine gültige Grammmenge. Gespeichert
+              wird erst nach deiner Bestätigung.
+            </Txt>
+            {importedDraft.mediaUris[0] ? (
+              <Image
+                source={{ uri: importedDraft.mediaUris[0] }}
+                contentFit="cover"
+                style={styles.importSourceImage}
+              />
+            ) : null}
+            {importedDraft.draft.warnings.map((warning, index) =>
+              index < 3 ? (
+                <Txt key={String(index)} variant="caption" tone="secondary">
+                  {warning}
+                </Txt>
+              ) : null,
+            )}
+            {importedDraft.draft.ingredients.some(
+              (ingredient) => ingredient.confidence !== 'high',
+            ) ? (
+              <Txt variant="caption" tone="secondary">
+                Bitte prüfe die erkannten Zutaten:{' '}
+                {importedDraft.draft.ingredients
+                  .filter((ingredient) => ingredient.confidence !== 'high')
+                  .map((ingredient) => ingredient.text)
+                  .join(' · ')}
+              </Txt>
+            ) : null}
+            {importedDraft.originalText ? (
+              <>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setShowOriginalText((visible) => !visible)}>
+                  <Txt variant="caption" weight="700">
+                    {showOriginalText ? 'Originaltext ausblenden' : 'Originaltext anzeigen'}
+                  </Txt>
+                </Pressable>
+                {showOriginalText ? (
+                  <Txt variant="caption" tone="secondary" numberOfLines={8}>
+                    {importedDraft.originalText.slice(0, 1_200)}
+                  </Txt>
+                ) : null}
+              </>
+            ) : null}
+          </View>
+        ) : null}
 
         <KeyboardAvoidingView
           style={styles.keyboard}

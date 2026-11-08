@@ -191,7 +191,19 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
               </Txt>
             </View>
-            <Button title="Abo verwalten" onPress={handleManage} loading={managing} />
+            <Button
+              title="Abo verwalten"
+              onPress={handleManage}
+              loading={managing}
+              disabled={isRestoring}
+            />
+            <Button
+              title="Käufe wiederherstellen"
+              variant="secondary"
+              onPress={handleRestore}
+              loading={isRestoring}
+              disabled={managing}
+            />
 
             {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}
             {!otherOwned ? (

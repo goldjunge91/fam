@@ -79,6 +79,10 @@ Die Reihenfolge für ein neues RevenueCat-/Supabase-Setup ist:
    öffentlichen Plattform-Keys in die jeweilige Umgebung:
    `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY` (`appl_`) und
    `EXPO_PUBLIC_REVENUECAT_ANDROID_API_KEY` (`goog_`).
+   Im lokalen Test-Store verwendet die lokale Edge Function das vom SDK
+   zurückgegebene CustomerInfo. Dafür wird kein privater RevenueCat-Key und
+   keine lokale `supabase/functions/.env` benötigt. Gehostete Environments
+   lesen den Abo-Status weiterhin serverseitig mit `REVENUECAT_SECRET_API_KEY`.
 4. Das deklarative Supabase-Schema in das verknüpfte Projekt pushen und die
    Edge Function deployen. Neben dem HMAC-Secret benötigt die Function für
    bestätigte Transfer-Statusreads einen geheimen RevenueCat API-v1-Key:
@@ -146,12 +150,14 @@ supabase functions deploy revenuecat-webhook \
 ```
 
 `REVENUECAT_WEBHOOK_SECRET` prüft die HMAC-Signatur.
-`REVENUECAT_SECRET_API_KEY` autorisiert ausschließlich serverseitige
-`GET /v1/subscribers/{app_user_id}`-Statusreads für `TRANSFER`. Beide Secrets
+`REVENUECAT_SECRET_API_KEY` autorisiert serverseitige
+`GET /v1/subscribers/{app_user_id}`-Statusreads. Beide RevenueCat-Secrets
 dürfen weder im Repository noch in einer `EXPO_PUBLIC_*`-Variable stehen. Für
-den Handler werden zusätzlich `SUPABASE_URL` und `SUPABASE_SECRET_KEY`
-benötigt. Diese Werte werden von Supabase für die Function bereitgestellt und
-dürfen ebenfalls nicht in den Mobile-Client gelangen.
+Adminzugriffe verwendet der Handler den von Supabase bereitgestellten
+`SUPABASE_SECRET_KEYS['default']`-Key und unterstützt zusätzlich die Legacy-
+Variablen `SUPABASE_SERVICE_ROLE_KEY` und `SUPABASE_SECRET_KEY`. Supabase
+reserviert den Präfix `SUPABASE_` für selbst bereitgestellte Variablen; eigene
+Keys wie der RevenueCat-Key müssen daher einen anderen Präfix haben.
 
 ## RevenueCat-Dashboard konfigurieren
 

@@ -85,14 +85,17 @@ function parseSubscriberAttributes(value: unknown): Record<string, SubscriberAtt
   return attributes;
 }
 
-function hasProductionPurchase(
+function hasPermittedPurchase(
   productIdentifier: string,
   subscriptions: Record<string, RevenueCatApiSubscription>,
   nonSubscriptions: Record<string, RevenueCatApiNonSubscription[]>,
+  allowSandbox: boolean,
 ): boolean {
   const subscription = subscriptions[productIdentifier];
-  if (subscription) return !subscription.is_sandbox;
-  return nonSubscriptions[productIdentifier]?.some((purchase) => !purchase.is_sandbox) ?? false;
+  if (subscription) return allowSandbox || !subscription.is_sandbox;
+  return nonSubscriptions[productIdentifier]?.some(
+    (purchase) => allowSandbox || !purchase.is_sandbox,
+  ) ?? false;
 }
 
 function activeUntil(entitlement: RevenueCatApiEntitlement): string | null {
@@ -108,7 +111,10 @@ function isActiveAt(expiry: string | null, requestDateMs: number): boolean {
   return expiry === null || Date.parse(expiry) > requestDateMs;
 }
 
-function parseSubscriberStatus(value: unknown): RevenueCatSubscriberStatus {
+function parseSubscriberStatus(
+  value: unknown,
+  { allowSandbox = false }: { allowSandbox?: boolean } = {},
+): RevenueCatSubscriberStatus {
   if (
     !isRecord(value) ||
     typeof value.request_date_ms !== 'number' ||
@@ -148,14 +154,15 @@ function parseSubscriberStatus(value: unknown): RevenueCatSubscriberStatus {
 
     const entitlement = parseEntitlement(candidate);
     const expiresAt = activeUntil(entitlement);
-    const productionPurchase = hasProductionPurchase(
+    const permittedPurchase = hasPermittedPurchase(
       entitlement.product_identifier,
       subscriptions,
       nonSubscriptions,
+      allowSandbox,
     );
     resolvedEntitlements[entitlementId] = {
-      active: productionPurchase && isActiveAt(expiresAt, value.request_date_ms),
-      expiresAt: productionPurchase ? expiresAt : null,
+      active: permittedPurchase && isActiveAt(expiresAt, value.request_date_ms),
+      expiresAt: permittedPurchase ? expiresAt : null,
     };
   }
 
@@ -166,10 +173,11 @@ function parseSubscriberStatus(value: unknown): RevenueCatSubscriberStatus {
   };
 }
 
-/** Reads signed-off production status after a transfer webhook has passed HMAC validation. */
+/** Reads production status by default; callers may allow sandbox only for local Supabase. */
 export function createRevenueCatSubscriberStatusReader(
   secretApiKey: string | undefined,
   fetcher: typeof fetch = fetch,
+  { allowSandbox = false }: { allowSandbox?: boolean } = {},
 ): (appUserId: string) => Promise<RevenueCatSubscriberStatus> {
   return async (appUserId) => {
     if (!secretApiKey) throw new Error('RevenueCat secret API key is not configured.');
@@ -185,6 +193,6 @@ export function createRevenueCatSubscriberStatusReader(
     );
     if (!response.ok) throw new Error(`RevenueCat customer lookup failed (${response.status}).`);
 
-    return parseSubscriberStatus(await response.json());
+    return parseSubscriberStatus(await response.json(), { allowSandbox });
   };
 }

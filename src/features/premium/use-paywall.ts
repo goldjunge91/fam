@@ -15,6 +15,7 @@ import {
 import { debugWarn } from '@/lib/observability/debug-log';
 import { pollHouseholdUntilEntitlementActive } from './household-entitlement-sync';
 import { type ExtractedPaywallPlans, extractPaywallPlans, type PlanPeriod } from './paywall-plans';
+import { syncRevenueCatAiEntitlement } from './revenuecat-entitlement-sync';
 import type { PaywallTier } from './types';
 
 export interface UsePaywallResult {
@@ -103,6 +104,9 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
         });
         await refresh();
         if (userId) {
+          if (tier === 'ai') {
+            await syncRevenueCatAiEntitlement(activeHouseholdId, outcome.customerInfo);
+          }
           await pollHouseholdUntilEntitlementActive({
             tier,
             userId,
@@ -139,6 +143,9 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
         trackAnalyticsEvent('purchase.restore.completed');
         await refresh();
         if (userId) {
+          if (tier === 'ai') {
+            await syncRevenueCatAiEntitlement(activeHouseholdId, result.customerInfo);
+          }
           await pollHouseholdUntilEntitlementActive({
             tier,
             userId,

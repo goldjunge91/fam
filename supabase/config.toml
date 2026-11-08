@@ -372,6 +372,11 @@ verify_jwt = false
 [functions.ai-gateway]
 verify_jwt = true
 
+# Reconciles the signed-in RevenueCat customer against the household projection.
+# Only the local Supabase URL accepts RevenueCat sandbox purchases.
+[functions.revenuecat-entitlement-sync]
+verify_jwt = true
+
 [edge_runtime]
 enabled = true
 # Supported request policies: `oneshot`, `per_worker`.

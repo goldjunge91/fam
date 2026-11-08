@@ -3,18 +3,25 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 import {
   ALLOWED_MODELS,
   createAiGatewayHandler,
+  type GatewayCreditStatus,
   type GatewayCookingContext,
+  type GatewayFoodRules,
   type GatewayCreditAction,
   type GatewayInventoryContext,
   type GatewayLot,
   type GatewayRecipe,
+  type ProviderContentPart,
+  type ProviderTool,
 } from './handler.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
+import { isLocalSupabaseUrl } from '../_shared/revenuecat-environment.ts';
+import { requireSupabaseSecretKey } from '../_shared/env.ts';
+import { isPublicHttpsUrl, loadRecipePage } from './recipe-source.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
-const supabaseSecretKey = Deno.env.get('SUPABASE_SECRET_KEY')!;
+const supabaseSecretKey = requireSupabaseSecretKey();
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1')
   .replace(/\/$/, '');
@@ -29,7 +36,37 @@ const rateLimiter = new SlidingWindowRateLimiter(
 );
 const readRevenueCatStatus = createRevenueCatSubscriberStatusReader(
   Deno.env.get('REVENUECAT_SECRET_API_KEY'),
+  fetch,
+  { allowSandbox: isLocalSupabaseUrl(supabaseUrl) },
 );
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+const ALLERGY_RULE_LABELS: Record<string, string> = {
+  'gluten-containing-cereals': 'glutenhaltiges Getreide',
+  crustaceans: 'Krebstiere',
+  eggs: 'Eier',
+  fish: 'Fisch',
+  peanuts: 'Erdnüsse',
+  soybeans: 'Soja',
+  milk: 'Milch / Milcheiweiß',
+  'tree-nuts': 'Schalenfrüchte',
+  celery: 'Sellerie',
+  mustard: 'Senf',
+  sesame: 'Sesam',
+  'sulphur-dioxide-sulphites': 'Schwefeldioxid und Sulfite',
+  lupin: 'Lupinen',
+  molluscs: 'Weichtiere',
+};
+
+const INTOLERANCE_RULE_LABELS: Record<string, string> = {
+  lactose: 'Laktose',
+  'fructose-malabsorption': 'Fruktosemalabsorption',
+  'sorbitol-malabsorption': 'Sorbitmalabsorption',
+  'celiac-gluten': 'Zöliakie / Gluten strikt meiden',
+};
 
 function userClient(request: Request) {
   const authorization = request.headers.get('Authorization');
@@ -98,6 +135,20 @@ async function authorizeAiEntitlement(householdId: string, authorization: string
     return { ok: false as const, status: 403, error: 'ai_entitlement_missing' };
   }
 
+  if (isLocalSupabaseUrl(supabaseUrl)) {
+    const expiresAtMs = data.ai_expires_at === null ? null : Date.parse(data.ai_expires_at);
+    const locallyActive = data.ai_active && (
+      expiresAtMs === null || (Number.isFinite(expiresAtMs) && expiresAtMs > Date.now())
+    );
+    if (!locallyActive) {
+      return { ok: false as const, status: 402, error: 'ai_subscription_required' };
+    }
+    return { ok: true as const, subscriberUserId };
+  }
+
+  // Hosted environments re-check RevenueCat directly before granting AI access.
+  // The local Test Store flow has already projected verified SDK CustomerInfo into this
+  // disposable household row and must not require a RevenueCat v1 secret key.
   try {
     const status = await readRevenueCatStatus(subscriberUserId);
     const entitlement = status.entitlements.AI ?? {
@@ -187,38 +238,40 @@ async function refundAiCredit(subscriberUserId: string, requestId: string) {
   if (error) throw error;
 }
 
-function storageKind(value: unknown): GatewayLot['storage'] {
-  return value === 'fridge' || value === 'freezer' || value === 'pantry' ? value : 'unknown';
+async function getAiCreditStatus(householdId: string) {
+  const client = createClient(supabaseUrl, supabaseSecretKey);
+  const { data, error } = await client.rpc('get_ai_credit_status', {
+    p_household_id: householdId,
+  });
+  if (error) {
+    console.warn('ai_credit_status_lookup_failed');
+    return { ok: false as const, status: 503, error: 'ai_credit_status_unavailable' };
+  }
+
+  const row: unknown = Array.isArray(data) ? data[0] : null;
+  if (
+    !isRecord(row) ||
+    !Number.isInteger(row.credits_used) ||
+    !Number.isInteger(row.credits_remaining) ||
+    !Number.isInteger(row.credit_limit) ||
+    typeof row.warning_reached !== 'boolean' ||
+    typeof row.blocked !== 'boolean'
+  ) {
+    return { ok: false as const, status: 503, error: 'ai_credit_status_unavailable' };
+  }
+
+  const status: GatewayCreditStatus = {
+    creditsUsed: row.credits_used as number,
+    creditsRemaining: row.credits_remaining as number,
+    creditLimit: row.credit_limit as number,
+    warningReached: row.warning_reached,
+    blocked: row.blocked,
+  };
+  return { ok: true as const, status };
 }
 
-function classifyPerishability(tags: unknown): 'perishable' | 'unknown' {
-  const perishableSuffixes = new Set([
-    'dairy',
-    'dairy-products',
-    'eggs',
-    'fish-and-seafood',
-    'fresh-foods',
-    'fruits',
-    'fruits-and-vegetables',
-    'meat',
-    'meats',
-    'milchprodukte',
-    'poultry',
-    'refrigerated-foods',
-    'seafood',
-    'vegetables',
-    'yogurts',
-  ]);
-  if (!Array.isArray(tags)) return 'unknown';
-  const hasPerishable = tags.some((tag) => {
-    if (typeof tag !== 'string') return false;
-    const normalized = tag.trim().toLocaleLowerCase('en-US');
-    const separator = normalized.indexOf(':');
-    return perishableSuffixes.has(
-      separator === -1 ? normalized : normalized.slice(separator + 1),
-    );
-  });
-  return hasPerishable ? 'perishable' : 'unknown';
+function storageKind(value: unknown): GatewayLot['storage'] {
+  return value === 'fridge' || value === 'freezer' || value === 'pantry' ? value : 'unknown';
 }
 
 function normalizeDate(value: unknown): string | null {
@@ -229,13 +282,49 @@ function normalizeDate(value: unknown): string | null {
 }
 
 async function loadCookingContext(
-  _userId: string,
+  userId: string,
   householdId: string,
   authorization: string,
+  includePersonalFoodRules: boolean,
 ) {
   const client = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: authorization } },
   });
+
+  let foodRules: GatewayFoodRules = {
+    allergies: [],
+    intolerances: [],
+    avoidFoods: [],
+    updatedAt: null,
+  };
+  if (includePersonalFoodRules) {
+    // RLS on profile_food_rules permits this caller to see only their own row.
+    const { data: foodRuleRow, error: foodRulesError } = await client
+      .from('profile_food_rules')
+      .select('allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods, updated_at')
+      .eq('user_id', userId)
+      .maybeSingle();
+    if (foodRulesError) {
+      return {
+        ok: false as const,
+        status: 500,
+        error: 'profile_food_rules_lookup_failed',
+        message: foodRulesError.message,
+      };
+    }
+    foodRules = {
+      allergies: [
+        ...(foodRuleRow?.allergy_codes ?? []).map((code: string) => ALLERGY_RULE_LABELS[code] ?? code),
+        ...(foodRuleRow?.custom_allergies ?? []),
+      ],
+      intolerances: [
+        ...(foodRuleRow?.intolerance_codes ?? []).map((code: string) => INTOLERANCE_RULE_LABELS[code] ?? code),
+        ...(foodRuleRow?.custom_intolerances ?? []),
+      ],
+      avoidFoods: foodRuleRow?.disliked_foods ?? [],
+      updatedAt: foodRuleRow?.updated_at ?? null,
+    };
+  }
 
   const { data: inventoryRows, error: inventoryError } = await client
     .from('fridge_items')
@@ -256,42 +345,26 @@ async function loadCookingContext(
   const locationIds = [
     ...new Set(rows.map((row) => row.location_id).filter(Boolean)),
   ];
-  const productIds = [
-    ...new Set(rows.map((row) => row.product_id).filter(Boolean)),
-  ];
-  const [locationsResult, productsResult] = await Promise.all([
-    locationIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from('storage_locations').select('id, kind').in(
-        'id',
-        locationIds,
-      ),
-    productIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from('products').select('id, name, off_category_tags').in(
-        'id',
-        productIds,
-      ),
-  ]);
-  if (locationsResult.error || productsResult.error) {
+  const locationsResult = locationIds.length === 0
+    ? { data: [], error: null }
+    : await client.from('storage_locations').select('id, kind').in(
+      'id',
+      locationIds,
+    );
+  if (locationsResult.error) {
     return {
       ok: false as const,
       status: 500,
       error: 'inventory_enrichment_failed',
-      message: locationsResult.error?.message ?? productsResult.error?.message,
+      message: locationsResult.error.message,
     };
   }
 
   const locations = new Map(
     (locationsResult.data ?? []).map((row) => [row.id, row.kind]),
   );
-  const products = new Map(
-    (productsResult.data ?? []).map((row) => [row.id, row]),
-  );
   const lots: GatewayLot[] = rows
-    .map((row) => {
-      const product = row.product_id ? products.get(row.product_id) : undefined;
-      return {
+    .map((row) => ({
         lotId: row.id,
         productId: row.product_id ?? null,
         normalizedName: String(row.name).trim(),
@@ -302,11 +375,8 @@ async function loadCookingContext(
         storage: storageKind(
           row.location_id ? locations.get(row.location_id) : null,
         ),
-        perishability: classifyPerishability(product?.off_category_tags),
-      };
-    })
-    .filter((lot) => lot.normalizedName.length > 0 && lot.perishability === 'perishable')
-    .map(({ perishability: _perishability, ...lot }) => lot)
+      }))
+    .filter((lot) => lot.normalizedName.length > 0)
     .sort((a, b) => {
       const aDate = a.useBy ?? a.bestBefore;
       const bDate = b.useBy ?? b.bestBefore;
@@ -403,6 +473,108 @@ async function loadCookingContext(
     ingredients: ingredientsByRecipe.get(row.id) ?? [],
   }));
 
+  // Meal-plan entries point to household `recipes`, whereas cooking suggestions
+  // above use catalog recipe ids. Assistant apply proposals must use the former.
+  const { data: householdRecipeRows, error: householdRecipesError } = await client
+    .from('recipes')
+    .select('id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at')
+    .eq('household_id', householdId)
+    .is('deleted_at', null)
+    .order('title', { ascending: true })
+    .limit(100);
+  if (householdRecipesError) {
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'household_recipe_lookup_failed',
+      message: householdRecipesError.message,
+    };
+  }
+
+  const householdRecipeIds = (householdRecipeRows ?? []).map((row) => row.id);
+  const [componentRowsResult, householdItemRowsResult] = householdRecipeIds.length === 0
+    ? [{ data: [], error: null }, { data: [], error: null }]
+    : await Promise.all([
+      client.from('recipe_components')
+        .select('id, recipe_id, name')
+        .eq('household_id', householdId)
+        .is('deleted_at', null)
+        .in('recipe_id', householdRecipeIds),
+      client.from('recipe_component_items')
+        .select('recipe_id, product_id, sub_component_id, quantity, unit')
+        .eq('household_id', householdId)
+        .is('deleted_at', null)
+        .in('recipe_id', householdRecipeIds),
+    ]);
+  if (componentRowsResult.error || householdItemRowsResult.error) {
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'household_recipe_ingredients_lookup_failed',
+      message: componentRowsResult.error?.message ?? householdItemRowsResult.error?.message,
+    };
+  }
+
+  const componentNames = new Map(
+    (componentRowsResult.data ?? []).map((row) => [row.id, String(row.name).trim()]),
+  );
+  const householdProductIds = [
+    ...new Set((householdItemRowsResult.data ?? []).map((row) => row.product_id).filter(Boolean)),
+  ];
+  const { data: householdProducts, error: householdProductsError } = householdProductIds.length === 0
+    ? { data: [], error: null }
+    : await client.from('products').select('id, name').in('id', householdProductIds);
+  if (householdProductsError) {
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'household_recipe_products_lookup_failed',
+      message: householdProductsError.message,
+    };
+  }
+  const householdProductNames = new Map(
+    (householdProducts ?? []).map((row) => [row.id, String(row.name).trim()]),
+  );
+  const householdIngredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
+  const householdIngredientCounts = new Map<string, number>();
+  const incompleteHouseholdIngredients = new Set<string>();
+  for (const row of householdItemRowsResult.data ?? []) {
+    householdIngredientCounts.set(
+      row.recipe_id,
+      (householdIngredientCounts.get(row.recipe_id) ?? 0) + 1,
+    );
+    const name = row.product_id
+      ? String(householdProductNames.get(row.product_id) ?? '').trim()
+      : row.sub_component_id
+      ? String(componentNames.get(row.sub_component_id) ?? '').trim()
+      : '';
+    if (!name) {
+      incompleteHouseholdIngredients.add(row.recipe_id);
+      continue;
+    }
+    const ingredients = householdIngredientsByRecipe.get(row.recipe_id) ?? [];
+    ingredients.push({
+      productId: row.product_id ?? null,
+      normalizedName: name,
+      quantity: typeof row.quantity === 'number' ? row.quantity : null,
+      unit: typeof row.unit === 'string' ? row.unit : null,
+    });
+    householdIngredientsByRecipe.set(row.recipe_id, ingredients);
+  }
+  const householdRecipes: GatewayRecipe[] = (householdRecipeRows ?? []).map((row) => ({
+    recipeId: row.id,
+    title: String(row.title).trim(),
+    updatedAt: row.updated_at,
+    estimatedMinutes: (typeof row.prep_time_minutes === 'number' ? row.prep_time_minutes : 0) +
+      (typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : 0) || null,
+    servings: typeof row.default_servings === 'number' ? row.default_servings : null,
+    dietaryTags: Array.isArray(row.dietary_tags) ? row.dietary_tags : [],
+    allergens: null,
+    ingredients: householdIngredientsByRecipe.get(row.id) ?? [],
+    ingredientDataComplete: (householdIngredientCounts.get(row.id) ?? 0) > 0 &&
+      !incompleteHouseholdIngredients.has(row.id),
+  }));
+
   const context: GatewayCookingContext = {
     inventory: {
       source: 'inventory',
@@ -410,14 +582,26 @@ async function loadCookingContext(
       lots,
     } satisfies GatewayInventoryContext,
     recipes,
+    householdRecipes,
+    foodRules,
   };
   return { ok: true as const, context };
 }
 
 async function complete(
-  { model, messages }: {
+  { model, messages, tools }: {
     model: string;
-    messages: Array<{ role: 'system' | 'user'; content: string }>;
+    messages: Array<{
+      role: 'system' | 'user' | 'assistant' | 'tool';
+      content: string | ProviderContentPart[];
+      tool_call_id?: string;
+      tool_calls?: Array<{
+        id: string;
+        type: 'function';
+        function: { name: string; arguments: string };
+      }>;
+    }>;
+    tools?: ProviderTool[];
   },
 ) {
   if (!openRouterKey) {
@@ -447,6 +631,7 @@ async function complete(
         messages,
         max_tokens: 1536,
         response_format: { type: 'json_object' },
+        ...(tools ? { tools, tool_choice: 'auto' } : {}),
         ...(model === 'ibm-granite/granite-4.2-8b' ? { reasoning: { enabled: false } } : {}),
       }),
       signal: AbortSignal.timeout(
@@ -465,15 +650,37 @@ async function complete(
     };
   }
   const body = await response.json();
-  const content = body?.choices?.[0]?.message?.content;
-  if (typeof content !== 'string' || content.trim().length === 0) {
+  const assistantMessage = body?.choices?.[0]?.message;
+  const content = assistantMessage?.content;
+  const toolCalls = Array.isArray(assistantMessage?.tool_calls)
+    ? assistantMessage.tool_calls.flatMap((call: unknown) => {
+      if (!isRecord(call) || !isRecord(call.function)) return [];
+      if (
+        typeof call.id !== 'string' || call.type !== 'function' ||
+        typeof call.function.name !== 'string' ||
+        typeof call.function.arguments !== 'string'
+      ) return [];
+      return [{
+        id: call.id,
+        name: call.function.name,
+        arguments: call.function.arguments,
+      }];
+    })
+    : [];
+  if ((typeof content !== 'string' || content.trim().length === 0) && toolCalls.length === 0) {
     return {
       ok: false as const,
       status: 502,
       error: 'provider_empty_response',
     };
   }
-  return { ok: true as const, content, model, usage: body?.usage };
+  return {
+    ok: true as const,
+    content: typeof content === 'string' && content.trim().length > 0 ? content : null,
+    ...(toolCalls.length > 0 ? { toolCalls } : {}),
+    model,
+    usage: body?.usage,
+  };
 }
 
 const handler = createAiGatewayHandler({
@@ -482,7 +689,10 @@ const handler = createAiGatewayHandler({
   authorizeAiEntitlement,
   bookAiCredit,
   refundAiCredit,
+  getAiCreditStatus,
   loadCookingContext,
+  loadRecipePage,
+  validatePublicUrl: isPublicHttpsUrl,
   complete,
   isRateLimited: () => rateLimiter.isLimited(),
   recordRateLimitAttempt: () => rateLimiter.record(),
@@ -505,11 +715,17 @@ Deno.serve(async (request) => {
       },
     });
   }
+  const errorCode = response.status >= 400
+    ? await response.clone().json().then((body: unknown) =>
+      isRecord(body) && typeof body.error === 'string' ? body.error : undefined
+    ).catch(() => undefined)
+    : undefined;
   console.info(
     JSON.stringify({
       event: 'ai_gateway_request',
       method: request.method,
       status: response.status,
+      ...(errorCode ? { error: errorCode } : {}),
       durationMs: Math.round(performance.now() - startedAt),
     }),
   );

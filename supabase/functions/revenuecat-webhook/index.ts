@@ -1,4 +1,5 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { requireSupabaseSecretKey } from '../_shared/env.ts';
 
 import {
   activeAiAssignmentHouseholdId,
@@ -11,7 +12,7 @@ import { createRevenueCatSubscriberStatusReader } from './subscriber-status.ts';
 function createAdminClient() {
   return createClient(
     Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_SECRET_KEY')!,
+    requireSupabaseSecretKey(),
   );
 }
 

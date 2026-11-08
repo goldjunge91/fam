@@ -1,11 +1,11 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
-import { requireEnv } from '../_shared/env.ts';
+import { requireEnv, requireSupabaseSecretKey } from '../_shared/env.ts';
 import { createDeleteAccountHandler } from './handler.ts';
 
 const supabaseUrl = requireEnv('SUPABASE_URL');
 const anonKey = requireEnv('SUPABASE_ANON_KEY');
-const adminClient = createClient(supabaseUrl, requireEnv('SUPABASE_SECRET_KEY'));
+const adminClient = createClient(supabaseUrl, requireSupabaseSecretKey());
 
 const userClient = (authorization: string) =>
   createClient(supabaseUrl, anonKey, { global: { headers: { Authorization: authorization } } });

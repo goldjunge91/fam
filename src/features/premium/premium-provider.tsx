@@ -18,6 +18,7 @@ import {
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
 import {
+  hasAIEntitlement,
   initPurchases,
   isPurchasesConfigured,
   resetPurchasesIdentity,
@@ -29,6 +30,7 @@ import { env } from '@/lib/config/env';
 import { queryClient as defaultQueryClient } from '@/lib/data/query-client';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
+import { syncRevenueCatAiEntitlement } from './revenuecat-entitlement-sync';
 
 type PremiumContextValue = {
   /** Serverautorisierter Plus-Status des aktiven Haushalts. */
@@ -208,6 +210,12 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
               info,
               userId,
             });
+            if (hasAIEntitlement(info) && activeHouseholdId) {
+              await syncRevenueCatAiEntitlement(activeHouseholdId, info);
+              if (isCurrent()) {
+                await triggerHouseholdsPull(userId, defaultQueryClient);
+              }
+            }
           }
           if (userEmail) {
             await setPurchasesEmail(userEmail);

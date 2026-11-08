@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
+  Pressable,
   ScrollView,
   TextInput,
   useWindowDimensions,
@@ -236,6 +237,19 @@ const styles = StyleSheet.create((theme) => ({
   headerActions: {
     flexDirection: 'row',
     gap: theme.space.md,
+  },
+  aiActions: {
+    flexDirection: 'row',
+    gap: theme.space.md,
+    marginBottom: theme.space.lg,
+  },
+  aiAction: {
+    minHeight: rs(48),
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundElement,
   },
   discoverScroll: {
     flex: 1,
@@ -549,6 +563,26 @@ export function RecipesScreen() {
 
   const headerContent = (
     <>
+      {view === 'discover' || view === 'household' ? (
+        <View style={styles.aiActions}>
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push('/assistant')}
+            style={styles.aiAction}>
+            <Txt variant="body" weight="700">
+              Assistant
+            </Txt>
+          </Pressable>
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push('/recipe/import')}
+            style={styles.aiAction}>
+            <Txt variant="body" weight="700">
+              Import Recipe
+            </Txt>
+          </Pressable>
+        </View>
+      ) : null}
       {/* Aufklappbare Textsuche für Rezepttitel */}
       {showSearch ? (
         <View style={[styles.searchRow, { backgroundColor: colors.backgroundElement }]}>

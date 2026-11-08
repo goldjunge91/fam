@@ -70,6 +70,8 @@ function request(body: unknown, method = 'POST') {
 function setup(
   options: {
     providerContent?: string;
+    providerToolCalls?: Array<{ id: string; name: string; arguments: string }>;
+    context?: GatewayCookingContext;
     model?: string;
     providerModel?: string;
     rateLimited?: boolean;
@@ -82,7 +84,7 @@ function setup(
     refundThrows?: boolean;
   } = {},
 ) {
-  const calls: Array<{ model: string; system: string; user: string }> = [];
+  const calls: Array<{ model: string; system: string; user: string; transcript: string }> = [];
   const bookings: Array<{
     action: GatewayCreditAction;
     householdId: string;
@@ -134,13 +136,17 @@ function setup(
     },
     loadCookingContext: () => {
       contextReads += 1;
-      return Promise.resolve({ ok: true as const, context: CONTEXT });
+      return Promise.resolve({ ok: true as const, context: options.context ?? CONTEXT });
     },
     complete: ({ model, messages }) => {
+      const contentAsText = (content: unknown) =>
+        typeof content === 'string' ? content : JSON.stringify(content ?? '');
+      const callIndex = calls.length;
       calls.push({
         model,
-        system: messages[0]?.content ?? '',
-        user: messages[1]?.content ?? '',
+        system: contentAsText(messages[0]?.content),
+        user: contentAsText(messages[1]?.content),
+        transcript: messages.map((message) => contentAsText(message.content)).join('\n'),
       });
       if (options.providerThrows) throw new Error('provider failed');
       if (options.providerFailed) {
@@ -148,6 +154,14 @@ function setup(
           ok: false as const,
           status: 502,
           error: 'provider_unavailable',
+        });
+      }
+      if (callIndex === 0 && options.providerToolCalls) {
+        return Promise.resolve({
+          ok: true as const,
+          content: null,
+          toolCalls: options.providerToolCalls,
+          model: options.providerModel ?? model,
         });
       }
       return Promise.resolve({
@@ -506,4 +520,120 @@ Deno.test('rejects non-JSON provider output without fallback text', async () => 
 
   assertEquals(response.status, 502);
   assertEquals(await response.json(), { error: 'provider_invalid_json' });
+});
+
+Deno.test('keeps plain-text assistant output readable when the model misses its JSON envelope', async () => {
+  const { handler } = setup({ providerContent: 'Eine schnelle Gemüsepfanne mit Reis.' });
+  const response = await handler(
+    request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Nenne eine einfache Idee fürs Abendessen.',
+      history: [],
+      includeHouseholdContext: false,
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.result, {
+    kind: 'assistant_reply.v1',
+    text: 'Eine schnelle Gemüsepfanne mit Reis.',
+    suggestions: [],
+    proposals: [],
+    toolTrace: [],
+  });
+});
+
+Deno.test('assistant includes pantry stock and searches the catalog when household recipes are empty', async () => {
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    householdRecipes: [],
+    inventory: {
+      ...CONTEXT.inventory,
+      lots: [
+        ...CONTEXT.inventory.lots,
+        {
+          lotId: 'lot-rice',
+          productId: null,
+          normalizedName: 'Reis',
+          quantity: 500,
+          unit: 'g',
+          bestBefore: null,
+          useBy: null,
+          storage: 'pantry',
+        },
+      ],
+    },
+  };
+  const { handler, calls } = setup({
+    context,
+    providerToolCalls: [
+      { id: 'inventory-call', name: 'get_inventory', arguments: '{}' },
+      { id: 'recipe-call', name: 'search_recipes', arguments: '{"query":"Tomate"}' },
+    ],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Mit Tomate und Reis kannst du eine einfache Tomaten-Reis-Pfanne machen.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(
+    request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Was kann ich heute essen?',
+      history: [],
+      includeHouseholdContext: true,
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  assertStringIncludes(calls[0].system, 'Beginne mit einer konkreten Idee');
+  assertStringIncludes(calls[0].system, '"conflictsWithFoodRules":false');
+  assertStringIncludes(calls[0].system, 'Reis');
+  assertStringIncludes(calls[0].system, 'Tomatenpfanne');
+  assertStringIncludes(calls[1].transcript, 'Reis');
+  assertStringIncludes(calls[1].transcript, 'Tomatenpfanne');
+  const body = await response.json();
+  assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
+});
+
+Deno.test('assistant prompt uses available stock directly when no saved or catalog recipes exist', async () => {
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    recipes: [],
+    householdRecipes: [],
+  };
+  const { handler, calls } = setup({
+    context,
+    providerToolCalls: [
+      { id: 'inventory-call', name: 'get_inventory', arguments: '{}' },
+      { id: 'recipe-call', name: 'search_recipes', arguments: '{"query":"Abendessen"}' },
+    ],
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Mit deiner Tomate kannst du eine schnelle Tomatenpfanne zubereiten.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(
+    request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Was kann ich heute essen?',
+      history: [],
+      includeHouseholdContext: true,
+    }),
+  );
+
+  assertEquals(response.status, 200);
+  assertStringIncludes(calls[0].system, 'Wenn die Rezeptsuche leer ist');
+  assertStringIncludes(calls[1].transcript, 'Tomate');
+  const body = await response.json();
+  assertEquals(body.result.text, 'Mit deiner Tomate kannst du eine schnelle Tomatenpfanne zubereiten.');
+  assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
 });

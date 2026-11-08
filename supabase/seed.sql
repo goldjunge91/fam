@@ -25,6 +25,27 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('receipt-images', 'receipt-images', false, 5242880)
 on conflict (id) do nothing;
 
+-- Stabile EU-Allergentaxonomie aus Anhang II der Verordnung (EU) Nr. 1169/2011.
+insert into public.allergen_taxonomy (id, sort_order, legal_name_de)
+values
+  ('EU_01_GLUTEN_CEREALS', 1, 'Glutenhaltiges Getreide'),
+  ('EU_02_CRUSTACEANS', 2, 'Krebstiere'),
+  ('EU_03_EGGS', 3, 'Eier'),
+  ('EU_04_FISH', 4, 'Fische'),
+  ('EU_05_PEANUTS', 5, 'Erdnüsse'),
+  ('EU_06_SOYBEANS', 6, 'Sojabohnen'),
+  ('EU_07_MILK', 7, 'Milch und daraus gewonnene Erzeugnisse (einschließlich Laktose)'),
+  ('EU_08_NUTS', 8, 'Schalenfrüchte'),
+  ('EU_09_CELERY', 9, 'Sellerie'),
+  ('EU_10_MUSTARD', 10, 'Senf'),
+  ('EU_11_SESAME', 11, 'Sesamsamen'),
+  ('EU_12_SULPHITES', 12, 'Schwefeldioxid und Sulphite'),
+  ('EU_13_LUPIN', 13, 'Lupinen'),
+  ('EU_14_MOLLUSCS', 14, 'Weichtiere')
+on conflict (id) do update set
+  sort_order = excluded.sort_order,
+  legal_name_de = excluded.legal_name_de;
+
 -- ============================================================
 -- Basis-Produkte fuer Rezeptvorlagen (#Recipe-Templates).
 --

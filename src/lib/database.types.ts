@@ -81,6 +81,30 @@ export type Database = {
           },
         ];
       };
+      allergen_taxonomy: {
+        Row: {
+          created_at: string;
+          id: string;
+          legal_name_de: string;
+          sort_order: number;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          id: string;
+          legal_name_de: string;
+          sort_order: number;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          id?: string;
+          legal_name_de?: string;
+          sort_order?: number;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       brochure_availability: {
         Row: {
           brochure_id: string;
@@ -1006,6 +1030,86 @@ export type Database = {
           },
         ];
       };
+      food_ingredient_aliases: {
+        Row: {
+          alias: string;
+          confidence: string;
+          created_at: string;
+          id: string;
+          ingredient_id: string;
+          license: string;
+          locale: string;
+          reviewed_at: string | null;
+          reviewed_by: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at: string;
+        };
+        Insert: {
+          alias: string;
+          confidence: string;
+          created_at?: string;
+          id?: string;
+          ingredient_id: string;
+          license: string;
+          locale?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at?: string;
+        };
+        Update: {
+          alias?: string;
+          confidence?: string;
+          created_at?: string;
+          id?: string;
+          ingredient_id?: string;
+          license?: string;
+          locale?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source?: string;
+          source_id?: string;
+          source_url?: string;
+          source_version?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "food_ingredient_aliases_ingredient_id_fkey";
+            columns: ["ingredient_id"];
+            isOneToOne: false;
+            referencedRelation: "food_ingredients";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      food_ingredients: {
+        Row: {
+          canonical_name: string;
+          created_at: string;
+          id: string;
+          updated_at: string;
+        };
+        Insert: {
+          canonical_name: string;
+          created_at?: string;
+          id?: string;
+          updated_at?: string;
+        };
+        Update: {
+          canonical_name?: string;
+          created_at?: string;
+          id?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       fridge_items: {
         Row: {
           added_by: string | null;
@@ -1317,6 +1421,81 @@ export type Database = {
             columns: ["created_by"];
             isOneToOne: false;
             referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      ingredient_allergen_assessments: {
+        Row: {
+          allergen_id: string;
+          assessment: string;
+          confidence: string;
+          created_at: string;
+          evidence_sha256: string | null;
+          evidence_snapshot: string;
+          id: string;
+          ingredient_id: string;
+          license: string;
+          review_scope: string;
+          reviewed_at: string | null;
+          reviewed_by: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at: string;
+        };
+        Insert: {
+          allergen_id: string;
+          assessment: string;
+          confidence: string;
+          created_at?: string;
+          evidence_sha256?: string | null;
+          evidence_snapshot: string;
+          id?: string;
+          ingredient_id: string;
+          license: string;
+          review_scope: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at?: string;
+        };
+        Update: {
+          allergen_id?: string;
+          assessment?: string;
+          confidence?: string;
+          created_at?: string;
+          evidence_sha256?: string | null;
+          evidence_snapshot?: string;
+          id?: string;
+          ingredient_id?: string;
+          license?: string;
+          review_scope?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source?: string;
+          source_id?: string;
+          source_url?: string;
+          source_version?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ingredient_allergen_assessments_allergen_id_fkey";
+            columns: ["allergen_id"];
+            isOneToOne: false;
+            referencedRelation: "allergen_taxonomy";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ingredient_allergen_assessments_ingredient_id_fkey";
+            columns: ["ingredient_id"];
+            isOneToOne: false;
+            referencedRelation: "food_ingredients";
             referencedColumns: ["id"];
           },
         ];

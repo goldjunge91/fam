@@ -41,6 +41,15 @@ grant insert, select on public.ai_credit_bookings to service_role;
 revoke all on public.ai_credit_refunds from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_refunds to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
+revoke all on public.allergen_taxonomy, public.food_ingredients,
+  public.food_ingredient_aliases, public.ingredient_allergen_assessments
+  from anon, authenticated, service_role;
+grant select on public.allergen_taxonomy, public.food_ingredients,
+  public.food_ingredient_aliases, public.ingredient_allergen_assessments
+  to authenticated;
+grant delete, insert, select, update on public.allergen_taxonomy,
+  public.food_ingredients, public.food_ingredient_aliases,
+  public.ingredient_allergen_assessments to service_role;
 grant delete, insert, select, update on public.household_invites to anon, authenticated, service_role;
 grant delete, insert, select, update on public.child_profiles to anon, authenticated, service_role;
 grant delete, insert, select, update on public.storage_locations to anon, authenticated, service_role;
