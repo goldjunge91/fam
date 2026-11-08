@@ -9,7 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { BUTTON_DEPTH } from '@/components/theme/index';
+import { BUTTON_DEPTH, MIN_TOUCH_SIZE } from '@/components/theme/index';
 import { useGlassAvailable } from '@/components/ui/glass-card';
 import { motion } from '@/constants/motion';
 import { PRESS_SPRING, Press } from '@/constants/ui';
@@ -28,8 +28,8 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: 'transparent',
   },
   face: {
-    width: 54,
-    height: 54,
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
     borderRadius: theme.radius.lg,
     alignItems: 'center',
     justifyContent: 'center',

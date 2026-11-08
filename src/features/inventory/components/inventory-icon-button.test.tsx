@@ -18,7 +18,7 @@ jest.mock('@/components/ui/glass-card', () => ({
   useGlassAvailable: () => true,
 }));
 
-import { colorsLight } from '@/components/theme';
+import { colorsLight, MIN_TOUCH_SIZE } from '@/components/theme';
 
 import { InventoryIconButton } from './inventory-icon-button';
 
@@ -35,7 +35,9 @@ describe('InventoryIconButton', () => {
       </InventoryIconButton>,
     );
 
-    expect(screen.getByRole('button', { name: 'Artikel suchen' })).toBeOnTheScreen();
+    const button = screen.getByRole('button', { name: 'Artikel suchen' });
+    expect(button).toBeOnTheScreen();
+    expect(button).toHaveStyle({ width: MIN_TOUCH_SIZE, height: MIN_TOUCH_SIZE });
     expect(screen.getByTestId('glass-view')).toHaveStyle({
       alignItems: 'center',
       justifyContent: 'center',
