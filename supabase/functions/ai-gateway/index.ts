@@ -2,6 +2,7 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import {
   ALLOWED_MODELS,
+  GROQ_ALLOWED_MODELS,
   createAiGatewayHandler,
   type GatewayCookingContext,
   type GatewayCreditAction,
@@ -10,9 +11,9 @@ import {
   type GatewayInventoryContext,
   type GatewayLot,
   type GatewayRecipe,
-  type ProviderContentPart,
-  type ProviderTool,
+  type GatewayProvider,
 } from './handler.ts';
+import { createProviderCompleter } from './providers.ts';
 import {
   allergenIdForProfileRule,
   type EuAllergenId,
@@ -34,13 +35,42 @@ const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
 const supabaseSecretKey = requireSupabaseSecretKey();
 const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
-const openRouterBaseUrl = (Deno.env.get('OPENROUTER_BASE_URL') ?? 'https://openrouter.ai/api/v1')
-  .replace(/\/$/, '');
-const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? 'z-ai/glm-5.3-flash';
-const allowedModels = (Deno.env.get('AI_GATEWAY_ALLOWED_MODELS') ?? '')
-  .split(',')
-  .map((model) => model.trim())
-  .filter(Boolean);
+const groqKey = Deno.env.get('GROQ_API_KEY');
+const configuredProvider: GatewayProvider = Deno.env.get('AI_GATEWAY_PROVIDER') === 'groq'
+  ? 'groq'
+  : 'openrouter';
+function modelList(value: string | undefined, fallback: readonly string[]): readonly string[] {
+  const configured = (value ?? '').split(',').map((model) => model.trim()).filter(Boolean);
+  return configured.length > 0 ? configured : fallback;
+}
+const openRouterModels = modelList(
+  Deno.env.get('AI_GATEWAY_OPENROUTER_ALLOWED_MODELS') ??
+    (configuredProvider === 'openrouter' ? Deno.env.get('AI_GATEWAY_ALLOWED_MODELS') : undefined),
+  ALLOWED_MODELS,
+);
+const groqModels = modelList(
+  Deno.env.get('AI_GATEWAY_GROQ_ALLOWED_MODELS') ??
+    (configuredProvider === 'groq' ? Deno.env.get('AI_GATEWAY_ALLOWED_MODELS') : undefined),
+  GROQ_ALLOWED_MODELS,
+);
+const providerModels = { openrouter: openRouterModels, groq: groqModels };
+const providerDefaultModels: Record<GatewayProvider, string> = {
+  openrouter: 'z-ai/glm-5.3-flash',
+  groq: 'qwen/qwen3.8-27b',
+};
+const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? providerDefaultModels[configuredProvider];
+const configuredAllowedModels = configuredProvider === 'groq' ? groqModels : openRouterModels;
+const allowedModels = configuredAllowedModels;
+const providerComplete = createProviderCompleter({
+  defaultProvider: configuredProvider,
+  openRouterKey,
+  openRouterBaseUrl: Deno.env.get('OPENROUTER_BASE_URL'),
+  openRouterSiteUrl: Deno.env.get('OPENROUTER_SITE_URL'),
+  openRouterSiteName: Deno.env.get('OPENROUTER_SITE_NAME'),
+  groqKey,
+  groqBaseUrl: Deno.env.get('GROQ_BASE_URL'),
+  timeoutMs: Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 45_000),
+});
 const rateLimiter = new SlidingWindowRateLimiter(
   Number(Deno.env.get('AI_GATEWAY_RATE_LIMIT') ?? 30),
   60_000,
@@ -838,101 +868,6 @@ async function loadCookingContext(
   return { ok: true as const, context };
 }
 
-async function complete(
-  { model, messages, tools }: {
-    model: string;
-    messages: Array<{
-      role: 'system' | 'user' | 'assistant' | 'tool';
-      content: string | ProviderContentPart[];
-      tool_call_id?: string;
-      tool_calls?: Array<{
-        id: string;
-        type: 'function';
-        function: { name: string; arguments: string };
-      }>;
-    }>;
-    tools?: ProviderTool[];
-  },
-) {
-  if (!openRouterKey) {
-    return {
-      ok: false as const,
-      status: 503,
-      error: 'provider_not_configured',
-    };
-  }
-
-  let response: Response;
-  try {
-    response = await fetch(`${openRouterBaseUrl}/chat/completions`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${openRouterKey}`,
-        'Content-Type': 'application/json',
-        ...(Deno.env.get('OPENROUTER_SITE_URL')
-          ? { 'HTTP-Referer': Deno.env.get('OPENROUTER_SITE_URL')! }
-          : {}),
-        ...(Deno.env.get('OPENROUTER_SITE_NAME')
-          ? { 'X-Title': Deno.env.get('OPENROUTER_SITE_NAME')! }
-          : {}),
-      },
-      body: JSON.stringify({
-        model,
-        messages,
-        max_tokens: 1536,
-        response_format: { type: 'json_object' },
-        ...(tools ? { tools, tool_choice: 'auto' } : {}),
-        ...(model === 'ibm-granite/granite-4.2-8b' ? { reasoning: { enabled: false } } : {}),
-      }),
-      signal: AbortSignal.timeout(
-        Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 45_000),
-      ),
-    });
-  } catch {
-    return { ok: false as const, status: 502, error: 'provider_unavailable' };
-  }
-
-  if (!response.ok) {
-    return {
-      ok: false as const,
-      status: 502,
-      error: 'provider_request_failed',
-    };
-  }
-  const body = await response.json();
-  const assistantMessage = body?.choices?.[0]?.message;
-  const content = assistantMessage?.content;
-  const toolCalls = Array.isArray(assistantMessage?.tool_calls)
-    ? assistantMessage.tool_calls.flatMap((call: unknown) => {
-      if (!isRecord(call) || !isRecord(call.function)) return [];
-      if (
-        typeof call.id !== 'string' || call.type !== 'function' ||
-        typeof call.function.name !== 'string' ||
-        typeof call.function.arguments !== 'string'
-      ) return [];
-      return [{
-        id: call.id,
-        name: call.function.name,
-        arguments: call.function.arguments,
-      }];
-    })
-    : [];
-  if ((typeof content !== 'string' || content.trim().length === 0) && toolCalls.length === 0) {
-    return {
-      ok: false as const,
-      status: 502,
-      error: 'provider_empty_response',
-    };
-  }
-  return {
-    ok: true as const,
-    content: typeof content === 'string' && content.trim().length > 0 ? content : null,
-    ...(toolCalls.length > 0 ? { toolCalls } : {}),
-    model,
-    usage: body?.usage,
-  };
-}
-
 const handler = createAiGatewayHandler({
   authenticate,
   assertHouseholdMember,
@@ -943,11 +878,21 @@ const handler = createAiGatewayHandler({
   loadCookingContext,
   loadRecipePage,
   validatePublicUrl: isPublicHttpsUrl,
-  complete,
+  complete: providerComplete,
   isRateLimited: () => rateLimiter.isLimited(),
   recordRateLimitAttempt: () => rateLimiter.record(),
-  allowedModels: allowedModels.length > 0 ? allowedModels : ALLOWED_MODELS,
+  allowedModels,
   defaultModel,
+  defaultProvider: configuredProvider,
+  providerModels,
+  providerDefaultModels,
+  modelOverridesEnabled: isLocalSupabaseUrl(supabaseUrl),
+  modelTestingEnabled: isLocalSupabaseUrl(supabaseUrl),
+  modelTestModels: providerModels,
+  mediaFallback: {
+    provider: 'openrouter',
+    model: Deno.env.get('AI_GATEWAY_MEDIA_FALLBACK_MODEL') ?? 'qwen/qwen3.8-flash',
+  },
 });
 
 Deno.serve(async (request) => {

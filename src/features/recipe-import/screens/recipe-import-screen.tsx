@@ -3,13 +3,13 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Pressable, TextInput, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { getAiCreditStatus } from '@/features/ai-assistant/data/assistant-api';
 import { loadAiConsent, saveAiConsent } from '@/features/ai-assistant/data/assistant-storage';
 import { AI_CONSENT_VERSION, createLocalId } from '@/features/ai-assistant/types';
@@ -461,7 +461,7 @@ export function RecipeImportScreen() {
       </Txt>
       <View style={styles.sourceOptions}>
         {SOURCE_OPTIONS.map((option) => (
-          <Pressable
+          <Press
             key={option.value}
             accessibilityRole="button"
             accessibilityState={{ selected: sourceType === option.value }}
@@ -478,7 +478,7 @@ export function RecipeImportScreen() {
             <Txt variant="caption" weight="700">
               {option.label}
             </Txt>
-          </Pressable>
+          </Press>
         ))}
       </View>
       {sourceType === 'text' || sourceType === 'url' || sourceType === 'video' ? (
@@ -509,24 +509,24 @@ export function RecipeImportScreen() {
         <>
           <View style={styles.actionRow}>
             {sourceType === 'image' ? (
-              <Pressable
+              <Press
                 accessibilityRole="button"
                 onPress={() => void pickImages()}
                 style={styles.actionButton}>
                 <Txt variant="body" weight="700">
                   Fotos auswählen
                 </Txt>
-              </Pressable>
+              </Press>
             ) : null}
             {sourceType === 'pdf' ? (
-              <Pressable
+              <Press
                 accessibilityRole="button"
                 onPress={() => void pickPdf()}
                 style={styles.actionButton}>
                 <Txt variant="body" weight="700">
                   PDF auswählen
                 </Txt>
-              </Pressable>
+              </Press>
             ) : null}
           </View>
           {media.length > 0 ? (
@@ -574,7 +574,7 @@ export function RecipeImportScreen() {
           kostenlos.
         </Txt>
       ) : null}
-      <Pressable
+      <Press
         accessibilityRole="button"
         disabled={isImporting}
         onPress={() => void handleImport()}
@@ -586,7 +586,7 @@ export function RecipeImportScreen() {
             Import starten
           </Txt>
         )}
-      </Pressable>
+      </Press>
       {queue.length > 0 ? (
         <View style={styles.queueBlock}>
           <Txt variant="body" weight="700">
@@ -601,17 +601,17 @@ export function RecipeImportScreen() {
                 {queueStatusText(item)}
               </Txt>
               {item.status === 'duplicate' || item.status === 'imported' ? (
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   onPress={() => openQueueItem(item)}
                   style={styles.smallButton}>
                   <Txt variant="caption" weight="700">
                     {item.status === 'duplicate' ? 'Öffnen' : 'Entwurf prüfen'}
                   </Txt>
-                </Pressable>
+                </Press>
               ) : null}
               {item.status === 'failed' && item.retryInput ? (
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   disabled={isImporting}
                   onPress={() => {
@@ -622,7 +622,7 @@ export function RecipeImportScreen() {
                   <Txt variant="caption" weight="700">
                     Erneut versuchen
                   </Txt>
-                </Pressable>
+                </Press>
               ) : null}
             </View>
           ))}
@@ -665,14 +665,14 @@ export function RecipeImportScreen() {
               strukturierte Rezeptdaten geprüft. Importentwürfe bleiben verschlüsselt in deinem
               Account-Speicher auf diesem Gerät.
             </Txt>
-            <Pressable
+            <Press
               accessibilityRole="button"
               onPress={() => void handleAcceptConsent()}
               style={styles.primaryButton}>
               <Txt variant="body" weight="700" style={{ color: colors.background }}>
                 Zustimmen und fortfahren
               </Txt>
-            </Pressable>
+            </Press>
           </View>
         ) : !activeHouseholdId ? (
           <View style={styles.centered}>
@@ -706,20 +706,20 @@ export function RecipeImportScreen() {
                   </Txt>
                 ) : null}
                 <View style={styles.rowActions}>
-                  <Pressable
+                  <Press
                     accessibilityRole="button"
                     onPress={() => openDraft(item.id)}
                     style={styles.smallButton}>
                     <Txt variant="caption" weight="700">
                       Prüfen
                     </Txt>
-                  </Pressable>
-                  <Pressable
+                  </Press>
+                  <Press
                     accessibilityRole="button"
                     onPress={() => void handleDeleteDraft(item.id)}
                     style={styles.smallButton}>
                     <Txt variant="caption">Entfernen</Txt>
-                  </Pressable>
+                  </Press>
                 </View>
               </View>
             )}

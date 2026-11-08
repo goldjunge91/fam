@@ -20,6 +20,7 @@ const SECTION_KEYS = [
   'dataProtection',
   'dataProcessed',
   'thirdParties',
+  'aiProcessing',
   'permissions',
   'adsAndTracking',
   'yourRights',

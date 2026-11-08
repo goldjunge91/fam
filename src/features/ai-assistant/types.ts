@@ -15,10 +15,22 @@ export type AssistantToolName =
   | 'propose_meal_plan'
   | 'suggest_ingredient_swap';
 
+export type AssistantProposalFoodRuleCoverage = {
+  status: 'clear';
+  rulesUpdatedAt: string | null;
+  recipeVersions: Array<{
+    recipeId: string;
+    recipeUpdatedAt: string;
+    coverageVersion: string;
+  }>;
+};
+
 export type AssistantProposal =
   | {
       kind: 'meal_plan_proposal.v1';
       foodRulesUpdatedAt: string | null;
+      /** Absent only in saved conversations created before current evidence versions existed. */
+      foodRuleCoverage?: AssistantProposalFoodRuleCoverage;
       meals: Array<{
         date: string;
         mealSlot: 'breakfast' | 'lunch' | 'dinner';
@@ -33,6 +45,8 @@ export type AssistantProposal =
   | {
       kind: 'ingredient_swap_proposal.v1';
       foodRulesUpdatedAt: string | null;
+      /** Absent only in saved conversations created before current evidence versions existed. */
+      foodRuleCoverage?: AssistantProposalFoodRuleCoverage;
       recipeId: string;
       recipeTitle: string;
       ingredientName: string;

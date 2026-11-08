@@ -1,5 +1,6 @@
 import { File } from 'expo-file-system';
-import { AI_CONSENT_VERSION, DEFAULT_AI_MODEL } from '@/features/ai-assistant/types';
+import { getDevAiModelSelection } from '@/features/ai-assistant/data/dev-ai-model-selection';
+import { AI_CONSENT_VERSION } from '@/features/ai-assistant/types';
 import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient-mapping';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { RecipeImportDraft, RecipeImportMethod, RecipeImportSourceType } from '../types';
@@ -97,6 +98,7 @@ async function encodeMedia(
 
 export async function importRecipeSource(input: RecipeImportInput): Promise<RecipeImportResult> {
   const attachments = input.media ? await encodeMedia(input.media) : undefined;
+  const modelSelection = getDevAiModelSelection();
   const { data, error } = await getSupabase().functions.invoke('ai-gateway', {
     body: {
       skill: 'fam-recipe-import',
@@ -106,7 +108,7 @@ export async function importRecipeSource(input: RecipeImportInput): Promise<Reci
       ...(input.sourceText ? { sourceText: input.sourceText } : {}),
       ...(input.sourceUrl ? { sourceUrl: input.sourceUrl } : {}),
       ...(attachments ? { attachments } : {}),
-      model: DEFAULT_AI_MODEL,
+      ...(modelSelection ?? {}),
     },
   });
 

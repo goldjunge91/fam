@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 
 import { PermissionsScreen } from '@/features/settings/permissions-screen';
@@ -11,7 +11,8 @@ const privacyOptionsButton = () =>
   });
 
 async function pressPrivacyOptionsButton(): Promise<void> {
-  await act(async () => userEvent.press(privacyOptionsButton()));
+  const user = userEvent.setup();
+  await user.press(privacyOptionsButton());
 }
 
 jest.mock('react-i18next', () => ({
@@ -46,12 +47,18 @@ jest.mock('@/constants/ui', () => {
       title,
       onPress,
       loading,
+      disabled,
     }: {
       title: string;
       onPress?: () => void;
       loading?: boolean;
+      disabled?: boolean;
     }) => (
-      <NativePressable accessibilityRole="button" accessibilityLabel={title} onPress={onPress}>
+      <NativePressable
+        accessibilityRole="button"
+        accessibilityLabel={title}
+        onPress={onPress}
+        disabled={disabled || loading}>
         <NativeText>{loading ? 'loading' : title}</NativeText>
       </NativePressable>
     ),
@@ -62,7 +69,6 @@ jest.mock('@/constants/ui', () => {
 jest.mock('@/features/ads', () => ({
   showAdsPrivacyOptions: () => mockShowAdsPrivacyOptions(),
 }));
-
 jest.mock('@/features/settings/camera-permission-card', () => {
   const { Text: NativeText } = require('react-native');
   return { CameraPermissionCard: () => <NativeText>camera-permission</NativeText> };
@@ -109,6 +115,12 @@ describe('PrivacyScreen', () => {
     expect(
       screen.getByText('settings.groups.data.privacy.sections.dataProtection.title'),
     ).toBeOnTheScreen();
+    expect(
+      screen.getByText('settings.groups.data.privacy.sections.aiProcessing.title'),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByText('settings.groups.data.privacy.sections.aiProcessing.body'),
+    ).toBeOnTheScreen();
     await pressPrivacyOptionsButton();
 
     expect(mockShowAdsPrivacyOptions).toHaveBeenCalledTimes(1);
@@ -146,20 +158,13 @@ describe('PrivacyScreen', () => {
     );
     await render(<PrivacyScreen />);
     const button = privacyOptionsButton();
+    const user = userEvent.setup();
 
-    await act(async () => {
-      fireEvent.press(button);
-      await Promise.resolve();
-    });
+    await user.press(button);
     await waitFor(() => expect(mockShowAdsPrivacyOptions).toHaveBeenCalledTimes(1));
-    await act(async () => {
-      fireEvent.press(button);
-      await Promise.resolve();
-    });
-    expect(mockShowAdsPrivacyOptions).toHaveBeenCalledTimes(1);
+    expect(button).toBeDisabled();
 
     resolveOptions(true);
-    await act(async () => Promise.resolve());
-    await waitFor(() => expect(screen.queryByText('loading')).not.toBeOnTheScreen());
+    await waitFor(() => expect(button).toBeEnabled());
   });
 });

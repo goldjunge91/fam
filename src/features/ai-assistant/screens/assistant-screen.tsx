@@ -1,5 +1,5 @@
 import { FlashList } from '@shopify/flash-list';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -12,11 +12,6 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { Button, Card, IconButton, Pill, Press, Surface, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import {
-  useAddEntryMutation,
-  useEnsureMealPlanMutation,
-} from '@/features/meal-planner/use-meal-plans';
-import { getWeekStart } from '@/features/meal-planner/week';
 import { pollHouseholdUntilEntitlementActive } from '@/features/premium/household-entitlement-sync';
 import { usePremium } from '@/features/premium/premium-provider';
 import { syncRevenueCatAiEntitlement } from '@/features/premium/revenuecat-entitlement-sync';
@@ -24,19 +19,12 @@ import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-imag
 import { hasAIEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 import { getDatabase } from '@/lib/db/local-client';
 import {
-  getAiCreditStatus,
-  getOwnFoodRulesUpdatedAt,
-  sendAssistantMessage,
-} from '../data/assistant-api';
+  ApplyMealPlanProposalError,
+  applyAssistantMealPlanProposal,
+} from '../data/apply-meal-plan-proposal';
+import { getAiCreditStatus, sendAssistantMessage } from '../data/assistant-api';
+import { loadAssistantThreads, saveAssistantThreads } from '../data/assistant-storage';
 import {
-  loadAiConsent,
-  loadAssistantThreads,
-  saveAiConsent,
-  saveAssistantThreads,
-} from '../data/assistant-storage';
-import {
-  AI_CONSENT_VERSION,
-  type AiConsentRecord,
   type AssistantMessage,
   type AssistantProposal,
   type AssistantThread,
@@ -182,10 +170,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.space.sm,
     marginTop: theme.space.sm,
   },
-  consentPanel: {
-    gap: theme.space.md,
-    paddingVertical: theme.space.lg,
-  },
   centered: {
     flex: 1,
     alignItems: 'center',
@@ -300,25 +284,16 @@ function upsertThread(
     .slice(0, 20);
 }
 
-function toAiConsentRecord(): AiConsentRecord {
-  return {
-    version: AI_CONSENT_VERSION,
-    acceptedAt: new Date().toISOString(),
-  };
-}
-
 export function AssistantScreen() {
   const { colors } = useTheme();
   const { session } = useSession();
+  const queryClient = useQueryClient();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
   const { hasAI, refresh: refreshPremium } = usePremium();
-  const ensureMealPlan = useEnsureMealPlanMutation();
-  const addMealPlanEntry = useAddEntryMutation();
   const [threads, setThreads] = useState<AssistantThread[]>([]);
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
-  const [consent, setConsent] = useState<AiConsentRecord | null>(null);
   const [message, setMessage] = useState('');
   const [creditStatus, setCreditStatus] = useState<Awaited<
     ReturnType<typeof getAiCreditStatus>
@@ -342,12 +317,11 @@ export function AssistantScreen() {
 
     let current = true;
     setIsLoading(true);
-    void Promise.all([loadAssistantThreads(userId), loadAiConsent(userId)])
-      .then(([storedThreads, storedConsent]) => {
+    void loadAssistantThreads(userId)
+      .then((storedThreads) => {
         if (!current) return;
         setThreads(storedThreads);
         setActiveThreadId(storedThreads[0]?.id ?? null);
-        setConsent(storedConsent);
       })
       .catch((loadError: unknown) => {
         if (current) {
@@ -409,13 +383,6 @@ export function AssistantScreen() {
     setError(null);
   }
 
-  async function acceptConsent() {
-    if (!userId) return;
-    const nextConsent = toAiConsentRecord();
-    await saveAiConsent(userId, nextConsent);
-    setConsent(nextConsent);
-  }
-
   async function handleRestoreAiPurchases() {
     if (isRestoringPurchases) return;
     setIsRestoringPurchases(true);
@@ -473,43 +440,41 @@ export function AssistantScreen() {
 
   async function handleSend() {
     const text = message.trim();
-    if (!userId || !activeHouseholdId || !consent || !hasAI || !text || isSending) {
+    if (!userId || !activeHouseholdId || !hasAI || !text || isSending) {
       return;
     }
 
     setIsSending(true);
     setError(null);
-    const timestamp = new Date().toISOString();
-    const currentThread: AssistantThread = activeThread ?? {
-      id: createLocalId('chat'),
-      title: text.slice(0, 54),
-      model: DEFAULT_AI_MODEL,
-      messages: [],
-      createdAt: timestamp,
-      updatedAt: timestamp,
-    };
-    const userMessage: AssistantMessage = {
-      id: createLocalId('message'),
-      role: 'user',
-      text,
-      createdAt: timestamp,
-    };
-    const pendingThread: AssistantThread = {
-      ...currentThread,
-      title: currentThread.messages.length === 0 ? text.slice(0, 54) : currentThread.title,
-      model: DEFAULT_AI_MODEL,
-      messages: [...currentThread.messages, userMessage].slice(-60),
-      updatedAt: timestamp,
-    };
-    const pendingThreads = upsertThread(threads, pendingThread);
-    setActiveThreadId(pendingThread.id);
-
     try {
+      const timestamp = new Date().toISOString();
+      const currentThread: AssistantThread = activeThread ?? {
+        id: createLocalId('chat'),
+        title: text.slice(0, 54),
+        model: DEFAULT_AI_MODEL,
+        messages: [],
+        createdAt: timestamp,
+        updatedAt: timestamp,
+      };
+      const userMessage: AssistantMessage = {
+        id: createLocalId('message'),
+        role: 'user',
+        text,
+        createdAt: timestamp,
+      };
+      const pendingThread: AssistantThread = {
+        ...currentThread,
+        title: currentThread.messages.length === 0 ? text.slice(0, 54) : currentThread.title,
+        model: DEFAULT_AI_MODEL,
+        messages: [...currentThread.messages, userMessage].slice(-60),
+        updatedAt: timestamp,
+      };
+      const pendingThreads = upsertThread(threads, pendingThread);
+      setActiveThreadId(pendingThread.id);
       await persistThreads(pendingThreads);
       setMessage('');
       const reply = await sendAssistantMessage({
         householdId: activeHouseholdId,
-        model: DEFAULT_AI_MODEL,
         message: text,
         includeHouseholdContext: true,
         history: currentThread.messages.map(({ role, text: content }) => ({ role, text: content })),
@@ -525,6 +490,7 @@ export function AssistantScreen() {
       };
       const completedThread: AssistantThread = {
         ...pendingThread,
+        model: reply.model,
         messages: [...pendingThread.messages, assistantMessage].slice(-60),
         updatedAt: assistantMessage.createdAt,
       };
@@ -546,63 +512,39 @@ export function AssistantScreen() {
   ) {
     if (!userId || !activeHouseholdId || applyingProposalId) return;
     setApplyingProposalId(key);
-    let added = 0;
     try {
-      const currentFoodRulesUpdatedAt = await getOwnFoodRulesUpdatedAt();
-      if (currentFoodRulesUpdatedAt !== proposal.foodRulesUpdatedAt) {
-        Alert.alert(
-          'Ernährungsregeln wurden geändert',
-          'Erstelle bitte einen neuen Vorschlag, damit deine aktuellen Regeln berücksichtigt werden.',
-        );
-        return;
-      }
-      const db = await getDatabase();
-      for (const meal of proposal.meals) {
-        const currentRecipe = await db.getFirstAsync<{ household_id: string; updated_at: string }>(
-          `select household_id, updated_at from recipes
-           where id = ? and deleted_at is null limit 1`,
-          [meal.recipeId],
-        );
-        if (
-          !currentRecipe ||
-          currentRecipe.household_id !== activeHouseholdId ||
-          Date.parse(currentRecipe.updated_at) !== Date.parse(meal.recipeUpdatedAt)
-        ) {
-          Alert.alert(
-            'Rezept wurde geändert',
-            'Erstelle bitte einen neuen Vorschlag, damit die aktuelle Zutatenliste geprüft wird.',
-          );
-          return;
-        }
-        const plan = await ensureMealPlan.mutateAsync({
-          household_id: activeHouseholdId,
-          week_start_date: getWeekStart(meal.date),
-          created_by: userId,
-        });
-        await addMealPlanEntry.mutateAsync({
-          meal_plan_id: plan.id,
-          household_id: activeHouseholdId,
-          recipe_id: meal.recipeId,
-          entry_date: meal.date,
-          meal_slot: meal.mealSlot,
-          servings_mode: 'portions',
-          portions: meal.portions,
-          people_count: null,
-          created_by: userId,
-        });
-        added += 1;
-      }
+      const result = await applyAssistantMealPlanProposal({
+        householdId: activeHouseholdId,
+        userId,
+        proposal,
+      });
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['meal-plan'] }),
+        queryClient.invalidateQueries({ queryKey: ['meal-plan-entries'] }),
+        queryClient.invalidateQueries({ queryKey: ['meal-plan-entries-range'] }),
+        queryClient.invalidateQueries({ queryKey: ['sync-status'] }),
+      ]);
       Alert.alert(
         'Zum Wochenplan hinzugefügt',
-        `${String(added)} Mahlzeiten wurden lokal vorgemerkt.`,
+        result.addedCount === 0
+          ? 'Diese Mahlzeiten stehen bereits im Wochenplan.'
+          : `${String(result.addedCount)} Mahlzeiten wurden lokal vorgemerkt.`,
       );
-    } catch {
-      Alert.alert(
-        'Vorschlag teilweise übernommen',
-        added > 0
-          ? `${String(added)} von ${String(proposal.meals.length)} Mahlzeiten wurden hinzugefügt. Prüfe den Wochenplan.`
-          : 'Der Wochenplan konnte nicht aktualisiert werden.',
-      );
+    } catch (applyError: unknown) {
+      const message =
+        applyError instanceof ApplyMealPlanProposalError
+          ? applyError.code === 'food_rules_changed'
+            ? 'Deine Ernährungsregeln haben sich geändert. Erstelle bitte einen neuen Vorschlag.'
+            : applyError.code === 'food_rule_coverage_changed' ||
+                applyError.code === 'recipe_evidence_changed'
+              ? 'Die geprüften Zutaten-Zuordnungen haben sich geändert. Erstelle bitte einen neuen Vorschlag.'
+              : applyError.code === 'recipe_changed'
+                ? 'Ein Rezept ist nicht mehr aktuell verfügbar. Erstelle bitte einen neuen Vorschlag.'
+                : applyError.code === 'meal_slot_conflict'
+                  ? 'Mindestens ein Platz im Wochenplan ist inzwischen belegt. Prüfe den Plan und erstelle bei Bedarf einen neuen Vorschlag.'
+                  : 'Der Vorschlag ist unvollständig oder veraltet. Erstelle bitte einen neuen Vorschlag.'
+          : 'Der Wochenplan konnte nicht aktualisiert werden. Es wurde nichts übernommen.';
+      Alert.alert('Vorschlag nicht übernommen', message);
     } finally {
       setApplyingProposalId(null);
     }
@@ -736,7 +678,7 @@ export function AssistantScreen() {
         align: 'center',
         leading: <BackButton label="Zurück" variant="header" onPress={() => router.back()} />,
         trailing:
-          consent && hasAI && threads.length > 0 ? (
+          hasAI && threads.length > 0 ? (
             <IconButton
               icon="menu"
               accessibilityLabel={
@@ -760,20 +702,6 @@ export function AssistantScreen() {
         ) : !userId ? (
           <View style={styles.centered}>
             <Txt variant="body">Bitte melde dich an, um den Assistant zu verwenden.</Txt>
-          </View>
-        ) : !consent ? (
-          <View style={styles.consentPanel}>
-            <Txt variant="title" weight="700">
-              Datenverarbeitung freigeben
-            </Txt>
-            <Txt variant="body">
-              Deine Nachrichten sowie relevante Rezepte, Vorräte und hinterlegte Allergien,
-              Unverträglichkeiten und persönliche Lebensmittelregeln werden zur Antwort an einen
-              externen AI-Anbieter gesendet. fam gleicht Vorschläge mit diesen Regeln ab.
-              Verpackungsangaben und Kreuzkontamination kann fam nicht prüfen. Gespräche bleiben
-              verschlüsselt auf diesem Gerät in deinem Account-Speicher.
-            </Txt>
-            <Button title="Zustimmen und fortfahren" onPress={() => void acceptConsent()} full />
           </View>
         ) : !hasAI ? (
           <View style={styles.centered}>

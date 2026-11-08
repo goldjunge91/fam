@@ -2,6 +2,9 @@ import { assert, assertEquals, assertStringIncludes } from 'jsr:@std/assert@1';
 
 import {
   createAiGatewayHandler,
+  ALLOWED_MODELS,
+  GROQ_ALLOWED_MODELS,
+  type GatewayProvider,
   type GatewayCookingContext,
   type GatewayCreditAction,
   type GatewayInventoryContext,
@@ -56,6 +59,16 @@ const COOKING_RESULT = {
   constraintChecks: { allergies: 'pass', dietaryPattern: 'pass', time: 'pass' },
 };
 
+const RECIPE_IMPORT_RESULT = {
+  kind: 'recipe_import_draft.v1',
+  title: 'Linsensuppe',
+  servings: 4,
+  ingredients: [{ text: '200 g Linsen', confidence: 'high' }],
+  steps: ['Linsen weich kochen.'],
+  notes: null,
+  warnings: [],
+};
+
 function request(body: unknown, method = 'POST') {
   return new Request('http://localhost/ai-gateway', {
     method,
@@ -82,9 +95,22 @@ function setup(
     providerFailed?: boolean;
     providerThrows?: boolean;
     refundThrows?: boolean;
+    recipePage?:
+      | { ok: true; text: string; draft: unknown }
+      | { ok: false; status: number; error: string };
+    publicUrlAllowed?: boolean;
+    modelTestingEnabled?: boolean;
+    modelOverridesEnabled?: boolean;
   } = {},
 ) {
-  const calls: Array<{ model: string; system: string; user: string; transcript: string }> = [];
+  const calls: Array<{
+    model: string;
+    provider: GatewayProvider | undefined;
+    responseFormat: 'json_object' | null | undefined;
+    system: string;
+    user: string;
+    transcript: string;
+  }> = [];
   const bookings: Array<{
     action: GatewayCreditAction;
     householdId: string;
@@ -138,12 +164,20 @@ function setup(
       contextReads += 1;
       return Promise.resolve({ ok: true as const, context: options.context ?? CONTEXT });
     },
-    complete: ({ model, messages }) => {
+    ...(options.recipePage === undefined
+      ? {}
+      : { loadRecipePage: () => Promise.resolve(options.recipePage!) }),
+    ...(options.publicUrlAllowed === undefined
+      ? {}
+      : { validatePublicUrl: () => Promise.resolve(options.publicUrlAllowed!) }),
+    complete: ({ provider, model, messages, responseFormat }) => {
       const contentAsText = (content: unknown) =>
         typeof content === 'string' ? content : JSON.stringify(content ?? '');
       const callIndex = calls.length;
       calls.push({
         model,
+        provider,
+        responseFormat,
         system: contentAsText(messages[0]?.content),
         user: contentAsText(messages[1]?.content),
         transcript: messages.map((message) => contentAsText(message.content)).join('\n'),
@@ -172,6 +206,16 @@ function setup(
     },
     isRateLimited: () => options.rateLimited ?? false,
     defaultModel: options.model ?? 'z-ai/glm-5.3-flash',
+    defaultProvider: 'openrouter',
+    providerModels: { openrouter: ALLOWED_MODELS, groq: GROQ_ALLOWED_MODELS },
+    providerDefaultModels: {
+      openrouter: 'z-ai/glm-5.3-flash',
+      groq: 'qwen/qwen3.8-27b',
+    },
+    modelOverridesEnabled: options.modelOverridesEnabled ?? false,
+    modelTestingEnabled: options.modelTestingEnabled ?? false,
+    modelTestModels: { openrouter: ALLOWED_MODELS, groq: GROQ_ALLOWED_MODELS },
+    mediaFallback: { provider: 'openrouter', model: 'qwen/qwen3.8-flash' },
     now: () => '2026-09-01T10:00:00.000Z',
     requestId: () => 'request-1',
   });
@@ -212,6 +256,306 @@ Deno.test('rejects invalid requests and disallowed models', async () => {
   );
   assertEquals(disallowed.status, 400);
   assertEquals(calls, []);
+});
+
+Deno.test('model test endpoint is local-only, allowlisted, and does not bill household credits', async () => {
+  const payload = {
+    skill: 'fam-ai-model-test',
+    householdId: 'household-1',
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+    prompt: 'Gib mir eine kurze Linsengericht-Idee.',
+  };
+  const disabled = setup();
+  const disabledResponse = await disabled.handler(request(payload));
+  assertEquals(disabledResponse.status, 403);
+  assertEquals(await disabledResponse.json(), { error: 'model_testing_unavailable' });
+  assertEquals(disabled.calls, []);
+  assertEquals(disabled.bookings, []);
+
+  const enabled = setup({ modelTestingEnabled: true });
+  const response = await enabled.handler(request(payload));
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.skill, 'fam-ai-model-test');
+  assertEquals(body.provider, 'groq');
+  assertEquals(body.model, 'qwen/qwen3.8-27b');
+  assertEquals(body.text, JSON.stringify(COOKING_RESULT));
+  assertEquals(enabled.calls[0]?.provider, 'groq');
+  assertEquals(enabled.calls[0]?.responseFormat, null);
+  assertEquals(enabled.bookings, []);
+  assertEquals(enabled.getContextReads(), 0);
+});
+
+Deno.test('Groq free chat models are available to the local model tester', async () => {
+  for (const model of GROQ_ALLOWED_MODELS) {
+    const { handler } = setup({ modelTestingEnabled: true });
+    const response = await handler(request({
+      skill: 'fam-ai-model-test',
+      householdId: 'household-1',
+      provider: 'groq',
+      model,
+      prompt: 'Antworte kurz auf Deutsch.',
+    }));
+
+    assertEquals(response.status, 200, `Expected ${model} to be allowlisted`);
+  }
+});
+
+Deno.test('applies the local provider and model selection to the regular assistant flow', async () => {
+  const assistantOutput = {
+    kind: 'assistant_reply.v1',
+    text: 'Eine schnelle Linsenpfanne.',
+    suggestions: [],
+  };
+  const { handler, calls, bookings } = setup({
+    modelOverridesEnabled: true,
+    providerContent: JSON.stringify(assistantOutput),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was kann ich kochen?',
+    history: [],
+    includeHouseholdContext: false,
+    provider: 'groq',
+    model: 'openai/gpt-oss-120b',
+  }));
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.provider, 'groq');
+  assertEquals(body.model, 'openai/gpt-oss-120b');
+  assertEquals(calls[0]?.provider, 'groq');
+  assertEquals(calls[0]?.model, 'openai/gpt-oss-120b');
+  assertEquals(bookings.length, 1);
+});
+
+Deno.test('uses OpenRouter media fallback for Groq sources the selected model cannot accept', async () => {
+  const { handler, calls } = setup({
+    modelOverridesEnabled: true,
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'pdf',
+    attachments: [{ filename: 'recipe.pdf', mimeType: 'application/pdf', data: 'aGVsbG8=' }],
+    provider: 'groq',
+    model: 'openai/gpt-oss-120b',
+  }));
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.provider, 'openrouter');
+  assertEquals(body.model, 'qwen/qwen3.8-flash');
+  assertEquals(calls[0]?.provider, 'openrouter');
+  assertEquals(calls[0]?.model, 'qwen/qwen3.8-flash');
+});
+
+Deno.test('rejects provider and model overrides outside the local developer gateway', async () => {
+  const { handler, calls, bookings } = setup();
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was kann ich kochen?',
+    history: [],
+    includeHouseholdContext: false,
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+  }));
+
+  assertEquals(response.status, 403);
+  assertEquals(await response.json(), { error: 'model_override_unavailable' });
+  assertEquals(calls, []);
+  assertEquals(bookings, []);
+});
+
+Deno.test('recipe import validates text, links, and attachment metadata before billing', async () => {
+  const { handler, calls, bookings } = setup();
+  const base = {
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+  };
+  const validAttachment = {
+    filename: 'recipe.jpg',
+    mimeType: 'image/jpeg',
+    data: 'aGVsbG8=',
+  };
+  const invalidRequests = [
+    { ...base, sourceType: 'text' },
+    { ...base, sourceType: 'text', sourceText: ' ' },
+    { ...base, sourceType: 'text', sourceText: 'Rezept', sourceUrl: 'https://example.test' },
+    { ...base, consentVersion: 'old', sourceType: 'text', sourceText: 'Rezept' },
+    { ...base, sourceType: 'url' },
+    { ...base, sourceType: 'url', sourceUrl: 'http://example.test' },
+    { ...base, sourceType: 'url', sourceUrl: 'https://user:secret@example.test' },
+    { ...base, sourceType: 'url', sourceUrl: 'https://example.test', sourceText: 'extra' },
+    { ...base, sourceType: 'url', sourceUrl: 'not a URL' },
+    { ...base, sourceType: 'image', attachments: [] },
+    { ...base, sourceType: 'image', attachments: [null] },
+    {
+      ...base,
+      sourceType: 'image',
+      attachments: [{ ...validAttachment, filename: 'x'.repeat(101) }],
+    },
+    { ...base, sourceType: 'image', attachments: [{ ...validAttachment, data: 'not base64!' }] },
+    { ...base, sourceType: 'image', attachments: [{ ...validAttachment, mimeType: 'image/gif' }] },
+    { ...base, sourceType: 'image', attachments: [validAttachment], sourceText: 'not allowed' },
+    {
+      ...base,
+      sourceType: 'image',
+      attachments: Array.from({ length: 6 }, () => validAttachment),
+    },
+    {
+      ...base,
+      sourceType: 'image',
+      attachments: [{ ...validAttachment, data: 'a'.repeat(8_000_001) }],
+    },
+    { ...base, sourceType: 'pdf', attachments: [validAttachment, validAttachment] },
+    {
+      ...base,
+      sourceType: 'pdf',
+      attachments: [{ ...validAttachment, mimeType: 'image/jpeg' }],
+    },
+    { ...base, sourceType: 'unknown', sourceText: 'Rezept' },
+    { ...base, sourceType: 'text', sourceText: 'a'.repeat(50_001) },
+  ];
+
+  for (const payload of invalidRequests) {
+    const response = await handler(request(payload));
+    assertEquals(response.status, 400);
+    assertEquals((await response.json()).error, 'invalid_request');
+  }
+  assertEquals(calls, []);
+  assertEquals(bookings, []);
+});
+
+Deno.test('imports recipe text and sends a source-grounded recipe prompt', async () => {
+  const { handler, calls, bookings } = setup({
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'text',
+    sourceText: '  Linsen weich kochen.  ',
+    model: ' z-ai/glm-5.3-flash ',
+  }));
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.source, 'ai');
+  assertEquals(body.result, RECIPE_IMPORT_RESULT);
+  assertEquals(bookings[0]?.action, 'recipe');
+  assertStringIncludes(calls[0]?.system ?? '', 'Erfinde keine Mengen');
+  assertStringIncludes(calls[0]?.user ?? '', 'Linsen weich kochen.');
+});
+
+Deno.test('imports PDF and image attachments as media content parts', async () => {
+  const { handler, calls } = setup({
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+  for (
+    const [sourceType, mimeType, contentType] of [
+      ['pdf', 'application/pdf', 'file'],
+      ['image', 'image/png', 'image_url'],
+    ] as const
+  ) {
+    const response = await handler(request({
+      skill: 'fam-recipe-import',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      sourceType,
+      attachments: [{ filename: 'seite.png', mimeType, data: 'cGFnZQ==' }],
+    }));
+    assertEquals(response.status, 200);
+    assertStringIncludes(calls.at(-1)?.transcript ?? '', contentType);
+  }
+});
+
+Deno.test('reads structured URL imports first and falls back to safe page text', async () => {
+  const structured = setup({
+    recipePage: { ok: true, text: 'Rezept', draft: RECIPE_IMPORT_RESULT },
+  });
+  const structuredResponse = await structured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'url',
+    sourceUrl: 'https://example.test/recipe',
+  }));
+  assertEquals(structuredResponse.status, 200);
+  assertEquals((await structuredResponse.json()).source, 'structured');
+  assertEquals(structured.bookings, []);
+  assertEquals(structured.calls, []);
+
+  const extracted = setup({
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+    recipePage: { ok: true, text: 'Mehl und Wasser vermischen.', draft: null },
+  });
+  const extractedResponse = await extracted.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'url',
+    sourceUrl: 'https://example.test/recipe',
+  }));
+  assertEquals(extractedResponse.status, 200);
+  assertStringIncludes(extracted.calls[0]?.user ?? '', 'Mehl und Wasser vermischen.');
+});
+
+Deno.test('handles failed and empty recipe pages and validates video source URLs', async () => {
+  const unavailablePage = setup({
+    recipePage: { ok: false, status: 502, error: 'source_unavailable' },
+  });
+  const pageFailure = await unavailablePage.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'url',
+    sourceUrl: 'https://example.test/recipe',
+  }));
+  assertEquals(pageFailure.status, 502);
+
+  const emptyPage = setup({ recipePage: { ok: true, text: '  ', draft: null } });
+  const noText = await emptyPage.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'url',
+    sourceUrl: 'https://example.test/recipe',
+  }));
+  assertEquals(noText.status, 422);
+
+  const unsafeVideo = setup();
+  const rejectedVideo = await unsafeVideo.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'video',
+    sourceUrl: 'https://video.example/reel',
+  }));
+  assertEquals(rejectedVideo.status, 400);
+
+  const video = setup({
+    publicUrlAllowed: true,
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+  const importedVideo = await video.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    sourceType: 'video',
+    sourceUrl: 'https://video.example/reel',
+  }));
+  assertEquals(importedVideo.status, 200);
+  assertStringIncludes(video.calls[0]?.transcript ?? '', 'video_url');
 });
 
 Deno.test('builds a cooking prompt from gateway context and returns validated JSON', async () => {
@@ -921,6 +1265,116 @@ Deno.test('meal proposals carry the rule and evidence versions used by coverage'
   assertEquals(proposal.foodRuleCoverage.rulesUpdatedAt, rulesUpdatedAt);
   assertEquals(proposal.foodRuleCoverage.recipeVersions[0].recipeUpdatedAt, recipeUpdatedAt);
   assertStringIncludes(proposal.foodRuleCoverage.recipeVersions[0].coverageVersion, rulesUpdatedAt);
+});
+
+Deno.test('validates proposal evidence without an AI entitlement, provider call, or credit', async () => {
+  const recipeUpdatedAt = '2026-11-08T09:30:00.000Z';
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    recipes: [{ ...CONTEXT.recipes[0]!, updatedAt: recipeUpdatedAt }],
+  };
+  const { handler, bookings, calls, getContextReads } = setup({
+    context,
+    entitlementAllowed: false,
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant-proposal-validation',
+    householdId: 'household-1',
+    foodRulesUpdatedAt: null,
+    coverageRulesUpdatedAt: null,
+    recipeIds: ['recipe-1'],
+    recipeVersions: [{
+      recipeId: 'recipe-1',
+      recipeUpdatedAt,
+      coverageVersion: JSON.stringify({
+        rulesUpdatedAt: null,
+        knowledgeVersion: null,
+        ingredientMappingVersion: null,
+        aliasSourceVersions: [],
+      }),
+    }],
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), {
+    skill: 'fam-assistant-proposal-validation',
+    valid: true,
+  });
+  assertEquals(getContextReads(), 1);
+  assertEquals(bookings, []);
+  assertEquals(calls, []);
+});
+
+Deno.test('rejects a proposal when private food-rule version changed', async () => {
+  const { handler, bookings, calls } = setup({
+    context: {
+      ...CONTEXT,
+      foodRules: {
+        allergies: [],
+        intolerances: [],
+        avoidFoods: [],
+        updatedAt: '2026-11-08T10:00:00.000Z',
+      },
+    },
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant-proposal-validation',
+    householdId: 'household-1',
+    foodRulesUpdatedAt: null,
+    coverageRulesUpdatedAt: null,
+    recipeIds: ['recipe-1'],
+    recipeVersions: [{
+      recipeId: 'recipe-1',
+      recipeUpdatedAt: '2026-11-08T09:30:00.000Z',
+      coverageVersion: 'old-evidence',
+    }],
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), {
+    skill: 'fam-assistant-proposal-validation',
+    valid: false,
+    reason: 'food_rules_changed',
+  });
+  assertEquals(bookings, []);
+  assertEquals(calls, []);
+});
+
+Deno.test('rejects a proposal when current ingredient-mapping evidence changed', async () => {
+  const recipeUpdatedAt = '2026-11-08T09:30:00.000Z';
+  const context: GatewayCookingContext = {
+    ...CONTEXT,
+    recipes: [{
+      ...CONTEXT.recipes[0]!,
+      updatedAt: recipeUpdatedAt,
+      ingredientMappingVersion: 'current-mapping-v2',
+    }],
+  };
+  const { handler } = setup({ context });
+  const response = await handler(request({
+    skill: 'fam-assistant-proposal-validation',
+    householdId: 'household-1',
+    foodRulesUpdatedAt: null,
+    coverageRulesUpdatedAt: null,
+    recipeIds: ['recipe-1'],
+    recipeVersions: [{
+      recipeId: 'recipe-1',
+      recipeUpdatedAt,
+      coverageVersion: JSON.stringify({
+        rulesUpdatedAt: null,
+        knowledgeVersion: null,
+        ingredientMappingVersion: null,
+        aliasSourceVersions: [],
+      }),
+    }],
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(await response.json(), {
+    skill: 'fam-assistant-proposal-validation',
+    valid: false,
+    reason: 'recipe_evidence_changed',
+  });
 });
 
 Deno.test('assistant prompt uses available stock directly when no saved or catalog recipes exist', async () => {

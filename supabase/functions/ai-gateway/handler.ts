@@ -28,13 +28,25 @@ export const ALLOWED_MODELS = [
   'minimax/minimax-m3:free',
 ] as const;
 
+export const GROQ_ALLOWED_MODELS = [
+  'qwen/qwen3.8-27b',
+  'openai/gpt-oss-120b',
+  'openai/gpt-oss-20b',
+  'openai/gpt-oss-safeguard-20b',
+  'meta-llama/llama-prompt-guard-2-22m',
+  'meta-llama/llama-prompt-guard-2-86m',
+] as const;
+
+export type GatewayProvider = 'openrouter' | 'groq';
+
+type ModelSelection = { provider?: GatewayProvider; model?: string };
+
 type CaptureRequest = {
   skill: 'fam-inventory-capture';
   householdId: string;
   text: string;
   locale: 'de-DE';
-  model?: string;
-};
+} & ModelSelection;
 
 type CookingRequest = {
   skill: 'fam-cook-from-inventory';
@@ -44,8 +56,7 @@ type CookingRequest = {
   maxMinutes: number | null;
   dietaryPattern: string | null;
   allergies: string[];
-  model?: string;
-};
+} & ModelSelection;
 
 type AssistantRequest = {
   skill: 'fam-assistant';
@@ -54,8 +65,7 @@ type AssistantRequest = {
   message: string;
   history: Array<{ role: 'user' | 'assistant'; text: string }>;
   includeHouseholdContext: boolean;
-  model?: string;
-};
+} & ModelSelection;
 
 type RecipeImportAttachment = {
   filename: string;
@@ -71,12 +81,32 @@ type RecipeImportRequest = {
   sourceText?: string;
   sourceUrl?: string;
   attachments?: RecipeImportAttachment[];
-  model?: string;
+} & ModelSelection;
+
+type AiModelTestRequest = {
+  skill: 'fam-ai-model-test';
+  householdId: string;
+  provider: GatewayProvider;
+  model: string;
+  prompt: string;
 };
 
 type CreditStatusRequest = {
   skill: 'fam-ai-credit-status';
   householdId: string;
+};
+
+type AssistantProposalValidationRequest = {
+  skill: 'fam-assistant-proposal-validation';
+  householdId: string;
+  foodRulesUpdatedAt: string | null;
+  coverageRulesUpdatedAt: string | null;
+  recipeIds: string[];
+  recipeVersions: Array<{
+    recipeId: string;
+    recipeUpdatedAt: string;
+    coverageVersion: string;
+  }>;
 };
 
 export type GatewayCreditStatus = {
@@ -102,9 +132,14 @@ export type GatewayRequest =
   | CookingRequest
   | AssistantRequest
   | RecipeImportRequest
-  | CreditStatusRequest;
+  | AssistantProposalValidationRequest
+  | CreditStatusRequest
+  | AiModelTestRequest;
 
-type ModelGatewayRequest = Exclude<GatewayRequest, CreditStatusRequest>;
+type ModelGatewayRequest = Exclude<
+  GatewayRequest,
+  CreditStatusRequest | AssistantProposalValidationRequest | AiModelTestRequest
+>;
 
 export type ProviderContentPart =
   | { type: 'text'; text: string }
@@ -112,7 +147,7 @@ export type ProviderContentPart =
   | { type: 'file'; file: { filename: string; file_data: string } }
   | { type: 'video_url'; video_url: { url: string } };
 
-type ProviderMessage = {
+export type ProviderMessage = {
   role: 'system' | 'user' | 'assistant' | 'tool';
   content: string | ProviderContentPart[];
   tool_call_id?: string;
@@ -278,7 +313,7 @@ type RecipePageResult =
   | { ok: true; text: string; draft: unknown }
   | { ok: false; status: number; error: string };
 
-type ProviderResult =
+export type ProviderResult =
   | {
     ok: true;
     content: string | null;
@@ -317,15 +352,26 @@ type Dependencies = {
   loadRecipePage?: (url: string) => Promise<RecipePageResult>;
   validatePublicUrl?: (url: string) => Promise<boolean>;
   complete: (input: {
+    provider?: GatewayProvider;
     model: string;
     messages: ProviderMessage[];
     tools?: ProviderTool[];
+    responseFormat?: 'json_object' | null;
+    maxTokens?: number;
   }) => Promise<ProviderResult>;
   isRateLimited?: () => boolean;
   recordRateLimitAttempt?: () => void;
   allowedModels?: readonly string[];
   defaultModel?: string;
+  defaultProvider?: GatewayProvider;
+  providerModels?: Partial<Record<GatewayProvider, readonly string[]>>;
+  providerDefaultModels?: Partial<Record<GatewayProvider, string>>;
+  modelOverridesEnabled?: boolean;
+  modelTestingEnabled?: boolean;
+  modelTestModels?: Partial<Record<GatewayProvider, readonly string[]>>;
+  mediaFallback?: { provider: GatewayProvider; model: string };
   now?: () => string;
+  nowMilliseconds?: () => number;
   requestId?: () => string;
 };
 
@@ -377,6 +423,17 @@ function isRecipeImportAttachment(value: unknown): value is RecipeImportAttachme
     value.data.length <= 8_000_000;
 }
 
+function parseModelSelection(value: Record<string, unknown>): ModelSelection | null {
+  const hasProvider = value.provider !== undefined;
+  const hasModel = value.model !== undefined;
+  if (!hasProvider && !hasModel) return {};
+  if (!hasModel || !nonEmptyString(value.model)) return null;
+  if (!hasProvider) return { model: value.model.trim() };
+  return value.provider === 'openrouter' || value.provider === 'groq'
+    ? { provider: value.provider, model: value.model.trim() }
+    : null;
+}
+
 function parseRequest(value: unknown): GatewayRequest | null {
   if (
     !isRecord(value) || !nonEmptyString(value.skill) ||
@@ -392,12 +449,77 @@ function parseRequest(value: unknown): GatewayRequest | null {
       : null;
   }
 
+  if (value.skill === 'fam-assistant-proposal-validation') {
+    const allowedKeys = new Set([
+      'skill',
+      'householdId',
+      'foodRulesUpdatedAt',
+      'coverageRulesUpdatedAt',
+      'recipeIds',
+      'recipeVersions',
+    ]);
+    if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
+    if (
+      !(typeof value.foodRulesUpdatedAt === 'string' || value.foodRulesUpdatedAt === null) ||
+      !(typeof value.coverageRulesUpdatedAt === 'string' ||
+        value.coverageRulesUpdatedAt === null) ||
+      !Array.isArray(value.recipeIds) || value.recipeIds.length < 1 || value.recipeIds.length > 7 ||
+      !value.recipeIds.every(nonEmptyString) ||
+      new Set(value.recipeIds).size !== value.recipeIds.length ||
+      !Array.isArray(value.recipeVersions) ||
+      value.recipeVersions.length !== value.recipeIds.length ||
+      !value.recipeVersions.every((entry) =>
+        isRecord(entry) &&
+        Object.keys(entry).length === 3 &&
+        nonEmptyString(entry.recipeId) &&
+        nonEmptyString(entry.recipeUpdatedAt) &&
+        entry.recipeUpdatedAt.length <= 80 &&
+        nonEmptyString(entry.coverageVersion) &&
+        entry.coverageVersion.length <= 4_000
+      )
+    ) return null;
+
+    return {
+      skill: value.skill,
+      householdId: value.householdId.trim(),
+      foodRulesUpdatedAt: value.foodRulesUpdatedAt,
+      coverageRulesUpdatedAt: value.coverageRulesUpdatedAt,
+      recipeIds: value.recipeIds.map((id) => id.trim()),
+      recipeVersions: value.recipeVersions.map((entry) => ({
+        recipeId: (entry as Record<string, string>).recipeId.trim(),
+        recipeUpdatedAt: (entry as Record<string, string>).recipeUpdatedAt,
+        coverageVersion: (entry as Record<string, string>).coverageVersion,
+      })),
+    };
+  }
+
+  if (value.skill === 'fam-ai-model-test') {
+    const allowedKeys = new Set(['skill', 'householdId', 'provider', 'model', 'prompt']);
+    if (
+      Object.keys(value).some((key) => !allowedKeys.has(key)) ||
+      (value.provider !== 'openrouter' && value.provider !== 'groq') ||
+      !nonEmptyString(value.model) || value.model.length > 160 ||
+      !nonEmptyString(value.prompt) || value.prompt.length > 2_000
+    ) return null;
+    return {
+      skill: value.skill,
+      householdId: value.householdId.trim(),
+      provider: value.provider,
+      model: value.model.trim(),
+      prompt: value.prompt.trim(),
+    };
+  }
+
+  const modelSelection = parseModelSelection(value);
+  if (!modelSelection) return null;
+
   if (value.skill === 'fam-inventory-capture') {
     const allowedKeys = new Set([
       'skill',
       'householdId',
       'text',
       'locale',
+      'provider',
       'model',
     ]);
     if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
@@ -407,7 +529,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
         householdId: value.householdId.trim(),
         text: value.text.trim(),
         locale: 'de-DE',
-        ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+        ...modelSelection,
       }
       : null;
   }
@@ -420,6 +542,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
       'message',
       'history',
       'includeHouseholdContext',
+      'provider',
       'model',
     ]);
     if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
@@ -441,7 +564,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
         text: item.text,
       })),
       includeHouseholdContext: value.includeHouseholdContext,
-      ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+      ...modelSelection,
     };
   }
 
@@ -454,6 +577,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
       'sourceText',
       'sourceUrl',
       'attachments',
+      'provider',
       'model',
     ]);
     if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
@@ -470,7 +594,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
           consentVersion: value.consentVersion,
           sourceType: value.sourceType,
           sourceText: value.sourceText.trim(),
-          ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+          ...modelSelection,
         }
         : null;
     }
@@ -497,7 +621,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
         consentVersion: value.consentVersion,
         sourceType: value.sourceType,
         sourceUrl: sourceUrl.toString(),
-        ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+        ...modelSelection,
       };
     }
 
@@ -525,7 +649,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
         consentVersion: value.consentVersion,
         sourceType: value.sourceType,
         attachments: value.attachments,
-        ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+        ...modelSelection,
       };
     }
     return null;
@@ -540,6 +664,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
     'maxMinutes',
     'dietaryPattern',
     'allergies',
+    'provider',
     'model',
   ]);
   if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
@@ -564,7 +689,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
       maxMinutes: value.maxMinutes,
       dietaryPattern: value.dietaryPattern === null ? null : value.dietaryPattern.trim(),
       allergies: value.allergies.map((allergy) => allergy.trim()),
-      ...(nonEmptyString(value.model) ? { model: value.model.trim() } : {}),
+      ...modelSelection,
     }
     : null;
 }
@@ -576,6 +701,24 @@ function modelFor(
 ): string | null {
   const model = requestedModel ?? defaultModel;
   return allowedModels.includes(model) ? model : null;
+}
+
+function supportsRecipeSource(
+  request: RecipeImportRequest,
+  provider: GatewayProvider,
+  model: string,
+): boolean {
+  if (request.sourceType === 'text' || request.sourceType === 'url') return true;
+  if (provider === 'groq') {
+    return request.sourceType === 'image' && model === 'qwen/qwen3.8-27b' &&
+      (request.attachments?.length ?? 0) <= 3;
+  }
+  return [
+    'z-ai/glm-5.3-flash',
+    'qwen/qwen3.8-flash',
+    'google/gemma-4-26b-a4b-it',
+    'google/gemma-4-31b-it',
+  ].includes(model);
 }
 
 function creditActionFor(request: ModelGatewayRequest): GatewayCreditAction {
@@ -933,6 +1076,59 @@ function foodRuleCoverageForRecipe(
   });
 }
 
+function validateAssistantProposalSnapshot(
+  request: AssistantProposalValidationRequest,
+  context: GatewayCookingContext,
+): { valid: true } | { valid: false; reason: string } {
+  if (request.foodRulesUpdatedAt !== request.coverageRulesUpdatedAt) {
+    return { valid: false, reason: 'invalid_proposal_snapshot' };
+  }
+
+  const rules = context.foodRules ?? {
+    allergies: [],
+    intolerances: [],
+    avoidFoods: [],
+    updatedAt: null,
+  };
+  if (rules.updatedAt !== request.foodRulesUpdatedAt) {
+    return { valid: false, reason: 'food_rules_changed' };
+  }
+
+  const recipeIds = new Set(request.recipeIds);
+  const versionsById = new Map(
+    request.recipeVersions.map((version) => [version.recipeId, version]),
+  );
+  if (
+    versionsById.size !== request.recipeVersions.length ||
+    recipeIds.size !== versionsById.size ||
+    [...recipeIds].some((recipeId) => !versionsById.has(recipeId))
+  ) {
+    return { valid: false, reason: 'invalid_proposal_snapshot' };
+  }
+
+  const availableRecipes = context.householdRecipes ?? context.recipes;
+  for (const recipeId of recipeIds) {
+    const expected = versionsById.get(recipeId);
+    const recipe = availableRecipes.find((candidate) => candidate.recipeId === recipeId);
+    if (!expected || !recipe || !recipe.updatedAt) {
+      return { valid: false, reason: 'recipe_changed' };
+    }
+
+    const coverage = foodRuleCoverageForRecipe(recipe, rules);
+    if (coverage.status !== 'clear') {
+      return { valid: false, reason: 'food_rule_coverage_changed' };
+    }
+    if (
+      recipe.updatedAt !== expected.recipeUpdatedAt ||
+      coverage.coverageVersion !== expected.coverageVersion
+    ) {
+      return { valid: false, reason: 'recipe_evidence_changed' };
+    }
+  }
+
+  return { valid: true };
+}
+
 function recipeConflictsWithFoodRules(recipe: GatewayRecipe, rules: GatewayFoodRules): boolean {
   return foodRuleCoverageForRecipe(recipe, rules).status !== 'clear';
 }
@@ -1022,6 +1218,7 @@ function runAssistantTool(
       AssistantProposal,
       { kind: 'meal_plan_proposal.v1' }
     >['foodRuleCoverage']['recipeVersions'] = [];
+    const versionedRecipeIds = new Set<string>();
     const seenSlots = new Set<string>();
     let weekStart: string | null = null;
     for (const candidate of args.meals) {
@@ -1050,6 +1247,7 @@ function runAssistantTool(
           },
         };
       }
+      if (!recipe.updatedAt) return { result: { error: 'recipe_version_unavailable' } };
       const currentWeekStart = isoWeekStart(candidate.date);
       if (weekStart !== null && weekStart !== currentWeekStart) {
         return { result: { error: 'meals_must_belong_to_one_week' } };
@@ -1067,11 +1265,14 @@ function runAssistantTool(
         portions: candidate.portions,
         rationale: candidate.rationale.trim(),
       });
-      recipeVersions.push({
-        recipeId: recipe.recipeId,
-        recipeUpdatedAt: recipe.updatedAt ?? '',
-        coverageVersion: coverage.coverageVersion,
-      });
+      if (!versionedRecipeIds.has(recipe.recipeId)) {
+        versionedRecipeIds.add(recipe.recipeId);
+        recipeVersions.push({
+          recipeId: recipe.recipeId,
+          recipeUpdatedAt: recipe.updatedAt ?? '',
+          coverageVersion: coverage.coverageVersion,
+        });
+      }
     }
     const proposal: AssistantProposal = {
       kind: 'meal_plan_proposal.v1',
@@ -1435,7 +1636,9 @@ function validateCookingResult(
 export function createAiGatewayHandler(dependencies: Dependencies) {
   const allowedModels = dependencies.allowedModels ?? ALLOWED_MODELS;
   const defaultModel = dependencies.defaultModel ?? 'z-ai/glm-5.3-flash';
+  const defaultProvider = dependencies.defaultProvider ?? 'openrouter';
   const now = dependencies.now ?? (() => new Date().toISOString());
+  const nowMilliseconds = dependencies.nowMilliseconds ?? (() => Date.now());
   const requestId = dependencies.requestId ?? (() => crypto.randomUUID());
 
   return async (request: Request): Promise<Response> => {
@@ -1476,6 +1679,50 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       }, member.status);
     }
 
+    if (parsedRequest.skill === 'fam-ai-model-test') {
+      if (!dependencies.modelTestingEnabled) {
+        return json({ error: 'model_testing_unavailable' }, 403);
+      }
+      const modelTestModels = dependencies.modelTestModels?.[parsedRequest.provider] ?? [];
+      if (!modelTestModels.includes(parsedRequest.model)) {
+        return json({ error: 'model_not_allowed' }, 400);
+      }
+      if (dependencies.isRateLimited?.()) return json({ error: 'rate_limited' }, 429);
+      dependencies.recordRateLimitAttempt?.();
+
+      const startedAt = nowMilliseconds();
+      let result: ProviderResult;
+      try {
+        result = await dependencies.complete({
+          provider: parsedRequest.provider,
+          model: parsedRequest.model,
+          messages: [
+            {
+              role: 'system',
+              content: 'Du bist fams Kochassistent. Antworte auf Deutsch, freundlich und knapp. Für diesen Modelltest hast du keinen Zugriff auf Vorräte, Rezepte oder Haushaltsregeln. Erfinde keinen solchen Zugriff.',
+            },
+            { role: 'user', content: parsedRequest.prompt },
+          ],
+          responseFormat: null,
+          maxTokens: 1_024,
+        });
+      } catch {
+        return json({ error: 'provider_unavailable' }, 502);
+      }
+      if (!result.ok) return json({ error: result.error }, result.status);
+      if (!nonEmptyString(result.content) || result.model !== parsedRequest.model) {
+        return json({ error: 'provider_empty_response' }, 502);
+      }
+      return json({
+        skill: parsedRequest.skill,
+        provider: parsedRequest.provider,
+        model: result.model,
+        text: result.content,
+        durationMs: Math.max(0, nowMilliseconds() - startedAt),
+        usage: numericUsage(result.usage),
+      });
+    }
+
     if (parsedRequest.skill === 'fam-ai-credit-status') {
       const entitlement = await dependencies.authorizeAiEntitlement(
         parsedRequest.householdId,
@@ -1500,19 +1747,67 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return json({ skill: parsedRequest.skill, status: creditStatus.status });
     }
 
-    const model = modelFor(parsedRequest.model, allowedModels, defaultModel);
+    if (parsedRequest.skill === 'fam-assistant-proposal-validation') {
+      const contextResult = await dependencies.loadCookingContext(
+        auth.userId,
+        parsedRequest.householdId,
+        auth.authorization,
+        true,
+        [],
+      );
+      if (!contextResult.ok) {
+        return json(
+          {
+            error: contextResult.error,
+            ...(contextResult.message ? { message: contextResult.message } : {}),
+          },
+          contextResult.status,
+        );
+      }
+      const validation = validateAssistantProposalSnapshot(parsedRequest, contextResult.context);
+      return json({ skill: parsedRequest.skill, ...validation });
+    }
+
+    if (!dependencies.modelOverridesEnabled && parsedRequest.provider &&
+      parsedRequest.provider !== defaultProvider) {
+      return json({ error: 'model_override_unavailable' }, 403);
+    }
+    if (!dependencies.modelOverridesEnabled && parsedRequest.model &&
+      parsedRequest.model !== defaultModel) {
+      const configuredModels = dependencies.providerModels?.[defaultProvider] ?? allowedModels;
+      return configuredModels.includes(parsedRequest.model)
+        ? json({ error: 'model_override_unavailable' }, 403)
+        : json({ error: 'model_not_allowed' }, 400);
+    }
+    let activeProvider = parsedRequest.provider ?? defaultProvider;
+    let activeAllowedModels = dependencies.providerModels?.[activeProvider] ??
+      (activeProvider === defaultProvider ? allowedModels : []);
+    let activeDefaultModel = dependencies.providerDefaultModels?.[activeProvider] ??
+      (activeProvider === defaultProvider ? defaultModel : activeAllowedModels[0] ?? '');
+    let model = modelFor(parsedRequest.model, activeAllowedModels, activeDefaultModel);
     if (!model) return json({ error: 'model_not_allowed' }, 400);
     if (
       parsedRequest.skill === 'fam-recipe-import' &&
-      parsedRequest.sourceType !== 'text' &&
-      ![
-        'z-ai/glm-5.3-flash',
-        'qwen/qwen3.8-flash',
-        'google/gemma-4-26b-a4b-it',
-        'google/gemma-4-31b-it',
-      ].includes(model)
+      !supportsRecipeSource(parsedRequest, activeProvider, model)
     ) {
-      return json({ error: 'model_unsupported_input' }, 400);
+      const fallback = dependencies.mediaFallback;
+      const fallbackAllowedModels = fallback
+        ? dependencies.providerModels?.[fallback.provider] ??
+          (fallback.provider === defaultProvider ? allowedModels : [])
+        : [];
+      const fallbackModel = fallback
+        ? modelFor(undefined, fallbackAllowedModels, fallback.model)
+        : null;
+      if (
+        fallback && fallbackModel &&
+        supportsRecipeSource(parsedRequest, fallback.provider, fallbackModel)
+      ) {
+        activeProvider = fallback.provider;
+        activeAllowedModels = fallbackAllowedModels;
+        model = fallbackModel;
+      } else {
+        return json({ error: 'model_unsupported_input' }, 400);
+      }
     }
 
     if (dependencies.isRateLimited?.()) {
@@ -1661,6 +1956,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     for (let round = 0; round <= 6; round += 1) {
       try {
         provider = await dependencies.complete({
+          provider: activeProvider,
           model,
           messages: providerMessages,
           ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS } : {}),
@@ -1674,7 +1970,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           ...(provider.message ? { message: provider.message } : {}),
         }, provider.status);
       }
-      if (provider.model !== model || !allowedModels.includes(provider.model)) {
+      if (provider.model !== model || !activeAllowedModels.includes(provider.model)) {
         return await refundAndRespond({ error: 'provider_model_mismatch' }, 502);
       }
       for (const [key, value] of Object.entries(numericUsage(provider.usage))) {
@@ -1737,6 +2033,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     return json({
       requestId: currentRequestId,
       skill: parsedRequest.skill,
+      provider: activeProvider,
       model: provider.model,
       ...(parsedRequest.skill === 'fam-recipe-import' ? { source: 'ai' } : {}),
       result: parsedRequest.skill === 'fam-assistant'

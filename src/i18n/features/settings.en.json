@@ -202,6 +202,10 @@
             "title": "Third-party services",
             "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry, PostHog, and Aptabase help with error diagnosis, product improvement, and usage analytics."
           },
+          "aiProcessing": {
+            "title": "AI features",
+            "body": "Assistant and recipe import features send your message or selected recipe source, along with the household context needed for the request, to an external AI provider. This may include relevant recipes, inventory, and saved allergies, intolerances, and personal food rules."
+          },
           "permissions": {
             "title": "Permissions",
             "body": "Camera: barcode scanning and QR code join (optional, manual entry always works). Microphone: voice input in the shopping list (optional). Notifications: local reminder before a fridge item expires (optional). Location and photo library are only requested for their respective features. Raw audio is not stored or used for advertising."

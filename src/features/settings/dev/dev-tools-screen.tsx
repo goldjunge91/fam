@@ -34,6 +34,12 @@ const DEV_CATEGORIES = [
     route: '/settings/dev-overrides',
   },
   {
+    icon: '🤖',
+    label: 'KI-Provider & Modelle',
+    hint: 'OpenRouter oder Groq auswählen und Modelle lokal vergleichen',
+    route: '/settings/dev-ai-models',
+  },
+  {
     icon: '💾',
     label: 'Daten & Synchronisation',
     hint: 'Lokale Datenbank, Dump und Outbox',
