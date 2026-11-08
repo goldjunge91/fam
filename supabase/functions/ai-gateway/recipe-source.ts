@@ -48,11 +48,17 @@ export async function isPublicHttpsUrl(value: string): Promise<boolean> {
   }
 
   const hostname = url.hostname.toLowerCase();
+  const authority = value.trim().match(/^https:\/\/([^\/?#]*)/i)?.[1] ?? '';
+  const hostPort = authority.slice(authority.lastIndexOf('@') + 1);
+  const hasExplicitPort = hostPort.startsWith('[')
+    ? hostPort.includes(']:')
+    : hostPort.includes(':');
   if (
     url.protocol !== 'https:' ||
     url.username ||
     url.password ||
     url.port ||
+    hasExplicitPort ||
     !hostname.includes('.') ||
     hostname === 'localhost' ||
     hostname.endsWith('.localhost') ||

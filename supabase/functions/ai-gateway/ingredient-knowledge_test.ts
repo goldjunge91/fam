@@ -321,3 +321,65 @@ Deno.test('recipe mapping adapter accepts only a review attached to the current 
   assertEquals(stale.status, 'unknown');
   assertEquals(stale.ingredientIds, []);
 });
+
+Deno.test('keeps aliases and recipe mappings closed for wrong locale, stale source metadata, and invalid ids', () => {
+  assertEquals(
+    resolveIngredientAlias({
+      text: 'Weizenmehl',
+      locale: 'en',
+      aliases: [alias()],
+    }),
+    { status: 'unknown', reason: 'no_exact_alias' },
+  );
+
+  const row = {
+    id: 'item-1',
+    ingredient_source_type: 'recipe_text',
+    ingredient_source_id: 'recipe:3:item:1',
+    ingredient_source_url: null,
+    ingredient_source_version: 'recipe-revision-3',
+    ingredient_source_license: null,
+    ingredient_mapping: {
+      version: 1,
+      status: 'verified',
+      ingredientIds: ['not-a-uuid', '00000000-0000-4000-8000-000000000001'],
+      complete: true,
+      source: 'recipe_text',
+      sourceId: 'recipe:3:item:1',
+      sourceUrl: null,
+      sourceVersion: 'recipe-revision-3',
+      license: null,
+      evidenceSnapshot: 'Quelltext',
+      reviewedAt: REVIEWED_AT,
+      reviewedBy: 'user-1',
+    },
+  };
+  const invalidIds = toReviewedRecipeIngredientMapping(row);
+  assertEquals(invalidIds.status, 'verified');
+  assertEquals(invalidIds.ingredientIds, []);
+  assertEquals(invalidIds.complete, true);
+
+  const mismatchedSource = toReviewedRecipeIngredientMapping({
+    ...row,
+    ingredient_mapping: {
+      ...(row.ingredient_mapping as Record<string, unknown>),
+      sourceId: 'different-source-row',
+      ingredientIds: ['00000000-0000-4000-8000-000000000001'],
+    },
+  });
+  assertEquals(mismatchedSource.status, 'unknown');
+  assertEquals(mismatchedSource.ingredientIds, []);
+  assertEquals(mismatchedSource.sourceId, '');
+});
+
+Deno.test('treats invalid or incomplete current fact reviews as unknown evidence', () => {
+  const invalidAssessment = project({ facts: [fact('mustard', 'unknown_assessment')] });
+  const missingEvidence = project({ facts: [fact('mustard', 'not_detected', { evidenceSnapshot: '' })] });
+  const missingReview = project({
+    facts: [fact('mustard', 'not_detected', { reviewedAt: null, reviewedBy: null })],
+  });
+
+  assertEquals(invalidAssessment.status, 'unknown');
+  assertEquals(missingEvidence.status, 'unknown');
+  assertEquals(missingReview.status, 'unknown');
+});

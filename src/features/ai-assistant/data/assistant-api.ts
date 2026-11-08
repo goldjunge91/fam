@@ -22,6 +22,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+function gatewayError(message: string, retryable = false): Error {
+  return Object.assign(new Error(message), { retryable });
+}
+
 function isAiCreditStatus(value: unknown): value is AiCreditStatus {
   return (
     isRecord(value) &&
@@ -200,36 +204,38 @@ export async function sendAssistantMessage(
   if (error) {
     const code = await getGatewayErrorCode(error, data);
     if (code === 'ai_subscription_required') {
-      throw new Error('Für den Assistant brauchst du das AI-Abo dieses Haushalts.');
+      throw gatewayError('Für den Assistant brauchst du das AI-Abo dieses Haushalts.');
     }
     if (code === 'ai_credit_limit_exceeded') {
-      throw new Error('Das monatliche AI-Credit-Limit ist erreicht.');
+      throw gatewayError('Das monatliche AI-Credit-Limit ist erreicht.');
     }
     if (code === 'model_not_allowed') {
-      throw new Error('Dieses AI-Modell ist derzeit nicht verfügbar.');
+      throw gatewayError('Dieses AI-Modell ist derzeit nicht verfügbar.');
     }
     if (code === 'provider_invalid_json') {
-      throw new Error('Die KI-Antwort ließ sich nicht verarbeiten. Bitte versuche es erneut.');
+      throw gatewayError('Die KI konnte gerade keine passende Antwort erstellen.', true);
     }
     if (code === 'provider_invalid_response' || code === 'provider_empty_response') {
-      throw new Error(
-        'Der AI-Anbieter hat keine verwertbare Antwort geliefert. Bitte versuche es erneut.',
-      );
+      throw gatewayError('Die KI konnte gerade keine passende Antwort erstellen.', true);
     }
     if (code === 'provider_unavailable') {
-      throw new Error(
-        'Der AI-Anbieter ist gerade nicht erreichbar. Bitte versuche es später erneut.',
+      throw gatewayError(
+        'Die KI ist gerade nicht erreichbar. Bitte versuche es später erneut.',
+        true,
       );
     }
     if (code === 'provider_rate_limited') {
-      throw new Error('Der AI-Anbieter ist gerade ausgelastet. Bitte versuche es später erneut.');
-    }
-    if (code === 'provider_request_failed') {
-      throw new Error(
-        'Der AI-Anbieter konnte die Anfrage nicht verarbeiten. Bitte versuche es später erneut.',
+      throw gatewayError(
+        'Die KI ist gerade stark ausgelastet. Bitte versuche es später erneut.',
+        true,
       );
     }
-    throw new Error(
+    if (code === 'provider_request_failed') {
+      throw gatewayError(
+        'Die Anfrage konnte gerade nicht verarbeitet werden. Bitte versuche es später erneut.',
+      );
+    }
+    throw gatewayError(
       'Der Assistant ist gerade nicht erreichbar. Bitte prüfe deine Verbindung und versuche es erneut.',
     );
   }

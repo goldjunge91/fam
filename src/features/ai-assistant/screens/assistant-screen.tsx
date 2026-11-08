@@ -159,6 +159,9 @@ const styles = StyleSheet.create((theme) => ({
     minHeight: rs(56),
     maxHeight: rs(144),
   },
+  assistantError: {
+    gap: theme.space.xs,
+  },
   emptyState: {
     flex: 1,
     alignItems: 'center',
@@ -220,6 +223,16 @@ type MealPlanProposalItem = Extract<
   AssistantProposal,
   { kind: 'meal_plan_proposal.v1' }
 >['meals'][number];
+
+type FailedAssistantMessage = {
+  threadId: string;
+  text: string;
+  retryable: boolean;
+};
+
+function isRetryableAssistantError(error: unknown): boolean {
+  return error instanceof Error && 'retryable' in error && error.retryable === true;
+}
 
 function AssistantProposalMealRow({ meal }: { meal: MealPlanProposalItem }) {
   const { data: coverImagePath } = useQuery({
@@ -320,6 +333,7 @@ export function AssistantScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSending, setIsSending] = useState(false);
   const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
+  const [failedMessage, setFailedMessage] = useState<FailedAssistantMessage | null>(null);
   const [applyingProposalId, setApplyingProposalId] = useState<string | null>(null);
   const applyingProposalRef = useRef<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -399,6 +413,7 @@ export function AssistantScreen() {
       updatedAt: timestamp,
     };
     setActiveThreadId(nextThread.id);
+    setFailedMessage(null);
     await persistThreads(upsertThread(threads, nextThread));
     setError(null);
   }
@@ -463,9 +478,15 @@ export function AssistantScreen() {
     if (!userId || !activeHouseholdId || !hasAI || !text || isSending) {
       return;
     }
+    if (failedMessage?.threadId === activeThreadId && failedMessage.text === text) {
+      await retryFailedMessage();
+      return;
+    }
 
     setIsSending(true);
     setError(null);
+    setFailedMessage(null);
+    let requestThreadId: string | null = null;
     try {
       const timestamp = new Date().toISOString();
       const currentThread: AssistantThread = activeThread ?? {
@@ -490,6 +511,7 @@ export function AssistantScreen() {
         updatedAt: timestamp,
       };
       const pendingThreads = upsertThread(threads, pendingThread);
+      requestThreadId = pendingThread.id;
       setActiveThreadId(pendingThread.id);
       await persistThreads(pendingThreads);
       setMessage('');
@@ -515,12 +537,80 @@ export function AssistantScreen() {
         updatedAt: assistantMessage.createdAt,
       };
       await persistThreads(upsertThread(pendingThreads, completedThread));
-      const nextStatus = await getAiCreditStatus(activeHouseholdId);
-      setCreditStatus(nextStatus);
+      try {
+        setCreditStatus(await getAiCreditStatus(activeHouseholdId));
+      } catch {
+        // A status refresh failure must not turn a successful assistant reply into a send failure.
+      }
     } catch (sendError: unknown) {
       setError(
         sendError instanceof Error ? sendError.message : 'Die Antwort konnte nicht geladen werden.',
       );
+      if (requestThreadId) {
+        const retryable = isRetryableAssistantError(sendError);
+        setFailedMessage({ threadId: requestThreadId, text, retryable });
+        if (!retryable) setMessage(text);
+      }
+    } finally {
+      setIsSending(false);
+    }
+  }
+
+  async function retryFailedMessage() {
+    const failed = failedMessage;
+    if (!failed || !userId || !activeHouseholdId || isSending) return;
+    const failedThread = threads.find((thread) => thread.id === failed.threadId);
+    const lastMessage = failedThread?.messages.at(-1);
+    if (!failedThread || lastMessage?.role !== 'user' || lastMessage.text !== failed.text) {
+      setFailedMessage(null);
+      setError('Die Nachricht konnte nicht erneut geladen werden. Bitte sende sie noch einmal.');
+      setMessage(failed.text);
+      return;
+    }
+
+    setIsSending(true);
+    setError(null);
+    try {
+      const reply = await sendAssistantMessage({
+        householdId: activeHouseholdId,
+        message: failed.text,
+        includeHouseholdContext: true,
+        history: failedThread.messages
+          .slice(0, -1)
+          .map(({ role, text: content }) => ({ role, text: content })),
+      });
+      const assistantMessage: AssistantMessage = {
+        id: createLocalId('message'),
+        role: 'assistant',
+        text: reply.result.text,
+        createdAt: new Date().toISOString(),
+        suggestions: reply.result.suggestions,
+        proposals: reply.result.proposals,
+        toolTrace: reply.result.toolTrace,
+      };
+      const completedThread: AssistantThread = {
+        ...failedThread,
+        model: reply.model,
+        messages: [...failedThread.messages, assistantMessage].slice(-60),
+        updatedAt: assistantMessage.createdAt,
+      };
+      await persistThreads(upsertThread(threads, completedThread));
+      setFailedMessage(null);
+      setMessage('');
+      try {
+        setCreditStatus(await getAiCreditStatus(activeHouseholdId));
+      } catch {
+        // Keep the last known credit status; the assistant reply was already saved.
+      }
+    } catch (retryError: unknown) {
+      const retryable = isRetryableAssistantError(retryError);
+      setError(
+        retryError instanceof Error
+          ? retryError.message
+          : 'Die Antwort konnte nicht geladen werden. Bitte versuche es erneut.',
+      );
+      setFailedMessage({ ...failed, retryable });
+      if (!retryable) setMessage(failed.text);
     } finally {
       setIsSending(false);
     }
@@ -779,7 +869,11 @@ export function AssistantScreen() {
   async function handleDeleteThread(threadId: string) {
     const nextThreads = threads.filter((thread) => thread.id !== threadId);
     await persistThreads(nextThreads);
-    if (activeThreadId === threadId) setActiveThreadId(nextThreads[0]?.id ?? null);
+    if (activeThreadId === threadId) {
+      setActiveThreadId(nextThreads[0]?.id ?? null);
+      setFailedMessage(null);
+      setError(null);
+    }
   }
 
   function confirmDeleteThread(thread: AssistantThread) {
@@ -890,6 +984,8 @@ export function AssistantScreen() {
                         selected={thread.id === activeThreadId}
                         onPress={() => {
                           setActiveThreadId(thread.id);
+                          setFailedMessage(null);
+                          setError(null);
                           setIsHistoryOpen(false);
                         }}
                         onLongPress={() => confirmDeleteThread(thread)}
@@ -1012,9 +1108,24 @@ export function AssistantScreen() {
               keyboardShouldPersistTaps="handled"
             />
             {error ? (
-              <Txt variant="navigation" tone="danger">
-                {error}
-              </Txt>
+              <View style={styles.assistantError}>
+                <Txt variant="navigation" tone="danger">
+                  {error}
+                </Txt>
+                {failedMessage?.threadId === activeThreadId && failedMessage.retryable ? (
+                  <Button
+                    accessibilityLabel="Erneut versuchen"
+                    disabled={isSending}
+                    loading={isSending}
+                    onPress={() => void retryFailedMessage()}
+                    title="Erneut versuchen"
+                    variant="secondary"
+                    size="sm"
+                    full
+                    flat
+                  />
+                ) : null}
+              </View>
             ) : null}
             {creditStatus?.warningReached ? (
               <Txt variant="navigation" tone="secondary">

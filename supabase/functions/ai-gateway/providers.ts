@@ -127,10 +127,32 @@ export function createProviderCompleter(
         error: response.status === 429 ? 'provider_rate_limited' : 'provider_request_failed',
       };
     }
+    let responseBody: unknown;
     try {
-      return parseProviderResult(await response.json(), input.model);
+      responseBody = await response.json();
     } catch {
+      console.warn(JSON.stringify({
+        event: 'ai_provider_response_unusable',
+        provider,
+        model: input.model,
+        status: response.status,
+        contentType: response.headers.get('content-type'),
+        reason: 'invalid_json',
+      }));
       return { ok: false, status: 502, error: 'provider_invalid_response' };
     }
+    const result = parseProviderResult(responseBody, input.model);
+    if (!result.ok) {
+      console.warn(JSON.stringify({
+        event: 'ai_provider_response_unusable',
+        provider,
+        model: input.model,
+        status: response.status,
+        contentType: response.headers.get('content-type'),
+        reason: result.error,
+        responseKind: Array.isArray(responseBody) ? 'array' : typeof responseBody,
+      }));
+    }
+    return result;
   };
 }

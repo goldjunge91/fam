@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
-import type { PressableProps } from 'react-native';
+import type { PressableProps, StyleProp, ViewStyle } from 'react-native';
 import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient-mapping';
 import type { RecipeImportDraft, RecipeImportDraftRecord } from '../types';
 import { RecipeImportScreen } from './recipe-import-screen';
@@ -28,6 +28,8 @@ type MockTheme = {
   accent: string;
   text: string;
   border: string;
+  borderWidth: { base: number; strong: number };
+  onAccent: string;
 };
 type MockHeaderProps = { header: { title: string }; children: ReactNode };
 
@@ -79,12 +81,23 @@ jest.mock('react-native-unistyles', () => ({
         accent: '#a56',
         backgroundSoft: '#eee',
         text: '#222',
-        border: '#ddd',
+        border: '#E4DDE3',
+        borderWidth: { base: 1.5, strong: 2 },
+        onAccent: '#fff',
       }),
   },
 }));
+jest.mock('@expo/vector-icons', () => ({ Feather: () => null }));
 jest.mock('@/components/theme/ThemeProvider', () => ({
-  useTheme: () => ({ colors: { accent: '#a56', background: '#fff', textSecondary: '#666' } }),
+  useTheme: () => ({
+    colors: {
+      accent: '#a56',
+      background: '#fff',
+      onAccent: '#fff',
+      text: '#222',
+      textSecondary: '#666',
+    },
+  }),
 }));
 jest.mock('@/components/layout/hub-screen', () => ({
   HubScreen: ({ header, children }: MockHeaderProps) => {
@@ -101,22 +114,39 @@ jest.mock('@/components/layout/hub-screen', () => ({
 jest.mock('@/components/layout/back-button', () => ({ BackButton: () => null }));
 jest.mock('@/constants/ui', () => {
   const React = require('react');
-  const { Pressable: NativePressable, Text: NativeText } = require('react-native');
+  const {
+    Pressable: NativePressable,
+    Text: NativeText,
+    View: NativeView,
+  } = require('react-native');
   return {
+    Divider: () => React.createElement(NativeText, null, '—'),
     Press: ({
       children,
       onPress,
       accessibilityRole,
       accessibilityState,
       disabled,
+      style,
+      containerStyle,
     }: Pick<
       PressableProps,
-      'children' | 'onPress' | 'accessibilityRole' | 'accessibilityState' | 'disabled'
-    >) =>
+      'children' | 'onPress' | 'accessibilityRole' | 'accessibilityState' | 'disabled' | 'style'
+    > & { containerStyle?: StyleProp<ViewStyle> }) =>
       React.createElement(
-        NativePressable,
-        { accessibilityRole: accessibilityRole ?? 'button', accessibilityState, disabled, onPress },
-        children,
+        NativeView,
+        { style: containerStyle },
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: accessibilityRole ?? 'button',
+            accessibilityState,
+            disabled,
+            onPress,
+            style,
+          },
+          children,
+        ),
       ),
     Txt: ({ children }: { children: ReactNode }) => React.createElement(NativeText, null, children),
   };
@@ -180,7 +210,7 @@ async function renderImporter() {
   await waitFor(() => {
     expect(
       Boolean(
-        screen.queryByRole('button', { name: 'Import starten' }) ||
+        screen.queryByRole('button', { name: 'Link importieren' }) ||
           screen.queryByText('Wähle zuerst einen aktiven Haushalt.'),
       ),
     ).toBe(true);
@@ -222,7 +252,44 @@ describe('RecipeImportScreen', () => {
     await renderImporter();
     expect(screen.queryByText('AI-Datenverarbeitung freigeben')).not.toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: 'Zustimmen und fortfahren' })).toBeNull();
-    expect(screen.getByRole('button', { name: 'Import starten' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Link importieren' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Mehrere Links importieren' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Text einfügen' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Foto oder PDF' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Rezept manuell eingeben' })).toBeOnTheScreen();
+    expect(screen.getByText('fam')).toBeOnTheScreen();
+    expect(screen.getByText('Rezept hinzufügen')).toBeOnTheScreen();
+    expect(
+      screen.getByText('Rezeptlink einfügen oder eine andere Quelle wählen.'),
+    ).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Text einfügen' }).parent).toHaveStyle({ flex: 1 });
+    expect(screen.getByRole('button', { name: 'Foto oder PDF' }).parent).toHaveStyle({ flex: 1 });
+    expect(screen.getByLabelText('Rezeptlink')).toHaveStyle({
+      borderWidth: 1.5,
+      borderColor: '#E4DDE3',
+    });
+    expect(screen.queryByText(/Vollständige Weblinks sind kostenlos/u)).toBeNull();
+    expect(screen.queryByText(/Vollständige strukturierte Weblinks sind ohne AI-Abo/u)).toBeNull();
+    expect(screen.queryByText(/Das monatliche Credit-Limit ist erreicht/u)).toBeNull();
+    expect(screen.queryByText('Importentwürfe')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Noch keine Importentwürfe gespeichert.')).not.toBeOnTheScreen();
+  });
+
+  it('opens the manual recipe editor from the import start screen', async () => {
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Rezept manuell eingeben' }));
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/recipe/create' });
+  });
+
+  it('keeps the fam brand header while moving into a source-specific import step', async () => {
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Text einfügen' }));
+
+    expect(screen.getByText('fam')).toBeOnTheScreen();
+    expect(screen.getByText('Text einfügen')).toBeOnTheScreen();
+    expect(screen.getAllByText('Text einfügen')).toHaveLength(1);
   });
 
   it('requires an active household before showing the importer', async () => {
@@ -240,6 +307,9 @@ describe('RecipeImportScreen', () => {
       blocked: true,
     });
     await renderImporter();
+    expect(screen.queryByText(/Das monatliche Credit-Limit ist erreicht/u)).toBeNull();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Text einfügen' }));
     await waitFor(() =>
       expect(screen.getByText(/Das monatliche Credit-Limit ist erreicht/u)).toBeOnTheScreen(),
     );
@@ -249,23 +319,46 @@ describe('RecipeImportScreen', () => {
   it('validates empty and over-limit links before starting work', async () => {
     await renderImporter();
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
     expect(screen.getByText('Füge mindestens einen Rezeptlink ein.')).toBeOnTheScreen();
 
+    await user.press(screen.getByRole('button', { name: 'Mehrere Links importieren' }));
     fireEvent.changeText(
       screen.getByLabelText('Rezeptlinks'),
       Array.from({ length: 21 }, (_, index) => `https://example.test/${index}`).join('\n'),
     );
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Links importieren' }));
     expect(screen.getByText('Importiere höchstens 20 Links auf einmal.')).toBeOnTheScreen();
     expect(mockImportSource).not.toHaveBeenCalled();
   });
 
+  it('imports each link entered in the multiple-link flow', async () => {
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Mehrere Links importieren' }));
+    fireEvent.changeText(
+      screen.getByLabelText('Rezeptlinks'),
+      'https://example.test/one\nhttps://example.test/two',
+    );
+    await user.press(screen.getByRole('button', { name: 'Links importieren' }));
+    await waitFor(() => expect(mockImportSource).toHaveBeenCalledTimes(2));
+    expect(mockImportSource).toHaveBeenNthCalledWith(1, {
+      householdId: 'household-1',
+      sourceType: 'url',
+      sourceUrl: 'https://example.test/one',
+    });
+    expect(mockImportSource).toHaveBeenNthCalledWith(2, {
+      householdId: 'household-1',
+      sourceType: 'url',
+      sourceUrl: 'https://example.test/two',
+    });
+  });
+
   it('imports a recipe URL to a reviewable draft and opens it in the recipe editor', async () => {
     await renderImporter();
-    fireEvent.changeText(screen.getByLabelText('Rezeptlinks'), 'https://example.test/recipe');
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://example.test/recipe');
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
     await waitFor(() => expect(screen.getByText('Entwurf bereit')).toBeOnTheScreen());
     expect(mockImportSource).toHaveBeenCalledWith({
       householdId: 'household-1',
@@ -292,9 +385,9 @@ describe('RecipeImportScreen', () => {
       savedAt: 'now',
     });
     await renderImporter();
-    fireEvent.changeText(screen.getByLabelText('Rezeptlinks'), 'https://example.test/recipe');
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://example.test/recipe');
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
     await waitFor(() =>
       expect(screen.getByText('Quelle wurde schon importiert')).toBeOnTheScreen(),
     );
@@ -307,12 +400,9 @@ describe('RecipeImportScreen', () => {
     mockDrafts = [draftRecord()];
     mockLoadDrafts.mockImplementation(async () => mockDrafts);
     await renderImporter();
-    fireEvent.changeText(
-      screen.getByLabelText('Rezeptlinks'),
-      'https://example.test/recipe#source',
-    );
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://example.test/recipe#source');
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
     await waitFor(() =>
       expect(screen.getByText('Quelle wurde schon importiert')).toBeOnTheScreen(),
     );
@@ -320,8 +410,8 @@ describe('RecipeImportScreen', () => {
 
     mockDrafts = [];
     mockImportSource.mockRejectedValueOnce(new Error('Server nicht erreichbar'));
-    fireEvent.changeText(screen.getByLabelText('Rezeptlinks'), 'https://example.test/other');
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://example.test/other');
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
     await waitFor(() => expect(screen.getByText('Server nicht erreichbar')).toBeOnTheScreen());
     mockImportSource.mockResolvedValueOnce({ draft, method: 'ai' });
     await user.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
@@ -337,33 +427,45 @@ describe('RecipeImportScreen', () => {
     await waitFor(() => expect(mockRemoveDraft).toHaveBeenCalledWith('user-1', 'draft-1'));
   });
 
-  it('validates text and video modes and respects the household AI entitlement', async () => {
+  it('validates text and video imports and respects the household AI entitlement', async () => {
     mockHasAI = false;
     await renderImporter();
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'Text' }));
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Text einfügen' }));
+    await user.press(screen.getByRole('button', { name: 'Text importieren' }));
     expect(screen.getByText('Füge zuerst den Rezepttext ein.')).toBeOnTheScreen();
     fireEvent.changeText(screen.getByLabelText('Rezepttext'), 'Mehl und Wasser vermengen.');
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Text importieren' }));
     expect(
       screen.getByText('Für den Textimport brauchst du das AI-Abo dieses Haushalts.'),
     ).toBeOnTheScreen();
 
-    await user.press(screen.getByRole('button', { name: 'Video' }));
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
-    expect(screen.getByText('Füge zuerst einen Videolink ein.')).toBeOnTheScreen();
-    fireEvent.changeText(screen.getByLabelText('Videolink'), 'https://video.test/reel');
-    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    await user.press(screen.getByRole('button', { name: 'Zurück' }));
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://www.instagram.com/reel/abc');
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
     expect(
       screen.getByText('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.'),
     ).toBeOnTheScreen();
   });
 
+  it('routes Instagram video links through the AI recipe importer', async () => {
+    await renderImporter();
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://www.instagram.com/reel/abc');
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
+    await waitFor(() =>
+      expect(mockImportSource).toHaveBeenCalledWith({
+        householdId: 'household-1',
+        sourceType: 'video',
+        sourceUrl: 'https://www.instagram.com/reel/abc',
+      }),
+    );
+  });
+
   it('handles photo permissions, invalid image types and valid multi-page image import', async () => {
     await renderImporter();
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'Foto' }));
+    await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
     mockRequestMediaPermission.mockResolvedValueOnce({ granted: false });
     await user.press(screen.getByRole('button', { name: 'Fotos auswählen' }));
     expect(
@@ -404,7 +506,7 @@ describe('RecipeImportScreen', () => {
   it('handles PDF picker cancellation, missing assets and a successful PDF selection', async () => {
     await renderImporter();
     const user = userEvent.setup();
-    await user.press(screen.getByRole('button', { name: 'PDF' }));
+    await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
     await user.press(screen.getByRole('button', { name: 'PDF auswählen' }));
     expect(mockPickDocument).toHaveBeenCalledWith(
       expect.objectContaining({ type: 'application/pdf', multiple: false }),

@@ -59,6 +59,17 @@ describe('HubScreen', () => {
     expect(screen.getByRole('button', { name: 'Profil öffnen' })).toBeOnTheScreen();
   });
 
+  it('can hide the profile action for focused import flows', async () => {
+    await render(
+      <HubScreen header={{ title: 'fam' }} showProfile={false}>
+        <Text>Import</Text>
+      </HubScreen>,
+    );
+
+    expect(screen.getByText('Import')).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Profil öffnen' })).toBeNull();
+  });
+
   it('keeps the top safe area for the visible sync banner', async () => {
     mockBannerVisible = true;
 

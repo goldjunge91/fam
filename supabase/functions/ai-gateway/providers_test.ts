@@ -151,3 +151,156 @@ Deno.test('normalizes provider request failures without leaking upstream respons
   });
   assertEquals(result, { ok: false, status: 502, error: 'provider_request_failed' });
 });
+
+Deno.test('logs safe metadata when a successful provider response is not JSON', async () => {
+  const warnings: string[] = [];
+  const originalWarn = console.warn;
+  console.warn = ((...values: unknown[]) => {
+    warnings.push(values.map(String).join(' '));
+  }) as typeof console.warn;
+  try {
+    const complete = createProviderCompleter({
+      defaultProvider: 'openrouter',
+      openRouterKey: 'openrouter-test-key',
+    }, async () =>
+      new Response('private provider response', {
+        status: 200,
+        headers: { 'content-type': 'text/html' },
+      }));
+    const result = await complete({
+      model: 'z-ai/glm-5.3-flash',
+      messages: [{ role: 'user', content: 'private prompt' }],
+    });
+    assertEquals(result, { ok: false, status: 502, error: 'provider_invalid_response' });
+  } finally {
+    console.warn = originalWarn;
+  }
+
+  assertEquals(warnings.length, 1);
+  assertEquals(warnings[0]?.includes('ai_provider_response_unusable'), true);
+  assertEquals(warnings[0]?.includes('invalid_json'), true);
+  assertEquals(warnings[0]?.includes('text/html'), true);
+  assertEquals(warnings[0]?.includes('private prompt'), false);
+  assertEquals(warnings[0]?.includes('private provider response'), false);
+});
+
+Deno.test('normalizes fetch throws and upstream status failures without exposing provider details', async () => {
+  const thrown = createProviderCompleter({
+    defaultProvider: 'groq',
+    groqKey: 'groq-test-key',
+  }, async () => {
+    throw new Error('private upstream failure');
+  });
+  assertEquals(await thrown({
+    model: 'qwen/qwen3.8-27b',
+    messages: [{ role: 'user', content: 'Test' }],
+  }), { ok: false, status: 502, error: 'provider_unavailable' });
+
+  for (const [status, error] of [[429, 'provider_rate_limited'], [503, 'provider_request_failed']] as const) {
+    const complete = createProviderCompleter({
+      defaultProvider: 'openrouter',
+      openRouterKey: 'openrouter-test-key',
+    }, async () => new Response('private upstream body', { status }));
+    assertEquals(await complete({
+      model: 'z-ai/glm-5.3-flash',
+      messages: [{ role: 'user', content: 'Test' }],
+    }), { ok: false, status: 502, error });
+  }
+});
+
+Deno.test('fails closed for empty, non-object, and malformed tool-call responses', async () => {
+  const bodies: unknown[] = [
+    [],
+    { choices: [] },
+    { choices: [{ message: null }] },
+    { choices: [{ message: { content: '' } }] },
+    {
+      choices: [{
+        message: {
+          content: null,
+          tool_calls: [{ id: 'call-1', type: 'function', function: { name: 'get_inventory' } }],
+        },
+      }],
+    },
+  ];
+  for (const body of bodies) {
+    const complete = createProviderCompleter({
+      defaultProvider: 'openrouter',
+      openRouterKey: 'openrouter-test-key',
+    }, async () => new Response(JSON.stringify(body), { status: 200 }));
+    const result = await complete({
+      model: 'z-ai/glm-5.3-flash',
+      messages: [{ role: 'user', content: 'Test' }],
+    });
+    assertEquals(result, { ok: false, status: 502, error: body instanceof Array ? 'provider_invalid_response' : 'provider_empty_response' });
+  }
+
+  const mixedToolCalls = createProviderCompleter({
+    defaultProvider: 'openrouter',
+    openRouterKey: 'openrouter-test-key',
+  }, async () => new Response(JSON.stringify({
+    choices: [{
+      message: {
+        content: 'Fallback-Antwort',
+        tool_calls: [
+          { id: 'valid', function: { name: 'get_inventory', arguments: '{}' } },
+          { id: 'broken', function: { name: 'get_inventory' } },
+        ],
+      },
+    }],
+  }), { status: 200 }));
+  const mixed = await mixedToolCalls({
+    model: 'z-ai/glm-5.3-flash',
+    messages: [{ role: 'user', content: 'Test' }],
+  });
+  assertEquals(mixed, {
+    ok: true,
+    content: 'Fallback-Antwort',
+    toolCalls: [{ id: 'valid', name: 'get_inventory', arguments: '{}' }],
+    model: 'z-ai/glm-5.3-flash',
+  });
+});
+
+Deno.test('keeps provider-specific token and JSON options bounded for both providers', async () => {
+  let openRouterBody: Record<string, unknown> | null = null;
+  const openRouter = createProviderCompleter({
+    defaultProvider: 'openrouter',
+    openRouterKey: 'openrouter-test-key',
+  }, async (_url, init) => {
+    openRouterBody = JSON.parse(String(init?.body)) as Record<string, unknown>;
+    return okResponse();
+  });
+  await openRouter({
+    model: 'ibm-granite/granite-4.2-8b',
+    messages: [{ role: 'user', content: 'Test' }],
+    maxTokens: 77,
+  });
+  assertEquals(openRouterBody, {
+    model: 'ibm-granite/granite-4.2-8b',
+    messages: [{ role: 'user', content: 'Test' }],
+    max_tokens: 77,
+    response_format: { type: 'json_object' },
+    usage: { include: true },
+    reasoning: { enabled: false },
+  });
+
+  let groqBody: Record<string, unknown> | null = null;
+  const groq = createProviderCompleter({
+    defaultProvider: 'groq',
+    groqKey: 'groq-test-key',
+  }, async (_url, init) => {
+    groqBody = JSON.parse(String(init?.body)) as Record<string, unknown>;
+    return okResponse();
+  });
+  await groq({
+    model: 'qwen/qwen3.8-27b',
+    messages: [{ role: 'user', content: 'Test' }],
+    responseFormat: null,
+    maxTokens: 88,
+  });
+  assertEquals(groqBody, {
+    model: 'qwen/qwen3.8-27b',
+    messages: [{ role: 'user', content: 'Test' }],
+    max_completion_tokens: 88,
+  });
+});

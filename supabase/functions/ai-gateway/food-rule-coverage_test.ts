@@ -343,3 +343,58 @@ Deno.test('mapping evidence version changes with mapping/source edits and expose
   assertEquals(JSON.stringify(coverage).includes(privateSnapshot), false);
   assertEquals(coverage.coverageVersion === changedCoverage.coverageVersion, false);
 });
+
+Deno.test('keeps unknown rule codes, invalid rule versions, and wrong-language aliases closed', () => {
+  const unknownCode = resolveFoodRuleCoverage({
+    rules: rules({ allergyCodes: ['future-allergy-code'] }),
+    recipe: recipe(),
+    aliases: [],
+  });
+  assertEquals(unknownCode.status, 'unsupported');
+  assertEquals(unknownCode.entries, [{
+    category: 'allergy_code',
+    ruleCode: 'future-allergy-code',
+    status: 'unsupported',
+    reason: 'unsupported_rule_code',
+  }]);
+
+  const invalidVersion = resolveFoodRuleCoverage({
+    rules: rules({ allergyCodes: ['peanuts'], updatedAt: 'not-a-timestamp' }),
+    recipe: recipe({ allergenProjection: projection(['EU_05_PEANUTS']) }),
+    aliases: [],
+  });
+  assertEquals(invalidVersion.status, 'unknown');
+  assertEquals(invalidVersion.entries[0]?.reason, 'rule_version_unavailable');
+
+  const wrongLanguage = resolveFoodRuleCoverage({
+    rules: rules({ customAllergies: ['Weizenmehl'] }),
+    recipe: recipe({ canonicalIngredientIds: ['ingredient-wheat-flour'] }),
+    aliases: [alias({ locale: 'en' })],
+  });
+  assertEquals(wrongLanguage.status, 'unsupported');
+  assertEquals(wrongLanguage.entries[0]?.reason, 'custom_rule_not_mapped');
+});
+
+Deno.test('requires complete current alias provenance before a private mapping can be clear', () => {
+  const missingSourceId = resolveFoodRuleCoverage({
+    rules: rules({ customAllergies: ['Hafer'] }),
+    recipe: recipe({ canonicalIngredientIds: ['ingredient-oats'] }),
+    aliases: [alias({ sourceId: '' })],
+  });
+  const missingLicense = resolveFoodRuleCoverage({
+    rules: rules({ customAllergies: ['Hafer'] }),
+    recipe: recipe({ canonicalIngredientIds: ['ingredient-oats'] }),
+    aliases: [alias({ license: '' })],
+  });
+  const missingReview = resolveFoodRuleCoverage({
+    rules: rules({ customAllergies: ['Hafer'] }),
+    recipe: recipe({ canonicalIngredientIds: ['ingredient-oats'] }),
+    aliases: [alias({ reviewedAt: null, reviewedBy: null })],
+  });
+
+  for (const result of [missingSourceId, missingLicense, missingReview]) {
+    assertEquals(result.status, 'unknown');
+    assertEquals(result.entries[0]?.reason, 'custom_rule_mapping_stale');
+    assertEquals(result.aliasSourceVersions, []);
+  }
+});

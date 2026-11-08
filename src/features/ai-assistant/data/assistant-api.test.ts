@@ -147,29 +147,20 @@ describe('assistant API', () => {
     ['ai_subscription_required', 'Für den Assistant brauchst du das AI-Abo dieses Haushalts.'],
     ['ai_credit_limit_exceeded', 'Das monatliche AI-Credit-Limit ist erreicht.'],
     ['model_not_allowed', 'Dieses AI-Modell ist derzeit nicht verfügbar.'],
-    [
-      'provider_invalid_json',
-      'Die KI-Antwort ließ sich nicht verarbeiten. Bitte versuche es erneut.',
-    ],
-    [
-      'provider_invalid_response',
-      'Der AI-Anbieter hat keine verwertbare Antwort geliefert. Bitte versuche es erneut.',
-    ],
-    [
-      'provider_empty_response',
-      'Der AI-Anbieter hat keine verwertbare Antwort geliefert. Bitte versuche es erneut.',
-    ],
+    ['provider_invalid_json', 'Die KI konnte gerade keine passende Antwort erstellen.'],
+    ['provider_invalid_response', 'Die KI konnte gerade keine passende Antwort erstellen.'],
+    ['provider_empty_response', 'Die KI konnte gerade keine passende Antwort erstellen.'],
     [
       'provider_unavailable',
-      'Der AI-Anbieter ist gerade nicht erreichbar. Bitte versuche es später erneut.',
+      'Die KI ist gerade nicht erreichbar. Bitte versuche es später erneut.',
     ],
     [
       'provider_rate_limited',
-      'Der AI-Anbieter ist gerade ausgelastet. Bitte versuche es später erneut.',
+      'Die KI ist gerade stark ausgelastet. Bitte versuche es später erneut.',
     ],
     [
       'provider_request_failed',
-      'Der AI-Anbieter konnte die Anfrage nicht verarbeiten. Bitte versuche es später erneut.',
+      'Die Anfrage konnte gerade nicht verarbeitet werden. Bitte versuche es später erneut.',
     ],
   ])('maps the gateway error %s to user-facing copy', async (code, expected) => {
     mockInvoke.mockResolvedValue({ data: { error: code }, error: { message: 'gateway failed' } });
@@ -181,6 +172,23 @@ describe('assistant API', () => {
         includeHouseholdContext: true,
       }),
     ).rejects.toThrow(expected);
+  });
+
+  it('marks refunded provider response errors as safe to retry', async () => {
+    mockInvoke.mockResolvedValue({
+      data: { error: 'provider_invalid_response' },
+      error: { message: 'gateway failed' },
+    });
+    const error = await sendAssistantMessage({
+      householdId: 'household-1',
+      message: 'Was essen wir heute?',
+      history: [],
+      includeHouseholdContext: true,
+    }).catch((value: unknown) => value);
+    expect(error).toMatchObject({
+      message: 'Die KI konnte gerade keine passende Antwort erstellen.',
+      retryable: true,
+    });
   });
 
   it('reads a gateway error from the response body and falls back to the invoke message', async () => {

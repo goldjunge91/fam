@@ -427,6 +427,96 @@ describe('AssistantScreen', () => {
     );
   });
 
+  it('retries a refunded provider response without duplicating the user message', async () => {
+    mockSendMessage.mockRejectedValueOnce(
+      Object.assign(new Error('Die KI konnte gerade keine passende Antwort erstellen.'), {
+        retryable: true,
+      }),
+    );
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+    await user.press(await screen.findByRole('button', { name: 'Erneut versuchen' }));
+
+    await waitFor(() => expect(screen.getByText('Hier sind Ideen.')).toBeOnTheScreen());
+    expect(mockSendMessage).toHaveBeenCalledTimes(2);
+    expect(mockSendMessage).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        message: 'Was kann ich heute kochen?',
+        history: [],
+      }),
+    );
+    const savedThreads = mockSaveThreads.mock.calls.at(-1)?.[1] as AssistantThread[] | undefined;
+    expect(savedThreads?.[0]?.messages.map(({ role }) => role)).toEqual(['user', 'assistant']);
+  });
+
+  it('keeps the prompt editable when a manual retry also fails', async () => {
+    mockSendMessage
+      .mockRejectedValueOnce(
+        Object.assign(new Error('Die KI konnte gerade keine passende Antwort erstellen.'), {
+          retryable: true,
+        }),
+      )
+      .mockRejectedValueOnce(new Error('Die Verbindung wurde unterbrochen.'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+    await user.press(await screen.findByRole('button', { name: 'Erneut versuchen' }));
+
+    await waitFor(() =>
+      expect(screen.getByText('Die Verbindung wurde unterbrochen.')).toBeOnTheScreen(),
+    );
+    expect(screen.getByDisplayValue('Was kann ich heute kochen?')).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Erneut versuchen' })).toBeNull();
+  });
+
+  it('keeps a successful reply when refreshing credits fails', async () => {
+    mockGetCreditStatus
+      .mockResolvedValueOnce({
+        creditsUsed: 2,
+        creditsRemaining: 8,
+        creditLimit: 10,
+        warningReached: false,
+        blocked: false,
+      })
+      .mockRejectedValueOnce(new Error('Creditstatus nicht verfügbar'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+
+    expect(await screen.findByText('Hier sind Ideen.')).toBeOnTheScreen();
+    expect(screen.queryByText('Creditstatus nicht verfügbar')).toBeNull();
+  });
+
+  it('keeps a successful retry when refreshing credits fails', async () => {
+    mockSendMessage.mockRejectedValueOnce(
+      Object.assign(new Error('Die KI konnte gerade keine passende Antwort erstellen.'), {
+        retryable: true,
+      }),
+    );
+    mockGetCreditStatus
+      .mockResolvedValueOnce({
+        creditsUsed: 2,
+        creditsRemaining: 8,
+        creditLimit: 10,
+        warningReached: false,
+        blocked: false,
+      })
+      .mockRejectedValueOnce(new Error('Creditstatus nicht verfügbar'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+    await user.press(await screen.findByRole('button', { name: 'Erneut versuchen' }));
+
+    expect(await screen.findByText('Hier sind Ideen.')).toBeOnTheScreen();
+    expect(screen.queryByText('Creditstatus nicht verfügbar')).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Erneut versuchen' })).toBeNull();
+  });
+
   it('blocks sending when credits are exhausted', async () => {
     mockGetCreditStatus.mockResolvedValue({
       creditsUsed: 10,

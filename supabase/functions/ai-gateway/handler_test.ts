@@ -1550,3 +1550,393 @@ Deno.test('assistant prompt uses available stock directly when no saved or catal
   );
   assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
 });
+
+Deno.test('rejects malformed HTTP bodies and request shapes before billing', async () => {
+  const configured = setup();
+  const optionsResponse = await configured.handler(
+    new Request('http://localhost/ai-gateway', { method: 'OPTIONS' }),
+  );
+  assertEquals(optionsResponse.status, 204);
+
+  const methodResponse = await configured.handler(
+    new Request('http://localhost/ai-gateway', { method: 'GET' }),
+  );
+  assertEquals(methodResponse.status, 405);
+
+  const invalidJsonResponse = await configured.handler(
+    new Request('http://localhost/ai-gateway', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer user-token' },
+      body: '{',
+    }),
+  );
+  assertEquals(invalidJsonResponse.status, 400);
+  assertEquals(await invalidJsonResponse.json(), { error: 'invalid_json' });
+
+  const invalidBodies = [
+    { skill: 'fam-ai-credit-status', householdId: 'household-1', extra: true },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: true,
+      extra: true,
+    },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Hallo',
+      history: Array.from({ length: 13 }, () => ({ role: 'user', text: 'Hallo' })),
+      includeHouseholdContext: true,
+    },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Hallo',
+      history: [{ role: 'system', text: 'nicht erlaubt' }],
+      includeHouseholdContext: true,
+    },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Hallo',
+      history: [{ role: 'user', text: 'x'.repeat(4_001) }],
+      includeHouseholdContext: true,
+    },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'x'.repeat(4_001),
+      history: [],
+      includeHouseholdContext: true,
+    },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: true,
+      provider: 'groq',
+    },
+    {
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: true,
+      model: 'z-ai/glm-5.3-flash',
+      provider: 'invalid-provider',
+    },
+  ];
+
+  for (const body of invalidBodies) {
+    const response = await configured.handler(request(body));
+    assertEquals(response.status, 400);
+    assertEquals((await response.json()).error, 'invalid_request');
+  }
+  assertEquals(configured.calls, []);
+  assertEquals(configured.bookings, []);
+});
+
+Deno.test('accepts the history and message upper bounds but rejects the next value', async () => {
+  const assistantReply = JSON.stringify({
+    kind: 'assistant_reply.v1',
+    text: 'Okay.',
+    suggestions: [],
+  });
+  const atLimit = setup({ providerContent: assistantReply });
+  const response = await atLimit.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'x'.repeat(4_000),
+    history: Array.from({ length: 12 }, () => ({ role: 'user', text: 'x'.repeat(4_000) })),
+    includeHouseholdContext: false,
+  }));
+  assertEquals(response.status, 200);
+
+  const tooManyHistory = setup({ providerContent: assistantReply });
+  const historyResponse = await tooManyHistory.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Hallo',
+    history: Array.from({ length: 13 }, () => ({ role: 'user', text: 'Hallo' })),
+    includeHouseholdContext: false,
+  }));
+  assertEquals(historyResponse.status, 400);
+  assertEquals(tooManyHistory.calls, []);
+});
+
+Deno.test('accepts shopping quantities at both limits and rejects precision, unit, and name violations', async () => {
+  const assistantReply = JSON.stringify({
+    kind: 'assistant_reply.v1',
+    text: 'Vorschlag.',
+    suggestions: [],
+  });
+  for (const quantity of [0.001, 1_000]) {
+    const configured = setup({
+      providerContent: assistantReply,
+      providerToolCalls: [{
+        id: `shopping-${String(quantity)}`,
+        name: 'propose_shopping_list_item',
+        arguments: JSON.stringify({ name: 'Tomaten', quantity, unit: 'piece' }),
+      }],
+    });
+    const response = await configured.handler(request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Füge Tomaten hinzu.',
+      history: [],
+      includeHouseholdContext: true,
+    }));
+    assertEquals(response.status, 200);
+    assertEquals((await response.json()).result.proposals[0]?.quantity, quantity);
+  }
+
+  const invalidArguments = [
+    { name: 'Tomaten', quantity: 0, unit: 'piece' },
+    { name: 'Tomaten', quantity: 1_000.001, unit: 'piece' },
+    { name: 'Tomaten', quantity: 1.2345, unit: 'piece' },
+    { name: 'Tomaten', quantity: 1, unit: 'crate' },
+    { name: ' '.repeat(201), quantity: 1, unit: 'piece' },
+  ];
+  for (const [index, argumentsValue] of invalidArguments.entries()) {
+    const configured = setup({
+      providerContent: assistantReply,
+      providerToolCalls: [{
+        id: `invalid-shopping-${String(index)}`,
+        name: 'propose_shopping_list_item',
+        arguments: JSON.stringify(argumentsValue),
+      }],
+    });
+    const response = await configured.handler(request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Füge etwas hinzu.',
+      history: [],
+      includeHouseholdContext: true,
+    }));
+    assertEquals(response.status, 200);
+    assertEquals((await response.json()).result.proposals, []);
+  }
+});
+
+Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale boundaries', async () => {
+  const assistantReply = JSON.stringify({
+    kind: 'assistant_reply.v1',
+    text: 'Der Vorschlag ist bereit.',
+    suggestions: [],
+  });
+  const context = {
+    ...CONTEXT,
+    recipes: [{ ...CONTEXT.recipes[0]!, updatedAt: '2026-11-08T08:30:00.000Z' }],
+  };
+  const validMeal = (overrides: Record<string, unknown> = {}) => ({
+    date: '2026-11-09',
+    mealSlot: 'dinner',
+    recipeId: 'recipe-1',
+    portions: 1,
+    rationale: 'Passt.',
+    ...overrides,
+  });
+  const sevenMeals = [
+    validMeal({ date: '2026-11-09', mealSlot: 'breakfast' }),
+    validMeal({ date: '2026-11-09', mealSlot: 'lunch' }),
+    validMeal({ date: '2026-11-09', mealSlot: 'dinner' }),
+    validMeal({ date: '2026-11-10', mealSlot: 'breakfast' }),
+    validMeal({ date: '2026-11-10', mealSlot: 'lunch' }),
+    validMeal({ date: '2026-11-10', mealSlot: 'dinner' }),
+    validMeal({ date: '2026-11-11', mealSlot: 'breakfast' }),
+  ];
+  const valid = setup({
+    context,
+    providerContent: assistantReply,
+    providerToolCalls: [{
+      id: 'valid-meal-plan',
+      name: 'propose_meal_plan',
+      arguments: JSON.stringify({ meals: sevenMeals }),
+    }],
+  });
+  const validResponse = await valid.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Plane die Woche.',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+  assertEquals(validResponse.status, 200);
+  assertEquals((await validResponse.json()).result.proposals[0]?.meals.length, 7);
+
+  const invalidMeals = [
+    [],
+    Array.from({ length: 8 }, () => validMeal()),
+    [validMeal({ date: '2026-02-30' })],
+    [validMeal({ date: '2026-11-09' }), validMeal({ date: '2026-11-16' })],
+    [validMeal(), validMeal()],
+    [validMeal({ recipeId: 'missing-recipe' })],
+    [validMeal({ portions: 0 })],
+    [validMeal({ portions: 13 })],
+    [validMeal({ rationale: 'x'.repeat(281) })],
+  ];
+  for (const [index, meals] of invalidMeals.entries()) {
+    const configured = setup({
+      context,
+      providerContent: assistantReply,
+      providerToolCalls: [{
+        id: `invalid-meal-plan-${String(index)}`,
+        name: 'propose_meal_plan',
+        arguments: JSON.stringify({ meals }),
+      }],
+    });
+    const response = await configured.handler(request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      consentVersion: 'fam-ai-v2',
+      message: 'Plane die Woche.',
+      history: [],
+      includeHouseholdContext: true,
+    }));
+    assertEquals(response.status, 200);
+    assertEquals((await response.json()).result.proposals, []);
+  }
+
+  const versionlessRecipe = setup({
+    context: { ...CONTEXT, recipes: [{ ...CONTEXT.recipes[0]! }] },
+    providerContent: assistantReply,
+    providerToolCalls: [{
+      id: 'versionless-recipe',
+      name: 'propose_meal_plan',
+      arguments: JSON.stringify({ meals: [validMeal()] }),
+    }],
+  });
+  const versionlessResponse = await versionlessRecipe.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Plane das Essen.',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+  assertEquals(versionlessResponse.status, 200);
+  assertEquals((await versionlessResponse.json()).result.proposals, []);
+});
+
+Deno.test('fails closed for malformed assistant tool calls without charging a second mutation path', async () => {
+  const assistantReply = JSON.stringify({
+    kind: 'assistant_reply.v1',
+    text: 'Ich konnte den Vorschlag nicht prüfen.',
+    suggestions: [],
+  });
+  const invalidArguments = setup({
+    providerContent: assistantReply,
+    providerToolCalls: [{ id: 'invalid-json', name: 'get_inventory', arguments: '{' }],
+  });
+  const invalidArgumentsResponse = await invalidArguments.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was ist im Vorrat?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+  assertEquals(invalidArgumentsResponse.status, 200);
+  assertEquals((await invalidArgumentsResponse.json()).result.toolTrace, []);
+
+  const invalidId = setup({
+    providerContent: assistantReply,
+    providerToolCalls: [{ id: '', name: 'get_inventory', arguments: '{}' }],
+  });
+  const invalidIdResponse = await invalidId.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was ist im Vorrat?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+  assertEquals(invalidIdResponse.status, 502);
+  assertEquals(await invalidIdResponse.json(), { error: 'invalid_assistant_tool_call' });
+  assertEquals(invalidId.refunds, [{ requestId: 'request-1', subscriberUserId: 'subscriber-1' }]);
+
+  const tooManyCalls = setup({
+    providerContent: assistantReply,
+    providerToolCalls: Array.from({ length: 9 }, (_, index) => ({
+      id: `call-${String(index)}`,
+      name: 'get_inventory',
+      arguments: '{}',
+    })),
+  });
+  const tooManyResponse = await tooManyCalls.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    consentVersion: 'fam-ai-v2',
+    message: 'Was ist im Vorrat?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+  assertEquals(tooManyResponse.status, 502);
+  assertEquals(await tooManyResponse.json(), { error: 'invalid_assistant_tool_calls' });
+});
+
+Deno.test('rejects proposal-validation snapshots with duplicate or mismatched evidence before a provider call', async () => {
+  const configured = setup();
+  const base = {
+    skill: 'fam-assistant-proposal-validation',
+    householdId: 'household-1',
+    foodRulesUpdatedAt: null,
+    coverageRulesUpdatedAt: null,
+    recipeIds: ['recipe-1'],
+    recipeVersions: [{
+      recipeId: 'recipe-1',
+      recipeUpdatedAt: '2026-11-08T08:30:00.000Z',
+      coverageVersion: 'current',
+    }],
+  };
+  const parseInvalidSnapshots = [
+    { ...base, recipeIds: ['recipe-1', 'recipe-1'] },
+    { ...base, recipeVersions: [] },
+    { ...base, extra: true },
+  ];
+  for (const snapshot of parseInvalidSnapshots) {
+    const response = await configured.handler(request(snapshot));
+    assertEquals(response.status, 400);
+    assertEquals((await response.json()).error, 'invalid_request');
+  }
+
+  const semanticInvalidSnapshots = [
+    {
+      snapshot: {
+        ...base,
+        recipeVersions: [{ ...base.recipeVersions[0], recipeId: 'other' }],
+      },
+      reason: 'invalid_proposal_snapshot',
+    },
+    {
+      snapshot: { ...base, coverageRulesUpdatedAt: 'different-rules' },
+      reason: 'invalid_proposal_snapshot',
+    },
+  ];
+  for (const { snapshot, reason } of semanticInvalidSnapshots) {
+    const response = await configured.handler(request(snapshot));
+    assertEquals(response.status, 200);
+    assertEquals(await response.json(), {
+      skill: 'fam-assistant-proposal-validation',
+      valid: false,
+      reason,
+    });
+  }
+  assertEquals(configured.calls, []);
+  assertEquals(configured.bookings, []);
+});

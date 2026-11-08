@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons';
 import { FlashList } from '@shopify/flash-list';
 import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
@@ -7,9 +8,9 @@ import { ActivityIndicator, KeyboardAvoidingView, TextInput, View } from 'react-
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { rs } from '@/components/theme/index';
+import { font, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Press, Txt } from '@/constants/ui';
+import { Divider, Press, Txt } from '@/constants/ui';
 import { getAiCreditStatus } from '@/features/ai-assistant/data/assistant-api';
 import { createLocalId } from '@/features/ai-assistant/types';
 import { useSession } from '@/features/auth/session-provider';
@@ -46,13 +47,11 @@ type SelectedMedia = {
   mimeType: string;
 };
 
-const SOURCE_OPTIONS: Array<{ value: RecipeImportSourceType; label: string }> = [
-  { value: 'url', label: 'Link' },
-  { value: 'text', label: 'Text' },
-  { value: 'image', label: 'Foto' },
-  { value: 'pdf', label: 'PDF' },
-  { value: 'video', label: 'Video' },
-];
+type ImportView = 'home' | 'multipleLinks' | 'text' | 'media';
+type MediaSourceType = Extract<RecipeImportSourceType, 'image' | 'pdf'>;
+
+const VIDEO_LINK =
+  /^\s*(https?:\/\/)?([\w-]+\.)*(tiktok\.com|youtube\.com|youtu\.be|instagram\.com|instagr\.am|facebook\.com|fb\.watch)\b/i;
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -63,45 +62,131 @@ const styles = StyleSheet.create((theme) => ({
     paddingBottom: theme.space.xxl,
   },
   content: {
-    gap: theme.space.md,
+    gap: theme.space.lg,
     paddingTop: theme.space.md,
     paddingBottom: theme.space.xl,
   },
-  sourceOptions: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  homeContent: {
+    gap: 0,
+    paddingTop: theme.space.xl,
+    paddingBottom: theme.space.lg,
+  },
+  homeTitle: {
+    marginBottom: theme.space.sm,
+    textAlign: 'center',
+  },
+  homeSubtitle: {
+    marginBottom: theme.space.xxl,
+    paddingHorizontal: theme.space.xs,
+    textAlign: 'center',
+  },
+  formSection: {
     gap: theme.space.sm,
   },
-  sourceOption: {
-    minHeight: rs(44),
-    justifyContent: 'center',
-    paddingHorizontal: theme.space.md,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.backgroundElement,
+  homeFormSection: {
+    marginBottom: theme.space.xl,
   },
-  sourceOptionSelected: {
-    backgroundColor: theme.accent,
+  inputLabel: {
+    color: theme.text,
   },
   input: {
-    minHeight: rs(116),
-    maxHeight: rs(240),
+    minHeight: rs(56),
     paddingHorizontal: theme.space.md,
-    paddingVertical: theme.space.md,
+    paddingVertical: theme.space.sm,
     borderRadius: theme.radius.md,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderCurve: 'continuous',
     color: theme.text,
     backgroundColor: theme.backgroundElement,
+    fontSize: font.sizes.md,
     textAlignVertical: 'top',
   },
-  shortInput: {
-    minHeight: rs(54),
-    maxHeight: rs(100),
+  multilineInput: {
+    minHeight: rs(152),
+    maxHeight: rs(280),
   },
-  actionRow: {
+  primaryButton: {
+    minHeight: rs(56),
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.lg,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.accent,
+  },
+  homePrimaryButton: {
+    marginBottom: theme.space.xs,
+  },
+  primaryButtonText: {
+    color: theme.onAccent,
+  },
+  secondaryTextButton: {
+    minHeight: rs(48),
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.md,
+  },
+  homeSecondaryLink: {
+    marginBottom: theme.space.xl,
+  },
+  secondaryText: {
+    color: theme.accent,
+  },
+  separatorRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.space.md,
   },
-  actionButton: {
+  homeSeparatorRow: {
+    marginBottom: theme.space.xl,
+  },
+  separatorLine: {
+    flex: 1,
+  },
+  sourceCards: {
+    flexDirection: 'row',
+    gap: theme.space.md,
+  },
+  sourceCard: {
+    minHeight: rs(136),
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.space.md,
+    padding: theme.space.md,
+    borderRadius: theme.radius.lg,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    borderCurve: 'continuous',
+    backgroundColor: theme.backgroundSoft,
+  },
+  sourceCardPressed: {
+    backgroundColor: theme.backgroundSoft,
+  },
+  sourceCardText: {
+    color: theme.text,
+    textAlign: 'center',
+  },
+  homeSourceCards: {
+    marginBottom: theme.space.xl,
+  },
+  manualEntry: {
+    minHeight: rs(52),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backAction: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+    alignSelf: 'flex-start',
+    minHeight: rs(40),
+  },
+  mediaPickerRow: {
+    flexDirection: 'row',
+    gap: theme.space.md,
+  },
+  mediaPickerButton: {
     minHeight: rs(48),
     flex: 1,
     alignItems: 'center',
@@ -109,14 +194,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingHorizontal: theme.space.md,
     borderRadius: theme.radius.md,
     backgroundColor: theme.backgroundElement,
-  },
-  primaryButton: {
-    minHeight: rs(50),
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: theme.space.lg,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.accent,
   },
   disabled: {
     opacity: 0.5,
@@ -172,6 +249,10 @@ function splitLinks(value: string): string[] {
     .filter(Boolean);
 }
 
+function linkSourceType(url: string): Extract<RecipeImportSourceType, 'url' | 'video'> {
+  return VIDEO_LINK.test(url) ? 'video' : 'url';
+}
+
 function queueStatusText(item: QueueItem): string {
   switch (item.status) {
     case 'processing':
@@ -196,9 +277,10 @@ export function RecipeImportScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const { hasAI } = usePremium();
   const [drafts, setDrafts] = useState<RecipeImportDraftRecord[]>([]);
-  const [sourceType, setSourceType] = useState<RecipeImportSourceType>('url');
+  const [view, setView] = useState<ImportView>('home');
   const [sourceValue, setSourceValue] = useState('');
   const [media, setMedia] = useState<SelectedMedia[]>([]);
+  const [mediaSourceType, setMediaSourceType] = useState<MediaSourceType | null>(null);
   const [queue, setQueue] = useState<QueueItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isImporting, setIsImporting] = useState(false);
@@ -283,6 +365,7 @@ export function RecipeImportScreen() {
       return;
     }
     setMedia(selected);
+    setMediaSourceType('image');
     setError(null);
   }
 
@@ -303,6 +386,15 @@ export function RecipeImportScreen() {
         mimeType: asset.mimeType ?? 'application/pdf',
       },
     ]);
+    setMediaSourceType('pdf');
+    setError(null);
+  }
+
+  function changeView(nextView: ImportView) {
+    setView(nextView);
+    setSourceValue('');
+    setMedia([]);
+    setMediaSourceType(null);
     setError(null);
   }
 
@@ -383,27 +475,31 @@ export function RecipeImportScreen() {
     setError(null);
     setIsImporting(true);
     try {
-      if (sourceType === 'url') {
+      if (view === 'home' || view === 'multipleLinks') {
         const links = splitLinks(sourceValue);
         if (links.length === 0) throw new Error('Füge mindestens einen Rezeptlink ein.');
-        if (links.length > 20) throw new Error('Importiere höchstens 20 Links auf einmal.');
-        for (const link of links) {
-          await importOne(link, { sourceType: 'url', sourceUrl: link });
+        if (view === 'home' && links.length > 1) {
+          throw new Error('Für mehrere Links nutze „Mehrere Links importieren“.');
         }
-      } else if (sourceType === 'text') {
+        if (view === 'multipleLinks' && links.length > 20) {
+          throw new Error('Importiere höchstens 20 Links auf einmal.');
+        }
+        if (links.some((link) => linkSourceType(link) === 'video') && !hasAI) {
+          throw new Error('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.');
+        }
+        for (const link of links) {
+          await importOne(link, { sourceType: linkSourceType(link), sourceUrl: link });
+        }
+      } else if (view === 'text') {
         const text = sourceValue.trim();
         if (!text) throw new Error('Füge zuerst den Rezepttext ein.');
         if (!hasAI) throw new Error('Für den Textimport brauchst du das AI-Abo dieses Haushalts.');
         await importOne('Eingefügter Rezepttext', { sourceType: 'text', sourceText: text });
-      } else if (sourceType === 'video') {
-        const link = sourceValue.trim();
-        if (!link) throw new Error('Füge zuerst einen Videolink ein.');
-        if (!hasAI) throw new Error('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.');
-        await importOne(link, { sourceType: 'video', sourceUrl: link });
       } else {
         if (media.length === 0) throw new Error('Wähle zuerst ein Foto oder ein PDF aus.');
         if (!hasAI)
           throw new Error('Für den Foto- und PDF-Import brauchst du das AI-Abo dieses Haushalts.');
+        const sourceType = mediaSourceType ?? 'image';
         await importOne(
           media.length === 1
             ? (media[0]?.name ?? 'Rezeptseite')
@@ -416,6 +512,10 @@ export function RecipeImportScreen() {
     } finally {
       setIsImporting(false);
     }
+  }
+
+  function openManualRecipe() {
+    router.push({ pathname: '/recipe/create' });
   }
 
   async function handleDeleteDraft(draftId: string) {
@@ -435,140 +535,248 @@ export function RecipeImportScreen() {
     }
   }
 
+  const isAiImportView = view === 'text' || view === 'media' || (view === 'multipleLinks' && hasAI);
+  const activeTitle =
+    view === 'multipleLinks'
+      ? 'Mehrere Links importieren'
+      : view === 'text'
+        ? 'Text einfügen'
+        : view === 'media'
+          ? 'Foto oder PDF'
+          : 'Rezept hinzufügen';
+  const submitLabel =
+    view === 'home'
+      ? 'Link importieren'
+      : view === 'multipleLinks'
+        ? 'Links importieren'
+        : view === 'text'
+          ? 'Text importieren'
+          : 'Import starten';
+  const submitButton = (
+    <Press
+      accessibilityRole="button"
+      disabled={isImporting}
+      onPress={() => void handleImport()}
+      style={[styles.primaryButton, isImporting ? styles.disabled : undefined]}>
+      {isImporting ? (
+        <ActivityIndicator color={colors.onAccent} />
+      ) : (
+        <Txt
+          variant={view === 'home' ? 'heading' : 'body'}
+          weight="700"
+          style={styles.primaryButtonText}>
+          {submitLabel}
+        </Txt>
+      )}
+    </Press>
+  );
   const header = (
-    <View style={styles.content}>
-      <Txt variant="body" tone="secondary">
-        Importiere Links, Text, Fotos, PDFs oder Videos. Jeder Treffer bleibt ein Entwurf, bis du
-        ihn im Rezepteditor prüfst und speicherst.
-      </Txt>
-      <View style={styles.sourceOptions}>
-        {SOURCE_OPTIONS.map((option) => (
+    <View style={[styles.content, view === 'home' && styles.homeContent]}>
+      {view === 'home' ? (
+        <>
+          <Txt variant="title" weight="700" center style={styles.homeTitle}>
+            Rezept hinzufügen
+          </Txt>
+          <Txt variant="body" weight="500" center style={styles.homeSubtitle}>
+            Rezeptlink einfügen oder eine andere Quelle wählen.
+          </Txt>
+          <View style={[styles.formSection, styles.homeFormSection]}>
+            <Txt variant="heading" weight="700" style={styles.inputLabel}>
+              Rezeptlink
+            </Txt>
+            <TextInput
+              value={sourceValue}
+              onChangeText={(value) => {
+                setSourceValue(value);
+                setError(null);
+              }}
+              maxLength={2_048}
+              placeholder="https://…"
+              placeholderTextColor={colors.textSecondary}
+              accessibilityLabel="Rezeptlink"
+              keyboardType="url"
+              autoCapitalize="none"
+              autoCorrect={false}
+              style={styles.input}
+              returnKeyType="go"
+              onSubmitEditing={() => void handleImport()}
+            />
+          </View>
+          {submitButton}
+          {error ? (
+            <Txt variant="caption" tone="danger">
+              {error}
+            </Txt>
+          ) : null}
           <Press
-            key={option.value}
             accessibilityRole="button"
-            accessibilityState={{ selected: sourceType === option.value }}
-            onPress={() => {
-              setSourceType(option.value);
-              setSourceValue('');
-              setMedia([]);
-              setError(null);
-            }}
-            style={[
-              styles.sourceOption,
-              sourceType === option.value ? styles.sourceOptionSelected : undefined,
-            ]}>
-            <Txt variant="caption" weight="700">
-              {option.label}
+            onPress={() => changeView('multipleLinks')}
+            style={[styles.secondaryTextButton, styles.homeSecondaryLink]}>
+            <Txt variant="heading" weight="700" style={styles.secondaryText}>
+              Mehrere Links importieren
             </Txt>
           </Press>
-        ))}
-      </View>
-      {sourceType === 'text' || sourceType === 'url' || sourceType === 'video' ? (
-        <TextInput
-          value={sourceValue}
-          onChangeText={setSourceValue}
-          maxLength={sourceType === 'text' ? 50_000 : sourceType === 'url' ? 20_000 : 2_048}
-          multiline={sourceType !== 'video'}
-          placeholder={
-            sourceType === 'url'
-              ? 'Ein Rezeptlink pro Zeile'
-              : sourceType === 'text'
-                ? 'Rezepttext hier einfügen'
-                : 'Videolink einfügen'
-          }
-          placeholderTextColor={colors.textSecondary}
-          accessibilityLabel={
-            sourceType === 'url'
-              ? 'Rezeptlinks'
-              : sourceType === 'text'
-                ? 'Rezepttext'
-                : 'Videolink'
-          }
-          style={[styles.input, sourceType === 'video' ? styles.shortInput : undefined]}
-          textAlignVertical="top"
-        />
+          <View style={[styles.separatorRow, styles.homeSeparatorRow]}>
+            <Divider style={styles.separatorLine} />
+            <Txt variant="body" tone="secondary" weight="700">
+              ODER
+            </Txt>
+            <Divider style={styles.separatorLine} />
+          </View>
+          <View style={[styles.sourceCards, styles.homeSourceCards]}>
+            <Press
+              accessibilityRole="button"
+              onPress={() => changeView('text')}
+              containerStyle={{ flex: 1 }}
+              style={({ pressed }) => [styles.sourceCard, pressed && styles.sourceCardPressed]}>
+              <Feather name="file-text" size={rs(44)} color={colors.text} accessible={false} />
+              <Txt variant="heading" weight="700" style={styles.sourceCardText}>
+                Text einfügen
+              </Txt>
+            </Press>
+            <Press
+              accessibilityRole="button"
+              onPress={() => changeView('media')}
+              containerStyle={{ flex: 1 }}
+              style={({ pressed }) => [styles.sourceCard, pressed && styles.sourceCardPressed]}>
+              <Feather name="camera" size={rs(44)} color={colors.text} accessible={false} />
+              <Txt variant="heading" weight="700" style={styles.sourceCardText}>
+                Foto oder PDF
+              </Txt>
+            </Press>
+          </View>
+          <Press accessibilityRole="button" onPress={openManualRecipe} style={styles.manualEntry}>
+            <Txt variant="heading" weight="700" style={styles.secondaryText}>
+              Rezept manuell eingeben
+            </Txt>
+          </Press>
+        </>
       ) : (
         <>
-          <View style={styles.actionRow}>
-            {sourceType === 'image' ? (
-              <Press
-                accessibilityRole="button"
-                onPress={() => void pickImages()}
-                style={styles.actionButton}>
-                <Txt variant="body" weight="700">
-                  Fotos auswählen
-                </Txt>
-              </Press>
-            ) : null}
-            {sourceType === 'pdf' ? (
-              <Press
-                accessibilityRole="button"
-                onPress={() => void pickPdf()}
-                style={styles.actionButton}>
-                <Txt variant="body" weight="700">
-                  PDF auswählen
-                </Txt>
-              </Press>
-            ) : null}
-          </View>
-          {media.length > 0 ? (
-            <View style={styles.mediaList}>
-              {media.map((item) => (
-                <Txt key={item.uri} variant="caption">
-                  {item.name}
-                </Txt>
-              ))}
+          <Press
+            accessibilityRole="button"
+            onPress={() => changeView('home')}
+            style={styles.backAction}>
+            <Feather name="arrow-left" size={18} color={colors.text} accessible={false} />
+            <Txt variant="body" weight="700">
+              Zurück
+            </Txt>
+          </Press>
+          <Txt variant="title" weight="700">
+            {activeTitle}
+          </Txt>
+          {view === 'multipleLinks' ? (
+            <View style={styles.formSection}>
+              <Txt variant="body" weight="700" style={styles.inputLabel}>
+                Rezeptlinks
+              </Txt>
+              <TextInput
+                value={sourceValue}
+                onChangeText={(value) => {
+                  setSourceValue(value);
+                  setError(null);
+                }}
+                maxLength={20_000}
+                multiline
+                numberOfLines={5}
+                placeholder="Ein Rezeptlink pro Zeile"
+                placeholderTextColor={colors.textSecondary}
+                accessibilityLabel="Rezeptlinks"
+                keyboardType="url"
+                autoCapitalize="none"
+                autoCorrect={false}
+                style={[styles.input, styles.multilineInput]}
+                textAlignVertical="top"
+              />
             </View>
           ) : null}
-          <Txt variant="caption" tone="secondary">
-            Bis zu fünf Fotos oder ein PDF mit maximal 5,5 MB.
-          </Txt>
+          {view === 'text' ? (
+            <View style={styles.formSection}>
+              <Txt variant="body" weight="700" style={styles.inputLabel}>
+                Rezepttext
+              </Txt>
+              <TextInput
+                value={sourceValue}
+                onChangeText={(value) => {
+                  setSourceValue(value);
+                  setError(null);
+                }}
+                maxLength={50_000}
+                multiline
+                numberOfLines={8}
+                placeholder="Rezepttext hier einfügen"
+                placeholderTextColor={colors.textSecondary}
+                accessibilityLabel="Rezepttext"
+                style={[styles.input, styles.multilineInput]}
+                textAlignVertical="top"
+              />
+            </View>
+          ) : null}
+          {view === 'media' ? (
+            <>
+              <View style={styles.mediaPickerRow}>
+                <Press
+                  accessibilityRole="button"
+                  onPress={() => void pickImages()}
+                  style={styles.mediaPickerButton}>
+                  <Txt variant="body" weight="700">
+                    Fotos auswählen
+                  </Txt>
+                </Press>
+                <Press
+                  accessibilityRole="button"
+                  onPress={() => void pickPdf()}
+                  style={styles.mediaPickerButton}>
+                  <Txt variant="body" weight="700">
+                    PDF auswählen
+                  </Txt>
+                </Press>
+              </View>
+              {media.length > 0 ? (
+                <View style={styles.mediaList}>
+                  {media.map((item) => (
+                    <Txt key={item.uri} variant="caption">
+                      {item.name}
+                    </Txt>
+                  ))}
+                </View>
+              ) : null}
+              <Txt variant="caption" tone="secondary">
+                Bis zu fünf Fotos oder ein PDF mit maximal 5,5 MB.
+              </Txt>
+            </>
+          ) : null}
+          {isAiImportView && hasAI ? (
+            <Txt variant="caption" tone="secondary">
+              KI-Auswertung: 3 Credits.
+              {credits
+                ? ' Verbraucht: ' +
+                  String(credits.creditsUsed) +
+                  '/' +
+                  String(credits.creditLimit) +
+                  ' diesen Monat.'
+                : ''}
+            </Txt>
+          ) : null}
+          {!hasAI && (view === 'text' || view === 'media') ? (
+            <Txt variant="caption" tone="secondary">
+              Die KI-Auswertung benötigt das AI-Abo des aktiven Haushalts.
+            </Txt>
+          ) : null}
+          {submitButton}
+          {error ? (
+            <Txt variant="caption" tone="danger">
+              {error}
+            </Txt>
+          ) : null}
+          {credits?.blocked && isAiImportView ? (
+            <Txt variant="caption" tone="danger">
+              Das monatliche Credit-Limit ist erreicht. Vollständige strukturierte Weblinks bleiben
+              kostenlos.
+            </Txt>
+          ) : null}
         </>
       )}
-      {!hasAI ? (
-        <Txt variant="caption" tone="secondary">
-          {sourceType === 'url'
-            ? 'Weblinks mit strukturierten Rezeptdaten sind ohne AI-Abo möglich. Für fehlende Angaben wird das AI-Abo benötigt.'
-            : 'Die KI-Auswertung benötigt das AI-Abo des aktiven Haushalts.'}
-        </Txt>
-      ) : null}
-      {hasAI ? (
-        <Txt variant="caption" tone="secondary">
-          Import mit KI: 3 Credits. Weblinks mit vollständigen strukturierten Rezeptdaten sind
-          kostenlos.
-          {credits
-            ? ' Verbraucht: ' +
-              String(credits.creditsUsed) +
-              '/' +
-              String(credits.creditLimit) +
-              ' diesen Monat.'
-            : ''}
-        </Txt>
-      ) : null}
-      {error ? (
-        <Txt variant="caption" tone="danger">
-          {error}
-        </Txt>
-      ) : null}
-      {credits?.blocked ? (
-        <Txt variant="caption" tone="danger">
-          Das monatliche Credit-Limit ist erreicht. Vollständige strukturierte Weblinks bleiben
-          kostenlos.
-        </Txt>
-      ) : null}
-      <Press
-        accessibilityRole="button"
-        disabled={isImporting}
-        onPress={() => void handleImport()}
-        style={[styles.primaryButton, isImporting ? styles.disabled : undefined]}>
-        {isImporting ? (
-          <ActivityIndicator color={colors.background} />
-        ) : (
-          <Txt variant="body" weight="700" style={{ color: colors.background }}>
-            Import starten
-          </Txt>
-        )}
-      </Press>
       {queue.length > 0 ? (
         <View style={styles.queueBlock}>
           <Txt variant="body" weight="700">
@@ -610,19 +818,23 @@ export function RecipeImportScreen() {
           ))}
         </View>
       ) : null}
-      <Txt variant="title" weight="700" style={styles.sectionTitle}>
-        Importentwürfe
-      </Txt>
+      {drafts.length > 0 ? (
+        <Txt variant="title" weight="700" style={styles.sectionTitle}>
+          Importentwürfe
+        </Txt>
+      ) : null}
     </View>
   );
 
   return (
     <HubScreen
       header={{
-        title: 'Rezept importieren',
+        title: 'fam',
+        titleVariant: 'brand',
         align: 'center',
         leading: <BackButton label="Zurück" variant="header" onPress={() => router.back()} />,
-      }}>
+      }}
+      showProfile={false}>
       <KeyboardAvoidingView
         style={styles.root}
         behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
@@ -647,11 +859,7 @@ export function RecipeImportScreen() {
             data={drafts}
             keyExtractor={(draft) => draft.id}
             ListHeaderComponent={header}
-            ListEmptyComponent={
-              <Txt variant="body" tone="secondary">
-                Noch keine Importentwürfe gespeichert.
-              </Txt>
-            }
+            ListEmptyComponent={null}
             renderItem={({ item }) => (
               <View style={styles.draftRow}>
                 <Txt variant="body" weight="700" numberOfLines={2}>
