@@ -7,7 +7,6 @@ import { RecipeImportScreen } from './recipe-import-screen';
 
 const mockPush = jest.fn();
 const mockLoadDrafts = jest.fn();
-const mockLoadConsent = jest.fn();
 const mockFindSavedSource = jest.fn();
 const mockSaveDraft = jest.fn();
 const mockRemoveDraft = jest.fn();
@@ -19,10 +18,6 @@ const mockPickDocument = jest.fn();
 let mockUserId: string | null = 'user-1';
 let mockHouseholdId: string | null = 'household-1';
 let mockHasAI = true;
-let mockConsent: { version: 'fam-ai-v2'; acceptedAt: string } | null = {
-  version: 'fam-ai-v2',
-  acceptedAt: '2026-11-08T00:00:00Z',
-};
 let mockDrafts: RecipeImportDraftRecord[] = [];
 
 type MockTheme = {
@@ -129,9 +124,6 @@ jest.mock('@/constants/ui', () => {
 jest.mock('@/features/ai-assistant/data/assistant-api', () => ({
   getAiCreditStatus: (...args: unknown[]) => mockGetCreditStatus(...args),
 }));
-jest.mock('@/features/ai-assistant/data/assistant-storage', () => ({
-  loadAiConsent: (...args: unknown[]) => mockLoadConsent(...args),
-}));
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({ session: mockUserId ? { user: { id: mockUserId } } : null }),
 }));
@@ -188,8 +180,7 @@ async function renderImporter() {
   await waitFor(() => {
     expect(
       Boolean(
-        screen.queryByText('AI-Datenverarbeitung freigeben') ||
-          screen.queryByRole('button', { name: 'Import starten' }) ||
+        screen.queryByRole('button', { name: 'Import starten' }) ||
           screen.queryByText('Wähle zuerst einen aktiven Haushalt.'),
       ),
     ).toBe(true);
@@ -203,10 +194,8 @@ describe('RecipeImportScreen', () => {
     mockUserId = 'user-1';
     mockHouseholdId = 'household-1';
     mockHasAI = true;
-    mockConsent = { version: 'fam-ai-v2', acceptedAt: '2026-11-08T00:00:00Z' };
     mockDrafts = [];
     mockLoadDrafts.mockImplementation(async () => mockDrafts);
-    mockLoadConsent.mockImplementation(async () => mockConsent);
     mockFindSavedSource.mockResolvedValue(null);
     mockSaveDraft.mockResolvedValue(undefined);
     mockRemoveDraft.mockResolvedValue(undefined);
@@ -229,10 +218,11 @@ describe('RecipeImportScreen', () => {
     expect(screen.getByText('Bitte melde dich an, um Rezepte zu importieren.')).toBeOnTheScreen();
   });
 
-  it('requests data processing consent before importing', async () => {
-    mockConsent = null;
+  it('shows the importer without a data-processing consent dialog', async () => {
     await renderImporter();
-    expect(screen.getByText('AI-Datenverarbeitung freigeben')).toBeOnTheScreen();
+    expect(screen.queryByText('AI-Datenverarbeitung freigeben')).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Zustimmen und fortfahren' })).toBeNull();
+    expect(screen.getByRole('button', { name: 'Import starten' })).toBeOnTheScreen();
   });
 
   it('requires an active household before showing the importer', async () => {

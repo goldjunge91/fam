@@ -11,8 +11,7 @@ import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { getAiCreditStatus } from '@/features/ai-assistant/data/assistant-api';
-import { loadAiConsent, saveAiConsent } from '@/features/ai-assistant/data/assistant-storage';
-import { AI_CONSENT_VERSION, createLocalId } from '@/features/ai-assistant/types';
+import { createLocalId } from '@/features/ai-assistant/types';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
@@ -157,12 +156,6 @@ const styles = StyleSheet.create((theme) => ({
   sectionTitle: {
     marginTop: theme.space.md,
   },
-  consentBlock: {
-    flex: 1,
-    justifyContent: 'center',
-    gap: theme.space.md,
-    paddingHorizontal: theme.space.lg,
-  },
   centered: {
     flex: 1,
     alignItems: 'center',
@@ -203,7 +196,6 @@ export function RecipeImportScreen() {
   const { activeHouseholdId } = useActiveHousehold();
   const { hasAI } = usePremium();
   const [drafts, setDrafts] = useState<RecipeImportDraftRecord[]>([]);
-  const [consent, setConsent] = useState(false);
   const [sourceType, setSourceType] = useState<RecipeImportSourceType>('url');
   const [sourceValue, setSourceValue] = useState('');
   const [media, setMedia] = useState<SelectedMedia[]>([]);
@@ -240,11 +232,10 @@ export function RecipeImportScreen() {
     }
     let current = true;
     setIsLoading(true);
-    void Promise.all([loadRecipeImportDrafts(userId), loadAiConsent(userId)])
-      .then(([storedDrafts, storedConsent]) => {
+    void loadRecipeImportDrafts(userId)
+      .then((storedDrafts) => {
         if (!current) return;
         setDrafts(storedDrafts);
-        setConsent(storedConsent?.version === AI_CONSENT_VERSION);
       })
       .catch((loadError: unknown) => {
         if (current) {
@@ -266,15 +257,6 @@ export function RecipeImportScreen() {
   const updateQueueItem = useCallback((id: string, update: Partial<QueueItem>) => {
     setQueue((current) => current.map((item) => (item.id === id ? { ...item, ...update } : item)));
   }, []);
-
-  async function handleAcceptConsent() {
-    if (!userId) return;
-    await saveAiConsent(userId, {
-      version: AI_CONSENT_VERSION,
-      acceptedAt: new Date().toISOString(),
-    });
-    setConsent(true);
-  }
 
   async function pickImages() {
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -397,7 +379,7 @@ export function RecipeImportScreen() {
   }
 
   async function handleImport() {
-    if (!userId || !activeHouseholdId || !consent || isImporting) return;
+    if (!userId || !activeHouseholdId || isImporting) return;
     setError(null);
     setIsImporting(true);
     try {
@@ -653,26 +635,6 @@ export function RecipeImportScreen() {
         ) : isLoading ? (
           <View style={styles.centered}>
             <ActivityIndicator color={colors.accent} />
-          </View>
-        ) : !consent ? (
-          <View style={styles.consentBlock}>
-            <Txt variant="title" weight="700">
-              AI-Datenverarbeitung freigeben
-            </Txt>
-            <Txt variant="body">
-              Für Text-, Foto-, PDF- und Videoimporte werden die ausgewählte Quelle und dein
-              Rezepttext an einen externen AI-Anbieter gesendet. Weblinks werden zuerst auf
-              strukturierte Rezeptdaten geprüft. Importentwürfe bleiben verschlüsselt in deinem
-              Account-Speicher auf diesem Gerät.
-            </Txt>
-            <Press
-              accessibilityRole="button"
-              onPress={() => void handleAcceptConsent()}
-              style={styles.primaryButton}>
-              <Txt variant="body" weight="700" style={{ color: colors.background }}>
-                Zustimmen und fortfahren
-              </Txt>
-            </Press>
           </View>
         ) : !activeHouseholdId ? (
           <View style={styles.centered}>
