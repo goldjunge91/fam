@@ -288,6 +288,40 @@ async function assertSupaAdmin(
   return { user };
 }
 
+async function acceptInvite(request: Request, config: SupabaseConfig): Promise<Response> {
+  if (!sameOrigin(request)) return responseJson({ error: 'forbidden' }, 403);
+  const accessToken = bearerToken(request);
+  const authorization = await assertSupaAdmin(request, config);
+  if ('response' in authorization) return authorization.response;
+  if (!accessToken) return responseJson({ error: 'unauthorized' }, 401);
+
+  const body = await readRequestJson(request);
+  const password = body?.password;
+  if (typeof password !== 'string' || password.length < 10 || password.length > 4096) {
+    return responseJson({ error: 'invalid_request' }, 400);
+  }
+
+  const response = await fetch(new URL('/auth/v1/user', config.url), {
+    method: 'PUT',
+    headers: {
+      apikey: config.publishableKey,
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ password }),
+    cache: 'no-store',
+  });
+  if (!response.ok) {
+    if (response.status === 401) return responseJson({ error: 'session_expired' }, 401);
+    if (response.status === 403) return responseJson({ error: 'admin_access_required' }, 403);
+    if (response.status === 400 || response.status === 422) {
+      return responseJson({ error: 'password_not_accepted' }, 400);
+    }
+    return responseJson({ error: 'invite_accept_failed' }, 502);
+  }
+  return responseJson({ success: true });
+}
+
 function adminHeaders(secretKey: string): HeadersInit {
   return {
     apikey: secretKey,
@@ -536,6 +570,9 @@ async function handleAdminApi(request: Request, env: Env, path: string): Promise
   }
   if (path === '/api/admin/auth/refresh' && request.method === 'POST') {
     return refreshSession(request, config);
+  }
+  if (path === '/api/admin/auth/accept-invite' && request.method === 'POST') {
+    return acceptInvite(request, config);
   }
   if (path === '/api/admin/auth/logout' && request.method === 'POST') {
     return signOut(request, config);

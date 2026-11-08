@@ -29,6 +29,8 @@ Der Adminbereich ist unter `/admin/` erreichbar. Die HTML-, CSS- und JS-Dateien 
 
 Die Plattformrolle ist von einer Haushaltsrolle getrennt. Supabase Auth speichert sie als `app_metadata.platform_role = "supa-admin"`. Der Worker prüft sie bei der Anmeldung, beim Erneuern einer Sitzung und vor jeder Nutzerdaten-Abfrage. `user_metadata` wird nicht für die Zugriffsentscheidung verwendet.
 
+Für `supa-admin`-Einladungen muss unter Supabase Authentication → URL Configuration `https://fam.tozzi9142.workers.dev/admin/` in `Redirect URLs` freigegeben sein. Beim Erstellen einer Einladung muss diese Adresse außerdem als `redirectTo` gesetzt werden. Die globale `Site URL` bleibt das Ziel für andere Auth-Flows. Diese gehostete Einstellung wurde noch nicht geändert.
+
 Für die Rollenvergabe muss `SUPABASE_URL` und `SUPABASE_SECRET_KEY` in der lokalen Umgebung gesetzt sein. Die User-ID kann in Supabase Auth unter Authentication → Users gefunden werden. Die Bestätigung wiederholt die ID, damit ein Rollenwechsel nicht versehentlich auf ein falsches Konto angewendet wird:
 
 ```sh

@@ -45,6 +45,20 @@
           </form>
         </section>
 
+        <section class="login-panel" id="invite-panel" aria-labelledby="invite-title" hidden>
+          <p class="eyebrow">Interne Verwaltung</p>
+          <h1 id="invite-title">Einladung annehmen</h1>
+          <p class="login-copy">Lege ein Passwort fest, um den Adminbereich zu öffnen.</p>
+          <p class="form-error" id="invite-error" role="alert" hidden></p>
+          <form id="invite-form" class="login-form">
+            <label for="invite-password">Neues Passwort</label>
+            <input id="invite-password" name="password" type="password" autocomplete="new-password" minlength="10" required>
+            <label for="invite-password-confirm">Passwort wiederholen</label>
+            <input id="invite-password-confirm" name="password-confirm" type="password" autocomplete="new-password" minlength="10" required>
+            <button class="button-primary" id="invite-button" type="submit">Passwort festlegen</button>
+          </form>
+        </section>
+
         <section class="usage-panel" id="usage-panel" aria-labelledby="page-title" hidden>
           <header class="page-header">
             <div>

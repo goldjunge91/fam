@@ -4,6 +4,12 @@ const numberFormat = new Intl.NumberFormat('de-DE');
 const elements = {
   accountRole: document.getElementById('account-role'),
   emptyState: document.getElementById('empty-state'),
+  inviteButton: document.getElementById('invite-button'),
+  inviteError: document.getElementById('invite-error'),
+  inviteForm: document.getElementById('invite-form'),
+  invitePanel: document.getElementById('invite-panel'),
+  invitePassword: document.getElementById('invite-password'),
+  invitePasswordConfirm: document.getElementById('invite-password-confirm'),
   loginButton: document.getElementById('login-button'),
   loginError: document.getElementById('login-error'),
   loginForm: document.getElementById('login-form'),
@@ -44,7 +50,8 @@ function readSession() {
     if (
       typeof session.accessToken !== 'string' ||
       typeof session.refreshToken !== 'string' ||
-      typeof session.expiresAt !== 'number'
+      typeof session.expiresAt !== 'number' ||
+      !Number.isFinite(session.expiresAt)
     ) {
       sessionStorage.removeItem(SESSION_KEY);
       return null;
@@ -60,7 +67,9 @@ function saveSession(value) {
   if (
     typeof value?.access_token !== 'string' ||
     typeof value?.refresh_token !== 'string' ||
-    typeof value?.expires_in !== 'number'
+    typeof value?.expires_in !== 'number' ||
+    !Number.isFinite(value.expires_in) ||
+    value.expires_in <= 0
   ) {
     throw new ApiError(502, 'invalid_session');
   }
@@ -75,6 +84,25 @@ function saveSession(value) {
 
 function clearSession() {
   sessionStorage.removeItem(SESSION_KEY);
+}
+
+function consumeInviteRedirect() {
+  const params = new URLSearchParams(window.location.hash.slice(1));
+  if (params.get('type') !== 'invite') return { recognized: false, valid: false };
+
+  window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+  clearSession();
+  try {
+    saveSession({
+      access_token: params.get('access_token'),
+      refresh_token: params.get('refresh_token'),
+      expires_in: Number(params.get('expires_in')),
+    });
+    return { recognized: true, valid: true };
+  } catch {
+    clearSession();
+    return { recognized: true, valid: false };
+  }
 }
 
 async function apiRequest(path, options = {}) {
@@ -119,13 +147,17 @@ async function validSession() {
   return session;
 }
 
-async function authenticatedGet(path) {
+async function authenticatedRequest(path, options = {}) {
   let session = await validSession();
   let response;
   try {
     response = await fetch(path, {
-      headers: { Authorization: `Bearer ${session.accessToken}` },
       cache: 'no-store',
+      ...options,
+      headers: {
+        ...options.headers,
+        Authorization: `Bearer ${session.accessToken}`,
+      },
     });
   } catch {
     throw new ApiError(0, 'network_error');
@@ -135,8 +167,12 @@ async function authenticatedGet(path) {
     session = await refreshSession(session);
     try {
       response = await fetch(path, {
-        headers: { Authorization: `Bearer ${session.accessToken}` },
         cache: 'no-store',
+        ...options,
+        headers: {
+          ...options.headers,
+          Authorization: `Bearer ${session.accessToken}`,
+        },
       });
     } catch {
       throw new ApiError(0, 'network_error');
@@ -156,6 +192,18 @@ async function authenticatedGet(path) {
   return payload;
 }
 
+function authenticatedGet(path) {
+  return authenticatedRequest(path);
+}
+
+function authenticatedPost(path, body) {
+  return authenticatedRequest(path, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+}
+
 function setLoginError(message) {
   elements.loginError.textContent = message;
   elements.loginError.hidden = !message;
@@ -169,15 +217,27 @@ function setPageStatus(message, kind = 'info') {
 
 function showDashboard() {
   elements.loginPanel.hidden = true;
+  elements.invitePanel.hidden = true;
   elements.usagePanel.hidden = false;
   elements.accountRole.hidden = false;
 }
 
 function showLogin(message = '') {
   elements.loginPanel.hidden = false;
+  elements.invitePanel.hidden = true;
   elements.usagePanel.hidden = true;
   elements.accountRole.hidden = true;
   setLoginError(message);
+}
+
+function showInvite(message = '', valid = true) {
+  elements.loginPanel.hidden = true;
+  elements.invitePanel.hidden = false;
+  elements.inviteForm.hidden = !valid;
+  elements.usagePanel.hidden = true;
+  elements.accountRole.hidden = true;
+  elements.inviteError.textContent = message;
+  elements.inviteError.hidden = !message;
 }
 
 function creditsValue(value) {
@@ -333,6 +393,48 @@ async function submitLogin(event) {
   }
 }
 
+async function submitInvite(event) {
+  event.preventDefault();
+  elements.inviteError.textContent = '';
+  elements.inviteError.hidden = true;
+  if (elements.invitePassword.value !== elements.invitePasswordConfirm.value) {
+    elements.inviteError.textContent = 'Die Passwörter stimmen nicht überein.';
+    elements.inviteError.hidden = false;
+    return;
+  }
+
+  elements.inviteButton.disabled = true;
+  elements.inviteButton.textContent = 'Passwort wird gespeichert';
+  try {
+    await authenticatedPost('/api/admin/auth/accept-invite', {
+      password: elements.invitePassword.value,
+    });
+    elements.inviteForm.reset();
+    showDashboard();
+    elements.monthPicker.value = new Date().toISOString().slice(0, 7);
+    await loadUsage();
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 401 || error.status === 403)) {
+      clearSession();
+      showInvite(
+        error.status === 403
+          ? 'Dieses Konto hat keine Freigabe für den Adminbereich.'
+          : 'Der Einladungslink ist abgelaufen. Bitte lass eine neue Einladung senden.',
+        false,
+      );
+      return;
+    }
+    elements.inviteError.textContent =
+      error instanceof ApiError && error.status === 400
+        ? 'Das Passwort wurde nicht akzeptiert. Prüfe die Passwortregeln und versuche es erneut.'
+        : 'Das Passwort konnte nicht gespeichert werden. Versuch es erneut.';
+    elements.inviteError.hidden = false;
+  } finally {
+    elements.inviteButton.disabled = false;
+    elements.inviteButton.textContent = 'Passwort festlegen';
+  }
+}
+
 async function signOut() {
   const session = readSession();
   clearSession();
@@ -352,12 +454,20 @@ async function signOut() {
 }
 
 elements.loginForm.addEventListener('submit', submitLogin);
+elements.inviteForm.addEventListener('submit', submitInvite);
 elements.refreshButton.addEventListener('click', loadUsage);
 elements.signOutButton.addEventListener('click', signOut);
 elements.searchInput.addEventListener('input', renderUsers);
 elements.monthPicker.addEventListener('change', loadUsage);
 
-if (readSession()) {
+const inviteRedirect = consumeInviteRedirect();
+
+if (inviteRedirect.recognized) {
+  showInvite(
+    inviteRedirect.valid ? '' : 'Der Einladungslink ist ungültig oder abgelaufen. Bitte lass eine neue Einladung senden.',
+    inviteRedirect.valid,
+  );
+} else if (readSession()) {
   showDashboard();
   loadUsage();
 } else {
