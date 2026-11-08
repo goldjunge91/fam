@@ -18,6 +18,7 @@ import {
   type FoodRuleSet,
   resolveFoodRuleCoverage,
 } from './food-rule-coverage.ts';
+import type { AiUsageRecordInput } from './usage.ts';
 
 export const ALLOWED_MODELS = [
   'ibm-granite/granite-4.2-8b',
@@ -138,7 +139,9 @@ export type GatewayRequest =
 
 type ModelGatewayRequest = Exclude<
   GatewayRequest,
-  CreditStatusRequest | AssistantProposalValidationRequest | AiModelTestRequest
+  | CreditStatusRequest
+  | AssistantProposalValidationRequest
+  | AiModelTestRequest
 >;
 
 export type ProviderContentPart =
@@ -342,6 +345,7 @@ type Dependencies = {
   }) => Promise<CreditResult>;
   refundAiCredit: (subscriberUserId: string, requestId: string) => Promise<void>;
   getAiCreditStatus?: (householdId: string) => Promise<CreditStatusResult>;
+  recordAiUsage?: (input: AiUsageRecordInput) => Promise<void>;
   loadCookingContext: (
     userId: string,
     householdId: string,
@@ -435,12 +439,9 @@ function parseModelSelection(value: Record<string, unknown>): ModelSelection | n
 }
 
 function parseRequest(value: unknown): GatewayRequest | null {
-  if (
-    !isRecord(value) || !nonEmptyString(value.skill) ||
-    !nonEmptyString(value.householdId)
-  ) {
-    return null;
-  }
+  if (!isRecord(value) || !nonEmptyString(value.skill)) return null;
+
+  if (!nonEmptyString(value.householdId)) return null;
 
   if (value.skill === 'fam-ai-credit-status') {
     const allowedKeys = new Set(['skill', 'householdId']);
@@ -1691,6 +1692,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       dependencies.recordRateLimitAttempt?.();
 
       const startedAt = nowMilliseconds();
+      const currentRequestId = requestId();
       let result: ProviderResult;
       try {
         result = await dependencies.complete({
@@ -1699,7 +1701,8 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           messages: [
             {
               role: 'system',
-              content: 'Du bist fams Kochassistent. Antworte auf Deutsch, freundlich und knapp. Für diesen Modelltest hast du keinen Zugriff auf Vorräte, Rezepte oder Haushaltsregeln. Erfinde keinen solchen Zugriff.',
+              content:
+                'Du bist fams Kochassistent. Antworte auf Deutsch, freundlich und knapp. Für diesen Modelltest hast du keinen Zugriff auf Vorräte, Rezepte oder Haushaltsregeln. Erfinde keinen solchen Zugriff.',
             },
             { role: 'user', content: parsedRequest.prompt },
           ],
@@ -1710,6 +1713,22 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         return json({ error: 'provider_unavailable' }, 502);
       }
       if (!result.ok) return json({ error: result.error }, result.status);
+      try {
+        await dependencies.recordAiUsage?.({
+          userId: auth.userId,
+          subscriberUserId: null,
+          householdId: parsedRequest.householdId,
+          requestId: currentRequestId,
+          providerCallIndex: 0,
+          provider: parsedRequest.provider,
+          model: parsedRequest.model,
+          skill: parsedRequest.skill,
+          isTest: true,
+          usage: result.usage,
+        });
+      } catch {
+        console.warn('ai_usage_record_failed');
+      }
       if (!nonEmptyString(result.content) || result.model !== parsedRequest.model) {
         return json({ error: 'provider_empty_response' }, 502);
       }
@@ -1768,12 +1787,16 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return json({ skill: parsedRequest.skill, ...validation });
     }
 
-    if (!dependencies.modelOverridesEnabled && parsedRequest.provider &&
-      parsedRequest.provider !== defaultProvider) {
+    if (
+      !dependencies.modelOverridesEnabled && parsedRequest.provider &&
+      parsedRequest.provider !== defaultProvider
+    ) {
       return json({ error: 'model_override_unavailable' }, 403);
     }
-    if (!dependencies.modelOverridesEnabled && parsedRequest.model &&
-      parsedRequest.model !== defaultModel) {
+    if (
+      !dependencies.modelOverridesEnabled && parsedRequest.model &&
+      parsedRequest.model !== defaultModel
+    ) {
       const configuredModels = dependencies.providerModels?.[defaultProvider] ?? allowedModels;
       return configuredModels.includes(parsedRequest.model)
         ? json({ error: 'model_override_unavailable' }, 403)
@@ -1950,7 +1973,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     let provider: ProviderResult | null = null;
     const proposals: AssistantProposal[] = [];
     const toolTrace = new Set<AssistantToolName>();
-    const usageTotals: Record<string, number> = {};
+    let providerCallIndex = 0;
     const canUseTools = parsedRequest.skill === 'fam-assistant' &&
       parsedRequest.includeHouseholdContext;
     for (let round = 0; round <= 6; round += 1) {
@@ -1970,13 +1993,26 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           ...(provider.message ? { message: provider.message } : {}),
         }, provider.status);
       }
+      try {
+        await dependencies.recordAiUsage?.({
+          userId: auth.userId,
+          subscriberUserId: entitlement.subscriberUserId,
+          householdId: parsedRequest.householdId,
+          requestId: currentRequestId,
+          providerCallIndex,
+          provider: activeProvider,
+          model: provider.model,
+          skill: parsedRequest.skill,
+          isTest: false,
+          usage: provider.usage,
+        });
+      } catch {
+        console.warn('ai_usage_record_failed');
+      }
+      providerCallIndex += 1;
       if (provider.model !== model || !activeAllowedModels.includes(provider.model)) {
         return await refundAndRespond({ error: 'provider_model_mismatch' }, 502);
       }
-      for (const [key, value] of Object.entries(numericUsage(provider.usage))) {
-        usageTotals[key] = (usageTotals[key] ?? 0) + value;
-      }
-
       const toolCalls = provider.toolCalls ?? [];
       if (toolCalls.length === 0) break;
       if (!canUseTools || round >= 6 || toolCalls.length > 8) {
@@ -2039,7 +2075,6 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       result: parsedRequest.skill === 'fam-assistant'
         ? { ...parsedResult, proposals, toolTrace: [...toolTrace] }
         : parsedResult,
-      ...(Object.keys(usageTotals).length > 0 ? { usage: usageTotals } : {}),
       generatedAt: now(),
     });
   };

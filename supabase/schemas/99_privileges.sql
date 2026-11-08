@@ -40,6 +40,8 @@ revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_bookings to service_role;
 revoke all on public.ai_credit_refunds from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_refunds to service_role;
+revoke all on public.ai_usage_events from anon, authenticated, service_role;
+grant insert, select on public.ai_usage_events to service_role;
 grant delete, insert, select, update on public.products to anon, authenticated, service_role;
 revoke all on public.allergen_taxonomy, public.food_ingredients,
   public.food_ingredient_aliases, public.ingredient_allergen_assessments

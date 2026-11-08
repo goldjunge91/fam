@@ -81,6 +81,82 @@ export type Database = {
           },
         ];
       };
+      ai_usage_events: {
+        Row: {
+          completion_tokens: number | null;
+          cost_source: string | null;
+          created_at: string;
+          household_id: string | null;
+          is_test: boolean;
+          model: string;
+          prompt_tokens: number | null;
+          provider: string;
+          provider_call_index: number;
+          provider_cost_usd: number | null;
+          request_id: string;
+          skill: string;
+          subscriber_user_id: string | null;
+          total_tokens: number | null;
+          user_id: string;
+        };
+        Insert: {
+          completion_tokens?: number | null;
+          cost_source?: string | null;
+          created_at?: string;
+          household_id?: string | null;
+          is_test?: boolean;
+          model: string;
+          prompt_tokens?: number | null;
+          provider: string;
+          provider_call_index: number;
+          provider_cost_usd?: number | null;
+          request_id: string;
+          skill: string;
+          subscriber_user_id?: string | null;
+          total_tokens?: number | null;
+          user_id: string;
+        };
+        Update: {
+          completion_tokens?: number | null;
+          cost_source?: string | null;
+          created_at?: string;
+          household_id?: string | null;
+          is_test?: boolean;
+          model?: string;
+          prompt_tokens?: number | null;
+          provider?: string;
+          provider_call_index?: number;
+          provider_cost_usd?: number | null;
+          request_id?: string;
+          skill?: string;
+          subscriber_user_id?: string | null;
+          total_tokens?: number | null;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ai_usage_events_household_id_fkey";
+            columns: ["household_id"];
+            isOneToOne: false;
+            referencedRelation: "households";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ai_usage_events_subscriber_user_id_fkey";
+            columns: ["subscriber_user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ai_usage_events_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       allergen_taxonomy: {
         Row: {
           created_at: string;

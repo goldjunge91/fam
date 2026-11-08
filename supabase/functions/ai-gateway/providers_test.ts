@@ -3,11 +3,14 @@ import { assertEquals } from 'jsr:@std/assert@1';
 import { createProviderCompleter } from './providers.ts';
 
 function okResponse(overrides: Record<string, unknown> = {}): Response {
-  return new Response(JSON.stringify({
-    choices: [{ message: { content: 'Antwort vom Modell' } }],
-    usage: { prompt_tokens: 12, completion_tokens: 7, total_tokens: 19 },
-    ...overrides,
-  }), { status: 200 });
+  return new Response(
+    JSON.stringify({
+      choices: [{ message: { content: 'Antwort vom Modell' } }],
+      usage: { prompt_tokens: 12, completion_tokens: 7, total_tokens: 19 },
+      ...overrides,
+    }),
+    { status: 200 },
+  );
 }
 
 Deno.test('sends OpenRouter requests with existing JSON mode and attribution headers', async () => {
@@ -39,6 +42,7 @@ Deno.test('sends OpenRouter requests with existing JSON mode and attribution hea
     messages: [{ role: 'user', content: 'Hallo' }],
     max_tokens: 1536,
     response_format: { type: 'json_object' },
+    usage: { include: true },
   });
   assertEquals(result.ok, true);
   if (result.ok) {
@@ -58,14 +62,16 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
     url = String(nextUrl);
     init = nextInit;
     return okResponse({
-      choices: [{ message: {
-        content: null,
-        tool_calls: [{
-          id: 'call-1',
-          type: 'function',
-          function: { name: 'get_inventory', arguments: '{}' },
-        }],
-      } }],
+      choices: [{
+        message: {
+          content: null,
+          tool_calls: [{
+            id: 'call-1',
+            type: 'function',
+            function: { name: 'get_inventory', arguments: '{}' },
+          }],
+        },
+      }],
     });
   });
 
@@ -73,9 +79,14 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
     provider: 'groq',
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Was ist noch im Vorrat?' }],
-    tools: [{ type: 'function', function: {
-      name: 'get_inventory', description: 'Read inventory', parameters: {},
-    } }],
+    tools: [{
+      type: 'function',
+      function: {
+        name: 'get_inventory',
+        description: 'Read inventory',
+        parameters: {},
+      },
+    }],
   });
 
   assertEquals(url, 'https://api.groq.com/openai/v1/chat/completions');

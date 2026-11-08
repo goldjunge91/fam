@@ -2,7 +2,6 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import {
   ALLOWED_MODELS,
-  GROQ_ALLOWED_MODELS,
   createAiGatewayHandler,
   type GatewayCookingContext,
   type GatewayCreditAction,
@@ -10,10 +9,12 @@ import {
   type GatewayFoodRules,
   type GatewayInventoryContext,
   type GatewayLot,
-  type GatewayRecipe,
   type GatewayProvider,
+  type GatewayRecipe,
+  GROQ_ALLOWED_MODELS,
 } from './handler.ts';
 import { createProviderCompleter } from './providers.ts';
+import { type AiUsageRecordInput, toAiUsageEvent } from './usage.ts';
 import {
   allergenIdForProfileRule,
   type EuAllergenId,
@@ -325,6 +326,15 @@ async function getAiCreditStatus(householdId: string) {
     blocked: row.blocked,
   };
   return { ok: true as const, status };
+}
+
+async function recordAiUsage(input: AiUsageRecordInput) {
+  const client = createClient(supabaseUrl, supabaseSecretKey);
+  const { error } = await client.from('ai_usage_events').upsert(toAiUsageEvent(input), {
+    onConflict: 'request_id,provider_call_index',
+    ignoreDuplicates: true,
+  });
+  if (error) throw error;
 }
 
 function storageKind(value: unknown): GatewayLot['storage'] {
@@ -875,6 +885,7 @@ const handler = createAiGatewayHandler({
   bookAiCredit,
   refundAiCredit,
   getAiCreditStatus,
+  recordAiUsage,
   loadCookingContext,
   loadRecipePage,
   validatePublicUrl: isPublicHttpsUrl,

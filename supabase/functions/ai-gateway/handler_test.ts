@@ -1,13 +1,13 @@
 import { assert, assertEquals, assertStringIncludes } from 'jsr:@std/assert@1';
 
 import {
-  createAiGatewayHandler,
   ALLOWED_MODELS,
-  GROQ_ALLOWED_MODELS,
-  type GatewayProvider,
+  createAiGatewayHandler,
   type GatewayCookingContext,
   type GatewayCreditAction,
   type GatewayInventoryContext,
+  type GatewayProvider,
+  GROQ_ALLOWED_MODELS,
 } from './handler.ts';
 
 const CONTEXT: GatewayCookingContext = {
@@ -118,6 +118,18 @@ function setup(
     subscriberUserId: string;
   }> = [];
   const refunds: Array<{ requestId: string; subscriberUserId: string }> = [];
+  const usageRecords: Array<{
+    userId: string;
+    subscriberUserId: string | null;
+    householdId: string;
+    requestId: string;
+    providerCallIndex: number;
+    provider: GatewayProvider;
+    model: string;
+    skill: string;
+    isTest: boolean;
+    usage: unknown;
+  }> = [];
   let contextReads = 0;
   const handler = createAiGatewayHandler({
     authenticate: (request) =>
@@ -159,6 +171,10 @@ function setup(
     refundAiCredit: (subscriberUserId, requestId) => {
       refunds.push({ requestId, subscriberUserId });
       return options.refundThrows ? Promise.reject(new Error('refund failed')) : Promise.resolve();
+    },
+    recordAiUsage: (input) => {
+      usageRecords.push(input);
+      return Promise.resolve();
     },
     loadCookingContext: () => {
       contextReads += 1;
@@ -202,6 +218,7 @@ function setup(
         ok: true as const,
         content: options.providerContent ?? JSON.stringify(COOKING_RESULT),
         model: options.providerModel ?? model,
+        usage: { prompt_tokens: 12, completion_tokens: 7, total_tokens: 19, cost: 0.0001 },
       });
     },
     isRateLimited: () => options.rateLimited ?? false,
@@ -219,7 +236,14 @@ function setup(
     now: () => '2026-09-01T10:00:00.000Z',
     requestId: () => 'request-1',
   });
-  return { handler, calls, bookings, refunds, getContextReads: () => contextReads };
+  return {
+    handler,
+    calls,
+    bookings,
+    refunds,
+    usageRecords,
+    getContextReads: () => contextReads,
+  };
 }
 
 Deno.test('rejects unauthenticated requests before parsing the body', async () => {
@@ -285,6 +309,18 @@ Deno.test('model test endpoint is local-only, allowlisted, and does not bill hou
   assertEquals(enabled.calls[0]?.responseFormat, null);
   assertEquals(enabled.bookings, []);
   assertEquals(enabled.getContextReads(), 0);
+  assertEquals(enabled.usageRecords, [{
+    userId: 'user-1',
+    subscriberUserId: null,
+    householdId: 'household-1',
+    requestId: 'request-1',
+    providerCallIndex: 0,
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+    skill: 'fam-ai-model-test',
+    isTest: true,
+    usage: { prompt_tokens: 12, completion_tokens: 7, total_tokens: 19, cost: 0.0001 },
+  }]);
 });
 
 Deno.test('Groq free chat models are available to the local model tester', async () => {
@@ -308,7 +344,7 @@ Deno.test('applies the local provider and model selection to the regular assista
     text: 'Eine schnelle Linsenpfanne.',
     suggestions: [],
   };
-  const { handler, calls, bookings } = setup({
+  const { handler, calls, bookings, usageRecords } = setup({
     modelOverridesEnabled: true,
     providerContent: JSON.stringify(assistantOutput),
   });
@@ -330,6 +366,18 @@ Deno.test('applies the local provider and model selection to the regular assista
   assertEquals(calls[0]?.provider, 'groq');
   assertEquals(calls[0]?.model, 'openai/gpt-oss-120b');
   assertEquals(bookings.length, 1);
+  assertEquals(usageRecords, [{
+    userId: 'user-1',
+    subscriberUserId: 'subscriber-1',
+    householdId: 'household-1',
+    requestId: 'request-1',
+    providerCallIndex: 0,
+    provider: 'groq',
+    model: 'openai/gpt-oss-120b',
+    skill: 'fam-assistant',
+    isTest: false,
+    usage: { prompt_tokens: 12, completion_tokens: 7, total_tokens: 19, cost: 0.0001 },
+  }]);
 });
 
 Deno.test('uses OpenRouter media fallback for Groq sources the selected model cannot accept', async () => {
@@ -898,7 +946,7 @@ Deno.test('rejects capture evidence that is not present in the user text', async
 });
 
 Deno.test('rejects non-JSON provider output without fallback text', async () => {
-  const { handler } = setup({ providerContent: 'Ich würde Pasta kochen.' });
+  const { handler, usageRecords } = setup({ providerContent: 'Ich würde Pasta kochen.' });
   const response = await handler(
     request({
       skill: 'fam-cook-from-inventory',
@@ -913,6 +961,7 @@ Deno.test('rejects non-JSON provider output without fallback text', async () => 
 
   assertEquals(response.status, 502);
   assertEquals(await response.json(), { error: 'provider_invalid_json' });
+  assertEquals(usageRecords.length, 1);
 });
 
 Deno.test('keeps plain-text assistant output readable when the model misses its JSON envelope', async () => {

@@ -1,9 +1,4 @@
-import type {
-  GatewayProvider,
-  ProviderMessage,
-  ProviderResult,
-  ProviderTool,
-} from './handler.ts';
+import type { GatewayProvider, ProviderMessage, ProviderResult, ProviderTool } from './handler.ts';
 
 export type ProviderCompletionInput = {
   provider?: GatewayProvider;
@@ -28,8 +23,7 @@ export type ProviderConfiguration = {
 function providerBaseUrl(provider: GatewayProvider, config: ProviderConfiguration): string {
   return (provider === 'groq'
     ? config.groqBaseUrl ?? 'https://api.groq.com/openai/v1'
-    : config.openRouterBaseUrl ?? 'https://openrouter.ai/api/v1'
-  ).replace(/\/$/, '');
+    : config.openRouterBaseUrl ?? 'https://openrouter.ai/api/v1').replace(/\/$/, '');
 }
 
 function providerKey(provider: GatewayProvider, config: ProviderConfiguration): string | undefined {
@@ -47,11 +41,16 @@ function parseProviderResult(body: unknown, model: string): ProviderResult {
     typeof firstChoice === 'object' && firstChoice !== null && !Array.isArray(firstChoice)
       ? (firstChoice as Record<string, unknown>).message
       : undefined;
-  if (typeof assistantMessage !== 'object' || assistantMessage === null || Array.isArray(assistantMessage)) {
+  if (
+    typeof assistantMessage !== 'object' || assistantMessage === null ||
+    Array.isArray(assistantMessage)
+  ) {
     return { ok: false, status: 502, error: 'provider_empty_response' };
   }
   const record = assistantMessage as Record<string, unknown>;
-  const content = typeof record.content === 'string' && record.content.trim() ? record.content : null;
+  const content = typeof record.content === 'string' && record.content.trim()
+    ? record.content
+    : null;
   const rawToolCalls = Array.isArray(record.tool_calls) ? record.tool_calls : [];
   const toolCalls = rawToolCalls.flatMap((call: unknown) => {
     if (typeof call !== 'object' || call === null || Array.isArray(call)) return [];
@@ -104,6 +103,7 @@ export function createProviderCompleter(
         ? {}
         : { response_format: { type: input.responseFormat ?? 'json_object' } }),
       ...(input.tools ? { tools: input.tools, tool_choice: 'auto' } : {}),
+      ...(provider === 'openrouter' ? { usage: { include: true } } : {}),
       ...(provider === 'openrouter' && input.model === 'ibm-granite/granite-4.2-8b'
         ? { reasoning: { enabled: false } }
         : {}),
