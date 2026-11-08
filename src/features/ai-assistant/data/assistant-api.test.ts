@@ -151,6 +151,26 @@ describe('assistant API', () => {
       'provider_invalid_json',
       'Die KI-Antwort ließ sich nicht verarbeiten. Bitte versuche es erneut.',
     ],
+    [
+      'provider_invalid_response',
+      'Der AI-Anbieter hat keine verwertbare Antwort geliefert. Bitte versuche es erneut.',
+    ],
+    [
+      'provider_empty_response',
+      'Der AI-Anbieter hat keine verwertbare Antwort geliefert. Bitte versuche es erneut.',
+    ],
+    [
+      'provider_unavailable',
+      'Der AI-Anbieter ist gerade nicht erreichbar. Bitte versuche es später erneut.',
+    ],
+    [
+      'provider_rate_limited',
+      'Der AI-Anbieter ist gerade ausgelastet. Bitte versuche es später erneut.',
+    ],
+    [
+      'provider_request_failed',
+      'Der AI-Anbieter konnte die Anfrage nicht verarbeiten. Bitte versuche es später erneut.',
+    ],
   ])('maps the gateway error %s to user-facing copy', async (code, expected) => {
     mockInvoke.mockResolvedValue({ data: { error: code }, error: { message: 'gateway failed' } });
     await expect(
@@ -188,7 +208,9 @@ describe('assistant API', () => {
         history: [],
         includeHouseholdContext: true,
       }),
-    ).rejects.toThrow('network down');
+    ).rejects.toThrow(
+      'Der Assistant ist gerade nicht erreichbar. Bitte prüfe deine Verbindung und versuche es erneut.',
+    );
 
     mockInvoke.mockResolvedValueOnce({
       data: null,
@@ -201,7 +223,9 @@ describe('assistant API', () => {
         history: [],
         includeHouseholdContext: true,
       }),
-    ).rejects.toThrow('bad response');
+    ).rejects.toThrow(
+      'Der Assistant ist gerade nicht erreichbar. Bitte prüfe deine Verbindung und versuche es erneut.',
+    );
   });
 
   it.each([

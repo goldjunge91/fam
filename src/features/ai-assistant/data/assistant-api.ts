@@ -211,7 +211,27 @@ export async function sendAssistantMessage(
     if (code === 'provider_invalid_json') {
       throw new Error('Die KI-Antwort ließ sich nicht verarbeiten. Bitte versuche es erneut.');
     }
-    throw new Error(error.message);
+    if (code === 'provider_invalid_response' || code === 'provider_empty_response') {
+      throw new Error(
+        'Der AI-Anbieter hat keine verwertbare Antwort geliefert. Bitte versuche es erneut.',
+      );
+    }
+    if (code === 'provider_unavailable') {
+      throw new Error(
+        'Der AI-Anbieter ist gerade nicht erreichbar. Bitte versuche es später erneut.',
+      );
+    }
+    if (code === 'provider_rate_limited') {
+      throw new Error('Der AI-Anbieter ist gerade ausgelastet. Bitte versuche es später erneut.');
+    }
+    if (code === 'provider_request_failed') {
+      throw new Error(
+        'Der AI-Anbieter konnte die Anfrage nicht verarbeiten. Bitte versuche es später erneut.',
+      );
+    }
+    throw new Error(
+      'Der Assistant ist gerade nicht erreichbar. Bitte prüfe deine Verbindung und versuche es erneut.',
+    );
   }
   return parseAssistantReply(data);
 }
