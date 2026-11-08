@@ -514,11 +514,12 @@ describe('AssistantScreen', () => {
       name: 'Einkaufsartikel übernehmen: Hafermilch',
     });
 
+    expect(screen.getByText('2 Packungen · Hafermilch')).toBeOnTheScreen();
     expect(screen.getByText(/keiner geprüften Lebensmittelzuordnung/u)).toBeOnTheScreen();
     await user.press(applyButton);
     expect(Alert.alert).toHaveBeenCalledWith(
       'Artikel übernehmen?',
-      expect.stringContaining('persönliche Regeln'),
+      expect.stringContaining('2 Packungen · Hafermilch'),
       expect.any(Array),
     );
     let options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];

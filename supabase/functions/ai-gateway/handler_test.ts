@@ -1086,6 +1086,7 @@ Deno.test('assistant returns a bounded shopping item proposal without mutating h
   }]);
   assertEquals(body.result.toolTrace, ['propose_shopping_list_item']);
   assertStringIncludes(calls[0].system, 'Einkaufsliste');
+  assertStringIncludes(calls[0].system, 'Nenne niemals technische Feldnamen');
   assertEquals(calls[1].transcript.includes('Hafermilch'), true);
 });
 

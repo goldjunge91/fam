@@ -286,6 +286,22 @@ function upsertThread(
     .slice(0, 20);
 }
 
+function formatShoppingItemQuantity(
+  proposal: Extract<AssistantProposal, { kind: 'shopping_list_item_proposal.v1' }>,
+): string {
+  const unit =
+    UNIT_OPTIONS.find((option) => option.value === proposal.unit)?.label ?? proposal.unit;
+  const pluralUnit =
+    proposal.quantity === 1
+      ? unit
+      : unit === 'Packung'
+        ? 'Packungen'
+        : unit === 'Portion'
+          ? 'Portionen'
+          : unit;
+  return `${String(proposal.quantity)} ${pluralUnit}`;
+}
+
 export function AssistantScreen() {
   const { colors } = useTheme();
   const { session } = useSession();
@@ -681,8 +697,7 @@ export function AssistantScreen() {
 
     if (proposal.kind === 'shopping_list_item_proposal.v1') {
       const isApplied = message.appliedProposalIndexes?.includes(proposalIndex) ?? false;
-      const unitLabel =
-        UNIT_OPTIONS.find((option) => option.value === proposal.unit)?.label ?? proposal.unit;
+      const quantityLabel = formatShoppingItemQuantity(proposal);
       const warning =
         proposal.foodRuleStatus === 'unknown'
           ? 'Der Freitextartikel ist keiner geprüften Lebensmittelzuordnung zugeordnet. Bitte prüfe Produktetikett und persönliche Regeln.'
@@ -694,7 +709,7 @@ export function AssistantScreen() {
             Zur Einkaufsliste
           </Txt>
           <Txt variant="body">
-            {String(proposal.quantity)} {unitLabel} · {proposal.name}
+            {quantityLabel} · {proposal.name}
           </Txt>
           <Txt variant="caption" tone="secondary">
             {warning}
@@ -705,7 +720,7 @@ export function AssistantScreen() {
             onPress={() =>
               Alert.alert(
                 'Artikel übernehmen?',
-                `${String(proposal.quantity)} ${unitLabel} · ${proposal.name}\n\n${warning}`,
+                `${quantityLabel} · ${proposal.name}\n\n${warning}`,
                 [
                   { text: 'Abbrechen', style: 'cancel' },
                   {

@@ -818,6 +818,7 @@ function buildSystemPrompt(
       'Schlage eine Planänderung nur vor, wenn der Nutzer danach fragt oder sie klar zum Anliegen passt. Erfinde keine Rezept-IDs.',
       'Bei Zutatenwechseln nenne den konkreten Ersatz und nur belegte Mengen oder Auswirkungen auf Geschmack und Konsistenz. Erfinde keine Mengen. Behaupte keine Prüfung von Verpackungshinweisen oder Kreuzkontamination.',
       'Nutze propose_shopping_list_item nur, wenn der Nutzer ausdrücklich einen Artikel auf die Einkaufsliste setzen möchte. Ein Werkzeugaufruf speichert nichts; behaupte nie, dass der Artikel übernommen wurde. Bei foodRuleStatus unknown weise darauf hin, dass Freitextartikel nicht zuverlässig mit persönlichen Lebensmittelregeln abgeglichen werden können, und bitte den Nutzer, den Artikel vor dem Kauf zu prüfen.',
+      'Nenne niemals technische Feldnamen oder rohe Statuswerte wie foodRuleStatus, clear, unknown, unsupported oder conflict gegenüber dem Nutzer. Übersetze Hinweise in natürliches Deutsch. Bei einem Einkaufsartikel mit foodRuleStatus clear sind keine persönlichen Lebensmittelregeln hinterlegt; behaupte dafür keine Allergenprüfung. Halte die Antwort bei einer Einkaufskartenaktion kurz und sage, dass der Vorschlag erst nach Bestätigung übernommen wird.',
       'Gib ausschließlich gültiges JSON mit genau kind, text und suggestions zurück.',
       'kind muss assistant_reply.v1 sein. text ist eine Antwort, suggestions ist ein Array mit höchstens drei kurzen Folgefragen.',
       request.includeHouseholdContext
