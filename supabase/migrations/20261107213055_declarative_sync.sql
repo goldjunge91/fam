@@ -1,4 +1,4 @@
-CREATE TABLE "public"."allergen_taxonomy" (
+CREATE TABLE IF NOT EXISTS "public"."allergen_taxonomy" (
   "id"            text                     NOT NULL,
   "sort_order"    smallint                 NOT NULL,
   "legal_name_de" text                     NOT NULL,
@@ -16,11 +16,51 @@ CREATE TABLE "public"."allergen_taxonomy" (
 );
 
 ALTER TABLE "public"."allergen_taxonomy"
+  ADD COLUMN IF NOT EXISTS "legal_name_de" text;
+
+UPDATE "public"."allergen_taxonomy"
+SET "legal_name_de" = CASE "id"
+  WHEN 'EU_01_GLUTEN_CEREALS' THEN 'Glutenhaltiges Getreide'
+  WHEN 'EU_02_CRUSTACEANS' THEN 'Krebstiere'
+  WHEN 'EU_03_EGGS' THEN 'Eier'
+  WHEN 'EU_04_FISH' THEN 'Fische'
+  WHEN 'EU_05_PEANUTS' THEN 'Erdnüsse'
+  WHEN 'EU_06_SOYBEANS' THEN 'Sojabohnen'
+  WHEN 'EU_07_MILK' THEN 'Milch und daraus gewonnene Erzeugnisse (einschließlich Laktose)'
+  WHEN 'EU_08_NUTS' THEN 'Schalenfrüchte'
+  WHEN 'EU_09_CELERY' THEN 'Sellerie'
+  WHEN 'EU_10_MUSTARD' THEN 'Senf'
+  WHEN 'EU_11_SESAME' THEN 'Sesamsamen'
+  WHEN 'EU_12_SULPHITES' THEN 'Schwefeldioxid und Sulphite'
+  WHEN 'EU_13_LUPIN' THEN 'Lupinen'
+  WHEN 'EU_14_MOLLUSCS' THEN 'Weichtiere'
+  ELSE "legal_name_de"
+END
+;
+
+ALTER TABLE "public"."allergen_taxonomy"
+  ALTER COLUMN "legal_name_de" SET NOT NULL;
+
+DO $migration$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint
+    WHERE conrelid = 'public.allergen_taxonomy'::regclass
+      AND conname = 'allergen_taxonomy_legal_name_de_check'
+  ) THEN
+    ALTER TABLE "public"."allergen_taxonomy"
+      ADD CONSTRAINT "allergen_taxonomy_legal_name_de_check"
+      CHECK (length(trim("legal_name_de")) BETWEEN 1 AND 240);
+  END IF;
+END;
+$migration$;
+
+ALTER TABLE "public"."allergen_taxonomy"
   ENABLE ROW LEVEL SECURITY;
 
 REVOKE ALL ON TABLE "public"."allergen_taxonomy" FROM "anon";
 
-CREATE TABLE "public"."food_ingredient_aliases" (
+CREATE TABLE IF NOT EXISTS "public"."food_ingredient_aliases" (
   "id"             uuid                     NOT NULL DEFAULT gen_random_uuid(),
   "ingredient_id"  uuid                     NOT NULL,
   "alias"          text                     NOT NULL,
@@ -52,7 +92,7 @@ ALTER TABLE "public"."food_ingredient_aliases"
 
 REVOKE ALL ON TABLE "public"."food_ingredient_aliases" FROM "anon";
 
-CREATE TABLE "public"."food_ingredients" (
+CREATE TABLE IF NOT EXISTS "public"."food_ingredients" (
   "id"             uuid                     NOT NULL DEFAULT gen_random_uuid(),
   "canonical_name" text                     NOT NULL,
   "created_at"     timestamp with time zone NOT NULL DEFAULT now(),
@@ -66,7 +106,7 @@ ALTER TABLE "public"."food_ingredients"
 
 REVOKE ALL ON TABLE "public"."food_ingredients" FROM "anon";
 
-CREATE TABLE "public"."ingredient_allergen_assessments" (
+CREATE TABLE IF NOT EXISTS "public"."ingredient_allergen_assessments" (
   "id"                uuid                     NOT NULL DEFAULT gen_random_uuid(),
   "ingredient_id"     uuid                     NOT NULL,
   "allergen_id"       text                     NOT NULL,
@@ -117,51 +157,55 @@ ALTER TABLE "public"."ingredient_allergen_assessments"
 ALTER TABLE "public"."ingredient_allergen_assessments"
   ADD CONSTRAINT "ingredient_allergen_assessments_ingredient_id_fkey" FOREIGN KEY (ingredient_id) REFERENCES public.food_ingredients(id) ON DELETE CASCADE;
 
-CREATE INDEX food_ingredient_aliases_ingredient_idx ON public.food_ingredient_aliases USING btree (ingredient_id);
+CREATE INDEX IF NOT EXISTS food_ingredient_aliases_ingredient_idx ON public.food_ingredient_aliases USING btree (ingredient_id);
 
-CREATE INDEX food_ingredient_aliases_lookup_idx ON public.food_ingredient_aliases USING btree (lower(TRIM(BOTH FROM alias)), LOCALE);
+CREATE INDEX IF NOT EXISTS food_ingredient_aliases_lookup_idx ON public.food_ingredient_aliases USING btree (lower(TRIM(BOTH FROM alias)), LOCALE);
 
-CREATE UNIQUE INDEX food_ingredients_canonical_name_idx ON public.food_ingredients USING btree (lower(TRIM(BOTH FROM canonical_name)));
+CREATE UNIQUE INDEX IF NOT EXISTS food_ingredients_canonical_name_idx ON public.food_ingredients USING btree (lower(TRIM(BOTH FROM canonical_name)));
 
-CREATE INDEX ingredient_allergen_assessments_lookup_idx ON public.ingredient_allergen_assessments USING btree (ingredient_id, allergen_id, confidence);
+CREATE INDEX IF NOT EXISTS ingredient_allergen_assessments_lookup_idx ON public.ingredient_allergen_assessments USING btree (ingredient_id, allergen_id, confidence);
 
-CREATE INDEX ingredient_allergen_assessments_source_idx ON public.ingredient_allergen_assessments USING btree (source, source_id, source_version);
+CREATE INDEX IF NOT EXISTS ingredient_allergen_assessments_source_idx ON public.ingredient_allergen_assessments USING btree (source, source_id, source_version);
 
-CREATE TRIGGER allergen_taxonomy_set_updated_at
+CREATE OR REPLACE TRIGGER allergen_taxonomy_set_updated_at
   BEFORE UPDATE ON public.allergen_taxonomy
   FOR EACH ROW
   EXECUTE FUNCTION private.set_updated_at();
 
-CREATE TRIGGER food_ingredient_aliases_set_updated_at
+CREATE OR REPLACE TRIGGER food_ingredient_aliases_set_updated_at
   BEFORE UPDATE ON public.food_ingredient_aliases
   FOR EACH ROW
   EXECUTE FUNCTION private.set_updated_at();
 
-CREATE TRIGGER food_ingredients_set_updated_at
+CREATE OR REPLACE TRIGGER food_ingredients_set_updated_at
   BEFORE UPDATE ON public.food_ingredients
   FOR EACH ROW
   EXECUTE FUNCTION private.set_updated_at();
 
-CREATE TRIGGER ingredient_allergen_assessments_set_updated_at
+CREATE OR REPLACE TRIGGER ingredient_allergen_assessments_set_updated_at
   BEFORE UPDATE ON public.ingredient_allergen_assessments
   FOR EACH ROW
   EXECUTE FUNCTION private.set_updated_at();
 
+DROP POLICY IF EXISTS "allergen_taxonomy_select_authenticated" ON "public"."allergen_taxonomy";
 CREATE POLICY "allergen_taxonomy_select_authenticated" ON "public"."allergen_taxonomy"
   FOR SELECT
   TO "authenticated"
   USING (true);
 
+DROP POLICY IF EXISTS "food_ingredient_aliases_select_authenticated" ON "public"."food_ingredient_aliases";
 CREATE POLICY "food_ingredient_aliases_select_authenticated" ON "public"."food_ingredient_aliases"
   FOR SELECT
   TO "authenticated"
   USING (true);
 
+DROP POLICY IF EXISTS "food_ingredients_select_authenticated" ON "public"."food_ingredients";
 CREATE POLICY "food_ingredients_select_authenticated" ON "public"."food_ingredients"
   FOR SELECT
   TO "authenticated"
   USING (true);
 
+DROP POLICY IF EXISTS "ingredient_allergen_assessments_select_authenticated" ON "public"."ingredient_allergen_assessments";
 CREATE POLICY "ingredient_allergen_assessments_select_authenticated" ON "public"."ingredient_allergen_assessments"
   FOR SELECT
   TO "authenticated"
