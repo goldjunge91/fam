@@ -211,9 +211,9 @@ describe('env.posthogHost', () => {
     }
   });
 
-  it('faellt ohne gesetzte Variable auf den PostHog-Cloud-Standardhost zurueck', () => {
+  it('faellt ohne gesetzte Variable auf den konfigurierten EU-PostHog-Host zurueck', () => {
     delete process.env.EXPO_PUBLIC_POSTHOG_HOST;
-    expect(env.posthogHost).toBe('https://us.i.posthog.com');
+    expect(env.posthogHost).toBe('https://eu.i.posthog.com');
   });
 
   it('gibt getrimmten Host zurueck wenn gesetzt', () => {

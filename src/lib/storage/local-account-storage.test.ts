@@ -12,6 +12,7 @@ import * as browserAccountStorage from './local-account-storage.web';
 
 const mockDigestString = jest.fn();
 const mockRandomBytes = jest.fn();
+const mockRemoveContentChangedListener = jest.fn();
 let mockMMKVExists = true;
 
 jest.mock('expo-crypto', () => ({
@@ -29,6 +30,7 @@ jest.mock('expo-secure-store', () => ({
 
 jest.mock('react-native-mmkv', () => ({
   createMMKV: jest.fn(),
+  removeContentChangedListener: (...args: unknown[]) => mockRemoveContentChangedListener(...args),
   deleteMMKV: jest.fn(() => {
     mockMMKVExists = false;
     return true;
@@ -130,6 +132,20 @@ describe('encrypted account storage', () => {
     expect(deleteMMKV).toHaveBeenCalledWith('fam-account-user-d-v1');
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('fam.mmkv.account-key.v1.hash-d');
     expect(SecureStore.deleteItemAsync).not.toHaveBeenCalledWith('fam_onboarding_completed_v1');
+  });
+
+  it('entfernt den AppState-Listener vor dem Dispose der Account-MMKV', async () => {
+    mockDigestString.mockResolvedValue('hash-lifetime');
+    const storage = createStorage('fam-account-user-lifetime-v1');
+    jest.mocked(createMMKV).mockReturnValue(storage as never);
+
+    await getEncryptedAccountStorage('user-lifetime');
+    await deleteEncryptedAccountStorage('user-lifetime');
+
+    expect(mockRemoveContentChangedListener).toHaveBeenCalledWith(storage);
+    expect(mockRemoveContentChangedListener.mock.invocationCallOrder[0]).toBeLessThan(
+      storage.dispose.mock.invocationCallOrder[0],
+    );
   });
 
   it('lässt einen veralteten asynchronen Open nach begonnenem Cleanup nichts neu anlegen', async () => {

@@ -7,8 +7,8 @@ describe('local SQLite schema registry', () => {
     const tables = Object.values(localDrizzleSchema).map((table) => getTableConfig(table));
     const tableNames = tables.map(({ name }) => name);
 
-    expect(tables).toHaveLength(34);
-    expect(new Set(tableNames).size).toBe(34);
+    expect(tables).toHaveLength(35);
+    expect(new Set(tableNames).size).toBe(35);
     expect(tables.every(({ columns }) => columns.length > 0)).toBe(true);
     for (const name of ['households', 'shopping_list_items', 'purchase_receipt_items', 'outbox']) {
       expect(tableNames).toContain(name);

@@ -8,6 +8,7 @@ import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history'
 import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
 import { productToRouteParams } from '@/features/calorie-tracking/product-route-params';
 import type { CatalogProduct } from '@/features/product-search/types';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 
 const MEAL_LABELS: Record<string, string> = {
   breakfast: 'Frühstück',
@@ -68,7 +69,13 @@ export function FoodSearchScreen() {
         onHistorySelect={selectHistoryEntry}
       />
       <Press
-        onPress={() => goToDetail({})}
+        onPress={() => {
+          trackAnalyticsEvent('empty_state.action_pressed', {
+            screen: 'food_search',
+            action: 'quick_entry',
+          });
+          goToDetail({});
+        }}
         accessibilityRole="button"
         style={styles.quickEntryButton}>
         <Txt variant="glyph" tone="primary">

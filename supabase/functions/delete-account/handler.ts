@@ -7,11 +7,12 @@ export const LAST_ADMIN_SQLSTATE = 'FAM01';
 type Dependencies = {
   getUserId: (authorization: string) => Promise<string | null>;
   prepareDeletion: (authorization: string) => Promise<DbError | null>;
+  deleteAnalyticsData: (userId: string) => Promise<DbError | null>;
   deleteUser: (userId: string) => Promise<DbError | null>;
 };
 
 export function createDeleteAccountHandler(
-  { getUserId, prepareDeletion, deleteUser }: Dependencies,
+  { getUserId, prepareDeletion, deleteAnalyticsData, deleteUser }: Dependencies,
 ) {
   return async (req: Request): Promise<Response> => {
     if (req.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
@@ -30,7 +31,11 @@ export function createDeleteAccountHandler(
         : errorResponse('prepare_failed', 500, prepareError);
     }
 
-    // Use the service role only after the user-scoped cleanup succeeds.
+    // Remove third-party analytics data before deleting the identity that owns it.
+    const analyticsError = await deleteAnalyticsData(userId);
+    if (analyticsError) return errorResponse('analytics_delete_failed', 502);
+
+    // Use the service role only after user-scoped and third-party cleanup succeeds.
     const deleteError = await deleteUser(userId);
     if (deleteError) return errorResponse('delete_failed', 500, deleteError);
 

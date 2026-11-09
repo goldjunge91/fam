@@ -152,6 +152,9 @@ function ruleProjectionStatus(
   allergenId: EuAllergenId,
   rulesUpdatedAt: string | null,
 ): Pick<FoodRuleCoverageEntry, 'status' | 'reason'> {
+  if (rulesUpdatedAt === null || !Number.isFinite(Date.parse(rulesUpdatedAt))) {
+    return { status: 'unknown', reason: 'rule_version_unavailable' };
+  }
   if (
     !projection || projection.rulesUpdatedAt !== rulesUpdatedAt ||
     !projection.allergenIds.includes(allergenId)

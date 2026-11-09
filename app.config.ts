@@ -116,6 +116,14 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       '@bacons/apple-targets',
       './plugins/withIosSimulatorArm64',
       ...mlKitOcrPlugins,
+      'expo-video',
+      [
+        'expo-audio',
+        {
+          microphonePermission: '$(PRODUCT_NAME) benötigt Zugriff auf das Mikrofon für die Spracheingabe.',
+          enableBackgroundPlayback: false,
+        },
+      ],
     ],
     name: config.name ?? 'fam',
     slug: config.slug ?? 'fam',

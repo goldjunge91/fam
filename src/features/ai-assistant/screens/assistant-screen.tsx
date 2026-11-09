@@ -1,7 +1,9 @@
 import { FlashList } from '@shopify/flash-list';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import * as DocumentPicker from 'expo-document-picker';
 import { Image } from 'expo-image';
-import { router } from 'expo-router';
+import * as ImagePicker from 'expo-image-picker';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -9,7 +11,17 @@ import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { controlSizes, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Button, Card, IconButton, Pill, Press, Surface, TextField, Txt } from '@/constants/ui';
+import {
+  Badge,
+  Button,
+  Card,
+  IconButton,
+  Pill,
+  Press,
+  Surface,
+  TextField,
+  Txt,
+} from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { pollHouseholdUntilEntitlementActive } from '@/features/premium/household-entitlement-sync';
@@ -21,15 +33,25 @@ import { hasAIEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 import { getDatabase } from '@/lib/db/local-client';
 import { UNIT_OPTIONS } from '@/lib/units';
 import {
+  ApplyIngredientSwapProposalError,
+  applyAssistantIngredientSwapProposal,
+} from '../data/apply-ingredient-swap-proposal';
+import {
   ApplyMealPlanProposalError,
   applyAssistantMealPlanProposal,
 } from '../data/apply-meal-plan-proposal';
+import { applyAssistantShoppingListProposal } from '../data/apply-shopping-list-proposal';
 import { getAiCreditStatus, sendAssistantMessage } from '../data/assistant-api';
+import { encodeAssistantAttachments } from '../data/assistant-attachments';
 import { loadAssistantThreads, saveAssistantThreads } from '../data/assistant-storage';
 import {
+  type AssistantAttachment,
+  type AssistantAttachmentInput,
   type AssistantMessage,
+  type AssistantPageContext,
   type AssistantProposal,
   type AssistantThread,
+  type AssistantToolName,
   createLocalId,
   DEFAULT_AI_MODEL,
 } from '../types';
@@ -40,11 +62,28 @@ const STARTER_PROMPTS = [
   'Plane unsere Woche',
 ] as const;
 
+type AssistantToolIcon =
+  | 'search'
+  | 'archive'
+  | 'shopping-cart'
+  | 'calendar'
+  | 'shuffle'
+  | 'plus-circle';
+
+const ASSISTANT_TOOL_TRACE = {
+  search_recipes: { label: 'Rezepte durchsucht', icon: 'search' },
+  get_inventory: { label: 'Vorrat geprüft', icon: 'archive' },
+  get_shopping_list: { label: 'Einkaufsliste geprüft', icon: 'shopping-cart' },
+  propose_meal_plan: { label: 'Wochenvorschlag erstellt', icon: 'calendar' },
+  suggest_ingredient_swap: { label: 'Zutat geprüft', icon: 'shuffle' },
+  propose_shopping_list_item: { label: 'Einkaufsartikel vorgeschlagen', icon: 'plus-circle' },
+  propose_shopping_list_items: { label: 'Einkaufsartikel vorgeschlagen', icon: 'plus-circle' },
+} satisfies Record<AssistantToolName, { label: string; icon: AssistantToolIcon }>;
+
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
     paddingHorizontal: theme.space.lg,
-    paddingBottom: theme.space.md,
   },
   threadStrip: {
     flexGrow: 0,
@@ -74,6 +113,11 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
   },
   creditHeader: {
     alignItems: 'center',
@@ -143,7 +187,26 @@ const styles = StyleSheet.create((theme) => ({
   },
   composer: {
     paddingTop: theme.space.md,
+    marginBottom: theme.space.xxxl,
     gap: theme.space.xs,
+  },
+  contextRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.xs,
+  },
+  contextLabel: {
+    flex: 1,
+  },
+  attachmentRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.space.xs,
+    paddingHorizontal: theme.space.xs,
+  },
+  attachmentName: {
+    maxWidth: '90%',
   },
   composerRow: {
     flexDirection: 'row',
@@ -227,8 +290,58 @@ type MealPlanProposalItem = Extract<
 type FailedAssistantMessage = {
   threadId: string;
   text: string;
+  attachments?: AssistantAttachment[];
   retryable: boolean;
 };
+
+type AssistantRouteParams = {
+  pageContextKind?: string | string[];
+  pageContextRecipeId?: string | string[];
+  pageContextWeekStart?: string | string[];
+};
+
+function firstSearchParam(value: string | string[] | undefined): string | null {
+  const candidate = Array.isArray(value) ? value[0] : value;
+  return typeof candidate === 'string' && candidate.trim().length > 0 ? candidate.trim() : null;
+}
+
+function parseAssistantPageContext(params: AssistantRouteParams): AssistantPageContext | null {
+  const kind = firstSearchParam(params.pageContextKind);
+  if (kind === 'recipe') {
+    const recipeId = firstSearchParam(params.pageContextRecipeId);
+    return recipeId ? { kind, recipeId } : null;
+  }
+  if (kind === 'meal_plan') {
+    const weekStartDate = firstSearchParam(params.pageContextWeekStart);
+    return weekStartDate ? { kind, weekStartDate } : null;
+  }
+  return null;
+}
+
+function useAssistantRouteParamsFromRouter(): AssistantRouteParams {
+  return useLocalSearchParams<AssistantRouteParams>();
+}
+
+function getEmptyAssistantRouteParams(): AssistantRouteParams {
+  return {};
+}
+
+const useAssistantRouteParams =
+  typeof useLocalSearchParams === 'function'
+    ? useAssistantRouteParamsFromRouter
+    : getEmptyAssistantRouteParams;
+
+function isAssistantImageMimeType(
+  value: string | null | undefined,
+): value is Extract<AssistantAttachmentInput['mimeType'], `image/${string}`> {
+  return value === 'image/jpeg' || value === 'image/png' || value === 'image/webp';
+}
+
+function pageContextLabel(context: AssistantPageContext): string {
+  return context.kind === 'recipe'
+    ? 'Rezept als Seitenkontext'
+    : `Woche ab ${context.weekStartDate}`;
+}
 
 function isRetryableAssistantError(error: unknown): boolean {
   return error instanceof Error && 'retryable' in error && error.retryable === true;
@@ -315,8 +428,20 @@ function formatShoppingItemQuantity(
   return `${String(proposal.quantity)} ${pluralUnit}`;
 }
 
+function formatShoppingProposalItem(
+  item: Extract<AssistantProposal, { kind: 'shopping_list_proposal.v1' }>['items'][number],
+): string {
+  const unit = UNIT_OPTIONS.find((option) => option.value === item.unit)?.label ?? item.unit;
+  return `${String(item.quantity)} ${item.quantity === 1 ? unit : unit === 'Packung' ? 'Packungen' : unit} · ${item.name}`;
+}
+
 export function AssistantScreen() {
   const { colors } = useTheme();
+  const { pageContextKind, pageContextRecipeId, pageContextWeekStart } = useAssistantRouteParams();
+  const initialPageContext = useMemo(
+    () => parseAssistantPageContext({ pageContextKind, pageContextRecipeId, pageContextWeekStart }),
+    [pageContextKind, pageContextRecipeId, pageContextWeekStart],
+  );
   const { session } = useSession();
   const queryClient = useQueryClient();
   const userId = session?.user.id;
@@ -326,6 +451,8 @@ export function AssistantScreen() {
   const [threads, setThreads] = useState<AssistantThread[]>([]);
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [pageContext, setPageContext] = useState<AssistantPageContext | null>(initialPageContext);
+  const [attachments, setAttachments] = useState<AssistantAttachmentInput[]>([]);
   const [message, setMessage] = useState('');
   const [creditStatus, setCreditStatus] = useState<Awaited<
     ReturnType<typeof getAiCreditStatus>
@@ -473,9 +600,77 @@ export function AssistantScreen() {
     }
   }
 
+  async function pickAssistantImages() {
+    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!permission.granted) {
+      setError('Erlaube den Zugriff auf Fotos, um einen Anhang auszuwählen.');
+      return;
+    }
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'],
+      allowsMultipleSelection: true,
+      selectionLimit: Math.max(1, 5 - attachments.length),
+      quality: 0.8,
+    });
+    if (result.canceled) return;
+    const selected: AssistantAttachmentInput[] = result.assets.flatMap((asset, index) => {
+      const mimeType = asset.mimeType;
+      if (!isAssistantImageMimeType(mimeType)) return [];
+      return [
+        {
+          uri: asset.uri,
+          name: asset.fileName ?? `Bild ${String(index + 1)}`,
+          mimeType,
+        },
+      ];
+    });
+    if (selected.length === 0) {
+      setError('Bitte wähle JPEG-, PNG- oder WebP-Bilder aus.');
+      return;
+    }
+    setAttachments((current) => [...current, ...selected].slice(0, 5));
+    setError(null);
+  }
+
+  async function pickAssistantPdf() {
+    const result = await DocumentPicker.getDocumentAsync({
+      type: 'application/pdf',
+      copyToCacheDirectory: true,
+      multiple: false,
+      base64: false,
+    });
+    if (result.canceled) return;
+    const asset = result.assets[0];
+    if (!asset) return;
+    const pdfAttachment: AssistantAttachmentInput = {
+      uri: asset.uri,
+      name: asset.name,
+      mimeType: 'application/pdf',
+    };
+    setAttachments((current) => [...current, pdfAttachment].slice(0, 5));
+    setError(null);
+  }
+
+  function openAttachmentPicker() {
+    if (attachments.length >= 5) {
+      setError('Füge höchstens fünf Anhänge hinzu.');
+      return;
+    }
+    Alert.alert('Anhang hinzufügen', 'Wähle ein Bild oder PDF aus.', [
+      { text: 'Abbrechen', style: 'cancel' },
+      { text: 'Bild auswählen', onPress: () => void pickAssistantImages() },
+      { text: 'PDF auswählen', onPress: () => void pickAssistantPdf() },
+    ]);
+  }
   async function handleSend() {
     const text = message.trim();
-    if (!userId || !activeHouseholdId || !hasAI || !text || isSending) {
+    if (
+      !userId ||
+      !activeHouseholdId ||
+      !hasAI ||
+      (!text && attachments.length === 0) ||
+      isSending
+    ) {
       return;
     }
     if (failedMessage?.threadId === activeThreadId && failedMessage.text === text) {
@@ -487,11 +682,13 @@ export function AssistantScreen() {
     setError(null);
     setFailedMessage(null);
     let requestThreadId: string | null = null;
+    let encodedAttachments: AssistantAttachment[] = [];
     try {
+      encodedAttachments = await encodeAssistantAttachments(attachments);
       const timestamp = new Date().toISOString();
       const currentThread: AssistantThread = activeThread ?? {
         id: createLocalId('chat'),
-        title: text.slice(0, 54),
+        title: text ? text.slice(0, 54) : 'Anhang',
         model: DEFAULT_AI_MODEL,
         messages: [],
         createdAt: timestamp,
@@ -502,10 +699,24 @@ export function AssistantScreen() {
         role: 'user',
         text,
         createdAt: timestamp,
+        ...(encodedAttachments.length > 0
+          ? {
+              attachments: encodedAttachments.map(({ filename, mimeType }) => ({
+                filename,
+                mimeType,
+              })),
+            }
+          : {}),
+        ...(pageContext ? { pageContext } : {}),
       };
       const pendingThread: AssistantThread = {
         ...currentThread,
-        title: currentThread.messages.length === 0 ? text.slice(0, 54) : currentThread.title,
+        title:
+          currentThread.messages.length === 0
+            ? text
+              ? text.slice(0, 54)
+              : 'Anhang'
+            : currentThread.title,
         model: DEFAULT_AI_MODEL,
         messages: [...currentThread.messages, userMessage].slice(-60),
         updatedAt: timestamp,
@@ -515,10 +726,13 @@ export function AssistantScreen() {
       setActiveThreadId(pendingThread.id);
       await persistThreads(pendingThreads);
       setMessage('');
+      setAttachments([]);
       const reply = await sendAssistantMessage({
         householdId: activeHouseholdId,
         message: text,
         includeHouseholdContext: true,
+        ...(pageContext ? { pageContext } : {}),
+        ...(encodedAttachments.length > 0 ? { attachments: encodedAttachments } : {}),
         history: currentThread.messages.map(({ role, text: content }) => ({ role, text: content })),
       });
       const assistantMessage: AssistantMessage = {
@@ -548,7 +762,12 @@ export function AssistantScreen() {
       );
       if (requestThreadId) {
         const retryable = isRetryableAssistantError(sendError);
-        setFailedMessage({ threadId: requestThreadId, text, retryable });
+        setFailedMessage({
+          threadId: requestThreadId,
+          text,
+          ...(encodedAttachments.length > 0 ? { attachments: encodedAttachments } : {}),
+          retryable,
+        });
         if (!retryable) setMessage(text);
       }
     } finally {
@@ -575,6 +794,8 @@ export function AssistantScreen() {
         householdId: activeHouseholdId,
         message: failed.text,
         includeHouseholdContext: true,
+        ...(pageContext ? { pageContext } : {}),
+        ...(failed.attachments?.length ? { attachments: failed.attachments } : {}),
         history: failedThread.messages
           .slice(0, -1)
           .map(({ role, text: content }) => ({ role, text: content })),
@@ -718,6 +939,138 @@ export function AssistantScreen() {
     }
   }
 
+  async function applyShoppingListProposal(
+    proposal: Extract<AssistantProposal, { kind: 'shopping_list_proposal.v1' }>,
+    messageId: string,
+    proposalIndex: number,
+    key: string,
+  ) {
+    if (!activeThread || !userId || !activeHouseholdId || applyingProposalRef.current) return;
+    applyingProposalRef.current = key;
+    setApplyingProposalId(key);
+    let result: Awaited<ReturnType<typeof applyAssistantShoppingListProposal>>;
+    try {
+      result = await applyAssistantShoppingListProposal({
+        userId,
+        householdId: activeHouseholdId,
+        proposalKey: key,
+        proposal,
+      });
+    } catch {
+      Alert.alert(
+        'Artikel nicht übernommen',
+        'Die Artikel konnten nicht vorgemerkt werden. Bitte versuche es erneut.',
+      );
+      applyingProposalRef.current = null;
+      setApplyingProposalId(null);
+      return;
+    }
+
+    const appliedAt = new Date().toISOString();
+    const updatedThread: AssistantThread = {
+      ...activeThread,
+      messages: activeThread.messages.map((item) =>
+        item.id === messageId
+          ? {
+              ...item,
+              appliedProposalIndexes: [
+                ...new Set([...(item.appliedProposalIndexes ?? []), proposalIndex]),
+              ],
+            }
+          : item,
+      ),
+      updatedAt: appliedAt,
+    };
+    let historySaved = true;
+    try {
+      // persistThreads updates the UI state before writing to encrypted storage.
+      // A failed history write must not make a committed shopping-list mutation retryable.
+      await persistThreads(upsertThread(threads, updatedThread));
+    } catch {
+      historySaved = false;
+    }
+    try {
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['shopping_list_items', activeHouseholdId] }),
+        queryClient.invalidateQueries({ queryKey: ['meal-plan-shopping-needs'] }),
+        queryClient.invalidateQueries({ queryKey: ['recipe-shopping-needs'] }),
+        queryClient.invalidateQueries({ queryKey: ['sync-status'] }),
+      ]);
+    } catch {
+      // The local mutation and its idempotency receipt are already committed.
+    }
+    const resultMessage = result.alreadyApplied
+      ? 'Dieser Vorschlag war bereits in der Einkaufsliste vorgemerkt.'
+      : `${String(result.addedCount)} Artikel wurden lokal vorgemerkt.`;
+    Alert.alert(
+      'Einkaufsliste aktualisiert',
+      historySaved
+        ? resultMessage
+        : `${resultMessage} Der Gesprächsstatus konnte nicht gespeichert werden. Ein erneutes Übernehmen fügt nichts doppelt hinzu.`,
+    );
+    applyingProposalRef.current = null;
+    setApplyingProposalId(null);
+  }
+  async function applyIngredientSwapProposal(
+    proposal: Extract<AssistantProposal, { kind: 'ingredient_swap_proposal.v1' }>,
+    messageId: string,
+    proposalIndex: number,
+    key: string,
+  ) {
+    if (!activeThread || !userId || !activeHouseholdId || applyingProposalRef.current) return;
+    applyingProposalRef.current = key;
+    setApplyingProposalId(key);
+    try {
+      const result = await applyAssistantIngredientSwapProposal({
+        householdId: activeHouseholdId,
+        proposal,
+      });
+      const appliedAt = new Date().toISOString();
+      const updatedThread: AssistantThread = {
+        ...activeThread,
+        messages: activeThread.messages.map((item) =>
+          item.id === messageId
+            ? {
+                ...item,
+                appliedProposalIndexes: [
+                  ...new Set([...(item.appliedProposalIndexes ?? []), proposalIndex]),
+                ],
+              }
+            : item,
+        ),
+        updatedAt: appliedAt,
+      };
+      await persistThreads(upsertThread(threads, updatedThread));
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['recipe-detail', proposal.recipeId] }),
+        queryClient.invalidateQueries({ queryKey: ['recipes', activeHouseholdId] }),
+        queryClient.invalidateQueries({ queryKey: ['sync-status'] }),
+      ]);
+      Alert.alert(
+        'Rezept aktualisiert',
+        result.changed
+          ? 'Der Zutatenwechsel wurde dauerhaft als Rezept-Alternative gespeichert.'
+          : 'Dieser Zutatenwechsel ist bereits am Rezept gespeichert.',
+      );
+    } catch (applyError: unknown) {
+      const message =
+        applyError instanceof ApplyIngredientSwapProposalError
+          ? applyError.code === 'food_rules_changed'
+            ? 'Deine Ernährungsregeln haben sich geändert. Erstelle bitte einen neuen Vorschlag.'
+            : applyError.code === 'food_rule_coverage_changed'
+              ? 'Die geprüfte Zutaten-Zuordnung hat sich geändert. Erstelle bitte einen neuen Vorschlag.'
+              : applyError.code === 'recipe_changed' ||
+                  applyError.code === 'recipe_evidence_changed'
+                ? 'Das Rezept wurde geändert. Erstelle bitte einen neuen Vorschlag.'
+                : 'Der Zutatenwechsel ist unvollständig oder veraltet.'
+          : 'Der Zutatenwechsel konnte nicht gespeichert werden. Es wurde nichts übernommen.';
+      Alert.alert('Vorschlag nicht übernommen', message);
+    } finally {
+      applyingProposalRef.current = null;
+      setApplyingProposalId(null);
+    }
+  }
+
   function renderProposal(
     proposal: AssistantProposal,
     message: AssistantMessage,
@@ -831,6 +1184,47 @@ export function AssistantScreen() {
       );
     }
 
+    if (proposal.kind === 'shopping_list_proposal.v1') {
+      const isApplied = message.appliedProposalIndexes?.includes(proposalIndex) ?? false;
+      const warning = proposal.items.some((item) => item.foodRuleStatus === 'unknown')
+        ? 'Mindestens ein Freitextartikel ist keiner geprüften Lebensmittelzuordnung zugeordnet. Bitte prüfe Produktetikett und persönliche Regeln.'
+        : 'Für diesen Haushalt sind keine persönlichen Lebensmittelregeln hinterlegt.';
+      return (
+        <Card key={key} style={styles.proposalCard}>
+          <Txt variant="body" weight="700">
+            Zur Einkaufsliste
+          </Txt>
+          {proposal.items.map((item) => (
+            <Txt key={`${item.name}-${item.unit}`} variant="body">
+              {formatShoppingProposalItem(item)}
+            </Txt>
+          ))}
+          <Txt variant="caption" tone="secondary">
+            {warning}
+          </Txt>
+          <Button
+            accessibilityLabel="Einkaufsartikel übernehmen"
+            disabled={isApplied || applyingProposalId !== null}
+            onPress={() =>
+              Alert.alert('Artikel übernehmen?', `${proposal.summary}\n\n${warning}`, [
+                { text: 'Abbrechen', style: 'cancel' },
+                {
+                  text: 'Übernehmen',
+                  onPress: () =>
+                    void applyShoppingListProposal(proposal, message.id, proposalIndex, key),
+                },
+              ])
+            }
+            variant="primary"
+            size="sm"
+            loading={applyingProposalId === key}
+            title={isApplied ? 'Hinzugefügt' : 'Übernehmen'}
+            style={styles.proposalAction}
+          />
+        </Card>
+      );
+    }
+
     return (
       <Card key={key} style={styles.proposalCard}>
         <Txt variant="body" weight="700">
@@ -854,6 +1248,50 @@ export function AssistantScreen() {
         <Txt variant="caption" tone="secondary">
           {proposal.safetyNote}
         </Txt>
+        <View style={styles.proposalActions}>
+          <Button
+            title="Für dieses Mal"
+            accessibilityLabel="Zutat nur für diesen Kochvorgang ersetzen"
+            disabled={applyingProposalId !== null}
+            onPress={() =>
+              router.push({
+                pathname: '/recipe/cook',
+                params: {
+                  id: proposal.recipeId,
+                  swapIngredient: proposal.ingredientName,
+                  swapReplacement: proposal.replacement,
+                },
+              })
+            }
+            variant="secondary"
+            size="sm"
+            flat
+            style={styles.proposalAction}
+          />
+          <Button
+            title="Speichern"
+            accessibilityLabel="Zutatenwechsel dauerhaft im Rezept speichern"
+            disabled={applyingProposalId !== null}
+            onPress={() =>
+              Alert.alert(
+                'Zutatenwechsel speichern?',
+                `${proposal.ingredientName} wird im Rezept dauerhaft durch ${proposal.replacement} ergänzt.`,
+                [
+                  { text: 'Abbrechen', style: 'cancel' },
+                  {
+                    text: 'Speichern',
+                    onPress: () =>
+                      void applyIngredientSwapProposal(proposal, message.id, proposalIndex, key),
+                  },
+                ],
+              )
+            }
+            variant="primary"
+            size="sm"
+            loading={applyingProposalId === key}
+            style={styles.proposalAction}
+          />
+        </View>
         <Button
           title="Rezept ansehen"
           onPress={() =>
@@ -896,24 +1334,39 @@ export function AssistantScreen() {
   return (
     <HubScreen
       header={{
-        title: 'fam Assistant',
-        subtitle: 'Deine Essensplanung',
+        title: 'fam',
+        titleVariant: 'brand',
         align: 'center',
-        leading: <BackButton label="Zurück" variant="header" onPress={() => router.back()} />,
-        trailing:
-          hasAI && threads.length > 0 ? (
+        leading: <BackButton label="Zurück" href="/(app)" variant="header" />,
+        trailing: hasAI ? (
+          <View style={styles.headerActions}>
             <IconButton
-              icon="menu"
-              accessibilityLabel={
-                isHistoryOpen ? 'Gesprächsverlauf schließen' : 'Gesprächsverlauf öffnen'
-              }
-              onPress={() => setIsHistoryOpen((open) => !open)}
+              icon="edit-3"
+              accessibilityLabel="Neuen Chat starten"
+              onPress={() => {
+                setIsHistoryOpen(false);
+                void startNewThread();
+              }}
               color={colors.accent}
               bg={colors.backgroundSoft}
               size={40}
               iconSize={18}
             />
-          ) : null,
+            {threads.length > 0 ? (
+              <IconButton
+                icon="menu"
+                accessibilityLabel={
+                  isHistoryOpen ? 'Gesprächsverlauf schließen' : 'Gesprächsverlauf öffnen'
+                }
+                onPress={() => setIsHistoryOpen((open) => !open)}
+                color={colors.accent}
+                bg={colors.backgroundSoft}
+                size={40}
+                iconSize={18}
+              />
+            ) : null}
+          </View>
+        ) : null,
       }}>
       <KeyboardAvoidingView
         style={styles.root}
@@ -935,7 +1388,11 @@ export function AssistantScreen() {
               Der Assistant nutzt das AI-Abo des aktiven Haushalts und dessen monatliches
               Credit-Limit.
             </Txt>
-            <Button title="AI ansehen" onPress={() => router.push('/settings/plus-and-ai')} full />
+            <Button
+              title="AI ansehen"
+              onPress={() => router.push('/settings/plus-and-ai?tier=ai')}
+              full
+            />
             <Button
               title={
                 isRestoringPurchases ? 'Käufe werden wiederhergestellt…' : 'Käufe wiederherstellen'
@@ -961,16 +1418,6 @@ export function AssistantScreen() {
                   <Txt variant="label" weight="700">
                     Gesprächsverlauf
                   </Txt>
-                  <IconButton
-                    icon="edit-3"
-                    accessibilityLabel="Neues Gespräch"
-                    onPress={() => {
-                      setIsHistoryOpen(false);
-                      void startNewThread();
-                    }}
-                    size={40}
-                    iconSize={18}
-                  />
                 </View>
                 <ScrollView
                   style={styles.threadStrip}
@@ -1035,6 +1482,21 @@ export function AssistantScreen() {
                     style={
                       item.role === 'user' ? styles.userMessageStack : styles.assistantMessageStack
                     }>
+                    {item.role === 'user' && item.attachments?.length ? (
+                      <View style={styles.attachmentRow}>
+                        {item.attachments.map((attachment) => (
+                          <Txt
+                            key={`${item.id}-${attachment.filename}`}
+                            variant="caption"
+                            tone="secondary"
+                            numberOfLines={1}
+                            style={styles.attachmentName}>
+                            {attachment.mimeType === 'application/pdf' ? 'PDF' : 'Bild'} ·{' '}
+                            {attachment.filename}
+                          </Txt>
+                        ))}
+                      </View>
+                    ) : null}
                     <View
                       style={[
                         styles.messageBubble,
@@ -1047,17 +1509,12 @@ export function AssistantScreen() {
                     {item.role === 'assistant' && item.toolTrace?.length ? (
                       <View style={styles.toolTraceRow}>
                         {item.toolTrace.map((tool) => (
-                          <Pill
+                          <Badge
                             key={`${item.id}-${tool}`}
-                            label={
-                              {
-                                search_recipes: 'Rezepte durchsucht',
-                                get_inventory: 'Vorrat geprüft',
-                                propose_meal_plan: 'Wochenvorschlag erstellt',
-                                suggest_ingredient_swap: 'Zutat geprüft',
-                                propose_shopping_list_item: 'Einkaufsartikel vorgeschlagen',
-                              }[tool]
-                            }
+                            label={ASSISTANT_TOOL_TRACE[tool].label}
+                            icon={ASSISTANT_TOOL_TRACE[tool].icon}
+                            tone="grocery"
+                            solid
                           />
                         ))}
                       </View>
@@ -1138,11 +1595,52 @@ export function AssistantScreen() {
               </Txt>
             ) : null}
             <View style={styles.composer}>
+              {pageContext ? (
+                <View style={styles.contextRow}>
+                  <Txt variant="caption" tone="secondary" style={styles.contextLabel}>
+                    {pageContextLabel(pageContext)}
+                  </Txt>
+                  <IconButton
+                    icon="x"
+                    accessibilityLabel="Seitenkontext entfernen"
+                    onPress={() => setPageContext(null)}
+                    size={32}
+                    iconSize={16}
+                  />
+                </View>
+              ) : null}
+              {attachments.length > 0 ? (
+                <View style={styles.attachmentRow}>
+                  {attachments.map((attachment, index) => (
+                    <View key={`${attachment.uri}-${String(index)}`} style={styles.contextRow}>
+                      <Txt
+                        variant="caption"
+                        tone="secondary"
+                        numberOfLines={1}
+                        style={styles.attachmentName}>
+                        {attachment.name}
+                      </Txt>
+                      <IconButton
+                        icon="x"
+                        accessibilityLabel={`${attachment.name} entfernen`}
+                        onPress={() =>
+                          setAttachments((current) =>
+                            current.filter((_, itemIndex) => itemIndex !== index),
+                          )
+                        }
+                        size={32}
+                        iconSize={16}
+                      />
+                    </View>
+                  ))}
+                </View>
+              ) : null}
               <View style={styles.composerRow}>
                 <IconButton
-                  icon="plus"
-                  accessibilityLabel="Rezept importieren"
-                  onPress={() => router.push('/recipe/import')}
+                  icon="paperclip"
+                  accessibilityLabel="Anhang hinzufügen"
+                  onPress={openAttachmentPicker}
+                  disabled={attachments.length >= 5 || isSending}
                 />
                 <View style={styles.composerField}>
                   <TextField
@@ -1160,7 +1658,11 @@ export function AssistantScreen() {
                 <IconButton
                   icon="send"
                   accessibilityLabel="Nachricht senden"
-                  disabled={!message.trim() || isSending || creditStatus?.blocked}
+                  disabled={
+                    (!message.trim() && attachments.length === 0) ||
+                    isSending ||
+                    creditStatus?.blocked
+                  }
                   onPress={() => void handleSend()}
                   color={colors.onAccent}
                   bg={colors.accent}

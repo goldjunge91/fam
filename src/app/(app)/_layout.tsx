@@ -39,7 +39,6 @@ function AppLayoutContent() {
   const userId = session?.user.id;
   const { decision, retry: retryRouting } = useAppEntryReadiness();
   const queryClient = useQueryClient();
-  const { activeHouseholdId } = useActiveHousehold();
 
   useEffect(() => {
     if (!userId) return;
@@ -76,16 +75,11 @@ function AppLayoutContent() {
     return <CrashFallback resetError={retryRouting} />;
   }
 
-  return <ReadyAppContent activeHouseholdId={activeHouseholdId} accountId={userId ?? null} />;
+  return <ReadyAppContent accountId={userId ?? null} />;
 }
 
-function ReadyAppContent({
-  activeHouseholdId,
-  accountId,
-}: {
-  activeHouseholdId: string | null;
-  accountId: string | null;
-}) {
+function ReadyAppContent({ accountId }: { accountId: string | null }) {
+  const { activeHouseholdId } = useActiveHousehold();
   const redeemInvite = useRedeemInviteMutation();
   const retryReceiptAssets = useCallback(async () => {
     if (!activeHouseholdId || !accountId) return;

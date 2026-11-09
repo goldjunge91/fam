@@ -1,6 +1,6 @@
 import { assert, assertEquals, assertStringIncludes } from 'jsr:@std/assert@1';
 
-import { isPublicHttpsUrl, loadRecipePage } from './recipe-source.ts';
+import { extractPublicVideoUrl, isPublicHttpsUrl, loadRecipePage } from './recipe-source.ts';
 
 type FakeDns = (hostname: string, recordType: string) => Promise<string[]>;
 
@@ -42,29 +42,35 @@ function htmlResponse(body: string, contentType = 'text/html'): Response {
 Deno.test('allows only public HTTPS hosts after resolving every address', async () => {
   const dnsCalls: string[] = [];
   await withNetworkFakes(
-    async (hostname, recordType) => {
+    (hostname, recordType) => {
       dnsCalls.push(`${hostname}:${recordType}`);
-      if (hostname === 'private.example') return ['192.168.1.10'];
-      if (hostname === 'mixed.example' && recordType === 'AAAA') return ['fd00::1'];
-      if (hostname === 'dns-error.example') throw new Error('DNS unavailable');
-      return recordType === 'A' ? ['93.184.216.34'] : ['2001:4860:4860::8888'];
+      if (hostname === 'private.example') return Promise.resolve(['192.168.1.10']);
+      if (hostname === 'mixed.example' && recordType === 'AAAA') {
+        return Promise.resolve(['fd00::1']);
+      }
+      if (hostname === 'dns-error.example') return Promise.reject(new Error('DNS unavailable'));
+      return Promise.resolve(
+        recordType === 'A' ? ['93.184.216.34'] : ['2001:4860:4860::8888'],
+      );
     },
-    async () => htmlResponse('unused'),
+    () => Promise.resolve(htmlResponse('unused')),
     async () => {
       assertEquals(await isPublicHttpsUrl('https://example.test/recipe'), true);
       assertEquals(await isPublicHttpsUrl('https://private.example/recipe'), false);
       assertEquals(await isPublicHttpsUrl('https://mixed.example/recipe'), false);
       assertEquals(await isPublicHttpsUrl('https://dns-error.example/recipe'), false);
 
-      for (const value of [
-        'http://example.test/recipe',
-        'https://user:password@example.test/recipe',
-        'https://example.test:443/recipe',
-        'https://localhost/recipe',
-        'https://kitchen.local/recipe',
-        'https://192.168.1.10/recipe',
-        'not a url',
-      ]) {
+      for (
+        const value of [
+          'http://example.test/recipe',
+          'https://user:password@example.test/recipe',
+          'https://example.test:443/recipe',
+          'https://localhost/recipe',
+          'https://kitchen.local/recipe',
+          'https://192.168.1.10/recipe',
+          'not a url',
+        ]
+      ) {
         assertEquals(await isPublicHttpsUrl(value), false, value);
       }
       assertEquals(dnsCalls.includes('example.test:A'), true);
@@ -76,26 +82,27 @@ Deno.test('allows only public HTTPS hosts after resolving every address', async 
 Deno.test('extracts structured recipes from JSON-LD graphs and instruction variants', async () => {
   const structuredHtml = `
     <html><body>
-      <script type="application/ld+json">${JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': [{
-          '@type': ['NewsArticle', 'Recipe'],
-          name: ' Linsensuppe ',
-          recipeYield: '4 Portionen',
-          recipeIngredient: [' 200 g Linsen ', '', 4],
-          recipeInstructions: [
-            { '@type': 'HowToStep', text: 'Linsen waschen.' },
-            'Linsen weich kochen.',
-          ],
-          description: 'Eine schnelle Suppe.',
-        }],
-      })}</script>
+      <script type="application/ld+json">${
+    JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [{
+        '@type': ['NewsArticle', 'Recipe'],
+        name: ' Linsensuppe ',
+        recipeYield: '4 Portionen',
+        recipeIngredient: [' 200 g Linsen ', '', 4],
+        recipeInstructions: [
+          { '@type': 'HowToStep', text: 'Linsen waschen.' },
+          'Linsen weich kochen.',
+        ],
+        description: 'Eine schnelle Suppe.',
+      }],
+    })
+  }</script>
     </body></html>`;
 
   await withNetworkFakes(
-    async (_hostname, recordType) =>
-      Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
-    async () => htmlResponse(structuredHtml),
+    (_hostname, recordType) => Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
+    () => Promise.resolve(htmlResponse(structuredHtml)),
     async () => {
       const result = await loadRecipePage('https://example.test/structured');
       assert(result.ok);
@@ -112,6 +119,66 @@ Deno.test('extracts structured recipes from JSON-LD graphs and instruction varia
         notes: 'Eine schnelle Suppe.',
         warnings: [],
       });
+      assertEquals(result.videoUrl, null);
+    },
+  );
+});
+
+Deno.test('resolves only HTTPS Instagram and Facebook CDN video metadata', () => {
+  assertEquals(
+    extractPublicVideoUrl(
+      '<meta content="https://scontent.cdninstagram.com/reel.mp4?a=1&amp;b=2" property="og:video:secure_url">',
+      'https://www.instagram.com/reel/abc/',
+    ),
+    'https://scontent.cdninstagram.com/reel.mp4?a=1&b=2',
+  );
+  assertEquals(
+    extractPublicVideoUrl(
+      '<meta property="og:video" content="https://video.xx.fbcdn.net/reel.mp4">',
+      'https://www.instagram.com/reel/abc/',
+    ),
+    'https://video.xx.fbcdn.net/reel.mp4',
+  );
+  for (
+    const content of [
+      'http://scontent.cdninstagram.com/reel.mp4',
+      'https://example.com/reel.mp4',
+      'not a URL',
+    ]
+  ) {
+    assertEquals(
+      extractPublicVideoUrl(
+        `<meta property="og:video" content="${content}">`,
+        'https://www.instagram.com/reel/abc/',
+      ),
+      null,
+    );
+  }
+  assertEquals(extractPublicVideoUrl('<html></html>', 'https://www.instagram.com/reel/abc/'), null);
+});
+
+Deno.test('falls back to readable text for malformed or incomplete JSON-LD recipes', async () => {
+  const page = `
+    <script type="application/ld+json">{not valid json}</script>
+    <script type="application/ld+json">${
+    JSON.stringify({
+      '@type': 'Recipe',
+      name: 'Unvollständige Suppe',
+      recipeIngredient: ['Wasser'],
+      recipeInstructions: [],
+    })
+  }</script>
+    <article>Fallback-Rezepttext</article>`;
+
+  await withNetworkFakes(
+    (_hostname, recordType) => Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
+    () => Promise.resolve(htmlResponse(page)),
+    async () => {
+      const result = await loadRecipePage('https://example.test/incomplete');
+      assert(result.ok);
+      if (!result.ok) return;
+      assertEquals(result.draft, null);
+      assertStringIncludes(result.text, 'Fallback-Rezepttext');
     },
   );
 });
@@ -128,9 +195,8 @@ Deno.test('returns readable fallback text while removing inactive HTML content a
       </body>
     </html>`;
   await withNetworkFakes(
-    async (_hostname, recordType) =>
-      Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
-    async () => htmlResponse(page),
+    (_hostname, recordType) => Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
+    () => Promise.resolve(htmlResponse(page)),
     async () => {
       const result = await loadRecipePage('https://example.test/plain');
       assert(result.ok);
@@ -150,41 +216,68 @@ Deno.test('fails closed for unsafe redirects, content types, size limits, fetch 
   const fetchCalls: string[] = [];
   const largeBody = new Uint8Array(1_500_001);
   await withNetworkFakes(
-    async (hostname, recordType) => {
+    (hostname, recordType) => {
       if (hostname === 'private.example') return Promise.resolve(['10.0.0.2']);
       return Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []);
     },
-    async (input) => {
+    (input) => {
       const url = String(input);
       fetchCalls.push(url);
       if (url.endsWith('/private-redirect')) {
-        return new Response(null, {
-          status: 302,
-          headers: { location: 'https://private.example/recipe' },
-        });
+        return Promise.resolve(
+          new Response(null, {
+            status: 302,
+            headers: { location: 'https://private.example/recipe' },
+          }),
+        );
       }
       if (url.endsWith('/large-declared')) {
-        return new Response('small', {
-          status: 200,
-          headers: { 'content-type': 'text/html', 'content-length': '1500001' },
-        });
+        return Promise.resolve(
+          new Response('small', {
+            status: 200,
+            headers: { 'content-type': 'text/html', 'content-length': '1500001' },
+          }),
+        );
       }
       if (url.endsWith('/large-stream')) {
-        return new Response(largeBody, {
-          status: 200,
-          headers: { 'content-type': 'text/html' },
-        });
+        return Promise.resolve(
+          new Response(largeBody, {
+            status: 200,
+            headers: { 'content-type': 'text/html' },
+          }),
+        );
       }
-      if (url.endsWith('/pdf')) return new Response('%PDF', { status: 200, headers: { 'content-type': 'application/pdf' } });
-      if (url.endsWith('/server-error')) return new Response('error', { status: 500 });
-      if (url.endsWith('/network-error')) throw new Error('private network failure');
+      if (url.endsWith('/pdf')) {
+        return Promise.resolve(
+          new Response('%PDF', {
+            status: 200,
+            headers: { 'content-type': 'application/pdf' },
+          }),
+        );
+      }
+      if (url.endsWith('/server-error')) {
+        return Promise.resolve(new Response('error', { status: 500 }));
+      }
+      if (url.endsWith('/network-error')) {
+        return Promise.reject(new Error('private network failure'));
+      }
       if (url.endsWith('/redirect-loop')) {
-        return new Response(null, {
-          status: 302,
-          headers: { location: 'https://example.test/redirect-loop' },
-        });
+        return Promise.resolve(
+          new Response(null, {
+            status: 302,
+            headers: { location: 'https://example.test/redirect-loop' },
+          }),
+        );
       }
-      return htmlResponse('plain text', 'text/plain');
+      if (url.endsWith('/malformed-redirect')) {
+        return Promise.resolve(
+          new Response(null, {
+            status: 302,
+            headers: { location: 'https://[invalid' },
+          }),
+        );
+      }
+      return Promise.resolve(htmlResponse('plain text', 'text/plain'));
     },
     async () => {
       assertEquals(await loadRecipePage('https://example.test/private-redirect'), {
@@ -222,10 +315,16 @@ Deno.test('fails closed for unsafe redirects, content types, size limits, fetch 
         status: 422,
         error: 'source_redirect_failed',
       });
+      assertEquals(await loadRecipePage('https://example.test/malformed-redirect'), {
+        ok: false,
+        status: 422,
+        error: 'source_redirect_failed',
+      });
       assertEquals(await loadRecipePage('https://example.test/plain'), {
         ok: true,
         text: 'plain text',
         draft: null,
+        videoUrl: null,
       });
       assertEquals(fetchCalls.includes('https://private.example/recipe'), false);
       assertEquals(fetchCalls.filter((url) => url.endsWith('/redirect-loop')).length, 4);

@@ -1,8 +1,9 @@
 import { File } from 'expo-file-system';
 import { getDevAiModelSelection } from '@/features/ai-assistant/data/dev-ai-model-selection';
-import { AI_CONSENT_VERSION } from '@/features/ai-assistant/types';
 import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient-mapping';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { getDurationBucket } from '@/lib/telemetry/buckets';
 import type { RecipeImportDraft, RecipeImportMethod, RecipeImportSourceType } from '../types';
 
 type RecipeImportInput = {
@@ -38,11 +39,13 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
     !isRecord(value) ||
     value.kind !== 'recipe_import_draft.v1' ||
     typeof value.title !== 'string' ||
+    value.title.trim().length === 0 ||
     !(
       value.servings === null ||
-      (typeof value.servings === 'number' && Number.isInteger(value.servings))
+      (typeof value.servings === 'number' && Number.isInteger(value.servings) && value.servings > 0)
     ) ||
     !Array.isArray(value.ingredients) ||
+    value.ingredients.length === 0 ||
     !value.ingredients.every(
       (ingredient) =>
         isRecord(ingredient) &&
@@ -50,6 +53,7 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
         ['high', 'medium', 'low'].includes(String(ingredient.confidence)),
     ) ||
     !Array.isArray(value.steps) ||
+    value.steps.length === 0 ||
     !value.steps.every((step) => typeof step === 'string') ||
     !(value.notes === null || typeof value.notes === 'string') ||
     !Array.isArray(value.warnings) ||
@@ -97,55 +101,76 @@ async function encodeMedia(
 }
 
 export async function importRecipeSource(input: RecipeImportInput): Promise<RecipeImportResult> {
-  const attachments = input.media ? await encodeMedia(input.media) : undefined;
-  const modelSelection = getDevAiModelSelection();
-  const { data, error } = await getSupabase().functions.invoke('ai-gateway', {
-    body: {
-      skill: 'fam-recipe-import',
-      householdId: input.householdId,
-      consentVersion: AI_CONSENT_VERSION,
-      sourceType: input.sourceType,
-      ...(input.sourceText ? { sourceText: input.sourceText } : {}),
-      ...(input.sourceUrl ? { sourceUrl: input.sourceUrl } : {}),
-      ...(attachments ? { attachments } : {}),
-      ...(modelSelection ?? {}),
-    },
-  });
+  const startedAt = Date.now();
+  trackAnalyticsEvent('recipe_import.started', { source: input.sourceType });
+  let stage: 'media' | 'request' | 'parse' = 'media';
 
-  if (error) {
-    const detail = await getErrorCode(error, data);
-    if (detail === 'ai_subscription_required') {
-      throw new Error('Für die KI-Auswertung brauchst du das AI-Abo dieses Haushalts.');
-    }
-    if (detail === 'ai_credit_limit_exceeded') {
-      throw new Error('Das monatliche AI-Credit-Limit ist erreicht.');
-    }
-    if (detail === 'unsafe_source_url') {
-      throw new Error('Diese Webadresse kann nicht sicher gelesen werden.');
-    }
-    if (detail === 'source_unavailable') {
-      throw new Error('Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.');
-    }
-    if (detail === 'source_not_a_webpage') {
-      throw new Error('Der Link führt nicht zu einer lesbaren Webseite.');
-    }
-    if (detail === 'source_too_large') {
-      throw new Error('Die Webseite ist zu groß, um sie zu importieren.');
-    }
-    if (detail === 'source_has_no_recipe_text') {
-      throw new Error('Auf der Webseite wurde kein lesbarer Rezeptinhalt gefunden.');
-    }
-    if (detail === 'model_unsupported_input') {
-      throw new Error('Das ausgewählte Modell kann diese Quelle nicht verarbeiten.');
-    }
-    throw new Error(error.message || 'Der Rezeptimport ist fehlgeschlagen.');
-  }
+  try {
+    const attachments = input.media ? await encodeMedia(input.media) : undefined;
+    stage = 'request';
+    const modelSelection = getDevAiModelSelection();
+    const { data, error } = await getSupabase().functions.invoke('ai-gateway', {
+      body: {
+        skill: 'fam-recipe-import',
+        householdId: input.householdId,
+        sourceType: input.sourceType,
+        ...(input.sourceText ? { sourceText: input.sourceText } : {}),
+        ...(input.sourceUrl ? { sourceUrl: input.sourceUrl } : {}),
+        ...(attachments ? { attachments } : {}),
+        ...(modelSelection ?? {}),
+      },
+    });
 
-  if (!isRecord(data) || (data.source !== 'structured' && data.source !== 'ai')) {
-    throw new Error('Die Importantwort hatte ein ungültiges Format.');
+    if (error) {
+      const detail = await getErrorCode(error, data);
+      if (detail === 'ai_subscription_required') {
+        throw new Error('Für die KI-Auswertung brauchst du das AI-Abo dieses Haushalts.');
+      }
+      if (detail === 'ai_credit_limit_exceeded') {
+        throw new Error('Das monatliche AI-Credit-Limit ist erreicht.');
+      }
+      if (detail === 'unsafe_source_url') {
+        throw new Error('Diese Webadresse kann nicht sicher gelesen werden.');
+      }
+      if (detail === 'instagram_video_unavailable') {
+        throw new Error(
+          'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
+        );
+      }
+      if (detail === 'source_unavailable') {
+        throw new Error('Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.');
+      }
+      if (detail === 'source_not_a_webpage') {
+        throw new Error('Der Link führt nicht zu einer lesbaren Webseite.');
+      }
+      if (detail === 'source_too_large') {
+        throw new Error('Die Webseite ist zu groß, um sie zu importieren.');
+      }
+      if (detail === 'source_has_no_recipe_text') {
+        throw new Error('Auf der Webseite wurde kein lesbarer Rezeptinhalt gefunden.');
+      }
+      if (detail === 'model_unsupported_input') {
+        throw new Error('Das ausgewählte Modell kann diese Quelle nicht verarbeiten.');
+      }
+      throw new Error(error.message || 'Der Rezeptimport ist fehlgeschlagen.');
+    }
+
+    stage = 'parse';
+    if (!isRecord(data) || (data.source !== 'structured' && data.source !== 'ai')) {
+      throw new Error('Die Importantwort hatte ein ungültiges Format.');
+    }
+
+    const result = {
+      draft: parseRecipeImportDraft(data.result),
+      method: data.source,
+    } satisfies RecipeImportResult;
+    trackAnalyticsEvent('recipe_import.completed', {
+      method: result.method,
+      duration_bucket: getDurationBucket(Date.now() - startedAt),
+    });
+    return result;
+  } catch (error) {
+    trackAnalyticsEvent('recipe_import.failed', { stage });
+    throw error;
   }
-  return {
-    draft: parseRecipeImportDraft(data.result),
-    method: data.source,
-  };
 }

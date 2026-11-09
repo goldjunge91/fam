@@ -81,6 +81,11 @@ const styles = StyleSheet.create((theme) => ({
   actionContainer: {
     flex: 1,
   },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.xs,
+  },
   calendarIcon: {
     width: 19,
     height: 19,
@@ -294,16 +299,30 @@ export function MealPlannerScreen() {
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
         trailing: (
-          <HeaderIconButton
-            label="Aktuelle Woche anzeigen"
-            onPress={() => setAnchorDate(todayIso())}>
-            <Image
-              source="sf:calendar"
-              contentFit="contain"
-              tintColor={colors.accent}
-              style={styles.calendarIcon}
-            />
-          </HeaderIconButton>
+          <View style={styles.headerActions}>
+            <HeaderIconButton
+              label="Assistant mit Wochenplankontext öffnen"
+              onPress={() =>
+                router.push({
+                  pathname: '/assistant',
+                  params: { pageContextKind: 'meal_plan', pageContextWeekStart: weekStart },
+                })
+              }>
+              <Txt variant="glyph" tone="accent" weight="700">
+                ✦
+              </Txt>
+            </HeaderIconButton>
+            <HeaderIconButton
+              label="Aktuelle Woche anzeigen"
+              onPress={() => setAnchorDate(todayIso())}>
+              <Image
+                source="sf:calendar"
+                contentFit="contain"
+                tintColor={colors.accent}
+                style={styles.calendarIcon}
+              />
+            </HeaderIconButton>
+          </View>
         ),
       }}>
       <View style={styles.content}>

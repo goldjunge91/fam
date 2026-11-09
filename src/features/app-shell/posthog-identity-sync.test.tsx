@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react-native';
 import { AppState } from 'react-native';
 
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
+
 let mockSession: { user: { id: string; email?: string } } | null = null;
 let mockIsLoading = false;
 let mockAccountReady = true;
@@ -46,6 +48,7 @@ describe('PostHogIdentitySync', () => {
     mockAccountReady = true;
     mockSessionError = null;
     mockConfigured = true;
+    useAnalyticsSettingsStore.getState().setPostHogConsent('granted');
     mockAppStateHandler = undefined;
     jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, handler) => {
       mockAppStateHandler = handler as (state: string) => void;
@@ -57,16 +60,23 @@ describe('PostHogIdentitySync', () => {
     jest.restoreAllMocks();
   });
 
-  it('ruft identify() mit der Supabase-User-ID und E-Mail auf, sobald eine Session vorliegt', async () => {
+  it('ruft identify() nur mit der Supabase-User-ID auf, sobald eine Session vorliegt', async () => {
     mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
 
     await render(<PostHogIdentitySync />);
 
-    expect(mockIdentify).toHaveBeenCalledWith('user-1', {
-      email: 'test@example.com',
-      userId: 'user-1',
-    });
+    expect(mockIdentify).toHaveBeenCalledWith('user-1');
     expect(mockReset).not.toHaveBeenCalled();
+  });
+
+  it('identifiziert keinen User ohne explizite PostHog-Einwilligung', async () => {
+    useAnalyticsSettingsStore.getState().setPostHogConsent('pending');
+    mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
+
+    await render(<PostHogIdentitySync />);
+
+    expect(mockIdentify).not.toHaveBeenCalled();
+    expect(mockReset).toHaveBeenCalled();
   });
 
   it('ruft reset() auf wenn keine Session (mehr) vorliegt', async () => {
@@ -119,10 +129,7 @@ describe('PostHogIdentitySync', () => {
     mockConfigured = true;
     await view.rerender(<PostHogIdentitySync />);
 
-    expect(mockIdentify).toHaveBeenCalledWith('user-1', {
-      email: 'test@example.com',
-      userId: 'user-1',
-    });
+    expect(mockIdentify).toHaveBeenCalledWith('user-1');
   });
 
   it('laedt Feature-Flags nicht innerhalb des automatischen 12-Stunden-Intervalls', async () => {

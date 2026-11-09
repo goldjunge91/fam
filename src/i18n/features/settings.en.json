@@ -200,7 +200,7 @@
           },
           "thirdParties": {
             "title": "Third-party services",
-            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry, PostHog, and Aptabase help with error diagnosis, product improvement, and usage analytics."
+            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry handles full error diagnosis. PostHog is only enabled after your consent and receives curated technical usage data and a technical account ID; email addresses, household IDs, free-form error messages, and private/dynamic screen paths are excluded."
           },
           "aiProcessing": {
             "title": "AI features",
@@ -218,6 +218,13 @@
             "title": "Your rights",
             "body": "Access/export via Settings → Export as JSON. Deletion via Settings → Delete account — shared household data remains for the remaining members, only your private data is removed. Profile and diary data can be edited directly in the app."
           }
+        },
+        "posthogSettings": {
+          "title": "Product analytics with PostHog",
+          "enabledDescription": "You agreed to product analytics. We send technical usage data and stable technical account IDs to PostHog. You can stop sharing at any time.",
+          "disabledDescription": "PostHog is disabled. Without your consent, no PostHog events, automatic touch data, or identity data are sent.",
+          "allowButton": "Allow PostHog",
+          "disableButton": "Disable PostHog"
         },
         "adsSettings": {
           "title": "Ad settings",

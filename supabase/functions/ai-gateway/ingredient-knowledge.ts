@@ -224,7 +224,10 @@ export function toReviewedRecipeIngredientMapping(
     ? row.ingredient_mapping as Record<string, unknown>
     : {};
   const ingredientIds = Array.isArray(value.ingredientIds) &&
-      value.ingredientIds.every((id) => typeof id === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) &&
+      value.ingredientIds.every((id) =>
+        typeof id === 'string' &&
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)
+      ) &&
       new Set(value.ingredientIds).size === value.ingredientIds.length
     ? value.ingredientIds as string[]
     : [];
@@ -247,9 +250,7 @@ export function toReviewedRecipeIngredientMapping(
       : '',
     currentSourceVersion: row.ingredient_source_version,
     license: sourceMatchesRow && typeof value.license === 'string' ? value.license : null,
-    evidenceSnapshot: typeof value.evidenceSnapshot === 'string'
-      ? value.evidenceSnapshot
-      : '',
+    evidenceSnapshot: typeof value.evidenceSnapshot === 'string' ? value.evidenceSnapshot : '',
     reviewedAt: typeof value.reviewedAt === 'string' ? value.reviewedAt : null,
     reviewedBy: typeof value.reviewedBy === 'string' ? value.reviewedBy : null,
   };

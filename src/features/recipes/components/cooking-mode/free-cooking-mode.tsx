@@ -6,6 +6,11 @@ import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { flattenRecipeItems } from '../../domain/ingredient-mentions';
+import {
+  replaceIngredientInText,
+  replaceIngredientName,
+  type TemporaryIngredientSwap,
+} from '../../domain/temporary-ingredient-swap';
 import type { RecipeDetail } from '../../hooks/use-recipes';
 import { StepRichContent } from '../step-rich-content';
 import { CookingModeShell } from './cooking-mode-shell';
@@ -74,10 +79,21 @@ const styles = StyleSheet.create((theme) => ({
   },
 }));
 
-export function FreeCookingMode({ data }: { data: RecipeDetail }) {
+export function FreeCookingMode({
+  data,
+  temporarySwap = null,
+}: {
+  data: RecipeDetail;
+  temporarySwap?: TemporaryIngredientSwap | null;
+}) {
   const { colors } = useTheme();
   const { recipe, steps } = data;
-  const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
+  const mentionIngredients = flattenRecipeItems(data.items, data.productsById).map(
+    (ingredient) => ({
+      ...ingredient,
+      name: replaceIngredientName(ingredient.name, temporarySwap),
+    }),
+  );
 
   return (
     <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
@@ -85,8 +101,13 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
         <Txt variant="heading" style={styles.title}>
           {recipe.title}
         </Txt>
+        {temporarySwap ? (
+          <Txt variant="caption" tone="secondary">
+            Einmalig ersetzt: {temporarySwap.ingredientName} → {temporarySwap.replacement}
+          </Txt>
+        ) : null}
 
-        <IngredientGroups data={data} />
+        <IngredientGroups data={data} temporarySwap={temporarySwap} />
 
         {recipe.instructions ? (
           <Txt variant="caption" tone="secondary" style={styles.instructions}>
@@ -102,7 +123,7 @@ export function FreeCookingMode({ data }: { data: RecipeDetail }) {
                   {step.position + 1}.
                 </Txt>
                 <StepRichContent
-                  text={step.text}
+                  text={replaceIngredientInText(step.text, temporarySwap)}
                   ingredients={mentionIngredients}
                   images={
                     step.images && step.images.length > 0
@@ -153,7 +174,13 @@ function round(value: number): number {
   return Math.round(value);
 }
 
-function IngredientGroups({ data }: { data: RecipeDetail }) {
+function IngredientGroups({
+  data,
+  temporarySwap,
+}: {
+  data: RecipeDetail;
+  temporarySwap: TemporaryIngredientSwap | null;
+}) {
   const { colors } = useTheme();
   const groupsWithServingWeight = data.components.filter(
     (component) => component.serving_grams !== null,
@@ -186,11 +213,12 @@ function IngredientGroups({ data }: { data: RecipeDetail }) {
             </View>
             {items.map((item, index) => {
               const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
-              const name =
+              const originalName =
                 product?.name ??
                 item.ingredient_name ??
                 (item.sub_component_id ? componentNames.get(item.sub_component_id) : undefined) ??
                 'Zutat';
+              const name = replaceIngredientName(originalName, temporarySwap);
               const quantity = item.quantity !== null ? item.quantity : item.grams;
               const unit = item.quantity !== null ? item.unit : 'g';
 
@@ -206,9 +234,11 @@ function IngredientGroups({ data }: { data: RecipeDetail }) {
                   <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
                     {name}
                   </Txt>
-                  <Txt variant="body" tone="secondary" weight="500">
-                    {round(quantity)} {unit}
-                  </Txt>
+                  {name === originalName ? (
+                    <Txt variant="body" tone="secondary" weight="500">
+                      {round(quantity)} {unit}
+                    </Txt>
+                  ) : null}
                 </View>
               );
             })}

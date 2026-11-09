@@ -96,11 +96,12 @@ function setup(
     providerThrows?: boolean;
     refundThrows?: boolean;
     recipePage?:
-      | { ok: true; text: string; draft: unknown }
+      | { ok: true; text: string; draft: unknown; videoUrl?: string | null }
       | { ok: false; status: number; error: string };
     publicUrlAllowed?: boolean;
     modelTestingEnabled?: boolean;
     modelOverridesEnabled?: boolean;
+    mediaFallback?: { provider: GatewayProvider; model: string } | null;
   } = {},
 ) {
   const calls: Array<{
@@ -232,7 +233,9 @@ function setup(
     modelOverridesEnabled: options.modelOverridesEnabled ?? false,
     modelTestingEnabled: options.modelTestingEnabled ?? false,
     modelTestModels: { openrouter: ALLOWED_MODELS, groq: GROQ_ALLOWED_MODELS },
-    mediaFallback: { provider: 'openrouter', model: 'qwen/qwen3.8-flash' },
+    mediaFallback: options.mediaFallback === null
+      ? undefined
+      : options.mediaFallback ?? { provider: 'openrouter', model: 'qwen/qwen3.8-flash' },
     now: () => '2026-09-01T10:00:00.000Z',
     requestId: () => 'request-1',
   });
@@ -351,7 +354,6 @@ Deno.test('applies the local provider and model selection to the regular assista
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was kann ich kochen?',
     history: [],
     includeHouseholdContext: false,
@@ -388,7 +390,6 @@ Deno.test('uses OpenRouter media fallback for Groq sources the selected model ca
   const response = await handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'pdf',
     attachments: [{ filename: 'recipe.pdf', mimeType: 'application/pdf', data: 'aGVsbG8=' }],
     provider: 'groq',
@@ -408,7 +409,6 @@ Deno.test('rejects provider and model overrides outside the local developer gate
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was kann ich kochen?',
     history: [],
     includeHouseholdContext: false,
@@ -427,7 +427,6 @@ Deno.test('recipe import validates text, links, and attachment metadata before b
   const base = {
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
   };
   const validAttachment = {
     filename: 'recipe.jpg',
@@ -438,7 +437,7 @@ Deno.test('recipe import validates text, links, and attachment metadata before b
     { ...base, sourceType: 'text' },
     { ...base, sourceType: 'text', sourceText: ' ' },
     { ...base, sourceType: 'text', sourceText: 'Rezept', sourceUrl: 'https://example.test' },
-    { ...base, consentVersion: 'old', sourceType: 'text', sourceText: 'Rezept' },
+    { ...base, extra: true, sourceType: 'text', sourceText: 'Rezept' },
     { ...base, sourceType: 'url' },
     { ...base, sourceType: 'url', sourceUrl: 'http://example.test' },
     { ...base, sourceType: 'url', sourceUrl: 'https://user:secret@example.test' },
@@ -483,6 +482,97 @@ Deno.test('recipe import validates text, links, and attachment metadata before b
   assertEquals(bookings, []);
 });
 
+Deno.test('accepts recipe request boundaries and keeps invalid provider drafts refundable', async () => {
+  const boundary = setup({ providerContent: JSON.stringify(RECIPE_IMPORT_RESULT) });
+  const textResponse = await boundary.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'x'.repeat(50_000),
+  }));
+  assertEquals(textResponse.status, 200);
+  assertEquals(boundary.bookings.length, 1);
+  assertEquals(boundary.refunds, []);
+
+  const fivePages = setup({ providerContent: JSON.stringify(RECIPE_IMPORT_RESULT) });
+  const pagesResponse = await fivePages.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'image',
+    attachments: Array.from({ length: 5 }, (_, index) => ({
+      filename: `page-${String(index)}.jpg`,
+      mimeType: 'image/jpeg',
+      data: 'aA==',
+    })),
+  }));
+  assertEquals(pagesResponse.status, 200);
+
+  const invalidDrafts = [
+    { ...RECIPE_IMPORT_RESULT, ingredients: [] },
+    { ...RECIPE_IMPORT_RESULT, steps: [] },
+    { ...RECIPE_IMPORT_RESULT, servings: 0 },
+    { ...RECIPE_IMPORT_RESULT, title: 'x'.repeat(161) },
+    { ...RECIPE_IMPORT_RESULT, unexpected: true },
+  ];
+  for (const draft of invalidDrafts) {
+    const configured = setup({ providerContent: JSON.stringify(draft) });
+    const response = await configured.handler(request({
+      skill: 'fam-recipe-import',
+      householdId: 'household-1',
+      sourceType: 'text',
+      sourceText: 'Linsen kochen.',
+    }));
+    assertEquals(response.status, 502);
+    assertEquals(await response.json(), { error: 'invalid_recipe_import_draft' });
+    assertEquals(configured.bookings.length, 1);
+    assertEquals(configured.refunds, [{
+      requestId: 'request-1',
+      subscriberUserId: 'subscriber-1',
+    }]);
+  }
+});
+
+Deno.test('fails closed when a selected media model has no usable fallback', async () => {
+  const noFallback = setup({
+    modelOverridesEnabled: true,
+    mediaFallback: null,
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+  const response = await noFallback.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'image',
+    attachments: Array.from({ length: 4 }, (_, index) => ({
+      filename: `page-${String(index)}.jpg`,
+      mimeType: 'image/jpeg',
+      data: 'aA==',
+    })),
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+  }));
+  assertEquals(response.status, 400);
+  assertEquals(await response.json(), { error: 'model_unsupported_input' });
+  assertEquals(noFallback.calls, []);
+  assertEquals(noFallback.bookings, []);
+
+  const invalidFallback = setup({
+    modelOverridesEnabled: true,
+    mediaFallback: { provider: 'openrouter', model: 'not-allowlisted' },
+  });
+  const invalidFallbackResponse = await invalidFallback.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'pdf',
+    attachments: [{ filename: 'recipe.pdf', mimeType: 'application/pdf', data: 'aA==' }],
+    provider: 'groq',
+    model: 'openai/gpt-oss-120b',
+  }));
+  assertEquals(invalidFallbackResponse.status, 400);
+  assertEquals(await invalidFallbackResponse.json(), { error: 'model_unsupported_input' });
+  assertEquals(invalidFallback.calls, []);
+  assertEquals(invalidFallback.bookings, []);
+});
+
 Deno.test('imports recipe text and sends a source-grounded recipe prompt', async () => {
   const { handler, calls, bookings } = setup({
     providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
@@ -490,7 +580,6 @@ Deno.test('imports recipe text and sends a source-grounded recipe prompt', async
   const response = await handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'text',
     sourceText: '  Linsen weich kochen.  ',
     model: ' z-ai/glm-5.3-flash ',
@@ -518,13 +607,52 @@ Deno.test('imports PDF and image attachments as media content parts', async () =
     const response = await handler(request({
       skill: 'fam-recipe-import',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       sourceType,
       attachments: [{ filename: 'seite.png', mimeType, data: 'cGFnZQ==' }],
     }));
     assertEquals(response.status, 200);
     assertStringIncludes(calls.at(-1)?.transcript ?? '', contentType);
   }
+});
+
+Deno.test('resolves public Instagram Reels to their CDN video URL before calling the provider', async () => {
+  const instagramUrl = 'https://www.instagram.com/reel/abc123/';
+  const mediaUrl = 'https://scontent.cdninstagram.com/reel.mp4?token=signed';
+  const { handler, calls } = setup({
+    publicUrlAllowed: true,
+    recipePage: { ok: true, text: '', draft: null, videoUrl: mediaUrl },
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: instagramUrl,
+  }));
+
+  assertEquals(response.status, 200);
+  assertStringIncludes(calls[0]?.transcript ?? '', mediaUrl);
+  assertStringIncludes(calls[0]?.transcript ?? '', 'video_url');
+});
+
+Deno.test('returns a Shortcut-to-Photos fallback when an Instagram Reel has no public media URL', async () => {
+  const { handler, calls, bookings } = setup({
+    publicUrlAllowed: true,
+    recipePage: { ok: true, text: '', draft: null, videoUrl: null },
+  });
+
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/private123/',
+  }));
+
+  assertEquals(response.status, 422);
+  assertEquals(await response.json(), { error: 'instagram_video_unavailable' });
+  assertEquals(calls, []);
+  assertEquals(bookings, []);
 });
 
 Deno.test('reads structured URL imports first and falls back to safe page text', async () => {
@@ -534,7 +662,6 @@ Deno.test('reads structured URL imports first and falls back to safe page text',
   const structuredResponse = await structured.handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'url',
     sourceUrl: 'https://example.test/recipe',
   }));
@@ -550,7 +677,6 @@ Deno.test('reads structured URL imports first and falls back to safe page text',
   const extractedResponse = await extracted.handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'url',
     sourceUrl: 'https://example.test/recipe',
   }));
@@ -565,7 +691,6 @@ Deno.test('handles failed and empty recipe pages and validates video source URLs
   const pageFailure = await unavailablePage.handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'url',
     sourceUrl: 'https://example.test/recipe',
   }));
@@ -575,7 +700,6 @@ Deno.test('handles failed and empty recipe pages and validates video source URLs
   const noText = await emptyPage.handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'url',
     sourceUrl: 'https://example.test/recipe',
   }));
@@ -585,7 +709,6 @@ Deno.test('handles failed and empty recipe pages and validates video source URLs
   const rejectedVideo = await unsafeVideo.handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'video',
     sourceUrl: 'https://video.example/reel',
   }));
@@ -598,7 +721,6 @@ Deno.test('handles failed and empty recipe pages and validates video source URLs
   const importedVideo = await video.handler(request({
     skill: 'fam-recipe-import',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     sourceType: 'video',
     sourceUrl: 'https://video.example/reel',
   }));
@@ -970,7 +1092,6 @@ Deno.test('keeps plain-text assistant output readable when the model misses its 
     request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Nenne eine einfache Idee fürs Abendessen.',
       history: [],
       includeHouseholdContext: false,
@@ -986,6 +1107,77 @@ Deno.test('keeps plain-text assistant output readable when the model misses its 
     proposals: [],
     toolTrace: [],
   });
+});
+
+Deno.test('validates assistant recipe and week page references before provider calls', async () => {
+  const householdRecipe = {
+    ...CONTEXT.recipes[0]!,
+    updatedAt: '2026-11-08T10:00:00.000Z',
+  };
+  const recipeRequest = setup({
+    context: { ...CONTEXT, householdRecipes: [householdRecipe] },
+    providerContent: 'Ich beziehe mich auf das Rezept Tomatenpfanne.',
+  });
+  const recipeResponse = await recipeRequest.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: 'Was kann ich daran ändern?',
+    history: [],
+    includeHouseholdContext: true,
+    pageContext: { kind: 'recipe', recipeId: 'recipe-1' },
+  }));
+
+  assertEquals(recipeResponse.status, 200);
+  assertStringIncludes(recipeRequest.calls[0]?.system ?? '', '"title":"Tomatenpfanne"');
+
+  const foreignRecipeRequest = setup({ context: { ...CONTEXT, householdRecipes: [] } });
+  const foreignRecipeResponse = await foreignRecipeRequest.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: 'Was kann ich daran ändern?',
+    history: [],
+    includeHouseholdContext: true,
+    pageContext: { kind: 'recipe', recipeId: 'outside-household' },
+  }));
+
+  assertEquals(foreignRecipeResponse.status, 422);
+  assertEquals(await foreignRecipeResponse.json(), { error: 'page_context_not_allowed' });
+  assertEquals(foreignRecipeRequest.calls, []);
+  assertEquals(foreignRecipeRequest.bookings, []);
+
+  const invalidWeekRequest = setup();
+  const invalidWeekResponse = await invalidWeekRequest.handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: 'Was steht diese Woche an?',
+    history: [],
+    includeHouseholdContext: true,
+    pageContext: { kind: 'meal_plan', weekStartDate: '2026-02-30' },
+  }));
+
+  assertEquals(invalidWeekResponse.status, 422);
+  assertEquals(await invalidWeekResponse.json(), { error: 'invalid_page_context' });
+  assertEquals(invalidWeekRequest.calls, []);
+  assertEquals(invalidWeekRequest.bookings, []);
+});
+
+Deno.test('accepts an attachment-only assistant message with an explicit default instruction', async () => {
+  const { handler, calls } = setup({ providerContent: 'Das Bild zeigt ein Rezept.' });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: '',
+    history: [],
+    includeHouseholdContext: true,
+    attachments: [{ filename: 'rezept.jpg', mimeType: 'image/jpeg', data: 'aGVsbG8=' }],
+  }));
+
+  assertEquals(response.status, 200);
+  assertStringIncludes(
+    calls[0]?.transcript ?? '',
+    'Bitte analysiere den Anhang und hilf mir damit.',
+  );
+  assertStringIncludes(calls[0]?.transcript ?? '', 'data:image/jpeg;base64,aGVsbG8=');
 });
 
 Deno.test('assistant includes pantry stock and searches the catalog when household recipes are empty', async () => {
@@ -1025,7 +1217,6 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
     request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Was kann ich heute essen?',
       history: [],
       includeHouseholdContext: true,
@@ -1069,7 +1260,6 @@ Deno.test('assistant returns a bounded shopping item proposal without mutating h
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Setze Hafermilch auf die Einkaufsliste.',
     history: [],
     includeHouseholdContext: true,
@@ -1115,7 +1305,6 @@ Deno.test('assistant rejects invalid shopping item proposals', async () => {
     const response = await handler(request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Füge etwas hinzu.',
       history: [],
       includeHouseholdContext: true,
@@ -1162,7 +1351,6 @@ Deno.test('assistant blocks meal proposals when current allergy coverage is unkn
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Plane Abendessen.',
     history: [],
     includeHouseholdContext: true,
@@ -1207,7 +1395,6 @@ Deno.test('assistant does not send custom private labels to the model and report
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was kann ich kochen?',
     history: [],
     includeHouseholdContext: true,
@@ -1272,7 +1459,6 @@ Deno.test('assistant keeps lactose intolerance unsupported even when milk allerg
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Plane Abendessen.',
     history: [],
     includeHouseholdContext: true,
@@ -1315,7 +1501,6 @@ Deno.test('assistant asks for usable context instead of suggesting a meal when r
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was kann ich heute essen?',
     history: [],
     includeHouseholdContext: true,
@@ -1386,7 +1571,6 @@ Deno.test('meal proposals carry the rule and evidence versions used by coverage'
   const response = await handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Plane Abendessen.',
     history: [],
     includeHouseholdContext: true,
@@ -1532,7 +1716,6 @@ Deno.test('assistant prompt uses available stock directly when no saved or catal
     request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Was kann ich heute essen?',
       history: [],
       includeHouseholdContext: true,
@@ -1578,7 +1761,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Hallo',
       history: [],
       includeHouseholdContext: true,
@@ -1587,7 +1769,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Hallo',
       history: Array.from({ length: 13 }, () => ({ role: 'user', text: 'Hallo' })),
       includeHouseholdContext: true,
@@ -1595,7 +1776,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Hallo',
       history: [{ role: 'system', text: 'nicht erlaubt' }],
       includeHouseholdContext: true,
@@ -1603,7 +1783,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Hallo',
       history: [{ role: 'user', text: 'x'.repeat(4_001) }],
       includeHouseholdContext: true,
@@ -1611,7 +1790,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'x'.repeat(4_001),
       history: [],
       includeHouseholdContext: true,
@@ -1619,7 +1797,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Hallo',
       history: [],
       includeHouseholdContext: true,
@@ -1628,7 +1805,6 @@ Deno.test('rejects malformed HTTP bodies and request shapes before billing', asy
     {
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Hallo',
       history: [],
       includeHouseholdContext: true,
@@ -1656,7 +1832,6 @@ Deno.test('accepts the history and message upper bounds but rejects the next val
   const response = await atLimit.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'x'.repeat(4_000),
     history: Array.from({ length: 12 }, () => ({ role: 'user', text: 'x'.repeat(4_000) })),
     includeHouseholdContext: false,
@@ -1667,7 +1842,6 @@ Deno.test('accepts the history and message upper bounds but rejects the next val
   const historyResponse = await tooManyHistory.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Hallo',
     history: Array.from({ length: 13 }, () => ({ role: 'user', text: 'Hallo' })),
     includeHouseholdContext: false,
@@ -1694,7 +1868,6 @@ Deno.test('accepts shopping quantities at both limits and rejects precision, uni
     const response = await configured.handler(request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Füge Tomaten hinzu.',
       history: [],
       includeHouseholdContext: true,
@@ -1722,7 +1895,6 @@ Deno.test('accepts shopping quantities at both limits and rejects precision, uni
     const response = await configured.handler(request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Füge etwas hinzu.',
       history: [],
       includeHouseholdContext: true,
@@ -1771,7 +1943,6 @@ Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale 
   const validResponse = await valid.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Plane die Woche.',
     history: [],
     includeHouseholdContext: true,
@@ -1803,7 +1974,6 @@ Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale 
     const response = await configured.handler(request({
       skill: 'fam-assistant',
       householdId: 'household-1',
-      consentVersion: 'fam-ai-v2',
       message: 'Plane die Woche.',
       history: [],
       includeHouseholdContext: true,
@@ -1824,7 +1994,6 @@ Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale 
   const versionlessResponse = await versionlessRecipe.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Plane das Essen.',
     history: [],
     includeHouseholdContext: true,
@@ -1846,7 +2015,6 @@ Deno.test('fails closed for malformed assistant tool calls without charging a se
   const invalidArgumentsResponse = await invalidArguments.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was ist im Vorrat?',
     history: [],
     includeHouseholdContext: true,
@@ -1861,7 +2029,6 @@ Deno.test('fails closed for malformed assistant tool calls without charging a se
   const invalidIdResponse = await invalidId.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was ist im Vorrat?',
     history: [],
     includeHouseholdContext: true,
@@ -1881,7 +2048,6 @@ Deno.test('fails closed for malformed assistant tool calls without charging a se
   const tooManyResponse = await tooManyCalls.handler(request({
     skill: 'fam-assistant',
     householdId: 'household-1',
-    consentVersion: 'fam-ai-v2',
     message: 'Was ist im Vorrat?',
     history: [],
     includeHouseholdContext: true,

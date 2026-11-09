@@ -15,6 +15,7 @@ const mockImportSource = jest.fn();
 const mockRequestMediaPermission = jest.fn();
 const mockLaunchImagePicker = jest.fn();
 const mockPickDocument = jest.fn();
+const mockExtractVideoFrames = jest.fn();
 let mockUserId: string | null = 'user-1';
 let mockHouseholdId: string | null = 'household-1';
 let mockHasAI = true;
@@ -67,6 +68,9 @@ jest.mock('expo-image-picker', () => ({
   requestMediaLibraryPermissionsAsync: (...args: unknown[]) => mockRequestMediaPermission(...args),
   launchImageLibraryAsync: (...args: unknown[]) => mockLaunchImagePicker(...args),
 }));
+jest.mock('../data/extract-video-recipe-frames', () => ({
+  extractVideoRecipeFrames: (...args: unknown[]) => mockExtractVideoFrames(...args),
+}));
 jest.mock('expo-router', () => ({
   router: { push: (...args: unknown[]) => mockPush(...args), back: jest.fn() },
 }));
@@ -117,6 +121,7 @@ jest.mock('@/constants/ui', () => {
   const {
     Pressable: NativePressable,
     Text: NativeText,
+    TextInput: NativeTextInput,
     View: NativeView,
   } = require('react-native');
   return {
@@ -149,6 +154,11 @@ jest.mock('@/constants/ui', () => {
         ),
       ),
     Txt: ({ children }: { children: ReactNode }) => React.createElement(NativeText, null, children),
+    TextField: (props: Record<string, unknown>) =>
+      React.createElement(NativeTextInput, {
+        ...props,
+        accessibilityLabel: props.accessibilityLabel ?? props.label,
+      }),
   };
 });
 jest.mock('@/features/ai-assistant/data/assistant-api', () => ({
@@ -240,6 +250,10 @@ describe('RecipeImportScreen', () => {
     mockRequestMediaPermission.mockResolvedValue({ granted: true });
     mockLaunchImagePicker.mockResolvedValue({ canceled: true, assets: [] });
     mockPickDocument.mockResolvedValue({ canceled: true, assets: [] });
+    mockExtractVideoFrames.mockResolvedValue([
+      { uri: 'frame://1', name: 'Videoausschnitt 1.jpg', mimeType: 'image/jpeg' },
+      { uri: 'frame://2', name: 'Videoausschnitt 2.jpg', mimeType: 'image/jpeg' },
+    ]);
   });
 
   it('asks the user to sign in when there is no session', async () => {
@@ -332,6 +346,61 @@ describe('RecipeImportScreen', () => {
     expect(mockImportSource).not.toHaveBeenCalled();
   });
 
+  it('accepts exactly 20 non-empty links while ignoring blank lines', async () => {
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Mehrere Links importieren' }));
+    const links = Array.from({ length: 20 }, (_, index) => `https://example.test/${index}`);
+    fireEvent.changeText(screen.getByLabelText('Rezeptlinks'), `\n${links.join('\n')}\n\n`);
+    await user.press(screen.getByRole('button', { name: 'Links importieren' }));
+
+    await waitFor(() => expect(mockImportSource).toHaveBeenCalledTimes(20));
+    expect(mockImportSource).toHaveBeenNthCalledWith(1, {
+      householdId: 'household-1',
+      sourceType: 'url',
+      sourceUrl: 'https://example.test/0',
+    });
+    expect(mockImportSource).toHaveBeenLastCalledWith({
+      householdId: 'household-1',
+      sourceType: 'url',
+      sourceUrl: 'https://example.test/19',
+    });
+  });
+
+  it('keeps mixed batch outcomes independent and skips a saved duplicate', async () => {
+    mockFindSavedSource.mockImplementation(async (_userId: string, sourceUrl: string) =>
+      sourceUrl.endsWith('/saved')
+        ? {
+            recipeId: 'recipe-1',
+            title: 'Gespeichert',
+            sourceUrl,
+            normalizedSourceUrl: sourceUrl,
+            savedAt: 'now',
+          }
+        : null,
+    );
+    mockImportSource.mockImplementation(async ({ sourceUrl }: { sourceUrl?: string }) => {
+      if (sourceUrl?.endsWith('/failed')) throw new Error('Quelle nicht lesbar');
+      return { draft, method: 'ai' as const };
+    });
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Mehrere Links importieren' }));
+    fireEvent.changeText(
+      screen.getByLabelText('Rezeptlinks'),
+      'https://example.test/saved\n\nhttps://example.test/failed\nhttps://example.test/success',
+    );
+    await user.press(screen.getByRole('button', { name: 'Links importieren' }));
+
+    expect(await screen.findByText('Quelle wurde schon importiert')).toBeOnTheScreen();
+    expect(await screen.findByText('Quelle nicht lesbar')).toBeOnTheScreen();
+    expect(await screen.findByText('Entwurf bereit')).toBeOnTheScreen();
+    expect(mockImportSource).toHaveBeenCalledTimes(2);
+    expect(mockImportSource).not.toHaveBeenCalledWith(
+      expect.objectContaining({ sourceUrl: 'https://example.test/saved' }),
+    );
+  });
+
   it('imports each link entered in the multiple-link flow', async () => {
     await renderImporter();
     const user = userEvent.setup();
@@ -374,6 +443,18 @@ describe('RecipeImportScreen', () => {
       pathname: '/recipe/create',
       params: { importDraftId: expect.any(String) },
     });
+  });
+
+  it('reports a local draft persistence failure after a successful import response', async () => {
+    mockSaveDraft.mockRejectedValueOnce(new Error('Lokaler Speicher ist voll.'));
+    await renderImporter();
+    fireEvent.changeText(screen.getByLabelText('Rezeptlink'), 'https://example.test/recipe');
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Link importieren' }));
+
+    expect(await screen.findByText('Lokaler Speicher ist voll.')).toBeOnTheScreen();
+    expect(screen.queryByText('Entwurf bereit')).not.toBeOnTheScreen();
+    expect(mockImportSource).toHaveBeenCalledTimes(1);
   });
 
   it('recognizes a previously imported source and opens its saved recipe', async () => {
@@ -446,6 +527,13 @@ describe('RecipeImportScreen', () => {
     expect(
       screen.getByText('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.'),
     ).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
+    await user.press(screen.getByRole('button', { name: 'Video aus Fotos auswählen' }));
+    expect(
+      screen.getByText('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.'),
+    ).toBeOnTheScreen();
+    expect(mockRequestMediaPermission).not.toHaveBeenCalled();
   });
 
   it('routes Instagram video links through the AI recipe importer', async () => {
@@ -503,6 +591,22 @@ describe('RecipeImportScreen', () => {
     );
   });
 
+  it('shows a media import error without marking the queue item as imported', async () => {
+    mockImportSource.mockRejectedValueOnce(new Error('Medienquelle nicht lesbar.'));
+    mockLaunchImagePicker.mockResolvedValueOnce({
+      canceled: false,
+      assets: [{ uri: 'image://one', fileName: 'Seite.jpg', mimeType: 'image/jpeg' }],
+    });
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
+    await user.press(screen.getByRole('button', { name: 'Fotos auswählen' }));
+    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+
+    expect(await screen.findByText('Medienquelle nicht lesbar.')).toBeOnTheScreen();
+    expect(screen.queryByText('Entwurf bereit')).not.toBeOnTheScreen();
+  });
+
   it('handles PDF picker cancellation, missing assets and a successful PDF selection', async () => {
     await renderImporter();
     const user = userEvent.setup();
@@ -514,7 +618,7 @@ describe('RecipeImportScreen', () => {
     mockPickDocument.mockResolvedValueOnce({ canceled: false, assets: [] });
     await user.press(screen.getByRole('button', { name: 'PDF auswählen' }));
     await user.press(screen.getByRole('button', { name: 'Import starten' }));
-    expect(screen.getByText('Wähle zuerst ein Foto oder ein PDF aus.')).toBeOnTheScreen();
+    expect(screen.getByText('Wähle zuerst Fotos, ein Video oder ein PDF aus.')).toBeOnTheScreen();
 
     mockPickDocument.mockResolvedValueOnce({
       canceled: false,
@@ -531,5 +635,51 @@ describe('RecipeImportScreen', () => {
         }),
       ),
     );
+  });
+
+  it('imports a Shortcut-downloaded Reel from Photos as extracted recipe frames', async () => {
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
+    mockLaunchImagePicker.mockResolvedValueOnce({
+      canceled: false,
+      assets: [{ uri: 'file://shortcut-reel.mp4', fileName: 'reel.mp4', mimeType: 'video/mp4' }],
+    });
+    await user.press(screen.getByRole('button', { name: 'Video aus Fotos auswählen' }));
+
+    await waitFor(() =>
+      expect(mockExtractVideoFrames).toHaveBeenCalledWith('file://shortcut-reel.mp4'),
+    );
+    expect(screen.getByText('Videoausschnitt 1.jpg')).toBeOnTheScreen();
+    expect(
+      screen.getByText(/Speichere das Reel zuerst.*fünf aussagekräftige Videobilder/),
+    ).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+
+    await waitFor(() =>
+      expect(mockImportSource).toHaveBeenCalledWith({
+        householdId: 'household-1',
+        sourceType: 'image',
+        media: [
+          { uri: 'frame://1', name: 'Videoausschnitt 1.jpg', mimeType: 'image/jpeg' },
+          { uri: 'frame://2', name: 'Videoausschnitt 2.jpg', mimeType: 'image/jpeg' },
+        ],
+      }),
+    );
+  });
+
+  it('shows video extraction errors without sending an import request', async () => {
+    mockExtractVideoFrames.mockRejectedValueOnce(new Error('Videoformat nicht lesbar.'));
+    mockLaunchImagePicker.mockResolvedValueOnce({
+      canceled: false,
+      assets: [{ uri: 'file://broken.mp4', fileName: 'broken.mp4', mimeType: 'video/mp4' }],
+    });
+    await renderImporter();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
+    await user.press(screen.getByRole('button', { name: 'Video aus Fotos auswählen' }));
+
+    expect(await screen.findByText('Videoformat nicht lesbar.')).toBeOnTheScreen();
+    expect(mockImportSource).not.toHaveBeenCalled();
   });
 });

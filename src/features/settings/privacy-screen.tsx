@@ -4,6 +4,7 @@ import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
 import { Button, Txt } from '@/constants/ui';
 import { showAdsPrivacyOptions } from '@/features/ads';
 
@@ -29,6 +30,8 @@ const SECTION_KEYS = [
 export function PrivacyScreen() {
   const { t } = useTranslation();
   const [privacyOptionsLoading, setPrivacyOptionsLoading] = useState(false);
+  const posthogConsent = useAnalyticsSettingsStore((state) => state.posthogConsent);
+  const setPostHogConsent = useAnalyticsSettingsStore((state) => state.setPostHogConsent);
 
   async function handleAdsPrivacyOptions() {
     if (privacyOptionsLoading) return;
@@ -52,6 +55,10 @@ export function PrivacyScreen() {
     }
   }
 
+  function handlePostHogConsentChange() {
+    setPostHogConsent(posthogConsent === 'granted' ? 'denied' : 'granted');
+  }
+
   return (
     <Screen
       title={t('settings.groups.data.privacy.title')}
@@ -69,6 +76,28 @@ export function PrivacyScreen() {
             </Txt>
           </ContentCard>
         ))}
+        <ContentCard>
+          <Txt variant="body" weight="700">
+            {t('settings.groups.data.privacy.posthogSettings.title')}
+          </Txt>
+          <Txt variant="body" tone="secondary">
+            {t(
+              posthogConsent === 'granted'
+                ? 'settings.groups.data.privacy.posthogSettings.enabledDescription'
+                : 'settings.groups.data.privacy.posthogSettings.disabledDescription',
+            )}
+          </Txt>
+          <Button
+            title={t(
+              posthogConsent === 'granted'
+                ? 'settings.groups.data.privacy.posthogSettings.disableButton'
+                : 'settings.groups.data.privacy.posthogSettings.allowButton',
+            )}
+            variant="secondary"
+            size="sm"
+            onPress={handlePostHogConsentChange}
+          />
+        </ContentCard>
         <ContentCard>
           <Txt variant="body" weight="700">
             {t('settings.groups.data.privacy.adsSettings.title')}

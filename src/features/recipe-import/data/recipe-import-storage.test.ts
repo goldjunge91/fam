@@ -97,6 +97,11 @@ describe('recipe import account storage', () => {
       { ...draft, title: 2 },
       { ...draft, servings: 'four' },
       { ...draft, servings: 2.5 },
+      { ...draft, title: '' },
+      { ...draft, servings: 0 },
+      { ...draft, servings: -1 },
+      { ...draft, ingredients: [] },
+      { ...draft, steps: [] },
       { ...draft, ingredients: 'lentils' },
       { ...draft, ingredients: [{ text: 'x', confidence: 'certain' }] },
       { ...draft, steps: ['Cook', 2] },
@@ -113,6 +118,7 @@ describe('recipe import account storage', () => {
       { ...valid, mediaUris: ['image://ok', 2] },
       { ...valid, method: 'manual' },
       { ...valid, createdAt: 2 },
+      { ...valid, createdAt: 'not-a-date' },
       ...invalidDrafts.map((invalid) => ({ ...valid, draft: invalid })),
     ];
     values.set('recipe-import.drafts.v1', JSON.stringify([valid, ...invalidRecords]));
@@ -126,7 +132,7 @@ describe('recipe import account storage', () => {
     const drafts = Array.from({ length: 34 }, (_, index) =>
       record({
         id: `draft-${index}`,
-        createdAt: `2026-11-${String(index + 1).padStart(2, '0')}T00:00:00.000Z`,
+        createdAt: new Date(Date.UTC(2026, 0, index + 1)).toISOString(),
       }),
     );
     values.set('recipe-import.drafts.v1', JSON.stringify(drafts));

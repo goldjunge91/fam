@@ -37,6 +37,7 @@ const ICONS = {
   fridge: require('@/assets/images/figma/nav-fridge.svg'),
   shopping: require('@/assets/images/figma/nav-shopping.svg'),
   recipes: require('@/assets/images/figma/nav-recipes.svg'),
+  assistant: require('@/assets/images/figma/nav-assistant.svg'),
   mealPlan: require('@/assets/images/figma/nav-meal-plan.svg'),
   diary: require('@/assets/images/figma/nav-diary.svg'),
   goals: require('@/assets/images/figma/nav-goals.svg'),

@@ -2,13 +2,14 @@ import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { AiProvider } from '../model-catalog';
 import type {
   AiCreditStatus,
+  AssistantAttachment,
   AssistantHistoryMessage,
+  AssistantPageContext,
   AssistantProposal,
   AssistantProposalFoodRuleCoverage,
   AssistantReply,
   AssistantToolName,
 } from '../types';
-import { AI_CONSENT_VERSION } from '../types';
 import { getDevAiModelSelection } from './dev-ai-model-selection';
 
 type SendAssistantMessageInput = {
@@ -16,10 +17,18 @@ type SendAssistantMessageInput = {
   message: string;
   history: readonly AssistantHistoryMessage[];
   includeHouseholdContext: boolean;
+  pageContext?: AssistantPageContext;
+  attachments?: readonly AssistantAttachment[];
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function validIsoDate(value: unknown): value is string {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
 function gatewayError(message: string, retryable = false): Error {
@@ -80,8 +89,7 @@ function isAssistantProposal(value: unknown): value is AssistantProposal {
       value.meals.every(
         (meal) =>
           isRecord(meal) &&
-          typeof meal.date === 'string' &&
-          /^\d{4}-\d{2}-\d{2}$/.test(meal.date) &&
+          validIsoDate(meal.date) &&
           ['breakfast', 'lunch', 'dinner'].includes(String(meal.mealSlot)) &&
           typeof meal.recipeId === 'string' &&
           typeof meal.recipeTitle === 'string' &&
@@ -91,6 +99,31 @@ function isAssistantProposal(value: unknown): value is AssistantProposal {
           meal.portions >= 1 &&
           meal.portions <= 12 &&
           typeof meal.rationale === 'string',
+      )
+    );
+  }
+  if (value.kind === 'shopping_list_proposal.v1') {
+    return (
+      typeof value.summary === 'string' &&
+      value.summary.trim().length > 0 &&
+      value.summary.trim().length <= 280 &&
+      Array.isArray(value.items) &&
+      value.items.length > 0 &&
+      value.items.length <= 40 &&
+      value.items.every(
+        (item) =>
+          isRecord(item) &&
+          Object.keys(item).length === 4 &&
+          typeof item.name === 'string' &&
+          item.name.trim().length > 0 &&
+          item.name.trim().length <= 200 &&
+          typeof item.quantity === 'number' &&
+          Number.isFinite(item.quantity) &&
+          item.quantity > 0 &&
+          item.quantity <= 1_000 &&
+          Math.abs(Math.round(item.quantity * 1_000) - item.quantity * 1_000) < 1e-8 &&
+          ['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'].includes(String(item.unit)) &&
+          ['clear', 'unknown'].includes(String(item.foodRuleStatus)),
       )
     );
   }
@@ -118,6 +151,10 @@ function isAssistantProposal(value: unknown): value is AssistantProposal {
     coverage.recipeVersions[0]?.recipeId === value.recipeId &&
     typeof value.recipeId === 'string' &&
     typeof value.recipeTitle === 'string' &&
+    (value.ingredientItemId === undefined ||
+      (typeof value.ingredientItemId === 'string' &&
+        value.ingredientItemId.trim().length > 0 &&
+        value.ingredientItemId.length <= 128)) &&
     typeof value.ingredientName === 'string' &&
     typeof value.replacement === 'string' &&
     typeof value.rationale === 'string' &&
@@ -128,9 +165,11 @@ function isAssistantProposal(value: unknown): value is AssistantProposal {
 const ASSISTANT_TOOL_NAMES: AssistantToolName[] = [
   'search_recipes',
   'get_inventory',
+  'get_shopping_list',
   'propose_meal_plan',
   'suggest_ingredient_swap',
   'propose_shopping_list_item',
+  'propose_shopping_list_items',
 ];
 
 async function getGatewayErrorCode(error: unknown, data: unknown): Promise<string | null> {
@@ -166,8 +205,12 @@ function parseAssistantReply(value: unknown): AssistantReply {
   }
 
   const usage = isRecord(value.usage) ? value.usage : undefined;
-  const totalTokens = typeof usage?.total_tokens === 'number' ? usage.total_tokens : undefined;
-  const cost = typeof usage?.cost === 'number' ? usage.cost : undefined;
+  const totalTokens =
+    typeof usage?.total_tokens === 'number' && Number.isFinite(usage.total_tokens)
+      ? usage.total_tokens
+      : undefined;
+  const cost =
+    typeof usage?.cost === 'number' && Number.isFinite(usage.cost) ? usage.cost : undefined;
   return {
     requestId: value.requestId,
     skill: 'fam-assistant',
@@ -194,10 +237,13 @@ export async function sendAssistantMessage(
       skill: 'fam-assistant',
       householdId: input.householdId,
       ...(modelSelection ?? {}),
-      consentVersion: AI_CONSENT_VERSION,
       message: input.message,
       history: input.history.slice(-12),
       includeHouseholdContext: input.includeHouseholdContext,
+      ...(input.pageContext ? { pageContext: input.pageContext } : {}),
+      ...(input.attachments && input.attachments.length > 0
+        ? { attachments: input.attachments }
+        : {}),
     },
   });
 
@@ -345,6 +391,44 @@ export async function validateAssistantMealPlanProposal(input: {
       foodRulesUpdatedAt: input.proposal.foodRulesUpdatedAt,
       coverageRulesUpdatedAt: coverage.rulesUpdatedAt,
       recipeIds,
+      recipeVersions: coverage.recipeVersions,
+    },
+  });
+  if (error) {
+    const code = await getGatewayErrorCode(error, data);
+    throw new Error(code ?? error.message);
+  }
+  if (
+    !isRecord(data) ||
+    data.skill !== 'fam-assistant-proposal-validation' ||
+    typeof data.valid !== 'boolean' ||
+    (!data.valid && typeof data.reason !== 'string')
+  ) {
+    throw new Error('Der Vorschlag konnte nicht auf Aktualität geprüft werden.');
+  }
+  return data.valid ? { valid: true } : { valid: false, reason: data.reason as string };
+}
+
+export async function validateAssistantRecipeProposal(input: {
+  householdId: string;
+  proposal: Extract<AssistantProposal, { kind: 'ingredient_swap_proposal.v1' }>;
+}): Promise<{ valid: true } | { valid: false; reason: string }> {
+  const coverage = input.proposal.foodRuleCoverage;
+  if (
+    coverage?.status !== 'clear' ||
+    coverage.recipeVersions.length !== 1 ||
+    coverage.recipeVersions[0]?.recipeId !== input.proposal.recipeId
+  ) {
+    return { valid: false, reason: 'invalid_proposal_snapshot' };
+  }
+
+  const { data, error } = await getSupabase().functions.invoke('ai-gateway', {
+    body: {
+      skill: 'fam-assistant-proposal-validation',
+      householdId: input.householdId,
+      foodRulesUpdatedAt: input.proposal.foodRulesUpdatedAt,
+      coverageRulesUpdatedAt: coverage.rulesUpdatedAt,
+      recipeIds: [input.proposal.recipeId],
       recipeVersions: coverage.recipeVersions,
     },
   });

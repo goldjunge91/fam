@@ -47,7 +47,9 @@ function isUuid(value: unknown): value is string {
   return typeof value === 'string' && UUID_PATTERN.test(value);
 }
 
-function parseLocalEntitlement(value: unknown): { active: boolean; expiresAt: string | null } | null {
+function parseLocalEntitlement(
+  value: unknown,
+): { active: boolean; expiresAt: string | null } | null {
   if (!isRecord(value) || typeof value.active !== 'boolean') return null;
   if (value.expiresAt !== null && typeof value.expiresAt !== 'string') return null;
 

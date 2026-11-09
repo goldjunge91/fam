@@ -375,6 +375,49 @@ Deno.test('keeps unknown rule codes, invalid rule versions, and wrong-language a
   assertEquals(wrongLanguage.entries[0]?.reason, 'custom_rule_not_mapped');
 });
 
+Deno.test('combines allergy, custom-food, intolerance, and disliked rules with conflict precedence', () => {
+  const result = resolveFoodRuleCoverage({
+    rules: rules({
+      allergyCodes: ['peanuts'],
+      customAllergies: ['Hafer'],
+      intoleranceCodes: ['lactose'],
+      dislikedFoods: ['Zucker'],
+    }),
+    recipe: recipe({
+      allergenProjection: projection(['EU_05_PEANUTS']),
+      canonicalIngredientIds: ['ingredient-oats'],
+    }),
+    aliases: [
+      alias(),
+      alias({ alias: 'Zucker', ingredientId: 'ingredient-sugar' }),
+    ],
+  });
+
+  assertEquals(result.status, 'conflict');
+  assertEquals(result.entries.map((entry) => [entry.category, entry.status]), [
+    ['allergy_code', 'clear'],
+    ['custom_allergy', 'conflict'],
+    ['intolerance_code', 'unsupported'],
+    ['disliked_food', 'clear'],
+  ]);
+});
+
+Deno.test('conflict takes precedence when a supported rule also has a conflicting projection', () => {
+  const result = resolveFoodRuleCoverage({
+    rules: rules({ allergyCodes: ['peanuts'], intoleranceCodes: ['lactose'] }),
+    recipe: recipe({
+      allergenProjection: projection(['EU_05_PEANUTS'], {
+        conflictingAllergenIds: ['EU_05_PEANUTS'],
+      }),
+    }),
+    aliases: [],
+  });
+
+  assertEquals(result.status, 'conflict');
+  assertEquals(result.entries[0]?.reason, 'reviewed_allergen_conflict');
+  assertEquals(result.entries[1]?.reason, 'unsupported_intolerance_evidence');
+});
+
 Deno.test('requires complete current alias provenance before a private mapping can be clear', () => {
   const missingSourceId = resolveFoodRuleCoverage({
     rules: rules({ customAllergies: ['Hafer'] }),

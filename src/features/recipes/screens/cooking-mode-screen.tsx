@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Txt } from '@/constants/ui';
@@ -18,6 +18,11 @@ import { CookingModeStep } from '../components/cooking-mode/cooking-mode-step';
 import { getCookingTimerDurationSeconds } from '../components/cooking-mode/cooking-mode-timer';
 import { FreeCookingMode } from '../components/cooking-mode/free-cooking-mode';
 import { flattenRecipeItems } from '../domain/ingredient-mentions';
+import {
+  replaceIngredientInText,
+  replaceIngredientName,
+  type TemporaryIngredientSwap,
+} from '../domain/temporary-ingredient-swap';
 import { useCookingTimer } from '../hooks/use-cooking-timer';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
@@ -38,8 +43,31 @@ function CookingModeLoading() {
   );
 }
 
+function firstSearchParam(value: string | string[] | undefined): string | null {
+  const candidate = Array.isArray(value) ? value[0] : value;
+  return typeof candidate === 'string' && candidate.trim().length > 0 ? candidate.trim() : null;
+}
+
 export function CookingModeScreen() {
-  const { id, slug } = useLocalSearchParams<{ id?: string; slug?: string }>();
+  const { id, slug, swapIngredient, swapReplacement } = useLocalSearchParams<{
+    id?: string;
+    slug?: string;
+    swapIngredient?: string;
+    swapReplacement?: string;
+  }>();
+  const temporarySwap = useMemo<TemporaryIngredientSwap | null>(() => {
+    const ingredientName = firstSearchParam(swapIngredient);
+    const replacement = firstSearchParam(swapReplacement);
+    if (
+      !ingredientName ||
+      !replacement ||
+      ingredientName.length > 120 ||
+      replacement.length > 120
+    ) {
+      return null;
+    }
+    return { ingredientName, replacement };
+  }, [swapIngredient, swapReplacement]);
   const recipeQuery = useRecipeDetail(id);
   const catalogQuery = useCatalogRecipe(slug);
   const catalogData = catalogQuery.data;
@@ -50,7 +78,25 @@ export function CookingModeScreen() {
   const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const completedRecipeIdRef = useRef<string | null>(null);
-  const timerStep = data?.steps[Math.min(stepIndex, Math.max((data?.steps.length ?? 0) - 1, 0))];
+  const displayedSteps = useMemo(
+    () =>
+      data?.steps.map((step) => ({
+        ...step,
+        text: replaceIngredientInText(step.text, temporarySwap),
+      })) ?? [],
+    [data, temporarySwap],
+  );
+  const displayedIngredients = useMemo(
+    () =>
+      data
+        ? flattenRecipeItems(data.items, data.productsById).map((ingredient) => ({
+            ...ingredient,
+            name: replaceIngredientName(ingredient.name, temporarySwap),
+          }))
+        : [],
+    [data, temporarySwap],
+  );
+  const timerStep = displayedSteps[Math.min(stepIndex, Math.max(displayedSteps.length - 1, 0))];
   const catalogStepImagePath = catalogData?.stepImages.find(
     (image) => image.step_id === timerStep?.id,
   )?.storage_path;
@@ -80,7 +126,7 @@ export function CookingModeScreen() {
   }, [data?.recipe.id, finished]);
 
   if (isLoading || !data) return <CookingModeLoading />;
-  if (!hasPlus) return <FreeCookingMode data={data} />;
+  if (!hasPlus) return <FreeCookingMode data={data} temporarySwap={temporarySwap} />;
   if (finished) {
     return (
       <CookingModeFinished
@@ -91,18 +137,22 @@ export function CookingModeScreen() {
     );
   }
 
-  const currentStep = data.steps[Math.min(stepIndex, Math.max(data.steps.length - 1, 0))];
-  const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
+  const currentStep = displayedSteps[Math.min(stepIndex, Math.max(displayedSteps.length - 1, 0))];
 
   return (
     <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
+      {temporarySwap ? (
+        <Txt variant="caption" tone="secondary">
+          Einmalig ersetzt: {temporarySwap.ingredientName} → {temporarySwap.replacement}
+        </Txt>
+      ) : null}
       {currentStep ? (
         <CookingModeStep
-          steps={data.steps}
+          steps={displayedSteps}
           stepIndex={stepIndex}
           currentStep={currentStep}
           currentStepImageUrl={catalogStepImageUrl}
-          mentionIngredients={mentionIngredients}
+          mentionIngredients={displayedIngredients}
           durationSeconds={durationSeconds}
           remainingSeconds={remainingSeconds}
           timerRunning={running}
@@ -111,7 +161,7 @@ export function CookingModeScreen() {
           onResetTimer={resetTimer}
           onPreviousStep={() => setStepIndex((value) => Math.max(0, value - 1))}
           onNextStep={() => {
-            if (stepIndex >= data.steps.length - 1) {
+            if (stepIndex >= displayedSteps.length - 1) {
               setFinished(true);
             } else {
               setStepIndex((value) => value + 1);

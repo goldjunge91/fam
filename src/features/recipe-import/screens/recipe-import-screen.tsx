@@ -4,18 +4,19 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, TextInput, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
-import { font, rs } from '@/components/theme/index';
+import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Divider, Press, Txt } from '@/constants/ui';
+import { Divider, Press, TextField, Txt } from '@/constants/ui';
 import { getAiCreditStatus } from '@/features/ai-assistant/data/assistant-api';
 import { createLocalId } from '@/features/ai-assistant/types';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
+import { extractVideoRecipeFrames } from '../data/extract-video-recipe-frames';
 import { importRecipeSource } from '../data/recipe-import-api';
 import {
   findSavedRecipeImportSource,
@@ -99,7 +100,6 @@ const styles = StyleSheet.create((theme) => ({
     borderCurve: 'continuous',
     color: theme.text,
     backgroundColor: theme.backgroundElement,
-    fontSize: font.sizes.md,
     textAlignVertical: 'top',
   },
   multilineInput: {
@@ -189,6 +189,14 @@ const styles = StyleSheet.create((theme) => ({
   mediaPickerButton: {
     minHeight: rs(48),
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: theme.space.md,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.backgroundElement,
+  },
+  videoPickerButton: {
+    minHeight: rs(48),
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: theme.space.md,
@@ -369,6 +377,39 @@ export function RecipeImportScreen() {
     setError(null);
   }
 
+  async function pickVideo() {
+    if (!hasAI) {
+      setError('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.');
+      return;
+    }
+    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!permission.granted) {
+      setError('Erlaube den Zugriff auf Fotos, um ein gespeichertes Rezeptvideo auszuwählen.');
+      return;
+    }
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['videos'],
+      allowsMultipleSelection: false,
+      selectionLimit: 1,
+    });
+    if (result.canceled) return;
+    const asset = result.assets[0];
+    if (!asset) return;
+    try {
+      setError(null);
+      const frames = await extractVideoRecipeFrames(asset.uri);
+      setMedia(frames);
+      setMediaSourceType('image');
+    } catch (videoError: unknown) {
+      const message = videoError instanceof Error ? videoError.message : '';
+      setError(
+        message.includes('Cannot find native module')
+          ? 'Die Videoverarbeitung ist in dieser lokalen App-Version noch nicht verfügbar. Der Development Build muss neu erstellt werden.'
+          : message || 'Das Video konnte nicht für den Rezeptimport vorbereitet werden.',
+      );
+    }
+  }
+
   async function pickPdf() {
     const result = await DocumentPicker.getDocumentAsync({
       type: 'application/pdf',
@@ -496,9 +537,9 @@ export function RecipeImportScreen() {
         if (!hasAI) throw new Error('Für den Textimport brauchst du das AI-Abo dieses Haushalts.');
         await importOne('Eingefügter Rezepttext', { sourceType: 'text', sourceText: text });
       } else {
-        if (media.length === 0) throw new Error('Wähle zuerst ein Foto oder ein PDF aus.');
+        if (media.length === 0) throw new Error('Wähle zuerst Fotos, ein Video oder ein PDF aus.');
         if (!hasAI)
-          throw new Error('Für den Foto- und PDF-Import brauchst du das AI-Abo dieses Haushalts.');
+          throw new Error('Für den Medienimport brauchst du das AI-Abo dieses Haushalts.');
         const sourceType = mediaSourceType ?? 'image';
         await importOne(
           media.length === 1
@@ -584,7 +625,7 @@ export function RecipeImportScreen() {
             <Txt variant="heading" weight="700" style={styles.inputLabel}>
               Rezeptlink
             </Txt>
-            <TextInput
+            <TextField
               value={sourceValue}
               onChangeText={(value) => {
                 setSourceValue(value);
@@ -670,7 +711,7 @@ export function RecipeImportScreen() {
               <Txt variant="body" weight="700" style={styles.inputLabel}>
                 Rezeptlinks
               </Txt>
-              <TextInput
+              <TextField
                 value={sourceValue}
                 onChangeText={(value) => {
                   setSourceValue(value);
@@ -695,7 +736,7 @@ export function RecipeImportScreen() {
               <Txt variant="body" weight="700" style={styles.inputLabel}>
                 Rezepttext
               </Txt>
-              <TextInput
+              <TextField
                 value={sourceValue}
                 onChangeText={(value) => {
                   setSourceValue(value);
@@ -732,6 +773,18 @@ export function RecipeImportScreen() {
                   </Txt>
                 </Press>
               </View>
+              <Press
+                accessibilityRole="button"
+                onPress={() => void pickVideo()}
+                style={styles.videoPickerButton}>
+                <Txt variant="body" weight="700">
+                  Video aus Fotos auswählen
+                </Txt>
+              </Press>
+              <Txt variant="caption" tone="secondary">
+                Speichere das Reel zuerst mit deinem Shortcut in Fotos. fam liest bis zu fünf
+                aussagekräftige Videobilder für den Rezeptentwurf aus.
+              </Txt>
               {media.length > 0 ? (
                 <View style={styles.mediaList}>
                   {media.map((item) => (
@@ -742,7 +795,8 @@ export function RecipeImportScreen() {
                 </View>
               ) : null}
               <Txt variant="caption" tone="secondary">
-                Bis zu fünf Fotos oder ein PDF mit maximal 5,5 MB.
+                Bis zu fünf Fotos oder ein PDF mit maximal 5,5 MB. Videos werden als Standbilder
+                importiert.
               </Txt>
             </>
           ) : null}

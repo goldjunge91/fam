@@ -22,6 +22,7 @@ import {
   shouldCaptureTelemetry,
   type TelemetryChannel,
 } from './policy';
+import { sanitizePostHogError, sanitizePostHogProperties } from './posthog-sanitizer';
 import {
   HANGING_OPERATION_THRESHOLD_MS,
   SLOW_OPERATION_THRESHOLD_MS,
@@ -132,8 +133,9 @@ function captureEvent(
     if (isAnalyticsProviderEnabled('posthog') && isPostHogConfigured()) {
       const postHogClient = getPostHogClient();
       if (postHogClient) {
-        postHogClient.capture(name, properties);
-        debugLogEvent('posthog.capture', { event: name, properties });
+        const postHogProperties = sanitizePostHogProperties(properties);
+        postHogClient.capture(name, postHogProperties);
+        debugLogEvent('posthog.capture', { event: name, properties: postHogProperties });
       }
     }
   } catch (error) {
@@ -200,10 +202,11 @@ function sendError(error: unknown, context: TelemetryProperties, captureInSentry
     if (isAnalyticsProviderEnabled('posthog') && shouldCaptureTelemetry('errorReports')) {
       const postHogClient = isPostHogConfigured() ? getPostHogClient() : undefined;
       if (postHogClient) {
-        postHogClient.captureException(error, properties);
+        const postHogProperties = sanitizePostHogProperties(properties);
+        postHogClient.captureException(sanitizePostHogError(error), postHogProperties);
         debugLogEvent('posthog.capture-exception', {
           event: TELEMETRY_EVENTS.errorOccurred,
-          properties,
+          properties: postHogProperties,
         });
       }
     }
@@ -276,8 +279,12 @@ export function addDiagnosticStep(
     if (isAnalyticsProviderEnabled('posthog') && shouldCaptureTelemetry('diagnostics')) {
       const postHogClient = isPostHogConfigured() ? getPostHogClient() : undefined;
       if (postHogClient) {
-        postHogClient.addExceptionStep(name, properties);
-        debugLogEvent('posthog.add-exception-step', { step: name, properties });
+        const postHogProperties = sanitizePostHogProperties(properties);
+        postHogClient.addExceptionStep(name, postHogProperties);
+        debugLogEvent('posthog.add-exception-step', {
+          step: name,
+          properties: postHogProperties,
+        });
       }
     }
   } catch (reportingError) {

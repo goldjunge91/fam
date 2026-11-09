@@ -11,11 +11,11 @@
 | Kontaktdaten → E-Mail-Adresse | Ja | Ja | Kontoverwaltung, Authentifizierung | `auth.users` (Supabase Auth) |
 | Gesundheit & Fitness → Ernährung | Ja | Ja | Kern-Feature: Kalorien-/Makro-Tracking | `food_entries` |
 | Gesundheit & Fitness → Gewicht/Körpermaße | Ja | Ja | Kern-Feature: Gewichtsverlauf | `weight_entries` |
-| Nutzungsdaten → Produktinteraktion | Ja | Je nach Anbieter/Feature | Produktverbesserung, Feature-Flags, Fehleranalyse | PostHog, Aptabase |
-| Kennungen → Nutzer-ID | Ja | Ja | Account-System, Premium-Status und Nutzungsanalyse | Supabase Auth, PostHog, RevenueCat |
+| Nutzungsdaten → Produktinteraktion | Ja, PostHog erst nach Einwilligung | Ja bei PostHog | Produktverbesserung und Feature-Flags | PostHog, Aptabase deaktiviert |
+| Kennungen → Nutzer-ID | Ja, PostHog erst nach Einwilligung | Ja | Account-System, Premium-Status und Nutzungsanalyse | Supabase Auth, PostHog, RevenueCat |
 | Kaufdaten | Ja | Ja | Premium-Funktionen, Abrechnung und Restore | RevenueCat / App Store |
 | Standort | Ja | Ja | Prospekte und Märkte in der Nähe | `expo-location` |
-| Diagnose → Absturzberichte | Ja | Je nach SDK-Konfiguration | Stabilitäts- und Fehleranalyse | Sentry, Aptabase, PostHog |
+| Diagnose → Absturzberichte | Ja, vollständige Erfassung bei Sentry; PostHog automatische Erfassung deaktiviert | Je nach SDK-Konfiguration | Stabilitäts- und Fehleranalyse | Sentry, PostHog nur bereinigte manuelle Ereignisse |
 | Werbedaten → Geräte-/Werbekennung | Ja, abhängig von Consent | Je nach Consent | Werbung in der kostenlosen Version | Google AdMob / UMP / iOS ATT |
 | Andere Daten → Haushaltsdaten | Ja | Ja (haushaltsweit) | Geteilter Kühlschrank/Einkaufsliste | `households`, `fridge_items`, `shopping_list_items` |
 | Andere Daten → Produktdaten | Ja | Nein | Barcode/Name/Nährwerte, teils von Open Food Facts | `products` |

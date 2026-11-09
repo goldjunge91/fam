@@ -174,6 +174,17 @@ export const APP_FEATURES = [
     },
   },
   {
+    id: 'assistant',
+    title: 'Assistant',
+    speedDial: {
+      title: 'Assistant',
+      icon: 'assistant',
+      href: '/assistant',
+      backgroundToken: 'speedDialAssistant',
+      order: 5,
+    },
+  },
+  {
     id: 'mealPlanner',
     title: 'Essensplan',
     moduleKey: 'mealPlanner',

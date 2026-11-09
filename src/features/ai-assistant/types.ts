@@ -1,9 +1,37 @@
+export type AssistantPageContext =
+  | { kind: 'recipe'; recipeId: string }
+  | { kind: 'meal_plan'; weekStartDate: string };
+
+export type AssistantAttachmentMimeType =
+  | 'image/jpeg'
+  | 'image/png'
+  | 'image/webp'
+  | 'application/pdf';
+
+/** A validated attachment sent only with the current Assistant request. */
+export type AssistantAttachment = {
+  filename: string;
+  mimeType: AssistantAttachmentMimeType;
+  data: string;
+};
+
+/** Local file metadata before the file is read and encoded for the Gateway. */
+export type AssistantAttachmentInput = {
+  uri: string;
+  name: string;
+  mimeType: AssistantAttachmentMimeType;
+};
+
+export type AssistantAttachmentMetadata = Pick<AssistantAttachment, 'filename' | 'mimeType'>;
+
 export type AssistantMessage = {
   id: string;
   role: 'user' | 'assistant';
   text: string;
   createdAt: string;
   attachmentName?: string;
+  attachments?: AssistantAttachmentMetadata[];
+  pageContext?: AssistantPageContext;
   suggestions?: string[];
   proposals?: AssistantProposal[];
   /** Indizes erfolgreich übernommener Vorschläge, lokal im verschlüsselten Verlauf gespeichert. */
@@ -14,9 +42,11 @@ export type AssistantMessage = {
 export type AssistantToolName =
   | 'search_recipes'
   | 'get_inventory'
+  | 'get_shopping_list'
   | 'propose_meal_plan'
   | 'suggest_ingredient_swap'
-  | 'propose_shopping_list_item';
+  | 'propose_shopping_list_item'
+  | 'propose_shopping_list_items';
 
 export type AssistantProposalFoodRuleCoverage = {
   status: 'clear';
@@ -52,10 +82,21 @@ export type AssistantProposal =
       foodRuleCoverage?: AssistantProposalFoodRuleCoverage;
       recipeId: string;
       recipeTitle: string;
+      ingredientItemId?: string;
       ingredientName: string;
       replacement: string;
       rationale: string;
       safetyNote: string;
+    }
+  | {
+      kind: 'shopping_list_proposal.v1';
+      summary: string;
+      items: Array<{
+        name: string;
+        quantity: number;
+        unit: 'g' | 'kg' | 'ml' | 'l' | 'piece' | 'package' | 'portion';
+        foodRuleStatus: 'clear' | 'unknown';
+      }>;
     }
   | {
       kind: 'shopping_list_item_proposal.v1';
@@ -72,11 +113,6 @@ export type AssistantThread = {
   messages: AssistantMessage[];
   createdAt: string;
   updatedAt: string;
-};
-
-export type AiConsentRecord = {
-  version: 'fam-ai-v2';
-  acceptedAt: string;
 };
 
 export type AssistantHistoryMessage = Pick<AssistantMessage, 'role' | 'text'>;
@@ -107,7 +143,6 @@ export type AiCreditStatus = {
 };
 
 export const DEFAULT_AI_MODEL = 'z-ai/glm-5.3-flash';
-export const AI_CONSENT_VERSION = 'fam-ai-v2';
 
 export function createLocalId(prefix: string): string {
   return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;

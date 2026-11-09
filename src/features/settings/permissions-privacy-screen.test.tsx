@@ -1,6 +1,8 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
+
 import { PermissionsScreen } from '@/features/settings/permissions-screen';
 import { PrivacyScreen } from '@/features/settings/privacy-screen';
 
@@ -8,6 +10,13 @@ const mockShowAdsPrivacyOptions = jest.fn<Promise<boolean>, []>();
 const privacyOptionsButton = () =>
   screen.getByRole('button', {
     name: 'settings.groups.data.privacy.adsSettings.openButton',
+  });
+
+const posthogConsentButton = (enabled: boolean) =>
+  screen.getByRole('button', {
+    name: enabled
+      ? 'settings.groups.data.privacy.posthogSettings.disableButton'
+      : 'settings.groups.data.privacy.posthogSettings.allowButton',
   });
 
 async function pressPrivacyOptionsButton(): Promise<void> {
@@ -103,10 +112,41 @@ describe('PrivacyScreen', () => {
 
   beforeEach(() => {
     mockShowAdsPrivacyOptions.mockReset();
+    useAnalyticsSettingsStore.getState().setPostHogConsent('pending');
     alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
   });
 
   afterEach(() => alert.mockRestore());
+
+  it('starts with PostHog disabled and stores explicit consent changes', async () => {
+    await render(<PrivacyScreen />);
+
+    expect(posthogConsentButton(false)).toBeOnTheScreen();
+    await userEvent.setup().press(posthogConsentButton(false));
+
+    expect(useAnalyticsSettingsStore.getState().posthogConsent).toBe('granted');
+    expect(posthogConsentButton(true)).toBeOnTheScreen();
+
+    await userEvent.setup().press(posthogConsentButton(true));
+    expect(useAnalyticsSettingsStore.getState().posthogConsent).toBe('denied');
+  });
+
+  it('shows that PostHog is disabled until the user grants consent', async () => {
+    await render(<PrivacyScreen />);
+
+    expect(
+      screen.getByText('settings.groups.data.privacy.posthogSettings.disabledDescription'),
+    ).toBeOnTheScreen();
+  });
+
+  it('shows that PostHog is enabled after consent', async () => {
+    useAnalyticsSettingsStore.getState().setPostHogConsent('granted');
+    await render(<PrivacyScreen />);
+
+    expect(
+      screen.getByText('settings.groups.data.privacy.posthogSettings.enabledDescription'),
+    ).toBeOnTheScreen();
+  });
 
   it('shows the privacy sections and opens the platform privacy options', async () => {
     mockShowAdsPrivacyOptions.mockResolvedValue(true);

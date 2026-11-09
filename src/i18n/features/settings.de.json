@@ -200,7 +200,7 @@
           },
           "thirdParties": {
             "title": "Drittdienste",
-            "body": "Open Food Facts: Beim Barcode-Scan oder der Produktsuche wird der Barcode/Suchbegriff an die öffentliche Open-Food-Facts-API gesendet — ohne Konto- oder Gesundheitsdaten. Supabase hostet Datenbank, Authentifizierung und Realtime-Synchronisation. Google AdMob liefert Werbung für die kostenlose Version. RevenueCat verarbeitet Kauf- und Abo-Status. Sentry, PostHog und Aptabase helfen bei Fehlerdiagnose, Produktverbesserung und Nutzungsanalyse."
+            "body": "Open Food Facts: Beim Barcode-Scan oder der Produktsuche wird der Barcode/Suchbegriff an die öffentliche Open-Food-Facts-API gesendet — ohne Konto- oder Gesundheitsdaten. Supabase hostet Datenbank, Authentifizierung und Realtime-Synchronisation. Google AdMob liefert Werbung für die kostenlose Version. RevenueCat verarbeitet Kauf- und Abo-Status. Sentry hilft bei der vollständigen Fehlerdiagnose. PostHog wird erst nach deiner Zustimmung aktiviert und erhält nur kuratierte technische Nutzungsdaten und eine technische Konto-ID; E-Mail, Haushalts-IDs, freie Fehlermeldungen und private/dynamische Screenpfade werden ausgeschlossen."
           },
           "aiProcessing": {
             "title": "KI-Funktionen",
@@ -218,6 +218,13 @@
             "title": "Deine Rechte",
             "body": "Auskunft/Export über Einstellungen → Export als JSON. Löschung über Einstellungen → Konto löschen — geteilte Haushaltsdaten bleiben für verbleibende Mitglieder bestehen, nur deine privaten Daten werden entfernt. Profil- und Tagebuchdaten sind direkt in der App editierbar."
           }
+        },
+        "posthogSettings": {
+          "title": "Produktanalyse mit PostHog",
+          "enabledDescription": "Du hast der Produktanalyse zugestimmt. Wir senden technische Nutzungsdaten und stabile technische Konto-IDs an PostHog. Du kannst die Übermittlung jederzeit beenden.",
+          "disabledDescription": "PostHog ist deaktiviert. Ohne deine Zustimmung werden keine PostHog-Ereignisse, automatischen Touch-Daten oder Identitätsdaten übermittelt.",
+          "allowButton": "PostHog erlauben",
+          "disableButton": "PostHog deaktivieren"
         },
         "adsSettings": {
           "title": "Werbe-Einstellungen",

@@ -12,6 +12,9 @@ const ACCOUNT_KEY_OPTIONS: SecureStore.SecureStoreOptions =
     : {};
 
 type PendingStorage = { generation: number; promise: Promise<MMKV> };
+type MMKVModule = typeof import('react-native-mmkv') & {
+  removeContentChangedListener?: (mmkv: MMKV) => void;
+};
 
 const storagePromises = new Map<string, PendingStorage>();
 const storageGenerations = new Map<string, number>();
@@ -39,9 +42,9 @@ function assertStorageOpenIsCurrent(userId: string, generation: number): void {
   }
 }
 
-function loadMMKV() {
+function loadMMKV(): MMKVModule {
   try {
-    return require('react-native-mmkv') as typeof import('react-native-mmkv');
+    return require('react-native-mmkv') as MMKVModule;
   } catch (error) {
     throw new Error(
       'Das native Modul react-native-mmkv fehlt im installierten Development Build. Erstelle den Dev Client neu.',
@@ -155,7 +158,11 @@ export async function deleteEncryptedAccountStorage(userId: string): Promise<voi
       try {
         storage.clearAll();
       } finally {
-        storage.dispose();
+        try {
+          loadMMKV().removeContentChangedListener?.(storage);
+        } finally {
+          storage.dispose();
+        }
       }
     }
   } catch {

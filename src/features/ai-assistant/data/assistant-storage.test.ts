@@ -1,18 +1,11 @@
 import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
 import type { AssistantThread } from '../types';
-import {
-  loadAiConsent,
-  loadAssistantThreads,
-  revokeAiConsent,
-  saveAiConsent,
-  saveAssistantThreads,
-} from './assistant-storage';
+import { loadAssistantThreads, saveAssistantThreads } from './assistant-storage';
 
 const values = new Map<string, string>();
 const mockStorage = {
   getString: jest.fn((key: string) => values.get(key)),
   set: jest.fn((key: string, value: string) => values.set(key, value)),
-  remove: jest.fn((key: string) => values.delete(key)),
 };
 
 jest.mock('@/lib/storage/local-account-storage', () => ({
@@ -88,6 +81,8 @@ describe('assistant account storage', () => {
             proposals: [validProposal],
             toolTrace: ['get_inventory'],
             suggestions: ['Noch eine Idee'],
+            attachments: [{ filename: 'rezept.jpg', mimeType: 'image/jpeg' }],
+            pageContext: { kind: 'recipe', recipeId: 'recipe-1' },
           },
           {
             id: 'shopping-message',
@@ -129,6 +124,10 @@ describe('assistant account storage', () => {
       { ...validProposal, meals: [{ ...validProposal.meals[0], date: 4 }] },
       { ...validProposal, meals: [{ ...validProposal.meals[0], mealSlot: 'snack' }] },
       { ...validProposal, meals: [{ ...validProposal.meals[0], recipeId: 4 }] },
+      { ...validProposal, meals: [{ ...validProposal.meals[0], date: '2026-02-30' }] },
+      { ...validProposal, meals: [{ ...validProposal.meals[0], portions: 0 }] },
+      { ...validProposal, meals: [{ ...validProposal.meals[0], portions: 13 }] },
+      { ...validProposal, meals: [{ ...validProposal.meals[0], portions: -1 }] },
       { ...validProposal, meals: [{ ...validProposal.meals[0], portions: 2.5 }] },
     ];
     const validSwap = {
@@ -173,6 +172,7 @@ describe('assistant account storage', () => {
             },
           ],
         }),
+        thread('bad-timestamp', 'not-a-timestamp'),
       ]),
     );
 
@@ -206,26 +206,60 @@ describe('assistant account storage', () => {
         ],
       }),
     );
-    const invalidApplicationState = thread('bad-application-state', '2026-11-02', {
-      messages: [
-        {
-          id: 'message',
-          role: 'assistant',
-          text: '',
-          createdAt: '',
-          proposals: [validShoppingItemProposal],
-          appliedProposalIndexes: [1],
-        },
-      ],
-    });
+    const invalidAppliedIndexes = [[0, 0], [-1], [1]].map((appliedProposalIndexes, index) =>
+      thread(`bad-application-state-${String(index)}`, `2026-11-0${String(index + 2)}`, {
+        messages: [
+          {
+            id: 'message',
+            role: 'assistant',
+            text: '',
+            createdAt: '',
+            proposals: [validShoppingItemProposal],
+            appliedProposalIndexes,
+          },
+        ],
+      }),
+    );
     values.set(
       'ai-assistant.threads.v1',
-      JSON.stringify([valid, ...invalid, invalidApplicationState]),
+      JSON.stringify([valid, ...invalid, ...invalidAppliedIndexes]),
     );
 
     const restored = await loadAssistantThreads('user-1');
     expect(restored).toEqual([valid]);
     expect(restored[0]?.messages[0]?.appliedProposalIndexes).toEqual([0]);
+  });
+
+  it('rejects malformed attachment and page context metadata while retaining valid meal-plan context', async () => {
+    const message = (overrides: Record<string, unknown>) => ({
+      id: 'message',
+      role: 'assistant',
+      text: 'Antwort',
+      createdAt: '2026-11-08',
+      ...overrides,
+    });
+    const invalidMessages = [
+      message({ attachments: [] }),
+      message({ attachments: [{ filename: ' ', mimeType: 'image/jpeg' }] }),
+      message({ attachments: [{ filename: 'recipe.txt', mimeType: 'text/plain' }] }),
+      message({ pageContext: { kind: 'recipe', recipeId: ' ' } }),
+      message({ pageContext: { kind: 'recipe', recipeId: 'r'.repeat(129) } }),
+      message({ pageContext: { kind: 'meal_plan', weekStartDate: '2026-02-30' } }),
+    ];
+    const valid = thread('valid-context', '2026-11-08', {
+      messages: [message({ pageContext: { kind: 'meal_plan', weekStartDate: '2026-11-09' } })],
+    });
+    values.set(
+      'ai-assistant.threads.v1',
+      JSON.stringify([
+        valid,
+        ...invalidMessages.map((entry, index) =>
+          thread(`invalid-context-${index}`, `2026-11-0${index + 1}`, { messages: [entry] }),
+        ),
+      ]),
+    );
+
+    await expect(loadAssistantThreads('user-1')).resolves.toEqual([valid]);
   });
 
   it('sorts and caps saved threads to the 20 most recently updated', async () => {
@@ -237,22 +271,5 @@ describe('assistant account storage', () => {
     expect(saved).toHaveLength(20);
     expect(saved[0]?.id).toBe('thread-24');
     expect(saved.at(-1)?.id).toBe('thread-5');
-  });
-
-  it('validates, saves and revokes versioned consent', async () => {
-    await expect(loadAiConsent('user-1')).resolves.toBeNull();
-    const consent = { version: 'fam-ai-v2' as const, acceptedAt: '2026-11-08T00:00:00Z' };
-    await saveAiConsent('user-1', consent);
-    await expect(loadAiConsent('user-1')).resolves.toEqual(consent);
-
-    values.set('ai-assistant.consent.v1', JSON.stringify({ version: 'old', acceptedAt: 'today' }));
-    await expect(loadAiConsent('user-1')).resolves.toBeNull();
-    values.set('ai-assistant.consent.v1', '{broken');
-    await expect(loadAiConsent('user-1')).resolves.toBeNull();
-
-    await saveAiConsent('user-1', consent);
-    await revokeAiConsent('user-1');
-    await expect(loadAiConsent('user-1')).resolves.toBeNull();
-    expect(mockStorage.remove).toHaveBeenCalledWith('ai-assistant.consent.v1');
   });
 });

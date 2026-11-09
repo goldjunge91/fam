@@ -23,7 +23,6 @@ import {
   isPurchasesConfigured,
   resetPurchasesIdentity,
   setPurchasesAttributes,
-  setPurchasesEmail,
   syncPurchasesIdentity,
 } from '@/lib/backend/revenuecat';
 import { env } from '@/lib/config/env';
@@ -80,7 +79,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const userId = session?.user.id;
-  const userEmail = session?.user.email;
   const identitySyncGenerationRef = useRef(0);
   const currentUserIdRef = useRef(userId);
   const purchasesOperationQueueRef = useRef<Promise<void>>(Promise.resolve());
@@ -202,7 +200,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
         if (userId) {
           const info = await syncPurchasesIdentity(userId, {
             household_id: activeHouseholdId ?? null,
-            $posthogUserId: userId,
           });
           if (!isCurrent()) return;
           if (info) {
@@ -217,9 +214,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
               }
             }
           }
-          if (userEmail) {
-            await setPurchasesEmail(userEmail);
-          }
         } else {
           await resetPurchasesIdentity();
           if (!isCurrent()) return;
@@ -231,7 +225,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
         if (isCurrent()) setLoading(false);
       }
     });
-  }, [userId, userEmail, activeHouseholdId, enqueuePurchasesOperation]);
+  }, [userId, activeHouseholdId, enqueuePurchasesOperation]);
 
   // Haushaltswechsel an RevenueCat Subscriber Attributes melden
   useEffect(() => {
@@ -250,7 +244,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
       try {
         await setPurchasesAttributes({
           household_id: activeHouseholdId ?? null,
-          $posthogUserId: userId,
         });
       } catch (err) {
         debugWarn('[Premium] RevenueCat-Attribute konnten nicht gesetzt werden:', err);

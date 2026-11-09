@@ -307,6 +307,23 @@ describe('RecipeDetailScreen', () => {
     });
   });
 
+  it('zeigt bei einer Rezeptalternative nicht die Menge der Originalzutat', async () => {
+    const originalItem = mockDetail.items[0];
+    if (!originalItem) throw new Error('Das Testrezept hat keine Zutat.');
+    mockCurrentDetail = {
+      ...mockDetail,
+      recipe: {
+        ...mockDetail.recipe,
+        substitutions: [{ forIngredientId: 'item-1', swap: 'Olivenöl statt Butter' }],
+      },
+      items: [{ ...originalItem, quantity: 37, grams: 37 }],
+    };
+    await renderScreen();
+
+    expect(screen.getByText('Olivenöl statt Butter (statt Kartoffeln)')).toBeOnTheScreen();
+    expect(screen.queryByText('37 g')).not.toBeOnTheScreen();
+  });
+
   it('zeigt leere Zutaten, Schritte und Bewertungen ohne Werte an', async () => {
     const user = userEvent.setup();
     mockCurrentDetail = {

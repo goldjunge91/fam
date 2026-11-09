@@ -61,7 +61,7 @@ const source = {
 async function pressText(view: Awaited<ReturnType<typeof render>>, text: string) {
   const textNode = view.getByText(text);
   const onPress = textNode.props.onPress as (() => void) | undefined;
-  if (!onPress) throw new Error('Element "' + text + '" hat keinen onPress-Handler');
+  if (!onPress) throw new Error(`Element "${text}" hat keinen onPress-Handler`);
   await act(async () => onPress());
 }
 

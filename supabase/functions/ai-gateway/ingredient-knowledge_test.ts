@@ -6,8 +6,8 @@ import {
   type IngredientFactRecord,
   projectRecipeAllergenSafety,
   resolveIngredientAlias,
-  toReviewedRecipeIngredientMapping,
   type ReviewedRecipeIngredientMapping,
+  toReviewedRecipeIngredientMapping,
 } from './ingredient-knowledge.ts';
 
 const SOURCE_VERSION = '02011R1169-20250401';
@@ -372,9 +372,61 @@ Deno.test('keeps aliases and recipe mappings closed for wrong locale, stale sour
   assertEquals(mismatchedSource.sourceId, '');
 });
 
+Deno.test('rejects duplicate canonical ingredient ids and omits private evidence from projections', () => {
+  const duplicateId = '00000000-0000-4000-8000-000000000001';
+  const row = {
+    id: 'item-1',
+    ingredient_source_type: 'recipe_text',
+    ingredient_source_id: 'recipe:3:item:1',
+    ingredient_source_url: null,
+    ingredient_source_version: 'recipe-revision-3',
+    ingredient_source_license: null,
+    ingredient_mapping: {
+      status: 'verified',
+      ingredientIds: [duplicateId, duplicateId],
+      complete: true,
+      source: 'recipe_text',
+      sourceId: 'recipe:3:item:1',
+      sourceUrl: null,
+      sourceVersion: 'recipe-revision-3',
+      license: null,
+      evidenceSnapshot: 'private full ingredient label',
+      reviewedAt: REVIEWED_AT,
+      reviewedBy: 'user-1',
+    },
+  };
+  const duplicateMapping = toReviewedRecipeIngredientMapping(row);
+  assertEquals(duplicateMapping.ingredientIds, []);
+  assertEquals(duplicateMapping.complete, true);
+
+  const privateEvidence = 'private recipe note: do not expose this';
+  const result = project({
+    facts: [fact('mustard', 'contains', { evidenceSnapshot: privateEvidence })],
+  });
+  assertEquals(result.status, 'conflict');
+  assertEquals(JSON.stringify(result).includes(privateEvidence), false);
+  assertEquals(result.knowledgeVersion.includes(privateEvidence), false);
+});
+
+Deno.test('treats invalid ingredient revisions and unsupported assessments as unknown', () => {
+  assertEquals(
+    project({
+      ingredients: [{ ingredientId: 'mustard', revision: 0 }],
+      facts: [fact('mustard', 'contains')],
+    }).status,
+    'unknown',
+  );
+  assertEquals(
+    project({ facts: [fact('mustard', 'not-a-supported-assessment')] }).status,
+    'unknown',
+  );
+});
+
 Deno.test('treats invalid or incomplete current fact reviews as unknown evidence', () => {
   const invalidAssessment = project({ facts: [fact('mustard', 'unknown_assessment')] });
-  const missingEvidence = project({ facts: [fact('mustard', 'not_detected', { evidenceSnapshot: '' })] });
+  const missingEvidence = project({
+    facts: [fact('mustard', 'not_detected', { evidenceSnapshot: '' })],
+  });
   const missingReview = project({
     facts: [fact('mustard', 'not_detected', { reviewedAt: null, reviewedBy: null })],
   });

@@ -11,16 +11,22 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+function isTimestamp(value: unknown): value is string {
+  return typeof value === 'string' && Number.isFinite(Date.parse(value));
+}
+
 function normalizeRecipeImportDraft(value: unknown): RecipeImportDraft | null {
   if (
     !isRecord(value) ||
     value.kind !== 'recipe_import_draft.v1' ||
     typeof value.title !== 'string' ||
+    value.title.trim().length === 0 ||
     !(
       value.servings === null ||
-      (typeof value.servings === 'number' && Number.isInteger(value.servings))
+      (typeof value.servings === 'number' && Number.isInteger(value.servings) && value.servings > 0)
     ) ||
     !Array.isArray(value.ingredients) ||
+    value.ingredients.length === 0 ||
     !value.ingredients.every(
       (ingredient) =>
         isRecord(ingredient) &&
@@ -28,6 +34,7 @@ function normalizeRecipeImportDraft(value: unknown): RecipeImportDraft | null {
         ['high', 'medium', 'low'].includes(String(ingredient.confidence)),
     ) ||
     !Array.isArray(value.steps) ||
+    value.steps.length === 0 ||
     !value.steps.every((step) => typeof step === 'string') ||
     !(value.notes === null || typeof value.notes === 'string') ||
     !Array.isArray(value.warnings) ||
@@ -62,7 +69,7 @@ function isRecipeImportDraftRecord(value: unknown): value is RecipeImportDraftRe
     value.mediaUris.every((uri) => typeof uri === 'string') &&
     ['structured', 'ai'].includes(String(value.method)) &&
     normalizeRecipeImportDraft(value.draft) !== null &&
-    typeof value.createdAt === 'string'
+    isTimestamp(value.createdAt)
   );
 }
 

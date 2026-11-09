@@ -22,10 +22,10 @@ Deno.test('sends OpenRouter requests with existing JSON mode and attribution hea
     openRouterBaseUrl: 'https://openrouter.example/api/v1/',
     openRouterSiteUrl: 'https://fam.example',
     openRouterSiteName: 'fam',
-  }, async (nextUrl, nextInit) => {
+  }, (nextUrl, nextInit) => {
     url = String(nextUrl);
     init = nextInit;
-    return okResponse();
+    return Promise.resolve(okResponse());
   });
 
   const result = await complete({
@@ -58,10 +58,10 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
   const complete = createProviderCompleter({
     defaultProvider: 'openrouter',
     groqKey: 'groq-test-key',
-  }, async (nextUrl, nextInit) => {
+  }, (nextUrl, nextInit) => {
     url = String(nextUrl);
     init = nextInit;
-    return okResponse({
+    return Promise.resolve(okResponse({
       choices: [{
         message: {
           content: null,
@@ -72,7 +72,7 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
           }],
         },
       }],
-    });
+    }));
   });
 
   const result = await complete({
@@ -109,9 +109,9 @@ Deno.test('omits JSON mode for plain text model tests and reports a missing prov
   const withKey = createProviderCompleter({
     defaultProvider: 'groq',
     groqKey: 'groq-test-key',
-  }, async (_url, nextInit) => {
+  }, (_url, nextInit) => {
     init = nextInit;
-    return okResponse();
+    return Promise.resolve(okResponse());
   });
   const result = await withKey({
     model: 'openai/gpt-oss-120b',
@@ -126,9 +126,9 @@ Deno.test('omits JSON mode for plain text model tests and reports a missing prov
   let called = false;
   const withoutKey = createProviderCompleter({
     defaultProvider: 'groq',
-  }, async () => {
+  }, () => {
     called = true;
-    return okResponse();
+    return Promise.resolve(okResponse());
   });
   const missing = await withoutKey({
     provider: 'groq',
@@ -139,11 +139,30 @@ Deno.test('omits JSON mode for plain text model tests and reports a missing prov
   assertEquals(called, false);
 });
 
+Deno.test('treats whitespace-only provider keys as unconfigured without making a network call', async () => {
+  let called = false;
+  for (const [provider, key] of [['openrouter', '   '], ['groq', '\t\n']] as const) {
+    const complete = createProviderCompleter({
+      defaultProvider: provider,
+      ...(provider === 'openrouter' ? { openRouterKey: key } : { groqKey: key }),
+    }, () => {
+      called = true;
+      return Promise.resolve(okResponse());
+    });
+    const result = await complete({
+      model: 'test-model',
+      messages: [{ role: 'user', content: 'Test' }],
+    });
+    assertEquals(result, { ok: false, status: 503, error: 'provider_not_configured' });
+  }
+  assertEquals(called, false);
+});
+
 Deno.test('normalizes provider request failures without leaking upstream response bodies', async () => {
   const complete = createProviderCompleter({
     defaultProvider: 'groq',
     groqKey: 'groq-test-key',
-  }, async () => new Response('secret upstream details', { status: 401 }));
+  }, () => Promise.resolve(new Response('secret upstream details', { status: 401 })));
 
   const result = await complete({
     model: 'qwen/qwen3.8-27b',
@@ -162,11 +181,13 @@ Deno.test('logs safe metadata when a successful provider response is not JSON', 
     const complete = createProviderCompleter({
       defaultProvider: 'openrouter',
       openRouterKey: 'openrouter-test-key',
-    }, async () =>
-      new Response('private provider response', {
-        status: 200,
-        headers: { 'content-type': 'text/html' },
-      }));
+    }, () =>
+      Promise.resolve(
+        new Response('private provider response', {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        }),
+      ));
     const result = await complete({
       model: 'z-ai/glm-5.3-flash',
       messages: [{ role: 'user', content: 'private prompt' }],
@@ -188,23 +209,32 @@ Deno.test('normalizes fetch throws and upstream status failures without exposing
   const thrown = createProviderCompleter({
     defaultProvider: 'groq',
     groqKey: 'groq-test-key',
-  }, async () => {
-    throw new Error('private upstream failure');
-  });
-  assertEquals(await thrown({
-    model: 'qwen/qwen3.8-27b',
-    messages: [{ role: 'user', content: 'Test' }],
-  }), { ok: false, status: 502, error: 'provider_unavailable' });
+  }, () => Promise.reject(new Error('private upstream failure')));
+  assertEquals(
+    await thrown({
+      model: 'qwen/qwen3.8-27b',
+      messages: [{ role: 'user', content: 'Test' }],
+    }),
+    { ok: false, status: 502, error: 'provider_unavailable' },
+  );
 
-  for (const [status, error] of [[429, 'provider_rate_limited'], [503, 'provider_request_failed']] as const) {
+  for (
+    const [status, error] of [[429, 'provider_rate_limited'], [
+      503,
+      'provider_request_failed',
+    ]] as const
+  ) {
     const complete = createProviderCompleter({
       defaultProvider: 'openrouter',
       openRouterKey: 'openrouter-test-key',
-    }, async () => new Response('private upstream body', { status }));
-    assertEquals(await complete({
-      model: 'z-ai/glm-5.3-flash',
-      messages: [{ role: 'user', content: 'Test' }],
-    }), { ok: false, status: 502, error });
+    }, () => Promise.resolve(new Response('private upstream body', { status })));
+    assertEquals(
+      await complete({
+        model: 'z-ai/glm-5.3-flash',
+        messages: [{ role: 'user', content: 'Test' }],
+      }),
+      { ok: false, status: 502, error },
+    );
   }
 });
 
@@ -227,28 +257,38 @@ Deno.test('fails closed for empty, non-object, and malformed tool-call responses
     const complete = createProviderCompleter({
       defaultProvider: 'openrouter',
       openRouterKey: 'openrouter-test-key',
-    }, async () => new Response(JSON.stringify(body), { status: 200 }));
+    }, () => Promise.resolve(new Response(JSON.stringify(body), { status: 200 })));
     const result = await complete({
       model: 'z-ai/glm-5.3-flash',
       messages: [{ role: 'user', content: 'Test' }],
     });
-    assertEquals(result, { ok: false, status: 502, error: body instanceof Array ? 'provider_invalid_response' : 'provider_empty_response' });
+    assertEquals(result, {
+      ok: false,
+      status: 502,
+      error: body instanceof Array ? 'provider_invalid_response' : 'provider_empty_response',
+    });
   }
 
   const mixedToolCalls = createProviderCompleter({
     defaultProvider: 'openrouter',
     openRouterKey: 'openrouter-test-key',
-  }, async () => new Response(JSON.stringify({
-    choices: [{
-      message: {
-        content: 'Fallback-Antwort',
-        tool_calls: [
-          { id: 'valid', function: { name: 'get_inventory', arguments: '{}' } },
-          { id: 'broken', function: { name: 'get_inventory' } },
-        ],
-      },
-    }],
-  }), { status: 200 }));
+  }, () =>
+    Promise.resolve(
+      new Response(
+        JSON.stringify({
+          choices: [{
+            message: {
+              content: 'Fallback-Antwort',
+              tool_calls: [
+                { id: 'valid', function: { name: 'get_inventory', arguments: '{}' } },
+                { id: 'broken', function: { name: 'get_inventory' } },
+              ],
+            },
+          }],
+        }),
+        { status: 200 },
+      ),
+    ));
   const mixed = await mixedToolCalls({
     model: 'z-ai/glm-5.3-flash',
     messages: [{ role: 'user', content: 'Test' }],
@@ -266,9 +306,9 @@ Deno.test('keeps provider-specific token and JSON options bounded for both provi
   const openRouter = createProviderCompleter({
     defaultProvider: 'openrouter',
     openRouterKey: 'openrouter-test-key',
-  }, async (_url, init) => {
+  }, (_url, init) => {
     openRouterBody = JSON.parse(String(init?.body)) as Record<string, unknown>;
-    return okResponse();
+    return Promise.resolve(okResponse());
   });
   await openRouter({
     model: 'ibm-granite/granite-4.2-8b',
@@ -288,9 +328,9 @@ Deno.test('keeps provider-specific token and JSON options bounded for both provi
   const groq = createProviderCompleter({
     defaultProvider: 'groq',
     groqKey: 'groq-test-key',
-  }, async (_url, init) => {
+  }, (_url, init) => {
     groqBody = JSON.parse(String(init?.body)) as Record<string, unknown>;
-    return okResponse();
+    return Promise.resolve(okResponse());
   });
   await groq({
     model: 'qwen/qwen3.8-27b',

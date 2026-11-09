@@ -10,7 +10,9 @@ type RecipeImportDraft = {
 
 function isPrivateIpv4(address: string): boolean {
   const octets = address.split('.').map(Number);
-  if (octets.length !== 4 || octets.some((part) => !Number.isInteger(part) || part < 0 || part > 255)) {
+  if (
+    octets.length !== 4 || octets.some((part) => !Number.isInteger(part) || part < 0 || part > 255)
+  ) {
     return true;
   }
   const [a = 0, b = 0, c = 0] = octets;
@@ -72,9 +74,7 @@ export async function isPublicHttpsUrl(value: string): Promise<boolean> {
     Deno.resolveDns(hostname, 'A'),
     Deno.resolveDns(hostname, 'AAAA'),
   ]);
-  const addresses = records.flatMap((record) =>
-    record.status === 'fulfilled' ? record.value : []
-  );
+  const addresses = records.flatMap((record) => record.status === 'fulfilled' ? record.value : []);
   return addresses.length > 0 && addresses.every(isPublicAddress);
 }
 
@@ -95,11 +95,10 @@ function textContentFromHtml(html: string): string {
     .replace(/&#39;|&apos;/gi, "'")
     .replace(/&lt;/gi, '<')
     .replace(/&gt;/gi, '>')
-    .replace(/&#(\d+);/g, (_match, code: string) =>
-      String.fromCodePoint(Number(code))
-    )
-    .replace(/&#x([0-9a-f]+);/gi, (_match, code: string) =>
-      String.fromCodePoint(Number.parseInt(code, 16))
+    .replace(/&#(\d+);/g, (_match, code: string) => String.fromCodePoint(Number(code)))
+    .replace(
+      /&#x([0-9a-f]+);/gi,
+      (_match, code: string) => String.fromCodePoint(Number.parseInt(code, 16)),
     )
     .replace(/[ \t]+/g, ' ')
     .replace(/\n[ \t]+/g, '\n')
@@ -183,6 +182,39 @@ function structuredRecipeFromHtml(html: string): RecipeImportDraft | null {
   return null;
 }
 
+function tagAttribute(tag: string, name: string): string | null {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = tag.match(
+    new RegExp(`(?:^|\\s)${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+  );
+  const value = match?.[1] ?? match?.[2] ?? match?.[3];
+  return value?.replace(/&amp;/gi, '&').replace(/&#x26;/gi, '&') ?? null;
+}
+
+/** Instagram's public Reel page exposes the downloadable CDN source as Open Graph metadata. */
+export function extractPublicVideoUrl(html: string, pageUrl: string): string | null {
+  for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0];
+    const property = (tagAttribute(tag, 'property') ?? tagAttribute(tag, 'name'))?.toLowerCase();
+    if (!property || !['og:video', 'og:video:url', 'og:video:secure_url'].includes(property)) {
+      continue;
+    }
+    const rawUrl = tagAttribute(tag, 'content');
+    if (!rawUrl) continue;
+    try {
+      const mediaUrl = new URL(rawUrl.replace(/\\u0026/gi, '&').replace(/\\\//g, '/'), pageUrl);
+      const hostname = mediaUrl.hostname.toLowerCase();
+      const instagramCdn = hostname === 'cdninstagram.com' ||
+        hostname.endsWith('.cdninstagram.com');
+      const facebookCdn = hostname === 'fbcdn.net' || hostname.endsWith('.fbcdn.net');
+      if (mediaUrl.protocol === 'https:' && (instagramCdn || facebookCdn)) return mediaUrl.href;
+    } catch {
+      // Ignore malformed metadata and continue to the next recognized tag.
+    }
+  }
+  return null;
+}
+
 async function readLimitedText(response: Response): Promise<string | null> {
   const declaredSize = Number(response.headers.get('content-length') ?? 0);
   if (declaredSize > 1_500_000) return null;
@@ -210,7 +242,7 @@ async function readLimitedText(response: Response): Promise<string | null> {
 }
 
 export async function loadRecipePage(url: string): Promise<
-  | { ok: true; text: string; draft: RecipeImportDraft | null }
+  | { ok: true; text: string; draft: RecipeImportDraft | null; videoUrl: string | null }
   | { ok: false; status: number; error: string }
 > {
   let currentUrl = url;
@@ -238,7 +270,11 @@ export async function loadRecipePage(url: string): Promise<
       if (!location || redirects === 3) {
         return { ok: false, status: 422, error: 'source_redirect_failed' };
       }
-      currentUrl = new URL(location, currentUrl).toString();
+      try {
+        currentUrl = new URL(location, currentUrl).toString();
+      } catch {
+        return { ok: false, status: 422, error: 'source_redirect_failed' };
+      }
       continue;
     }
     if (!response.ok) return { ok: false, status: 422, error: 'source_unavailable' };
@@ -252,6 +288,7 @@ export async function loadRecipePage(url: string): Promise<
       ok: true,
       text: textContentFromHtml(html),
       draft: structuredRecipeFromHtml(html),
+      videoUrl: extractPublicVideoUrl(html, currentUrl),
     };
   }
   return { ok: false, status: 422, error: 'source_redirect_failed' };

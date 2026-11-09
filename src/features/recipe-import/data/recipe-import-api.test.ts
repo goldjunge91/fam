@@ -1,22 +1,31 @@
-import { AI_CONSENT_VERSION } from '@/features/ai-assistant/types';
 import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient-mapping';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { importRecipeSource } from './recipe-import-api';
 
 const mockInvoke = jest.fn();
-const mockFileConfig = new Map<string, { exists?: boolean; size?: number; base64?: string }>();
+const mockFileConfig = new Map<
+  string,
+  { exists?: boolean; size?: number; base64?: string; base64Error?: Error }
+>();
 const mockDevModelSelection = jest.fn<
   { provider: 'openrouter' | 'groq'; model: string } | null,
   []
 >();
+const mockTrackAnalyticsEvent = jest.fn();
 
+jest.mock('@/lib/analytics', () => ({
+  trackAnalyticsEvent: (...args: unknown[]) => mockTrackAnalyticsEvent(...args),
+}));
 jest.mock('expo-file-system', () => ({
   File: jest.fn((uri: string) => {
     const config = mockFileConfig.get(uri) ?? { exists: true, size: 100, base64: 'encoded' };
     return {
       exists: config.exists ?? true,
       size: config.size,
-      base64: jest.fn(async () => config.base64 ?? 'encoded'),
+      base64: jest.fn(async () => {
+        if (config.base64Error) throw config.base64Error;
+        return config.base64 ?? 'encoded';
+      }),
     };
   }),
 }));
@@ -74,6 +83,14 @@ describe('recipe import API', () => {
       confidence: 'high',
       mapping: UNKNOWN_INGREDIENT_MAPPING,
     });
+    expect(mockTrackAnalyticsEvent).toHaveBeenNthCalledWith(1, 'recipe_import.started', {
+      source: 'text',
+    });
+    expect(mockTrackAnalyticsEvent).toHaveBeenNthCalledWith(
+      2,
+      'recipe_import.completed',
+      expect.objectContaining({ method: 'ai', duration_bucket: expect.any(String) }),
+    );
   });
 
   it('rejects malformed model output instead of saving a partial import draft', async () => {
@@ -100,6 +117,12 @@ describe('recipe import API', () => {
         sourceText: 'Milch erhitzen und Grieß einrühren.',
       }),
     ).rejects.toThrow('Der Rezeptentwurf konnte nicht gelesen werden.');
+    expect(mockTrackAnalyticsEvent).toHaveBeenNthCalledWith(1, 'recipe_import.started', {
+      source: 'text',
+    });
+    expect(mockTrackAnalyticsEvent).toHaveBeenNthCalledWith(2, 'recipe_import.failed', {
+      stage: 'parse',
+    });
   });
 
   it('omits optional input fields and accepts a structured recipe with nullable values', async () => {
@@ -114,7 +137,7 @@ describe('recipe import API', () => {
             { text: 'Mehl', confidence: 'medium' },
             { text: 'Wasser', confidence: 'low' },
           ],
-          steps: [],
+          steps: ['Brot backen.'],
           notes: null,
           warnings: [],
         },
@@ -134,7 +157,6 @@ describe('recipe import API', () => {
       body: {
         skill: 'fam-recipe-import',
         householdId: 'household-1',
-        consentVersion: AI_CONSENT_VERSION,
         sourceType: 'url',
       },
     });
@@ -177,7 +199,7 @@ describe('recipe import API', () => {
           kind: 'recipe_import_draft.v1',
           title: 'Kuchen',
           servings: 2,
-          ingredients: [],
+          ingredients: [{ text: 'Mehl', confidence: 'low' }],
           steps: ['Backen'],
           notes: '',
           warnings: ['Prüfen'],
@@ -219,25 +241,69 @@ describe('recipe import API', () => {
     expect(mockInvoke).not.toHaveBeenCalled();
   });
 
-  it('rejects aggregate attachment payloads above the size limit', async () => {
-    mockFileConfig.set('image://one', { size: 3_000_000 });
-    mockFileConfig.set('image://two', { size: 3_000_000 });
+  it('accepts the exact media size boundary, truncates long filenames, and surfaces file read errors', async () => {
+    mockInvoke.mockResolvedValue({
+      data: {
+        source: 'ai',
+        result: {
+          kind: 'recipe_import_draft.v1',
+          title: 'Kuchen',
+          servings: 1,
+          ingredients: [{ text: 'Mehl', confidence: 'high' }],
+          steps: ['Backen'],
+          notes: null,
+          warnings: [],
+        },
+      },
+      error: null,
+    });
+    mockFileConfig.set('pdf://boundary', { size: 5_500_000 });
+    await importRecipeSource({
+      householdId: 'household-1',
+      sourceType: 'pdf',
+      media: [
+        {
+          uri: 'pdf://boundary',
+          name: `${'a'.repeat(101)}.pdf`,
+          mimeType: 'application/pdf',
+        },
+      ],
+    });
+    expect(mockInvoke).toHaveBeenCalledWith('ai-gateway', {
+      body: expect.objectContaining({
+        attachments: [
+          {
+            filename: 'a'.repeat(100),
+            mimeType: 'application/pdf',
+            data: 'encoded',
+          },
+        ],
+      }),
+    });
+
+    mockInvoke.mockClear();
+    mockFileConfig.set('pdf://broken', {
+      size: 100,
+      base64Error: new Error('file read failed'),
+    });
     await expect(
       importRecipeSource({
         householdId: 'household-1',
-        sourceType: 'image',
-        media: [
-          { uri: 'image://one', name: 'one.jpg', mimeType: 'image/jpeg' },
-          { uri: 'image://two', name: 'two.jpg', mimeType: 'image/jpeg' },
-        ],
+        sourceType: 'pdf',
+        media: [{ uri: 'pdf://broken', name: 'recipe.pdf', mimeType: 'application/pdf' }],
       }),
-    ).rejects.toThrow('Die Datei ist zu groß. Wähle eine Datei bis 5,5 MB.');
+    ).rejects.toThrow('file read failed');
+    expect(mockInvoke).not.toHaveBeenCalled();
   });
 
   it.each([
     ['ai_subscription_required', 'Für die KI-Auswertung brauchst du das AI-Abo dieses Haushalts.'],
     ['ai_credit_limit_exceeded', 'Das monatliche AI-Credit-Limit ist erreicht.'],
     ['unsafe_source_url', 'Diese Webadresse kann nicht sicher gelesen werden.'],
+    [
+      'instagram_video_unavailable',
+      'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
+    ],
     ['source_unavailable', 'Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.'],
     ['source_not_a_webpage', 'Der Link führt nicht zu einer lesbaren Webseite.'],
     ['source_too_large', 'Die Webseite ist zu groß, um sie zu importieren.'],
@@ -355,11 +421,65 @@ describe('recipe import API', () => {
     },
     {
       kind: 'recipe_import_draft.v1',
+      title: '',
+      servings: null,
+      ingredients: [{ text: 'x', confidence: 'low' }],
+      steps: ['Cook'],
+      notes: null,
+      warnings: [],
+    },
+    {
+      kind: 'recipe_import_draft.v1',
+      title: 'A',
+      servings: 0,
+      ingredients: [{ text: 'x', confidence: 'low' }],
+      steps: ['Cook'],
+      notes: null,
+      warnings: [],
+    },
+    {
+      kind: 'recipe_import_draft.v1',
+      title: 'A',
+      servings: -1,
+      ingredients: [{ text: 'x', confidence: 'low' }],
+      steps: ['Cook'],
+      notes: null,
+      warnings: [],
+    },
+    {
+      kind: 'recipe_import_draft.v1',
       title: 'A',
       servings: 2,
       ingredients: [],
+      steps: ['Cook'],
+      notes: null,
+      warnings: [],
+    },
+    {
+      kind: 'recipe_import_draft.v1',
+      title: 'A',
+      servings: 2,
+      ingredients: [{ text: 'x', confidence: 'low' }],
       steps: [],
-      notes: '',
+      notes: null,
+      warnings: [],
+    },
+    {
+      kind: 'recipe_import_draft.v1',
+      title: 'A',
+      servings: 2,
+      ingredients: [{ text: 'x', confidence: 'low' }],
+      steps: ['Cook'],
+      notes: 4,
+      warnings: [],
+    },
+    {
+      kind: 'recipe_import_draft.v1',
+      title: 'A',
+      servings: 2,
+      ingredients: [{ text: 'x', confidence: 'low' }],
+      steps: ['Cook'],
+      notes: null,
       warnings: [4],
     },
   ])('rejects invalid recipe draft shape', async (draft) => {

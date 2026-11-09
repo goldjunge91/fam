@@ -2,6 +2,7 @@ import {
   type AnalyticsSettings,
   getAnalyticsSettings,
   isAnalyticsFeatureEnabled,
+  isPostHogConsentGranted,
 } from '@/constants/analytics';
 
 export type TelemetryChannel = 'productEvents' | 'errorReports' | 'diagnostics';
@@ -13,6 +14,7 @@ const PRODUCT_FEATURE_PREFIXES = [
   ['inventory_item.', 'inventory'],
   ['shopping_item.', 'shoppingList'],
   ['recipe.', 'recipes'],
+  ['recipe_import.', 'recipes'],
   ['meal_plan', 'mealPlanner'],
   ['product.', 'productSearch'],
   ['paywall.', 'premium'],
@@ -40,5 +42,6 @@ export function shouldCaptureTelemetry(channel: TelemetryChannel, eventName?: st
 
 export function isAnalyticsProviderEnabled(provider: 'aptabase' | 'posthog'): boolean {
   const settings = getAnalyticsSettings();
+  if (provider === 'posthog' && !isPostHogConsentGranted()) return false;
   return settings.enabled && settings.providers[provider];
 }

@@ -11,16 +11,22 @@ const mockSaveThreads = jest.fn();
 const mockGetCreditStatus = jest.fn();
 const mockSendMessage = jest.fn();
 const mockApplyProposal = jest.fn();
+const mockApplyShoppingList = jest.fn();
 const mockAddShoppingItem = jest.fn();
 const mockRestorePurchases = jest.fn();
 const mockRefreshPremium = jest.fn();
 const mockSyncEntitlement = jest.fn();
 const mockPollEntitlement = jest.fn();
 const mockInvalidate = jest.fn();
+const mockRequestImagePermission = jest.fn();
+const mockLaunchImageLibrary = jest.fn();
+const mockGetDocument = jest.fn();
+const mockEncodeAttachments = jest.fn();
 let mockUserId: string | null = 'user-1';
 let mockHouseholdId: string | null = 'household-1';
 let mockHasAI = true;
 let mockThreads: AssistantThread[] = [];
+let mockRouteParams: Record<string, string | string[]> = {};
 
 type MockTheme = {
   space: { xs: number; sm: number; md: number; lg: number; xl: number; xxl: number };
@@ -73,6 +79,14 @@ jest.mock('expo-router', () => ({
     push: (...args: unknown[]) => mockRouterPush(...args),
     back: () => mockRouterBack(),
   },
+  useLocalSearchParams: () => mockRouteParams,
+}));
+jest.mock('expo-image-picker', () => ({
+  requestMediaLibraryPermissionsAsync: (...args: unknown[]) => mockRequestImagePermission(...args),
+  launchImageLibraryAsync: (...args: unknown[]) => mockLaunchImageLibrary(...args),
+}));
+jest.mock('expo-document-picker', () => ({
+  getDocumentAsync: (...args: unknown[]) => mockGetDocument(...args),
 }));
 jest.mock('react-native-unistyles', () => ({
   StyleSheet: {
@@ -112,12 +126,12 @@ jest.mock('@/components/layout/hub-screen', () => ({
   },
 }));
 jest.mock('@/components/layout/back-button', () => ({
-  BackButton: ({ label, onPress }: { label: string; onPress: () => void }) => {
+  BackButton: ({ label, onPress }: { label: string; onPress?: () => void }) => {
     const React = require('react');
     const { Pressable: NativePressable, Text: NativeText } = require('react-native');
     return React.createElement(
       NativePressable,
-      { accessibilityRole: 'button', onPress },
+      { accessibilityRole: 'button', onPress: onPress ?? jest.fn() },
       React.createElement(NativeText, null, label),
     );
   },
@@ -158,6 +172,24 @@ jest.mock('@/constants/ui', () => {
         NativePressable,
         { accessibilityRole: 'button', accessibilityLabel, onPress, disabled },
         React.createElement(NativeText, null, accessibilityLabel),
+      ),
+    Badge: ({
+      label,
+      tone,
+      icon,
+      solid,
+    }: {
+      label: string;
+      tone?: string;
+      icon?: string;
+      solid?: boolean;
+    }) =>
+      React.createElement(
+        NativeText,
+        {
+          accessibilityLabel: `${label} (${tone ?? 'pantry'}, ${icon ?? 'none'}, ${solid ? 'solid' : 'soft'})`,
+        },
+        label,
       ),
     Pill: ({ label }: { label: string }) => React.createElement(NativeText, null, label),
     Press: ({
@@ -229,9 +261,15 @@ jest.mock('../data/apply-meal-plan-proposal', () => ({
   },
   applyAssistantMealPlanProposal: (...args: unknown[]) => mockApplyProposal(...args),
 }));
+jest.mock('../data/apply-shopping-list-proposal', () => ({
+  applyAssistantShoppingListProposal: (...args: unknown[]) => mockApplyShoppingList(...args),
+}));
 jest.mock('../data/assistant-api', () => ({
   getAiCreditStatus: (...args: unknown[]) => mockGetCreditStatus(...args),
   sendAssistantMessage: (...args: unknown[]) => mockSendMessage(...args),
+}));
+jest.mock('../data/assistant-attachments', () => ({
+  encodeAssistantAttachments: (...args: unknown[]) => mockEncodeAttachments(...args),
 }));
 jest.mock('../data/assistant-storage', () => ({
   loadAssistantThreads: (...args: unknown[]) => mockLoadThreads(...args),
@@ -320,6 +358,7 @@ describe('AssistantScreen', () => {
     mockHouseholdId = 'household-1';
     mockHasAI = true;
     mockThreads = [];
+    mockRouteParams = {};
     mockLoadThreads.mockImplementation(async () => mockThreads);
     mockSaveThreads.mockResolvedValue(undefined);
     mockGetCreditStatus.mockResolvedValue({
@@ -338,10 +377,18 @@ describe('AssistantScreen', () => {
       },
     });
     mockApplyProposal.mockResolvedValue({ addedCount: 1 });
+    mockApplyShoppingList.mockResolvedValue({ addedCount: 2, alreadyApplied: false });
     mockAddShoppingItem.mockResolvedValue('shopping-item-1');
     mockRestorePurchases.mockResolvedValue({ ok: true, customerInfo: { active: true } });
     mockSyncEntitlement.mockResolvedValue(true);
     mockPollEntitlement.mockResolvedValue(true);
+    mockRequestImagePermission.mockResolvedValue({ granted: true });
+    mockLaunchImageLibrary.mockResolvedValue({ canceled: true, assets: [] });
+    mockGetDocument.mockResolvedValue({ canceled: true, assets: [] });
+    mockEncodeAttachments.mockImplementation(
+      async (files: Array<{ name: string; mimeType: string }>) =>
+        files.map(({ name, mimeType }) => ({ filename: name, mimeType, data: 'encoded' })),
+    );
     jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
   });
 
@@ -368,7 +415,7 @@ describe('AssistantScreen', () => {
     const view = await renderAssistant();
     const user = userEvent.setup();
     await user.press(screen.getByRole('button', { name: 'AI ansehen' }));
-    expect(mockRouterPush).toHaveBeenCalledWith('/settings/plus-and-ai');
+    expect(mockRouterPush).toHaveBeenCalledWith('/settings/plus-and-ai?tier=ai');
     await user.press(screen.getByRole('button', { name: 'Käufe wiederherstellen' }));
     await waitFor(() =>
       expect(Alert.alert).toHaveBeenCalledWith('Wiederherstellen fehlgeschlagen', 'Store offline'),
@@ -392,9 +439,121 @@ describe('AssistantScreen', () => {
     expect(Alert.alert).toHaveBeenCalledWith('Erfolgreich', 'Dein KI-Abo wurde wiederhergestellt.');
   });
 
+  it('opens the assistant with a recipe context from route params and lets the user remove it', async () => {
+    mockRouteParams = { pageContextKind: 'recipe', pageContextRecipeId: ['recipe-1', 'ignored'] };
+    await renderAssistant();
+    expect(screen.getByText('Rezept als Seitenkontext')).toBeOnTheScreen();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Seitenkontext entfernen' }));
+    expect(screen.queryByText('Rezept als Seitenkontext')).toBeNull();
+  });
+
+  it('sends the selected week as page context while household rules remain included', async () => {
+    mockRouteParams = {
+      pageContextKind: 'meal_plan',
+      pageContextWeekStart: '2026-11-09',
+    };
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+
+    await waitFor(() =>
+      expect(mockSendMessage).toHaveBeenCalledWith(
+        expect.objectContaining({
+          includeHouseholdContext: true,
+          pageContext: { kind: 'meal_plan', weekStartDate: '2026-11-09' },
+        }),
+      ),
+    );
+  });
+
+  it('adds image and PDF attachments, then can send an attachment without message text', async () => {
+    await renderAssistant();
+    const user = userEvent.setup();
+    mockLaunchImageLibrary.mockResolvedValueOnce({
+      canceled: false,
+      assets: [{ uri: 'file://wrong.txt', fileName: 'Notiz.txt', mimeType: 'text/plain' }],
+    });
+
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    let options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Bild auswählen')?.onPress?.());
+    expect(mockRequestImagePermission).toHaveBeenCalled();
+    expect(screen.getByText('Bitte wähle JPEG-, PNG- oder WebP-Bilder aus.')).toBeOnTheScreen();
+
+    mockLaunchImageLibrary.mockResolvedValueOnce({
+      canceled: false,
+      assets: [
+        { uri: 'file://recipe.png', fileName: 'Rezept.png', mimeType: 'image/png' },
+        { uri: 'file://wrong.txt', fileName: 'Notiz.txt', mimeType: 'text/plain' },
+      ],
+    });
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Bild auswählen')?.onPress?.());
+    expect(screen.getByText('Rezept.png')).toBeOnTheScreen();
+    expect(screen.queryByText('Bitte wähle JPEG-, PNG- oder WebP-Bilder aus.')).toBeNull();
+
+    mockGetDocument.mockResolvedValueOnce({
+      canceled: false,
+      assets: [{ uri: 'file://recipe.pdf', name: 'Rezept.pdf' }],
+    });
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'PDF auswählen')?.onPress?.());
+    expect(screen.getByText('Rezept.pdf')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+    await waitFor(() =>
+      expect(mockSendMessage).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: '',
+          attachments: [
+            { filename: 'Rezept.png', mimeType: 'image/png', data: 'encoded' },
+            { filename: 'Rezept.pdf', mimeType: 'application/pdf', data: 'encoded' },
+          ],
+        }),
+      ),
+    );
+    expect(mockEncodeAttachments).toHaveBeenCalledWith([
+      { uri: 'file://recipe.png', name: 'Rezept.png', mimeType: 'image/png' },
+      { uri: 'file://recipe.pdf', name: 'Rezept.pdf', mimeType: 'application/pdf' },
+    ]);
+  });
+
+  it('handles denied photo access and canceled or empty PDF selections', async () => {
+    mockRequestImagePermission.mockResolvedValueOnce({ granted: false });
+    await renderAssistant();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    let options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Bild auswählen')?.onPress?.());
+    expect(
+      screen.getByText('Erlaube den Zugriff auf Fotos, um einen Anhang auszuwählen.'),
+    ).toBeOnTheScreen();
+    expect(mockLaunchImageLibrary).not.toHaveBeenCalled();
+
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'PDF auswählen')?.onPress?.());
+    expect(screen.queryByText('Rezept.pdf')).toBeNull();
+
+    mockGetDocument.mockResolvedValueOnce({ canceled: false, assets: [] });
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'PDF auswählen')?.onPress?.());
+    expect(screen.queryByText('Rezept.pdf')).toBeNull();
+  });
+
   it('opens and sends messages without showing a consent prompt', async () => {
     await renderAssistant();
+    expect(screen.getByText('fam')).toBeOnTheScreen();
+    expect(screen.queryByText('Deine Essensplanung')).not.toBeOnTheScreen();
     expect(screen.queryByText(/Datenverarbeitung freigeben/u)).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Anhang hinzufügen' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Rezept importieren' })).not.toBeOnTheScreen();
     const user = userEvent.setup();
     await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
     await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
@@ -409,6 +568,10 @@ describe('AssistantScreen', () => {
       ),
     );
     expect(screen.getByText('Hier sind Ideen.')).toBeOnTheScreen();
+    expect(screen.getByText('Vorrat geprüft')).toBeOnTheScreen();
+    expect(screen.getByText('Rezepte durchsucht')).toBeOnTheScreen();
+    expect(screen.getByLabelText('Vorrat geprüft (grocery, archive, solid)')).toBeOnTheScreen();
+    expect(screen.getByLabelText('Rezepte durchsucht (grocery, search, solid)')).toBeOnTheScreen();
     expect(screen.queryByText('Hinterlegte Regeln abgeglichen')).not.toBeOnTheScreen();
     expect(screen.getByText('Linsensuppe: Sahne → Hafercuisine')).toBeOnTheScreen();
     expect(screen.getByText('8 Credits übrig')).toBeOnTheScreen();
@@ -532,18 +695,45 @@ describe('AssistantScreen', () => {
     expect(screen.getByRole('button', { name: 'Nachricht senden' })).toBeDisabled();
   });
 
+  it('lets the user start a chat before any conversations exist', async () => {
+    mockThreads = [];
+    await renderAssistant();
+
+    expect(screen.getByRole('button', { name: 'Neuen Chat starten' })).toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Gesprächsverlauf öffnen' })).toBeNull();
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Neuen Chat starten' }));
+
+    await waitFor(() => {
+      const savedThreads = mockSaveThreads.mock.calls.at(-1)?.[1] as AssistantThread[] | undefined;
+      expect(savedThreads).toEqual([
+        expect.objectContaining({ title: 'Neues Gespräch', messages: [] }),
+      ]);
+    });
+  });
+
   it('opens history, starts a new conversation, and deletes a selected conversation', async () => {
     mockThreads = [
       assistantThread([{ id: 'message-1', role: 'user', text: 'Plan', createdAt: 'now' }]),
     ];
     await renderAssistant();
     const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Neuen Chat starten' }));
+    await waitFor(() => {
+      const savedThreads = mockSaveThreads.mock.calls.at(-1)?.[1] as AssistantThread[] | undefined;
+      expect(savedThreads).toHaveLength(2);
+    });
     await user.press(screen.getByRole('button', { name: 'Gesprächsverlauf öffnen' }));
     expect(screen.getByText('Gesprächsverlauf')).toBeOnTheScreen();
     await user.press(screen.getByRole('button', { name: 'Gespräch Abendessen löschen' }));
     const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
     await act(async () => options?.find((option) => option.text === 'Löschen')?.onPress?.());
-    await waitFor(() => expect(mockSaveThreads).toHaveBeenCalledWith('user-1', []));
+    await waitFor(() =>
+      expect(mockSaveThreads).toHaveBeenLastCalledWith('user-1', [
+        expect.objectContaining({ title: 'Neues Gespräch', messages: [] }),
+      ]),
+    );
   });
 
   it('applies a meal-plan proposal only after confirmation and reports result', async () => {
@@ -654,6 +844,231 @@ describe('AssistantScreen', () => {
     );
   });
 
+  it('leaves a meal-plan proposal unchanged when confirmation is canceled', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-1',
+          role: 'assistant',
+          text: 'Wochenidee',
+          createdAt: 'now',
+          proposals: [mealPlanProposal],
+        },
+      ]),
+    ];
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Vorschlag prüfen' }));
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Zurück')?.onPress?.());
+
+    expect(mockApplyProposal).not.toHaveBeenCalled();
+    expect(mockInvalidate).not.toHaveBeenCalled();
+  });
+
+  it('reports a failed meal-plan apply without persisting an applied state or invalidating queries', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-1',
+          role: 'assistant',
+          text: 'Wochenidee',
+          createdAt: 'now',
+          proposals: [mealPlanProposal],
+        },
+      ]),
+    ];
+    mockApplyProposal.mockRejectedValue(new Error('SQLite write failed'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'In Wochenplan übernehmen' }));
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenCalledWith(
+        'Vorschlag nicht übernommen',
+        'Der Wochenplan konnte nicht aktualisiert werden. Es wurde nichts übernommen.',
+      ),
+    );
+    expect(mockSaveThreads).not.toHaveBeenCalled();
+    expect(mockInvalidate).not.toHaveBeenCalled();
+  });
+
+  it('reports stale meal-plan evidence without invalidating current queries', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-1',
+          role: 'assistant',
+          text: 'Wochenidee',
+          createdAt: 'now',
+          proposals: [mealPlanProposal],
+        },
+      ]),
+    ];
+    mockApplyProposal.mockRejectedValue(
+      new (jest.requireMock('../data/apply-meal-plan-proposal').ApplyMealPlanProposalError)(
+        'food_rules_changed',
+      ),
+    );
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'In Wochenplan übernehmen' }));
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenCalledWith(
+        'Vorschlag nicht übernommen',
+        'Deine Ernährungsregeln haben sich geändert. Erstelle bitte einen neuen Vorschlag.',
+      ),
+    );
+    expect(mockInvalidate).not.toHaveBeenCalled();
+  });
+
+  it('does not persist a shopping proposal after its local mutation fails', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-1',
+          role: 'assistant',
+          text: 'Ich kann Hafermilch ergänzen.',
+          createdAt: 'now',
+          proposals: [shoppingItemProposal],
+          toolTrace: ['propose_shopping_list_item'],
+        },
+      ]),
+    ];
+    mockAddShoppingItem.mockRejectedValue(new Error('offline'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(
+      screen.getByRole('button', { name: 'Einkaufsartikel übernehmen: Hafermilch' }),
+    );
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Übernehmen')?.onPress?.());
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenCalledWith(
+        'Artikel nicht übernommen',
+        'Der Artikel konnte nicht vorgemerkt werden. Bitte versuche es erneut.',
+      ),
+    );
+    expect(mockSaveThreads).not.toHaveBeenCalled();
+  });
+
+  it('does not persist or invalidate when a shopping-list transaction fails', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-failed',
+          role: 'assistant',
+          text: 'Hafermilch fehlt.',
+          createdAt: 'now',
+          proposals: [
+            {
+              kind: 'shopping_list_proposal.v1',
+              summary: 'Hafermilch ergänzen',
+              items: [
+                { name: 'Hafermilch', quantity: 2, unit: 'package', foodRuleStatus: 'clear' },
+              ],
+            },
+          ],
+        },
+      ]),
+    ];
+    mockApplyShoppingList.mockRejectedValueOnce(new Error('SQLite write failed'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Einkaufsartikel übernehmen' }));
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Übernehmen')?.onPress?.());
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenLastCalledWith(
+        'Artikel nicht übernommen',
+        'Die Artikel konnten nicht vorgemerkt werden. Bitte versuche es erneut.',
+      ),
+    );
+    expect(mockSaveThreads).not.toHaveBeenCalled();
+    expect(mockInvalidate).not.toHaveBeenCalled();
+  });
+
+  it('marks a committed shopping proposal applied even if saving the chat fails', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-1',
+          role: 'assistant',
+          text: 'Ich kann Hafermilch ergänzen.',
+          createdAt: 'now',
+          proposals: [
+            {
+              kind: 'shopping_list_proposal.v1',
+              summary: 'Hafermilch ergänzen',
+              items: [
+                { name: 'Hafermilch', quantity: 2, unit: 'package', foodRuleStatus: 'clear' },
+              ],
+            },
+          ],
+        },
+      ]),
+    ];
+    mockSaveThreads.mockRejectedValueOnce(new Error('encrypted storage unavailable'));
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Einkaufsartikel übernehmen' }));
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Übernehmen')?.onPress?.());
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenLastCalledWith(
+        'Einkaufsliste aktualisiert',
+        expect.stringContaining('Ein erneutes Übernehmen fügt nichts doppelt hinzu.'),
+      ),
+    );
+    expect(mockApplyShoppingList).toHaveBeenCalledWith({
+      userId: 'user-1',
+      householdId: 'household-1',
+      proposalKey: 'reply-1-0',
+      proposal: expect.objectContaining({ kind: 'shopping_list_proposal.v1' }),
+    });
+    expect(screen.getByRole('button', { name: 'Einkaufsartikel übernehmen' })).toBeDisabled();
+  });
+
+  it('reports a durable duplicate receipt without increasing merged quantities', async () => {
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-duplicate',
+          role: 'assistant',
+          text: 'Vorschlag',
+          createdAt: 'now',
+          proposals: [
+            {
+              kind: 'shopping_list_proposal.v1',
+              summary: 'Hafermilch ergänzen',
+              items: [
+                { name: 'Hafermilch', quantity: 2, unit: 'package', foodRuleStatus: 'clear' },
+              ],
+            },
+          ],
+        },
+      ]),
+    ];
+    mockApplyShoppingList.mockResolvedValueOnce({ addedCount: 0, alreadyApplied: true });
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Einkaufsartikel übernehmen' }));
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Übernehmen')?.onPress?.());
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenLastCalledWith(
+        'Einkaufsliste aktualisiert',
+        'Dieser Vorschlag war bereits in der Einkaufsliste vorgemerkt.',
+      ),
+    );
+    expect(mockApplyShoppingList).toHaveBeenCalledTimes(1);
+  });
+
   it('routes ingredient-swap recipe actions and explains stale safety evidence', async () => {
     mockThreads = [
       assistantThread([
@@ -675,7 +1090,7 @@ describe('AssistantScreen', () => {
       params: { id: 'recipe-1' },
     });
     await user.press(screen.getByRole('button', { name: 'Gesprächsverlauf öffnen' }));
-    await user.press(screen.getByRole('button', { name: 'Neues Gespräch' }));
+    await user.press(screen.getByRole('button', { name: 'Neuen Chat starten' }));
     await waitFor(() => expect(mockSaveThreads).toHaveBeenCalled());
     expect(screen.getByText('Was möchtest du heute kochen?')).toBeOnTheScreen();
   });

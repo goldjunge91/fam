@@ -2,6 +2,7 @@ import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import {
   ALLOWED_MODELS,
+  type AssistantPageContext,
   createAiGatewayHandler,
   type GatewayCookingContext,
   type GatewayCreditAction,
@@ -9,9 +10,12 @@ import {
   type GatewayFoodRules,
   type GatewayInventoryContext,
   type GatewayLot,
+  type GatewayMealPlanContext,
   type GatewayProvider,
   type GatewayRecipe,
+  type GatewayShoppingListItem,
   GROQ_ALLOWED_MODELS,
+  nonEmptyString,
 } from './handler.ts';
 import { createProviderCompleter } from './providers.ts';
 import { type AiUsageRecordInput, toAiUsageEvent } from './usage.ts';
@@ -354,6 +358,7 @@ async function loadCookingContext(
   authorization: string,
   includePersonalFoodRules: boolean,
   requestedAllergies: string[] = [],
+  pageContext?: AssistantPageContext,
 ) {
   const client = createClient(supabaseUrl, anonKey, {
     global: { headers: { Authorization: authorization } },
@@ -524,6 +529,39 @@ async function loadCookingContext(
       return a.normalizedName.localeCompare(b.normalizedName, 'de') ||
         a.lotId.localeCompare(b.lotId);
     });
+
+  const shoppingListResult = includePersonalFoodRules
+    ? await client
+      .from('shopping_list_items')
+      .select(
+        'id, product_id, name, quantity, unit, category_id, store_id, checked_at, recipe_names',
+      )
+      .eq('household_id', householdId)
+      .is('deleted_at', null)
+      .order('sort_index', { ascending: true })
+      .limit(100)
+    : { data: [], error: null };
+  if (shoppingListResult.error) {
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'shopping_list_lookup_failed',
+      message: shoppingListResult.error.message,
+    };
+  }
+  const shoppingList: GatewayShoppingListItem[] = (shoppingListResult.data ?? []).map((row) => ({
+    itemId: row.id,
+    productId: row.product_id ?? null,
+    name: String(row.name).trim(),
+    quantity: typeof row.quantity === 'number' ? row.quantity : Number(row.quantity),
+    unit: typeof row.unit === 'string' ? row.unit : '',
+    categoryId: row.category_id ?? null,
+    storeId: row.store_id ?? null,
+    checkedAt: typeof row.checked_at === 'string' ? row.checked_at : null,
+    recipeNames: Array.isArray(row.recipe_names)
+      ? row.recipe_names.filter((name): name is string => typeof name === 'string')
+      : [],
+  })).filter((item) => item.name.length > 0 && Number.isFinite(item.quantity));
 
   const { data: recipeRows, error: recipeError } = await client
     .from('catalog_recipes')
@@ -824,6 +862,7 @@ async function loadCookingContext(
     }
     const ingredients = householdIngredientsByRecipe.get(row.recipe_id) ?? [];
     ingredients.push({
+      itemId: row.id,
       productId: row.product_id ?? null,
       normalizedName: name,
       quantity: typeof row.quantity === 'number' ? row.quantity : null,
@@ -865,6 +904,93 @@ async function loadCookingContext(
       : {}),
   }));
 
+  let mealPlan: GatewayMealPlanContext | undefined;
+  if (pageContext?.kind === 'meal_plan') {
+    const candidateStart = normalizeDate(pageContext.weekStartDate);
+    const parsedStart = candidateStart ? new Date(`${candidateStart}T00:00:00.000Z`) : null;
+    const weekStartDate = parsedStart && Number.isFinite(parsedStart.getTime()) &&
+        parsedStart.toISOString().slice(0, 10) === candidateStart
+      ? candidateStart
+      : null;
+    if (weekStartDate) {
+      const parsedEnd = new Date(`${weekStartDate}T00:00:00.000Z`);
+      parsedEnd.setUTCDate(parsedEnd.getUTCDate() + 6);
+      const weekEndDate = parsedEnd.toISOString().slice(0, 10);
+      const planResult = await client
+        .from('meal_plans')
+        .select('id, name, week_start_date')
+        .eq('household_id', householdId)
+        .eq('week_start_date', weekStartDate)
+        .is('deleted_at', null)
+        .maybeSingle();
+      if (planResult.error) {
+        return {
+          ok: false as const,
+          status: 500,
+          error: 'meal_plan_lookup_failed',
+          message: planResult.error.message,
+        };
+      }
+      const entryResult = planResult.data
+        ? await client
+          .from('meal_plan_entries')
+          .select(
+            'id, entry_date, meal_slot, recipe_id, custom_title, custom_ingredients, portions',
+          )
+          .eq('household_id', householdId)
+          .eq('meal_plan_id', planResult.data.id)
+          .is('deleted_at', null)
+          .gte('entry_date', weekStartDate)
+          .lte('entry_date', weekEndDate)
+          .order('entry_date', { ascending: true })
+        : { data: [], error: null };
+      if (entryResult.error) {
+        return {
+          ok: false as const,
+          status: 500,
+          error: 'meal_plan_entries_lookup_failed',
+          message: entryResult.error.message,
+        };
+      }
+      const recipeTitleById = new Map(
+        householdRecipes.map((recipe) => [recipe.recipeId, recipe.title]),
+      );
+      const entries = (entryResult.data ?? []).flatMap((row) => {
+        if (!['breakfast', 'lunch', 'dinner'].includes(String(row.meal_slot))) return [];
+        const customIngredients = Array.isArray(row.custom_ingredients)
+          ? row.custom_ingredients.flatMap((value: unknown) => {
+            if (
+              !isRecord(value) || !nonEmptyString(value.name) ||
+              typeof value.quantity !== 'number' || !Number.isFinite(value.quantity) ||
+              !nonEmptyString(value.unit)
+            ) return [];
+            return [{
+              name: value.name.trim(),
+              quantity: value.quantity,
+              unit: value.unit.trim(),
+            }];
+          })
+          : [];
+        return [{
+          entryId: row.id,
+          date: row.entry_date,
+          mealSlot: row.meal_slot as 'breakfast' | 'lunch' | 'dinner',
+          recipeId: row.recipe_id ?? null,
+          title: row.recipe_id
+            ? recipeTitleById.get(row.recipe_id) ?? 'Rezept'
+            : String(row.custom_title ?? '').trim(),
+          portions: typeof row.portions === 'number' ? row.portions : Number(row.portions),
+          customIngredients,
+        }];
+      });
+      mealPlan = {
+        weekStartDate,
+        planName: planResult.data?.name ?? null,
+        entries,
+      };
+    }
+  }
+
   const context: GatewayCookingContext = {
     inventory: {
       source: 'inventory',
@@ -873,6 +999,8 @@ async function loadCookingContext(
     } satisfies GatewayInventoryContext,
     recipes,
     householdRecipes,
+    shoppingList,
+    ...(mealPlan ? { mealPlan } : {}),
     foodRules: includePersonalFoodRules ? { ...foodRules, ingredientAliases } : foodRules,
   };
   return { ok: true as const, context };

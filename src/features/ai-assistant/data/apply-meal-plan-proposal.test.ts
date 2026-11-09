@@ -141,6 +141,76 @@ describe('applyAssistantMealPlanProposal', () => {
     expect(result).toEqual({ addedCount: 2, totalCount: 2 });
   });
 
+  it('rejects stale dates, duplicate slots, week crossings, and invalid portions before local writes', async () => {
+    const base = mealPlanProposal();
+    const firstMeal = base.meals[0];
+    const secondMeal = base.meals[1];
+    if (!firstMeal || !secondMeal) throw new Error('Test proposal has no meals.');
+    const invalidProposals = [
+      {
+        ...base,
+        meals: [{ ...firstMeal, date: '2026-02-30' }],
+      },
+      {
+        ...base,
+        meals: [firstMeal, { ...firstMeal, date: '2026-11-09' }],
+      },
+      {
+        ...base,
+        meals: [firstMeal, { ...secondMeal, date: '2026-11-16' }],
+      },
+      {
+        ...base,
+        meals: [{ ...firstMeal, portions: 0 }],
+      },
+      {
+        ...base,
+        meals: [{ ...firstMeal, portions: 13 }],
+      },
+    ];
+
+    for (const proposal of invalidProposals) {
+      await expect(
+        applyAssistantMealPlanProposal({
+          householdId: 'household-1',
+          userId: 'user-1',
+          proposal,
+        }),
+      ).rejects.toEqual(new ApplyMealPlanProposalError('invalid_proposal_snapshot'));
+    }
+
+    expect(validateAssistantMealPlanProposal).not.toHaveBeenCalled();
+    expect(getDatabase).not.toHaveBeenCalled();
+    expect(Outbox.enqueueMutationsInExclusiveTransaction).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ['food_rule_coverage_changed', 'food_rule_coverage_changed'],
+    ['recipe_changed', 'recipe_changed'],
+    ['recipe_evidence_changed', 'recipe_evidence_changed'],
+    ['unknown validation reason', 'invalid_proposal_snapshot'],
+  ])('maps validation failure %s before opening a transaction', async (reason, expected) => {
+    jest.mocked(validateAssistantMealPlanProposal).mockResolvedValue({
+      valid: false,
+      reason,
+    });
+
+    await expect(
+      applyAssistantMealPlanProposal({
+        householdId: 'household-1',
+        userId: 'user-1',
+        proposal: mealPlanProposal(),
+      }),
+    ).rejects.toEqual(
+      new ApplyMealPlanProposalError(
+        expected as ConstructorParameters<typeof ApplyMealPlanProposalError>[0],
+      ),
+    );
+
+    expect(getDatabase).not.toHaveBeenCalled();
+    expect(Outbox.enqueueMutationsInExclusiveTransaction).not.toHaveBeenCalled();
+  });
+
   it('does not begin a local transaction when current rule evidence is stale', async () => {
     jest.mocked(validateAssistantMealPlanProposal).mockResolvedValue({
       valid: false,

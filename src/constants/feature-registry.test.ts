@@ -15,11 +15,13 @@ describe('feature registry SpeedDial configuration', () => {
       'speedDialShopping',
       'speedDialCalories',
       'speedDialRecipes',
+      'speedDialAssistant',
     ]);
   });
 
   it('looks up features by id and remote flag', () => {
     expect(getFeature('recipes')).toMatchObject({ id: 'recipes', title: 'Rezepte' });
+    expect(getFeature('assistant')).toMatchObject({ id: 'assistant', title: 'Assistant' });
     expect(getFeature('unknown')).toBeUndefined();
     expect(getFeatureByFlag('module-recipes')).toMatchObject({ id: 'recipes' });
   });

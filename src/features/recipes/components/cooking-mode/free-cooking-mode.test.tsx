@@ -222,6 +222,20 @@ it('verwendet alle Gruppen ohne Portionsgewichte und blendet leere Abschnitte au
   expect(screen.queryByText('Tomaten schneiden')).not.toBeOnTheScreen();
 });
 
+it('blendet beim temporären Zutatenwechsel die Menge der Originalzutat aus', async () => {
+  await render(
+    <FreeCookingMode
+      data={makeData()}
+      temporarySwap={{ ingredientName: 'Tomate', replacement: 'Paprika' }}
+    />,
+  );
+
+  expect(screen.getByText('Paprika')).toBeOnTheScreen();
+  expect(screen.queryByText('2 Stück')).not.toBeOnTheScreen();
+  expect(screen.getByText('Zwiebel')).toBeOnTheScreen();
+  expect(screen.getByText('50 g')).toBeOnTheScreen();
+});
+
 it('blendet die Gruppendarstellung aus, wenn keine Komponenten vorhanden sind', async () => {
   const data = makeData({ components: [], items: [], steps: [] });
   await render(<FreeCookingMode data={data} />);

@@ -1,11 +1,11 @@
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import type { AssistantProposal } from '../types';
-import { AI_CONSENT_VERSION } from '../types';
 import {
   getAiCreditStatus,
   sendAssistantMessage,
   testAiModel,
   validateAssistantMealPlanProposal,
+  validateAssistantRecipeProposal,
 } from './assistant-api';
 
 const mockInvoke = jest.fn();
@@ -96,7 +96,6 @@ describe('assistant API', () => {
       body: {
         skill: 'fam-assistant',
         householdId: 'household-1',
-        consentVersion: AI_CONSENT_VERSION,
         message: 'Was essen wir?',
         history: history.slice(-12),
         includeHouseholdContext: true,
@@ -129,6 +128,26 @@ describe('assistant API', () => {
     expect(result.result.toolTrace).toEqual(['propose_shopping_list_item']);
   });
 
+  it('sends the optional recipe page reference with the household request', async () => {
+    mockInvoke.mockResolvedValue({ data: reply(), error: null });
+
+    await sendAssistantMessage({
+      householdId: 'household-1',
+      message: 'Wie kann ich das Rezept anpassen?',
+      history: [],
+      includeHouseholdContext: true,
+      pageContext: { kind: 'recipe', recipeId: 'recipe-1' },
+    });
+
+    expect(mockInvoke).toHaveBeenCalledWith('ai-gateway', {
+      body: expect.objectContaining({
+        skill: 'fam-assistant',
+        householdId: 'household-1',
+        pageContext: { kind: 'recipe', recipeId: 'recipe-1' },
+      }),
+    });
+  });
+
   it('omits usage when the provider returned no token or cost data', async () => {
     mockInvoke.mockResolvedValue({
       data: reply({ result: { ...reply().result, proposals: [] } }),
@@ -140,6 +159,29 @@ describe('assistant API', () => {
       history: [],
       includeHouseholdContext: false,
     });
+    expect(result.usage).toBeUndefined();
+  });
+
+  it('omits malformed non-finite usage metadata instead of exposing it to the UI', async () => {
+    mockInvoke.mockResolvedValue({
+      data: {
+        ...reply({ result: { ...reply().result, proposals: [] } }),
+        usage: {
+          total_tokens: Number.NaN,
+          cost: Number.POSITIVE_INFINITY,
+          prompt_tokens: '12',
+        },
+      },
+      error: null,
+    });
+
+    const result = await sendAssistantMessage({
+      householdId: 'household-1',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: false,
+    });
+
     expect(result.usage).toBeUndefined();
   });
 
@@ -244,7 +286,19 @@ describe('assistant API', () => {
     {
       result: {
         ...reply().result,
-        proposals: [{ ...shoppingItemProposal, quantity: 0 }],
+        proposals: [{ ...shoppingItemProposal, quantity: -1 }],
+      },
+    },
+    {
+      result: {
+        ...reply().result,
+        proposals: [{ ...shoppingItemProposal, quantity: Number.NaN }],
+      },
+    },
+    {
+      result: {
+        ...reply().result,
+        proposals: [{ ...shoppingItemProposal, quantity: Number.POSITIVE_INFINITY }],
       },
     },
     {
@@ -277,7 +331,29 @@ describe('assistant API', () => {
         proposals: [
           {
             ...mealPlanProposal,
-            meals: [{ ...meal, date: 'tomorrow' }],
+            meals: [{ ...meal, date: '2026-02-30' }],
+          },
+        ],
+      },
+    },
+    {
+      result: {
+        ...reply().result,
+        proposals: [
+          {
+            ...mealPlanProposal,
+            meals: [{ ...meal, portions: -1 }],
+          },
+        ],
+      },
+    },
+    {
+      result: {
+        ...reply().result,
+        proposals: [
+          {
+            ...mealPlanProposal,
+            meals: [{ ...meal, portions: 13 }],
           },
         ],
       },
@@ -385,6 +461,70 @@ describe('assistant API', () => {
       durationMs: 280,
       usage: { prompt_tokens: 20, completion_tokens: 12, total_tokens: 32 },
     });
+  });
+
+  it.each([
+    ['provider_not_configured', 'Der Groq-API-Key fehlt in der lokalen Functions-Umgebung.'],
+    [
+      'model_testing_unavailable',
+      'Modelltests sind nur mit der lokalen Supabase-Instanz verfügbar.',
+    ],
+    ['model_not_allowed', 'Die Modell-ID ist nicht in der lokalen Allowlist für Groq freigegeben.'],
+    ['unknown_model_error', 'unknown_model_error'],
+  ])('maps local model test error %s', async (code, expected) => {
+    mockInvoke.mockResolvedValue({ data: { error: code }, error: { message: 'invoke failed' } });
+    await expect(
+      testAiModel({ householdId: 'household-1', provider: 'groq', model: 'model', prompt: 'test' }),
+    ).rejects.toThrow(expected);
+  });
+
+  it('validates ingredient swaps against fresh recipe evidence and reports invalid snapshots', async () => {
+    const proposal = {
+      kind: 'ingredient_swap_proposal.v1',
+      foodRulesUpdatedAt: 'rules-v2',
+      foodRuleCoverage: mealPlanProposal.foodRuleCoverage,
+      recipeId: 'recipe-1',
+      recipeTitle: 'Linsensuppe',
+      ingredientItemId: 'ingredient-1',
+      ingredientName: 'Butter',
+      replacement: 'Olivenöl',
+      rationale: 'Pflanzliche Alternative',
+      safetyNote: 'Allergene wurden geprüft.',
+    } as Extract<AssistantProposal, { kind: 'ingredient_swap_proposal.v1' }>;
+
+    mockInvoke.mockResolvedValueOnce({
+      data: { skill: 'fam-assistant-proposal-validation', valid: true },
+      error: null,
+    });
+    await expect(
+      validateAssistantRecipeProposal({ householdId: 'household-1', proposal }),
+    ).resolves.toEqual({ valid: true });
+    expect(mockInvoke).toHaveBeenLastCalledWith('ai-gateway', {
+      body: {
+        skill: 'fam-assistant-proposal-validation',
+        householdId: 'household-1',
+        foodRulesUpdatedAt: 'rules-v2',
+        coverageRulesUpdatedAt: 'rules-v2',
+        recipeIds: ['recipe-1'],
+        recipeVersions: mealPlanProposal.foodRuleCoverage.recipeVersions,
+      },
+    });
+
+    const staleSnapshot = {
+      ...proposal,
+      foodRuleCoverage: { ...proposal.foodRuleCoverage, recipeVersions: [] },
+    } as unknown as typeof proposal;
+    await expect(
+      validateAssistantRecipeProposal({ householdId: 'household-1', proposal: staleSnapshot }),
+    ).resolves.toEqual({ valid: false, reason: 'invalid_proposal_snapshot' });
+
+    mockInvoke.mockResolvedValueOnce({
+      data: { skill: 'wrong', valid: 'yes' },
+      error: null,
+    });
+    await expect(
+      validateAssistantRecipeProposal({ householdId: 'household-1', proposal }),
+    ).rejects.toThrow('Der Vorschlag konnte nicht auf Aktualität geprüft werden.');
   });
 
   it('reads validated credit status and maps errors', async () => {

@@ -96,7 +96,7 @@ export const env = {
   },
 
   get posthogHost(): string {
-    return process.env.EXPO_PUBLIC_POSTHOG_HOST?.trim() || 'https://us.i.posthog.com';
+    return process.env.EXPO_PUBLIC_POSTHOG_HOST?.trim() || 'https://eu.i.posthog.com';
   },
 
   get aptabaseAppKey(): string | undefined {
