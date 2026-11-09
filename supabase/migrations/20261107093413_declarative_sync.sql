@@ -1,0 +1,3 @@
+-- Migration-history placeholder for a schema previously applied to the shared
+-- remote by a superseded feature branch. The current branch does not recreate
+-- that assistant persistence model.
