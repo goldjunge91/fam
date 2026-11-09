@@ -176,6 +176,12 @@ export const APP_FEATURES = [
   {
     id: 'assistant',
     title: 'Assistant',
+    drawer: {
+      group: 'today',
+      href: '/assistant',
+      icon: 'assistant',
+      order: 2,
+    },
     speedDial: {
       title: 'Assistant',
       icon: 'assistant',

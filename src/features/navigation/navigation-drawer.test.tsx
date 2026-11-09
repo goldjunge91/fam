@@ -78,6 +78,7 @@ describe('NavigationDrawer', () => {
     );
 
     expect(screen.getByText('Übersicht')).toBeTruthy();
+    expect(screen.getByText('Assistant')).toBeTruthy();
     expect(screen.getByText('Vorrat')).toBeTruthy();
     expect(screen.getByText('Einkauf')).toBeTruthy();
     expect(screen.getByText('Rezepte')).toBeTruthy();
@@ -101,6 +102,22 @@ describe('NavigationDrawer', () => {
 
     const vorratBtn = screen.getByText('Vorrat');
     fireEvent.press(vorratBtn);
+
+    expect(mockCloseDrawer).toHaveBeenCalled();
+  });
+
+  it('öffnet den Assistant über die Hauptnavigation', async () => {
+    await render(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 47, left: 0, right: 0, bottom: 34 },
+        }}>
+        <NavigationDrawer />
+      </SafeAreaProvider>,
+    );
+
+    fireEvent.press(screen.getByText('Assistant'));
 
     expect(mockCloseDrawer).toHaveBeenCalled();
   });

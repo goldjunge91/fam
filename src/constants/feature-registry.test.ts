@@ -28,7 +28,7 @@ describe('feature registry SpeedDial configuration', () => {
 
   it('groups drawer routes by household scope and configured order', () => {
     expect(getDrawerGroups().map(({ key, routes }) => [key, routes.map(({ id }) => id)])).toEqual([
-      ['today', ['overview']],
+      ['today', ['overview', 'assistant']],
       ['household', ['fridge', 'shoppingList', 'recipes', 'brochures', 'mealPlanner']],
       ['private', ['calories']],
     ]);
