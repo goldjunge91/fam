@@ -1,7 +1,10 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import { requireEnv, requireSupabaseSecretKey } from '../_shared/env.ts';
-import { isLocalSupabaseUrl } from '../_shared/revenuecat-environment.ts';
+import {
+  isLocalSupabaseUrl,
+  isRevenueCatSandboxAllowed,
+} from '../_shared/revenuecat-environment.ts';
 import { activeAiAssignmentHouseholdId } from '../revenuecat-webhook/handler.ts';
 import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
 
@@ -11,7 +14,7 @@ const adminClient = createClient(supabaseUrl, requireSupabaseSecretKey());
 const readRevenueCatStatus = createRevenueCatSubscriberStatusReader(
   Deno.env.get('REVENUECAT_SECRET_API_KEY'),
   fetch,
-  { allowSandbox: isLocalSupabaseUrl(supabaseUrl) },
+  { allowSandbox: isRevenueCatSandboxAllowed(supabaseUrl) },
 );
 
 const CORS_HEADERS = {

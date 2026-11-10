@@ -32,7 +32,10 @@ import {
 import { fingerprintRecipeIngredientMappings } from './food-rule-coverage.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
-import { isLocalSupabaseUrl } from '../_shared/revenuecat-environment.ts';
+import {
+  isLocalSupabaseUrl,
+  isRevenueCatSandboxAllowed,
+} from '../_shared/revenuecat-environment.ts';
 import { requireSupabaseSecretKey } from '../_shared/env.ts';
 import { isPublicHttpsUrl, loadRecipePage } from './recipe-source.ts';
 
@@ -83,7 +86,7 @@ const rateLimiter = new SlidingWindowRateLimiter(
 const readRevenueCatStatus = createRevenueCatSubscriberStatusReader(
   Deno.env.get('REVENUECAT_SECRET_API_KEY'),
   fetch,
-  { allowSandbox: isLocalSupabaseUrl(supabaseUrl) },
+  { allowSandbox: isRevenueCatSandboxAllowed(supabaseUrl) },
 );
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -1026,7 +1029,7 @@ const handler = createAiGatewayHandler({
   providerModels,
   providerDefaultModels,
   modelOverridesEnabled: isLocalSupabaseUrl(supabaseUrl),
-  modelTestingEnabled: isLocalSupabaseUrl(supabaseUrl),
+  modelTestingEnabled: isRevenueCatSandboxAllowed(supabaseUrl),
   modelTestModels: providerModels,
   mediaFallback: {
     provider: 'openrouter',
