@@ -151,28 +151,34 @@ describe('useCookingModeVoice', () => {
   });
 
   it('keeps processing visible until a recognized command is executed', async () => {
-    const { adapter, speech, sessions } = createVoiceHarness();
-    const onNextStep = jest.fn();
-    const { result: hook } = await renderHook(() =>
-      useCookingModeVoice({ ...options, adapter, speech, onNextStep }),
-    );
+    jest.useFakeTimers();
+    try {
+      const { adapter, speech, sessions } = createVoiceHarness();
+      const onNextStep = jest.fn();
+      const { result: hook } = await renderHook(() =>
+        useCookingModeVoice({ ...options, adapter, speech, onNextStep }),
+      );
 
-    await act(async () => {
-      hook.current.startListening();
-      await flushAsyncWork();
-      sessions[0].emitFinalResult(transcript('weiter'));
-      await flushAsyncWork();
-    });
+      await act(async () => {
+        hook.current.startListening();
+        await flushAsyncWork();
+        sessions[0].emitFinalResult(transcript('weiter'));
+        await flushAsyncWork();
+      });
 
-    expect(hook.current.status).toBe('processing');
-    expect(onNextStep).not.toHaveBeenCalled();
+      expect(hook.current.status).toBe('processing');
+      expect(onNextStep).not.toHaveBeenCalled();
 
-    await act(async () => {
-      await flushScheduledCommand();
-    });
+      await act(async () => {
+        jest.runOnlyPendingTimers();
+        await flushAsyncWork();
+      });
 
-    expect(onNextStep).toHaveBeenCalledTimes(1);
-    expect(hook.current.status).toBe('ready');
+      expect(onNextStep).toHaveBeenCalledTimes(1);
+      expect(hook.current.status).toBe('ready');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it('exposes speech callbacks as reading and ready states and stops speech on demand', async () => {
@@ -209,37 +215,43 @@ describe('useCookingModeVoice', () => {
   });
 
   it('keeps recognition available during speech so the stop-reading command can interrupt it', async () => {
-    const { adapter, speech, sessions } = createVoiceHarness();
-    const { result: hook } = await renderHook(() =>
-      useCookingModeVoice({ ...options, adapter, speech }),
-    );
+    jest.useFakeTimers();
+    try {
+      const { adapter, speech, sessions } = createVoiceHarness();
+      const { result: hook } = await renderHook(() =>
+        useCookingModeVoice({ ...options, adapter, speech }),
+      );
 
-    await act(async () => {
-      hook.current.readStep();
-      await flushAsyncWork();
-    });
-    const stopCallsBeforeListening = (speech.stop as jest.Mock).mock.calls.length;
+      await act(async () => {
+        hook.current.readStep();
+        await flushAsyncWork();
+      });
+      const stopCallsBeforeListening = (speech.stop as jest.Mock).mock.calls.length;
 
-    await act(async () => {
-      hook.current.startListening();
-      await flushAsyncWork();
-    });
+      await act(async () => {
+        hook.current.startListening();
+        await flushAsyncWork();
+      });
 
-    expect(hook.current.status).toBe('listening');
-    expect(speech.stop).toHaveBeenCalledTimes(stopCallsBeforeListening);
+      expect(hook.current.status).toBe('listening');
+      expect(speech.stop).toHaveBeenCalledTimes(stopCallsBeforeListening);
 
-    await act(async () => {
-      sessions[0].emitFinalResult(transcript('Vorlesen stoppen'));
-      await flushAsyncWork();
-    });
-    expect(hook.current.status).toBe('processing');
+      await act(async () => {
+        sessions[0].emitFinalResult(transcript('Vorlesen stoppen'));
+        await flushAsyncWork();
+      });
+      expect(hook.current.status).toBe('processing');
 
-    await act(async () => {
-      await flushScheduledCommand();
-    });
+      await act(async () => {
+        jest.runOnlyPendingTimers();
+        await flushAsyncWork();
+      });
 
-    expect(speech.stop).toHaveBeenCalledTimes(stopCallsBeforeListening + 1);
-    expect(hook.current.status).toBe('ready');
+      expect(speech.stop).toHaveBeenCalledTimes(stopCallsBeforeListening + 1);
+      expect(hook.current.status).toBe('ready');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it.each([
