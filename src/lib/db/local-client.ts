@@ -90,13 +90,27 @@ type DatabaseConnection = {
 
 async function ensureWalJournalMode(db: SerializedSqlDatabase): Promise<void> {
   const current = await db.getFirstAsync<{ journal_mode?: string }>('PRAGMA journal_mode');
-  if (current?.journal_mode?.toLowerCase() === 'wal') return;
+  if (current?.journal_mode === 'wal') return;
 
   // Der Wechsel des Journal-Modus benötigt einen exklusiven SQLite-Zugriff.
   // Nach Fast Refresh kann aber noch eine native Connection aus dem vorherigen
   // JS-Lauf existieren. Auf einer bereits als WAL geöffneten Datei ist dieser
   // lock-sensitive Schreibzugriff nicht nötig.
-  await db.execAsync('PRAGMA journal_mode = WAL');
+  try {
+    await db.execAsync('PRAGMA journal_mode = WAL');
+  } catch (error) {
+    throw new Error(
+      `SQLite-Journalmodus konnte nicht auf WAL gesetzt werden (beobachtet: ${current?.journal_mode ?? 'unbekannt'}).`,
+      { cause: error },
+    );
+  }
+
+  const verified = await db.getFirstAsync<{ journal_mode?: string }>('PRAGMA journal_mode');
+  if (verified?.journal_mode !== 'wal') {
+    throw new Error(
+      `SQLite-Journalmodus ist nicht WAL (beobachtet: ${verified?.journal_mode ?? 'unbekannt'}).`,
+    );
+  }
 }
 
 // Expo empfiehlt Foreign Keys direkt nach dem Öffnen der SQLite-Verbindung

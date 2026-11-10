@@ -25,7 +25,11 @@ const mockRawDatabase = {
   execAsync: jest.fn().mockResolvedValue(undefined),
   runAsync: jest.fn().mockResolvedValue({ lastInsertRowId: 0, changes: 0 }),
   getAllAsync: jest.fn().mockResolvedValue([]),
-  getFirstAsync: jest.fn().mockResolvedValue(null),
+  getFirstAsync: jest
+    .fn()
+    .mockImplementation((source: string) =>
+      Promise.resolve(source === 'PRAGMA journal_mode' ? { journal_mode: 'wal' } : null),
+    ),
   prepareAsync: jest.fn(),
   closeAsync: jest.fn().mockResolvedValue(undefined),
 };
@@ -87,8 +91,43 @@ jest.mock('@/lib/observability/debug-log', () => ({
 }));
 
 describe('database client lifecycle', () => {
+  it('verifiziert den Journalmodus nach dem Setzen und bricht bei einem anderen Modus ab', async () => {
+    setActiveUserId('journal-mode-user');
+    mockRawDatabase.getFirstAsync.mockClear();
+    mockRawDatabase.execAsync.mockClear();
+    mockRawDatabase.getFirstAsync
+      .mockResolvedValueOnce({ journal_mode: 'delete' })
+      .mockResolvedValueOnce({ journal_mode: 'delete' });
+
+    await expect(getDatabase()).rejects.toThrow(
+      'SQLite-Journalmodus ist nicht WAL (beobachtet: delete).',
+    );
+    expect(mockRawDatabase.execAsync).toHaveBeenCalledWith('PRAGMA journal_mode = WAL');
+    expect(mockRawDatabase.getFirstAsync).toHaveBeenNthCalledWith(1, 'PRAGMA journal_mode', []);
+    expect(mockRawDatabase.getFirstAsync).toHaveBeenNthCalledWith(2, 'PRAGMA journal_mode', []);
+  });
+
+  it('akzeptiert WAL erst nach der Verifikation des gesetzten Modus', async () => {
+    setActiveUserId('journal-mode-user');
+    mockRawDatabase.getFirstAsync.mockClear();
+    mockRawDatabase.execAsync.mockClear();
+    mockRawDatabase.getFirstAsync
+      .mockResolvedValueOnce({ journal_mode: 'delete' })
+      .mockResolvedValueOnce({ journal_mode: 'wal' });
+
+    await getDatabase();
+
+    expect(mockRawDatabase.execAsync).toHaveBeenCalledWith('PRAGMA journal_mode = WAL');
+    expect(mockRawDatabase.getFirstAsync).toHaveBeenNthCalledWith(1, 'PRAGMA journal_mode', []);
+    expect(mockRawDatabase.getFirstAsync).toHaveBeenNthCalledWith(2, 'PRAGMA journal_mode', []);
+    await closeDatabaseForLifecycle();
+  });
+
   it('öffnet dieselbe App-Group-Datei, die Siri beschreibt', async () => {
     setActiveUserId('user-a');
+    mockRawDatabase.getFirstAsync.mockClear();
+    mockRawDatabase.execAsync.mockClear();
+    mockRawDatabase.closeAsync.mockClear();
     mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
     jest
       .mocked(openEncryptedDatabaseWithCutover)
@@ -109,6 +148,7 @@ describe('database client lifecycle', () => {
       createExpoDatabaseFileOps: jest.Mock;
     };
     expect(createExpoDatabaseFileOps).toHaveBeenCalledWith('/mock/app-group');
+    expect(mockRawDatabase.execAsync).not.toHaveBeenCalledWith('PRAGMA journal_mode = WAL');
   });
 
   it('reicht SQL-Parameter weiter und schließt Raw-Statements auch nach Fehlern', async () => {

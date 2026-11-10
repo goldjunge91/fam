@@ -55,6 +55,15 @@ async function beginImmediateWithRetry(driver: SqlStatementDriver): Promise<void
   await execWithBusyRetry(driver, 'BEGIN IMMEDIATE');
 }
 
+async function commitOnce(driver: SqlStatementDriver): Promise<void> {
+  try {
+    await driver.execAsync('COMMIT');
+  } catch (error) {
+    traceSqlFailure('commit', 'COMMIT', error);
+    throw error;
+  }
+}
+
 export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlDatabase {
   const getAllRawAsync = driver.getAllRawAsync?.bind(driver);
   /**
@@ -117,7 +126,7 @@ export function serializeDatabase(driver: SqlStatementDriver): SerializedSqlData
 
     try {
       await task(transactionPort);
-      await execWithBusyRetry(driver, 'COMMIT');
+      await commitOnce(driver);
     } catch (error) {
       try {
         await driver.execAsync('ROLLBACK');

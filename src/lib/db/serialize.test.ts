@@ -92,12 +92,8 @@ describe('serializeDatabase', () => {
   it('retryt einen kurzzeitigen Lock beim Transaktionsstart', async () => {
     const originalExecAsync = harness.driver.execAsync;
     let beginAttempts = 0;
-    let commitAttempts = 0;
     harness.driver.execAsync = async (source) => {
       if (source === 'BEGIN IMMEDIATE' && beginAttempts++ === 0) {
-        throw new Error('database is locked');
-      }
-      if (source === 'COMMIT' && commitAttempts++ === 0) {
         throw new Error('database is locked');
       }
       await originalExecAsync(source);
@@ -111,8 +107,45 @@ describe('serializeDatabase', () => {
     ).resolves.toBeUndefined();
 
     expect(beginAttempts).toBe(2);
-    expect(commitAttempts).toBe(2);
     expect(await db.getAllAsync<{ v: string }>('select v from t')).toEqual([{ v: 'after retry' }]);
+  });
+
+  it('rollt bei SQLITE_BUSY beim COMMIT sofort zurueck und gibt die Sperre frei', async () => {
+    const originalExecAsync = harness.driver.execAsync;
+    let commitAttempts = 0;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'COMMIT') {
+        commitAttempts += 1;
+        harness.log.push(source);
+        throw new Error('database is locked');
+      }
+      await originalExecAsync(source);
+    };
+    const db = serializeDatabase(harness.driver);
+    const setTimeoutSpy = jest.spyOn(globalThis, 'setTimeout');
+
+    try {
+      await expect(
+        db.withExclusiveTransactionAsync(async (txn) => {
+          await txn.runAsync('insert into t (v) values (?)', ['verworfen']);
+        }),
+      ).rejects.toThrow('database is locked');
+
+      expect(commitAttempts).toBe(1);
+      expect(setTimeoutSpy).not.toHaveBeenCalled();
+      expect(harness.log).toEqual([
+        'BEGIN IMMEDIATE',
+        'insert into t (v) values (?)',
+        'COMMIT',
+        'ROLLBACK',
+      ]);
+      expect(await db.getAllAsync('select v from t')).toHaveLength(0);
+
+      await db.runAsync('insert into t (v) values (?)', ['danach']);
+      expect(await db.getAllAsync<{ v: string }>('select v from t')).toEqual([{ v: 'danach' }]);
+    } finally {
+      setTimeoutSpy.mockRestore();
+    }
   });
 
   it('verschachtelt zwei gleichzeitige Transaktionen nicht', async () => {
