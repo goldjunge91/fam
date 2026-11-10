@@ -72,9 +72,7 @@ describe('PostHogIdentitySync', () => {
     await render(<PostHogIdentitySync />);
 
     expect(mockIdentify).toHaveBeenCalledWith('user-1');
-    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith(
-      { email: 'test@example.com' },
-    );
+    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith({ email: 'test@example.com' });
     expect(mockReset).not.toHaveBeenCalled();
   });
 
@@ -141,9 +139,7 @@ describe('PostHogIdentitySync', () => {
     await view.rerender(<PostHogIdentitySync />);
 
     expect(mockIdentify).toHaveBeenCalledWith('user-1');
-    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith(
-      { email: 'test@example.com' },
-    );
+    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith({ email: 'test@example.com' });
   });
 
   it('laedt Feature-Flags nicht innerhalb des automatischen 12-Stunden-Intervalls', async () => {
