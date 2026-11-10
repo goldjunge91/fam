@@ -131,6 +131,24 @@ describe('speech recognition adapter', () => {
     });
   });
 
+  it('starts a one-shot session that resolves on the final utterance', async () => {
+    const client = createFakeSpeechClient();
+    const adapter = createSpeechRecognitionAdapter(client);
+    const session = adapter.start({ continuous: false });
+
+    await waitForRecognitionStart();
+
+    expect(client.start).toHaveBeenCalledWith(expect.objectContaining({ continuous: false }));
+
+    client.emitResult('weiter');
+
+    await expect(session.result).resolves.toMatchObject({
+      status: 'transcript',
+      text: 'weiter',
+      onDevice: false,
+    });
+  });
+
   it('matches the native network-capable recognition contract', async () => {
     const client = createFakeSpeechClient();
     const adapter = createSpeechRecognitionAdapter(client);

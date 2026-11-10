@@ -3,6 +3,7 @@ import {
   flattenRecipeItems,
   matchPendingMention,
   mentionedIngredientIds,
+  resolveStepIngredients,
   splitStepMentions,
 } from './ingredient-mentions';
 
@@ -93,6 +94,20 @@ describe('mentionedIngredientIds', () => {
   it('gibt die IDs aller im Text erwähnten, bekannten Zutaten zurück', () => {
     const ids = mentionedIngredientIds('@Wurst50 und @Brühe250 dazugeben.', INGREDIENTS);
     expect(ids.sort()).toEqual(['bruehe', 'wurst']);
+  });
+});
+
+describe('resolveStepIngredients', () => {
+  it('keeps the explicit step order, skips unknown IDs, and removes duplicates', () => {
+    expect(resolveStepIngredients(['wurst', 'unknown', 'zwiebel', 'wurst'], INGREDIENTS)).toEqual([
+      INGREDIENTS[1],
+      INGREDIENTS[0],
+    ]);
+  });
+
+  it('returns no ingredients for an empty or unlinked step', () => {
+    expect(resolveStepIngredients([], INGREDIENTS)).toEqual([]);
+    expect(resolveStepIngredients(['unknown'], INGREDIENTS)).toEqual([]);
   });
 });
 

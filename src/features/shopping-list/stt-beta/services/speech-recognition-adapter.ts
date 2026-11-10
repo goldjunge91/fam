@@ -53,6 +53,7 @@ export type SpeechRecognitionSession = {
 export type SpeechRecognitionStartOptions = {
   locale?: string;
   onVolumeChange?: (volume: number) => void;
+  continuous?: boolean;
 };
 
 export type SpeechRecognitionAdapter = {
@@ -128,7 +129,7 @@ export function createSpeechRecognitionAdapter(
   const requiresOnDeviceRecognition = REQUIRES_ON_DEVICE_RECOGNITION;
 
   return {
-    start({ locale = getDeviceSpeechLocale(), onVolumeChange } = {}) {
+    start({ locale = getDeviceSpeechLocale(), onVolumeChange, continuous = true } = {}) {
       let settled = false;
       let recognitionStarted = false;
       let stopRequested = false;
@@ -335,6 +336,10 @@ export function createSpeechRecognitionAdapter(
                   finalTranscript,
                   recognitionResult.transcript,
                 );
+
+                if (!continuous && finalTranscript.trim()) {
+                  finish(transcriptResult());
+                }
               }),
               client.addListener('error', (event: ExpoSpeechRecognitionErrorEvent) => {
                 latestNativeErrorCode = event.error;
@@ -385,7 +390,7 @@ export function createSpeechRecognitionAdapter(
               contextualStrings: CONTEXTUAL_STRING_LIST,
               interimResults: false,
               maxAlternatives: 1,
-              continuous: true,
+              continuous,
               requiresOnDeviceRecognition,
               addsPunctuation: true,
               iosTaskHint: 'dictation',

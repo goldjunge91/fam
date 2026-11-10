@@ -32,6 +32,39 @@ jest.mock('../catalog/use-recipe-catalog', () => ({
   toCookingRecipeDetail: () => mockDetail,
 }));
 
+jest.mock('expo-speech-recognition', () => ({
+  ExpoSpeechRecognitionModule: {
+    requestMicrophonePermissionsAsync: jest.fn(),
+    requestSpeechRecognizerPermissionsAsync: jest.fn(),
+  },
+}));
+
+function getSpeechPermissionSpies(): {
+  requestMicrophonePermissionsAsync: jest.Mock;
+  requestSpeechRecognizerPermissionsAsync: jest.Mock;
+} {
+  return (
+    jest.requireMock('expo-speech-recognition') as {
+      ExpoSpeechRecognitionModule: {
+        requestMicrophonePermissionsAsync: jest.Mock;
+        requestSpeechRecognizerPermissionsAsync: jest.Mock;
+      };
+    }
+  ).ExpoSpeechRecognitionModule;
+}
+
+jest.mock('@/features/shopping-list/stt-beta/services/native-speech-recognition', () => ({
+  nativeSpeechRecognitionAdapter: { start: jest.fn() },
+}));
+
+function getNativeSpeechRecognitionStart(): jest.Mock {
+  return (
+    jest.requireMock('@/features/shopping-list/stt-beta/services/native-speech-recognition') as {
+      nativeSpeechRecognitionAdapter: { start: jest.Mock };
+    }
+  ).nativeSpeechRecognitionAdapter.start;
+}
+
 let mockIsPremium = false;
 
 jest.mock('@/features/premium/premium-provider', () => ({
@@ -199,6 +232,10 @@ beforeEach(() => {
   mockCatalogDetail = null;
   mockCatalogLoading = false;
   mockIsPremium = false;
+  getNativeSpeechRecognitionStart().mockClear();
+  const permissionSpies = getSpeechPermissionSpies();
+  permissionSpies.requestMicrophonePermissionsAsync.mockClear();
+  permissionSpies.requestSpeechRecognizerPermissionsAsync.mockClear();
   jest.mocked(recordActivity).mockReturnValue({ count: 1, increased: true, milestone: false });
   jest.mocked(celebrate).mockClear();
 });
@@ -262,6 +299,27 @@ describe('CookingModeScreen', () => {
 
     expect(screen.queryByRole('button', { name: /nächster schritt/i })).not.toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: /timer/i })).not.toBeOnTheScreen();
+    expect(screen.queryByText('Voice bereit')).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Zuhören' })).not.toBeOnTheScreen();
+    expect(getNativeSpeechRecognitionStart()).not.toHaveBeenCalled();
+    expect(getSpeechPermissionSpies().requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
+    expect(
+      getSpeechPermissionSpies().requestSpeechRecognizerPermissionsAsync,
+    ).not.toHaveBeenCalled();
+  });
+
+  it('zeigt im Plus-Schritt nur explizit verknüpfte Zutaten und den bereiten Voice-Status', async () => {
+    const detail = makeDetail();
+    detail.steps[0] = { ...detail.steps[0], ingredientIds: ['item-1', 'missing-item'] };
+    mockDetail = detail;
+    mockIsPremium = true;
+    await renderScreen();
+
+    expect(screen.getByText('Voice bereit')).toBeOnTheScreen();
+    expect(screen.getByText('50 g Tomaten')).toBeOnTheScreen();
+    expect(screen.queryByText('300 g Hackfleisch')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Vorlesen' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Zuhören' })).toBeOnTheScreen();
   });
 
   it('zeigt im Premium-Kochmodus die explizite Timer-Dauer vor dem Text-Fallback', async () => {
@@ -286,16 +344,19 @@ describe('CookingModeScreen', () => {
     expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 
-  it('feiert einen erreichten Streak-Meilenstein', async () => {
+  it('kehrt nach dem Abschluss zum zuletzt angezeigten Schritt zurück', async () => {
+    const user = userEvent.setup();
     mockDetail = makeDetail();
     mockIsPremium = true;
-    jest.mocked(recordActivity).mockReturnValue({ count: 3, increased: true, milestone: true });
     await renderScreen();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+    await user.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
+    expect(screen.getByText('SCHRITT 2 VON 2')).toBeOnTheScreen();
 
-    expect(celebrate).toHaveBeenCalledTimes(1);
+    await user.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+    await user.press(screen.getByRole('button', { name: 'Zurück zum letzten Schritt' }));
+
+    expect(screen.getByText('SCHRITT 2 VON 2')).toBeOnTheScreen();
   });
 
   it('geht im Premium-Kochmodus zum vorherigen Schritt zurück', async () => {

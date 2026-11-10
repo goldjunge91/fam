@@ -6,16 +6,10 @@ import { Txt } from '@/constants/ui';
 import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
 import { usePremium } from '@/features/premium/premium-provider';
-import {
-  toCookingRecipeDetail,
-  useCatalogImageUrl,
-  useCatalogRecipe,
-} from '../catalog/use-recipe-catalog';
+import { toCookingRecipeDetail, useCatalogRecipe } from '../catalog/use-recipe-catalog';
 import { CookingModeFinished } from '../components/cooking-mode/cooking-mode-finished';
-import { CookingModeNoSteps } from '../components/cooking-mode/cooking-mode-no-steps';
+import { CookingModePlusFlow } from '../components/cooking-mode/cooking-mode-plus-flow';
 import { CookingModeShell } from '../components/cooking-mode/cooking-mode-shell';
-import { CookingModeStep } from '../components/cooking-mode/cooking-mode-step';
-import { getCookingTimerDurationSeconds } from '../components/cooking-mode/cooking-mode-timer';
 import { FreeCookingMode } from '../components/cooking-mode/free-cooking-mode';
 import { flattenRecipeItems } from '../domain/ingredient-mentions';
 import {
@@ -23,13 +17,16 @@ import {
   replaceIngredientName,
   type TemporaryIngredientSwap,
 } from '../domain/temporary-ingredient-swap';
-import { useCookingTimer } from '../hooks/use-cooking-timer';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
 const styles = StyleSheet.create((theme) => ({
   loading: {
     padding: theme.space.xxxl,
     textAlign: 'center',
+  },
+  context: {
+    paddingHorizontal: theme.space.xxl,
+    paddingTop: theme.space.sm,
   },
 }));
 
@@ -75,8 +72,8 @@ export function CookingModeScreen() {
   const isCatalog = !id && Boolean(slug);
   const isLoading = isCatalog ? catalogQuery.isLoading : recipeQuery.isLoading;
   const { hasPlus } = usePremium();
-  const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [lastPlusStepIndex, setLastPlusStepIndex] = useState(0);
   const completedRecipeIdRef = useRef<string | null>(null);
   const displayedSteps = useMemo(
     () =>
@@ -96,20 +93,6 @@ export function CookingModeScreen() {
         : [],
     [data, temporarySwap],
   );
-  const timerStep = displayedSteps[Math.min(stepIndex, Math.max(displayedSteps.length - 1, 0))];
-  const catalogStepImagePath = catalogData?.stepImages.find(
-    (image) => image.step_id === timerStep?.id,
-  )?.storage_path;
-  const { data: catalogStepImageUrl } = useCatalogImageUrl(catalogStepImagePath);
-  const durationSeconds = getCookingTimerDurationSeconds(timerStep);
-  const {
-    remainingSeconds,
-    running,
-    start: startTimer,
-    pause: pauseTimer,
-    reset: resetTimer,
-  } = useCookingTimer({ stepId: timerStep?.id, durationSeconds });
-
   useEffect(() => {
     const recipeId = data?.recipe.id;
     if (!finished || !recipeId || completedRecipeIdRef.current === recipeId) return;
@@ -137,40 +120,24 @@ export function CookingModeScreen() {
     );
   }
 
-  const currentStep = displayedSteps[Math.min(stepIndex, Math.max(displayedSteps.length - 1, 0))];
-
   return (
     <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
       {temporarySwap ? (
-        <Txt variant="caption" tone="secondary">
+        <Txt variant="caption" tone="secondary" style={styles.context}>
           Einmalig ersetzt: {temporarySwap.ingredientName} → {temporarySwap.replacement}
         </Txt>
       ) : null}
-      {currentStep ? (
-        <CookingModeStep
-          steps={displayedSteps}
-          stepIndex={stepIndex}
-          currentStep={currentStep}
-          currentStepImageUrl={catalogStepImageUrl}
-          mentionIngredients={displayedIngredients}
-          durationSeconds={durationSeconds}
-          remainingSeconds={remainingSeconds}
-          timerRunning={running}
-          onStartTimer={startTimer}
-          onPauseTimer={pauseTimer}
-          onResetTimer={resetTimer}
-          onPreviousStep={() => setStepIndex((value) => Math.max(0, value - 1))}
-          onNextStep={() => {
-            if (stepIndex >= displayedSteps.length - 1) {
-              setFinished(true);
-            } else {
-              setStepIndex((value) => value + 1);
-            }
-          }}
-        />
-      ) : (
-        <CookingModeNoSteps recipe={data.recipe} onFinish={() => setFinished(true)} />
-      )}
+      <CookingModePlusFlow
+        recipe={data.recipe}
+        steps={displayedSteps}
+        ingredients={displayedIngredients}
+        catalogStepImages={catalogData?.stepImages}
+        initialStepIndex={lastPlusStepIndex}
+        onFinish={(stepIndex) => {
+          if (stepIndex !== undefined) setLastPlusStepIndex(stepIndex);
+          setFinished(true);
+        }}
+      />
     </CookingModeShell>
   );
 }
