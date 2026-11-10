@@ -257,6 +257,7 @@ describe('useCookingModeVoice', () => {
   it.each([
     ['permission-denied', 'denied'],
     ['capability-unavailable', 'unavailable'],
+    ['cancelled', 'ready'],
     ['error', 'error'],
   ] as const)('maps the recognition result %s to %s', async (nativeStatus, expectedStatus) => {
     const { adapter, speech, sessions } = createVoiceHarness();
@@ -272,7 +273,11 @@ describe('useCookingModeVoice', () => {
     });
 
     expect(hook.current.status).toBe(expectedStatus);
-    expect(hook.current.error).toContain(`${nativeStatus} result`);
+    if (nativeStatus === 'cancelled') {
+      expect(hook.current.error).toBeNull();
+    } else {
+      expect(hook.current.error).toContain(`${nativeStatus} result`);
+    }
   });
 
   it('keeps touch callbacks available for an unknown transcript', async () => {
@@ -298,6 +303,69 @@ describe('useCookingModeVoice', () => {
     expect(onNextStep).toHaveBeenCalledTimes(1);
   });
 
+  it('handles empty step ids and string speech errors', async () => {
+    const { speech } = createVoiceHarness();
+    const { result: emptyHook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, stepId: '', speech }),
+    );
+    expect(emptyHook.current.status).toBe('error');
+
+    const { result: hook } = await renderHook(() => useCookingModeVoice({ ...options, speech }));
+    await act(async () => {
+      hook.current.readStep();
+      await flushAsyncWork();
+    });
+    const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+      onError: (error: Error) => void;
+    };
+    await act(async () => {
+      speechOptions.onError('tts failed' as unknown as Error);
+    });
+    expect(hook.current.status).toBe('error');
+    expect(hook.current.error).toBe('tts failed');
+  });
+
+  it('continues when stopping speech rejects', async () => {
+    const { adapter, speech } = createVoiceHarness();
+    speech.stop = jest.fn().mockRejectedValue(new Error('stop failed'));
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.readStep();
+      await flushAsyncWork();
+    });
+    expect(speech.speak).toHaveBeenCalled();
+  });
+
+  it('returns ready when stopListening is called without a session', async () => {
+    const { adapter, speech } = createVoiceHarness();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.stopListening();
+    });
+    expect(hook.current.status).toBe('ready');
+  });
+
+  it('cancels a pending session when a new listening request starts', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.startListening();
+      await flushAsyncWork();
+      hook.current.startListening();
+      await flushAsyncWork();
+    });
+    expect(sessions[0]?.cancel).toHaveBeenCalled();
+  });
+
   it('cancels recognition and stops speech when the step changes or unmounts', async () => {
     const { adapter, speech, sessions } = createVoiceHarness();
     const {
@@ -320,5 +388,120 @@ describe('useCookingModeVoice', () => {
 
     await unmount();
     expect(speech.stop).toHaveBeenCalledTimes(3);
+  });
+
+  it('speaks the no-ingredient fallback and reports an empty step', async () => {
+    const { adapter, speech } = createVoiceHarness();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, stepIngredients: [], adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.readIngredients();
+      await flushAsyncWork();
+    });
+    expect(speech.speak).toHaveBeenCalledWith(
+      'Für diesen Schritt sind keine Zutaten verknüpft.',
+      expect.anything(),
+    );
+
+    await act(async () => {
+      hook.current.readStep();
+      await flushAsyncWork();
+    });
+    const { result: emptyHook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, currentStepText: '  ', adapter, speech }),
+    );
+    await act(async () => {
+      emptyHook.current.readStep();
+      await flushAsyncWork();
+    });
+    expect(emptyHook.current.status).toBe('error');
+    expect(emptyHook.current.error).toContain('kein Vorlesetext');
+  });
+
+  it('reports speech and recognition startup errors', async () => {
+    const speechError = new Error('speech failed');
+    const speech: CookingModeVoiceSpeech = {
+      speak: jest.fn(() => {
+        throw speechError;
+      }),
+      stop: jest.fn(async () => undefined),
+    };
+    const { result: speechHook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, speech }),
+    );
+    await act(async () => {
+      speechHook.current.readStep();
+      await flushAsyncWork();
+    });
+    expect(speechHook.current.status).toBe('error');
+    expect(speechHook.current.error).toBe('speech failed');
+
+    const adapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => {
+        throw new Error('recognizer failed');
+      }),
+    };
+    const { result: adapterHook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter }),
+    );
+    await act(async () => {
+      adapterHook.current.startListening();
+      await flushAsyncWork();
+    });
+    expect(adapterHook.current.status).toBe('error');
+    expect(adapterHook.current.error).toBe('recognizer failed');
+  });
+
+  it('handles a rejected recognition session and a throwing stop call', async () => {
+    let rejectResult: (error: unknown) => void = () => undefined;
+    const resultPromise = new Promise<SpeechInputResult>((_resolve, reject) => {
+      rejectResult = reject;
+    });
+    const rejectedSession: SpeechRecognitionSession = {
+      result: resultPromise,
+      stop: jest.fn(),
+      cancel: jest.fn(),
+    };
+    const rejectedAdapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => rejectedSession),
+    };
+    const { result: rejectedHook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter: rejectedAdapter }),
+    );
+    await act(async () => {
+      rejectedHook.current.startListening();
+      await flushAsyncWork();
+      rejectResult(new Error('recognition failed'));
+      await flushAsyncWork();
+    });
+    expect(rejectedHook.current.status).toBe('error');
+    expect(rejectedHook.current.error).toBe('recognition failed');
+
+    let resolveStopResult: (value: SpeechInputResult) => void = () => undefined;
+    const stopSession: SpeechRecognitionSession = {
+      result: new Promise((resolve) => {
+        resolveStopResult = resolve;
+      }),
+      stop: jest.fn(() => {
+        throw new Error('stop failed');
+      }),
+      cancel: jest.fn(),
+    };
+    const stopAdapter: SpeechRecognitionAdapter = { start: jest.fn(() => stopSession) };
+    const { result: stopHook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter: stopAdapter }),
+    );
+    await act(async () => {
+      stopHook.current.startListening();
+      await flushAsyncWork();
+      await flushScheduledCommand();
+      stopHook.current.stopListening();
+      await flushAsyncWork();
+    });
+    expect(stopHook.current.status).toBe('error');
+    expect(stopHook.current.error).toBe('stop failed');
+    resolveStopResult(result('cancelled'));
   });
 });

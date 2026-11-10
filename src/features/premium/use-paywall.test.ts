@@ -88,6 +88,47 @@ describe('usePaywall', () => {
     });
   });
 
+  it('returns unavailable when the selected period has no package', async () => {
+    const { result } = await renderHook(() => usePaywall('ai'));
+
+    await act(async () => {
+      await expect(result.current.buySelectedPlan()).resolves.toEqual({ kind: 'unavailable' });
+    });
+    expect(mockBuyPackage).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    { kind: 'cancelled' as const },
+    {
+      kind: 'failed' as const,
+      error: { code: 'store_problem', message: 'store failed' },
+    },
+  ])('handles a non-purchased outcome: $kind', async (outcome) => {
+    const annualPackage = {
+      identifier: '$rc_annual',
+      packageType: 'ANNUAL',
+      product: { price: 44.99, priceString: '44,99 €', currencyCode: 'EUR' },
+    } as unknown as PurchasesPackage;
+    mockPackagesForEntitlement.mockResolvedValueOnce([annualPackage]);
+    mockBuyPackage.mockResolvedValueOnce(outcome as never);
+
+    const { result } = await renderHook(() => usePaywall('ai'));
+    await act(async () => {
+      await result.current.buySelectedPlan();
+    });
+
+    expect(mockPollHousehold).not.toHaveBeenCalled();
+  });
+
+  it('returns a failed restore result without polling', async () => {
+    const error = new Error('restore failed');
+    mockRestorePurchases.mockResolvedValueOnce({ ok: false, error });
+
+    const { result } = await renderHook(() => usePaywall('ai'));
+    await expect(act(async () => result.current.restore())).resolves.toEqual({ ok: false, error });
+    expect(mockPollHousehold).not.toHaveBeenCalled();
+  });
+
   it('stößt nach erfolgreichem Restore den schnellen Haushaltsabgleich an', async () => {
     mockRestorePurchases.mockResolvedValueOnce({
       ok: true,
