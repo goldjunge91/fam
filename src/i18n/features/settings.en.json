@@ -200,7 +200,7 @@
           },
           "thirdParties": {
             "title": "Third-party services",
-            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry handles full error diagnosis. PostHog is only enabled after your consent and receives curated technical usage data and a technical account ID; email addresses, household IDs, free-form error messages, and private/dynamic screen paths are excluded."
+            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry handles full error diagnosis. PostHog is enabled only after your consent. It then receives your email address solely to evaluate user-specific feature access, as well as a technical account ID and curated technical usage data. Your email is not sent as an analytics event. Household IDs, free-form error messages, and private/dynamic screen paths are excluded."
           },
           "aiProcessing": {
             "title": "AI features",
@@ -220,9 +220,9 @@
           }
         },
         "posthogSettings": {
-          "title": "Product analytics with PostHog",
-          "enabledDescription": "You agreed to product analytics. We send technical usage data and stable technical account IDs to PostHog. You can stop sharing at any time.",
-          "disabledDescription": "PostHog is disabled. Without your consent, no PostHog events, automatic touch data, or identity data are sent.",
+          "title": "PostHog analytics and feature access",
+          "enabledDescription": "You agreed to PostHog processing. We send curated technical usage data and your technical account ID. Your email address is sent to PostHog only to evaluate user-specific feature access, not as an analytics event. You can stop sharing at any time.",
+          "disabledDescription": "PostHog is disabled. Without your consent, your email address, account ID, and PostHog events are not sent to PostHog.",
           "allowButton": "Allow PostHog",
           "disableButton": "Disable PostHog"
         },

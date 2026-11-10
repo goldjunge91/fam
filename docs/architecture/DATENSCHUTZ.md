@@ -1,6 +1,6 @@
 # Datenschutzerklärung
 
-> Stand: 2026-11-09. Diese Erklärung beschreibt, was in der App tatsächlich
+> Stand: 2026-11-10. Diese Erklärung beschreibt, was in der App tatsächlich
 > passiert — nicht mehr und nicht weniger. Sie ist die Quelle für die
 > App-Store-Privacy-Labels ([#99](https://github.com/goldjunge91/fam/issues/99))
 > und ersetzt die frühere, technisch nicht haltbare Zusage einer
@@ -33,7 +33,7 @@ zu verteilen — das ist mit echter E2EE nicht vereinbar. Stattdessen:
 
 | Kategorie | Beispiele | Zweck | Geteilt mit Haushalt? |
 |---|---|---|---|
-| Konto | E-Mail-Adresse, Passwort-Hash (verwaltet von Supabase Auth) | Anmeldung, Kontosicherheit | Nein |
+| Konto | E-Mail-Adresse, Passwort-Hash (verwaltet von Supabase Auth) | Anmeldung, Kontosicherheit; E-Mail zusätzlich zur nutzerbezogenen Feature-Freigabe an PostHog nach Einwilligung | Nein |
 | Profil | Anzeigename, Avatar, Geburtsdatum, biologisches Geschlecht (nur für die Kalorienformel), Größe, Aktivitätslevel | Grundumsatz-/Kalorienberechnung, Personalisierung | Nein |
 | Gesundheits-/Ernährungsdaten | Ernährungstagebuch-Einträge, Gewichtsverlauf, Kalorien-/Makroziele | Kern-Feature Kalorien- und Gewichts-Tracking | Nein — technisch über RLS getrennt |
 | Kinderprofile | Name, Geburtsdatum eines Kindes, angelegt und verwaltet durch ein Elternteil | Mahlzeiten einem Kind zuordnen können | Innerhalb des Haushalts sichtbar (kein eigener Account, keine Anmeldedaten) |
@@ -70,9 +70,11 @@ zu verteilen — das ist mit echter E2EE nicht vereinbar. Stattdessen:
   Diagnosedaten zur Stabilitätsanalyse.
 - **PostHog** (posthog.com): Wird erst nach einer ausdrücklichen
   Nutzerentscheidung aktiviert. Die App sendet eine technische Konto-ID,
-  kuratierte Nutzungsereignisse und bereinigte Diagnoseereignisse. Touch-
-  Autocapture, automatische JavaScript-/Native-Fehlererfassung, E-Mail-
-  Adressen, Haushalts-IDs, freie Fehlermeldungen sowie dynamische oder private
+  kuratierte Nutzungsereignisse und bereinigte Diagnoseereignisse. Zusätzlich
+  wird die Konto-E-Mail ausschließlich zur Auswertung nutzerbezogener
+  Feature-Freigaben übermittelt. Sie wird nicht als Analyseereignis gesendet.
+  Touch-Autocapture, automatische JavaScript-/Native-Fehlererfassung,
+  Haushalts-IDs, freie Fehlermeldungen sowie dynamische oder private
   Screenpfade werden nicht an PostHog gesendet. Die Standard-Ingestion ist auf
   den EU-Host ausgerichtet; tatsächliche Cloud-, Retention-, IP- und
   Zugriffseinstellungen müssen im PostHog-Projekt bestätigt werden.

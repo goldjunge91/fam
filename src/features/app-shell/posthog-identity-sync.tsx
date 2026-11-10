@@ -10,6 +10,7 @@ const FEATURE_FLAG_AUTO_RELOAD_INTERVAL_MS = 12 * 60 * 60 * 1000;
 export function PostHogIdentitySync() {
   const { session, isLoading, accountReady, error } = useSession();
   const userId = session?.user.id;
+  const email = session?.user.email;
   const posthogEnabled = useAnalyticsSettingsStore(
     (state) =>
       state.posthogConsent === 'granted' &&
@@ -32,10 +33,13 @@ export function PostHogIdentitySync() {
 
     if (userId) {
       posthogClient.identify(userId);
+      if (email) {
+        posthogClient.setPersonPropertiesForFlags({ email });
+      }
     } else {
       posthogClient.reset();
     }
-  }, [accountReady, error, isLoading, posthogEnabled, posthogClient, userId]);
+  }, [accountReady, email, error, isLoading, posthogEnabled, posthogClient, userId]);
 
   useEffect(() => {
     // Feature-Flags beim Vordergrundwechsel aktualisieren.

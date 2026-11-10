@@ -18,6 +18,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 const mockIdentify = jest.fn();
+const mockSetPersonPropertiesForFlags = jest.fn();
 const mockReset = jest.fn();
 const mockReloadFeatureFlags = jest.fn();
 let mockConfigured = true;
@@ -26,7 +27,12 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
   isPostHogConfigured: () => mockConfigured,
   getPostHogClient: () =>
     mockConfigured
-      ? { identify: mockIdentify, reset: mockReset, reloadFeatureFlags: mockReloadFeatureFlags }
+      ? {
+          identify: mockIdentify,
+          setPersonPropertiesForFlags: mockSetPersonPropertiesForFlags,
+          reset: mockReset,
+          reloadFeatureFlags: mockReloadFeatureFlags,
+        }
       : undefined,
 }));
 
@@ -60,12 +66,15 @@ describe('PostHogIdentitySync', () => {
     jest.restoreAllMocks();
   });
 
-  it('ruft identify() nur mit der Supabase-User-ID auf, sobald eine Session vorliegt', async () => {
+  it('nutzt die Konto-E-Mail nur für Feature-Flags nach erteilter Einwilligung', async () => {
     mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
 
     await render(<PostHogIdentitySync />);
 
     expect(mockIdentify).toHaveBeenCalledWith('user-1');
+    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith(
+      { email: 'test@example.com' },
+    );
     expect(mockReset).not.toHaveBeenCalled();
   });
 
@@ -76,6 +85,7 @@ describe('PostHogIdentitySync', () => {
     await render(<PostHogIdentitySync />);
 
     expect(mockIdentify).not.toHaveBeenCalled();
+    expect(mockSetPersonPropertiesForFlags).not.toHaveBeenCalled();
     expect(mockReset).toHaveBeenCalled();
   });
 
@@ -86,6 +96,7 @@ describe('PostHogIdentitySync', () => {
 
     expect(mockReset).toHaveBeenCalled();
     expect(mockIdentify).not.toHaveBeenCalled();
+    expect(mockSetPersonPropertiesForFlags).not.toHaveBeenCalled();
   });
 
   it('setzt keine Identitaet solange die Session noch laedt', async () => {
@@ -130,6 +141,9 @@ describe('PostHogIdentitySync', () => {
     await view.rerender(<PostHogIdentitySync />);
 
     expect(mockIdentify).toHaveBeenCalledWith('user-1');
+    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith(
+      { email: 'test@example.com' },
+    );
   });
 
   it('laedt Feature-Flags nicht innerhalb des automatischen 12-Stunden-Intervalls', async () => {

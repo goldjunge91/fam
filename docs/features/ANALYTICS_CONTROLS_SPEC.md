@@ -95,8 +95,10 @@ zusätzlich mit `optOut()` deaktiviert und zurückgesetzt.
 - Screen-Telemetrie verwendet ausschließlich eine statische Allowlist. Private
   und dynamische Routen werden nicht an PostHog weitergegeben.
 - Freie Fehlermeldungen, E-Mail-Adressen, URLs, UUIDs, Haushalts- und
-  Identitätsfelder werden aus PostHog-Payloads entfernt. Sentry bleibt der
-  vollständige Fehlerdiagnose-Zielort.
+  Identitätsfelder werden aus PostHog-Analyseereignissen entfernt. Die
+  Konto-E-Mail wird nur nach PostHog-Einwilligung als Eigenschaft zur
+  Feature-Flag-Auswertung übermittelt und nicht als Analyseereignis gesendet.
+  Sentry bleibt der vollständige Fehlerdiagnose-Zielort.
 - Sentry bleibt unabhängig von dieser Konfiguration.
 - Unbekannte Produkt-Events werden nicht stillschweigend einer neuen Domäne
   zugeordnet; sie bleiben bis zur expliziten Zuordnung aktiv.
@@ -176,8 +178,10 @@ Keine vollständige Testsuite routinemäßig ausführen; gezielte Tests verwende
   widerrufen werden und überlebt einen App-Neustart.
 - Touch-Autocapture, automatische Fehlererfassung und dynamische/private
   Screenpfade erreichen PostHog nicht.
-- PostHog-Payloads enthalten keine freien Fehlermeldungen, E-Mail-Adressen,
-  URLs, UUIDs, Haushalts- oder Identitätsfelder.
+- PostHog-Analyseereignisse enthalten keine freien Fehlermeldungen,
+  E-Mail-Adressen, URLs, UUIDs, Haushalts- oder Identitätsfelder. Die
+  Konto-E-Mail wird ausschließlich bei erteilter PostHog-Einwilligung für
+  Feature-Flag-Auswertungen übermittelt.
 - Das Dev-Menü kann die technischen Schalter ändern und den Status sichtbar
   anzeigen.
 - Die bestehenden Analytics-Aufrufer müssen nicht einzeln angepasst werden.

@@ -16,15 +16,19 @@ in `src/lib/observability/providers/posthog.tsx`, `src/lib/telemetry/` und
   `optOut()` und `reset()` auf.
 - Touch-Autocapture, automatische JavaScript-Fehlererfassung und automatische
   native Crash-Erfassung bleiben deaktiviert.
-- Die App identifiziert einen Account nur über die technische Supabase-ID.
-  E-Mail und redundante `userId`-Person-Properties werden nicht an PostHog
-  übermittelt.
+- Die App identifiziert einen Account über die technische Supabase-ID. Nach
+  erteilter PostHog-Einwilligung wird die E-Mail zusätzlich als
+  Feature-Flag-Auswertungseigenschaft übermittelt, damit nutzerbezogene
+  Freigaben ausgewertet werden können. Sie wird über
+  `setPersonPropertiesForFlags` nur für Flag-Auswertungen gesetzt und nicht als
+  Analyseereignis oder dauerhaftes Profilmerkmal geschrieben.
 - Screen-Telemetrie nutzt eine statische Allowlist. Dynamische IDs, private
   Ernährungs-/Gewichtsrouten, Haushaltsdetails und unbekannte Pfade werden
   verworfen.
-- Vor dem PostHog-Versand werden E-Mail-Adressen, URLs, UUIDs, freie
-  Fehlermeldungen, Haushalts- und Identitätsfelder entfernt. Sentry bleibt der
-  vollständige Fehlerdiagnose-Zielort.
+- Aus Analyseereignissen werden E-Mail-Adressen, URLs, UUIDs, freie
+  Fehlermeldungen, Haushalts- und Identitätsfelder entfernt. Die E-Mail wird
+  ausschließlich nach Einwilligung in Flag-Auswertungsanfragen übermittelt.
+  Sentry bleibt der vollständige Fehlerdiagnose-Zielort.
 - Der Runtime-Host fällt auf `https://eu.i.posthog.com` zurück. Eine
   Produktionsumgebung muss den Host und den öffentlichen Projekt-Key trotzdem
   explizit in EAS prüfen.

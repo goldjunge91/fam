@@ -8,7 +8,7 @@
 
 | Datentyp (Apple) / Kategorie (Google) | Erhoben? | Verknüpft mit Identität? | Zweck | Tabelle/Quelle |
 |---|---|---|---|---|
-| Kontaktdaten → E-Mail-Adresse | Ja | Ja | Kontoverwaltung, Authentifizierung | `auth.users` (Supabase Auth) |
+| Kontaktdaten → E-Mail-Adresse | Ja | Ja | Kontoverwaltung, Authentifizierung; nutzerbezogene Feature-Freigaben bei PostHog-Einwilligung | Supabase Auth, PostHog (Flag-Auswertung) |
 | Gesundheit & Fitness → Ernährung | Ja | Ja | Kern-Feature: Kalorien-/Makro-Tracking | `food_entries` |
 | Gesundheit & Fitness → Gewicht/Körpermaße | Ja | Ja | Kern-Feature: Gewichtsverlauf | `weight_entries` |
 | Nutzungsdaten → Produktinteraktion | Ja, PostHog erst nach Einwilligung | Ja bei PostHog | Produktverbesserung und Feature-Flags | PostHog, Aptabase deaktiviert |

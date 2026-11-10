@@ -200,7 +200,7 @@
           },
           "thirdParties": {
             "title": "Drittdienste",
-            "body": "Open Food Facts: Beim Barcode-Scan oder der Produktsuche wird der Barcode/Suchbegriff an die öffentliche Open-Food-Facts-API gesendet — ohne Konto- oder Gesundheitsdaten. Supabase hostet Datenbank, Authentifizierung und Realtime-Synchronisation. Google AdMob liefert Werbung für die kostenlose Version. RevenueCat verarbeitet Kauf- und Abo-Status. Sentry hilft bei der vollständigen Fehlerdiagnose. PostHog wird erst nach deiner Zustimmung aktiviert und erhält nur kuratierte technische Nutzungsdaten und eine technische Konto-ID; E-Mail, Haushalts-IDs, freie Fehlermeldungen und private/dynamische Screenpfade werden ausgeschlossen."
+            "body": "Open Food Facts: Beim Barcode-Scan oder der Produktsuche wird der Barcode/Suchbegriff an die öffentliche Open-Food-Facts-API gesendet — ohne Konto- oder Gesundheitsdaten. Supabase hostet Datenbank, Authentifizierung und Realtime-Synchronisation. Google AdMob liefert Werbung für die kostenlose Version. RevenueCat verarbeitet Kauf- und Abo-Status. Sentry hilft bei der vollständigen Fehlerdiagnose. PostHog wird erst nach deiner Zustimmung aktiviert. Dann erhält PostHog deine E-Mail-Adresse ausschließlich zur Auswertung nutzerbezogener Feature-Freigaben sowie eine technische Konto-ID und kuratierte technische Nutzungsdaten. Die E-Mail-Adresse wird nicht als Analyseereignis gesendet. Haushalts-IDs, freie Fehlermeldungen und private/dynamische Screenpfade werden ausgeschlossen."
           },
           "aiProcessing": {
             "title": "KI-Funktionen",
@@ -220,9 +220,9 @@
           }
         },
         "posthogSettings": {
-          "title": "Produktanalyse mit PostHog",
-          "enabledDescription": "Du hast der Produktanalyse zugestimmt. Wir senden technische Nutzungsdaten und stabile technische Konto-IDs an PostHog. Du kannst die Übermittlung jederzeit beenden.",
-          "disabledDescription": "PostHog ist deaktiviert. Ohne deine Zustimmung werden keine PostHog-Ereignisse, automatischen Touch-Daten oder Identitätsdaten übermittelt.",
+          "title": "PostHog-Analyse und Feature-Freigaben",
+          "enabledDescription": "Du hast PostHog zugestimmt. Wir senden kuratierte technische Nutzungsdaten und deine technische Konto-ID. Deine E-Mail-Adresse wird nur zur Auswertung deiner nutzerbezogenen Feature-Freigaben an PostHog übermittelt, nicht als Analyseereignis. Du kannst die Übermittlung jederzeit beenden.",
+          "disabledDescription": "PostHog ist deaktiviert. Ohne deine Zustimmung werden weder PostHog-Ereignisse noch deine Konto-ID oder E-Mail-Adresse an PostHog übermittelt.",
           "allowButton": "PostHog erlauben",
           "disableButton": "PostHog deaktivieren"
         },
