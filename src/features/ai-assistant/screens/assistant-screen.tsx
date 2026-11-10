@@ -581,8 +581,12 @@ export function AssistantScreen() {
 
       if (!synced || !householdActive) {
         Alert.alert(
-          'Kauf erkannt',
-          'Dein KI-Abo wurde gefunden. Die Freigabe für den Haushalt wird noch synchronisiert. Bitte versuche es gleich erneut.',
+          'Haushaltsfreigabe noch nicht aktiv',
+          'Dein KI-Abo wurde gefunden, aber die Freigabe für den Haushalt ist noch nicht aktiv. Du kannst es jetzt erneut versuchen.',
+          [
+            { text: 'Später', style: 'cancel' },
+            { text: 'Erneut versuchen', onPress: () => void handleRestoreAiPurchases() },
+          ],
         );
         return;
       }

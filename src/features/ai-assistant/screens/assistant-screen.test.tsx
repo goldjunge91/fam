@@ -439,6 +439,35 @@ describe('AssistantScreen', () => {
     expect(Alert.alert).toHaveBeenCalledWith('Erfolgreich', 'Dein KI-Abo wurde wiederhergestellt.');
   });
 
+  it('bietet einen erneuten Haushaltsabgleich an, wenn die Freigabe noch nicht aktiv ist', async () => {
+    mockHasAI = false;
+    mockPollEntitlement.mockResolvedValueOnce(false);
+    await renderAssistant();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Käufe wiederherstellen' }));
+
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenCalledWith(
+        'Haushaltsfreigabe noch nicht aktiv',
+        'Dein KI-Abo wurde gefunden, aber die Freigabe für den Haushalt ist noch nicht aktiv. Du kannst es jetzt erneut versuchen.',
+        [
+          { text: 'Später', style: 'cancel' },
+          { text: 'Erneut versuchen', onPress: expect.any(Function) },
+        ],
+      ),
+    );
+
+    const buttons = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    const retryButton = buttons?.find((button) => button.text === 'Erneut versuchen');
+    expect(retryButton?.onPress).toEqual(expect.any(Function));
+
+    await act(async () => {
+      retryButton?.onPress?.();
+    });
+    await waitFor(() => expect(mockRestorePurchases).toHaveBeenCalledTimes(2));
+  });
+
   it('opens the assistant with a recipe context from route params and lets the user remove it', async () => {
     mockRouteParams = { pageContextKind: 'recipe', pageContextRecipeId: ['recipe-1', 'ignored'] };
     await renderAssistant();
