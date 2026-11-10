@@ -191,8 +191,8 @@ for (const line of envContent.split('\n')) {
   }
 }
 
-if (!env.EXPO_PUBLIC_SUPABASE_URL || !env.EXPO_PUBLIC_SUPABASE_KEY) {
-  logger.die('EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_KEY fehlt in .env!');
+if (!env.EXPO_PUBLIC_SUPABASE_URL || !env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY) {
+  logger.die('EXPO_PUBLIC_SUPABASE_URL oder EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY fehlt in .env!');
 }
 logger.ok('Umgebungsvariablen sind gültig.');
 

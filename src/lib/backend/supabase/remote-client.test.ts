@@ -30,7 +30,7 @@ jest.mock('expo-crypto', () => ({
 jest.mock('@/lib/config/env', () => ({
   env: {
     supabaseUrl: 'https://example.supabase.co',
-    supabaseKey: 'test-key',
+    supabasePublishableKey: 'test-key',
   },
 }));
 

@@ -91,7 +91,7 @@ jest.mock('@/lib/analytics/aptabase', () => ({
 jest.mock('@/lib/config/env', () => ({
   env: {
     supabaseUrl: 'http://127.0.0.1:54321',
-    supabaseKey: 'public-anon-key-1234',
+    supabasePublishableKey: 'public-anon-key-1234',
     forceOnboarding: false,
   },
 }));

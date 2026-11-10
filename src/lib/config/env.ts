@@ -37,8 +37,11 @@ export const env = {
   get supabaseUrl(): string {
     return requireEnv('EXPO_PUBLIC_SUPABASE_URL', process.env.EXPO_PUBLIC_SUPABASE_URL);
   },
-  get supabaseKey(): string {
-    return requireEnv('EXPO_PUBLIC_SUPABASE_KEY', process.env.EXPO_PUBLIC_SUPABASE_KEY);
+  get supabasePublishableKey(): string {
+    return requireEnv(
+      'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
+      process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    );
   },
   get forceOnboarding(): boolean {
     return __DEV__ && isFlagEnabled(process.env.EXPO_PUBLIC_FORCE_ONBOARDING);
