@@ -5,7 +5,6 @@ import {
   ActivityIndicator,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
-  Pressable,
   ScrollView,
   TextInput,
   useWindowDimensions,
@@ -19,7 +18,7 @@ import { rs, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { MenuButton } from '@/components/ui/menu-button';
-import { inputTextStyles, SectionHeading, SegmentedControl, Txt } from '@/constants/ui';
+import { inputTextStyles, Press, SectionHeading, SegmentedControl, Txt } from '@/constants/ui';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import {
@@ -565,22 +564,22 @@ export function RecipesScreen() {
     <>
       {view === 'discover' || view === 'household' ? (
         <View style={styles.aiActions}>
-          <Pressable
+          <Press
             accessibilityRole="button"
             onPress={() => router.push('/assistant')}
             style={styles.aiAction}>
             <Txt variant="body" weight="700">
               Assistant
             </Txt>
-          </Pressable>
-          <Pressable
+          </Press>
+          <Press
             accessibilityRole="button"
             onPress={() => router.push('/recipe/import')}
             style={styles.aiAction}>
             <Txt variant="body" weight="700">
               Import Recipe
             </Txt>
-          </Pressable>
+          </Press>
         </View>
       ) : null}
       {/* Aufklappbare Textsuche für Rezepttitel */}

@@ -5,14 +5,14 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Alert, KeyboardAvoidingView, Pressable, ScrollView, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
 import { PageHeader } from '@/components/layout/page-header';
 import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
-import { Txt } from '@/constants/ui';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
@@ -1053,13 +1053,13 @@ export function RecipeCreateScreen() {
             ) : null}
             {importedDraft.originalText ? (
               <>
-                <Pressable
+                <Press
                   accessibilityRole="button"
                   onPress={() => setShowOriginalText((visible) => !visible)}>
                   <Txt variant="caption" weight="700">
                     {showOriginalText ? 'Originaltext ausblenden' : 'Originaltext anzeigen'}
                   </Txt>
-                </Pressable>
+                </Press>
                 {showOriginalText ? (
                   <Txt variant="caption" tone="secondary" numberOfLines={8}>
                     {importedDraft.originalText.slice(0, 1_200)}
