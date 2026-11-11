@@ -8,12 +8,30 @@ type FakeResponse = {
   count?: number;
 };
 
+type FakeOrder = {
+  column: string;
+  ascending: boolean;
+  nullsFirst: boolean;
+};
+
 type FakeCall = {
   table: string;
   select: string | null;
   filters: Array<{ kind: string; column: string; value: unknown }>;
+  orders: FakeOrder[];
   limit: number | null;
 };
+
+function compareFakeValues(left: unknown, right: unknown, order: FakeOrder): number {
+  if (left === right) return 0;
+  if (left === null || left === undefined) return order.nullsFirst ? -1 : 1;
+  if (right === null || right === undefined) return order.nullsFirst ? 1 : -1;
+
+  const comparison = typeof left === 'number' && typeof right === 'number'
+    ? left - right
+    : String(left).localeCompare(String(right), 'de');
+  return order.ascending ? comparison : -comparison;
+}
 
 class FakeQuery {
   constructor(
@@ -56,7 +74,16 @@ class FakeQuery {
     return this;
   }
 
-  order(): this {
+  order(
+    column: string,
+    options?: { ascending?: boolean; nullsFirst?: boolean },
+  ): this {
+    const ascending = options?.ascending ?? true;
+    this.call.orders.push({
+      column,
+      ascending,
+      nullsFirst: options?.nullsFirst ?? !ascending,
+    });
     return this;
   }
 
@@ -65,15 +92,39 @@ class FakeQuery {
     return this;
   }
 
+  private materializedResponse(): FakeResponse {
+    if (!Array.isArray(this.response.data)) return this.response;
+
+    const data = [...this.response.data].sort((left, right) => {
+      if (
+        typeof left !== 'object' || left === null || Array.isArray(left) ||
+        typeof right !== 'object' || right === null || Array.isArray(right)
+      ) return 0;
+      for (const order of this.call.orders) {
+        const comparison = compareFakeValues(
+          (left as Record<string, unknown>)[order.column],
+          (right as Record<string, unknown>)[order.column],
+          order,
+        );
+        if (comparison !== 0) return comparison;
+      }
+      return 0;
+    });
+    return {
+      ...this.response,
+      data: this.call.limit === null ? data : data.slice(0, this.call.limit),
+    };
+  }
+
   maybeSingle(): Promise<FakeResponse> {
-    return Promise.resolve(this.response);
+    return Promise.resolve(this.materializedResponse());
   }
 
   then<TResult1 = FakeResponse, TResult2 = never>(
     onfulfilled?: ((value: FakeResponse) => TResult1 | PromiseLike<TResult1>) | null,
     onrejected?: ((reason: unknown) => TResult2 | PromiseLike<TResult2>) | null,
   ): PromiseLike<TResult1 | TResult2> {
-    return Promise.resolve(this.response).then(onfulfilled, onrejected);
+    return Promise.resolve(this.materializedResponse()).then(onfulfilled, onrejected);
   }
 }
 
@@ -84,7 +135,7 @@ function fakeClient(
   return {
     client: {
       from(table: string) {
-        const call: FakeCall = { table, select: null, filters: [], limit: null };
+        const call: FakeCall = { table, select: null, filters: [], orders: [], limit: null };
         calls.push(call);
         const response = responses[table]?.shift() ?? { data: [], error: null };
         return new FakeQuery(call, response);
@@ -238,4 +289,170 @@ Deno.test('loads visible meal-plan recipes in date order without an unrelated ho
   assertEquals(result.context.mealPlan?.omittedCount, 1);
   assertEquals(result.context.householdRecipes?.map((recipe) => recipe.recipeId), ['recipe-page']);
   assertEquals(calls.filter((call) => call.table === 'recipes').length, 1);
+});
+
+Deno.test('loads inventory by expiry relevance before applying the lot cap', async () => {
+  const { loadCookingContext } = await loadContextModule();
+  const undatedRows = Array.from(
+    { length: CONTEXT_LIMITS.inventoryLots + 1 },
+    (_, index) => ({
+      id: `undated-${String(index).padStart(3, '0')}`,
+      product_id: null,
+      name: `Undatiert ${String(index).padStart(3, '0')}`,
+      quantity: 1,
+      unit: 'piece',
+      expiry_date: null,
+      location_id: null,
+    }),
+  );
+  const { client, calls } = fakeClient({
+    fridge_items: [{
+      data: [
+        ...undatedRows,
+        {
+          id: 'expires-first',
+          product_id: null,
+          name: 'Bald verbrauchen',
+          quantity: 1,
+          unit: 'piece',
+          expiry_date: '2026-11-12',
+          location_id: null,
+        },
+      ],
+      error: null,
+      count: CONTEXT_LIMITS.inventoryLots + 2,
+    }],
+    shopping_list_items: [{ data: [], error: null, count: 0 }],
+  });
+
+  const result = await loadCookingContext(
+    'user-1',
+    'household-1',
+    'Bearer user-token',
+    false,
+    [],
+    undefined,
+    client as never,
+  );
+
+  assertEquals(result.ok, true);
+  if (!result.ok) throw new Error('expected context to load');
+  assertEquals(result.context.inventory.lots[0]?.lotId, 'expires-first');
+  assertEquals(result.context.inventory.lots.length, CONTEXT_LIMITS.inventoryLots);
+  assertEquals(result.context.inventory.omittedCount, 2);
+  assertEquals(
+    calls.find((call) => call.table === 'fridge_items')?.orders,
+    [
+      { column: 'expiry_date', ascending: true, nullsFirst: false },
+      { column: 'name', ascending: true, nullsFirst: false },
+      { column: 'id', ascending: true, nullsFirst: false },
+    ],
+  );
+});
+
+Deno.test('omits meal-plan recipe references that are missing, soft-deleted, or incomplete', async () => {
+  const { loadCookingContext } = await loadContextModule();
+  const completeRows = recipeRows();
+  const { client } = fakeClient({
+    fridge_items: [{ data: [], error: null, count: 0 }],
+    shopping_list_items: [{ data: [], error: null, count: 0 }],
+    meal_plans: [{
+      data: { id: 'plan-1', name: 'Woche', week_start_date: '2026-11-09' },
+      error: null,
+    }],
+    meal_plan_entries: [{
+      data: [
+        {
+          id: 'entry-complete',
+          entry_date: '2026-11-09',
+          meal_slot: 'dinner',
+          recipe_id: 'recipe-page',
+          custom_title: null,
+          custom_ingredients: [],
+          portions: 2,
+        },
+        {
+          id: 'entry-missing',
+          entry_date: '2026-11-10',
+          meal_slot: 'dinner',
+          recipe_id: 'recipe-missing',
+          custom_title: null,
+          custom_ingredients: [],
+          portions: 2,
+        },
+        {
+          id: 'entry-soft-deleted',
+          entry_date: '2026-11-11',
+          meal_slot: 'dinner',
+          recipe_id: 'recipe-soft-deleted',
+          custom_title: null,
+          custom_ingredients: [],
+          portions: 2,
+        },
+        {
+          id: 'entry-incomplete',
+          entry_date: '2026-11-12',
+          meal_slot: 'dinner',
+          recipe_id: 'recipe-incomplete',
+          custom_title: null,
+          custom_ingredients: [],
+          portions: 2,
+        },
+        {
+          id: 'entry-custom',
+          entry_date: '2026-11-13',
+          meal_slot: 'dinner',
+          recipe_id: null,
+          custom_title: 'Resteabend',
+          custom_ingredients: [],
+          portions: 2,
+        },
+      ],
+      error: null,
+      count: 5,
+    }],
+    recipes: [{
+      data: [
+        pageRecipeData(),
+        {
+          ...pageRecipeData(),
+          id: 'recipe-incomplete',
+          title: 'Unvollständig',
+        },
+      ],
+      error: null,
+    }],
+    recipe_components: [
+      ...completeRows.recipe_components,
+      { data: [], error: null },
+    ],
+    recipe_component_items: [
+      ...completeRows.recipe_component_items,
+      { data: [], error: null },
+    ],
+  });
+
+  const result = await loadCookingContext(
+    'user-1',
+    'household-1',
+    'Bearer user-token',
+    false,
+    [],
+    { kind: 'meal_plan', weekStartDate: '2026-11-09' },
+    client as never,
+  );
+
+  assertEquals(result.ok, true);
+  if (!result.ok) throw new Error('expected context to load');
+  assertEquals(
+    result.context.mealPlan?.entries.map((entry) => ({
+      entryId: entry.entryId,
+      recipeId: entry.recipeId,
+      title: entry.title,
+    })),
+    [
+      { entryId: 'entry-complete', recipeId: 'recipe-page', title: 'Seitengericht' },
+      { entryId: 'entry-custom', recipeId: null, title: 'Resteabend' },
+    ],
+  );
 });

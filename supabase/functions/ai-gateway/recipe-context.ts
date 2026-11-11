@@ -93,37 +93,47 @@ function candidateQuota(total: number, index: number, count: number): number {
   return base + (index < total % count ? 1 : 0);
 }
 
+type CatalogCandidateMatch = {
+  productId: string;
+  recipe: Record<string, unknown>;
+};
+
 function scoreCandidateRecipes(
-  candidateRows: readonly unknown[],
-  recipeRows: readonly Record<string, unknown>[],
+  candidateMatches: readonly CatalogCandidateMatch[],
 ): Record<string, unknown>[] {
-  const productIdsByRecipe = new Map<string, Set<string>>();
-  for (const row of candidateRows) {
-    if (!isRecord(row)) continue;
-    const recipeId = nonEmptyString(row.recipe_id);
-    const productId = nonEmptyString(row.product_id);
-    if (!recipeId || !productId) continue;
-    const productIds = productIdsByRecipe.get(recipeId) ?? new Set<string>();
-    productIds.add(productId);
-    productIdsByRecipe.set(recipeId, productIds);
+  const candidatesByRecipeId = new Map<
+    string,
+    { recipe: Record<string, unknown>; productIds: Set<string> }
+  >();
+  for (const match of candidateMatches) {
+    const recipeId = nonEmptyString(match.recipe.id);
+    if (!recipeId) continue;
+    const candidate = candidatesByRecipeId.get(recipeId) ?? {
+      recipe: match.recipe,
+      productIds: new Set<string>(),
+    };
+    candidate.productIds.add(match.productId);
+    candidatesByRecipeId.set(recipeId, candidate);
   }
 
-  return recipeRows
-    .filter((row) => {
-      const id = nonEmptyString(row.id);
-      return id !== null && productIdsByRecipe.has(id);
-    })
+  return [...candidatesByRecipeId.values()]
     .sort((left, right) => {
-      const leftId = nonEmptyString(left.id) ?? '';
-      const rightId = nonEmptyString(right.id) ?? '';
-      const scoreDifference = (productIdsByRecipe.get(rightId)?.size ?? 0) -
-        (productIdsByRecipe.get(leftId)?.size ?? 0);
+      const scoreDifference = right.productIds.size - left.productIds.size;
       if (scoreDifference !== 0) return scoreDifference;
-      return (nonEmptyString(left.title) ?? '').localeCompare(
-        nonEmptyString(right.title) ?? '',
+      const sortOrderDifference =
+        (numberOrNull(left.recipe.sort_order) ?? Number.MAX_SAFE_INTEGER) -
+        (numberOrNull(right.recipe.sort_order) ?? Number.MAX_SAFE_INTEGER);
+      if (sortOrderDifference !== 0) return sortOrderDifference;
+      const titleDifference = (nonEmptyString(left.recipe.title) ?? '').localeCompare(
+        nonEmptyString(right.recipe.title) ?? '',
         'de',
-      ) || leftId.localeCompare(rightId);
-    });
+      );
+      if (titleDifference !== 0) return titleDifference;
+      return (nonEmptyString(left.recipe.id) ?? '').localeCompare(
+        nonEmptyString(right.recipe.id) ?? '',
+      );
+    })
+    .map((candidate) => candidate.recipe);
 }
 
 export async function loadRelevantCatalogRecipes(
@@ -136,11 +146,14 @@ export async function loadRelevantCatalogRecipes(
   const candidateResults = await Promise.all(
     relevantProductIds.map((productId, index) =>
       client
-        .from('catalog_recipe_component_items')
-        .select('id, recipe_id, product_id, position')
-        .eq('product_id', productId)
-        .order('recipe_id', { ascending: true })
-        .order('position', { ascending: true })
+        .from('catalog_recipes')
+        .select(
+          'id, title, cook_time_minutes, default_servings, dietary_tags, sort_order, matched_items:catalog_recipe_component_items!inner()',
+        )
+        .eq('status', 'published')
+        .eq('matched_items.product_id', productId)
+        .order('sort_order', { ascending: true })
+        .order('title', { ascending: true })
         .order('id', { ascending: true })
         .limit(
           candidateQuota(CONTEXT_LIMITS.catalogCandidateItems, index, relevantProductIds.length),
@@ -148,37 +161,20 @@ export async function loadRelevantCatalogRecipes(
     ),
   );
   for (const candidateResult of candidateResults) {
-    const candidateFailure = queryFailure(
-      candidateResult.error,
-      'recipe_ingredients_lookup_failed',
-    );
+    const candidateFailure = queryFailure(candidateResult.error, 'recipe_lookup_failed');
     if (candidateFailure) return candidateFailure;
   }
 
-  const candidateRows = candidateResults.flatMap((result) => result.data ?? []);
-  const candidateRecipeIds = [
-    ...new Set(
-      candidateRows
-        .filter(isRecord)
-        .map((row) => nonEmptyString(row.recipe_id))
-        .filter((id): id is string => id !== null),
-    ),
-  ];
-  if (candidateRecipeIds.length === 0) return { ok: true, recipes: [] };
-
-  const recipeResult = await client
-    .from('catalog_recipes')
-    .select('id, title, cook_time_minutes, default_servings, dietary_tags, sort_order')
-    .eq('status', 'published')
-    .in('id', candidateRecipeIds)
-    .limit(candidateRecipeIds.length);
-  const recipeFailure = queryFailure(recipeResult.error, 'recipe_lookup_failed');
-  if (recipeFailure) return recipeFailure;
-
-  const rankedCatalogRows = scoreCandidateRecipes(
-    candidateRows,
-    (recipeResult.data ?? []).filter(isRecord),
-  ).slice(0, CONTEXT_LIMITS.catalogRecipes);
+  const candidateMatches = candidateResults.flatMap((result, index) =>
+    (result.data ?? []).filter(isRecord).map((recipe) => ({
+      productId: relevantProductIds[index]!,
+      recipe,
+    }))
+  );
+  const rankedCatalogRows = scoreCandidateRecipes(candidateMatches).slice(
+    0,
+    CONTEXT_LIMITS.catalogRecipes,
+  );
   if (rankedCatalogRows.length === 0) return { ok: true, recipes: [] };
 
   const recipes: GatewayRecipe[] = [];

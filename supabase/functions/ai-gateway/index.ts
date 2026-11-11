@@ -493,6 +493,9 @@ export async function loadCookingContext(
     .eq('household_id', householdId)
     .is('deleted_at', null)
     .gt('quantity', 0)
+    .order('expiry_date', { ascending: true, nullsFirst: false })
+    .order('name', { ascending: true })
+    .order('id', { ascending: true })
     .limit(CONTEXT_LIMITS.inventoryLots + 1);
   const { data: inventoryRows, error: inventoryError } = inventoryQuery;
   if (inventoryError) {
@@ -1035,6 +1038,8 @@ export async function loadCookingContext(
       planName: mealPlanSelection.planName,
       entries: mealPlanSelection.entries.flatMap((row) => {
         if (!['breakfast', 'lunch', 'dinner'].includes(String(row.meal_slot))) return [];
+        const recipeTitle = row.recipe_id ? householdRecipeTitleById.get(row.recipe_id) : null;
+        if (row.recipe_id && recipeTitle === undefined) return [];
         const rawCustomIngredients = Array.isArray(row.custom_ingredients)
           ? row.custom_ingredients.flatMap((value: unknown) => {
             if (
@@ -1058,9 +1063,7 @@ export async function loadCookingContext(
           date: limitContextString(row.entry_date),
           mealSlot: row.meal_slot as 'breakfast' | 'lunch' | 'dinner',
           recipeId: row.recipe_id ? limitContextString(row.recipe_id) : null,
-          title: row.recipe_id
-            ? householdRecipeTitleById.get(row.recipe_id) ?? 'Rezept'
-            : limitContextString(String(row.custom_title ?? '')),
+          title: recipeTitle ?? limitContextString(String(row.custom_title ?? '')),
           portions: typeof row.portions === 'number' ? row.portions : Number(row.portions),
           customIngredients: customIngredients.values,
           ...(customIngredients.truncated
