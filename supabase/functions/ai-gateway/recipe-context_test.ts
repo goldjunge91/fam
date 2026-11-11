@@ -203,7 +203,7 @@ Deno.test('selects fair, relevant catalog candidates and keeps every included re
       { column: 'id', ascending: true },
     ]),
   );
-  const ingredientCall = calls[2];
+  const ingredientCall = calls[3];
   assertEquals(ingredientCall?.table, 'catalog_recipe_component_items');
   assertEquals(
     ingredientCall?.limit,

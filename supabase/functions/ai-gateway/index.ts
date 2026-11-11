@@ -725,7 +725,7 @@ export async function loadCookingContext(
     ...mealPlanRecipeIds,
   ].filter((id, index, ids) => id.trim().length > 0 && ids.indexOf(id) === index);
   const householdRecipeSelect =
-    'id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at';
+    'id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at, cover_image_path';
   const prioritizedHouseholdRecipesResult = prioritizedHouseholdRecipeIds.length === 0
     ? { data: [], error: null }
     : await client
@@ -993,6 +993,8 @@ export async function loadCookingContext(
       {
         recipeId: limitContextString(row.id),
         title: limitContextString(String(row.title)),
+        source: 'household',
+        coverImagePath: row.cover_image_path ? limitContextString(String(row.cover_image_path)) : null,
         updatedAt: row.updated_at ? limitContextString(row.updated_at) : undefined,
         estimatedMinutes: (typeof row.prep_time_minutes === 'number' ? row.prep_time_minutes : 0) +
             (typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : 0) || null,

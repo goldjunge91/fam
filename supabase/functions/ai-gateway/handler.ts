@@ -195,6 +195,14 @@ type AssistantToolName =
   | 'propose_shopping_list_item'
   | 'propose_shopping_list_items';
 
+export type AssistantRecipeReference = {
+  recipeId: string;
+  title: string;
+  source: 'household' | 'catalog';
+  slug?: string;
+  coverImagePath?: string | null;
+};
+
 type AssistantProposal =
   | {
     kind: 'meal_plan_proposal.v1';
@@ -311,6 +319,9 @@ export type GatewayMealPlanContext = {
 export type GatewayRecipe = {
   recipeId: string;
   title: string;
+  source?: 'household' | 'catalog';
+  slug?: string;
+  coverImagePath?: string | null;
   updatedAt?: string;
   estimatedMinutes: number | null;
   servings: number | null;
@@ -1456,10 +1467,26 @@ function isoWeekStart(value: string): string {
   return date.toISOString().slice(0, 10);
 }
 
+function toAssistantRecipeReference(recipe: GatewayRecipe): AssistantRecipeReference | null {
+  if (!recipe.source || (recipe.source === 'catalog' && !recipe.slug)) return null;
+  return {
+    recipeId: recipe.recipeId,
+    title: recipe.title,
+    source: recipe.source,
+    ...(recipe.source === 'catalog' && recipe.slug ? { slug: recipe.slug } : {}),
+    ...(recipe.coverImagePath !== undefined ? { coverImagePath: recipe.coverImagePath } : {}),
+  };
+}
+
 function runAssistantTool(
   call: ProviderToolCall,
   context: GatewayCookingContext,
-): { result: unknown; proposal?: AssistantProposal; toolName?: AssistantToolName } {
+): {
+  result: unknown;
+  proposal?: AssistantProposal;
+  recipeReferences?: AssistantRecipeReference[];
+  toolName?: AssistantToolName;
+} {
   let args: unknown;
   try {
     if (call.arguments.length > 4_000) return { result: { error: 'arguments_too_large' } };
@@ -1492,9 +1519,10 @@ function runAssistantTool(
           .map(({ coverage }) => coverage.status),
       ),
     ];
+    const clearRecipes = recipes.filter(({ coverage }) => coverage.status === 'clear');
     return {
       result: {
-        recipes: recipes.filter(({ coverage }) => coverage.status === 'clear')
+        recipes: clearRecipes
           .slice(0, 8)
           .map(({ recipe }) => ({
             recipeId: recipe.recipeId,
@@ -1508,6 +1536,10 @@ function runAssistantTool(
           ? { blockedByFoodRules: true, foodRuleStatus: blockedStatuses[0] }
           : { blockedByFoodRules: false }),
       },
+      recipeReferences: clearRecipes
+        .slice(0, 8)
+        .map(({ recipe }) => toAssistantRecipeReference(recipe))
+        .filter((recipe): recipe is AssistantRecipeReference => recipe !== null),
       toolName: 'search_recipes',
     };
   }
@@ -2412,6 +2444,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
 
     let provider: ProviderResult | null = null;
     const proposals: AssistantProposal[] = [];
+    const recipeReferences = new Map<string, AssistantRecipeReference>();
     const toolTrace = new Set<AssistantToolName>();
     let providerCallIndex = 0;
     const canUseTools = parsedRequest.skill === 'fam-assistant' &&
@@ -2484,6 +2517,9 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         }
         const toolResult = runAssistantTool(call, preparedContext);
         if (toolResult.proposal) proposals.push(toolResult.proposal);
+        for (const recipe of toolResult.recipeReferences ?? []) {
+          recipeReferences.set(`${recipe.source}:${recipe.recipeId}`, recipe);
+        }
         if (toolResult.toolName) toolTrace.add(toolResult.toolName);
         providerMessages.push({
           role: 'tool',
@@ -2534,7 +2570,12 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       model: provider.model,
       ...(parsedRequest.skill === 'fam-recipe-import' ? { source: 'ai' } : {}),
       result: parsedRequest.skill === 'fam-assistant'
-        ? { ...parsedResult, proposals, toolTrace: [...toolTrace] }
+        ? {
+          ...parsedResult,
+          proposals,
+          recipeReferences: [...recipeReferences.values()].slice(0, 8),
+          toolTrace: [...toolTrace],
+        }
         : parsedResult,
       generatedAt: now(),
     });

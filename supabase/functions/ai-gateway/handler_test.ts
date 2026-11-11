@@ -1145,6 +1145,7 @@ Deno.test('keeps plain-text assistant output readable when the model misses its 
     text: 'Eine schnelle Gemüsepfanne mit Reis.',
     suggestions: [],
     proposals: [],
+    recipeReferences: [],
     toolTrace: [],
   });
 });
@@ -1224,6 +1225,12 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
   const context: GatewayCookingContext = {
     ...CONTEXT,
     householdRecipes: [],
+    recipes: [{
+      ...CONTEXT.recipes[0]!,
+      source: 'catalog',
+      slug: 'tomatenpfanne',
+      coverImagePath: 'catalog/tomatenpfanne.jpg',
+    }],
     inventory: {
       ...CONTEXT.inventory,
       lots: [
@@ -1281,6 +1288,13 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
   assertEquals(calls[1].toolCallIds, ['inventory-call', 'recipe-call']);
   const body = await response.json();
   assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
+  assertEquals(body.result.recipeReferences, [{
+    recipeId: 'recipe-1',
+    title: 'Tomatenpfanne',
+    source: 'catalog',
+    slug: 'tomatenpfanne',
+    coverImagePath: 'catalog/tomatenpfanne.jpg',
+  }]);
 });
 
 Deno.test('assistant returns a bounded shopping item proposal without mutating household data', async () => {

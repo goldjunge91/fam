@@ -7,6 +7,7 @@ import type {
   AssistantPageContext,
   AssistantProposal,
   AssistantProposalFoodRuleCoverage,
+  AssistantRecipeReference,
   AssistantReply,
   AssistantToolName,
 } from '../types';
@@ -43,6 +44,24 @@ function isAiCreditStatus(value: unknown): value is AiCreditStatus {
     Number.isInteger(value.creditLimit) &&
     typeof value.warningReached === 'boolean' &&
     typeof value.blocked === 'boolean'
+  );
+}
+
+function isAssistantRecipeReference(value: unknown): value is AssistantRecipeReference {
+  return (
+    isRecord(value) &&
+    typeof value.recipeId === 'string' &&
+    value.recipeId.length > 0 &&
+    value.recipeId.length <= 128 &&
+    typeof value.title === 'string' &&
+    value.title.length > 0 &&
+    value.title.length <= 200 &&
+    (value.source === 'household' || value.source === 'catalog') &&
+    (value.source !== 'catalog' || (typeof value.slug === 'string' && value.slug.length > 0)) &&
+    (value.slug === undefined || (typeof value.slug === 'string' && value.slug.length <= 160)) &&
+    (value.coverImagePath === undefined ||
+      value.coverImagePath === null ||
+      (typeof value.coverImagePath === 'string' && value.coverImagePath.length <= 500))
   );
 }
 
@@ -194,6 +213,10 @@ function parseAssistantReply(value: unknown): AssistantReply {
     typeof value.result.text !== 'string' ||
     !Array.isArray(value.result.suggestions) ||
     !value.result.suggestions.every((suggestion) => typeof suggestion === 'string') ||
+    (value.result.recipeReferences !== undefined &&
+      (!Array.isArray(value.result.recipeReferences) ||
+        value.result.recipeReferences.length > 8 ||
+        !value.result.recipeReferences.every(isAssistantRecipeReference))) ||
     !Array.isArray(value.result.proposals) ||
     !value.result.proposals.every(isAssistantProposal) ||
     !Array.isArray(value.result.toolTrace) ||
@@ -219,6 +242,9 @@ function parseAssistantReply(value: unknown): AssistantReply {
       kind: 'assistant_reply.v1',
       text: value.result.text,
       suggestions: value.result.suggestions,
+      recipeReferences: Array.isArray(value.result.recipeReferences)
+        ? value.result.recipeReferences
+        : [],
       proposals: value.result.proposals,
       toolTrace: value.result.toolTrace as AssistantToolName[],
     },

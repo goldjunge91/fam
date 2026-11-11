@@ -27,6 +27,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { pollHouseholdUntilEntitlementActive } from '@/features/premium/household-entitlement-sync';
 import { usePremium } from '@/features/premium/premium-provider';
 import { syncRevenueCatAiEntitlement } from '@/features/premium/revenuecat-entitlement-sync';
+import { RecipePreviewCard } from '@/features/recipes/components/recipe-preview-card';
 import { useRecipeCoverUrl } from '@/features/recipes/data/household-recipe-images';
 import { useAddShoppingItem } from '@/features/shopping-list/hooks/use-shopping-list-mutations';
 import { hasAIEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
@@ -50,6 +51,7 @@ import {
   type AssistantMessage,
   type AssistantPageContext,
   type AssistantProposal,
+  type AssistantRecipeReference,
   type AssistantThread,
   type AssistantToolName,
   createLocalId,
@@ -168,6 +170,21 @@ const styles = StyleSheet.create((theme) => ({
     flexWrap: 'wrap',
     gap: theme.space.sm,
     marginTop: theme.space.sm,
+  },
+  recipeReferences: {
+    width: '100%',
+    gap: theme.space.sm,
+    marginTop: theme.space.sm,
+  },
+  assistantWorking: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.xs,
+    paddingVertical: theme.space.sm,
+  },
+  assistantWorkingText: {
+    flex: 1,
   },
   toolTraceRow: {
     flexDirection: 'row',
@@ -666,8 +683,16 @@ export function AssistantScreen() {
       { text: 'PDF auswählen', onPress: () => void pickAssistantPdf() },
     ]);
   }
-  async function handleSend() {
-    const text = message.trim();
+  function openRecipeReference(recipe: AssistantRecipeReference) {
+    if (recipe.source === 'catalog' && recipe.slug) {
+      router.push({ pathname: '/recipe/catalog/[slug]', params: { slug: recipe.slug } });
+      return;
+    }
+    router.push({ pathname: '/recipe/[id]', params: { id: recipe.recipeId } });
+  }
+
+  async function handleSend(textOverride?: string) {
+    const text = (textOverride ?? message).trim();
     if (
       !userId ||
       !activeHouseholdId ||
@@ -745,6 +770,7 @@ export function AssistantScreen() {
         text: reply.result.text,
         createdAt: new Date().toISOString(),
         suggestions: reply.result.suggestions,
+        recipeReferences: reply.result.recipeReferences,
         proposals: reply.result.proposals,
         toolTrace: reply.result.toolTrace,
       };
@@ -810,6 +836,7 @@ export function AssistantScreen() {
         text: reply.result.text,
         createdAt: new Date().toISOString(),
         suggestions: reply.result.suggestions,
+        recipeReferences: reply.result.recipeReferences,
         proposals: reply.result.proposals,
         toolTrace: reply.result.toolTrace,
       };
@@ -1523,6 +1550,19 @@ export function AssistantScreen() {
                         ))}
                       </View>
                     ) : null}
+                    {item.role === 'assistant' && item.recipeReferences?.length ? (
+                      <View style={styles.recipeReferences}>
+                        {item.recipeReferences.map((recipe) => (
+                          <RecipePreviewCard
+                            key={`${item.id}-${recipe.source}-${recipe.recipeId}`}
+                            title={recipe.title}
+                            coverImagePath={recipe.coverImagePath}
+                            coverSource={recipe.source}
+                            onPress={() => openRecipeReference(recipe)}
+                          />
+                        ))}
+                      </View>
+                    ) : null}
                     {item.role === 'assistant'
                       ? item.proposals?.map((proposal, index) =>
                           renderProposal(proposal, item, index, `${item.id}-${String(index)}`),
@@ -1534,7 +1574,8 @@ export function AssistantScreen() {
                           <Button
                             key={suggestion}
                             title={suggestion}
-                            onPress={() => setMessage(suggestion)}
+                            disabled={isSending}
+                            onPress={() => void handleSend(suggestion)}
                             variant="secondary"
                             size="sm"
                             flat
@@ -1568,6 +1609,19 @@ export function AssistantScreen() {
               style={styles.messageList}
               keyboardShouldPersistTaps="handled"
             />
+            {isSending ? (
+              <View
+                accessible
+                accessibilityRole="progressbar"
+                accessibilityLabel="Assistant arbeitet"
+                accessibilityState={{ busy: true }}
+                style={styles.assistantWorking}>
+                <ActivityIndicator color={colors.accent} />
+                <Txt variant="navigation" tone="secondary" style={styles.assistantWorkingText}>
+                  Ich prüfe Vorrat und passende Rezepte …
+                </Txt>
+              </View>
+            ) : null}
             {error ? (
               <View style={styles.assistantError}>
                 <Txt variant="navigation" tone="danger">

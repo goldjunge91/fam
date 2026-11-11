@@ -81,6 +81,18 @@ jest.mock('expo-router', () => ({
   },
   useLocalSearchParams: () => mockRouteParams,
 }));
+jest.mock('@/features/recipes/components/recipe-preview-card', () => {
+  const React = require('react');
+  const { Pressable: NativePressable, Text: NativeText } = require('react-native');
+  return {
+    RecipePreviewCard: ({ title, onPress }: { title: string; onPress: () => void }) =>
+      React.createElement(
+        NativePressable,
+        { accessibilityRole: 'button', accessibilityLabel: title, onPress },
+        React.createElement(NativeText, null, title),
+      ),
+  };
+});
 jest.mock('expo-image-picker', () => ({
   requestMediaLibraryPermissionsAsync: (...args: unknown[]) => mockRequestImagePermission(...args),
   launchImageLibraryAsync: (...args: unknown[]) => mockLaunchImageLibrary(...args),
@@ -605,7 +617,69 @@ describe('AssistantScreen', () => {
     expect(screen.getByText('Linsensuppe: Sahne → Hafercuisine')).toBeOnTheScreen();
     expect(screen.getByText('8 Credits übrig')).toBeOnTheScreen();
     await user.press(screen.getByRole('button', { name: 'Mit Reis' }));
-    expect(screen.getByDisplayValue('Mit Reis')).toBeOnTheScreen();
+    await waitFor(() => expect(mockSendMessage).toHaveBeenCalledTimes(2));
+    expect(mockSendMessage.mock.calls[1]?.[0]).toEqual(
+      expect.objectContaining({ message: 'Mit Reis' }),
+    );
+  });
+
+  it('renders recipe cards and opens catalog recipes from assistant results', async () => {
+    mockSendMessage.mockResolvedValueOnce({
+      result: {
+        text: 'Dazu passt dieses Gericht.',
+        suggestions: [],
+        recipeReferences: [
+          {
+            recipeId: 'catalog-1',
+            title: 'Kichererbsenpfanne',
+            source: 'catalog',
+            slug: 'kichererbsenpfanne',
+            coverImagePath: 'catalog/kichererbsenpfanne.jpg',
+          },
+        ],
+        proposals: [],
+        toolTrace: ['search_recipes'],
+      },
+    });
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+
+    expect(await screen.findByText('Kichererbsenpfanne')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Kichererbsenpfanne' }));
+    expect(mockRouterPush).toHaveBeenCalledWith({
+      pathname: '/recipe/catalog/[slug]',
+      params: { slug: 'kichererbsenpfanne' },
+    });
+  });
+
+  it('shows visible progress while the Assistant is working', async () => {
+    let resolveReply: ((value: unknown) => void) | undefined;
+    mockSendMessage.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolveReply = resolve;
+        }),
+    );
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+
+    expect(screen.getByRole('progressbar', { name: 'Assistant arbeitet' })).toBeOnTheScreen();
+    resolveReply?.({
+      result: {
+        text: 'Fertig.',
+        suggestions: [],
+        recipeReferences: [],
+        proposals: [],
+        toolTrace: [],
+      },
+    });
+    await waitFor(() =>
+      expect(screen.queryByRole('progressbar', { name: 'Assistant arbeitet' })).toBeNull(),
+    );
   });
 
   it('shows failures returned by the Assistant service', async () => {

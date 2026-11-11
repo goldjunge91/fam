@@ -24,6 +24,14 @@ export type AssistantAttachmentInput = {
 
 export type AssistantAttachmentMetadata = Pick<AssistantAttachment, 'filename' | 'mimeType'>;
 
+export type AssistantRecipeReference = {
+  recipeId: string;
+  title: string;
+  source: 'household' | 'catalog';
+  slug?: string;
+  coverImagePath?: string | null;
+};
+
 export type AssistantMessage = {
   id: string;
   role: 'user' | 'assistant';
@@ -33,6 +41,7 @@ export type AssistantMessage = {
   attachments?: AssistantAttachmentMetadata[];
   pageContext?: AssistantPageContext;
   suggestions?: string[];
+  recipeReferences?: AssistantRecipeReference[];
   proposals?: AssistantProposal[];
   /** Indizes erfolgreich übernommener Vorschläge, lokal im verschlüsselten Verlauf gespeichert. */
   appliedProposalIndexes?: number[];
@@ -125,6 +134,7 @@ export type AssistantReply = {
     kind: 'assistant_reply.v1';
     text: string;
     suggestions: string[];
+    recipeReferences: AssistantRecipeReference[];
     proposals: AssistantProposal[];
     toolTrace: AssistantToolName[];
   };

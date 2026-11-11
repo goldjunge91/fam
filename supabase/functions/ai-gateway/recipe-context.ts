@@ -148,7 +148,7 @@ export async function loadRelevantCatalogRecipes(
       client
         .from('catalog_recipes')
         .select(
-          'id, title, cook_time_minutes, default_servings, dietary_tags, sort_order, matched_items:catalog_recipe_component_items!inner()',
+          'id, slug, title, cook_time_minutes, default_servings, dietary_tags, sort_order, matched_items:catalog_recipe_component_items!inner()',
         )
         .eq('status', 'published')
         .eq('matched_items.product_id', productId)
@@ -177,11 +177,34 @@ export async function loadRelevantCatalogRecipes(
   );
   if (rankedCatalogRows.length === 0) return { ok: true, recipes: [] };
 
+  const imageResult = await client
+    .from('catalog_recipe_images')
+    .select('recipe_id, storage_path, source_url, position')
+    .in(
+      'recipe_id',
+      rankedCatalogRows
+        .map((row) => nonEmptyString(row.id))
+        .filter((id): id is string => id !== null),
+    )
+    .order('position', { ascending: true })
+    .limit(CONTEXT_LIMITS.catalogRecipes);
+  const coverImageByRecipeId = new Map<string, string | null>();
+  for (const row of imageResult.error ? [] : imageResult.data ?? []) {
+    if (!isRecord(row)) continue;
+    const recipeId = nonEmptyString(row.recipe_id);
+    if (!recipeId || coverImageByRecipeId.has(recipeId)) continue;
+    coverImageByRecipeId.set(
+      recipeId,
+      nonEmptyString(row.storage_path) ?? nonEmptyString(row.source_url),
+    );
+  }
+
   const recipes: GatewayRecipe[] = [];
   let totalIngredientItems = 0;
   for (const row of rankedCatalogRows) {
     const recipeId = nonEmptyString(row.id);
     const title = nonEmptyString(row.title);
+    const slug = nonEmptyString(row.slug);
     if (!recipeId || !title) continue;
 
     const ingredientResult = await client
@@ -231,6 +254,9 @@ export async function loadRelevantCatalogRecipes(
     recipes.push({
       recipeId: limitContextString(recipeId),
       title: limitContextString(title),
+      source: 'catalog',
+      slug: slug ? limitContextString(slug) : undefined,
+      coverImagePath: coverImageByRecipeId.get(recipeId) ?? null,
       estimatedMinutes: numberOrNull(row.cook_time_minutes),
       servings: numberOrNull(row.default_servings),
       dietaryTags: Array.isArray(row.dietary_tags)
