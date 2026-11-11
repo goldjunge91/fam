@@ -1474,13 +1474,17 @@ function isoWeekStart(value: string): string {
   return date.toISOString().slice(0, 10);
 }
 
-function toAssistantRecipeReference(recipe: GatewayRecipe): AssistantRecipeReference | null {
-  if (!recipe.source || (recipe.source === 'catalog' && !recipe.slug)) return null;
+function toAssistantRecipeReference(
+  recipe: GatewayRecipe,
+  sourceOverride?: 'household' | 'catalog',
+): AssistantRecipeReference | null {
+  const source = sourceOverride ?? recipe.source;
+  if (!source || (source === 'catalog' && !recipe.slug)) return null;
   return {
     recipeId: recipe.recipeId,
     title: recipe.title,
-    source: recipe.source,
-    ...(recipe.source === 'catalog' && recipe.slug ? { slug: recipe.slug } : {}),
+    source,
+    ...(source === 'catalog' && recipe.slug ? { slug: recipe.slug } : {}),
     ...(recipe.coverImagePath !== undefined ? { coverImagePath: recipe.coverImagePath } : {}),
   };
 }
@@ -1490,11 +1494,36 @@ function recipeReferencesMentionedInText(
   context: GatewayCookingContext,
 ): AssistantRecipeReference[] {
   const normalizedText = text.toLocaleLowerCase('de-DE');
-  return assistantSearchableRecipes(context)
-    .filter((recipe) => normalizedText.includes(recipe.title.toLocaleLowerCase('de-DE')))
-    .map(toAssistantRecipeReference)
+  const candidates = [
+    ...(context.householdRecipes ?? []).map((recipe) => ({ recipe, source: 'household' as const })),
+    ...context.recipes.map((recipe) => ({
+      recipe,
+      source: recipe.source ?? ('catalog' as const),
+    })),
+  ];
+  return candidates
+    .filter(({ recipe }) => normalizedText.includes(recipe.title.toLocaleLowerCase('de-DE')))
+    .map(({ recipe, source }) => toAssistantRecipeReference(recipe, source))
     .filter((recipe): recipe is AssistantRecipeReference => recipe !== null)
+    .filter((recipe, index, recipes) =>
+      recipes.findIndex((candidate) => candidate.recipeId === recipe.recipeId) === index
+    )
     .slice(0, 8);
+}
+
+function extractAssistantSuggestions(text: string): string[] {
+  const questions = text.match(/[^.!?\n]*\?/g)?.map((question) => question.trim()) ?? [];
+  return questions
+    .filter((question) => question.length > 0)
+    .flatMap((question) => {
+      const match = question.match(/^(.*?\?)\s+oder\s+(.*\?)$/i);
+      if (!match) return [question];
+      const prefix = match[1]?.replace(/\?$/, '').trim();
+      const second = match[2]?.trim();
+      return prefix && second ? [`${prefix}?`, second] : [question];
+    })
+    .map((question) => question.slice(0, 180))
+    .slice(0, 3);
 }
 
 function runAssistantTool(
@@ -2559,6 +2588,13 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       : parseProviderJson(provider.content);
     if (!parsedResult) {
       return await refundAndRespond({ error: 'provider_invalid_json' }, 502);
+    }
+
+    if (parsedRequest.skill === 'fam-assistant' &&
+      typeof parsedResult?.text === 'string' &&
+      Array.isArray(parsedResult.suggestions) &&
+      parsedResult.suggestions.length === 0) {
+      parsedResult.suggestions = extractAssistantSuggestions(parsedResult.text);
     }
 
     const validationError = parsedRequest.skill === 'fam-inventory-capture'
