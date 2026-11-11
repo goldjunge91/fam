@@ -233,7 +233,7 @@ export function RecipePreviewCard({
       <RecipeArtwork title={title} coverUrl={coverUrl} coverPath={coverImagePath} />
       <FadeShade height="62%" />
       <View style={styles.copy}>
-        <Txt variant="subheading" tone="onAccent" weight="700" numberOfLines={1}>
+        <Txt variant="subheading" tone="onAccent" weight="700" numberOfLines={2}>
           {title}
         </Txt>
         <Txt variant="caption" tone="onAccent" weight="600" style={styles.meta} numberOfLines={1}>

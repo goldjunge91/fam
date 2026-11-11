@@ -1126,8 +1126,11 @@ Deno.test('rejects non-JSON provider output without fallback text', async () => 
   assertEquals(usageRecords.length, 1);
 });
 
-Deno.test('keeps plain-text assistant output readable when the model misses its JSON envelope', async () => {
-  const { handler } = setup({ providerContent: 'Eine schnelle Gemüsepfanne mit Reis.' });
+Deno.test('extracts an embedded assistant JSON envelope without leaking it into the reply', async () => {
+  const { handler } = setup({
+    providerContent:
+      'Hier ist die Idee.\n```json\n{"kind":"assistant_reply.v1","text":"Eine schnelle Gemüsepfanne mit Reis.","suggestions":["Soll ich eine Portionszahl vorschlagen?","Soll ich sie in den Wochenplan einbauen?"]}\n```',
+  });
   const response = await handler(
     request({
       skill: 'fam-assistant',
@@ -1143,7 +1146,7 @@ Deno.test('keeps plain-text assistant output readable when the model misses its 
   assertEquals(body.result, {
     kind: 'assistant_reply.v1',
     text: 'Eine schnelle Gemüsepfanne mit Reis.',
-    suggestions: [],
+    suggestions: ['Soll ich eine Portionszahl vorschlagen?', 'Soll ich sie in den Wochenplan einbauen?'],
     proposals: [],
     recipeReferences: [],
     toolTrace: [],

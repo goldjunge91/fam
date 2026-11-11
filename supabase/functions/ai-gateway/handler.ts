@@ -1017,7 +1017,7 @@ function buildSystemPrompt(
       'Nenne niemals technische Feldnamen oder rohe Statuswerte wie foodRuleStatus, clear, unknown, unsupported oder conflict gegenüber dem Nutzer. Übersetze Hinweise in natürliches Deutsch. Bei einem Einkaufsartikel mit foodRuleStatus clear sind keine persönlichen Lebensmittelregeln hinterlegt; behaupte dafür keine Allergenprüfung. Halte die Antwort bei einer Einkaufskartenaktion kurz und sage, dass der Vorschlag erst nach Bestätigung übernommen wird.',
       'Der optionale Seitenkontext ist vom Haushaltskontext getrennt. Wenn er vorhanden ist, beziehe dich auf das angezeigte Rezept oder die angezeigte Planwoche; wenn er null ist, erfinde keinen aktuellen Seitenbezug.',
       'Gib ausschließlich gültiges JSON mit genau kind, text und suggestions zurück.',
-      'kind muss assistant_reply.v1 sein. text ist eine Antwort, suggestions ist ein Array mit höchstens drei kurzen Folgefragen.',
+      'kind muss assistant_reply.v1 sein. text ist eine Antwort, suggestions ist ein Array mit höchstens drei kurzen Folgefragen. Wenn du mehrere Alternativen oder Fragen stellst, gib jede konkrete Frage als eigenen suggestions-Eintrag zurück; verbinde keine zwei Aktionen in einem Eintrag.',
       request.includeHouseholdContext
         ? 'Der Nutzer hat diesen Haushaltskontext ausdrücklich für diese Anfrage freigegeben. Nutze für gezielte Suche die bereitgestellten Werkzeuge: ' +
           JSON.stringify(householdSummary)
@@ -1129,10 +1129,17 @@ function parseAssistantProviderResult(content: string): JsonRecord | null {
   const parsed = parseProviderJson(content);
   if (parsed) return parsed;
 
-  const fencedJson = content.trim().match(/^```json\s*([\s\S]*?)\s*```$/i)?.[1];
-  if (fencedJson) {
-    const fencedResult = parseProviderJson(fencedJson);
+  const fencedJsonMatches = [...content.matchAll(/```(?:json)?\s*([\s\S]*?)\s*```/gi)];
+  for (const match of fencedJsonMatches.reverse()) {
+    const fencedResult = parseProviderJson(match[1] ?? '');
     if (fencedResult) return fencedResult;
+  }
+
+  const jsonStart = content.indexOf('{');
+  const jsonEnd = content.lastIndexOf('}');
+  if (jsonStart >= 0 && jsonEnd > jsonStart) {
+    const embeddedResult = parseProviderJson(content.slice(jsonStart, jsonEnd + 1));
+    if (embeddedResult) return embeddedResult;
   }
 
   const text = content.trim();
