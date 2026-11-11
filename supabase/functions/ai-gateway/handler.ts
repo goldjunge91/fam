@@ -1526,6 +1526,29 @@ function extractAssistantSuggestions(text: string): string[] {
     .slice(0, 3);
 }
 
+function normalizeAssistantProviderResult(result: JsonRecord): void {
+  const initialText = result.text;
+  if (typeof initialText !== 'string') return;
+  const trailingSuggestions = initialText.match(
+    /\n?Suggestions:\s*(\[[\s\S]*\])\s*$/i,
+  );
+  if (trailingSuggestions?.index !== undefined) {
+    try {
+      const parsed: unknown = JSON.parse(trailingSuggestions[1] ?? '');
+      if (validStringArray(parsed)) {
+        result.text = initialText.slice(0, trailingSuggestions.index).trim();
+        result.suggestions = parsed.slice(0, 3).map((suggestion) => suggestion.slice(0, 180));
+      }
+    } catch {
+      // Keep the original response for the normal validation path.
+    }
+  }
+  if (Array.isArray(result.suggestions) && result.suggestions.length === 0) {
+    const normalizedText = typeof result.text === 'string' ? result.text : initialText;
+    result.suggestions = extractAssistantSuggestions(normalizedText);
+  }
+}
+
 function runAssistantTool(
   call: ProviderToolCall,
   context: GatewayCookingContext,
@@ -2590,11 +2613,8 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return await refundAndRespond({ error: 'provider_invalid_json' }, 502);
     }
 
-    if (parsedRequest.skill === 'fam-assistant' &&
-      typeof parsedResult?.text === 'string' &&
-      Array.isArray(parsedResult.suggestions) &&
-      parsedResult.suggestions.length === 0) {
-      parsedResult.suggestions = extractAssistantSuggestions(parsedResult.text);
+    if (parsedRequest.skill === 'fam-assistant') {
+      normalizeAssistantProviderResult(parsedResult);
     }
 
     const validationError = parsedRequest.skill === 'fam-inventory-capture'

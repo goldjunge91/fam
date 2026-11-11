@@ -1153,6 +1153,30 @@ Deno.test('extracts an embedded assistant JSON envelope without leaking it into 
   });
 });
 
+Deno.test('extracts pseudo-structured suggestions from an assistant text fallback', async () => {
+  const { handler } = setup({
+    providerContent:
+      'Eine passende Pfanne.\nSuggestions: ["Soll ich sie in den Wochenplan aufnehmen?", "Was kochen wir morgen?"]',
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: 'Was kann ich heute kochen?',
+    history: [],
+    includeHouseholdContext: false,
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, {
+    kind: 'assistant_reply.v1',
+    text: 'Eine passende Pfanne.',
+    suggestions: ['Soll ich sie in den Wochenplan aufnehmen?', 'Was kochen wir morgen?'],
+    proposals: [],
+    recipeReferences: [],
+    toolTrace: [],
+  });
+});
+
 Deno.test('validates assistant recipe and week page references before provider calls', async () => {
   const householdRecipe = {
     ...CONTEXT.recipes[0]!,
