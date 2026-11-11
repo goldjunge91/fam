@@ -1,6 +1,7 @@
 import { act, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 import { Alert, type PressableProps, type TextInputProps } from 'react-native';
+import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { AssistantThread } from '../types';
 import { AssistantScreen } from './assistant-screen';
 
@@ -26,6 +27,7 @@ let mockUserId: string | null = 'user-1';
 let mockHouseholdId: string | null = 'household-1';
 let mockHasAI = true;
 let mockThreads: AssistantThread[] = [];
+let mockInventoryItems: LocalInventoryItem[] = [];
 let mockRouteParams: Record<string, string | string[]> = {};
 
 type MockTheme = {
@@ -243,6 +245,9 @@ jest.mock('@/features/auth/session-provider', () => ({
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: mockHouseholdId }),
 }));
+jest.mock('@/features/inventory/use-inventory-items', () => ({
+  useInventoryItems: () => ({ data: mockInventoryItems }),
+}));
 jest.mock('@/features/premium/premium-provider', () => ({
   usePremium: () => ({ hasAI: mockHasAI, refresh: mockRefreshPremium }),
 }));
@@ -349,6 +354,27 @@ function assistantThread(messages: AssistantThread['messages'] = []): AssistantT
   };
 }
 
+function expiringInventoryItem(id: string, name: string, expiryDate: string): LocalInventoryItem {
+  return {
+    id,
+    household_id: 'household-1',
+    location_id: null,
+    product_id: null,
+    name,
+    quantity: 1,
+    unit: 'piece',
+    package_size: null,
+    package_size_unit: null,
+    expiry_date: expiryDate,
+    opened_at: null,
+    added_by: 'user-1',
+    created_at: '2026-11-01T00:00:00Z',
+    updated_at: '2026-11-01T00:00:00Z',
+    location_kind: null,
+    location_name: null,
+  };
+}
+
 async function renderAssistant() {
   const result = await render(<AssistantScreen />);
   await waitFor(() => {
@@ -370,6 +396,7 @@ describe('AssistantScreen', () => {
     mockHouseholdId = 'household-1';
     mockHasAI = true;
     mockThreads = [];
+    mockInventoryItems = [];
     mockRouteParams = {};
     mockLoadThreads.mockImplementation(async () => mockThreads);
     mockSaveThreads.mockResolvedValue(undefined);
@@ -586,6 +613,25 @@ describe('AssistantScreen', () => {
     options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
     await act(async () => options?.find((option) => option.text === 'PDF auswählen')?.onPress?.());
     expect(screen.queryByText('Rezept.pdf')).toBeNull();
+  });
+
+  it('sends only the selected expiring inventory lots as Assistant context', async () => {
+    const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+    mockInventoryItems = [
+      expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
+      expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
+    ];
+    await renderAssistant();
+    expect(screen.getByText('Bald ablaufend')).toBeOnTheScreen();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('checkbox', { name: 'Champignons' }));
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+
+    await waitFor(() => expect(mockSendMessage).toHaveBeenCalled());
+    expect(mockSendMessage.mock.calls.at(-1)?.[0]).toEqual(
+      expect.objectContaining({ focusedInventoryLotIds: ['lot-cream'] }),
+    );
   });
 
   it('opens and sends messages without showing a consent prompt', async () => {

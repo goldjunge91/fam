@@ -1146,7 +1146,10 @@ Deno.test('extracts an embedded assistant JSON envelope without leaking it into 
   assertEquals(body.result, {
     kind: 'assistant_reply.v1',
     text: 'Eine schnelle Gemüsepfanne mit Reis.',
-    suggestions: ['Soll ich eine Portionszahl vorschlagen?', 'Soll ich sie in den Wochenplan einbauen?'],
+    suggestions: [
+      'Soll ich eine Portionszahl vorschlagen?',
+      'Soll ich sie in den Wochenplan einbauen?',
+    ],
     proposals: [],
     recipeReferences: [],
     toolTrace: [],
@@ -1349,7 +1352,10 @@ Deno.test('returns an authoritative recipe reference when the final text names a
 
   assertEquals(response.status, 200);
   const body = await response.json();
-  assertEquals(body.result.text, 'Heute passt die Tomatenpfanne besonders gut.\n\nWeitere nicht verifizierte Rezeptideen wurden ausgeblendet.');
+  assertEquals(
+    body.result.text,
+    'Heute passt die Tomatenpfanne besonders gut.\n\nWeitere nicht verifizierte Rezeptideen wurden ausgeblendet.',
+  );
   assertEquals(body.result.recipeReferences, [{
     recipeId: 'recipe-1',
     title: 'Tomatenpfanne',

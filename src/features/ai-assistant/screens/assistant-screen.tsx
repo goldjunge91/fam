@@ -24,6 +24,11 @@ import {
 } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
+import { formatExpiryDate, getExpiryInfo } from '@/features/inventory/expiry';
+import {
+  type LocalInventoryItem,
+  useInventoryItems,
+} from '@/features/inventory/use-inventory-items';
 import { pollHouseholdUntilEntitlementActive } from '@/features/premium/household-entitlement-sync';
 import { usePremium } from '@/features/premium/premium-provider';
 import { syncRevenueCatAiEntitlement } from '@/features/premium/revenuecat-entitlement-sync';
@@ -63,6 +68,8 @@ const STARTER_PROMPTS = [
   'Was sollten wir bald verbrauchen?',
   'Plane unsere Woche',
 ] as const;
+
+const EMPTY_INVENTORY_ITEMS: LocalInventoryItem[] = [];
 
 type AssistantToolIcon =
   | 'search'
@@ -127,6 +134,52 @@ const styles = StyleSheet.create((theme) => ({
   },
   creditNote: {
     textAlign: 'center',
+  },
+  expiringPicker: {
+    gap: theme.space.sm,
+    marginBottom: theme.space.md,
+  },
+  expiringPickerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.space.sm,
+  },
+  expiringPickerActions: {
+    flexDirection: 'row',
+    gap: theme.space.sm,
+  },
+  expiringPickerList: {
+    gap: theme.space.xs,
+  },
+  expiringItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.space.sm,
+    paddingVertical: theme.space.xs,
+  },
+  expiringItemBox: {
+    width: rs(24),
+    height: rs(24),
+    borderRadius: theme.radius.sm,
+    borderWidth: theme.borderWidth.base,
+    borderColor: theme.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  expiringItemBoxSelected: {
+    backgroundColor: theme.accent,
+    borderColor: theme.accent,
+  },
+  expiringItemCopy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  expiringItemDate: {
+    marginTop: theme.space.xs,
+  },
+  expiringSelectionButton: {
+    alignSelf: 'stretch',
   },
   messageList: {
     flex: 1,
@@ -308,6 +361,7 @@ type FailedAssistantMessage = {
   threadId: string;
   text: string;
   attachments?: AssistantAttachment[];
+  focusedInventoryLotIds?: string[];
   retryable: boolean;
 };
 
@@ -463,6 +517,8 @@ export function AssistantScreen() {
   const queryClient = useQueryClient();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
+  const { data: inventoryItems } = useInventoryItems(activeHouseholdId ?? undefined);
+  const availableInventoryItems = inventoryItems ?? EMPTY_INVENTORY_ITEMS;
   const { hasAI, refresh: refreshPremium } = usePremium();
   const addShoppingItem = useAddShoppingItem();
   const [threads, setThreads] = useState<AssistantThread[]>([]);
@@ -476,6 +532,7 @@ export function AssistantScreen() {
   > | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSending, setIsSending] = useState(false);
+  const [selectedExpiringLotIds, setSelectedExpiringLotIds] = useState<string[]>([]);
   const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
   const [failedMessage, setFailedMessage] = useState<FailedAssistantMessage | null>(null);
   const [applyingProposalId, setApplyingProposalId] = useState<string | null>(null);
@@ -486,6 +543,24 @@ export function AssistantScreen() {
     () => threads.find((thread) => thread.id === activeThreadId) ?? null,
     [activeThreadId, threads],
   );
+
+  const expiringItems = useMemo(() => {
+    const today = new Date();
+    return availableInventoryItems.filter((item) => {
+      const bucket = getExpiryInfo(item.expiry_date, today).bucket;
+      return bucket === 'expired' || bucket === 'critical' || bucket === 'soon';
+    });
+  }, [availableInventoryItems]);
+  const expiringItemIds = useMemo(() => expiringItems.map((item) => item.id), [expiringItems]);
+  useEffect(() => {
+    if (expiringItemIds.length > 1) {
+      setSelectedExpiringLotIds(expiringItemIds);
+    } else {
+      setSelectedExpiringLotIds([]);
+    }
+  }, [expiringItemIds]);
+
+  const focusedInventoryLotIds = expiringItems.length > 1 ? selectedExpiringLotIds : undefined;
 
   useEffect(() => {
     if (!userId) {
@@ -760,6 +835,7 @@ export function AssistantScreen() {
         householdId: activeHouseholdId,
         message: text,
         includeHouseholdContext: true,
+        ...(focusedInventoryLotIds !== undefined ? { focusedInventoryLotIds } : {}),
         ...(pageContext ? { pageContext } : {}),
         ...(encodedAttachments.length > 0 ? { attachments: encodedAttachments } : {}),
         history: currentThread.messages.map(({ role, text: content }) => ({ role, text: content })),
@@ -796,6 +872,7 @@ export function AssistantScreen() {
           threadId: requestThreadId,
           text,
           ...(encodedAttachments.length > 0 ? { attachments: encodedAttachments } : {}),
+          ...(focusedInventoryLotIds !== undefined ? { focusedInventoryLotIds } : {}),
           retryable,
         });
         if (!retryable) setMessage(text);
@@ -824,6 +901,9 @@ export function AssistantScreen() {
         householdId: activeHouseholdId,
         message: failed.text,
         includeHouseholdContext: true,
+        ...(failed.focusedInventoryLotIds !== undefined
+          ? { focusedInventoryLotIds: failed.focusedInventoryLotIds }
+          : {}),
         ...(pageContext ? { pageContext } : {}),
         ...(failed.attachments?.length ? { attachments: failed.attachments } : {}),
         history: failedThread.messages
@@ -1360,6 +1440,86 @@ export function AssistantScreen() {
     );
   }
 
+  function toggleExpiringLotId(lotId: string) {
+    setSelectedExpiringLotIds((current) =>
+      current.includes(lotId) ? current.filter((id) => id !== lotId) : [...current, lotId],
+    );
+  }
+
+  function renderExpiringInventoryPicker() {
+    if (expiringItems.length <= 1) return null;
+    return (
+      <Card style={styles.expiringPicker}>
+        <View style={styles.expiringPickerHeader}>
+          <View style={styles.expiringItemCopy}>
+            <Txt variant="label" weight="700">
+              Bald ablaufend
+            </Txt>
+            <Txt variant="caption" tone="secondary">
+              Nur ausgewählte Artikel werden für diese Anfrage verwendet.
+            </Txt>
+          </View>
+          <Txt variant="caption" tone="secondary">
+            {selectedExpiringLotIds.length} / {expiringItems.length}
+          </Txt>
+        </View>
+        <View style={styles.expiringPickerActions}>
+          <Button
+            title="Alle auswählen"
+            disabled={isSending}
+            onPress={() => setSelectedExpiringLotIds(expiringItems.map((item) => item.id))}
+            variant="secondary"
+            size="sm"
+            flat
+          />
+          <Button
+            title="Auswahl löschen"
+            disabled={isSending || selectedExpiringLotIds.length === 0}
+            onPress={() => setSelectedExpiringLotIds([])}
+            variant="secondary"
+            size="sm"
+            flat
+          />
+        </View>
+        <View style={styles.expiringPickerList}>
+          {expiringItems.map((item) => {
+            const selected = selectedExpiringLotIds.includes(item.id);
+            const expiry = getExpiryInfo(item.expiry_date, new Date());
+            return (
+              <Press
+                key={item.id}
+                accessibilityRole="checkbox"
+                accessibilityState={{ checked: selected, disabled: isSending }}
+                accessibilityLabel={item.name}
+                disabled={isSending}
+                onPress={() => toggleExpiringLotId(item.id)}
+                style={styles.expiringItem}>
+                <View style={[styles.expiringItemBox, selected && styles.expiringItemBoxSelected]}>
+                  {selected ? (
+                    <Txt tone="onAccent" weight="700">
+                      ✓
+                    </Txt>
+                  ) : null}
+                </View>
+                <View style={styles.expiringItemCopy}>
+                  <Txt variant="body" weight="600" numberOfLines={1}>
+                    {item.name}
+                  </Txt>
+                  <Txt
+                    variant="caption"
+                    tone={expiry.bucket === 'expired' ? 'danger' : 'secondary'}
+                    style={styles.expiringItemDate}>
+                    {formatExpiryDate(item.expiry_date)} · {expiry.label}
+                  </Txt>
+                </View>
+              </Press>
+            );
+          })}
+        </View>
+      </Card>
+    );
+  }
+
   const hasReadyContext = Boolean(userId && activeHouseholdId);
 
   return (
@@ -1493,6 +1653,7 @@ export function AssistantScreen() {
                 </Txt>
               </View>
             ) : null}
+            {renderExpiringInventoryPicker()}
             <FlashList
               data={activeThread?.messages ?? []}
               keyExtractor={(item) => item.id}

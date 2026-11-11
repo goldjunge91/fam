@@ -377,6 +377,7 @@ export async function loadCookingContext(
   requestedAllergies: string[] = [],
   pageContext?: AssistantPageContext,
   clientOverride?: unknown,
+  focusedInventoryLotIds?: readonly string[],
 ) {
   const client = clientOverride === undefined
     ? createClient(supabaseUrl, anonKey, {
@@ -487,17 +488,25 @@ export async function loadCookingContext(
     }
   }
 
-  const inventoryQuery = await client
+  let inventoryQuery = client
     .from('fridge_items')
     .select('id, product_id, name, quantity, unit, expiry_date, location_id', { count: 'exact' })
     .eq('household_id', householdId)
     .is('deleted_at', null)
-    .gt('quantity', 0)
+    .gt('quantity', 0);
+  if (focusedInventoryLotIds !== undefined) {
+    inventoryQuery = inventoryQuery.in('id', [...focusedInventoryLotIds]);
+  }
+  inventoryQuery = inventoryQuery
     .order('expiry_date', { ascending: true, nullsFirst: false })
     .order('name', { ascending: true })
     .order('id', { ascending: true })
     .limit(CONTEXT_LIMITS.inventoryLots + 1);
-  const { data: inventoryRows, error: inventoryError } = inventoryQuery;
+  const {
+    data: inventoryRows,
+    error: inventoryError,
+    count: inventoryCount,
+  } = await inventoryQuery;
   if (inventoryError) {
     return {
       ok: false as const,
@@ -557,7 +566,7 @@ export async function loadCookingContext(
   const boundedLots = limitContextArray(allLots, CONTEXT_LIMITS.inventoryLots);
   const inventoryOmittedCount = Math.max(
     0,
-    (inventoryQuery.count ?? allLots.length) - boundedLots.values.length,
+    (inventoryCount ?? allLots.length) - boundedLots.values.length,
   );
 
   const shoppingListResult = includePersonalFoodRules
@@ -994,7 +1003,9 @@ export async function loadCookingContext(
         recipeId: limitContextString(row.id),
         title: limitContextString(String(row.title)),
         source: 'household',
-        coverImagePath: row.cover_image_path ? limitContextString(String(row.cover_image_path)) : null,
+        coverImagePath: row.cover_image_path
+          ? limitContextString(String(row.cover_image_path))
+          : null,
         updatedAt: row.updated_at ? limitContextString(row.updated_at) : undefined,
         estimatedMinutes: (typeof row.prep_time_minutes === 'number' ? row.prep_time_minutes : 0) +
             (typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : 0) || null,

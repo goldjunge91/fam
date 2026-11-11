@@ -18,6 +18,7 @@ type SendAssistantMessageInput = {
   message: string;
   history: readonly AssistantHistoryMessage[];
   includeHouseholdContext: boolean;
+  focusedInventoryLotIds?: readonly string[];
   pageContext?: AssistantPageContext;
   attachments?: readonly AssistantAttachment[];
 };
@@ -266,6 +267,9 @@ export async function sendAssistantMessage(
       message: input.message,
       history: input.history.slice(-12),
       includeHouseholdContext: input.includeHouseholdContext,
+      ...(input.focusedInventoryLotIds !== undefined
+        ? { focusedInventoryLotIds: input.focusedInventoryLotIds }
+        : {}),
       ...(input.pageContext ? { pageContext: input.pageContext } : {}),
       ...(input.attachments && input.attachments.length > 0
         ? { attachments: input.attachments }

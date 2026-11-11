@@ -80,6 +80,7 @@ type AssistantRequest = {
   message: string;
   history: Array<{ role: 'user' | 'assistant'; text: string }>;
   includeHouseholdContext: boolean;
+  focusedInventoryLotIds?: string[];
   pageContext?: AssistantPageContext;
   attachments?: AssistantAttachment[];
 } & ModelSelection;
@@ -440,6 +441,8 @@ type Dependencies = {
     includePersonalFoodRules: boolean,
     requestedAllergies?: string[],
     pageContext?: AssistantPageContext,
+    clientOverride?: unknown,
+    focusedInventoryLotIds?: readonly string[],
   ) => Promise<ContextResult>;
   loadRecipePage?: (url: string) => Promise<RecipePageResult>;
   validatePublicUrl?: (url: string) => Promise<boolean>;
@@ -652,6 +655,7 @@ function parseRequest(value: unknown): GatewayRequest | null {
       'message',
       'history',
       'includeHouseholdContext',
+      'focusedInventoryLotIds',
       'pageContext',
       'attachments',
       'provider',
@@ -665,6 +669,12 @@ function parseRequest(value: unknown): GatewayRequest | null {
       value.message.length > 4_000 ||
       (!nonEmptyString(value.message) && !hasAttachments) ||
       !isAssistantHistory(value.history) ||
+      (value.focusedInventoryLotIds !== undefined && (
+        !Array.isArray(value.focusedInventoryLotIds) ||
+        value.focusedInventoryLotIds.length > 50 ||
+        !value.focusedInventoryLotIds.every(nonEmptyString) ||
+        new Set(value.focusedInventoryLotIds).size !== value.focusedInventoryLotIds.length
+      )) ||
       (value.pageContext !== undefined && !isAssistantPageContext(value.pageContext)) ||
       (value.attachments !== undefined && (
         !Array.isArray(value.attachments) ||
@@ -685,6 +695,9 @@ function parseRequest(value: unknown): GatewayRequest | null {
         text: item.text,
       })),
       includeHouseholdContext: value.includeHouseholdContext,
+      ...(value.focusedInventoryLotIds !== undefined
+        ? { focusedInventoryLotIds: value.focusedInventoryLotIds.map((id) => id.trim()) }
+        : {}),
       ...(value.pageContext !== undefined ? { pageContext: value.pageContext } : {}),
       ...(value.attachments !== undefined ? { attachments: value.attachments } : {}),
       ...modelSelection,
@@ -2446,6 +2459,8 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         parsedRequest.skill === 'fam-assistant' && parsedRequest.includeHouseholdContext,
         parsedRequest.skill === 'fam-cook-from-inventory' ? parsedRequest.allergies : [],
         parsedRequest.skill === 'fam-assistant' ? parsedRequest.pageContext : undefined,
+        undefined,
+        parsedRequest.skill === 'fam-assistant' ? parsedRequest.focusedInventoryLotIds : undefined,
       )
       : {
         ok: true as const,
@@ -2653,10 +2668,12 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
 
     const assistantRecipeReferences = new Map(recipeReferences);
     if (parsedRequest.skill === 'fam-assistant') {
-      for (const recipe of recipeReferencesMentionedInText(
-        typeof parsedResult.text === 'string' ? parsedResult.text : '',
-        preparedContext,
-      )) {
+      for (
+        const recipe of recipeReferencesMentionedInText(
+          typeof parsedResult.text === 'string' ? parsedResult.text : '',
+          preparedContext,
+        )
+      ) {
         assistantRecipeReferences.set(`${recipe.source}:${recipe.recipeId}`, recipe);
       }
     }
