@@ -1,13 +1,15 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { rs } from '@/components/theme/index';
 import { PlusAndAiScreen } from '@/features/premium/plus-and-ai-screen';
+import { syncRevenueCatAiEntitlement } from '@/features/premium/revenuecat-entitlement-sync';
 import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 
 let mockHasPlus = false;
 let mockHasAI = false;
+const mockSyncAiEntitlement = jest.mocked(syncRevenueCatAiEntitlement);
 
 jest.mock('@/features/navigation/navigation-chrome-provider', () => ({
   useNavigationChrome: () => ({ openProfile: jest.fn() }),
@@ -28,12 +30,24 @@ jest.mock('@/features/premium/premium-provider', () => ({
   }),
 }));
 
+jest.mock('@/features/auth/session-provider', () => ({
+  useSession: () => ({ session: { user: { id: 'user-123' } } }),
+}));
+
+jest.mock('@/features/household/active-household-provider', () => ({
+  useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-abc' }),
+}));
+
 jest.mock('@/features/premium/paywall', () => ({
   presentCustomerCenter: jest.fn(),
 }));
 
 jest.mock('@/features/premium/household-entitlement-sync', () => ({
   pollHouseholdUntilEntitlementActive: jest.fn().mockResolvedValue(true),
+}));
+
+jest.mock('@/features/premium/revenuecat-entitlement-sync', () => ({
+  syncRevenueCatAiEntitlement: jest.fn().mockResolvedValue(true),
 }));
 
 jest.mock('@/lib/backend/revenuecat', () => ({
@@ -62,8 +76,10 @@ function renderScreen(initialTier: 'plus' | 'ai' = 'plus') {
 
 describe('PlusAndAiScreen', () => {
   beforeEach(() => {
+    jest.clearAllMocks();
     mockHasPlus = false;
     mockHasAI = false;
+    mockSyncAiEntitlement.mockResolvedValue(true);
     (packagesForEntitlement as jest.Mock).mockReset();
     (packagesForEntitlement as jest.Mock).mockResolvedValue([]);
     (buyPackage as jest.Mock).mockReset();
@@ -175,7 +191,11 @@ describe('PlusAndAiScreen', () => {
     expect(alertSpy).toHaveBeenCalledWith(
       'Erfolgreich',
       'Fam Plus ist jetzt für deinen Haushalt aktiv!',
+      [{ text: 'OK', onPress: expect.any(Function) }],
     );
+    const buttons = alertSpy.mock.calls.at(-1)?.[2];
+    await buttons?.find((button) => button.text === 'OK')?.onPress?.();
+    expect(router.back).toHaveBeenCalledTimes(1);
   });
 
   it('zeigt nach erfolgreichem KI-Kauf eine Erfolgsmeldung per Alert', async () => {
@@ -201,7 +221,11 @@ describe('PlusAndAiScreen', () => {
     expect(alertSpy).toHaveBeenCalledWith(
       'Erfolgreich',
       'Fam KI ist jetzt für deinen Haushalt aktiv!',
+      [{ text: 'OK', onPress: expect.any(Function) }],
     );
+    const buttons = alertSpy.mock.calls.at(-1)?.[2];
+    await buttons?.find((button) => button.text === 'OK')?.onPress?.();
+    expect(router.back).toHaveBeenCalledTimes(1);
   });
 
   it('meldet Laden als busy und blockiert den Kauf-CTA', async () => {

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { PurchasesPackage } from 'react-native-purchases';
+import type { CustomerInfo, PurchasesPackage } from 'react-native-purchases';
 
 import { useSession } from '@/features/auth/session-provider';
 import { useOptionalActiveHousehold } from '@/features/household/active-household-provider';
@@ -18,6 +18,27 @@ import { type ExtractedPaywallPlans, extractPaywallPlans, type PlanPeriod } from
 import { syncRevenueCatAiEntitlement } from './revenuecat-entitlement-sync';
 import type { PaywallTier } from './types';
 
+export interface PaywallActivationStatus {
+  aiEntitlementSynced: boolean | null;
+  householdEntitlementActive: boolean;
+  confirmed: boolean;
+}
+
+type PaywallPurchaseOutcome =
+  | (Extract<PurchaseOutcome, { kind: 'purchased' }> & {
+      activation: PaywallActivationStatus;
+    })
+  | Exclude<PurchaseOutcome, { kind: 'purchased' }>
+  | { kind: 'unavailable' };
+
+type PaywallRestoreOutcome =
+  | {
+      ok: true;
+      customerInfo: CustomerInfo;
+      activation: PaywallActivationStatus;
+    }
+  | { ok: false; error?: unknown };
+
 export interface UsePaywallResult {
   packages: PurchasesPackage[];
   plans: ExtractedPaywallPlans;
@@ -27,8 +48,8 @@ export interface UsePaywallResult {
   isLoadingPackages: boolean;
   isPurchasing: boolean;
   isRestoring: boolean;
-  buySelectedPlan: () => Promise<PurchaseOutcome | { kind: 'unavailable' }>;
-  restore: () => Promise<{ ok: boolean; error?: unknown }>;
+  buySelectedPlan: () => Promise<PaywallPurchaseOutcome>;
+  restore: () => Promise<PaywallRestoreOutcome>;
 }
 
 /**
@@ -74,9 +95,35 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
     return selectedPeriod === 'yearly' ? plans.yearly.package : plans.monthly.package;
   }, [selectedPeriod, plans]);
 
-  const buySelectedPlan = useCallback(async (): Promise<
-    PurchaseOutcome | { kind: 'unavailable' }
-  > => {
+  const synchronizeActivation = useCallback(
+    async (customerInfo: CustomerInfo): Promise<PaywallActivationStatus> => {
+      let aiEntitlementSynced: boolean | null = null;
+      let householdEntitlementActive = false;
+
+      if (userId) {
+        if (tier === 'ai') {
+          aiEntitlementSynced = await syncRevenueCatAiEntitlement(activeHouseholdId, customerInfo);
+        }
+        householdEntitlementActive = await pollHouseholdUntilEntitlementActive({
+          tier,
+          userId,
+          activeHouseholdId,
+        });
+      }
+
+      return {
+        aiEntitlementSynced,
+        householdEntitlementActive,
+        confirmed:
+          Boolean(userId) &&
+          householdEntitlementActive &&
+          (tier === 'plus' || aiEntitlementSynced === true),
+      };
+    },
+    [activeHouseholdId, tier, userId],
+  );
+
+  const buySelectedPlan = useCallback(async (): Promise<PaywallPurchaseOutcome> => {
     if (isPurchasing) return { kind: 'cancelled' };
 
     const targetPkg = selectedPackage;
@@ -103,16 +150,8 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
           tier,
         });
         await refresh();
-        if (userId) {
-          if (tier === 'ai') {
-            await syncRevenueCatAiEntitlement(activeHouseholdId, outcome.customerInfo);
-          }
-          await pollHouseholdUntilEntitlementActive({
-            tier,
-            userId,
-            activeHouseholdId,
-          });
-        }
+        const activation = await synchronizeActivation(outcome.customerInfo);
+        return { ...outcome, activation };
       } else if (outcome.kind === 'cancelled') {
         trackAnalyticsEvent('purchase.checkout.cancelled', {
           package_id: targetPkg.identifier,
@@ -130,9 +169,9 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
     } finally {
       setIsPurchasing(false);
     }
-  }, [isPurchasing, selectedPackage, selectedPeriod, refresh, tier, userId, activeHouseholdId]);
+  }, [isPurchasing, selectedPackage, selectedPeriod, refresh, tier, synchronizeActivation]);
 
-  const restore = useCallback(async (): Promise<{ ok: boolean; error?: unknown }> => {
+  const restore = useCallback(async (): Promise<PaywallRestoreOutcome> => {
     if (isRestoring) return { ok: false };
     setIsRestoring(true);
     trackAnalyticsEvent('purchase.restore.started');
@@ -142,16 +181,8 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
       if (result.ok) {
         trackAnalyticsEvent('purchase.restore.completed');
         await refresh();
-        if (userId) {
-          if (tier === 'ai') {
-            await syncRevenueCatAiEntitlement(activeHouseholdId, result.customerInfo);
-          }
-          await pollHouseholdUntilEntitlementActive({
-            tier,
-            userId,
-            activeHouseholdId,
-          });
-        }
+        const activation = await synchronizeActivation(result.customerInfo);
+        return { ...result, activation };
       } else {
         const error = result.error;
         trackAnalyticsEvent('purchase.restore.failed', {
@@ -164,7 +195,7 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
     } finally {
       setIsRestoring(false);
     }
-  }, [isRestoring, refresh, tier, userId, activeHouseholdId]);
+  }, [isRestoring, refresh, synchronizeActivation]);
 
   return {
     packages,

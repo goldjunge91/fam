@@ -3,6 +3,7 @@ import type { PurchasesPackage } from 'react-native-purchases';
 
 import { buyPackage, packagesForEntitlement, restorePurchases } from '@/lib/backend/revenuecat';
 import { pollHouseholdUntilEntitlementActive } from './household-entitlement-sync';
+import { syncRevenueCatAiEntitlement } from './revenuecat-entitlement-sync';
 import { usePaywall } from './use-paywall';
 
 jest.mock('@/features/premium/premium-provider', () => ({
@@ -21,6 +22,10 @@ jest.mock('./household-entitlement-sync', () => ({
   pollHouseholdUntilEntitlementActive: jest.fn().mockResolvedValue(true),
 }));
 
+jest.mock('./revenuecat-entitlement-sync', () => ({
+  syncRevenueCatAiEntitlement: jest.fn().mockResolvedValue(true),
+}));
+
 jest.mock('@/lib/analytics', () => ({
   trackAnalyticsEvent: jest.fn(),
 }));
@@ -36,11 +41,14 @@ const mockPackagesForEntitlement = jest.mocked(packagesForEntitlement);
 const mockBuyPackage = jest.mocked(buyPackage);
 const mockRestorePurchases = jest.mocked(restorePurchases);
 const mockPollHousehold = jest.mocked(pollHouseholdUntilEntitlementActive);
+const mockSyncAiEntitlement = jest.mocked(syncRevenueCatAiEntitlement);
 
 describe('usePaywall', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockPackagesForEntitlement.mockResolvedValue([]);
+    mockPollHousehold.mockResolvedValue(true);
+    mockSyncAiEntitlement.mockResolvedValue(true);
   });
 
   it('loads packages even when the provider initializes RevenueCat in a parent effect', async () => {
@@ -78,6 +86,15 @@ describe('usePaywall', () => {
     await act(async () => {
       const outcome = await result.current.buySelectedPlan();
       expect(outcome.kind).toBe('purchased');
+      expect(outcome).toEqual(
+        expect.objectContaining({
+          activation: {
+            aiEntitlementSynced: null,
+            householdEntitlementActive: true,
+            confirmed: true,
+          },
+        }),
+      );
     });
 
     expect(mockBuyPackage).toHaveBeenCalledWith(annualPackage);
@@ -140,6 +157,15 @@ describe('usePaywall', () => {
     await act(async () => {
       const outcome = await result.current.restore();
       expect(outcome.ok).toBe(true);
+      expect(outcome).toEqual(
+        expect.objectContaining({
+          activation: {
+            aiEntitlementSynced: true,
+            householdEntitlementActive: true,
+            confirmed: true,
+          },
+        }),
+      );
     });
 
     expect(mockRestorePurchases).toHaveBeenCalled();
