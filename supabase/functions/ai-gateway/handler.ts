@@ -1015,6 +1015,7 @@ function buildSystemPrompt(
       'Bei Zutatenwechseln nenne den konkreten Ersatz und nur belegte Mengen oder Auswirkungen auf Geschmack und Konsistenz. Erfinde keine Mengen. Behaupte keine Prüfung von Verpackungshinweisen oder Kreuzkontamination.',
       'Nutze propose_shopping_list_item für genau einen ausdrücklich gewünschten Artikel und propose_shopping_list_items für mehrere Artikel. Ein Werkzeugaufruf speichert nichts; behaupte nie, dass ein Artikel übernommen wurde. Bei foodRuleStatus unknown weise darauf hin, dass Freitextartikel nicht zuverlässig mit persönlichen Lebensmittelregeln abgeglichen werden können, und bitte den Nutzer, die Artikel vor dem Kauf zu prüfen.',
       'Nenne niemals technische Feldnamen oder rohe Statuswerte wie foodRuleStatus, clear, unknown, unsupported oder conflict gegenüber dem Nutzer. Übersetze Hinweise in natürliches Deutsch. Bei einem Einkaufsartikel mit foodRuleStatus clear sind keine persönlichen Lebensmittelregeln hinterlegt; behaupte dafür keine Allergenprüfung. Halte die Antwort bei einer Einkaufskartenaktion kurz und sage, dass der Vorschlag erst nach Bestätigung übernommen wird.',
+      'Nenne keine ungespeicherten oder frei erfundenen Alternativrezepte. Verwende nur Rezepte, die im freigegebenen Kontext oder im Suchwerkzeug belegt sind. Wenn kein belegtes Rezept passt, sage das klar.',
       'Der optionale Seitenkontext ist vom Haushaltskontext getrennt. Wenn er vorhanden ist, beziehe dich auf das angezeigte Rezept oder die angezeigte Planwoche; wenn er null ist, erfinde keinen aktuellen Seitenbezug.',
       'Gib ausschließlich gültiges JSON mit genau kind, text und suggestions zurück.',
       'kind muss assistant_reply.v1 sein. text ist eine Antwort, suggestions ist ein Array mit höchstens drei kurzen Folgefragen. Wenn du mehrere Alternativen oder Fragen stellst, gib jede konkrete Frage als eigenen suggestions-Eintrag zurück; verbinde keine zwei Aktionen in einem Eintrag.',
@@ -1524,6 +1525,18 @@ function extractAssistantSuggestions(text: string): string[] {
     })
     .map((question) => question.slice(0, 180))
     .slice(0, 3);
+}
+
+function sanitizeUnverifiedRecipeClaims(text: string, hasVerifiedRecipe: boolean): string {
+  const marker = text.search(
+    /(?:^|\n)\s*(?:alternative|weitere ideen?|schnelle alternative|nicht gespeichert|rezeptvorschlag)\b/i,
+  );
+  if (marker < 0) return text;
+  const verifiedPrefix = text.slice(0, marker).trim();
+  if (hasVerifiedRecipe && verifiedPrefix.length > 0) {
+    return `${verifiedPrefix}\n\nWeitere nicht verifizierte Rezeptideen wurden ausgeblendet.`;
+  }
+  return 'Ich habe kein vollständig verifiziertes Rezept für diesen Vorschlag gefunden.';
 }
 
 function normalizeAssistantProviderResult(result: JsonRecord): void {
@@ -2646,6 +2659,13 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       )) {
         assistantRecipeReferences.set(`${recipe.source}:${recipe.recipeId}`, recipe);
       }
+    }
+
+    if (parsedRequest.skill === 'fam-assistant') {
+      parsedResult.text = sanitizeUnverifiedRecipeClaims(
+        typeof parsedResult.text === 'string' ? parsedResult.text : '',
+        assistantRecipeReferences.size > 0,
+      );
     }
 
     return json({

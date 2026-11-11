@@ -1334,7 +1334,8 @@ Deno.test('returns an authoritative recipe reference when the final text names a
     context: { ...CONTEXT, recipes: [], householdRecipes: [recipe] },
     providerContent: JSON.stringify({
       kind: 'assistant_reply.v1',
-      text: 'Heute passt die Tomatenpfanne besonders gut.',
+      text:
+        'Heute passt die Tomatenpfanne besonders gut.\n\nAlternative aus dem Vorrat (nicht gespeichert): Eine freie Pfanne.',
       suggestions: [],
     }),
   });
@@ -1347,7 +1348,9 @@ Deno.test('returns an authoritative recipe reference when the final text names a
   }));
 
   assertEquals(response.status, 200);
-  assertEquals((await response.json()).result.recipeReferences, [{
+  const body = await response.json();
+  assertEquals(body.result.text, 'Heute passt die Tomatenpfanne besonders gut.\n\nWeitere nicht verifizierte Rezeptideen wurden ausgeblendet.');
+  assertEquals(body.result.recipeReferences, [{
     recipeId: 'recipe-1',
     title: 'Tomatenpfanne',
     source: 'household',
