@@ -19,6 +19,11 @@ import {
   resolveFoodRuleCoverage,
 } from './food-rule-coverage.ts';
 import type { AiUsageRecordInput } from './usage.ts';
+import {
+  boundGatewayCookingContext,
+  CONTEXT_LIMITS,
+  limitContextString,
+} from './context-limits.ts';
 
 export const ALLOWED_MODELS = [
   'ibm-granite/granite-4.2-8b',
@@ -267,6 +272,8 @@ export type GatewayInventoryContext = {
   source: 'inventory';
   fetchedAt: string;
   lots: GatewayLot[];
+  truncated?: boolean;
+  omittedCount?: number;
 };
 
 export type GatewayShoppingListItem = {
@@ -279,6 +286,8 @@ export type GatewayShoppingListItem = {
   storeId: string | null;
   checkedAt: string | null;
   recipeNames: string[];
+  recipeNamesTruncated?: boolean;
+  recipeNamesOmittedCount?: number;
 };
 
 export type GatewayMealPlanContext = {
@@ -292,7 +301,11 @@ export type GatewayMealPlanContext = {
     title: string;
     portions: number;
     customIngredients: Array<{ name: string; quantity: number; unit: string }>;
+    customIngredientsTruncated?: boolean;
+    customIngredientsOmittedCount?: number;
   }>;
+  truncated?: boolean;
+  omittedCount?: number;
 };
 
 export type GatewayRecipe = {
@@ -342,7 +355,10 @@ export type GatewayCookingContext = {
   recipes: GatewayRecipe[];
   /** Household recipe rows (not global catalog ids), used by Assistant apply flows. */
   householdRecipes?: GatewayRecipe[];
+  unavailableRecipeIds?: string[];
   shoppingList?: GatewayShoppingListItem[];
+  shoppingListTruncated?: boolean;
+  shoppingListOmittedCount?: number;
   mealPlan?: GatewayMealPlanContext;
   /** Private rules for the requesting account only, loaded under its own RLS. */
   foodRules?: GatewayFoodRules;
@@ -836,7 +852,10 @@ function validateAssistantPageContext(
     const recipe = (context.householdRecipes ?? []).find(
       (candidate) => candidate.recipeId === pageContext.recipeId,
     );
-    return recipe ? { valid: true } : { valid: false, error: 'page_context_not_allowed' };
+    if (recipe) return { valid: true };
+    return context.unavailableRecipeIds?.includes(pageContext.recipeId)
+      ? { valid: true }
+      : { valid: false, error: 'page_context_not_allowed' };
   }
   return validIsoDate(pageContext.weekStartDate)
     ? { valid: true }
@@ -857,9 +876,14 @@ function assistantPageContextSummary(
         kind: pageContext.kind,
         recipeId: recipe.recipeId,
         title: recipe.title,
-        ingredients: recipe.ingredients.slice(0, 40),
+        ingredients: recipe.ingredients.slice(0, CONTEXT_LIMITS.householdIngredientsPerRecipe),
       }
-      : { kind: pageContext.kind, recipeId: pageContext.recipeId };
+      : {
+        kind: pageContext.kind,
+        recipeId: pageContext.recipeId,
+        available: false,
+        reason: 'ingredients_unavailable',
+      };
   }
   return {
     kind: pageContext.kind,
@@ -872,6 +896,7 @@ function buildSystemPrompt(
   request: ModelGatewayRequest,
   context: GatewayCookingContext,
 ): string {
+  context = boundGatewayCookingContext(context);
   if (request.skill === 'fam-recipe-import') {
     return [
       'Du liest und strukturierst Rezepte für fam aus vom Nutzer bereitgestellten Inhalten.',
@@ -896,40 +921,66 @@ function buildSystemPrompt(
       avoidFoods: [],
       updatedAt: null,
     };
-    const inventorySummary = context.inventory.lots.slice(0, 50).map((lot) => ({
-      name: lot.normalizedName,
-      quantity: lot.quantity,
-      unit: lot.unit,
-      bestBefore: lot.bestBefore,
-      storage: lot.storage,
-      foodRuleStatus: foodRuleStatusForUnmappedText(lot.normalizedName, foodRules),
-    }));
-    const recipeSummary = assistantRecipes.slice(0, 20).map((recipe) => ({
-      title: recipe.title,
+    const inventorySummary = {
+      lots: context.inventory.lots.slice(0, CONTEXT_LIMITS.inventoryLots).map((lot) => ({
+        name: limitContextString(lot.normalizedName),
+        quantity: lot.quantity,
+        unit: lot.unit ? limitContextString(lot.unit) : null,
+        bestBefore: lot.bestBefore,
+        storage: lot.storage,
+        foodRuleStatus: foodRuleStatusForUnmappedText(lot.normalizedName, foodRules),
+      })),
+      ...(context.inventory.truncated
+        ? { truncated: true, omittedCount: context.inventory.omittedCount ?? 0 }
+        : {}),
+    };
+    const recipeSummary = assistantRecipes.slice(0, CONTEXT_LIMITS.householdRecipes).map((
+      recipe,
+    ) => ({
+      recipeId: limitContextString(recipe.recipeId),
+      title: limitContextString(recipe.title),
       estimatedMinutes: recipe.estimatedMinutes,
       servings: recipe.servings,
       foodRuleStatus: foodRuleCoverageForRecipe(recipe, foodRules).status,
     }));
-    const shoppingListSummary = (context.shoppingList ?? []).slice(0, 100).map((item) => ({
-      itemId: item.itemId,
-      name: item.name,
-      quantity: item.quantity,
-      unit: item.unit,
-      categoryId: item.categoryId,
-      storeId: item.storeId,
-      checked: item.checkedAt !== null,
-      recipeNames: item.recipeNames,
-    }));
+    const shoppingListSummary = {
+      items: (context.shoppingList ?? []).slice(0, CONTEXT_LIMITS.shoppingListItems).map((
+        item,
+      ) => ({
+        itemId: limitContextString(item.itemId),
+        name: limitContextString(item.name),
+        quantity: item.quantity,
+        unit: limitContextString(item.unit),
+        categoryId: item.categoryId,
+        storeId: item.storeId,
+        checked: item.checkedAt !== null,
+        recipeNames: item.recipeNames.map((name) => limitContextString(name)),
+        ...(item.recipeNamesTruncated
+          ? {
+            recipeNamesTruncated: true,
+            recipeNamesOmittedCount: item.recipeNamesOmittedCount ?? 0,
+          }
+          : {}),
+      })),
+      ...(context.shoppingListTruncated
+        ? {
+          truncated: true,
+          omittedCount: context.shoppingListOmittedCount ?? 0,
+        }
+        : {}),
+    };
     const foodRulesActive = hasFoodRules(foodRules);
     const householdSummary = {
       inventory: inventorySummary,
       recipes: recipeSummary,
+      unavailableRecipes: (context.unavailableRecipeIds ?? []).map(limitContextString),
       shoppingList: shoppingListSummary,
       pageContext: assistantPageContextSummary(request.pageContext, context),
+      mealPlan: context.mealPlan ?? null,
       foodRules: {
         active: foodRulesActive,
         coverageStatus: requestFoodRuleCoverageStatus(
-          [...inventorySummary, ...recipeSummary].map((item) => item.foodRuleStatus),
+          [...inventorySummary.lots, ...recipeSummary].map((item) => item.foodRuleStatus),
           foodRulesActive,
         ),
       },
@@ -1098,6 +1149,38 @@ function isValidAssistantResult(result: JsonRecord): boolean {
     nonEmptyString(result.text) &&
     validStringArray(result.suggestions) &&
     result.suggestions.length <= 3;
+}
+
+function logProviderResponseShape(input: {
+  provider: GatewayProvider;
+  model: string;
+  providerCallIndex: number;
+  responseFormat: 'json_object' | null | undefined;
+  content: string | null;
+  toolCallCount: number;
+}): void {
+  let jsonKind = input.content === null ? 'null' : 'invalid_json';
+  let topLevelKeys: string[] = [];
+  if (input.content !== null) {
+    try {
+      const parsed: unknown = JSON.parse(input.content);
+      jsonKind = Array.isArray(parsed) ? 'array' : typeof parsed;
+      if (isRecord(parsed)) topLevelKeys = Object.keys(parsed).sort();
+    } catch {
+      jsonKind = 'invalid_json';
+    }
+  }
+  console.warn(JSON.stringify({
+    event: 'ai_provider_response_shape',
+    provider: input.provider,
+    model: input.model,
+    providerCallIndex: input.providerCallIndex,
+    formatMode: input.responseFormat === null ? 'tool_compatible' : 'json_object',
+    contentPresent: input.content !== null && input.content.trim().length > 0,
+    jsonKind,
+    topLevelKeys,
+    nativeToolCallCount: input.toolCallCount,
+  }));
 }
 
 const ASSISTANT_TOOLS: ProviderTool[] = [
@@ -1419,7 +1502,7 @@ function runAssistantTool(
             estimatedMinutes: recipe.estimatedMinutes,
             servings: recipe.servings,
             dietaryTags: recipe.dietaryTags,
-            ingredients: recipe.ingredients.slice(0, 40),
+            ingredients: recipe.ingredients.slice(0, CONTEXT_LIMITS.catalogIngredientsPerRecipe),
           })),
         ...(blockedStatuses.length > 0
           ? { blockedByFoodRules: true, foodRuleStatus: blockedStatuses[0] }
@@ -1433,10 +1516,18 @@ function runAssistantTool(
     if (Object.keys(args).length !== 0) return { result: { error: 'invalid_arguments' } };
     const rules = context.foodRules ?? EMPTY_FOOD_RULES;
     return {
-      result: context.inventory.lots.slice(0, 50).map((lot) => ({
-        ...lot,
-        foodRuleStatus: foodRuleStatusForUnmappedText(lot.normalizedName, rules),
-      })),
+      result: {
+        items: context.inventory.lots.slice(0, CONTEXT_LIMITS.inventoryLots).map((lot) => ({
+          ...lot,
+          foodRuleStatus: foodRuleStatusForUnmappedText(lot.normalizedName, rules),
+        })),
+        ...(context.inventory.truncated
+          ? {
+            truncated: true,
+            omittedCount: context.inventory.omittedCount ?? 0,
+          }
+          : {}),
+      },
       toolName: 'get_inventory',
     };
   }
@@ -1444,7 +1535,15 @@ function runAssistantTool(
   if (call.name === 'get_shopping_list') {
     if (Object.keys(args).length !== 0) return { result: { error: 'invalid_arguments' } };
     return {
-      result: context.shoppingList?.slice(0, 100) ?? [],
+      result: {
+        items: context.shoppingList?.slice(0, CONTEXT_LIMITS.shoppingListItems) ?? [],
+        ...(context.shoppingListTruncated
+          ? {
+            truncated: true,
+            omittedCount: context.shoppingListOmittedCount ?? 0,
+          }
+          : {}),
+      },
       toolName: 'get_shopping_list',
     };
   }
@@ -2257,19 +2356,11 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       }
     }
 
-    const preparedContext = parsedRequest.skill === 'fam-cook-from-inventory'
+    const rawPreparedContext = parsedRequest.skill === 'fam-cook-from-inventory'
       ? prepareCookingContext(contextResult.context, parsedRequest)
-      : parsedRequest.skill === 'fam-assistant' && parsedRequest.includeHouseholdContext
-      ? {
-        ...contextResult.context,
-        inventory: {
-          ...contextResult.context.inventory,
-          lots: contextResult.context.inventory.lots.slice(0, 50),
-        },
-        recipes: contextResult.context.recipes.slice(0, 20),
-      }
       : contextResult.context;
-    if (preparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
+    if (rawPreparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
+    const preparedContext = boundGatewayCookingContext(rawPreparedContext);
 
     const currentRequestId = requestId();
     const booking = await dependencies.bookAiCredit({
@@ -2326,12 +2417,13 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     const canUseTools = parsedRequest.skill === 'fam-assistant' &&
       parsedRequest.includeHouseholdContext;
     for (let round = 0; round <= 6; round += 1) {
+      const responseFormat = canUseTools && round < 6 ? null : undefined;
       try {
         provider = await dependencies.complete({
           provider: activeProvider,
           model,
           messages: providerMessages,
-          ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS } : {}),
+          ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS, responseFormat } : {}),
         });
       } catch {
         return await refundAndRespond({ error: 'provider_unavailable' }, 502);
@@ -2363,6 +2455,16 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         return await refundAndRespond({ error: 'provider_model_mismatch' }, 502);
       }
       const toolCalls = provider.toolCalls ?? [];
+      if (toolCalls.length > 0 && providerCallIndex === 1) {
+        logProviderResponseShape({
+          provider: activeProvider,
+          model: provider.model,
+          providerCallIndex: Math.max(0, providerCallIndex - 1),
+          responseFormat,
+          content: provider.content,
+          toolCallCount: toolCalls.length,
+        });
+      }
       if (toolCalls.length === 0) break;
       if (!canUseTools || round >= 6 || toolCalls.length > 8) {
         return await refundAndRespond({ error: 'invalid_assistant_tool_calls' }, 502);
@@ -2412,6 +2514,16 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       ? (parseRecipeImportDraft(parsedResult) ? null : 'invalid_recipe_import_draft')
       : validateCookingResult(parsedResult, preparedContext, parsedRequest);
     if (validationError) {
+      if (validationError === 'invalid_assistant_reply') {
+        logProviderResponseShape({
+          provider: activeProvider,
+          model: provider.model,
+          providerCallIndex: Math.max(0, providerCallIndex - 1),
+          responseFormat: canUseTools ? null : 'json_object',
+          content: provider.content,
+          toolCallCount: provider.toolCalls?.length ?? 0,
+        });
+      }
       return await refundAndRespond({ error: validationError }, 502);
     }
 

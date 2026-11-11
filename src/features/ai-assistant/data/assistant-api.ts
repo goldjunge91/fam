@@ -258,6 +258,18 @@ export async function sendAssistantMessage(
     if (code === 'model_not_allowed') {
       throw gatewayError('Dieses AI-Modell ist derzeit nicht verfügbar.');
     }
+    if (code === 'invalid_assistant_reply') {
+      throw gatewayError(
+        'Die KI hat gerade eine ungültige Antwort geliefert. Bitte versuche es erneut.',
+        true,
+      );
+    }
+    if (code === 'provider_not_configured') {
+      throw gatewayError(
+        'Der ausgewählte KI-Anbieter ist serverseitig nicht konfiguriert. Bitte wähle ein anderes Modell.',
+        false,
+      );
+    }
     if (code === 'provider_invalid_json') {
       throw gatewayError('Die KI konnte gerade keine passende Antwort erstellen.', true);
     }
@@ -314,8 +326,9 @@ export async function testAiModel(input: {
   if (error) {
     const code = await getGatewayErrorCode(error, data);
     if (code === 'provider_not_configured') {
-      throw new Error(
+      throw gatewayError(
         `Der ${input.provider === 'groq' ? 'Groq' : 'OpenRouter'}-API-Key fehlt in der lokalen Functions-Umgebung.`,
+        false,
       );
     }
     if (code === 'model_testing_unavailable') {

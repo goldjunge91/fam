@@ -1,13 +1,15 @@
 import type { GatewayRecipe } from './handler.ts';
+import { CONTEXT_LIMITS, limitContextString } from './context-limits.ts';
 
 export const AI_GATEWAY_CONTEXT_LIMITS = {
-  relevantProductIds: 100,
-  catalogCandidateItems: 500,
-  catalogRecipes: 50,
-  catalogIngredientItems: 2_000,
-  householdRecipes: 50,
-  mealPlanEntries: 21,
-  shoppingListItems: 100,
+  relevantProductIds: CONTEXT_LIMITS.relevantProductIds,
+  catalogCandidateItems: CONTEXT_LIMITS.catalogCandidateItems,
+  catalogRecipes: CONTEXT_LIMITS.catalogRecipes,
+  catalogIngredientItems: CONTEXT_LIMITS.catalogIngredientItems,
+  catalogIngredientsPerRecipe: CONTEXT_LIMITS.catalogIngredientsPerRecipe,
+  householdRecipes: CONTEXT_LIMITS.householdRecipes,
+  mealPlanEntries: CONTEXT_LIMITS.mealPlanEntries,
+  shoppingListItems: CONTEXT_LIMITS.shoppingListItems,
 } as const;
 
 export type RecipeContextQueryResult = {
@@ -67,9 +69,16 @@ function relationProductName(value: unknown): string | null {
 export function selectRelevantProductIds(
   productIds: readonly (string | null | undefined)[],
 ): string[] {
-  return [...new Set(productIds.map(nonEmptyString).filter((id): id is string => id !== null))]
-    .sort()
-    .slice(0, AI_GATEWAY_CONTEXT_LIMITS.relevantProductIds);
+  const selected: string[] = [];
+  const seen = new Set<string>();
+  for (const value of productIds) {
+    const id = nonEmptyString(value);
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    selected.push(id);
+    if (selected.length === CONTEXT_LIMITS.relevantProductIds) break;
+  }
+  return selected;
 }
 
 function queryFailure(
@@ -79,6 +88,44 @@ function queryFailure(
   return error ? { ok: false, error: code, message: error.message } : null;
 }
 
+function candidateQuota(total: number, index: number, count: number): number {
+  const base = Math.floor(total / count);
+  return base + (index < total % count ? 1 : 0);
+}
+
+function scoreCandidateRecipes(
+  candidateRows: readonly unknown[],
+  recipeRows: readonly Record<string, unknown>[],
+): Record<string, unknown>[] {
+  const productIdsByRecipe = new Map<string, Set<string>>();
+  for (const row of candidateRows) {
+    if (!isRecord(row)) continue;
+    const recipeId = nonEmptyString(row.recipe_id);
+    const productId = nonEmptyString(row.product_id);
+    if (!recipeId || !productId) continue;
+    const productIds = productIdsByRecipe.get(recipeId) ?? new Set<string>();
+    productIds.add(productId);
+    productIdsByRecipe.set(recipeId, productIds);
+  }
+
+  return recipeRows
+    .filter((row) => {
+      const id = nonEmptyString(row.id);
+      return id !== null && productIdsByRecipe.has(id);
+    })
+    .sort((left, right) => {
+      const leftId = nonEmptyString(left.id) ?? '';
+      const rightId = nonEmptyString(right.id) ?? '';
+      const scoreDifference = (productIdsByRecipe.get(rightId)?.size ?? 0) -
+        (productIdsByRecipe.get(leftId)?.size ?? 0);
+      if (scoreDifference !== 0) return scoreDifference;
+      return (nonEmptyString(left.title) ?? '').localeCompare(
+        nonEmptyString(right.title) ?? '',
+        'de',
+      ) || leftId.localeCompare(rightId);
+    });
+}
+
 export async function loadRelevantCatalogRecipes(
   client: RecipeContextClient,
   productIds: readonly (string | null | undefined)[],
@@ -86,29 +133,37 @@ export async function loadRelevantCatalogRecipes(
   const relevantProductIds = selectRelevantProductIds(productIds);
   if (relevantProductIds.length === 0) return { ok: true, recipes: [] };
 
-  const candidateResult = await client
-    .from('catalog_recipe_component_items')
-    .select('id, recipe_id, product_id, position')
-    .in('product_id', relevantProductIds)
-    .order('recipe_id', { ascending: true })
-    .order('position', { ascending: true })
-    .order('id', { ascending: true })
-    .limit(AI_GATEWAY_CONTEXT_LIMITS.catalogCandidateItems);
-  const candidateFailure = queryFailure(
-    candidateResult.error,
-    'recipe_ingredients_lookup_failed',
+  const candidateResults = await Promise.all(
+    relevantProductIds.map((productId, index) =>
+      client
+        .from('catalog_recipe_component_items')
+        .select('id, recipe_id, product_id, position')
+        .eq('product_id', productId)
+        .order('recipe_id', { ascending: true })
+        .order('position', { ascending: true })
+        .order('id', { ascending: true })
+        .limit(
+          candidateQuota(CONTEXT_LIMITS.catalogCandidateItems, index, relevantProductIds.length),
+        )
+    ),
   );
-  if (candidateFailure) return candidateFailure;
+  for (const candidateResult of candidateResults) {
+    const candidateFailure = queryFailure(
+      candidateResult.error,
+      'recipe_ingredients_lookup_failed',
+    );
+    if (candidateFailure) return candidateFailure;
+  }
 
+  const candidateRows = candidateResults.flatMap((result) => result.data ?? []);
   const candidateRecipeIds = [
     ...new Set(
-      (candidateResult.data ?? [])
-        .slice(0, AI_GATEWAY_CONTEXT_LIMITS.catalogCandidateItems)
+      candidateRows
         .filter(isRecord)
         .map((row) => nonEmptyString(row.recipe_id))
         .filter((id): id is string => id !== null),
     ),
-  ].sort().slice(0, AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes);
+  ];
   if (candidateRecipeIds.length === 0) return { ok: true, recipes: [] };
 
   const recipeResult = await client
@@ -116,82 +171,82 @@ export async function loadRelevantCatalogRecipes(
     .select('id, title, cook_time_minutes, default_servings, dietary_tags, sort_order')
     .eq('status', 'published')
     .in('id', candidateRecipeIds)
-    .order('sort_order', { ascending: true })
-    .order('title', { ascending: true })
-    .order('id', { ascending: true })
-    .limit(AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes);
+    .limit(candidateRecipeIds.length);
   const recipeFailure = queryFailure(recipeResult.error, 'recipe_lookup_failed');
   if (recipeFailure) return recipeFailure;
 
-  const candidateRecipeIdSet = new Set(candidateRecipeIds);
-  const catalogRows = (recipeResult.data ?? [])
-    .slice(0, AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes)
-    .filter(isRecord)
-    .filter((row) => {
-      const recipeId = nonEmptyString(row.id);
-      return recipeId !== null && candidateRecipeIdSet.has(recipeId);
-    });
-  const recipeIds = catalogRows
-    .map((row) => nonEmptyString(row.id))
-    .filter((id): id is string => id !== null);
-  if (recipeIds.length === 0) return { ok: true, recipes: [] };
+  const rankedCatalogRows = scoreCandidateRecipes(
+    candidateRows,
+    (recipeResult.data ?? []).filter(isRecord),
+  ).slice(0, CONTEXT_LIMITS.catalogRecipes);
+  if (rankedCatalogRows.length === 0) return { ok: true, recipes: [] };
 
-  const ingredientResult = await client
-    .from('catalog_recipe_component_items')
-    .select(
-      'id, recipe_id, product_id, ingredient_name, quantity, unit, position, products(name)',
-    )
-    .in('recipe_id', recipeIds)
-    .order('recipe_id', { ascending: true })
-    .order('position', { ascending: true })
-    .order('id', { ascending: true })
-    .limit(AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientItems);
-  const ingredientFailure = queryFailure(
-    ingredientResult.error,
-    'recipe_ingredients_lookup_failed',
-  );
-  if (ingredientFailure) return ingredientFailure;
-
-  const recipeIdSet = new Set(recipeIds);
-  const ingredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
-  for (
-    const row of (ingredientResult.data ?? [])
-      .slice(0, AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientItems)
-      .filter(isRecord)
-  ) {
-    const recipeId = nonEmptyString(row.recipe_id);
-    if (!recipeId || !recipeIdSet.has(recipeId)) continue;
-    const productId = nonEmptyString(row.product_id);
-    const name = nonEmptyString(row.ingredient_name) ?? relationProductName(row.products);
-    if (!name) continue;
-    const ingredients = ingredientsByRecipe.get(recipeId) ?? [];
-    ingredients.push({
-      productId,
-      normalizedName: name,
-      quantity: numberOrNull(row.quantity),
-      unit: nonEmptyString(row.unit),
-    });
-    ingredientsByRecipe.set(recipeId, ingredients);
-  }
-
-  const recipes: GatewayRecipe[] = catalogRows.flatMap((row) => {
+  const recipes: GatewayRecipe[] = [];
+  let totalIngredientItems = 0;
+  for (const row of rankedCatalogRows) {
     const recipeId = nonEmptyString(row.id);
     const title = nonEmptyString(row.title);
-    if (!recipeId || !title) return [];
-    return [
-      {
-        recipeId,
-        title,
-        estimatedMinutes: numberOrNull(row.cook_time_minutes),
-        servings: numberOrNull(row.default_servings),
-        dietaryTags: Array.isArray(row.dietary_tags)
-          ? row.dietary_tags.filter((tag): tag is string => typeof tag === 'string')
-          : [],
-        allergens: null,
-        ingredients: ingredientsByRecipe.get(recipeId) ?? [],
-      } satisfies GatewayRecipe,
-    ];
-  });
+    if (!recipeId || !title) continue;
+
+    const ingredientResult = await client
+      .from('catalog_recipe_component_items')
+      .select(
+        'id, recipe_id, product_id, ingredient_name, quantity, unit, position, products(name)',
+      )
+      .eq('recipe_id', recipeId)
+      .order('position', { ascending: true })
+      .order('id', { ascending: true })
+      .limit(CONTEXT_LIMITS.catalogIngredientsPerRecipe + 1);
+    const ingredientFailure = queryFailure(
+      ingredientResult.error,
+      'recipe_ingredients_lookup_failed',
+    );
+    if (ingredientFailure) return ingredientFailure;
+
+    const rows = (ingredientResult.data ?? []).filter(isRecord);
+    if (
+      rows.length === 0 ||
+      rows.length > CONTEXT_LIMITS.catalogIngredientsPerRecipe ||
+      totalIngredientItems + rows.length > CONTEXT_LIMITS.catalogIngredientItems
+    ) continue;
+
+    const ingredients: GatewayRecipe['ingredients'] = [];
+    let complete = true;
+    for (const ingredientRow of rows) {
+      const name = nonEmptyString(ingredientRow.ingredient_name) ??
+        relationProductName(ingredientRow.products);
+      if (!name) {
+        complete = false;
+        break;
+      }
+      ingredients.push({
+        itemId: limitContextString(nonEmptyString(ingredientRow.id)),
+        productId: nonEmptyString(ingredientRow.product_id),
+        normalizedName: limitContextString(name),
+        quantity: numberOrNull(ingredientRow.quantity),
+        unit: nonEmptyString(ingredientRow.unit)
+          ? limitContextString(nonEmptyString(ingredientRow.unit))
+          : null,
+      });
+    }
+    if (!complete) continue;
+
+    totalIngredientItems += ingredients.length;
+    recipes.push({
+      recipeId: limitContextString(recipeId),
+      title: limitContextString(title),
+      estimatedMinutes: numberOrNull(row.cook_time_minutes),
+      servings: numberOrNull(row.default_servings),
+      dietaryTags: Array.isArray(row.dietary_tags)
+        ? row.dietary_tags
+          .filter((tag): tag is string => typeof tag === 'string')
+          .map((tag) => limitContextString(tag))
+        : [],
+      allergens: null,
+      ingredients,
+      ingredientDataComplete: true,
+    });
+  }
 
   return { ok: true, recipes };
 }

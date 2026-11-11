@@ -94,7 +94,7 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
   const body = JSON.parse(String(init?.body));
   assertEquals(body.model, 'qwen/qwen3.8-27b');
   assertEquals(body.max_completion_tokens, 1536);
-  assertEquals(body.response_format, { type: 'json_object' });
+  assertEquals('response_format' in body, false);
   assertEquals(body.tools[0].function.name, 'get_inventory');
   assertEquals(body.tool_choice, 'auto');
   assertEquals(result.ok, true);

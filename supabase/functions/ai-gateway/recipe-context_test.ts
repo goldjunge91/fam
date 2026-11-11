@@ -86,7 +86,7 @@ function fakeClient(
   return { client, calls };
 }
 
-Deno.test('selectRelevantProductIds sorts, deduplicates, and caps product references', () => {
+Deno.test('selectRelevantProductIds preserves source priority, deduplicates, and caps product references', () => {
   const input = [
     'product-z',
     'product-a',
@@ -105,15 +105,15 @@ Deno.test('selectRelevantProductIds sorts, deduplicates, and caps product refere
     relevantProductIds: 100,
     catalogCandidateItems: 500,
     catalogRecipes: 50,
-    catalogIngredientItems: 2_000,
+    catalogIngredientItems: 1_000,
+    catalogIngredientsPerRecipe: 100,
     householdRecipes: 50,
     mealPlanEntries: 21,
     shoppingListItems: 100,
   });
   assertEquals(selected.length, AI_GATEWAY_CONTEXT_LIMITS.relevantProductIds);
-  assertEquals(selected, [...selected].sort());
+  assertEquals(selected.slice(0, 3), ['product-z', 'product-a', 'product-010']);
   assertEquals(new Set(selected).size, selected.length);
-  assertEquals(selected.includes('product-z'), false);
   assertEquals(selected.includes(''), false);
 });
 
@@ -126,19 +126,19 @@ Deno.test('returns an empty catalog context without querying when no product is 
   assertEquals(calls, []);
 });
 
-Deno.test('uses bounded candidate and recipe filters and resolves product names relationally', async () => {
+Deno.test('selects fair, relevant catalog candidates and keeps every included recipe complete', async () => {
   const candidateRows = Array.from(
-    { length: AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes + 5 },
+    { length: AI_GATEWAY_CONTEXT_LIMITS.catalogCandidateItems },
     (_, index) => ({
-      recipe_id: `recipe-${String(index).padStart(2, '0')}`,
+      recipe_id: `recipe-${String(index).padStart(3, '0')}`,
       product_id: 'product-a',
       position: index,
     }),
   );
   const recipeRows = Array.from(
-    { length: AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes + 5 },
+    { length: AI_GATEWAY_CONTEXT_LIMITS.catalogCandidateItems },
     (_, index) => ({
-      id: `recipe-${String(index).padStart(2, '0')}`,
+      id: `recipe-${String(index).padStart(3, '0')}`,
       title: `Rezept ${index}`,
       cook_time_minutes: 20,
       default_servings: 2,
@@ -146,23 +146,26 @@ Deno.test('uses bounded candidate and recipe filters and resolves product names 
       sort_order: index,
     }),
   );
-  const ingredientRows = Array.from(
-    { length: AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientItems + 1 },
-    (_, index) => ({
-      id: `item-${index}`,
-      recipe_id: 'recipe-00',
+  const ingredientResponses = recipeRows.slice(0, AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes).map((
+    row,
+  ) => ({
+    data: [{
+      id: `item-${row.id}`,
+      recipe_id: row.id,
       product_id: 'product-a',
       ingredient_name: null,
       quantity: 1,
       unit: 'piece',
-      position: index,
+      position: 0,
       products: { name: 'Tomate' },
-    }),
-  );
+    }],
+    error: null,
+  }));
   const { client, calls } = fakeClient({
     catalog_recipe_component_items: [
+      { data: [], error: null },
       { data: candidateRows, error: null },
-      { data: ingredientRows, error: null },
+      ...ingredientResponses,
     ],
     catalog_recipes: [{ data: recipeRows, error: null }],
   });
@@ -176,37 +179,122 @@ Deno.test('uses bounded candidate and recipe filters and resolves product names 
   assertEquals(result.ok, true);
   if (!result.ok) throw new Error('expected catalog lookup to succeed');
   assertEquals(result.recipes.length, AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes);
-  assertEquals(
-    result.recipes[0]?.ingredients.length,
-    AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientItems,
-  );
+  assertEquals(result.recipes.every((recipe) => recipe.ingredients.length === 1), true);
+  assertEquals(result.recipes[0]?.ingredients[0]?.normalizedName, 'Tomate');
 
-  const candidateCall = calls[0];
-  const recipeCall = calls[1];
-  const ingredientCall = calls[2];
-  assertEquals(candidateCall?.table, 'catalog_recipe_component_items');
-  assertEquals(candidateCall?.limit, AI_GATEWAY_CONTEXT_LIMITS.catalogCandidateItems);
-  assertEquals(candidateCall?.filters, [{
-    kind: 'in',
-    column: 'product_id',
-    value: ['product-a', 'product-b'],
-  }]);
+  const candidateCalls = calls.slice(0, 2);
+  assertEquals(candidateCalls.map((call) => call.filters), [
+    [{ kind: 'eq', column: 'product_id', value: 'product-b' }],
+    [{ kind: 'eq', column: 'product_id', value: 'product-a' }],
+  ]);
+  assertEquals(candidateCalls.map((call) => call.limit), [250, 250]);
+  const recipeCall = calls[2];
   assertEquals(recipeCall?.table, 'catalog_recipes');
-  assertEquals(recipeCall?.limit, AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes);
   const recipeFilter = recipeCall?.filters.find((filter) => filter.kind === 'in');
   assertEquals(recipeFilter?.column, 'id');
   assertEquals(Array.isArray(recipeFilter?.value), true);
   if (!recipeFilter || !Array.isArray(recipeFilter.value)) {
     throw new Error('expected a bounded recipe id filter');
   }
-  assertEquals(recipeFilter.value.length, AI_GATEWAY_CONTEXT_LIMITS.catalogRecipes);
+  assertEquals(recipeFilter.value.length, AI_GATEWAY_CONTEXT_LIMITS.catalogCandidateItems);
+  const ingredientCall = calls[3];
   assertEquals(ingredientCall?.table, 'catalog_recipe_component_items');
-  assertEquals(ingredientCall?.limit, AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientItems);
-  const ingredientFilter = ingredientCall?.filters.find((filter) => filter.kind === 'in');
-  assertEquals(ingredientFilter?.column, 'recipe_id');
+  assertEquals(
+    ingredientCall?.limit,
+    AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientsPerRecipe + 1,
+  );
   assertEquals(ingredientCall?.select?.includes('products(name)'), true);
   assertEquals(ingredientCall?.filters.some((filter) => filter.column === 'product_id'), false);
-  assertEquals(result.recipes[0]?.ingredients[0]?.normalizedName, 'Tomate');
+});
+
+Deno.test('ranks catalog recipes by distinct matched products before the stable title and id tie-break', async () => {
+  const ingredient = (recipeId: string) => ({
+    id: `item-${recipeId}`,
+    recipe_id: recipeId,
+    product_id: 'product-a',
+    ingredient_name: 'Zutat',
+    quantity: 1,
+    unit: 'piece',
+    position: 0,
+    products: null,
+  });
+  const { client } = fakeClient({
+    catalog_recipe_component_items: [
+      {
+        data: [
+          { recipe_id: 'recipe-high', product_id: 'product-a', position: 0 },
+          { recipe_id: 'recipe-low', product_id: 'product-a', position: 0 },
+        ],
+        error: null,
+      },
+      {
+        data: [
+          { recipe_id: 'recipe-high', product_id: 'product-b', position: 0 },
+        ],
+        error: null,
+      },
+      {
+        data: [ingredient('recipe-high')],
+        error: null,
+      },
+      {
+        data: [ingredient('recipe-low')],
+        error: null,
+      },
+    ],
+    catalog_recipes: [{
+      data: [
+        { id: 'recipe-low', title: 'A-Rezept', cook_time_minutes: 10, default_servings: 2 },
+        { id: 'recipe-high', title: 'Z-Rezept', cook_time_minutes: 10, default_servings: 2 },
+      ],
+      error: null,
+    }],
+  });
+
+  const result = await loadRelevantCatalogRecipes(client, ['product-a', 'product-b']);
+
+  assertEquals(result.ok, true);
+  if (!result.ok) throw new Error('expected catalog lookup to succeed');
+  assertEquals(result.recipes.map((recipe) => recipe.recipeId), ['recipe-high', 'recipe-low']);
+});
+
+Deno.test('excludes a catalog recipe when its ingredient rows overflow the per-recipe cap', async () => {
+  const ingredientRows = Array.from(
+    { length: AI_GATEWAY_CONTEXT_LIMITS.catalogIngredientsPerRecipe + 1 },
+    (_, index) => ({
+      id: `item-${index}`,
+      recipe_id: 'recipe-overflow',
+      product_id: 'product-a',
+      ingredient_name: 'Tomate',
+      quantity: 1,
+      unit: 'piece',
+      position: index,
+      products: null,
+    }),
+  );
+  const { client } = fakeClient({
+    catalog_recipe_component_items: [
+      {
+        data: [{ recipe_id: 'recipe-overflow', product_id: 'product-a', position: 0 }],
+        error: null,
+      },
+      { data: ingredientRows, error: null },
+    ],
+    catalog_recipes: [{
+      data: [{
+        id: 'recipe-overflow',
+        title: 'Überlauf',
+        cook_time_minutes: 10,
+        default_servings: 2,
+      }],
+      error: null,
+    }],
+  });
+
+  assertEquals(
+    await loadRelevantCatalogRecipes(client, ['product-a']),
+    { ok: true, recipes: [] },
+  );
 });
 
 Deno.test('propagates candidate, recipe, and ingredient query failures with stable error codes', async () => {

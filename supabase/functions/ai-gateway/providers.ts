@@ -99,7 +99,7 @@ export function createProviderCompleter(
       ...(provider === 'groq'
         ? { max_completion_tokens: input.maxTokens ?? 1_536 }
         : { max_tokens: input.maxTokens ?? 1_536 }),
-      ...(input.responseFormat === null
+      ...((input.responseFormat === null || input.tools?.length)
         ? {}
         : { response_format: { type: input.responseFormat ?? 'json_object' } }),
       ...(input.tools ? { tools: input.tools, tool_choice: 'auto' } : {}),

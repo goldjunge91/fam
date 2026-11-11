@@ -112,6 +112,9 @@ function setup(
     system: string;
     user: string;
     transcript: string;
+    roles: string[];
+    toolCallIds: string[];
+    assistantToolCallIds: string[];
   }> = [];
   const bookings: Array<{
     action: GatewayCreditAction;
@@ -203,6 +206,13 @@ function setup(
         system: contentAsText(messages[0]?.content),
         user: contentAsText(messages[1]?.content),
         transcript: messages.map((message) => contentAsText(message.content)).join('\n'),
+        roles: messages.map((message) => message.role),
+        toolCallIds: messages.flatMap((message) =>
+          message.role === 'tool' && message.tool_call_id ? [message.tool_call_id] : []
+        ),
+        assistantToolCallIds: messages.flatMap((message) =>
+          message.role === 'assistant' ? (message.tool_calls ?? []).map((call) => call.id) : []
+        ),
       });
       if (options.providerThrows) throw new Error('provider failed');
       if (options.providerFailed) {
@@ -1264,6 +1274,11 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
   assertStringIncludes(calls[0].system, 'Tomatenpfanne');
   assertStringIncludes(calls[1].transcript, 'Reis');
   assertStringIncludes(calls[1].transcript, 'Tomatenpfanne');
+  assertEquals(calls[0].responseFormat, null);
+  assertEquals(calls[1].responseFormat, null);
+  assertEquals(calls[1].roles, ['system', 'user', 'assistant', 'tool', 'tool']);
+  assertEquals(calls[1].assistantToolCallIds, ['inventory-call', 'recipe-call']);
+  assertEquals(calls[1].toolCallIds, ['inventory-call', 'recipe-call']);
   const body = await response.json();
   assertEquals(body.result.toolTrace, ['get_inventory', 'search_recipes']);
 });
@@ -2034,6 +2049,46 @@ Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale 
   }));
   assertEquals(versionlessResponse.status, 200);
   assertEquals((await versionlessResponse.json()).result.proposals, []);
+});
+
+Deno.test('refunds exactly once for an invalid final assistant envelope', async () => {
+  const warnings: string[] = [];
+  const originalWarn = console.warn;
+  console.warn = ((...values: unknown[]) => {
+    warnings.push(values.map(String).join(' '));
+  }) as typeof console.warn;
+  const configured = setup({
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Antwort',
+      suggestions: [],
+      extra: 'nicht erlaubt',
+    }),
+  });
+  try {
+    const response = await configured.handler(request({
+      skill: 'fam-assistant',
+      householdId: 'household-1',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: false,
+    }));
+
+    assertEquals(response.status, 502);
+    assertEquals(await response.json(), { error: 'invalid_assistant_reply' });
+  } finally {
+    console.warn = originalWarn;
+  }
+
+  assertEquals(configured.refunds, [{
+    requestId: 'request-1',
+    subscriberUserId: 'subscriber-1',
+  }]);
+  assertEquals(warnings.length, 1);
+  assertEquals(warnings[0]?.includes('ai_provider_response_shape'), true);
+  assertEquals(warnings[0]?.includes('Antwort'), false);
+  assertEquals(warnings[0]?.includes('nicht erlaubt'), false);
+  assertEquals(warnings[0]?.includes('topLevelKeys'), true);
 });
 
 Deno.test('fails closed for malformed assistant tool calls without charging a second mutation path', async () => {

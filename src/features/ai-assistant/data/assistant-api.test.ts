@@ -190,6 +190,14 @@ describe('assistant API', () => {
     ['ai_credit_limit_exceeded', 'Das monatliche AI-Credit-Limit ist erreicht.'],
     ['model_not_allowed', 'Dieses AI-Modell ist derzeit nicht verfügbar.'],
     ['provider_invalid_json', 'Die KI konnte gerade keine passende Antwort erstellen.'],
+    [
+      'invalid_assistant_reply',
+      'Die KI hat gerade eine ungültige Antwort geliefert. Bitte versuche es erneut.',
+    ],
+    [
+      'provider_not_configured',
+      'Der ausgewählte KI-Anbieter ist serverseitig nicht konfiguriert. Bitte wähle ein anderes Modell.',
+    ],
     ['provider_invalid_response', 'Die KI konnte gerade keine passende Antwort erstellen.'],
     ['provider_empty_response', 'Die KI konnte gerade keine passende Antwort erstellen.'],
     [
@@ -230,6 +238,39 @@ describe('assistant API', () => {
     expect(error).toMatchObject({
       message: 'Die KI konnte gerade keine passende Antwort erstellen.',
       retryable: true,
+    });
+  });
+
+  it('distinguishes retryable invalid replies from a missing provider configuration', async () => {
+    mockInvoke.mockResolvedValueOnce({
+      data: { error: 'invalid_assistant_reply' },
+      error: { message: 'gateway failed' },
+    });
+    const invalidReply = await sendAssistantMessage({
+      householdId: 'household-1',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: true,
+    }).catch((value: unknown) => value);
+    expect(invalidReply).toMatchObject({
+      message: 'Die KI hat gerade eine ungültige Antwort geliefert. Bitte versuche es erneut.',
+      retryable: true,
+    });
+
+    mockInvoke.mockResolvedValueOnce({
+      data: { error: 'provider_not_configured' },
+      error: { message: 'gateway failed' },
+    });
+    const missingProvider = await sendAssistantMessage({
+      householdId: 'household-1',
+      message: 'Hallo',
+      history: [],
+      includeHouseholdContext: true,
+    }).catch((value: unknown) => value);
+    expect(missingProvider).toMatchObject({
+      message:
+        'Der ausgewählte KI-Anbieter ist serverseitig nicht konfiguriert. Bitte wähle ein anderes Modell.',
+      retryable: false,
     });
   });
 
@@ -476,6 +517,23 @@ describe('assistant API', () => {
     await expect(
       testAiModel({ householdId: 'household-1', provider: 'groq', model: 'model', prompt: 'test' }),
     ).rejects.toThrow(expected);
+  });
+
+  it('marks missing model-test provider configuration as non-retryable', async () => {
+    mockInvoke.mockResolvedValue({
+      data: { error: 'provider_not_configured' },
+      error: { message: 'invoke failed' },
+    });
+    const error = await testAiModel({
+      householdId: 'household-1',
+      provider: 'groq',
+      model: 'model',
+      prompt: 'test',
+    }).catch((value: unknown) => value);
+    expect(error).toMatchObject({
+      message: 'Der Groq-API-Key fehlt in der lokalen Functions-Umgebung.',
+      retryable: false,
+    });
   });
 
   it('validates ingredient swaps against fresh recipe evidence and reports invalid snapshots', async () => {

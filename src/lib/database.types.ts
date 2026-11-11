@@ -32,6 +32,7 @@ export type Database = {
           request_id: string;
           subscriber_user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           action: string;
           created_at?: string;
@@ -71,6 +72,7 @@ export type Database = {
           request_id: string;
           subscriber_user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           request_id: string;
@@ -109,6 +111,7 @@ export type Database = {
           total_tokens: number | null;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           completion_tokens?: number | null;
           cost_source?: string | null;
@@ -175,6 +178,7 @@ export type Database = {
           sort_order: number;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           id: string;
@@ -196,6 +200,7 @@ export type Database = {
           brochure_id: string;
           zip_code: string;
         };
+        ComputedFields: never;
         Insert: {
           brochure_id: string;
           zip_code: string;
@@ -224,6 +229,7 @@ export type Database = {
           page_number: number;
           thumbnail_url: string | null;
         };
+        ComputedFields: never;
         Insert: {
           brochure_id: string;
           created_at?: string;
@@ -260,6 +266,7 @@ export type Database = {
           logo_url: string | null;
           name: string;
         };
+        ComputedFields: never;
         Insert: {
           active?: boolean;
           created_at?: string;
@@ -286,6 +293,7 @@ export type Database = {
           updated_at: string;
           zip_code: string;
         };
+        ComputedFields: never;
         Insert: {
           attempt_count?: number;
           last_error?: string | null;
@@ -320,6 +328,7 @@ export type Database = {
           valid_from: string;
           valid_until: string;
         };
+        ComputedFields: never;
         Insert: {
           cover_image: string;
           created_at?: string;
@@ -373,6 +382,7 @@ export type Database = {
           unit: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           component_id: string;
           created_at?: string;
@@ -446,6 +456,7 @@ export type Database = {
           serving_grams: number | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           id?: string;
@@ -490,6 +501,7 @@ export type Database = {
           storage_path: string | null;
           verified_match: boolean;
         };
+        ComputedFields: never;
         Insert: {
           alt_text?: string | null;
           attribution_required?: boolean;
@@ -540,6 +552,7 @@ export type Database = {
           step_id: string;
           storage_path: string;
         };
+        ComputedFields: never;
         Insert: {
           alt_text?: string | null;
           created_at?: string;
@@ -582,6 +595,7 @@ export type Database = {
           recipe_id: string;
           step_id: string;
         };
+        ComputedFields: never;
         Insert: {
           item_id: string;
           position?: number;
@@ -628,6 +642,7 @@ export type Database = {
           timer_minutes: number | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           id?: string;
@@ -692,6 +707,7 @@ export type Database = {
           variant_type: string | null;
           why_cheap: string | null;
         };
+        ComputedFields: never;
         Insert: {
           air_fryer_temperature_f?: number | null;
           air_fryer_time_minutes?: number | null;
@@ -776,6 +792,7 @@ export type Database = {
           sex: string | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           birth_date?: string | null;
           created_at?: string;
@@ -826,6 +843,7 @@ export type Database = {
           updated_at: string;
           user_id: string | null;
         };
+        ComputedFields: never;
         Insert: {
           category?: string;
           created_at?: string;
@@ -870,6 +888,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           child_profile_id?: string | null;
           created_at?: string;
@@ -922,6 +941,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
@@ -957,6 +977,7 @@ export type Database = {
           id: string;
           ticket_id: string;
         };
+        ComputedFields: never;
         Insert: {
           author_id?: string | null;
           author_type: string;
@@ -1001,6 +1022,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           id?: string;
@@ -1052,6 +1074,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           carbs_g?: number | null;
           child_profile_id?: string | null;
@@ -1133,6 +1156,7 @@ export type Database = {
           source_version: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           alias: string;
           confidence: string;
@@ -1183,6 +1207,7 @@ export type Database = {
           revision: number;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           canonical_name: string;
           created_at?: string;
@@ -1219,6 +1244,7 @@ export type Database = {
           updated_at: string;
           vacuum_sealed: boolean;
         };
+        ComputedFields: never;
         Insert: {
           added_by?: string | null;
           created_at?: string;
@@ -1303,6 +1329,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           child_profile_id?: string | null;
           context?: string | null;
@@ -1369,6 +1396,7 @@ export type Database = {
           updated_at: string;
           uses: number;
         };
+        ComputedFields: never;
         Insert: {
           code?: string;
           created_at?: string;
@@ -1420,6 +1448,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           household_id: string;
           joined_at?: string;
@@ -1467,6 +1496,7 @@ export type Database = {
           plus_updated_at: string | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           ai_active?: boolean;
           ai_expires_at?: string | null;
@@ -1535,6 +1565,7 @@ export type Database = {
           source_version: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           allergen_id: string;
           assessment: string;
@@ -1605,6 +1636,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           anchor_at: string;
           cadence_days: number;
@@ -1653,6 +1685,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           child_profile_id?: string | null;
           created_at?: string;
@@ -1714,6 +1747,7 @@ export type Database = {
           servings_mode: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           created_by?: string | null;
@@ -1790,6 +1824,7 @@ export type Database = {
           updated_at: string;
           week_start_date: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           created_by?: string | null;
@@ -1842,6 +1877,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           administered_at?: string;
           child_profile_id?: string | null;
@@ -1908,6 +1944,7 @@ export type Database = {
           sugar_g_per_100: number | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           barcode?: string | null;
           brand?: string | null;
@@ -1969,6 +2006,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           allergy_codes?: string[];
           created_at?: string;
@@ -2012,6 +2050,7 @@ export type Database = {
           updated_at: string;
           weight_kg: number | null;
         };
+        ComputedFields: never;
         Insert: {
           activity_level?: string | null;
           avatar_url?: string | null;
@@ -2073,6 +2112,7 @@ export type Database = {
           unit: string | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           category_id?: string | null;
           created_at?: string;
@@ -2149,6 +2189,7 @@ export type Database = {
           total_cents: number | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           confirmed_at?: string | null;
           confirmed_by?: string | null;
@@ -2223,6 +2264,7 @@ export type Database = {
           sort_order: number;
           storage_path: string;
         };
+        ComputedFields: never;
         Insert: {
           byte_size: number;
           created_at?: string;
@@ -2295,6 +2337,7 @@ export type Database = {
           unit: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           component_id: string;
           created_at?: string;
@@ -2390,6 +2433,7 @@ export type Database = {
           serving_grams: number | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
@@ -2439,6 +2483,7 @@ export type Database = {
           storage_path: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
@@ -2495,6 +2540,7 @@ export type Database = {
           step_id: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
@@ -2550,6 +2596,7 @@ export type Database = {
           timer_minutes: number | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
@@ -2600,6 +2647,7 @@ export type Database = {
           template_id: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           id?: string;
@@ -2639,6 +2687,7 @@ export type Database = {
           unit: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           component_id: string;
           created_at?: string;
@@ -2703,6 +2752,7 @@ export type Database = {
           text: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           id?: string;
@@ -2745,6 +2795,7 @@ export type Database = {
           title: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           cook_time_minutes?: number | null;
           cover_image_path?: string | null;
@@ -2811,6 +2862,7 @@ export type Database = {
           variant_type: string | null;
           why_cheap: string | null;
         };
+        ComputedFields: never;
         Insert: {
           air_fryer_temperature_f?: number | null;
           air_fryer_time_minutes?: number | null;
@@ -2904,6 +2956,7 @@ export type Database = {
           subscriber_user_id: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           active?: boolean;
           created_at?: string;
@@ -2949,6 +3002,7 @@ export type Database = {
           subscriber_user_id: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           active?: boolean;
           created_at?: string;
@@ -2990,6 +3044,7 @@ export type Database = {
           event_id: string;
           processed_at: string;
         };
+        ComputedFields: never;
         Insert: {
           entitlement_id: string;
           event_id: string;
@@ -3033,6 +3088,7 @@ export type Database = {
           store_id: string | null;
           taxonomy_version: string;
         };
+        ComputedFields: never;
         Insert: {
           actor_user_id: string;
           app_version: string;
@@ -3123,6 +3179,7 @@ export type Database = {
           store_id: string | null;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           category_id?: string | null;
           created_at?: string;
@@ -3188,6 +3245,7 @@ export type Database = {
           quantity: number;
           unit: string;
         };
+        ComputedFields: never;
         Insert: {
           category_classifier_version?: string | null;
           category_id?: string | null;
@@ -3268,6 +3326,7 @@ export type Database = {
           unit: string;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           added_by?: string | null;
           category_classifier_version?: string | null;
@@ -3363,6 +3422,7 @@ export type Database = {
           sort_order: number;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
@@ -3407,6 +3467,7 @@ export type Database = {
           sort_order: number;
           updated_at: string;
         };
+        ComputedFields: never;
         Insert: {
           category_order?: string | null;
           color?: string;
@@ -3458,6 +3519,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           appetite_level?: number | null;
           child_profile_id?: string | null;
@@ -3524,6 +3586,7 @@ export type Database = {
           type: string;
           undone: boolean;
         };
+        ComputedFields: never;
         Insert: {
           actor?: string | null;
           created_at?: string;
@@ -3627,6 +3690,7 @@ export type Database = {
           user_id: string;
           valid_from: string;
         };
+        ComputedFields: never;
         Insert: {
           carbs_g?: number | null;
           child_profile_id?: string | null;
@@ -3693,6 +3757,7 @@ export type Database = {
           waist_cm: number | null;
           weight_kg: number;
         };
+        ComputedFields: never;
         Insert: {
           chest_cm?: number | null;
           child_profile_id?: string | null;
@@ -3751,6 +3816,7 @@ export type Database = {
           updated_at: string;
           user_id: string;
         };
+        ComputedFields: never;
         Insert: {
           child_profile_id?: string | null;
           created_at?: string;
@@ -3807,6 +3873,7 @@ export type Database = {
           weight_kg: number | null;
           workout_session_id: string;
         };
+        ComputedFields: never;
         Insert: {
           created_at?: string;
           deleted_at?: string | null;
