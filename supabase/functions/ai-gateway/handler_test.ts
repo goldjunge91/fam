@@ -85,6 +85,7 @@ function setup(
     providerContent?: string;
     providerToolCalls?: Array<{ id: string; name: string; arguments: string }>;
     context?: GatewayCookingContext;
+    contextError?: { status: number; error: string; message?: string };
     model?: string;
     providerModel?: string;
     rateLimited?: boolean;
@@ -179,7 +180,11 @@ function setup(
     },
     loadCookingContext: () => {
       contextReads += 1;
-      return Promise.resolve({ ok: true as const, context: options.context ?? CONTEXT });
+      return Promise.resolve(
+        options.contextError
+          ? { ok: false as const, ...options.contextError }
+          : { ok: true as const, context: options.context ?? CONTEXT },
+      );
     },
     ...(options.recipePage === undefined
       ? {}
@@ -758,6 +763,31 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
   assertStringIncludes(calls[0]?.user ?? '', 'vegetarian');
 });
 
+Deno.test('returns a context lookup error before booking credits or calling the provider', async () => {
+  const { handler, calls, bookings, getContextReads } = setup({
+    contextError: {
+      status: 500,
+      error: 'recipe_ingredients_lookup_failed',
+      message: 'ingredient lookup failed',
+    },
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: 'Was kann ich kochen?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 500);
+  assertEquals(await response.json(), {
+    error: 'recipe_ingredients_lookup_failed',
+  });
+  assertEquals(getContextReads(), 1);
+  assertEquals(bookings, []);
+  assertEquals(calls, []);
+});
+
 Deno.test('cooking rejects allergen rules when recipes have no current reviewed projection', async () => {
   const { handler, calls, bookings } = setup();
   const response = await handler(request({
@@ -1225,6 +1255,10 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
 
   assertEquals(response.status, 200);
   assertStringIncludes(calls[0].system, 'Beginne mit einer konkreten Idee');
+  assertStringIncludes(
+    calls[0].system,
+    'vom Server bereitgestellten, passenden und begrenzten Katalogteilbestand',
+  );
   assertStringIncludes(calls[0].system, '"foodRuleStatus":"clear"');
   assertStringIncludes(calls[0].system, 'Reis');
   assertStringIncludes(calls[0].system, 'Tomatenpfanne');

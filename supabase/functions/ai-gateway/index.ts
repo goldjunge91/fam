@@ -38,6 +38,12 @@ import {
 } from '../_shared/revenuecat-environment.ts';
 import { requireSupabaseSecretKey } from '../_shared/env.ts';
 import { isPublicHttpsUrl, loadRecipePage } from './recipe-source.ts';
+import {
+  AI_GATEWAY_CONTEXT_LIMITS,
+  loadRelevantCatalogRecipes,
+  type RecipeContextClient,
+  selectRelevantProductIds,
+} from './recipe-context.ts';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
@@ -542,7 +548,8 @@ async function loadCookingContext(
       .eq('household_id', householdId)
       .is('deleted_at', null)
       .order('sort_index', { ascending: true })
-      .limit(100)
+      .order('id', { ascending: true })
+      .limit(AI_GATEWAY_CONTEXT_LIMITS.shoppingListItems)
     : { data: [], error: null };
   if (shoppingListResult.error) {
     return {
@@ -566,111 +573,153 @@ async function loadCookingContext(
       : [],
   })).filter((item) => item.name.length > 0 && Number.isFinite(item.quantity));
 
-  const { data: recipeRows, error: recipeError } = await client
-    .from('catalog_recipes')
-    .select('id, title, cook_time_minutes, default_servings, dietary_tags')
-    .eq('status', 'published')
-    .order('sort_order', { ascending: true })
-    .order('title', { ascending: true });
-  if (recipeError) {
+  const relevantProductIds = selectRelevantProductIds([
+    ...rows.map((row) => row.product_id),
+    ...shoppingList.map((item) => item.productId),
+  ]);
+  const catalogLookup = await loadRelevantCatalogRecipes(
+    client as unknown as RecipeContextClient,
+    relevantProductIds,
+  );
+  if (!catalogLookup.ok) {
     return {
       ok: false as const,
       status: 500,
-      error: 'recipe_lookup_failed',
-      message: recipeError.message,
+      error: catalogLookup.error,
+      message: catalogLookup.message,
     };
   }
+  const recipes = catalogLookup.recipes;
 
-  const recipeIds = (recipeRows ?? []).map((row) => row.id);
-  const { data: itemRows, error: itemError } = recipeIds.length === 0
+  type MealPlanEntryRow = {
+    id: string;
+    entry_date: string;
+    meal_slot: string;
+    recipe_id: string | null;
+    custom_title: string | null;
+    custom_ingredients: unknown;
+    portions: number | string;
+  };
+  let mealPlanSelection: {
+    weekStartDate: string;
+    planName: string | null;
+    entries: MealPlanEntryRow[];
+  } | null = null;
+  let mealPlanRecipeIds: string[] = [];
+  if (pageContext?.kind === 'meal_plan') {
+    const candidateStart = normalizeDate(pageContext.weekStartDate);
+    const parsedStart = candidateStart ? new Date(`${candidateStart}T00:00:00.000Z`) : null;
+    const weekStartDate = parsedStart && Number.isFinite(parsedStart.getTime()) &&
+        parsedStart.toISOString().slice(0, 10) === candidateStart
+      ? candidateStart
+      : null;
+    if (weekStartDate) {
+      const parsedEnd = new Date(`${weekStartDate}T00:00:00.000Z`);
+      parsedEnd.setUTCDate(parsedEnd.getUTCDate() + 6);
+      const weekEndDate = parsedEnd.toISOString().slice(0, 10);
+      const planResult = await client
+        .from('meal_plans')
+        .select('id, name, week_start_date')
+        .eq('household_id', householdId)
+        .eq('week_start_date', weekStartDate)
+        .is('deleted_at', null)
+        .maybeSingle();
+      if (planResult.error) {
+        return {
+          ok: false as const,
+          status: 500,
+          error: 'meal_plan_lookup_failed',
+          message: planResult.error.message,
+        };
+      }
+      const entryResult = planResult.data
+        ? await client
+          .from('meal_plan_entries')
+          .select(
+            'id, entry_date, meal_slot, recipe_id, custom_title, custom_ingredients, portions',
+          )
+          .eq('household_id', householdId)
+          .eq('meal_plan_id', planResult.data.id)
+          .is('deleted_at', null)
+          .gte('entry_date', weekStartDate)
+          .lte('entry_date', weekEndDate)
+          .order('entry_date', { ascending: true })
+          .order('meal_slot', { ascending: true })
+          .order('id', { ascending: true })
+          .limit(AI_GATEWAY_CONTEXT_LIMITS.mealPlanEntries)
+        : { data: [], error: null };
+      if (entryResult.error) {
+        return {
+          ok: false as const,
+          status: 500,
+          error: 'meal_plan_entries_lookup_failed',
+          message: entryResult.error.message,
+        };
+      }
+      const entries = (entryResult.data ?? [])
+        .slice(0, AI_GATEWAY_CONTEXT_LIMITS.mealPlanEntries) as MealPlanEntryRow[];
+      mealPlanSelection = {
+        weekStartDate,
+        planName: planResult.data?.name ?? null,
+        entries,
+      };
+      mealPlanRecipeIds = entries.flatMap((row) => row.recipe_id ? [row.recipe_id] : []);
+    }
+  }
+
+  const prioritizedHouseholdRecipeIds = [
+    ...(pageContext?.kind === 'recipe' ? [pageContext.recipeId] : []),
+    ...mealPlanRecipeIds,
+  ].filter((id, index, ids) => id.trim().length > 0 && ids.indexOf(id) === index);
+  const householdRecipeSelect =
+    'id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at';
+  const prioritizedHouseholdRecipesResult = prioritizedHouseholdRecipeIds.length === 0
     ? { data: [], error: null }
     : await client
-      .from('catalog_recipe_component_items')
-      .select(
-        'recipe_id, product_id, ingredient_name, quantity, unit, position',
-      )
-      .in('recipe_id', recipeIds)
-      .order('position', { ascending: true });
-  if (itemError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'recipe_ingredients_lookup_failed',
-      message: itemError.message,
-    };
-  }
-
-  const recipeProductIds = [
-    ...new Set((itemRows ?? []).map((row) => row.product_id).filter(Boolean)),
-  ];
-  const { data: recipeProducts, error: recipeProductsError } = recipeProductIds.length === 0
-    ? { data: [], error: null }
-    : await client.from('products').select('id, name').in(
-      'id',
-      recipeProductIds,
-    );
-  if (recipeProductsError) {
-    return {
-      ok: false as const,
-      status: 500,
-      error: 'recipe_products_lookup_failed',
-      message: recipeProductsError.message,
-    };
-  }
-
-  const recipeProductNames = new Map(
-    (recipeProducts ?? []).map((row) => [row.id, row.name]),
-  );
-  const ingredientsByRecipe = new Map<string, GatewayRecipe['ingredients']>();
-  for (const row of itemRows ?? []) {
-    const name = typeof row.ingredient_name === 'string' &&
-        row.ingredient_name.trim().length > 0
-      ? row.ingredient_name.trim()
-      : row.product_id
-      ? String(recipeProductNames.get(row.product_id) ?? '').trim()
-      : '';
-    if (!name) continue;
-    const current = ingredientsByRecipe.get(row.recipe_id) ?? [];
-    current.push({
-      productId: row.product_id ?? null,
-      normalizedName: name,
-      quantity: typeof row.quantity === 'number' ? row.quantity : null,
-      unit: typeof row.unit === 'string' ? row.unit : null,
-    });
-    ingredientsByRecipe.set(row.recipe_id, current);
-  }
-
-  const recipes: GatewayRecipe[] = (recipeRows ?? []).map((row) => ({
-    recipeId: row.id,
-    title: String(row.title).trim(),
-    estimatedMinutes: typeof row.cook_time_minutes === 'number' ? row.cook_time_minutes : null,
-    servings: typeof row.default_servings === 'number' ? row.default_servings : null,
-    dietaryTags: Array.isArray(row.dietary_tags) ? row.dietary_tags : [],
-    allergens: null,
-    ingredients: ingredientsByRecipe.get(row.id) ?? [],
-  }));
-
-  // Meal-plan entries point to household `recipes`, whereas cooking suggestions
-  // above use catalog recipe ids. Assistant apply proposals must use the former.
-  const { data: householdRecipeRows, error: householdRecipesError } = await client
-    .from('recipes')
-    .select(
-      'id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at',
-    )
-    .eq('household_id', householdId)
-    .is('deleted_at', null)
-    .order('title', { ascending: true })
-    .limit(100);
-  if (householdRecipesError) {
+      .from('recipes')
+      .select(householdRecipeSelect)
+      .eq('household_id', householdId)
+      .is('deleted_at', null)
+      .in('id', prioritizedHouseholdRecipeIds)
+      .limit(AI_GATEWAY_CONTEXT_LIMITS.householdRecipes);
+  if (prioritizedHouseholdRecipesResult.error) {
     return {
       ok: false as const,
       status: 500,
       error: 'household_recipe_lookup_failed',
-      message: householdRecipesError.message,
+      message: prioritizedHouseholdRecipesResult.error.message,
     };
   }
-
-  const householdRecipeIds = (householdRecipeRows ?? []).map((row) => row.id);
+  const householdRecipesResult = await client
+    .from('recipes')
+    .select(householdRecipeSelect)
+    .eq('household_id', householdId)
+    .is('deleted_at', null)
+    .order('title', { ascending: true })
+    .order('id', { ascending: true })
+    .limit(AI_GATEWAY_CONTEXT_LIMITS.householdRecipes);
+  if (householdRecipesResult.error) {
+    return {
+      ok: false as const,
+      status: 500,
+      error: 'household_recipe_lookup_failed',
+      message: householdRecipesResult.error.message,
+    };
+  }
+  const prioritizedHouseholdRecipeSet = new Set(prioritizedHouseholdRecipeIds);
+  const prioritizedHouseholdRowsById = new Map(
+    (prioritizedHouseholdRecipesResult.data ?? []).map((row) => [row.id, row]),
+  );
+  const householdRecipeRows = [
+    ...prioritizedHouseholdRecipeIds.flatMap((recipeId) => {
+      const row = prioritizedHouseholdRowsById.get(recipeId);
+      return row ? [row] : [];
+    }),
+    ...(householdRecipesResult.data ?? []).filter((row) =>
+      !prioritizedHouseholdRecipeSet.has(row.id)
+    ),
+  ].slice(0, AI_GATEWAY_CONTEXT_LIMITS.householdRecipes);
+  const householdRecipeIds = householdRecipeRows.map((row) => row.id);
   const [componentRowsResult, householdItemRowsResult] = householdRecipeIds.length === 0
     ? [{ data: [], error: null }, { data: [], error: null }]
     : await Promise.all([
@@ -907,58 +956,14 @@ async function loadCookingContext(
       : {}),
   }));
 
-  let mealPlan: GatewayMealPlanContext | undefined;
-  if (pageContext?.kind === 'meal_plan') {
-    const candidateStart = normalizeDate(pageContext.weekStartDate);
-    const parsedStart = candidateStart ? new Date(`${candidateStart}T00:00:00.000Z`) : null;
-    const weekStartDate = parsedStart && Number.isFinite(parsedStart.getTime()) &&
-        parsedStart.toISOString().slice(0, 10) === candidateStart
-      ? candidateStart
-      : null;
-    if (weekStartDate) {
-      const parsedEnd = new Date(`${weekStartDate}T00:00:00.000Z`);
-      parsedEnd.setUTCDate(parsedEnd.getUTCDate() + 6);
-      const weekEndDate = parsedEnd.toISOString().slice(0, 10);
-      const planResult = await client
-        .from('meal_plans')
-        .select('id, name, week_start_date')
-        .eq('household_id', householdId)
-        .eq('week_start_date', weekStartDate)
-        .is('deleted_at', null)
-        .maybeSingle();
-      if (planResult.error) {
-        return {
-          ok: false as const,
-          status: 500,
-          error: 'meal_plan_lookup_failed',
-          message: planResult.error.message,
-        };
-      }
-      const entryResult = planResult.data
-        ? await client
-          .from('meal_plan_entries')
-          .select(
-            'id, entry_date, meal_slot, recipe_id, custom_title, custom_ingredients, portions',
-          )
-          .eq('household_id', householdId)
-          .eq('meal_plan_id', planResult.data.id)
-          .is('deleted_at', null)
-          .gte('entry_date', weekStartDate)
-          .lte('entry_date', weekEndDate)
-          .order('entry_date', { ascending: true })
-        : { data: [], error: null };
-      if (entryResult.error) {
-        return {
-          ok: false as const,
-          status: 500,
-          error: 'meal_plan_entries_lookup_failed',
-          message: entryResult.error.message,
-        };
-      }
-      const recipeTitleById = new Map(
-        householdRecipes.map((recipe) => [recipe.recipeId, recipe.title]),
-      );
-      const entries = (entryResult.data ?? []).flatMap((row) => {
+  const householdRecipeTitleById = new Map(
+    householdRecipes.map((recipe) => [recipe.recipeId, recipe.title]),
+  );
+  const mealPlan: GatewayMealPlanContext | undefined = mealPlanSelection
+    ? {
+      weekStartDate: mealPlanSelection.weekStartDate,
+      planName: mealPlanSelection.planName,
+      entries: mealPlanSelection.entries.flatMap((row) => {
         if (!['breakfast', 'lunch', 'dinner'].includes(String(row.meal_slot))) return [];
         const customIngredients = Array.isArray(row.custom_ingredients)
           ? row.custom_ingredients.flatMap((value: unknown) => {
@@ -980,19 +985,14 @@ async function loadCookingContext(
           mealSlot: row.meal_slot as 'breakfast' | 'lunch' | 'dinner',
           recipeId: row.recipe_id ?? null,
           title: row.recipe_id
-            ? recipeTitleById.get(row.recipe_id) ?? 'Rezept'
+            ? householdRecipeTitleById.get(row.recipe_id) ?? 'Rezept'
             : String(row.custom_title ?? '').trim(),
           portions: typeof row.portions === 'number' ? row.portions : Number(row.portions),
           customIngredients,
         }];
-      });
-      mealPlan = {
-        weekStartDate,
-        planName: planResult.data?.name ?? null,
-        entries,
-      };
+      }),
     }
-  }
+    : undefined;
 
   const context: GatewayCookingContext = {
     inventory: {
