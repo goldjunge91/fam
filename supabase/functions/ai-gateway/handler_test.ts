@@ -1300,6 +1300,37 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
   }]);
 });
 
+Deno.test('returns an authoritative recipe reference when the final text names a known recipe', async () => {
+  const recipe = {
+    ...CONTEXT.recipes[0]!,
+    source: 'household' as const,
+    coverImagePath: 'household-1/recipe-1.jpg',
+  };
+  const { handler } = setup({
+    context: { ...CONTEXT, recipes: [], householdRecipes: [recipe] },
+    providerContent: JSON.stringify({
+      kind: 'assistant_reply.v1',
+      text: 'Heute passt die Tomatenpfanne besonders gut.',
+      suggestions: [],
+    }),
+  });
+  const response = await handler(request({
+    skill: 'fam-assistant',
+    householdId: 'household-1',
+    message: 'Was kann ich heute kochen?',
+    history: [],
+    includeHouseholdContext: true,
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result.recipeReferences, [{
+    recipeId: 'recipe-1',
+    title: 'Tomatenpfanne',
+    source: 'household',
+    coverImagePath: 'household-1/recipe-1.jpg',
+  }]);
+});
+
 Deno.test('assistant returns a bounded shopping item proposal without mutating household data', async () => {
   const { handler, calls } = setup({
     context: {

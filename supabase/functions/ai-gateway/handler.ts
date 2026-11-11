@@ -1485,6 +1485,18 @@ function toAssistantRecipeReference(recipe: GatewayRecipe): AssistantRecipeRefer
   };
 }
 
+function recipeReferencesMentionedInText(
+  text: string,
+  context: GatewayCookingContext,
+): AssistantRecipeReference[] {
+  const normalizedText = text.toLocaleLowerCase('de-DE');
+  return assistantSearchableRecipes(context)
+    .filter((recipe) => normalizedText.includes(recipe.title.toLocaleLowerCase('de-DE')))
+    .map(toAssistantRecipeReference)
+    .filter((recipe): recipe is AssistantRecipeReference => recipe !== null)
+    .slice(0, 8);
+}
+
 function runAssistantTool(
   call: ProviderToolCall,
   context: GatewayCookingContext,
@@ -2570,6 +2582,16 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return await refundAndRespond({ error: validationError }, 502);
     }
 
+    const assistantRecipeReferences = new Map(recipeReferences);
+    if (parsedRequest.skill === 'fam-assistant') {
+      for (const recipe of recipeReferencesMentionedInText(
+        typeof parsedResult.text === 'string' ? parsedResult.text : '',
+        preparedContext,
+      )) {
+        assistantRecipeReferences.set(`${recipe.source}:${recipe.recipeId}`, recipe);
+      }
+    }
+
     return json({
       requestId: currentRequestId,
       skill: parsedRequest.skill,
@@ -2580,7 +2602,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         ? {
           ...parsedResult,
           proposals,
-          recipeReferences: [...recipeReferences.values()].slice(0, 8),
+          recipeReferences: [...assistantRecipeReferences.values()].slice(0, 8),
           toolTrace: [...toolTrace],
         }
         : parsedResult,
