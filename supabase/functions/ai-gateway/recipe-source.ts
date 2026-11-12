@@ -191,7 +191,111 @@ function tagAttribute(tag: string, name: string): string | null {
   return value?.replace(/&amp;/gi, '&').replace(/&#x26;/gi, '&') ?? null;
 }
 
-/** Instagram's public Reel page exposes the downloadable CDN source as Open Graph metadata. */
+function isInstagramPageUrl(value: string): boolean {
+  try {
+    const hostname = new URL(value).hostname.toLowerCase();
+    return hostname === 'instagram.com' || hostname.endsWith('.instagram.com') ||
+      hostname === 'instagr.am' || hostname.endsWith('.instagr.am');
+  } catch {
+    return false;
+  }
+}
+
+function safeCdnVideoUrl(rawUrl: string, pageUrl: string, requireMp4 = false): URL | null {
+  try {
+    const mediaUrl = new URL(
+      rawUrl
+        .replace(/&amp;|&#x26;|&#38;/gi, '&')
+        .replace(/\\u0026/gi, '&')
+        .replace(/\\\//g, '/'),
+      pageUrl,
+    );
+    const hostname = mediaUrl.hostname.toLowerCase();
+    const instagramCdn = hostname === 'cdninstagram.com' ||
+      hostname.endsWith('.cdninstagram.com');
+    const facebookCdn = hostname === 'fbcdn.net' || hostname.endsWith('.fbcdn.net');
+    if (
+      mediaUrl.protocol !== 'https:' ||
+      mediaUrl.username ||
+      mediaUrl.password ||
+      mediaUrl.port ||
+      (!instagramCdn && !facebookCdn) ||
+      (requireMp4 && !mediaUrl.pathname.toLowerCase().endsWith('.mp4'))
+    ) return null;
+    return mediaUrl;
+  } catch {
+    return null;
+  }
+}
+
+const MAX_VIDEO_VERSION_ARRAYS = 20;
+const MAX_VIDEO_VERSION_ARRAY_LENGTH = 100_000;
+
+function jsonArrayAt(source: string, start: number): string | null {
+  if (source[start] !== '[') return null;
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let index = start; index < source.length; index += 1) {
+    if (index - start > MAX_VIDEO_VERSION_ARRAY_LENGTH) return null;
+    const character = source[index];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') inString = false;
+      continue;
+    }
+    if (character === '"') inString = true;
+    else if (character === '[') depth += 1;
+    else if (character === ']') {
+      depth -= 1;
+      if (depth === 0) return source.slice(start, index + 1);
+    }
+  }
+  return null;
+}
+
+function hydratedVideoUrl(html: string, pageUrl: string): string | null {
+  if (!isInstagramPageUrl(pageUrl)) return null;
+  let bestCandidate: { url: string; pixels: number } | null = null;
+  let arraysSeen = 0;
+
+  for (const match of html.matchAll(/"video_versions"\s*:/g)) {
+    if (arraysSeen >= MAX_VIDEO_VERSION_ARRAYS) break;
+    arraysSeen += 1;
+    let valueStart = (match.index ?? 0) + match[0].length;
+    while (/\s/.test(html[valueStart] ?? '')) valueStart += 1;
+    const arraySource = jsonArrayAt(html, valueStart);
+    if (!arraySource) continue;
+
+    let versions: unknown;
+    try {
+      versions = JSON.parse(arraySource);
+    } catch {
+      continue;
+    }
+    if (!Array.isArray(versions)) continue;
+    for (const version of versions) {
+      if (typeof version !== 'object' || version === null || Array.isArray(version)) continue;
+      const record = version as Record<string, unknown>;
+      if (typeof record.url !== 'string') continue;
+      const mediaUrl = safeCdnVideoUrl(record.url, pageUrl, true);
+      if (!mediaUrl) continue;
+      const width = typeof record.width === 'number' && Number.isFinite(record.width)
+        ? Math.max(record.width, 0)
+        : 0;
+      const height = typeof record.height === 'number' && Number.isFinite(record.height)
+        ? Math.max(record.height, 0)
+        : 0;
+      const candidate = { url: mediaUrl.href, pixels: width * height };
+      if (!bestCandidate || candidate.pixels > bestCandidate.pixels) bestCandidate = candidate;
+    }
+  }
+
+  return bestCandidate?.url ?? null;
+}
+
+/** Resolves public Reel media without credentials, persistence, or a third-party downloader. */
 export function extractPublicVideoUrl(html: string, pageUrl: string): string | null {
   for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
     const tag = match[0];
@@ -201,18 +305,10 @@ export function extractPublicVideoUrl(html: string, pageUrl: string): string | n
     }
     const rawUrl = tagAttribute(tag, 'content');
     if (!rawUrl) continue;
-    try {
-      const mediaUrl = new URL(rawUrl.replace(/\\u0026/gi, '&').replace(/\\\//g, '/'), pageUrl);
-      const hostname = mediaUrl.hostname.toLowerCase();
-      const instagramCdn = hostname === 'cdninstagram.com' ||
-        hostname.endsWith('.cdninstagram.com');
-      const facebookCdn = hostname === 'fbcdn.net' || hostname.endsWith('.fbcdn.net');
-      if (mediaUrl.protocol === 'https:' && (instagramCdn || facebookCdn)) return mediaUrl.href;
-    } catch {
-      // Ignore malformed metadata and continue to the next recognized tag.
-    }
+    const mediaUrl = safeCdnVideoUrl(rawUrl, pageUrl);
+    if (mediaUrl) return mediaUrl.href;
   }
-  return null;
+  return hydratedVideoUrl(html, pageUrl);
 }
 
 async function readLimitedText(response: Response): Promise<string | null> {

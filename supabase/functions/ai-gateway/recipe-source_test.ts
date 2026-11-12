@@ -124,7 +124,7 @@ Deno.test('extracts structured recipes from JSON-LD graphs and instruction varia
   );
 });
 
-Deno.test('resolves only HTTPS Instagram and Facebook CDN video metadata', () => {
+Deno.test('resolves only safe Instagram and Facebook CDN video metadata', () => {
   assertEquals(
     extractPublicVideoUrl(
       '<meta content="https://scontent.cdninstagram.com/reel.mp4?a=1&amp;b=2" property="og:video:secure_url">',
@@ -139,10 +139,33 @@ Deno.test('resolves only HTTPS Instagram and Facebook CDN video metadata', () =>
     ),
     'https://video.xx.fbcdn.net/reel.mp4',
   );
+
+  const hydratedHtml = String.raw`
+    <script type="application/json">
+      {"media":{"video_versions":[
+        {"type":103,"width":640,"height":1138,"url":"https:\/\/scontent.cdninstagram.com\/small.mp4?x=1\u0026y=2"},
+        {"type":101,"width":1080,"height":1920,"url":"https:\/\/video.xx.fbcdn.net\/large.mp4?x=1&amp;y=2"}
+      ]}}
+    </script>`;
+  assertEquals(
+    extractPublicVideoUrl(hydratedHtml, 'https://www.instagram.com/reel/abc/'),
+    'https://video.xx.fbcdn.net/large.mp4?x=1&y=2',
+  );
+  assertEquals(extractPublicVideoUrl(hydratedHtml, 'https://example.test/reel/abc/'), null);
+  assertEquals(
+    extractPublicVideoUrl(
+      '<script>{"url":"https://scontent.cdninstagram.com/unscoped.mp4","video_versions":null}</script>',
+      'https://www.instagram.com/reel/abc/',
+    ),
+    null,
+  );
+
   for (
     const content of [
       'http://scontent.cdninstagram.com/reel.mp4',
       'https://example.com/reel.mp4',
+      'https://user:password@scontent.cdninstagram.com/reel.mp4',
+      'https://scontent.cdninstagram.com:444/reel.mp4',
       'not a URL',
     ]
   ) {
@@ -153,7 +176,37 @@ Deno.test('resolves only HTTPS Instagram and Facebook CDN video metadata', () =>
       ),
       null,
     );
+    assertEquals(
+      extractPublicVideoUrl(
+        `<script>{"video_versions":[{"width":1080,"height":1920,"url":${
+          JSON.stringify(content)
+        }}]}</script>`,
+        'https://www.instagram.com/reel/abc/',
+      ),
+      null,
+    );
   }
+  assertEquals(
+    extractPublicVideoUrl(
+      '<script>{"video_versions":[{"url":"https://scontent.cdninstagram.com/not-a-video.jpg"}]}</script>',
+      'https://www.instagram.com/reel/abc/',
+    ),
+    null,
+  );
+  assertEquals(
+    extractPublicVideoUrl(
+      '<script>{"video_versions":[{"url":"https://scontent.cdninstagram.com/broken.mp4"}</script>',
+      'https://www.instagram.com/reel/abc/',
+    ),
+    null,
+  );
+  assertEquals(
+    extractPublicVideoUrl(
+      `<script>{"video_versions":[${' '.repeat(100_001)}]}</script>`,
+      'https://www.instagram.com/reel/abc/',
+    ),
+    null,
+  );
   assertEquals(extractPublicVideoUrl('<html></html>', 'https://www.instagram.com/reel/abc/'), null);
 });
 
