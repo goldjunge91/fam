@@ -100,6 +100,7 @@ jobs:
       - name: Scrape and publish one complete postal-code scope
         env:
           TARGET_ZIP: ${{ matrix.zip_code }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP"
@@ -122,4 +123,5 @@ jobs:
       - name: Validate one postal code without database credentials
         env:
           TARGET_ZIP: ${{ inputs.zip }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
         run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP" --dry-run

@@ -1,5 +1,3 @@
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
 
 export interface ScrapedHotspot {
@@ -563,48 +561,4 @@ export async function scrapeKaufdaZip(options: ScrapeOptions): Promise<ScrapedBr
     }
   }
   return results;
-}
-
-function argumentValue(args: readonly string[], name: string): string | undefined {
-  const index = args.indexOf(name);
-  return index >= 0 ? args[index + 1] : undefined;
-}
-
-function requiredArgument(args: readonly string[], name: string): string {
-  const value = argumentValue(args, name);
-  if (!value) throw new Error(`Missing ${name}.`);
-  return value;
-}
-
-async function main(): Promise<void> {
-  const args = process.argv.slice(2);
-  const zipCode = requiredArgument(args, '--zip');
-  const city = requiredArgument(args, '--city');
-  const latitude = Number(requiredArgument(args, '--lat'));
-  const longitude = Number(requiredArgument(args, '--lng'));
-  const outputPath = argumentValue(args, '--output');
-  const brochures = await scrapeKaufdaZip({
-    zipCode,
-    city,
-    latitude,
-    longitude,
-  });
-  const output = `${JSON.stringify(brochures, null, 2)}\n`;
-  if (outputPath) {
-    const absolutePath = resolve(outputPath);
-    await mkdir(dirname(absolutePath), { recursive: true });
-    await writeFile(absolutePath, output, 'utf8');
-  } else {
-    process.stdout.write(output);
-  }
-  process.stderr.write(`PLZ ${zipCode}: ${brochures.length} brochures across all categories\n`);
-}
-
-if (import.meta.main) {
-  main().catch((error: unknown) => {
-    process.stderr.write(
-      `KaufDA scrape failed: ${error instanceof Error ? error.message : String(error)}\n`,
-    );
-    process.exitCode = 1;
-  });
 }
