@@ -13,7 +13,14 @@ type MockFile = {
 };
 
 const mockFiles: MockFile[] = [];
-const mockDownload = jest.fn(async (..._args: unknown[]) => undefined);
+const mockDownloadAsync = jest.fn();
+const mockCancelDownload = jest.fn(async () => undefined);
+const mockCreateDownloadResumable = jest.fn(
+  (_url: string, _fileUri: string, _options?: { sessionType: number }) => ({
+    cancelAsync: mockCancelDownload,
+    downloadAsync: mockDownloadAsync,
+  }),
+);
 const mockExecAsync = jest.fn(async (..._args: unknown[]) => undefined);
 const mockGetFirstAsync = jest.fn();
 let mockNextFileExists = true;
@@ -35,11 +42,14 @@ jest.mock('expo-file-system', () => {
     mockFiles.push(file);
     return file;
   });
-  Object.assign(fileConstructor, {
-    downloadFileAsync: (...args: unknown[]) => mockDownload(...args),
-  });
   return { File: fileConstructor };
 });
+
+jest.mock('expo-file-system/legacy', () => ({
+  FileSystemSessionType: { FOREGROUND: 1 },
+  createDownloadResumable: (url: string, fileUri: string, options?: { sessionType: number }) =>
+    mockCreateDownloadResumable(url, fileUri, options),
+}));
 
 jest.mock('./plaintext-attachment', () => ({ attachPlaintextDatabase: jest.fn() }));
 
@@ -64,7 +74,9 @@ describe.each(variants)('$name', ({ create, android }) => {
     mockNextFileExists = true;
     mockFileSize = 42;
     mockFileMd5 = 'a'.repeat(32);
-    mockDownload.mockReset().mockResolvedValue(undefined);
+    mockCreateDownloadResumable.mockClear();
+    mockDownloadAsync.mockReset().mockResolvedValue({ uri: '/downloaded' });
+    mockCancelDownload.mockReset().mockResolvedValue(undefined);
     mockExecAsync.mockReset().mockResolvedValue(undefined);
     mockGetFirstAsync.mockReset();
     jest.mocked(attachPlaintextDatabase).mockReset();
@@ -81,11 +93,20 @@ describe.each(variants)('$name', ({ create, android }) => {
     await expect(operations.size('/tmp/dump.db')).resolves.toBe(0);
 
     await operations.download('https://example.test/dump.db', '/tmp/dump.db');
-    expect(mockDownload).toHaveBeenCalledWith(
-      'https://example.test/dump.db',
-      expect.objectContaining({ uri: expectedFileUri }),
-      { idempotent: true },
-    );
+    if (android) {
+      expect(mockCreateDownloadResumable).toHaveBeenCalledWith(
+        'https://example.test/dump.db',
+        expectedFileUri,
+        undefined,
+      );
+    } else {
+      expect(mockCreateDownloadResumable).toHaveBeenCalledWith(
+        'https://example.test/dump.db',
+        expectedFileUri,
+        { sessionType: 1 },
+      );
+    }
+    expect(mockDownloadAsync).toHaveBeenCalledTimes(1);
 
     await operations.move('/tmp/source.db', '/tmp/target.db');
     const [source, destination] = mockFiles.slice(-2);
@@ -100,6 +121,33 @@ describe.each(variants)('$name', ({ create, android }) => {
     await expect(operations.checksum('/tmp/dump.db')).resolves.toBe('a'.repeat(32));
     mockFileMd5 = null;
     await expect(operations.checksum('/tmp/dump.db')).rejects.toThrow('MD5-Prüfsumme');
+  });
+
+  it('cancels a native download when the lifecycle signal aborts', async () => {
+    let finishDownload: ((result: { uri: string } | undefined) => void) | undefined;
+    mockDownloadAsync.mockReturnValueOnce(
+      new Promise<{ uri: string } | undefined>((resolve) => {
+        finishDownload = resolve;
+      }),
+    );
+    mockCancelDownload.mockImplementationOnce(async () => {
+      finishDownload?.(undefined);
+    });
+    const operations = create(createDatabase());
+    const controller = new AbortController();
+    const pending = operations.download(
+      'https://example.test/dump.db',
+      '/tmp/dump.db',
+      controller.signal,
+    );
+
+    controller.abort();
+
+    await expect(pending).rejects.toMatchObject({
+      name: 'AbortError',
+      message: 'OFF-Dump-Vorgang wurde angehalten.',
+    });
+    expect(mockCancelDownload).toHaveBeenCalledTimes(1);
   });
 
   it('inspects dump metadata and always detaches after a successful attach', async () => {

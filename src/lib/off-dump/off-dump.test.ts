@@ -8,6 +8,8 @@ import {
   initOffDump,
   reinstallOffDumpBaseline,
   resetOffDumpAttachment,
+  resumeOffDumpOperations,
+  suspendOffDumpOperations,
 } from './off-dump';
 import { setOffDumpAttached } from './off-dump-state';
 import { checkForUpdate, reconcileOnStart } from './repository';
@@ -139,6 +141,7 @@ beforeEach(() => {
   mockFileExists = true;
   mockFileSize = 123;
   resetOffDumpAttachment();
+  resumeOffDumpOperations();
   jest.mocked(checkForUpdate).mockReset();
   jest.mocked(reconcileOnStart).mockReset();
   mockInstallBaseline.mockReset().mockResolvedValue({ ok: false, reason: 'corrupted' });
@@ -228,32 +231,37 @@ describe('attachOffDump', () => {
     expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
   });
 
-  it('hält den geplanten Start-Update-Check bis vor den Lifecycle-Close offen', async () => {
+  it('bricht einen laufenden Start-Update-Check für den Lifecycle-Close ab', async () => {
     let markUpdateStarted: (() => void) | undefined;
     const updateStarted = new Promise<void>((resolve) => {
       markUpdateStarted = resolve;
     });
-    let releaseUpdate: (() => void) | undefined;
-    const updateReleased = new Promise<void>((resolve) => {
-      releaseUpdate = resolve;
-    });
-    jest.mocked(checkForUpdate).mockImplementationOnce(async () => {
-      markUpdateStarted?.();
-      await updateReleased;
-      return { kind: 'up-to-date' };
-    });
+    jest.mocked(checkForUpdate).mockImplementationOnce(
+      async ({ signal }: { signal?: AbortSignal }) =>
+        new Promise((_, reject) => {
+          markUpdateStarted?.();
+          signal?.addEventListener(
+            'abort',
+            () => {
+              const error = new Error('OFF-Dump-Vorgang wurde angehalten.');
+              error.name = 'AbortError';
+              reject(error);
+            },
+            { once: true },
+          );
+        }),
+    );
     const db = createDb();
     const close = jest.fn().mockResolvedValue(undefined);
 
     await initOffDump(db);
     await updateStarted;
+    suspendOffDumpOperations();
     const closing = db.closeForLifecycle(close);
-    await Promise.resolve();
 
-    expect(close).not.toHaveBeenCalled();
-    releaseUpdate?.();
     await expect(closing).resolves.toBeUndefined();
-    expect(executedRuns.map(({ params }) => params?.[0])).toContain('off_dump_last_check_at');
+    expect(close).toHaveBeenCalledTimes(1);
+    expect(executedRuns).toEqual([]);
     expect(mockDebugWarn).not.toHaveBeenCalled();
   });
 

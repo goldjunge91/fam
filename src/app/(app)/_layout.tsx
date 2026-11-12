@@ -92,7 +92,7 @@ function ReadyAppContent({ accountId }: { accountId: string | null }) {
 
   // Automatische App-Synchronisation startet erst nach der Routingentscheidung.
   useSyncEngine(activeHouseholdId ?? undefined, retryReceiptAssets);
-  useRealtimeSync(activeHouseholdId ?? undefined, retryReceiptAssets);
+  useRealtimeSync(activeHouseholdId ?? undefined);
 
   useEffect(() => {
     peekPendingInviteToken().then(async (pendingToken) => {

@@ -1,25 +1,17 @@
-import { closeDatabaseForLifecycle } from '@/lib/db/local-client';
+import { Platform } from 'react-native';
+
+import { getStoredActiveHouseholdId } from '@/features/household/active-household-store';
+import { getSupabase, serverClock } from '@/lib/backend/supabase/remote-client';
+import { closeDatabaseForLifecycle, getDatabase, setActiveUserId } from '@/lib/db/local-client';
+import { syncHousehold } from '@/lib/sync/remote-sync-engine';
+import { beginAccountSyncRun } from '@/lib/sync/remote-sync-gate';
 import { reportError } from '@/lib/telemetry';
 
 export const BACKGROUND_SYNC_TASK_NAME = 'fam-background-sync';
 
-/**
- * Hintergrund-Sync via expo-background-task/expo-task-manager.
- *
- * Warum defineTask frueh und im globalen Modul-Scope aufgerufen werden
- * muss: Das OS kann die App kalt im Hintergrund starten, um die Task
- * auszufuehren. Dann beginnt der JS-Kontext neu und React rendert noch
- * nicht — die Task-Definition muss deshalb schon beim Modul-Import
- * existieren (initialize-app-runtime ruft sie auf), sonst findet das
- * Native-Side keine Task und der Sync laeuft ins Leere.
- *
- * Kein gesetzter Handler ist kein Fehler: Die Task tut dann nichts und
- * gilt als Erfolg (siehe setBackgroundSyncHandler).
- */
-
 const REBUILD_HINT =
   'expo-background-task/expo-task-manager sind im installierten Build nicht ' +
-  'enthalten. Native Module kommen nicht ueber einen Metro-Reload dazu — der ' +
+  'enthalten. Native Module kommen nicht über einen Metro-Reload dazu — der ' +
   'Development Build muss neu erstellt werden (`bunx expo run:ios`).';
 
 function loadBackgroundTask(): typeof import('expo-background-task') {
@@ -38,39 +30,68 @@ function loadTaskManager(): typeof import('expo-task-manager') {
   }
 }
 
-let handler: (() => Promise<void>) | null = null;
+/**
+ * Führt den geplanten Sync ausschließlich aus dauerhaft gespeichertem Zustand
+ * aus. Ein iOS-Hintergrundstart mountet keinen React-Baum, deshalb darf dieser
+ * Pfad weder Hooks noch einen zuvor gesetzten Closure-Handler benötigen.
+ */
+async function runBackgroundSync(): Promise<void> {
+  const finishAccountSyncRun = beginAccountSyncRun();
+  if (!finishAccountSyncRun) return;
 
-/** Setzt/ersetzt den Handler, den die Task bei Ausfuehrung aufruft. `null` = Task tut nichts, gilt als Erfolg. */
-export function setBackgroundSyncHandler(fn: (() => Promise<void>) | null): void {
-  handler = fn;
+  try {
+    const supabase = getSupabase();
+    const { data, error } = await supabase.auth.getSession();
+    if (error) throw error;
+
+    const userId = data.session?.user.id;
+    if (!userId) return;
+
+    const householdId = await getStoredActiveHouseholdId();
+    if (!householdId) return;
+
+    setActiveUserId(userId);
+    const db = await getDatabase();
+    await syncHousehold({
+      db,
+      supabase,
+      serverClock,
+      householdIds: [householdId],
+    });
+  } finally {
+    finishAccountSyncRun();
+  }
 }
 
 let defined = false;
 
-/**
- * Definiert die Task. Muss frueh und im globalen Modul-Scope aufgerufen
- * werden (siehe Kommentar oben) — idempotent, ein zweiter Aufruf ist ein No-op.
- */
+/** Definiert den nativen Task genau einmal im globalen Modul-Scope. */
 export function defineBackgroundSyncTask(): void {
   if (defined) return;
   defined = true;
 
   const TaskManager = loadTaskManager();
-  const { BackgroundTaskResult } = loadBackgroundTask();
+  const BackgroundTask = loadBackgroundTask();
 
   TaskManager.defineTask(BACKGROUND_SYNC_TASK_NAME, async () => {
-    if (handler === null) return BackgroundTaskResult.Success;
+    const expirationSubscription =
+      Platform.OS === 'ios'
+        ? BackgroundTask.addExpirationListener(() => {
+            void closeDatabaseForLifecycle();
+          })
+        : null;
 
     try {
-      await handler();
-      return BackgroundTaskResult.Success;
+      await runBackgroundSync();
+      return BackgroundTask.BackgroundTaskResult.Success;
     } catch (error) {
       reportError(error, {
         operation: 'sync.background',
         error_code: 'background_sync_failed',
       });
-      return BackgroundTaskResult.Failed;
+      return BackgroundTask.BackgroundTaskResult.Failed;
     } finally {
+      expirationSubscription?.remove();
       await closeDatabaseForLifecycle();
     }
   });
@@ -94,3 +115,7 @@ export async function getBackgroundSyncStatus(): Promise<
   const BackgroundTask = loadBackgroundTask();
   return BackgroundTask.getStatusAsync();
 }
+
+// Expo TaskManager wertet das Bundle bei einem kalten Hintergrundstart aus,
+// ohne React-Views zu mounten. Die Definition muss deshalb ein Moduleffekt sein.
+defineBackgroundSyncTask();

@@ -1,7 +1,13 @@
 import { File } from 'expo-file-system';
+import * as LegacyFileSystem from 'expo-file-system/legacy';
 
 import type { SqlDatabase } from '@/lib/db/types';
-import type { DumpInspection, FileOps } from './file-ops';
+import {
+  createOffDumpAbortError,
+  type DumpInspection,
+  type FileOps,
+  throwIfOffDumpAborted,
+} from './file-ops';
 import { attachPlaintextDatabase } from './plaintext-attachment';
 
 export function createExpoFileOps(db: SqlDatabase): FileOps {
@@ -14,8 +20,22 @@ export function createExpoFileOps(db: SqlDatabase): FileOps {
       return new File(path).size ?? 0;
     },
 
-    async download(url: string, destPath: string): Promise<void> {
-      await File.downloadFileAsync(url, new File(destPath), { idempotent: true });
+    async download(url: string, destPath: string, signal?: AbortSignal): Promise<void> {
+      throwIfOffDumpAborted(signal);
+      const download = LegacyFileSystem.createDownloadResumable(url, new File(destPath).uri, {
+        sessionType: LegacyFileSystem.FileSystemSessionType.FOREGROUND,
+      });
+      const cancel = () => {
+        void download.cancelAsync().catch(() => undefined);
+      };
+      signal?.addEventListener('abort', cancel, { once: true });
+      try {
+        const result = await download.downloadAsync();
+        throwIfOffDumpAborted(signal);
+        if (!result) throw createOffDumpAbortError();
+      } finally {
+        signal?.removeEventListener('abort', cancel);
+      }
     },
 
     async move(fromPath: string, toPath: string): Promise<void> {

@@ -4,7 +4,7 @@ import type { SqlDatabase } from '@/lib/db/types';
 import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import { installBaseline } from './baseline-installer';
 import { createExpoFileOps } from './expo-file-ops';
-import type { DumpInspection } from './file-ops';
+import { type DumpInspection, isOffDumpAbortError, throwIfOffDumpAborted } from './file-ops';
 import { fetchManifest } from './manifest';
 import { isOffDumpAttached, resetOffDumpAttachment, setOffDumpAttached } from './off-dump-state';
 import { attachPlaintextDatabase } from './plaintext-attachment';
@@ -35,6 +35,22 @@ const CHECK_TTL_MS = 6 * 60 * 60 * 1000;
 let offDumpSequence = 0;
 const initializationByDatabase = new WeakMap<SerializedSqlDatabase, Promise<void>>();
 const operationTailByDatabase = new WeakMap<SerializedSqlDatabase, Promise<void>>();
+let offDumpSuspended = false;
+let offDumpAbortController = new AbortController();
+
+/** Stoppt laufende Netzwerkphasen, bevor SQLite beim Suspendieren schließt. */
+export function suspendOffDumpOperations(): void {
+  if (offDumpSuspended) return;
+  offDumpSuspended = true;
+  offDumpAbortController.abort();
+}
+
+/** Erzeugt für neue Foreground-Vorgänge einen frischen Abbruchkontext. */
+export function resumeOffDumpOperations(): void {
+  if (!offDumpSuspended) return;
+  offDumpSuspended = false;
+  offDumpAbortController = new AbortController();
+}
 
 /**
  * Alle OFF-Vorgänge derselben Connection laufen geordnet und halten dabei eine
@@ -43,12 +59,20 @@ const operationTailByDatabase = new WeakMap<SerializedSqlDatabase, Promise<void>
  */
 function runOffDumpOperation<T>(
   db: SerializedSqlDatabase,
-  task: (operationDb: SqlDatabase) => Promise<T>,
+  task: (operationDb: SqlDatabase, signal: AbortSignal) => Promise<T>,
 ): Promise<T> {
+  const signal = offDumpAbortController.signal;
+  try {
+    throwIfOffDumpAborted(signal);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+
   const previous = operationTailByDatabase.get(db) ?? Promise.resolve();
   const operation = db.withLifecycleOperationAsync(async (operationDb) => {
     await previous;
-    return task(operationDb);
+    throwIfOffDumpAborted(signal);
+    return task(operationDb, signal);
   });
   const settled = operation.then(
     () => undefined,
@@ -221,9 +245,10 @@ export function attachOffDump(db: SerializedSqlDatabase): Promise<boolean> {
   return runOffDumpOperation(db, attachOffDumpInOperation);
 }
 
-async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
+async function runUpdateCheck(db: SqlDatabase, signal: AbortSignal): Promise<UpdateOutcome> {
   offDumpSequence += 1;
   const updateId = offDumpSequence;
+  throwIfOffDumpAborted(signal);
   offDumpTrace('UPDATE-START', { updateId });
   const fileOps = createExpoFileOps(db);
   const paths = dumpPaths();
@@ -239,7 +264,9 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
       manifestUrl: MANIFEST_URL,
       paths,
       activeInspection,
+      signal,
     });
+    throwIfOffDumpAborted(signal);
     const checkedAt = new Date().toISOString();
     await setMetaValue(db, LAST_CHECK_KEY, checkedAt);
     if (outcome.kind === 'patched' || outcome.kind === 'baseline-installed') {
@@ -266,6 +293,7 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
     offDumpTrace('UPDATE-OK', { kind: outcome.kind, updateId });
     return outcome;
   } catch (err) {
+    if (isOffDumpAbortError(err)) throw err;
     const message = err instanceof Error ? err.message : String(err);
     offDumpTrace('UPDATE-FAIL', { error: message, updateId });
     await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
@@ -274,7 +302,7 @@ async function runUpdateCheck(db: SqlDatabase): Promise<UpdateOutcome> {
   }
 }
 
-async function checkForUpdateIfDueInOperation(db: SqlDatabase): Promise<void> {
+async function checkForUpdateIfDueInOperation(db: SqlDatabase, signal: AbortSignal): Promise<void> {
   offDumpSequence += 1;
   const checkId = offDumpSequence;
   offDumpTrace('DUE-START', { checkId });
@@ -290,15 +318,18 @@ async function checkForUpdateIfDueInOperation(db: SqlDatabase): Promise<void> {
   }
 
   offDumpTrace('DUE-RUN', { checkId, hasLocalDump });
-  await runUpdateCheck(db);
+  await runUpdateCheck(db, signal);
 }
 
 function checkForUpdateIfDue(db: SerializedSqlDatabase): Promise<void> {
   return runOffDumpOperation(db, checkForUpdateIfDueInOperation);
 }
 
-async function forceRefreshOffDumpInOperation(db: SqlDatabase): Promise<UpdateOutcome> {
-  const outcome = await runUpdateCheck(db);
+async function forceRefreshOffDumpInOperation(
+  db: SqlDatabase,
+  signal: AbortSignal,
+): Promise<UpdateOutcome> {
+  const outcome = await runUpdateCheck(db, signal);
   if (outcome.kind === 'manifest-unavailable') {
     throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
   }
@@ -315,9 +346,13 @@ export function forceRefreshOffDump(db: SerializedSqlDatabase): Promise<UpdateOu
   return runOffDumpOperation(db, forceRefreshOffDumpInOperation);
 }
 
-async function reinstallOffDumpBaselineInOperation(db: SqlDatabase): Promise<UpdateOutcome> {
+async function reinstallOffDumpBaselineInOperation(
+  db: SqlDatabase,
+  signal: AbortSignal,
+): Promise<UpdateOutcome> {
   try {
-    const manifest = await fetchManifest(MANIFEST_URL);
+    const manifest = await fetchManifest(MANIFEST_URL, signal);
+    throwIfOffDumpAborted(signal);
     if (!manifest) {
       throw new Error('Kein Manifest gefunden (kein Netz oder GitHub nicht erreichbar).');
     }
@@ -332,6 +367,7 @@ async function reinstallOffDumpBaselineInOperation(db: SqlDatabase): Promise<Upd
       nextPath: paths.nextPath,
       recoveryPath: paths.recoveryPath,
       attachmentMode: 'sqlcipher',
+      signal,
     });
     if (!result.ok) {
       throw new Error('Baseline-Installation fehlgeschlagen (Pruefsumme/Schema ungueltig).');
@@ -344,6 +380,7 @@ async function reinstallOffDumpBaselineInOperation(db: SqlDatabase): Promise<Upd
     await attachOffDumpInOperation(db);
     return { kind: 'baseline-installed', dataVersion: result.dataVersion };
   } catch (error) {
+    if (isOffDumpAbortError(error)) throw error;
     await setMetaValue(db, LAST_CHECK_KEY, new Date().toISOString());
     await setMetaValue(db, LAST_ERROR_KEY, errorMessage(error));
     throw error;
@@ -385,6 +422,7 @@ export function checkOffDumpIntegrity(db: SerializedSqlDatabase): Promise<boolea
 async function initializeOffDump(
   db: SqlDatabase,
   lifecycleDb: SerializedSqlDatabase,
+  signal: AbortSignal,
 ): Promise<void> {
   offDumpSequence += 1;
   const initId = offDumpSequence;
@@ -393,9 +431,11 @@ async function initializeOffDump(
   try {
     offDumpTrace('INIT-RECONCILE-START', { initId });
     await reconcileOnStart(fileOps, dumpPaths());
+    throwIfOffDumpAborted(signal);
     offDumpTrace('INIT-RECONCILE-OK', { initId });
     offDumpTrace('INIT-ATTACH-START', { initId });
     await attachOffDumpInOperation(db);
+    throwIfOffDumpAborted(signal);
     offDumpTrace('INIT-ATTACH-OK', { initId });
   } catch (error) {
     offDumpTrace('INIT-FAIL', { error: errorMessage(error), initId });
@@ -404,6 +444,7 @@ async function initializeOffDump(
 
   offDumpTrace('INIT-UPDATE-SCHEDULED', { initId });
   void checkForUpdateIfDue(lifecycleDb).catch((err) => {
+    if (isOffDumpAbortError(err)) return;
     offDumpTrace('DUE-FAIL', { error: errorMessage(err), initId });
     debugWarn('[OffDump] Update-Check fehlgeschlagen:', err);
   });
@@ -418,8 +459,8 @@ export function initOffDump(db: SerializedSqlDatabase): Promise<void> {
   const runningInitialization = initializationByDatabase.get(db);
   if (runningInitialization) return runningInitialization;
 
-  const initialization = runOffDumpOperation(db, (operationDb) =>
-    initializeOffDump(operationDb, db),
+  const initialization = runOffDumpOperation(db, (operationDb, signal) =>
+    initializeOffDump(operationDb, db, signal),
   ).catch((error: unknown) => {
     // Ein echter Fehlschlag darf einen späteren Retry auf derselben Verbindung
     // nicht dauerhaft blockieren.

@@ -7,12 +7,16 @@ import { initAptabase } from '@/lib/analytics/aptabase';
 import { markPerformance, startPerformanceSpan } from '@/lib/observability/performance';
 import { initPostHog } from '@/lib/observability/providers/posthog';
 import { initSentry } from '@/lib/observability/providers/sentry';
-import { defineBackgroundSyncTask } from '@/lib/sync/remote-background-sync';
 import QuickAddShoppingWidget from '@/widgets/quick-add-shopping-widget';
 import ShoppingListWidget from '@/widgets/shopping-list-widget';
 
-/** Initialisiert Dienste, die vor dem ersten Screen-Mount bereit sein müssen. */
+/** Initialisiert Foreground-Dienste genau einmal nach dem Root-Mount. */
+let initialized = false;
+
 export function initializeAppRuntime(): void {
+  if (initialized) return;
+  initialized = true;
+
   markPerformance('app.start', { phase: 'startup' });
   const finishPerformance = startPerformanceSpan('app.runtime.initialization', {
     phase: 'startup',
@@ -21,7 +25,6 @@ export function initializeAppRuntime(): void {
   try {
     configureReanimatedLogger({ strict: false });
     SplashScreen.preventAutoHideAsync();
-    defineBackgroundSyncTask();
     initSentry();
     initPostHog();
     initAptabase();
@@ -35,6 +38,7 @@ export function initializeAppRuntime(): void {
 
     finishPerformance('completed', { initialized: true });
   } catch (error) {
+    initialized = false;
     finishPerformance('failed', { initialized: false });
     throw error;
   }

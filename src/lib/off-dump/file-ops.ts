@@ -1,3 +1,19 @@
+export const OFF_DUMP_ABORT_MESSAGE = 'OFF-Dump-Vorgang wurde angehalten.';
+
+export function createOffDumpAbortError(): Error {
+  const error = new Error(OFF_DUMP_ABORT_MESSAGE);
+  error.name = 'AbortError';
+  return error;
+}
+
+export function throwIfOffDumpAborted(signal?: AbortSignal): void {
+  if (signal?.aborted) throw createOffDumpAbortError();
+}
+
+export function isOffDumpAbortError(error: unknown): boolean {
+  return error instanceof Error && error.name === 'AbortError';
+}
+
 export type DumpInspection = {
   schemaVersion: number;
   dataVersion: string;
@@ -8,7 +24,7 @@ export type DumpInspection = {
 export type FileOps = {
   exists(path: string): Promise<boolean>;
   size(path: string): Promise<number>;
-  download(url: string, destPath: string): Promise<void>;
+  download(url: string, destPath: string, signal?: AbortSignal): Promise<void>;
   /** Atomare Umbenennung innerhalb desselben Dateisystems. */
   move(fromPath: string, toPath: string): Promise<void>;
   delete(path: string): Promise<void>;

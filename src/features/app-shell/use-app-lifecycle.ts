@@ -1,6 +1,8 @@
 import { useNavigationContainerRef } from 'expo-router';
 import { useEffect } from 'react';
+import { AppState } from 'react-native';
 import { startQueryEnvironmentSync } from '@/lib/data/query-client';
+import { closeDatabaseForLifecycle } from '@/lib/db/local-client';
 import { debugLog, debugWarn } from '@/lib/observability/debug-log';
 import {
   markPerformance,
@@ -8,7 +10,9 @@ import {
   metricPerformance,
 } from '@/lib/observability/performance';
 import { navigationIntegration } from '@/lib/observability/providers/sentry';
+import { resumeOffDumpOperations, suspendOffDumpOperations } from '@/lib/off-dump/off-dump';
 import { registerBackgroundSync } from '@/lib/sync/remote-background-sync';
+import { resumeForegroundSync, suspendForegroundSync } from '@/lib/sync/sync-runner';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
 import { recordLifecycleEvent } from '@/lib/telemetry/lifecycle-log';
 import { startSessionDiagnostics } from '@/lib/telemetry/session-diagnostics';
@@ -39,6 +43,25 @@ export function useAppLifecycle(): void {
   }, [navigationRef]);
 
   useEffect(() => startQueryEnvironmentSync(), []);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (state) => {
+      if (state === 'active') {
+        resumeOffDumpOperations();
+        resumeForegroundSync();
+        return;
+      }
+
+      // Reihenfolge ist absichtlich synchron: Erst dürfen keine neuen Writer
+      // starten, dann werden Downloads abgebrochen, erst danach sperrt und
+      // leert der Datenbank-Close die verbleibende Statement-Warteschlange.
+      suspendForegroundSync();
+      suspendOffDumpOperations();
+      void closeDatabaseForLifecycle();
+    });
+
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     debugLog('[APPTRACE:ROOT-MOUNT]');

@@ -1,6 +1,5 @@
 import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
 import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
-import { AppState } from 'react-native';
 import { FAM_APP_GROUP } from '@/lib/apple/shared-app-group';
 import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
@@ -452,12 +451,6 @@ export function closeDatabaseForLifecycle(): Promise<void> {
   lifecycleClosing = closing;
   return closing;
 }
-
-AppState.addEventListener('change', (state) => {
-  if (state === 'inactive' || state === 'background') {
-    void closeDatabaseForLifecycle();
-  }
-});
 
 async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void> {
   const SQLite = loadSQLite();

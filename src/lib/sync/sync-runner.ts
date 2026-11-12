@@ -15,7 +15,6 @@ import type { Entity } from '@/lib/db/types';
 import { startPerformanceSpan } from '@/lib/observability/performance';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
-import { setBackgroundSyncHandler } from '@/lib/sync/remote-background-sync';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/remote-sync-engine';
 import { beginAccountSyncRun, registerAccountSyncStopper } from '@/lib/sync/remote-sync-gate';
 import { addDiagnosticStep, reportError, trackEvent } from '@/lib/telemetry';
@@ -30,6 +29,21 @@ type ActiveSync = {
 };
 
 let activeSync: ActiveSync | null = null;
+let foregroundSyncSuspended = false;
+
+/** Verhindert neue Foreground-Läufe und verwirft einen vorgemerkten Folgelauf. */
+export function suspendForegroundSync(): void {
+  foregroundSyncSuspended = true;
+  if (activeSync) activeSync.pending = false;
+}
+
+/** Gibt Foreground-Syncs nach der vollständig aktiven App-Transition wieder frei. */
+export function resumeForegroundSync(): void {
+  if (!foregroundSyncSuspended) return;
+  foregroundSyncSuspended = false;
+  if (activeSync) activeSync.pending = true;
+}
+
 let lastSyncResultSummary: {
   timestamp: number;
   pushedCount: number;
@@ -152,7 +166,7 @@ export async function triggerHouseholdSync(
   retryFailed = false,
   queryClient?: QueryClient,
 ): Promise<SyncRunResult | null> {
-  if (!householdIds || householdIds.length === 0) return null;
+  if (foregroundSyncSuspended || !householdIds || householdIds.length === 0) return null;
 
   const scopeKey = getSyncScopeKey(householdIds);
   if (activeSync) {
@@ -170,7 +184,7 @@ export async function triggerHouseholdSync(
     do {
       nextActiveSync.pending = false;
       result = await performHouseholdSync(householdIds, retryFailed, queryClient);
-    } while (nextActiveSync.pending);
+    } while (nextActiveSync.pending && !foregroundSyncSuspended);
     return result;
   })();
   nextActiveSync.promise = promise;
@@ -187,6 +201,7 @@ export function triggerHouseholdSyncAfterOutboxMutation(
   householdIds: string[],
   queryClient?: QueryClient,
 ) {
+  if (foregroundSyncSuspended) return Promise.resolve(null);
   const scopeKey = getSyncScopeKey(householdIds);
   if (activeSync?.scopeKey === scopeKey) activeSync.pending = true;
   return triggerHouseholdSync(householdIds, false, queryClient);
@@ -198,7 +213,10 @@ async function performHouseholdSync(
   queryClient?: QueryClient,
 ): Promise<SyncRunResult | null> {
   const finishAccountSyncRun = beginAccountSyncRun();
-  if (!finishAccountSyncRun) return null;
+  if (!finishAccountSyncRun || foregroundSyncSuspended) {
+    finishAccountSyncRun?.();
+    return null;
+  }
   const finishPerformance = startPerformanceSpan('sync.run', {
     household_count: householdIds.length,
     retry_failed: retryFailed,
@@ -206,8 +224,16 @@ async function performHouseholdSync(
   addDiagnosticStep('sync.run.started', { operation: 'sync.run' });
   try {
     const db = await getDatabase();
+    if (foregroundSyncSuspended) {
+      finishPerformance('completed', { cancelled: true });
+      return null;
+    }
     if (retryFailed) {
       await retryFailedOutboxEntries(db);
+    }
+    if (foregroundSyncSuspended) {
+      finishPerformance('completed', { cancelled: true });
+      return null;
     }
     const supabase = getSupabase();
     const result = await syncHousehold({
@@ -345,7 +371,9 @@ export function useSyncEngine(
     if (!householdId) return;
 
     // 1. Initialer Sync beim App-Start / Haushalt-Laden
-    void syncAndNotify(householdId).catch(() => undefined);
+    if (AppState.currentState === 'active') {
+      void syncAndNotify(householdId).catch(() => undefined);
+    }
 
     // 2. Periodischer Timer (alle 20 Sekunden) — Fallback, falls Punkt 4
     //    aus irgendeinem Grund nicht feuert (z.B. verpasste Events).
@@ -446,33 +474,8 @@ export function useSyncEngine(
   }, [householdId, queryClient, syncAndNotify, onSyncCompleted]);
 }
 
-export function useRealtimeSync(
-  householdId: string | undefined,
-  onSyncCompleted?: () => Promise<void>,
-) {
+export function useRealtimeSync(householdId: string | undefined) {
   const queryClient = useQueryClient();
-
-  // Hintergrund-Sync-Handler unabhaengig vom Realtime/Netzwerk-Teil pflegen,
-  // damit die Task, egal wann sie vom OS geweckt wird, immer den aktuell
-  // aktiven Haushalt kennt. Kein Haushalt (z.B. waehrend Onboarding) →
-  // Handler auf null: die Task bleibt registriert und tut beim naechsten
-  // Aufwachen einfach nichts (siehe remote-background-sync.ts Kommentar).
-  //
-  // Bewusst ohne `queryClient`: Diese Task laeuft vom OS angestossen, ohne
-  // dass der React-Baum (und damit der QueryClientProvider) sicher lebt. Die
-  // naechste 'active'-Transition in `useSyncEngine` holt die Invalidierung
-  // nach, sobald wieder ein Provider da ist.
-  useEffect(() => {
-    setBackgroundSyncHandler(
-      householdId
-        ? async () => {
-            const result = await triggerHouseholdSync([householdId]);
-            if (result && !syncRunHasErrors(result)) await onSyncCompleted?.();
-          }
-        : null,
-    );
-    return () => setBackgroundSyncHandler(null);
-  }, [householdId, onSyncCompleted]);
 
   useEffect(() => {
     if (!householdId) return;

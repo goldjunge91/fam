@@ -1,5 +1,5 @@
 import type { SqlDatabase } from '@/lib/db/types';
-import type { FileOps } from './file-ops';
+import { type FileOps, throwIfOffDumpAborted } from './file-ops';
 import { setOffDumpAttached } from './off-dump-state';
 import { attachPlaintextDatabase, type PlaintextAttachmentMode } from './plaintext-attachment';
 
@@ -28,6 +28,7 @@ export async function installBaseline(
     nextPath: string;
     recoveryPath: string;
     attachmentMode: PlaintextAttachmentMode;
+    signal?: AbortSignal;
   },
 ): Promise<InstallBaselineResult> {
   const {
@@ -38,13 +39,16 @@ export async function installBaseline(
     nextPath,
     recoveryPath,
     attachmentMode,
+    signal,
   } = params;
 
   // 1. Download nach `next` (nie direkt in die aktive Datei).
-  await fileOps.download(downloadUrl, nextPath);
+  await fileOps.download(downloadUrl, nextPath, signal);
+  throwIfOffDumpAborted(signal);
 
   // 2. Prüfsumme.
   const actualChecksum = await fileOps.checksum(nextPath);
+  throwIfOffDumpAborted(signal);
   if (actualChecksum !== expectedChecksum) {
     await fileOps.delete(nextPath);
     return { ok: false, reason: 'checksum_mismatch' };
@@ -53,6 +57,7 @@ export async function installBaseline(
   // 3+4. Schema/data_version + PRAGMA quick_check, unabhängig von der
   // Hauptverbindung geöffnet.
   const inspected = await fileOps.inspectDump(nextPath);
+  throwIfOffDumpAborted(signal);
   if (!inspected || inspected.schemaVersion !== expectedSchemaVersion) {
     await fileOps.delete(nextPath);
     return { ok: false, reason: 'schema_mismatch' };
@@ -64,9 +69,12 @@ export async function installBaseline(
 
   // 5+6. Der OFF-Owner ordnet den gesamten Vorgang und hält die Connection
   // während aller Datei- und DB-Schritte für Lifecycle-Close reserviert.
+  throwIfOffDumpAborted(signal);
   await detachOffDumpIfAttached(db);
   setOffDumpAttached(false);
 
+  // Ab hier darf Suspend den atomaren Dateitausch nicht mehr in der Mitte
+  // unterbrechen. Die Phase enthält keine Netzwerkwartezeit und bleibt kurz.
   // 7. Aktive Datei (falls vorhanden) zu recovery umbenennen.
   if (await fileOps.exists(activePath)) {
     await fileOps.move(activePath, recoveryPath);

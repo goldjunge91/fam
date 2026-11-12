@@ -11,9 +11,8 @@ import { Sentry } from '@/lib/observability/providers/sentry';
 import { PerformanceMonitorDevTools } from '@/lib/optionals/PerformanceMonitorDevTools';
 import { RozeniteDevTools } from '@/lib/optionals/RozeniteDevTools';
 
-initializeAppRuntime();
-
 function RootLayout() {
+  initializeAppRuntime();
   useAppLifecycle();
   useAppDeepLinks();
 

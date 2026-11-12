@@ -107,6 +107,21 @@ describe('fetchManifest', () => {
     expect(await fetchManifest('https://example/manifest.json')).toBeNull();
   });
 
+  it('propagiert einen Lifecycle-Abbruch statt ihn als Netzwerkfehler zu tarnen', async () => {
+    const controller = new AbortController();
+    global.fetch = jest.fn().mockImplementation(async () => {
+      controller.abort();
+      throw new Error('request cancelled');
+    }) as unknown as typeof fetch;
+
+    await expect(
+      fetchManifest('https://example/manifest.json', controller.signal),
+    ).rejects.toMatchObject({
+      name: 'AbortError',
+      message: 'OFF-Dump-Vorgang wurde angehalten.',
+    });
+  });
+
   it('liefert null bei einem strukturell ungültigen Body', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
