@@ -17,6 +17,7 @@ const mockSaveComponentsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveStepsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockReplace = jest.fn();
 const mockBack = jest.fn();
+const mockCompleteRecipeImportDraft = jest.fn();
 
 let mockRecipeData: unknown = null;
 let mockParams: { id?: string; importDraftId?: string } = {};
@@ -42,7 +43,7 @@ jest.mock('@/features/household/active-household-provider', () => ({
 }));
 
 jest.mock('@/features/recipe-import/data/recipe-import-storage', () => ({
-  completeRecipeImportDraft: jest.fn(),
+  completeRecipeImportDraft: (...args: unknown[]) => mockCompleteRecipeImportDraft(...args),
   loadRecipeImportDrafts: (...args: unknown[]) => mockLoadRecipeImportDrafts(...args),
 }));
 
@@ -285,6 +286,7 @@ describe('RecipeCreateScreen', () => {
 
   it('übergibt beim Speichern ausschließlich die von Zod validierte Payload', async () => {
     const user = userEvent.setup();
+    mockParams = { importDraftId: 'draft-1' };
     await renderScreen();
 
     await user.paste(screen.getByLabelText('Titel'), '  Pasta Pesto  ');
@@ -296,6 +298,7 @@ describe('RecipeCreateScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     await waitFor(() => expect(mockCreateRecipeMutateAsync).toHaveBeenCalledTimes(1));
+    expect(mockCompleteRecipeImportDraft).toHaveBeenCalledWith('user-1', 'draft-1', 'rec-1');
     expect(mockCreateRecipeMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({
         household_id: 'hh-1',
@@ -556,6 +559,7 @@ describe('RecipeCreateScreen', () => {
       productsById: new Map([['product-1', { id: 'product-1', name: 'Mehl' }]]),
       steps: [],
     };
+    mockParams = { importDraftId: 'draft-1' };
     await renderScreen();
 
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
@@ -566,6 +570,7 @@ describe('RecipeCreateScreen', () => {
 
     await waitFor(() => expect(alert).toHaveBeenCalledWith('Zutaten prüfen', expect.any(String)));
     expect(mockUpdateRecipeMutateAsync).not.toHaveBeenCalled();
+    expect(mockCompleteRecipeImportDraft).not.toHaveBeenCalled();
     expect(screen.getByText('Gruppen und Zutaten')).toBeOnTheScreen();
     alert.mockRestore();
   });

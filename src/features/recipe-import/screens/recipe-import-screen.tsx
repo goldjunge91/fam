@@ -395,6 +395,8 @@ export function RecipeImportScreen() {
     if (result.canceled) return;
     const asset = result.assets[0];
     if (!asset) return;
+    setMedia([]);
+    setMediaSourceType(null);
     try {
       setError(null);
       const frames = await extractVideoRecipeFrames(asset.uri);

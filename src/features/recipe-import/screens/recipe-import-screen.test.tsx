@@ -668,18 +668,31 @@ describe('RecipeImportScreen', () => {
     );
   });
 
-  it('shows video extraction errors without sending an import request', async () => {
+  it('clears a previous media selection when video extraction fails', async () => {
     mockExtractVideoFrames.mockRejectedValueOnce(new Error('Videoformat nicht lesbar.'));
-    mockLaunchImagePicker.mockResolvedValueOnce({
-      canceled: false,
-      assets: [{ uri: 'file://broken.mp4', fileName: 'broken.mp4', mimeType: 'video/mp4' }],
-    });
+    mockLaunchImagePicker
+      .mockResolvedValueOnce({
+        canceled: false,
+        assets: [
+          { uri: 'image://previous', fileName: 'Vorherige Seite.jpg', mimeType: 'image/jpeg' },
+        ],
+      })
+      .mockResolvedValueOnce({
+        canceled: false,
+        assets: [{ uri: 'file://broken.mp4', fileName: 'broken.mp4', mimeType: 'video/mp4' }],
+      });
     await renderImporter();
     const user = userEvent.setup();
     await user.press(screen.getByRole('button', { name: 'Foto oder PDF' }));
+    await user.press(screen.getByRole('button', { name: 'Fotos auswählen' }));
+    expect(await screen.findByText('Vorherige Seite.jpg')).toBeOnTheScreen();
+
     await user.press(screen.getByRole('button', { name: 'Video aus Fotos auswählen' }));
 
     expect(await screen.findByText('Videoformat nicht lesbar.')).toBeOnTheScreen();
+    expect(screen.queryByText('Vorherige Seite.jpg')).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Import starten' }));
+    expect(screen.getByText('Wähle zuerst Fotos, ein Video oder ein PDF aus.')).toBeOnTheScreen();
     expect(mockImportSource).not.toHaveBeenCalled();
   });
 });
