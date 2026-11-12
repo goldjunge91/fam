@@ -317,16 +317,22 @@ describe('recipe import API', () => {
   });
 
   it('reads response error codes, falls back to invoke errors and rejects malformed envelopes', async () => {
+    const { FunctionsHttpError } =
+      jest.requireActual<typeof import('@supabase/supabase-js')>('@supabase/supabase-js');
+    const expoResponse = {
+      clone: () => ({
+        json: () => Promise.resolve({ error: 'instagram_video_unavailable' }),
+      }),
+    } as unknown as Response;
     mockInvoke.mockResolvedValueOnce({
       data: null,
-      error: {
-        message: 'invoke failed',
-        context: new Response(JSON.stringify({ error: 'source_unavailable' })),
-      },
+      error: new FunctionsHttpError(expoResponse),
     });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow('Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.');
+    ).rejects.toThrow(
+      'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
+    );
 
     mockInvoke.mockResolvedValueOnce({
       data: null,

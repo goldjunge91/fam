@@ -1,3 +1,4 @@
+import { FunctionsHttpError } from '@supabase/supabase-js';
 import { File } from 'expo-file-system';
 import { getDevAiModelSelection } from '@/features/ai-assistant/data/dev-ai-model-selection';
 import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient-mapping';
@@ -25,7 +26,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 async function getErrorCode(error: unknown, data: unknown): Promise<string | null> {
   if (isRecord(data) && typeof data.error === 'string') return data.error;
-  if (!isRecord(error) || !(error.context instanceof Response)) return null;
+  if (!(error instanceof FunctionsHttpError)) return null;
   try {
     const body: unknown = await error.context.clone().json();
     return isRecord(body) && typeof body.error === 'string' ? body.error : null;
