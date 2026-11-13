@@ -76,6 +76,73 @@ function parseProviderResult(body: unknown, model: string): ProviderResult {
   };
 }
 
+export type GroqAudioTranscriptionResult =
+  | { ok: true; text: string | null }
+  | { ok: false; status: number; error: string };
+
+type GroqAudioConfiguration = Pick<
+  ProviderConfiguration,
+  'groqKey' | 'groqBaseUrl' | 'timeoutMs'
+>;
+
+export function createGroqAudioTranscriber(
+  config: GroqAudioConfiguration,
+  fetcher: typeof fetch = fetch,
+): (url: string) => Promise<GroqAudioTranscriptionResult> {
+  return async (url) => {
+    const key = config.groqKey?.trim();
+    if (!key) {
+      return { ok: false, status: 503, error: 'groq_transcription_not_configured' };
+    }
+
+    const form = new FormData();
+    form.set('url', url);
+    form.set('model', 'whisper-large-v3-turbo');
+    form.set('response_format', 'json');
+
+    let response: Response;
+    try {
+      const baseUrl = (config.groqBaseUrl ?? 'https://api.groq.com/openai/v1').replace(/\/$/, '');
+      response = await fetcher(`${baseUrl}/audio/transcriptions`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${key}` },
+        body: form,
+        signal: AbortSignal.timeout(config.timeoutMs ?? 60_000),
+      });
+    } catch {
+      return { ok: false, status: 502, error: 'groq_transcription_unavailable' };
+    }
+
+    if (!response.ok) {
+      if (response.status === 401 || response.status === 403) {
+        return { ok: false, status: 503, error: 'groq_transcription_not_configured' };
+      }
+      if (response.status === 429) {
+        return { ok: false, status: 429, error: 'groq_transcription_rate_limited' };
+      }
+      if ([400, 413, 415, 422].includes(response.status)) {
+        return { ok: false, status: 422, error: 'groq_transcription_rejected' };
+      }
+      return { ok: false, status: 502, error: 'groq_transcription_unavailable' };
+    }
+
+    let body: unknown;
+    try {
+      body = await response.json();
+    } catch {
+      return { ok: false, status: 502, error: 'groq_transcription_invalid_response' };
+    }
+    if (
+      typeof body !== 'object' || body === null || Array.isArray(body) ||
+      typeof (body as Record<string, unknown>).text !== 'string'
+    ) {
+      return { ok: false, status: 502, error: 'groq_transcription_invalid_response' };
+    }
+    const text = ((body as Record<string, unknown>).text as string).trim().slice(0, 50_000);
+    return { ok: true, text: text || null };
+  };
+}
+
 export function createProviderCompleter(
   config: ProviderConfiguration,
   fetcher: typeof fetch = fetch,

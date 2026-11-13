@@ -338,7 +338,13 @@ async function readLimitedText(response: Response): Promise<string | null> {
 }
 
 export async function loadRecipePage(url: string): Promise<
-  | { ok: true; text: string; draft: RecipeImportDraft | null; videoUrl: string | null }
+  | {
+    ok: true;
+    text: string;
+    draft: RecipeImportDraft | null;
+    videoUrl: string | null;
+    instagramCaption?: string;
+  }
   | { ok: false; status: number; error: string }
 > {
   let currentUrl = url;
@@ -380,11 +386,26 @@ export async function loadRecipePage(url: string): Promise<
     }
     const html = await readLimitedText(response);
     if (html === null) return { ok: false, status: 413, error: 'source_too_large' };
+    let instagramCaption: string | null = null;
+    let instagramTitle: string | null = null;
+    if (isInstagramPageUrl(currentUrl)) {
+      for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
+        const tag = match[0];
+        const property = (tagAttribute(tag, 'property') ?? tagAttribute(tag, 'name'))
+          ?.toLowerCase();
+        const content = tagAttribute(tag, 'content');
+        if (!content) continue;
+        if (property === 'og:description') instagramCaption = textContentFromHtml(content);
+        else if (property === 'og:title') instagramTitle = textContentFromHtml(content);
+      }
+      instagramCaption ||= instagramTitle;
+    }
     return {
       ok: true,
       text: textContentFromHtml(html),
       draft: structuredRecipeFromHtml(html),
       videoUrl: extractPublicVideoUrl(html, currentUrl),
+      ...(instagramCaption ? { instagramCaption } : {}),
     };
   }
   return { ok: false, status: 422, error: 'source_redirect_failed' };

@@ -210,6 +210,32 @@ Deno.test('resolves only safe Instagram and Facebook CDN video metadata', () => 
   assertEquals(extractPublicVideoUrl('<html></html>', 'https://www.instagram.com/reel/abc/'), null);
 });
 
+Deno.test('extracts a decoded public caption only from Instagram pages', async () => {
+  const html = `
+    <html><head>
+      <meta property="og:description" content="Köchin: &quot;Linsensuppe&#10;200 g Linsen &amp; Wasser&#10;Alles kochen.&quot;">
+    </head><body>Instagram</body></html>`;
+
+  await withNetworkFakes(
+    (_hostname, recordType) => Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
+    () => Promise.resolve(htmlResponse(html)),
+    async () => {
+      const instagram = await loadRecipePage('https://www.instagram.com/reel/abc/');
+      assert(instagram.ok);
+      if (!instagram.ok) return;
+      assertEquals(
+        instagram.instagramCaption,
+        'Köchin: "Linsensuppe\n200 g Linsen & Wasser\nAlles kochen."',
+      );
+
+      const otherPage = await loadRecipePage('https://example.test/recipe');
+      assert(otherPage.ok);
+      if (!otherPage.ok) return;
+      assertEquals('instagramCaption' in otherPage, false);
+    },
+  );
+});
+
 Deno.test('falls back to readable text for malformed or incomplete JSON-LD recipes', async () => {
   const page = `
     <script type="application/ld+json">{not valid json}</script>

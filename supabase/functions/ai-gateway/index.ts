@@ -15,9 +15,10 @@ import {
   type GatewayRecipe,
   type GatewayShoppingListItem,
   GROQ_ALLOWED_MODELS,
+  type HouseholdRecipeSelection,
   nonEmptyString,
 } from './handler.ts';
-import { createProviderCompleter } from './providers.ts';
+import { createGroqAudioTranscriber, createProviderCompleter } from './providers.ts';
 import { type AiUsageRecordInput, toAiUsageEvent } from './usage.ts';
 import {
   allergenIdForProfileRule,
@@ -84,6 +85,11 @@ const providerComplete = createProviderCompleter({
   groqKey,
   groqBaseUrl: Deno.env.get('GROQ_BASE_URL'),
   timeoutMs: Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 45_000),
+});
+const transcribeAudio = createGroqAudioTranscriber({
+  groqKey,
+  groqBaseUrl: Deno.env.get('GROQ_BASE_URL'),
+  timeoutMs: Number(Deno.env.get('AI_GATEWAY_TIMEOUT_MS') ?? 60_000),
 });
 const rateLimiter = new SlidingWindowRateLimiter(
   Number(Deno.env.get('AI_GATEWAY_RATE_LIMIT') ?? 30),
@@ -378,6 +384,7 @@ export async function loadCookingContext(
   pageContext?: AssistantPageContext,
   clientOverride?: unknown,
   focusedInventoryLotIds?: readonly string[],
+  householdRecipeSelection?: HouseholdRecipeSelection,
 ) {
   const client = clientOverride === undefined
     ? createClient(supabaseUrl, anonKey, {
@@ -733,33 +740,54 @@ export async function loadCookingContext(
     ...(pageContext?.kind === 'recipe' ? [pageContext.recipeId] : []),
     ...mealPlanRecipeIds,
   ].filter((id, index, ids) => id.trim().length > 0 && ids.indexOf(id) === index);
+  // Page context remains authoritative; context-free Assistant calls use either all or exact ids.
+  const selectionHouseholdRecipeIds = pageContext === undefined &&
+      householdRecipeSelection?.mode === 'ids'
+    ? [...householdRecipeSelection.recipeIds]
+    : [];
+  const shouldLoadAllHouseholdRecipes = pageContext === undefined &&
+    householdRecipeSelection?.mode === 'all';
+  const householdRecipeIds = pageContext === undefined
+    ? selectionHouseholdRecipeIds
+    : prioritizedHouseholdRecipeIds;
   const householdRecipeSelect =
-    'id, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at, cover_image_path';
-  const prioritizedHouseholdRecipesResult = prioritizedHouseholdRecipeIds.length === 0
+    'id, household_id, deleted_at, title, prep_time_minutes, cook_time_minutes, default_servings, dietary_tags, updated_at, cover_image_path';
+  const householdRecipeQuery = client
+    .from('recipes')
+    .select(householdRecipeSelect)
+    .eq('household_id', householdId)
+    .is('deleted_at', null);
+  const householdRecipesResult = shouldLoadAllHouseholdRecipes
+    ? await householdRecipeQuery
+      .order('title', { ascending: true })
+      .order('id', { ascending: true })
+      .limit(CONTEXT_LIMITS.householdRecipes)
+    : householdRecipeIds.length === 0
     ? { data: [], error: null }
-    : await client
-      .from('recipes')
-      .select(householdRecipeSelect)
-      .eq('household_id', householdId)
-      .is('deleted_at', null)
-      .in('id', prioritizedHouseholdRecipeIds)
+    : await householdRecipeQuery
+      .in('id', householdRecipeIds)
       .limit(CONTEXT_LIMITS.householdRecipes);
-  if (prioritizedHouseholdRecipesResult.error) {
+  if (householdRecipesResult.error) {
     return {
       ok: false as const,
       status: 500,
       error: 'household_recipe_lookup_failed',
-      message: prioritizedHouseholdRecipesResult.error.message,
+      message: householdRecipesResult.error.message,
     };
   }
-  const prioritizedHouseholdRowsById = new Map(
-    (prioritizedHouseholdRecipesResult.data ?? []).map((row) => [row.id, row]),
+  const fetchedHouseholdRecipeRows = (householdRecipesResult.data ?? []).filter((row) =>
+    row.household_id === householdId && row.deleted_at === null
   );
-  const householdRecipeRows = prioritizedHouseholdRecipeIds.flatMap((recipeId) => {
-    const row = prioritizedHouseholdRowsById.get(recipeId);
-    return row ? [row] : [];
-  });
-  const householdRecipeIds = householdRecipeRows.map((row) => row.id);
+  const householdRowsById = new Map(
+    fetchedHouseholdRecipeRows.map((row) => [row.id, row]),
+  );
+  const householdRecipeRows = shouldLoadAllHouseholdRecipes
+    ? fetchedHouseholdRecipeRows
+    : householdRecipeIds.flatMap((recipeId) => {
+      const row = householdRowsById.get(recipeId);
+      return row ? [row] : [];
+    });
+  const loadedHouseholdRecipeIds = householdRecipeRows.map((row) => row.id);
   type HouseholdComponentRow = { id: string; recipe_id: string; name: string };
   type HouseholdItemRow = {
     id: string;
@@ -778,7 +806,7 @@ export async function loadCookingContext(
   };
   const componentRowsByRecipe = new Map<string, HouseholdComponentRow[]>();
   const householdItemRowsByRecipe = new Map<string, HouseholdItemRow[]>();
-  for (const recipeId of householdRecipeIds) {
+  for (const recipeId of loadedHouseholdRecipeIds) {
     const [componentRowsResult, itemRowsResult] = await Promise.all([
       client.from('recipe_components')
         .select('id, recipe_id, name')
@@ -816,7 +844,7 @@ export async function loadCookingContext(
   }
 
   const incompleteHouseholdRecipeIds = new Set<string>();
-  for (const recipeId of householdRecipeIds) {
+  for (const recipeId of loadedHouseholdRecipeIds) {
     const components = componentRowsByRecipe.get(recipeId) ?? [];
     const items = householdItemRowsByRecipe.get(recipeId) ?? [];
     const componentNames = new Map(
@@ -849,7 +877,7 @@ export async function loadCookingContext(
       }
     }
   }
-  const completeHouseholdRecipeIds = householdRecipeIds.filter(
+  const completeHouseholdRecipeIds = loadedHouseholdRecipeIds.filter(
     (recipeId) => !incompleteHouseholdRecipeIds.has(recipeId),
   );
   const householdItemRows = completeHouseholdRecipeIds.flatMap(
@@ -1128,6 +1156,7 @@ const handler = createAiGatewayHandler({
   loadCookingContext,
   loadRecipePage,
   validatePublicUrl: isPublicHttpsUrl,
+  transcribeAudio,
   complete: providerComplete,
   isRateLimited: () => rateLimiter.isLimited(),
   recordRateLimitAttempt: () => rateLimiter.record(),

@@ -8,6 +8,7 @@ import {
   type GatewayInventoryContext,
   type GatewayProvider,
   GROQ_ALLOWED_MODELS,
+  type HouseholdRecipeSelection,
 } from './handler.ts';
 
 const CONTEXT: GatewayCookingContext = {
@@ -97,8 +98,17 @@ function setup(
     providerThrows?: boolean;
     refundThrows?: boolean;
     recipePage?:
-      | { ok: true; text: string; draft: unknown; videoUrl?: string | null }
+      | {
+        ok: true;
+        text: string;
+        draft: unknown;
+        videoUrl?: string | null;
+        instagramCaption?: string;
+      }
       | { ok: false; status: number; error: string };
+    transcriptionText?: string | null;
+    transcriptionError?: { status: number; error: string };
+    transcriptionThrows?: boolean;
     publicUrlAllowed?: boolean;
     modelTestingEnabled?: boolean;
     modelOverridesEnabled?: boolean;
@@ -123,6 +133,7 @@ function setup(
     subscriberUserId: string;
   }> = [];
   const refunds: Array<{ requestId: string; subscriberUserId: string }> = [];
+  const transcriptionUrls: string[] = [];
   const usageRecords: Array<{
     userId: string;
     subscriberUserId: string | null;
@@ -136,6 +147,11 @@ function setup(
     usage: unknown;
   }> = [];
   let contextReads = 0;
+  const contextCalls: Array<{
+    pageContext: unknown;
+    focusedInventoryLotIds: readonly string[] | undefined;
+    householdRecipeSelection: HouseholdRecipeSelection | undefined;
+  }> = [];
   const handler = createAiGatewayHandler({
     authenticate: (request) =>
       Promise.resolve(
@@ -181,8 +197,19 @@ function setup(
       usageRecords.push(input);
       return Promise.resolve();
     },
-    loadCookingContext: () => {
+    loadCookingContext: (
+      _userId,
+      _householdId,
+      _authorization,
+      _includePersonalFoodRules,
+      _requestedAllergies,
+      pageContext,
+      _clientOverride,
+      focusedInventoryLotIds,
+      householdRecipeSelection,
+    ) => {
       contextReads += 1;
+      contextCalls.push({ pageContext, focusedInventoryLotIds, householdRecipeSelection });
       return Promise.resolve(
         options.contextError
           ? { ok: false as const, ...options.contextError }
@@ -192,6 +219,14 @@ function setup(
     ...(options.recipePage === undefined
       ? {}
       : { loadRecipePage: () => Promise.resolve(options.recipePage!) }),
+    transcribeAudio: (url) => {
+      transcriptionUrls.push(url);
+      if (options.transcriptionThrows) throw new Error('private transcription failure');
+      if (options.transcriptionError) {
+        return Promise.resolve({ ok: false as const, ...options.transcriptionError });
+      }
+      return Promise.resolve({ ok: true as const, text: options.transcriptionText ?? null });
+    },
     ...(options.publicUrlAllowed === undefined
       ? {}
       : { validatePublicUrl: () => Promise.resolve(options.publicUrlAllowed!) }),
@@ -259,8 +294,10 @@ function setup(
     calls,
     bookings,
     refunds,
+    transcriptionUrls,
     usageRecords,
     getContextReads: () => contextReads,
+    getContextCalls: () => contextCalls,
   };
 }
 
@@ -630,12 +667,13 @@ Deno.test('imports PDF and image attachments as media content parts', async () =
   }
 });
 
-Deno.test('resolves public Instagram Reels to their CDN video URL before calling the provider', async () => {
+Deno.test('imports an Instagram recipe found only in the Whisper transcript through Groq', async () => {
   const instagramUrl = 'https://www.instagram.com/reel/abc123/';
   const mediaUrl = 'https://scontent.cdninstagram.com/reel.mp4?token=signed';
-  const { handler, calls } = setup({
+  const { handler, calls, bookings, refunds, transcriptionUrls } = setup({
     publicUrlAllowed: true,
     recipePage: { ok: true, text: '', draft: null, videoUrl: mediaUrl },
+    transcriptionText: 'Für die Suppe 200 g Linsen weich kochen.',
     providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
   });
 
@@ -644,11 +682,121 @@ Deno.test('resolves public Instagram Reels to their CDN video URL before calling
     householdId: 'household-1',
     sourceType: 'video',
     sourceUrl: instagramUrl,
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
   }));
 
   assertEquals(response.status, 200);
-  assertStringIncludes(calls[0]?.transcript ?? '', mediaUrl);
-  assertStringIncludes(calls[0]?.transcript ?? '', 'video_url');
+  const body = await response.json();
+  assertEquals(body.provider, 'groq');
+  assertEquals(body.model, 'qwen/qwen3.8-27b');
+  assertEquals(transcriptionUrls, [mediaUrl]);
+  assertStringIncludes(calls[0]?.transcript ?? '', '200 g Linsen weich kochen.');
+  assertEquals((calls[0]?.transcript ?? '').includes(mediaUrl), false);
+  assertEquals((calls[0]?.transcript ?? '').includes('video_url'), false);
+  assertEquals(bookings.length, 1);
+  assertEquals(refunds, []);
+});
+
+Deno.test('imports an Instagram recipe caption when Whisper finds no speech', async () => {
+  const mediaUrl = 'https://scontent.cdninstagram.com/music.mp4?token=signed';
+  const caption = 'Linsensuppe: 200 g Linsen. Linsen weich kochen.';
+  const { handler, calls, transcriptionUrls } = setup({
+    publicUrlAllowed: true,
+    recipePage: {
+      ok: true,
+      text: 'Instagram',
+      draft: null,
+      videoUrl: mediaUrl,
+      instagramCaption: caption,
+    },
+    transcriptionText: null,
+    providerContent: JSON.stringify(RECIPE_IMPORT_RESULT),
+  });
+
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/music123/',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(transcriptionUrls, [mediaUrl]);
+  assertStringIncludes(calls[0]?.transcript ?? '', caption);
+  assertStringIncludes(calls[0]?.transcript ?? '', 'Keine verwertbare Sprache erkannt.');
+});
+
+Deno.test('rejects Instagram media when neither speech nor caption contains a recipe', async () => {
+  const mediaUrl = 'https://scontent.cdninstagram.com/no-recipe.mp4';
+  const empty = setup({
+    publicUrlAllowed: true,
+    recipePage: { ok: true, text: 'Instagram', draft: null, videoUrl: mediaUrl },
+    transcriptionText: null,
+  });
+  const emptyResponse = await empty.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/empty123/',
+  }));
+  assertEquals(emptyResponse.status, 422);
+  assertEquals(await emptyResponse.json(), { error: 'instagram_recipe_not_found' });
+  assertEquals(empty.calls, []);
+  assertEquals(empty.bookings.length, 1);
+  assertEquals(empty.refunds.length, 1);
+
+  const classified = setup({
+    publicUrlAllowed: true,
+    recipePage: {
+      ok: true,
+      text: 'Instagram',
+      draft: null,
+      videoUrl: mediaUrl,
+      instagramCaption: 'Ein schöner Sonntag.',
+    },
+    transcriptionText: 'Musik spielt.',
+    providerContent: JSON.stringify({
+      kind: 'recipe_import_unavailable.v1',
+      reason: 'no_recipe_in_audio_or_caption',
+    }),
+  });
+  const classifiedResponse = await classified.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/no-recipe123/',
+  }));
+  assertEquals(classifiedResponse.status, 422);
+  assertEquals(await classifiedResponse.json(), { error: 'instagram_recipe_not_found' });
+  assertEquals(classified.refunds.length, 1);
+});
+
+Deno.test('returns an actionable error and refunds when Whisper fails', async () => {
+  const { handler, calls, bookings, refunds } = setup({
+    publicUrlAllowed: true,
+    recipePage: {
+      ok: true,
+      text: 'Instagram',
+      draft: null,
+      videoUrl: 'https://scontent.cdninstagram.com/reel.mp4',
+      instagramCaption: 'Linsensuppe: 200 g Linsen. Linsen weich kochen.',
+    },
+    transcriptionError: { status: 429, error: 'groq_transcription_rate_limited' },
+  });
+
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/rate-limited/',
+  }));
+
+  assertEquals(response.status, 429);
+  assertEquals(await response.json(), { error: 'groq_transcription_rate_limited' });
+  assertEquals(calls, []);
+  assertEquals(bookings.length, 1);
+  assertEquals(refunds.length, 1);
 });
 
 Deno.test('returns a Shortcut-to-Photos fallback when an Instagram Reel has no public media URL', async () => {
@@ -1278,7 +1426,7 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
       ],
     },
   };
-  const { handler, calls } = setup({
+  const { handler, calls, getContextCalls } = setup({
     context,
     providerToolCalls: [
       { id: 'inventory-call', name: 'get_inventory', arguments: '{}' },
@@ -1301,6 +1449,7 @@ Deno.test('assistant includes pantry stock and searches the catalog when househo
   );
 
   assertEquals(response.status, 200);
+  assertEquals(getContextCalls()[0]?.householdRecipeSelection, { mode: 'all' });
   assertStringIncludes(calls[0].system, 'Beginne mit einer konkreten Idee');
   assertStringIncludes(
     calls[0].system,
@@ -1449,6 +1598,11 @@ Deno.test('assistant rejects invalid shopping item proposals', async () => {
 Deno.test('assistant blocks meal proposals when current allergy coverage is unknown', async () => {
   const context: GatewayCookingContext = {
     ...CONTEXT,
+    recipes: [],
+    householdRecipes: [{
+      ...CONTEXT.recipes[0]!,
+      updatedAt: '2026-11-08T09:30:00.000Z',
+    }],
     foodRules: {
       allergies: ['Erdnüsse'],
       allergyCodes: ['peanuts'],
@@ -1714,17 +1868,15 @@ Deno.test('meal proposals carry the rule and evidence versions used by coverage'
   assertStringIncludes(proposal.foodRuleCoverage.recipeVersions[0].coverageVersion, rulesUpdatedAt);
 });
 
-Deno.test('validates proposal evidence without an AI entitlement, provider call, or credit', async () => {
+Deno.test('validates proposal evidence from household recipes and passes exact ids to loader', async () => {
   const recipeUpdatedAt = '2026-11-08T09:30:00.000Z';
-  const context: GatewayCookingContext = {
-    ...CONTEXT,
-    recipes: [{ ...CONTEXT.recipes[0]!, updatedAt: recipeUpdatedAt }],
-  };
-  const { handler, bookings, calls, getContextReads } = setup({
-    context,
-    entitlementAllowed: false,
+  const coverageVersion = JSON.stringify({
+    rulesUpdatedAt: null,
+    knowledgeVersion: null,
+    ingredientMappingVersion: null,
+    aliasSourceVersions: [],
   });
-  const response = await handler(request({
+  const requestBody = {
     skill: 'fam-assistant-proposal-validation',
     householdId: 'household-1',
     foodRulesUpdatedAt: null,
@@ -1733,23 +1885,51 @@ Deno.test('validates proposal evidence without an AI entitlement, provider call,
     recipeVersions: [{
       recipeId: 'recipe-1',
       recipeUpdatedAt,
-      coverageVersion: JSON.stringify({
-        rulesUpdatedAt: null,
-        knowledgeVersion: null,
-        ingredientMappingVersion: null,
-        aliasSourceVersions: [],
-      }),
+      coverageVersion,
     }],
-  }));
+  };
+  const household = setup({
+    context: {
+      ...CONTEXT,
+      recipes: [],
+      householdRecipes: [{ ...CONTEXT.recipes[0]!, updatedAt: recipeUpdatedAt }],
+    },
+    entitlementAllowed: false,
+  });
+  const householdResponse = await household.handler(request(requestBody));
 
-  assertEquals(response.status, 200);
-  assertEquals(await response.json(), {
+  assertEquals(householdResponse.status, 200);
+  assertEquals(await householdResponse.json(), {
     skill: 'fam-assistant-proposal-validation',
     valid: true,
   });
-  assertEquals(getContextReads(), 1);
-  assertEquals(bookings, []);
-  assertEquals(calls, []);
+  assertEquals(household.getContextReads(), 1);
+  assertEquals(household.getContextCalls()[0]?.householdRecipeSelection, {
+    mode: 'ids',
+    recipeIds: ['recipe-1'],
+  });
+  assertEquals(household.bookings, []);
+  assertEquals(household.calls, []);
+
+  const globalOnly = setup({
+    context: {
+      ...CONTEXT,
+      householdRecipes: [],
+      recipes: [{ ...CONTEXT.recipes[0]!, updatedAt: recipeUpdatedAt }],
+    },
+    entitlementAllowed: false,
+  });
+  const globalResponse = await globalOnly.handler(request(requestBody));
+  assertEquals(globalResponse.status, 200);
+  assertEquals(await globalResponse.json(), {
+    skill: 'fam-assistant-proposal-validation',
+    valid: false,
+    reason: 'recipe_changed',
+  });
+  assertEquals(globalOnly.getContextCalls()[0]?.householdRecipeSelection, {
+    mode: 'ids',
+    recipeIds: ['recipe-1'],
+  });
 });
 
 Deno.test('rejects a proposal when private food-rule version changed', async () => {
@@ -1791,7 +1971,8 @@ Deno.test('rejects a proposal when current ingredient-mapping evidence changed',
   const recipeUpdatedAt = '2026-11-08T09:30:00.000Z';
   const context: GatewayCookingContext = {
     ...CONTEXT,
-    recipes: [{
+    recipes: [],
+    householdRecipes: [{
       ...CONTEXT.recipes[0]!,
       updatedAt: recipeUpdatedAt,
       ingredientMappingVersion: 'current-mapping-v2',
@@ -2042,7 +2223,11 @@ Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale 
   });
   const context = {
     ...CONTEXT,
-    recipes: [{ ...CONTEXT.recipes[0]!, updatedAt: '2026-11-08T08:30:00.000Z' }],
+    recipes: [],
+    householdRecipes: [{
+      ...CONTEXT.recipes[0]!,
+      updatedAt: '2026-11-08T08:30:00.000Z',
+    }],
   };
   const validMeal = (overrides: Record<string, unknown> = {}) => ({
     date: '2026-11-09',
@@ -2113,7 +2298,7 @@ Deno.test('enforces meal-plan count, week, slot, recipe, portion, and rationale 
   }
 
   const versionlessRecipe = setup({
-    context: { ...CONTEXT, recipes: [{ ...CONTEXT.recipes[0]! }] },
+    context: { ...CONTEXT, recipes: [], householdRecipes: [{ ...CONTEXT.recipes[0]! }] },
     providerContent: assistantReply,
     providerToolCalls: [{
       id: 'versionless-recipe',

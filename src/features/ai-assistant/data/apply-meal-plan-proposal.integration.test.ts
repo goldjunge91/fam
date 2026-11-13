@@ -1,4 +1,3 @@
-import type { SerializedSqlDatabase } from '@/lib/db/serialize';
 import {
   applyLocalSchema,
   createTestDatabase,
@@ -21,7 +20,7 @@ jest.doMock('./assistant-api', () => ({
 }));
 
 const { getDatabase } = jest.requireMock('@/lib/db/local-client') as {
-  getDatabase: jest.MockedFunction<() => Promise<SerializedSqlDatabase>>;
+  getDatabase: jest.MockedFunction<() => Promise<TestDatabase>>;
 };
 const { applyAssistantMealPlanProposal } =
   require('./apply-meal-plan-proposal') as typeof import('./apply-meal-plan-proposal');
@@ -72,7 +71,7 @@ describe('applyAssistantMealPlanProposal SQLite transaction', () => {
     mockUuidCounter = 0;
     db = createTestDatabase();
     await applyLocalSchema(db);
-    getDatabase.mockResolvedValue(db as unknown as SerializedSqlDatabase);
+    getDatabase.mockResolvedValue(db);
     await db.runAsync(
       `insert into recipes (id, household_id, title, updated_at, _dirty)
        values (?, ?, ?, ?, 0)`,
@@ -82,6 +81,88 @@ describe('applyAssistantMealPlanProposal SQLite transaction', () => {
 
   afterEach(() => {
     db.close();
+  });
+
+  it('applies a validated proposal to the plan, entries, and outbox atomically', async () => {
+    const result = await applyAssistantMealPlanProposal({
+      householdId: 'household-1',
+      userId: 'user-1',
+      proposal: proposal(),
+    });
+
+    expect(result).toEqual({ addedCount: 2, totalCount: 2 });
+    await expect(
+      db.getAllAsync<{ id: string; household_id: string; week_start_date: string }>(
+        'select id, household_id, week_start_date from meal_plans',
+      ),
+    ).resolves.toEqual([
+      {
+        id: '00000000-0000-4000-8000-000000000001',
+        household_id: 'household-1',
+        week_start_date: '2026-11-09',
+      },
+    ]);
+    await expect(
+      db.getAllAsync<{
+        id: string;
+        meal_plan_id: string;
+        household_id: string;
+        recipe_id: string;
+        entry_date: string;
+        meal_slot: string;
+        portions: number;
+      }>(
+        'select id, meal_plan_id, household_id, recipe_id, entry_date, meal_slot, portions ' +
+          'from meal_plan_entries order by entry_date',
+      ),
+    ).resolves.toEqual([
+      {
+        id: '00000000-0000-4000-8000-000000000002',
+        meal_plan_id: '00000000-0000-4000-8000-000000000001',
+        household_id: 'household-1',
+        recipe_id: 'recipe-1',
+        entry_date: '2026-11-09',
+        meal_slot: 'dinner',
+        portions: 2,
+      },
+      {
+        id: '00000000-0000-4000-8000-000000000003',
+        meal_plan_id: '00000000-0000-4000-8000-000000000001',
+        household_id: 'household-1',
+        recipe_id: 'recipe-1',
+        entry_date: '2026-11-11',
+        meal_slot: 'dinner',
+        portions: 3,
+      },
+    ]);
+    const outbox = await db.getAllAsync<{
+      entity: string;
+      entity_id: string;
+      op: string;
+      payload: string;
+    }>('select entity, entity_id, op, payload from outbox order by id');
+    expect(outbox.map(({ entity, entity_id, op }) => ({ entity, entity_id, op }))).toEqual([
+      {
+        entity: 'meal_plans',
+        entity_id: '00000000-0000-4000-8000-000000000001',
+        op: 'insert',
+      },
+      {
+        entity: 'meal_plan_entries',
+        entity_id: '00000000-0000-4000-8000-000000000002',
+        op: 'insert',
+      },
+      {
+        entity: 'meal_plan_entries',
+        entity_id: '00000000-0000-4000-8000-000000000003',
+        op: 'insert',
+      },
+    ]);
+    expect(JSON.parse(outbox[0]?.payload ?? '{}')).toMatchObject({
+      id: '00000000-0000-4000-8000-000000000001',
+      household_id: 'household-1',
+      week_start_date: '2026-11-09',
+    });
   });
 
   it('rolls back the plan, earlier entries, and outbox if a later outbox write fails', async () => {

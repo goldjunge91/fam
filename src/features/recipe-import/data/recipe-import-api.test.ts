@@ -304,6 +304,38 @@ describe('recipe import API', () => {
       'instagram_video_unavailable',
       'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
     ],
+    [
+      'instagram_recipe_not_found',
+      'Weder in der Sprache noch in der Instagram-Beschreibung wurde ein Rezept gefunden.',
+    ],
+    [
+      'groq_transcription_not_configured',
+      'Die Sprachauswertung für Instagram-Rezepte ist derzeit nicht eingerichtet.',
+    ],
+    [
+      'groq_transcription_rate_limited',
+      'Die Sprachauswertung ist gerade ausgelastet. Versuche es später erneut.',
+    ],
+    [
+      'groq_transcription_rejected',
+      'Die Audiospur des Instagram-Videos konnte nicht verarbeitet werden.',
+    ],
+    [
+      'groq_transcription_unavailable',
+      'Die Sprachauswertung ist derzeit nicht verfügbar. Versuche es später erneut.',
+    ],
+    [
+      'groq_transcription_invalid_response',
+      'Die Sprachauswertung ist derzeit nicht verfügbar. Versuche es später erneut.',
+    ],
+    [
+      'provider_request_failed',
+      'Die Rezeptanalyse ist derzeit nicht verfügbar. Versuche es später erneut.',
+    ],
+    [
+      'invalid_recipe_import_draft',
+      'Der Rezeptentwurf konnte nicht zuverlässig erstellt werden. Versuche es erneut.',
+    ],
     ['source_unavailable', 'Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.'],
     ['source_not_a_webpage', 'Der Link führt nicht zu einer lesbaren Webseite.'],
     ['source_too_large', 'Die Webseite ist zu groß, um sie zu importieren.'],
@@ -333,6 +365,17 @@ describe('recipe import API', () => {
     ).rejects.toThrow(
       'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
     );
+
+    const unknownResponse = {
+      clone: () => ({ json: () => Promise.resolve({ error: 'future_gateway_error' }) }),
+    } as unknown as Response;
+    mockInvoke.mockResolvedValueOnce({
+      data: null,
+      error: new FunctionsHttpError(unknownResponse),
+    });
+    await expect(
+      importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
+    ).rejects.toThrow('Der Rezeptimport ist fehlgeschlagen. Versuche es erneut.');
 
     mockInvoke.mockResolvedValueOnce({
       data: null,

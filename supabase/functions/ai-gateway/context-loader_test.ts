@@ -145,28 +145,30 @@ function fakeClient(
   };
 }
 
-function pageRecipeData() {
+function pageRecipeData(recipeId = 'recipe-page', title = 'Seitengericht') {
   return {
-    id: 'recipe-page',
-    title: 'Seitengericht',
+    id: recipeId,
+    household_id: 'household-1',
+    title,
     prep_time_minutes: 5,
     cook_time_minutes: 10,
     default_servings: 2,
     dietary_tags: ['vegetarian'],
+    deleted_at: null,
     updated_at: '2026-11-01T00:00:00.000Z',
   };
 }
 
-function recipeRows() {
+function recipeRows(recipeId = 'recipe-page') {
   return {
     recipe_components: [{
-      data: [{ id: 'component-1', recipe_id: 'recipe-page', name: 'Hauptzutat' }],
+      data: [{ id: `component-${recipeId}`, recipe_id: recipeId, name: 'Hauptzutat' }],
       error: null,
     }],
     recipe_component_items: [{
       data: [{
-        id: 'item-1',
-        recipe_id: 'recipe-page',
+        id: `item-${recipeId}`,
+        recipe_id: recipeId,
         product_id: 'product-tomato',
         sub_component_id: null,
         quantity: 1,
@@ -232,6 +234,8 @@ Deno.test('loads only the explicit page recipe and keeps shopping names as bound
     [],
     { kind: 'recipe', recipeId: 'recipe-page' },
     client as never,
+    undefined,
+    { mode: 'all' },
   );
 
   assertEquals(result.ok, true);
@@ -289,6 +293,131 @@ Deno.test('loads visible meal-plan recipes in date order without an unrelated ho
   assertEquals(result.context.mealPlan?.omittedCount, 1);
   assertEquals(result.context.householdRecipes?.map((recipe) => recipe.recipeId), ['recipe-page']);
   assertEquals(calls.filter((call) => call.table === 'recipes').length, 1);
+});
+
+Deno.test('loads a bounded and stable household recipe selection for the general assistant', async () => {
+  const { loadCookingContext } = await loadContextModule();
+  const alphaRows = recipeRows('recipe-alpha');
+  const zetaRows = recipeRows('recipe-zeta');
+  const { client, calls } = fakeClient({
+    fridge_items: [{ data: [], error: null, count: 0 }],
+    shopping_list_items: [{ data: [], error: null, count: 0 }],
+    recipes: [{
+      data: [
+        pageRecipeData('recipe-zeta', 'Zeta'),
+        { ...pageRecipeData('recipe-global', 'Global'), household_id: 'household-2' },
+        pageRecipeData('recipe-alpha', 'Alpha'),
+      ],
+      error: null,
+    }],
+    recipe_components: [
+      ...alphaRows.recipe_components,
+      ...zetaRows.recipe_components,
+    ],
+    recipe_component_items: [
+      ...alphaRows.recipe_component_items,
+      ...zetaRows.recipe_component_items,
+    ],
+  });
+
+  const result = await loadCookingContext(
+    'user-1',
+    'household-1',
+    'Bearer user-token',
+    false,
+    [],
+    undefined,
+    client as never,
+    undefined,
+    { mode: 'all' },
+  );
+
+  assertEquals(result.ok, true);
+  if (!result.ok) throw new Error('expected context to load');
+  assertEquals(result.context.householdRecipes?.map((recipe) => recipe.recipeId), [
+    'recipe-alpha',
+    'recipe-zeta',
+  ]);
+  const recipeCall = calls.find((call) => call.table === 'recipes');
+  assertEquals(recipeCall?.filters, [
+    { kind: 'eq', column: 'household_id', value: 'household-1' },
+    { kind: 'is', column: 'deleted_at', value: null },
+  ]);
+  assertEquals(recipeCall?.orders, [
+    { column: 'title', ascending: true, nullsFirst: false },
+    { column: 'id', ascending: true, nullsFirst: false },
+  ]);
+  assertEquals(recipeCall?.limit, CONTEXT_LIMITS.householdRecipes);
+});
+
+Deno.test('resolves proposal recipe ids only from active recipes in the requested household', async () => {
+  const { loadCookingContext } = await loadContextModule();
+  const targetRows = recipeRows('recipe-target');
+  const { client, calls } = fakeClient({
+    fridge_items: [{ data: [], error: null, count: 0 }],
+    shopping_list_items: [{ data: [], error: null, count: 0 }],
+    recipes: [{
+      data: [
+        pageRecipeData('recipe-target', 'Ziel'),
+        { ...pageRecipeData('recipe-global', 'Ziel'), household_id: 'household-2' },
+        { ...pageRecipeData('recipe-deleted', 'Ziel'), deleted_at: '2026-11-01T00:00:00.000Z' },
+      ],
+      error: null,
+    }],
+    recipe_components: targetRows.recipe_components,
+    recipe_component_items: targetRows.recipe_component_items,
+  });
+
+  const result = await loadCookingContext(
+    'user-1',
+    'household-1',
+    'Bearer user-token',
+    false,
+    [],
+    undefined,
+    client as never,
+    undefined,
+    { mode: 'ids', recipeIds: ['recipe-target'] },
+  );
+
+  assertEquals(result.ok, true);
+  if (!result.ok) throw new Error('expected context to load');
+  assertEquals(result.context.householdRecipes?.map((recipe) => recipe.recipeId), [
+    'recipe-target',
+  ]);
+  const recipeCall = calls.find((call) => call.table === 'recipes');
+  assertEquals(recipeCall?.filters, [
+    { kind: 'eq', column: 'household_id', value: 'household-1' },
+    { kind: 'is', column: 'deleted_at', value: null },
+    { kind: 'in', column: 'id', value: ['recipe-target'] },
+  ]);
+  assertEquals(recipeCall?.orders, []);
+});
+
+Deno.test('keeps page-context recipe priority over an additional household selection', async () => {
+  const { loadCookingContext } = await loadContextModule();
+  const { client } = fakeClient({
+    fridge_items: [{ data: [], error: null, count: 0 }],
+    shopping_list_items: [{ data: [], error: null, count: 0 }],
+    recipes: [{ data: [pageRecipeData()], error: null }],
+    ...recipeRows(),
+  });
+
+  const result = await loadCookingContext(
+    'user-1',
+    'household-1',
+    'Bearer user-token',
+    false,
+    [],
+    { kind: 'recipe', recipeId: 'recipe-page' },
+    client as never,
+    undefined,
+    { mode: 'all' },
+  );
+
+  assertEquals(result.ok, true);
+  if (!result.ok) throw new Error('expected context to load');
+  assertEquals(result.context.householdRecipes?.map((recipe) => recipe.recipeId), ['recipe-page']);
 });
 
 Deno.test('loads inventory by expiry relevance before applying the lot cap', async () => {

@@ -19,7 +19,7 @@ Das Importdiagramm samt Bezug zu Abo und AI-Credits steht in [AI-Abläufe](ai-ab
 
 Eingehendes Teilen aus anderen Apps, PDF-Vorschau im Editor und Quellenabgleich über Geräte hinweg sind noch nicht enthalten.
 
-Der aktuelle Videopfad übergibt die öffentliche URL direkt als Videoeingabe an das gewählte AI-Modell. Er extrahiert noch keine Untertitel, Audiospur oder Einzelbilder. Der bereitgestellte Instagram-Shortcut konnte über Apples iCloud-Metadatenendpunkt in dieser Umgebung nicht geladen werden; für eine genaue Reverse-Engineering-Umsetzung wird sein exportiertes `.shortcut`-Dokument oder die Aktionenliste benötigt.
+Der Instagram-Videopfad liest die öffentliche Caption und löst aus der öffentlichen Seite eine sichere MP4 auf. Der Gateway lässt deren Audiospur mit Groq Whisper transkribieren und übergibt Caption und Transkript getrennt an ein Groq-Textmodell. Ein verwertbares Rezept in einer der beiden Quellen genügt; wenn keine davon ein Rezept enthält, wird kein Entwurf erzeugt. Frame-Erkennung und OCR sind nicht enthalten. Andere unterstützte Videolinks verwenden weiterhin den bestehenden direkten Modellpfad. Ist keine öffentliche Instagram-MP4 verfügbar, bleibt der lokale Fotos-Workflow als ausdrücklich gewählte Alternative erhalten.
 
 ## Gewünschter Umfang
 
@@ -49,7 +49,7 @@ Merran liest bei Webseiten zuerst strukturierte Rezeptdaten und verwendet [KI al
 - Das Haushaltsrezept besitzt derzeit keinen eigenen source_url-Wert. Der Prototyp speichert Herkunft und Dublettenabgleich lokal beim Account; diese Information synchronisiert nicht und ist auf anderen Geräten nicht verfügbar. Eine dauerhafte Herkunftsanzeige braucht einen fachlichen Datenvertrag mit RLS, lokalem SQLite-Spiegel und Sync-Parität.
 - Externe Webseiten werden nur über einen kontrollierten serverseitigen Abruf verarbeitet: zulässige Protokolle und Ziele, Weiterleitungen, Antwortgröße und Dateityp werden begrenzt. Seitentext, eingebettete Daten und Modellantworten sind Eingaben, keine Handlungsanweisungen für den Assistant.
 - KI-Auswertung und externe Medienverarbeitung prüfen AI-Abo und Credits. Die Übermittlung von Text, Bildern, PDFs, Videos und Webseiteninhalten an externe Anbieter ist in der Datenschutzerklärung beschrieben; im Importablauf gibt es dafür keinen Einwilligungs- oder Verarbeitungshinweis. Ein strukturierter Webseitenimport ohne KI soll unabhängig von einem KI-Modell funktionieren.
-- Batchimporte haben im Prototyp pro Link einen Status und erneuten Versuch. Videoverarbeitung hängt von der externen Modellfähigkeit ab; Untertitelabruf, Abbruch und dauerhafte Job-Wiederaufnahme sind noch nicht enthalten. Ein verarbeiteter Entwurf bleibt klar vom gespeicherten Rezept getrennt.
+- Batchimporte haben pro Link einen Status und erneuten Versuch. Öffentliche Instagram-Reels werden aus Caption und Groq-Whisper-Transkript ausgewertet; Frame-Erkennung, OCR, Abbruch und dauerhafte Job-Wiederaufnahme sind noch nicht enthalten. Andere Videolinks hängen weiterhin von der direkten Modellfähigkeit ab. Ein verarbeiteter Entwurf bleibt klar vom gespeicherten Rezept getrennt.
 
 ## Fachliche Fragen vor dem Implementierungsvertrag
 

@@ -249,6 +249,27 @@ describe('applyAssistantMealPlanProposal', () => {
     expect(mockBuiltMutations).toEqual([]);
   });
 
+  it('rejects a recipe from another household before any local write', async () => {
+    mockGetAllAsync.mockResolvedValueOnce([
+      {
+        id: 'recipe-1',
+        household_id: 'household-2',
+        updated_at: Date.parse('2026-11-08T08:30:00.000Z'),
+      },
+    ]);
+
+    await expect(
+      applyAssistantMealPlanProposal({
+        householdId: 'household-1',
+        userId: 'user-1',
+        proposal: mealPlanProposal(),
+      }),
+    ).rejects.toEqual(new ApplyMealPlanProposalError('recipe_changed'));
+
+    expect(mockBuiltMutations).toEqual([]);
+    expect(mockGetAllAsync).toHaveBeenCalledTimes(1);
+  });
+
   it('rejects occupied meal slots without enqueuing part of the proposal', async () => {
     mockGetAllAsync
       .mockResolvedValueOnce([

@@ -1,6 +1,6 @@
 import { assertEquals } from 'jsr:@std/assert@1';
 
-import { createProviderCompleter } from './providers.ts';
+import { createGroqAudioTranscriber, createProviderCompleter } from './providers.ts';
 
 function okResponse(overrides: Record<string, unknown> = {}): Response {
   return new Response(
@@ -12,6 +12,84 @@ function okResponse(overrides: Record<string, unknown> = {}): Response {
     { status: 200 },
   );
 }
+
+Deno.test('sends public media URLs to Groq Whisper and accepts silence', async () => {
+  let url = '';
+  let init: RequestInit | undefined;
+  const transcribe = createGroqAudioTranscriber({
+    groqKey: 'groq-test-key',
+    groqBaseUrl: 'https://groq.example/openai/v1/',
+  }, (nextUrl, nextInit) => {
+    url = String(nextUrl);
+    init = nextInit;
+    return Promise.resolve(new Response(JSON.stringify({ text: ' Rezept gesprochen. ' })));
+  });
+
+  assertEquals(await transcribe('https://scontent.cdninstagram.com/reel.mp4'), {
+    ok: true,
+    text: 'Rezept gesprochen.',
+  });
+  assertEquals(url, 'https://groq.example/openai/v1/audio/transcriptions');
+  assertEquals(new Headers(init?.headers).get('authorization'), 'Bearer groq-test-key');
+  assertEquals(new Headers(init?.headers).get('content-type'), null);
+  const form = init?.body;
+  assertEquals(form instanceof FormData, true);
+  if (!(form instanceof FormData)) return;
+  assertEquals(form.get('url'), 'https://scontent.cdninstagram.com/reel.mp4');
+  assertEquals(form.get('model'), 'whisper-large-v3-turbo');
+  assertEquals(form.get('response_format'), 'json');
+
+  const silent = createGroqAudioTranscriber(
+    { groqKey: 'groq-test-key' },
+    () => Promise.resolve(new Response(JSON.stringify({ text: '   ' }))),
+  );
+  assertEquals(await silent('https://scontent.cdninstagram.com/music.mp4'), {
+    ok: true,
+    text: null,
+  });
+});
+
+Deno.test('maps Groq Whisper configuration and upstream failures without leaking bodies', async () => {
+  let called = false;
+  const missingKey = createGroqAudioTranscriber({}, () => {
+    called = true;
+    return Promise.resolve(new Response(JSON.stringify({ text: 'private' })));
+  });
+  assertEquals(await missingKey('https://scontent.cdninstagram.com/reel.mp4'), {
+    ok: false,
+    status: 503,
+    error: 'groq_transcription_not_configured',
+  });
+  assertEquals(called, false);
+
+  for (
+    const [upstreamStatus, status, error] of [
+      [429, 429, 'groq_transcription_rate_limited'],
+      [400, 422, 'groq_transcription_rejected'],
+      [500, 502, 'groq_transcription_unavailable'],
+    ] as const
+  ) {
+    const transcribe = createGroqAudioTranscriber(
+      { groqKey: 'groq-test-key' },
+      () => Promise.resolve(new Response('private upstream body', { status: upstreamStatus })),
+    );
+    assertEquals(await transcribe('https://scontent.cdninstagram.com/reel.mp4'), {
+      ok: false,
+      status,
+      error,
+    });
+  }
+
+  const malformed = createGroqAudioTranscriber(
+    { groqKey: 'groq-test-key' },
+    () => Promise.resolve(new Response(JSON.stringify({ text: 42 }))),
+  );
+  assertEquals(await malformed('https://scontent.cdninstagram.com/reel.mp4'), {
+    ok: false,
+    status: 502,
+    error: 'groq_transcription_invalid_response',
+  });
+});
 
 Deno.test('sends OpenRouter requests with existing JSON mode and attribution headers', async () => {
   let url = '';

@@ -68,6 +68,10 @@ export type AssistantPageContext =
   | { kind: 'recipe'; recipeId: string }
   | { kind: 'meal_plan'; weekStartDate: string };
 
+export type HouseholdRecipeSelection =
+  | { mode: 'all' }
+  | { mode: 'ids'; recipeIds: readonly [string, ...string[]] };
+
 type AssistantAttachment = {
   filename: string;
   mimeType: 'image/jpeg' | 'image/png' | 'image/webp' | 'application/pdf';
@@ -118,7 +122,7 @@ type AssistantProposalValidationRequest = {
   householdId: string;
   foodRulesUpdatedAt: string | null;
   coverageRulesUpdatedAt: string | null;
-  recipeIds: string[];
+  recipeIds: [string, ...string[]];
   recipeVersions: Array<{
     recipeId: string;
     recipeUpdatedAt: string;
@@ -401,7 +405,17 @@ type ContextResult =
   | { ok: false; status: number; error: string; message?: string };
 
 type RecipePageResult =
-  | { ok: true; text: string; draft: unknown; videoUrl?: string | null }
+  | {
+    ok: true;
+    text: string;
+    draft: unknown;
+    videoUrl?: string | null;
+    instagramCaption?: string;
+  }
+  | { ok: false; status: number; error: string };
+
+type AudioTranscriptionResult =
+  | { ok: true; text: string | null }
   | { ok: false; status: number; error: string };
 
 export type ProviderResult =
@@ -443,9 +457,11 @@ type Dependencies = {
     pageContext?: AssistantPageContext,
     clientOverride?: unknown,
     focusedInventoryLotIds?: readonly string[],
+    householdRecipeSelection?: HouseholdRecipeSelection,
   ) => Promise<ContextResult>;
   loadRecipePage?: (url: string) => Promise<RecipePageResult>;
   validatePublicUrl?: (url: string) => Promise<boolean>;
+  transcribeAudio?: (url: string) => Promise<AudioTranscriptionResult>;
   complete: (input: {
     provider?: GatewayProvider;
     model: string;
@@ -573,16 +589,20 @@ function parseRequest(value: unknown): GatewayRequest | null {
       'recipeVersions',
     ]);
     if (Object.keys(value).some((key) => !allowedKeys.has(key))) return null;
+    const recipeIds = Array.isArray(value.recipeIds)
+      ? value.recipeIds.map((id) => typeof id === 'string' ? id.trim() : '')
+      : [];
+    const recipeVersions = Array.isArray(value.recipeVersions) ? value.recipeVersions : [];
+    const [firstRecipeId, ...remainingRecipeIds] = recipeIds;
     if (
       !(typeof value.foodRulesUpdatedAt === 'string' || value.foodRulesUpdatedAt === null) ||
       !(typeof value.coverageRulesUpdatedAt === 'string' ||
         value.coverageRulesUpdatedAt === null) ||
-      !Array.isArray(value.recipeIds) || value.recipeIds.length < 1 || value.recipeIds.length > 7 ||
-      !value.recipeIds.every(nonEmptyString) ||
-      new Set(value.recipeIds).size !== value.recipeIds.length ||
-      !Array.isArray(value.recipeVersions) ||
-      value.recipeVersions.length !== value.recipeIds.length ||
-      !value.recipeVersions.every((entry) =>
+      recipeIds.length < 1 || recipeIds.length > 7 ||
+      !firstRecipeId ||
+      new Set(recipeIds).size !== recipeIds.length ||
+      recipeVersions.length !== recipeIds.length ||
+      !recipeVersions.every((entry) =>
         isRecord(entry) &&
         Object.keys(entry).length === 3 &&
         nonEmptyString(entry.recipeId) &&
@@ -598,8 +618,8 @@ function parseRequest(value: unknown): GatewayRequest | null {
       householdId: value.householdId.trim(),
       foodRulesUpdatedAt: value.foodRulesUpdatedAt,
       coverageRulesUpdatedAt: value.coverageRulesUpdatedAt,
-      recipeIds: value.recipeIds.map((id) => id.trim()),
-      recipeVersions: value.recipeVersions.map((entry) => ({
+      recipeIds: [firstRecipeId, ...remainingRecipeIds],
+      recipeVersions: recipeVersions.map((entry) => ({
         recipeId: (entry as Record<string, string>).recipeId.trim(),
         recipeUpdatedAt: (entry as Record<string, string>).recipeUpdatedAt,
         coverageVersion: (entry as Record<string, string>).coverageVersion,
@@ -922,6 +942,8 @@ function buildSystemPrompt(
 ): string {
   context = boundGatewayCookingContext(context);
   if (request.skill === 'fam-recipe-import') {
+    const isInstagramImport = request.sourceType === 'video' &&
+      nonEmptyString(request.sourceUrl) && isInstagramSourceUrl(request.sourceUrl);
     return [
       'Du liest und strukturierst Rezepte für fam aus vom Nutzer bereitgestellten Inhalten.',
       'Antworte in der Sprache der Quelle. Bewahre Titel, Zutatenreihenfolge, Mengen, Einheiten und Schritte so nah wie möglich am Original.',
@@ -930,7 +952,12 @@ function buildSystemPrompt(
       'Lasse Mengen und Portionen null beziehungsweise fehlend, wenn die Quelle sie nicht nennt. Rate keine üblichen Standardmengen.',
       'Jede Zutat bleibt als ursprünglicher Text erhalten. Fasse Zutaten nicht zusammen und ordne sie nicht um. Unklare, abgeschnittene oder fehlende Angaben gehören in warnings.',
       'Wenn mehrere Rezepte sichtbar sind, extrahiere nur das vom Nutzer angefragte Rezept; wenn unklar, nimm das erste vollständige und erkläre die Auswahl in warnings.',
-      'Gib ausschließlich gültiges JSON mit genau kind, title, servings, ingredients, steps, notes und warnings zurück.',
+      isInstagramImport
+        ? 'Bei Instagram sind Whisper-Transkript und öffentliche Caption getrennte Quellen. Ein Rezept darf aus einer oder aus beiden Quellen stammen. Verbinde keine inhaltlich unabhängigen Fragmente zu einem erfundenen Rezept.'
+        : 'Nutze alle bereitgestellten Quellteile gemeinsam.',
+      isInstagramImport
+        ? 'Wenn weder Transkript noch Caption ein verwertbares Rezept mit Zutaten und Zubereitung enthalten, gib ausschließlich {"kind":"recipe_import_unavailable.v1","reason":"no_recipe_in_audio_or_caption"} zurück. Andernfalls gib gültiges Rezept-JSON mit genau kind, title, servings, ingredients, steps, notes und warnings zurück.'
+        : 'Gib ausschließlich gültiges JSON mit genau kind, title, servings, ingredients, steps, notes und warnings zurück.',
       'kind ist recipe_import_draft.v1. ingredients enthält Objekte mit text und confidence (high, medium oder low).',
       'servings ist eine positive ganze Zahl oder null. notes ist eine Zeichenfolge oder null.',
       'ingredients ist ein Array, steps ist ein Array mit einer Zeichenfolge pro Schritt. Warnings nennt Unklarheiten und OCR-/Transkriptionsunsicherheit.',
@@ -1454,7 +1481,7 @@ function validateAssistantProposalSnapshot(
     return { valid: false, reason: 'invalid_proposal_snapshot' };
   }
 
-  const availableRecipes = context.householdRecipes ?? context.recipes;
+  const availableRecipes = context.householdRecipes ?? [];
   for (const recipeId of recipeIds) {
     const expected = versionsById.get(recipeId);
     const recipe = availableRecipes.find((candidate) => candidate.recipeId === recipeId);
@@ -1700,9 +1727,7 @@ function runAssistantTool(
         candidate.portions < 1 || candidate.portions > 12 ||
         !nonEmptyString(candidate.rationale) || candidate.rationale.length > 280
       ) return { result: { error: 'invalid_meal' } };
-      const recipe = (context.householdRecipes ?? context.recipes).find((item) =>
-        item.recipeId === candidate.recipeId
-      );
+      const recipe = context.householdRecipes?.find((item) => item.recipeId === candidate.recipeId);
       if (!recipe) return { result: { error: 'recipe_not_allowed' } };
       const coverage = foodRuleCoverageForRecipe(
         recipe,
@@ -1929,6 +1954,12 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
   return result as RecipeImportDraft;
 }
 
+function isRecipeImportUnavailable(result: JsonRecord): boolean {
+  return Object.keys(result).length === 2 &&
+    result.kind === 'recipe_import_unavailable.v1' &&
+    result.reason === 'no_recipe_in_audio_or_caption';
+}
+
 function isInstagramSourceUrl(value: string): boolean {
   try {
     const hostname = new URL(value).hostname.toLowerCase();
@@ -1944,18 +1975,21 @@ function buildRecipeImportMessages(
   pageText: string | null,
   videoUrl?: string | null,
 ): ProviderMessage[] {
+  const usesTranscribedVideo = request.sourceType === 'video' && pageText !== null;
   const parts: ProviderContentPart[] = [{
     type: 'text',
     text: request.sourceType === 'url'
       ? 'Lies dieses Rezept als Textquelle. Quelle: ' + (pageText ?? '')
       : request.sourceType === 'text'
       ? 'Extrahiere das Rezept aus diesem Text:\n' + (request.sourceText ?? '')
+      : usesTranscribedVideo
+      ? 'Extrahiere das Rezept aus diesen getrennten Instagram-Quellen:\n' + pageText
       : request.sourceType === 'video'
       ? 'Extrahiere das gezeigte Rezept aus diesem Video. Quelle: ' + (request.sourceUrl ?? '')
       : 'Extrahiere das Rezept aus den angehängten Seiten. Bewahre die Seitenreihenfolge.',
   }];
 
-  if (request.sourceType === 'video' && request.sourceUrl) {
+  if (request.sourceType === 'video' && request.sourceUrl && !usesTranscribedVideo) {
     parts.push({
       type: 'video_url',
       video_url: { url: videoUrl ?? request.sourceUrl },
@@ -2326,6 +2360,10 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         auth.authorization,
         true,
         [],
+        undefined,
+        undefined,
+        undefined,
+        { mode: 'ids', recipeIds: parsedRequest.recipeIds },
       );
       if (!contextResult.ok) {
         return json({ error: contextResult.error }, contextResult.status);
@@ -2334,13 +2372,18 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return json({ skill: parsedRequest.skill, ...validation });
     }
 
+    const isInstagramWhisperImport = parsedRequest.skill === 'fam-recipe-import' &&
+      parsedRequest.sourceType === 'video' && nonEmptyString(parsedRequest.sourceUrl) &&
+      isInstagramSourceUrl(parsedRequest.sourceUrl);
     if (
+      !isInstagramWhisperImport &&
       !dependencies.modelOverridesEnabled && parsedRequest.provider &&
       parsedRequest.provider !== defaultProvider
     ) {
       return json({ error: 'model_override_unavailable' }, 403);
     }
     if (
+      !isInstagramWhisperImport &&
       !dependencies.modelOverridesEnabled && parsedRequest.model &&
       parsedRequest.model !== defaultModel
     ) {
@@ -2352,12 +2395,22 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     let activeProvider = parsedRequest.provider ?? defaultProvider;
     let activeAllowedModels = dependencies.providerModels?.[activeProvider] ??
       (activeProvider === defaultProvider ? allowedModels : []);
-    const activeDefaultModel = dependencies.providerDefaultModels?.[activeProvider] ??
-      (activeProvider === defaultProvider ? defaultModel : activeAllowedModels[0] ?? '');
-    let model = modelFor(parsedRequest.model, activeAllowedModels, activeDefaultModel);
+    let model: string | null;
+    if (isInstagramWhisperImport) {
+      activeProvider = 'groq';
+      activeAllowedModels = dependencies.providerModels?.groq ?? [];
+      const groqDefaultModel = dependencies.providerDefaultModels?.groq ??
+        activeAllowedModels[0] ?? '';
+      model = modelFor(undefined, activeAllowedModels, groqDefaultModel);
+    } else {
+      const activeDefaultModel = dependencies.providerDefaultModels?.[activeProvider] ??
+        (activeProvider === defaultProvider ? defaultModel : activeAllowedModels[0] ?? '');
+      model = modelFor(parsedRequest.model, activeAllowedModels, activeDefaultModel);
+    }
     if (!model) return json({ error: 'model_not_allowed' }, 400);
     if (
       parsedRequest.skill === 'fam-recipe-import' &&
+      !isInstagramWhisperImport &&
       !supportsRecipeSource(parsedRequest, activeProvider, model)
     ) {
       const fallback = dependencies.mediaFallback;
@@ -2387,6 +2440,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
 
     let recipePageText: string | null = null;
     let recipeVideoUrl: string | null = null;
+    let instagramCaption: string | null = null;
     if (parsedRequest.skill === 'fam-recipe-import') {
       if (
         parsedRequest.sourceType === 'video' &&
@@ -2396,19 +2450,18 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       ) {
         return json({ error: 'unsafe_source_url' }, 400);
       }
-      if (
-        parsedRequest.sourceType === 'video' &&
-        parsedRequest.sourceUrl &&
-        isInstagramSourceUrl(parsedRequest.sourceUrl)
-      ) {
+      if (isInstagramWhisperImport) {
+        const sourceUrl = parsedRequest.sourceUrl;
+        if (!sourceUrl) return json({ error: 'invalid_request' }, 400);
         if (!dependencies.loadRecipePage) {
           return json({ error: 'instagram_video_unavailable' }, 422);
         }
-        const page = await dependencies.loadRecipePage(parsedRequest.sourceUrl);
+        const page = await dependencies.loadRecipePage(sourceUrl);
         if (!page.ok) {
           return json({ error: 'instagram_video_unavailable' }, 422);
         }
         recipeVideoUrl = page.videoUrl ?? null;
+        instagramCaption = page.instagramCaption?.trim() || null;
         if (
           !recipeVideoUrl || !dependencies.validatePublicUrl ||
           !await dependencies.validatePublicUrl(recipeVideoUrl)
@@ -2451,6 +2504,10 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
 
     const assistantNeedsContext = parsedRequest.skill === 'fam-assistant' &&
       (parsedRequest.includeHouseholdContext || parsedRequest.pageContext !== undefined);
+    const householdRecipeSelection = parsedRequest.skill === 'fam-assistant' &&
+        parsedRequest.includeHouseholdContext && parsedRequest.pageContext === undefined
+      ? { mode: 'all' } as const
+      : undefined;
     const contextResult = parsedRequest.skill === 'fam-cook-from-inventory' || assistantNeedsContext
       ? await dependencies.loadCookingContext(
         auth.userId,
@@ -2461,6 +2518,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         parsedRequest.skill === 'fam-assistant' ? parsedRequest.pageContext : undefined,
         undefined,
         parsedRequest.skill === 'fam-assistant' ? parsedRequest.focusedInventoryLotIds : undefined,
+        householdRecipeSelection,
       )
       : {
         ok: true as const,
@@ -2519,6 +2577,29 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       }
       return json(body, status);
     };
+
+    if (isInstagramWhisperImport) {
+      if (!recipeVideoUrl || !dependencies.transcribeAudio) {
+        return await refundAndRespond({ error: 'groq_transcription_not_configured' }, 503);
+      }
+      let transcription: AudioTranscriptionResult;
+      try {
+        transcription = await dependencies.transcribeAudio(recipeVideoUrl);
+      } catch {
+        return await refundAndRespond({ error: 'groq_transcription_unavailable' }, 502);
+      }
+      if (!transcription.ok) {
+        return await refundAndRespond({ error: transcription.error }, transcription.status);
+      }
+      const transcript = transcription.text?.trim() || null;
+      if (!transcript && !instagramCaption) {
+        return await refundAndRespond({ error: 'instagram_recipe_not_found' }, 422);
+      }
+      recipePageText = JSON.stringify({
+        instagramCaption: instagramCaption ?? 'Keine öffentliche Caption vorhanden.',
+        whisperTranscript: transcript ?? 'Keine verwertbare Sprache erkannt.',
+      });
+    }
 
     const providerMessages: ProviderMessage[] = parsedRequest.skill === 'fam-recipe-import'
       ? buildRecipeImportMessages(parsedRequest, recipePageText, recipeVideoUrl)
@@ -2639,6 +2720,9 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       : parseProviderJson(provider.content);
     if (!parsedResult) {
       return await refundAndRespond({ error: 'provider_invalid_json' }, 502);
+    }
+    if (isInstagramWhisperImport && isRecipeImportUnavailable(parsedResult)) {
+      return await refundAndRespond({ error: 'instagram_recipe_not_found' }, 422);
     }
 
     if (parsedRequest.skill === 'fam-assistant') {

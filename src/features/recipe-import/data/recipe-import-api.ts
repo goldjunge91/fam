@@ -138,6 +138,40 @@ export async function importRecipeSource(input: RecipeImportInput): Promise<Reci
           'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
         );
       }
+      if (detail === 'instagram_recipe_not_found') {
+        throw new Error(
+          'Weder in der Sprache noch in der Instagram-Beschreibung wurde ein Rezept gefunden.',
+        );
+      }
+      if (detail === 'groq_transcription_not_configured') {
+        throw new Error(
+          'Die Sprachauswertung für Instagram-Rezepte ist derzeit nicht eingerichtet.',
+        );
+      }
+      if (detail === 'groq_transcription_rate_limited') {
+        throw new Error('Die Sprachauswertung ist gerade ausgelastet. Versuche es später erneut.');
+      }
+      if (detail === 'groq_transcription_rejected') {
+        throw new Error('Die Audiospur des Instagram-Videos konnte nicht verarbeitet werden.');
+      }
+      if (
+        detail === 'groq_transcription_unavailable' ||
+        detail === 'groq_transcription_invalid_response'
+      ) {
+        throw new Error(
+          'Die Sprachauswertung ist derzeit nicht verfügbar. Versuche es später erneut.',
+        );
+      }
+      if (detail?.startsWith('provider_')) {
+        throw new Error(
+          'Die Rezeptanalyse ist derzeit nicht verfügbar. Versuche es später erneut.',
+        );
+      }
+      if (detail === 'invalid_recipe_import_draft') {
+        throw new Error(
+          'Der Rezeptentwurf konnte nicht zuverlässig erstellt werden. Versuche es erneut.',
+        );
+      }
       if (detail === 'source_unavailable') {
         throw new Error('Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.');
       }
@@ -152,6 +186,9 @@ export async function importRecipeSource(input: RecipeImportInput): Promise<Reci
       }
       if (detail === 'model_unsupported_input') {
         throw new Error('Das ausgewählte Modell kann diese Quelle nicht verarbeiten.');
+      }
+      if (error instanceof FunctionsHttpError) {
+        throw new Error('Der Rezeptimport ist fehlgeschlagen. Versuche es erneut.');
       }
       throw new Error(error.message || 'Der Rezeptimport ist fehlgeschlagen.');
     }
