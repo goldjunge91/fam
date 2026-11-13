@@ -615,23 +615,140 @@ describe('AssistantScreen', () => {
     expect(screen.queryByText('Rezept.pdf')).toBeNull();
   });
 
-  it('sends only the selected expiring inventory lots as Assistant context', async () => {
+  it('shows starter prompts without an expiring picker in an empty chat', async () => {
     const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
     mockInventoryItems = [
       expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
       expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
     ];
     await renderAssistant();
-    expect(screen.getByText('Bald ablaufend')).toBeOnTheScreen();
-    const user = userEvent.setup();
-    await user.press(screen.getByRole('checkbox', { name: 'Champignons' }));
-    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
-    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
 
+    expect(screen.getByRole('button', { name: 'Was kann ich heute kochen?' })).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Was sollten wir bald verbrauchen?' }),
+    ).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Plane unsere Woche' })).toBeOnTheScreen();
+    expect(screen.queryByText('Bald ablaufend')).not.toBeOnTheScreen();
+  });
+
+  it('shows the local expiring flow in order and forwards the selection', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    try {
+      const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+      mockInventoryItems = [
+        expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
+        expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
+      ];
+      await renderAssistant();
+
+      expect(screen.queryByText('Bald ablaufend')).not.toBeOnTheScreen();
+      await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+      expect(screen.getByText('Lass mich schauen, was bald abläuft …')).toBeOnTheScreen();
+      expect(
+        screen.queryByText(
+          'Okay, wähle aus den ablaufenden Lebensmitteln die aus, die du retten willst.',
+        ),
+      ).not.toBeOnTheScreen();
+      expect(screen.queryByText('Bald ablaufend')).not.toBeOnTheScreen();
+
+      await act(async () => {
+        jest.advanceTimersByTime(299);
+      });
+      expect(
+        screen.queryByText(
+          'Okay, wähle aus den ablaufenden Lebensmitteln die aus, die du retten willst.',
+        ),
+      ).not.toBeOnTheScreen();
+
+      await act(async () => {
+        jest.advanceTimersByTime(1);
+      });
+      expect(
+        await screen.findByText(
+          'Okay, wähle aus den ablaufenden Lebensmitteln die aus, die du retten willst.',
+        ),
+      ).toBeOnTheScreen();
+      expect(screen.getByText('Bald ablaufend')).toBeOnTheScreen();
+
+      await user.press(screen.getByRole('checkbox', { name: 'Champignons' }));
+      await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+
+      await waitFor(() => expect(mockSendMessage).toHaveBeenCalled());
+      expect(mockSendMessage.mock.calls.at(-1)?.[0]).toEqual(
+        expect.objectContaining({
+          focusedInventoryLotIds: ['lot-cream'],
+          message: 'Was kann ich heute kochen?',
+        }),
+      );
+
+      await user.press(screen.getByRole('button', { name: 'Mit Reis' }));
+      await waitFor(() => expect(mockSendMessage).toHaveBeenCalledTimes(2));
+      expect(mockSendMessage.mock.calls.at(-1)?.[0]).not.toHaveProperty('focusedInventoryLotIds');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('does not start the expiring flow for another starter prompt', async () => {
+    const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+    mockInventoryItems = [
+      expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
+      expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
+    ];
+    await renderAssistant();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Plane unsere Woche' }));
+
+    expect(screen.getByDisplayValue('Plane unsere Woche')).toBeOnTheScreen();
+    expect(screen.queryByText('Lass mich schauen, was bald abläuft …')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Bald ablaufend')).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
     await waitFor(() => expect(mockSendMessage).toHaveBeenCalled());
-    expect(mockSendMessage.mock.calls.at(-1)?.[0]).toEqual(
-      expect.objectContaining({ focusedInventoryLotIds: ['lot-cream'] }),
-    );
+    expect(mockSendMessage.mock.calls.at(-1)?.[0]).not.toHaveProperty('focusedInventoryLotIds');
+  });
+
+  it('does not attach focused lots to a free message', async () => {
+    const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+    mockInventoryItems = [
+      expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
+      expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
+    ];
+    await renderAssistant();
+    const user = userEvent.setup();
+
+    await user.type(screen.getByLabelText('Nachricht an den Assistant'), 'Freie Nachricht');
+    expect(screen.queryByText('Bald ablaufend')).not.toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+    await waitFor(() => expect(mockSendMessage).toHaveBeenCalled());
+    expect(mockSendMessage.mock.calls.at(-1)?.[0]).not.toHaveProperty('focusedInventoryLotIds');
+  });
+
+  it('does not start the expiring flow for attachments', async () => {
+    const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+    mockInventoryItems = [
+      expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
+      expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
+    ];
+    mockGetDocument.mockResolvedValueOnce({
+      canceled: false,
+      assets: [{ uri: 'file://recipe.pdf', name: 'Rezept.pdf' }],
+    });
+    await renderAssistant();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Anhang hinzufügen' }));
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    options?.find((option) => option.text === 'PDF auswählen')?.onPress?.();
+    expect(await screen.findByText('Rezept.pdf')).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+    expect(screen.queryByText('Lass mich schauen, was bald abläuft …')).not.toBeOnTheScreen();
+    expect(screen.queryByText('Bald ablaufend')).not.toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Nachricht senden' }));
+    await waitFor(() => expect(mockSendMessage).toHaveBeenCalled());
+    expect(mockSendMessage.mock.calls.at(-1)?.[0]).not.toHaveProperty('focusedInventoryLotIds');
   });
 
   it('opens and sends messages without showing a consent prompt', async () => {

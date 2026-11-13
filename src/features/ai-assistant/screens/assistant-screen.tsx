@@ -68,6 +68,14 @@ const STARTER_PROMPTS = [
   'Was sollten wir bald verbrauchen?',
   'Plane unsere Woche',
 ] as const;
+const EXPIRING_COOKING_PROMPT = STARTER_PROMPTS[0];
+const EXPIRING_FLOW_DELAY_MS = 300;
+const EXPIRING_FLOW_MESSAGES = {
+  checking: 'Lass mich schauen, was bald abläuft …',
+  selecting: 'Okay, wähle aus den ablaufenden Lebensmitteln die aus, die du retten willst.',
+} as const;
+
+type ExpiringFlowStage = keyof typeof EXPIRING_FLOW_MESSAGES | 'idle';
 
 const EMPTY_INVENTORY_ITEMS: LocalInventoryItem[] = [];
 
@@ -135,9 +143,12 @@ const styles = StyleSheet.create((theme) => ({
   creditNote: {
     textAlign: 'center',
   },
-  expiringPicker: {
+  expiringFlow: {
     gap: theme.space.sm,
     marginBottom: theme.space.md,
+  },
+  expiringPicker: {
+    gap: theme.space.sm,
   },
   expiringPickerHeader: {
     flexDirection: 'row',
@@ -533,6 +544,7 @@ export function AssistantScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSending, setIsSending] = useState(false);
   const [selectedExpiringLotIds, setSelectedExpiringLotIds] = useState<string[]>([]);
+  const [expiringFlowStage, setExpiringFlowStage] = useState<ExpiringFlowStage>('idle');
   const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
   const [failedMessage, setFailedMessage] = useState<FailedAssistantMessage | null>(null);
   const [applyingProposalId, setApplyingProposalId] = useState<string | null>(null);
@@ -560,7 +572,11 @@ export function AssistantScreen() {
     }
   }, [expiringItemIds]);
 
-  const focusedInventoryLotIds = expiringItems.length > 1 ? selectedExpiringLotIds : undefined;
+  useEffect(() => {
+    if (expiringFlowStage !== 'checking') return;
+    const timeoutId = setTimeout(() => setExpiringFlowStage('selecting'), EXPIRING_FLOW_DELAY_MS);
+    return () => clearTimeout(timeoutId);
+  }, [expiringFlowStage]);
 
   useEffect(() => {
     if (!userId) {
@@ -632,6 +648,7 @@ export function AssistantScreen() {
       updatedAt: timestamp,
     };
     setActiveThreadId(nextThread.id);
+    setExpiringFlowStage('idle');
     setFailedMessage(null);
     await persistThreads(upsertThread(threads, nextThread));
     setError(null);
@@ -748,6 +765,7 @@ export function AssistantScreen() {
   }
 
   function openAttachmentPicker() {
+    setExpiringFlowStage('idle');
     if (attachments.length >= 5) {
       setError('Füge höchstens fünf Anhänge hinzu.');
       return;
@@ -773,7 +791,8 @@ export function AssistantScreen() {
       !activeHouseholdId ||
       !hasAI ||
       (!text && attachments.length === 0) ||
-      isSending
+      isSending ||
+      expiringFlowStage === 'checking'
     ) {
       return;
     }
@@ -782,7 +801,16 @@ export function AssistantScreen() {
       return;
     }
 
+    const requestFocusedInventoryLotIds =
+      expiringFlowStage === 'selecting' &&
+      text === EXPIRING_COOKING_PROMPT &&
+      attachments.length === 0 &&
+      expiringItems.length > 1
+        ? selectedExpiringLotIds
+        : undefined;
+
     setIsSending(true);
+    setExpiringFlowStage('idle');
     setError(null);
     setFailedMessage(null);
     let requestThreadId: string | null = null;
@@ -835,7 +863,9 @@ export function AssistantScreen() {
         householdId: activeHouseholdId,
         message: text,
         includeHouseholdContext: true,
-        ...(focusedInventoryLotIds !== undefined ? { focusedInventoryLotIds } : {}),
+        ...(requestFocusedInventoryLotIds !== undefined
+          ? { focusedInventoryLotIds: requestFocusedInventoryLotIds }
+          : {}),
         ...(pageContext ? { pageContext } : {}),
         ...(encodedAttachments.length > 0 ? { attachments: encodedAttachments } : {}),
         history: currentThread.messages.map(({ role, text: content }) => ({ role, text: content })),
@@ -872,7 +902,9 @@ export function AssistantScreen() {
           threadId: requestThreadId,
           text,
           ...(encodedAttachments.length > 0 ? { attachments: encodedAttachments } : {}),
-          ...(focusedInventoryLotIds !== undefined ? { focusedInventoryLotIds } : {}),
+          ...(requestFocusedInventoryLotIds !== undefined
+            ? { focusedInventoryLotIds: requestFocusedInventoryLotIds }
+            : {}),
           retryable,
         });
         if (!retryable) setMessage(text);
@@ -1420,6 +1452,7 @@ export function AssistantScreen() {
     await persistThreads(nextThreads);
     if (activeThreadId === threadId) {
       setActiveThreadId(nextThreads[0]?.id ?? null);
+      setExpiringFlowStage('idle');
       setFailedMessage(null);
       setError(null);
     }
@@ -1440,9 +1473,50 @@ export function AssistantScreen() {
     );
   }
 
+  function handleStarterPrompt(prompt: (typeof STARTER_PROMPTS)[number]) {
+    if (
+      prompt === EXPIRING_COOKING_PROMPT &&
+      expiringItems.length > 1 &&
+      attachments.length === 0
+    ) {
+      setMessage(prompt);
+      setSelectedExpiringLotIds(expiringItems.map((item) => item.id));
+      setExpiringFlowStage('checking');
+      setError(null);
+      setFailedMessage(null);
+      return;
+    }
+    setExpiringFlowStage('idle');
+    setMessage(prompt);
+  }
+
   function toggleExpiringLotId(lotId: string) {
     setSelectedExpiringLotIds((current) =>
       current.includes(lotId) ? current.filter((id) => id !== lotId) : [...current, lotId],
+    );
+  }
+
+  function renderExpiringFlow() {
+    if (expiringFlowStage === 'idle') return null;
+    const message = EXPIRING_FLOW_MESSAGES[expiringFlowStage];
+    return (
+      <View style={styles.expiringFlow}>
+        <View style={styles.messageRow}>
+          <Surface tone="soft" style={styles.assistantAvatar}>
+            <Txt variant="glyph" tone="accent" weight="700">
+              ✦
+            </Txt>
+          </Surface>
+          <View style={styles.assistantMessageStack}>
+            <View style={styles.messageBubble}>
+              <Txt variant="body" tone="primary">
+                {message}
+              </Txt>
+            </View>
+          </View>
+        </View>
+        {expiringFlowStage === 'selecting' ? renderExpiringInventoryPicker() : null}
+      </View>
     );
   }
 
@@ -1622,6 +1696,7 @@ export function AssistantScreen() {
                         selected={thread.id === activeThreadId}
                         onPress={() => {
                           setActiveThreadId(thread.id);
+                          setExpiringFlowStage('idle');
                           setFailedMessage(null);
                           setError(null);
                           setIsHistoryOpen(false);
@@ -1653,7 +1728,7 @@ export function AssistantScreen() {
                 </Txt>
               </View>
             ) : null}
-            {renderExpiringInventoryPicker()}
+            {renderExpiringFlow()}
             <FlashList
               data={activeThread?.messages ?? []}
               keyExtractor={(item) => item.id}
@@ -1757,7 +1832,7 @@ export function AssistantScreen() {
                       <Button
                         key={prompt}
                         title={prompt}
-                        onPress={() => setMessage(prompt)}
+                        onPress={() => handleStarterPrompt(prompt)}
                         variant="secondary"
                         full
                         flat
@@ -1880,7 +1955,8 @@ export function AssistantScreen() {
                   disabled={
                     (!message.trim() && attachments.length === 0) ||
                     isSending ||
-                    creditStatus?.blocked
+                    creditStatus?.blocked ||
+                    expiringFlowStage === 'checking'
                   }
                   onPress={() => void handleSend()}
                   color={colors.onAccent}
