@@ -1,5 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import * as Speech from 'expo-speech';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
@@ -30,6 +32,11 @@ jest.mock('../catalog/use-recipe-catalog', () => ({
   useCatalogRecipe: () => ({ data: mockCatalogDetail, isLoading: mockCatalogLoading }),
   useCatalogImageUrl: () => ({ data: null }),
   toCookingRecipeDetail: () => mockDetail,
+}));
+
+jest.mock('expo-speech', () => ({
+  speak: jest.fn(),
+  stop: jest.fn(async () => undefined),
 }));
 
 jest.mock('expo-speech-recognition', () => ({
@@ -63,6 +70,10 @@ function getNativeSpeechRecognitionStart(): jest.Mock {
       nativeSpeechRecognitionAdapter: { start: jest.Mock };
     }
   ).nativeSpeechRecognitionAdapter.start;
+}
+
+function getSpeechSpies(): { speak: jest.Mock; stop: jest.Mock } {
+  return Speech as unknown as { speak: jest.Mock; stop: jest.Mock };
 }
 
 let mockIsPremium = false;
@@ -233,11 +244,18 @@ beforeEach(() => {
   mockCatalogLoading = false;
   mockIsPremium = false;
   getNativeSpeechRecognitionStart().mockClear();
+  getSpeechSpies().speak.mockClear();
+  getSpeechSpies().stop.mockClear();
+  jest.spyOn(Alert, 'alert').mockImplementation(() => {});
   const permissionSpies = getSpeechPermissionSpies();
   permissionSpies.requestMicrophonePermissionsAsync.mockClear();
   permissionSpies.requestSpeechRecognizerPermissionsAsync.mockClear();
   jest.mocked(recordActivity).mockReturnValue({ count: 1, increased: true, milestone: false });
   jest.mocked(celebrate).mockClear();
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
 });
 
 describe('CookingModeScreen', () => {
@@ -308,6 +326,58 @@ describe('CookingModeScreen', () => {
     ).not.toHaveBeenCalled();
   });
 
+  it('fragt einmal nach Hands-free und bleibt bei Nein im Touch-Ablauf', async () => {
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    const view = await renderScreen();
+
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      'Hands-free im Kochmodus?',
+      expect.any(String),
+      expect.any(Array),
+    );
+    const buttons = jest.mocked(Alert.alert).mock.calls[0]?.[2];
+    await act(async () => {
+      buttons?.find((button) => button.text === 'Nein')?.onPress?.();
+    });
+
+    expect(screen.getByRole('button', { name: 'Nächster Schritt' })).toBeOnTheScreen();
+    expect(getNativeSpeechRecognitionStart()).not.toHaveBeenCalled();
+    expect(getSpeechPermissionSpies().requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
+    expect(
+      getSpeechPermissionSpies().requestSpeechRecognizerPermissionsAsync,
+    ).not.toHaveBeenCalled();
+
+    await view.rerender(
+      <QueryClientProvider client={new QueryClient()}>
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { x: 0, y: 0, width: 390, height: 844 },
+            insets: { top: 47, left: 0, right: 0, bottom: 34 },
+          }}>
+          <CookingModeScreen />
+        </SafeAreaProvider>
+      </QueryClientProvider>,
+    );
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+  });
+
+  it('startet den ersten Schritt nach der Hands-free-Zustimmung ohne weiteren Touch', async () => {
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    await renderScreen();
+
+    const buttons = jest.mocked(Alert.alert).mock.calls[0]?.[2];
+    await act(async () => {
+      buttons?.find((button) => button.text === 'Hands-free aktivieren')?.onPress?.();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(getSpeechSpies().speak).toHaveBeenCalledWith('Wasser aufsetzen', expect.anything());
+    expect(getNativeSpeechRecognitionStart()).not.toHaveBeenCalled();
+  });
   it('zeigt im Plus-Schritt nur explizit verknüpfte Zutaten und den bereiten Voice-Status', async () => {
     const detail = makeDetail();
     detail.steps[0] = { ...detail.steps[0], ingredientIds: ['item-1', 'missing-item'] };

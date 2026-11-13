@@ -14,6 +14,7 @@ export type CookingModeVoiceStatus =
   | 'reading'
   | 'listening'
   | 'processing'
+  | 'paused'
   | 'denied'
   | 'unavailable'
   | 'error';
@@ -32,6 +33,14 @@ export type CookingModeVoiceSpeech = {
 };
 
 const defaultAdapter: SpeechRecognitionAdapter = {
+  prepare: (options) => {
+    const { nativeSpeechRecognitionAdapter } =
+      require('@/features/shopping-list/stt-beta/services/native-speech-recognition') as typeof import('@/features/shopping-list/stt-beta/services/native-speech-recognition');
+    return (
+      nativeSpeechRecognitionAdapter.prepare?.(options) ??
+      Promise.resolve({ status: 'ready' as const })
+    );
+  },
   start: (options) => {
     const { nativeSpeechRecognitionAdapter } =
       require('@/features/shopping-list/stt-beta/services/native-speech-recognition') as typeof import('@/features/shopping-list/stt-beta/services/native-speech-recognition');
@@ -52,8 +61,9 @@ export type UseCookingModeVoiceOptions = {
   adapter?: SpeechRecognitionAdapter;
   speech?: CookingModeVoiceSpeech;
   onNextStep?: () => void;
-  onPreviousStep?: () => void;
-  onStartTimer?: () => void;
+  onPreviousStep?: () => boolean | undefined;
+  onStartTimer?: (durationSeconds?: number) => void;
+  onPauseHandsFree?: (pause: () => void) => void;
   onFinish?: () => void;
 };
 
@@ -61,11 +71,16 @@ export type CookingModeVoice = {
   status: CookingModeVoiceStatus;
   transcript: string | null;
   error: string | null;
+  handsFreeEnabled: boolean;
   readStep: () => void;
   readIngredients: () => void;
   stopReading: () => void;
   startListening: () => void;
   stopListening: () => void;
+  startHandsFree: () => void;
+  pauseHandsFree: () => void;
+  resumeHandsFree: () => void;
+  endHandsFree: () => void;
   onNextStep: () => void;
   onPreviousStep: () => void;
   onStartTimer: () => void;
@@ -109,6 +124,7 @@ export function useCookingModeVoice({
   onNextStep,
   onPreviousStep,
   onStartTimer,
+  onPauseHandsFree,
   onFinish,
 }: UseCookingModeVoiceOptions): CookingModeVoice {
   const optionsRef = useRef({
@@ -118,6 +134,7 @@ export function useCookingModeVoice({
     onNextStep,
     onPreviousStep,
     onStartTimer,
+    onPauseHandsFree,
     onFinish,
   });
   optionsRef.current = {
@@ -127,6 +144,7 @@ export function useCookingModeVoice({
     onNextStep,
     onPreviousStep,
     onStartTimer,
+    onPauseHandsFree,
     onFinish,
   };
 
@@ -140,9 +158,13 @@ export function useCookingModeVoice({
   const speechActiveRef = useRef(false);
   const processingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mountedRef = useRef(true);
+  const handsFreeEnabledRef = useRef(false);
+  const handsFreePausedRef = useRef(false);
+  const startHandsFreeListeningRef = useRef<(() => void) | null>(null);
   const [status, setStatus] = useState<CookingModeVoiceStatus>('ready');
   const [transcript, setTranscript] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [handsFreeEnabled, setHandsFreeEnabled] = useState(false);
 
   const setSafeStatus = useCallback((nextStatus: CookingModeVoiceStatus) => {
     if (mountedRef.current) setStatus(nextStatus);
@@ -181,17 +203,24 @@ export function useCookingModeVoice({
     cancelSession();
   }, [cancelSession, clearProcessingTimeout]);
 
+  const disableHandsFree = useCallback(() => {
+    handsFreeEnabledRef.current = false;
+    handsFreePausedRef.current = false;
+    if (mountedRef.current) setHandsFreeEnabled(false);
+  }, []);
+
   const finishVoice = useCallback(
-    (nextStatus: CookingModeVoiceStatus = 'ready') => {
+    (nextStatus: CookingModeVoiceStatus = 'ready', preserveHandsFree = false) => {
       invalidateVoice();
       void stopSpeech();
+      if (!preserveHandsFree) disableHandsFree();
       setSafeStatus(nextStatus);
     },
-    [invalidateVoice, setSafeStatus, stopSpeech],
+    [disableHandsFree, invalidateVoice, setSafeStatus, stopSpeech],
   );
 
   const speakText = useCallback(
-    (text: string) => {
+    (text: string, resumeHandsFree = false) => {
       const trimmedText = text.trim();
       if (!trimmedText) {
         setSafeStatus('error');
@@ -201,6 +230,8 @@ export function useCookingModeVoice({
 
       invalidateVoice();
       const generation = generationRef.current;
+      const shouldResumeHandsFree =
+        resumeHandsFree && handsFreeEnabledRef.current && !handsFreePausedRef.current;
       setError(null);
       setSafeStatus('reading');
       speechActiveRef.current = true;
@@ -213,67 +244,148 @@ export function useCookingModeVoice({
             onStart: () => {
               speechActiveRef.current = true;
               if (generation !== generationRef.current) return;
-              setSafeStatus(sessionRef.current ? 'listening' : 'reading');
+              setSafeStatus('reading');
             },
             onDone: () => {
               speechActiveRef.current = false;
               if (generation !== generationRef.current) return;
               if (processingTimeoutRef.current !== null) return;
+              if (shouldResumeHandsFree && handsFreeEnabledRef.current) {
+                startHandsFreeListeningRef.current?.();
+                return;
+              }
               setSafeStatus(sessionRef.current ? 'listening' : 'ready');
             },
             onStopped: () => {
               speechActiveRef.current = false;
               if (generation !== generationRef.current) return;
               if (processingTimeoutRef.current !== null) return;
+              if (shouldResumeHandsFree && handsFreeEnabledRef.current) {
+                startHandsFreeListeningRef.current?.();
+                return;
+              }
               setSafeStatus(sessionRef.current ? 'listening' : 'ready');
             },
             onError: (speechError) => {
               speechActiveRef.current = false;
               if (generation !== generationRef.current) return;
               if (mountedRef.current) setError(errorMessage(speechError));
+              disableHandsFree();
               setSafeStatus('error');
             },
           });
         } catch (speechError) {
           speechActiveRef.current = false;
           if (mountedRef.current) setError(errorMessage(speechError));
+          disableHandsFree();
           setSafeStatus('error');
         }
       });
     },
-    [invalidateVoice, setSafeStatus, stopSpeech],
+    [disableHandsFree, invalidateVoice, setSafeStatus, stopSpeech],
   );
 
   const readStep = useCallback(() => {
-    speakText(optionsRef.current.currentStepText);
+    speakText(
+      optionsRef.current.currentStepText,
+      handsFreeEnabledRef.current && !handsFreePausedRef.current,
+    );
   }, [speakText]);
 
   const readIngredients = useCallback(() => {
-    speakText(ingredientSpeechText(optionsRef.current.stepIngredients));
+    speakText(
+      ingredientSpeechText(optionsRef.current.stepIngredients),
+      handsFreeEnabledRef.current && !handsFreePausedRef.current,
+    );
   }, [speakText]);
+
+  const pauseHandsFree = useCallback(() => {
+    if (!handsFreeEnabledRef.current) return;
+    handsFreePausedRef.current = true;
+    invalidateVoice();
+    void stopSpeech();
+    setError(null);
+    setSafeStatus('paused');
+  }, [invalidateVoice, setSafeStatus, stopSpeech]);
+
+  const startHandsFree = useCallback(() => {
+    if (!stepId) {
+      setError('Für Hands-free ist kein Zubereitungsschritt verfügbar.');
+      setSafeStatus('error');
+      return;
+    }
+    handsFreeEnabledRef.current = true;
+    handsFreePausedRef.current = false;
+    setHandsFreeEnabled(true);
+    setError(null);
+    invalidateVoice();
+    const generation = generationRef.current;
+    setSafeStatus('processing');
+    void (
+      adapterRef.current.prepare?.({ locale: optionsRef.current.locale }) ??
+      Promise.resolve({ status: 'ready' as const })
+    )
+      .then((preflight) => {
+        if (!mountedRef.current || generation !== generationRef.current) return;
+        if (preflight.status !== 'ready') {
+          if (mountedRef.current) setError(preflight.error);
+          disableHandsFree();
+          setSafeStatus(statusForResult(preflight.status));
+          return;
+        }
+        readStep();
+      })
+      .catch((preflightError: unknown) => {
+        if (!mountedRef.current || generation !== generationRef.current) return;
+        if (mountedRef.current) setError(errorMessage(preflightError));
+        disableHandsFree();
+        setSafeStatus('error');
+      });
+  }, [disableHandsFree, invalidateVoice, readStep, setSafeStatus, stepId]);
+
+  const resumeHandsFree = useCallback(() => {
+    if (!handsFreeEnabledRef.current || !handsFreePausedRef.current) return;
+    handsFreePausedRef.current = false;
+    setError(null);
+    readStep();
+  }, [readStep]);
+
+  const endHandsFree = useCallback(() => {
+    finishVoice('ready');
+    setError(null);
+  }, [finishVoice]);
 
   const stopReading = useCallback(() => {
     finishVoice('ready');
     setError(null);
   }, [finishVoice]);
 
+  const handlePreviousStep = useCallback(() => {
+    const continueHandsFree = handsFreeEnabledRef.current && !handsFreePausedRef.current;
+    finishVoice('ready', continueHandsFree);
+    const moved = optionsRef.current.onPreviousStep?.();
+    if (moved !== true && continueHandsFree) {
+      speakText(optionsRef.current.currentStepText, true);
+    }
+  }, [finishVoice, speakText]);
+
   const executeCommand = useCallback(
     (command: ReturnType<typeof parseCookingVoiceCommand>) => {
       if (!command) {
         if (mountedRef.current)
           setError('Befehl nicht erkannt. Touch-Navigation bleibt verfügbar.');
-        setSafeStatus('error');
+        finishVoice('error');
         return;
       }
 
-      switch (command) {
+      const continueHandsFree = handsFreeEnabledRef.current && !handsFreePausedRef.current;
+      switch (command.kind) {
         case 'next':
-          finishVoice();
+          finishVoice('ready', continueHandsFree);
           optionsRef.current.onNextStep?.();
           return;
         case 'previous':
-          finishVoice();
-          optionsRef.current.onPreviousStep?.();
+          handlePreviousStep();
           return;
         case 'repeat':
           readStep();
@@ -282,19 +394,27 @@ export function useCookingModeVoice({
           readIngredients();
           return;
         case 'start-timer':
-          finishVoice();
-          optionsRef.current.onStartTimer?.();
+          finishVoice('ready', continueHandsFree);
+          optionsRef.current.onStartTimer?.(command.durationSeconds);
+          if (continueHandsFree) startHandsFreeListeningRef.current?.();
           return;
         case 'stop-reading':
           stopReading();
           return;
+        case 'pause': {
+          const pause = () => pauseHandsFree();
+          const coordinatePause = optionsRef.current.onPauseHandsFree;
+          if (coordinatePause) coordinatePause(pause);
+          else pause();
+          return;
+        }
         case 'finish':
           finishVoice();
           optionsRef.current.onFinish?.();
           return;
       }
     },
-    [finishVoice, readIngredients, readStep, setSafeStatus, stopReading],
+    [finishVoice, handlePreviousStep, pauseHandsFree, readIngredients, readStep, stopReading],
   );
 
   const consumeSession = useCallback(
@@ -327,51 +447,65 @@ export function useCookingModeVoice({
       }
 
       if (mountedRef.current) setError(result.error ?? 'Spracherkennung fehlgeschlagen.');
+      disableHandsFree();
       setSafeStatus(statusForResult(result.status));
     },
-    [clearProcessingTimeout, executeCommand, setSafeStatus],
+    [clearProcessingTimeout, disableHandsFree, executeCommand, setSafeStatus],
   );
 
-  const startListening = useCallback(() => {
-    // A user can explicitly start an interrupt listener while TTS is running so
-    // "Vorlesen stoppen" remains a real voice command without auto-starting recognition.
-    const keepSpeechActive = speechActiveRef.current;
-    if (keepSpeechActive) {
-      clearProcessingTimeout();
-      cancelSession();
-    } else {
-      invalidateVoice();
-    }
-    const generation = generationRef.current;
-    setError(null);
-    setSafeStatus('listening');
-    const stopBeforeListening = keepSpeechActive ? Promise.resolve() : stopSpeech();
-    void stopBeforeListening.then(() => {
-      if (!mountedRef.current || generation !== generationRef.current) return;
-      try {
-        const session = adapterRef.current.start({
-          locale: optionsRef.current.locale,
-          continuous: false,
-        });
-        sessionRef.current = session;
-        void consumeSession(session, generation).catch((recognitionError: unknown) => {
-          if (generation !== generationRef.current || !mountedRef.current) return;
-          if (mountedRef.current) setError(errorMessage(recognitionError));
-          setSafeStatus('error');
-        });
-      } catch (recognitionError) {
-        if (mountedRef.current) setError(errorMessage(recognitionError));
-        setSafeStatus('error');
+  const startListeningInternal = useCallback(
+    (fromHandsFree: boolean) => {
+      if (fromHandsFree && (!handsFreeEnabledRef.current || handsFreePausedRef.current)) return;
+
+      // Manual touch can still interrupt TTS for the existing stop-reading command.
+      const keepSpeechActive = speechActiveRef.current && !fromHandsFree;
+      if (keepSpeechActive) {
+        clearProcessingTimeout();
+        cancelSession();
+      } else {
+        invalidateVoice();
       }
-    });
-  }, [
-    cancelSession,
-    clearProcessingTimeout,
-    consumeSession,
-    invalidateVoice,
-    setSafeStatus,
-    stopSpeech,
-  ]);
+      const generation = generationRef.current;
+      setError(null);
+      setSafeStatus('listening');
+      const stopBeforeListening = keepSpeechActive ? Promise.resolve() : stopSpeech();
+      void stopBeforeListening.then(() => {
+        if (!mountedRef.current || generation !== generationRef.current) return;
+        try {
+          const session = adapterRef.current.start({
+            locale: optionsRef.current.locale,
+            continuous: false,
+          });
+          sessionRef.current = session;
+          void consumeSession(session, generation).catch((recognitionError: unknown) => {
+            if (generation !== generationRef.current || !mountedRef.current) return;
+            if (mountedRef.current) setError(errorMessage(recognitionError));
+            disableHandsFree();
+            setSafeStatus('error');
+          });
+        } catch (recognitionError) {
+          if (mountedRef.current) setError(errorMessage(recognitionError));
+          if (fromHandsFree) disableHandsFree();
+          setSafeStatus('error');
+        }
+      });
+    },
+    [
+      cancelSession,
+      clearProcessingTimeout,
+      consumeSession,
+      disableHandsFree,
+      invalidateVoice,
+      setSafeStatus,
+      stopSpeech,
+    ],
+  );
+
+  startHandsFreeListeningRef.current = () => startListeningInternal(true);
+
+  const startListening = useCallback(() => {
+    startListeningInternal(false);
+  }, [startListeningInternal]);
 
   const stopListening = useCallback(() => {
     const session = sessionRef.current;
@@ -390,13 +524,8 @@ export function useCookingModeVoice({
   }, [clearProcessingTimeout, setSafeStatus]);
 
   const handleNextStep = useCallback(() => {
-    finishVoice();
+    finishVoice('ready', handsFreeEnabledRef.current);
     optionsRef.current.onNextStep?.();
-  }, [finishVoice]);
-
-  const handlePreviousStep = useCallback(() => {
-    finishVoice();
-    optionsRef.current.onPreviousStep?.();
   }, [finishVoice]);
 
   const handleStartTimer = useCallback(() => {
@@ -422,15 +551,25 @@ export function useCookingModeVoice({
     };
   }, [cancelSession, clearProcessingTimeout, stepId, stopSpeech]);
 
+  useEffect(() => {
+    if (!stepId || !handsFreeEnabledRef.current || handsFreePausedRef.current) return;
+    speakText(optionsRef.current.currentStepText, true);
+  }, [speakText, stepId]);
+
   return {
     status,
     transcript,
     error,
+    handsFreeEnabled,
     readStep,
     readIngredients,
     stopReading,
     startListening,
     stopListening,
+    startHandsFree,
+    pauseHandsFree,
+    resumeHandsFree,
+    endHandsFree,
     onNextStep: handleNextStep,
     onPreviousStep: handlePreviousStep,
     onStartTimer: handleStartTimer,

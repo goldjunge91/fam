@@ -10,6 +10,7 @@ const STATUS_COPY: Record<CookingModeVoiceState, string> = {
   reading: 'Vorlesen läuft',
   listening: 'Zuhören läuft',
   processing: 'Befehl wird verarbeitet',
+  paused: 'Hands-free pausiert',
   denied: 'Mikrofonzugriff verweigert',
   unavailable: 'Voice nicht verfügbar',
   error: 'Voice-Fehler',
@@ -67,6 +68,10 @@ type CookingModeVoiceStatusProps = {
   onStopReading: () => void;
   onStartListening: () => void;
   onStopListening: () => void;
+  handsFreeEnabled: boolean;
+  onPauseHandsFree: () => void;
+  onResumeHandsFree: () => void;
+  onEndHandsFree: () => void;
 };
 
 function statusColor(status: CookingModeVoiceState, colors: ReturnType<typeof useTheme>['colors']) {
@@ -86,6 +91,10 @@ export function CookingModeVoiceStatus({
   onStopReading,
   onStartListening,
   onStopListening,
+  handsFreeEnabled,
+  onPauseHandsFree,
+  onResumeHandsFree,
+  onEndHandsFree,
 }: CookingModeVoiceStatusProps) {
   const { colors } = useTheme();
   const isListening = status === 'listening' || status === 'processing';
@@ -141,6 +150,30 @@ export function CookingModeVoiceStatus({
             {isListening ? 'Zuhören beenden' : 'Zuhören'}
           </Txt>
         </Press>
+        {handsFreeEnabled ? (
+          <>
+            <Press
+              onPress={status === 'paused' ? onResumeHandsFree : onPauseHandsFree}
+              accessibilityRole="button"
+              accessibilityLabel={
+                status === 'paused' ? 'Hands-free fortsetzen' : 'Hands-free pausieren'
+              }
+              style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
+              <Txt variant="caption" weight="700">
+                {status === 'paused' ? 'Hands-free fortsetzen' : 'Hands-free pausieren'}
+              </Txt>
+            </Press>
+            <Press
+              onPress={onEndHandsFree}
+              accessibilityRole="button"
+              accessibilityLabel="Hands-free beenden"
+              style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
+              <Txt variant="caption" weight="700">
+                Hands-free beenden
+              </Txt>
+            </Press>
+          </>
+        ) : null}
       </View>
     </View>
   );

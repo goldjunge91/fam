@@ -46,6 +46,9 @@ const callbacks = () => ({
   onStopReading: jest.fn(),
   onStartListening: jest.fn(),
   onStopListening: jest.fn(),
+  onPauseHandsFree: jest.fn(),
+  onResumeHandsFree: jest.fn(),
+  onEndHandsFree: jest.fn(),
 });
 
 it.each([
@@ -53,6 +56,7 @@ it.each([
   ['reading', 'Vorlesen läuft'],
   ['listening', 'Zuhören läuft'],
   ['processing', 'Befehl wird verarbeitet'],
+  ['paused', 'Hands-free pausiert'],
   ['denied', 'Mikrofonzugriff verweigert'],
   ['unavailable', 'Voice nicht verfügbar'],
   ['error', 'Voice-Fehler'],
@@ -62,6 +66,7 @@ it.each([
       status={status}
       transcript={null}
       error={status === 'error' ? 'Spracherkennung fehlgeschlagen' : null}
+      handsFreeEnabled={false}
       {...callbacks()}
     />,
   );
@@ -73,7 +78,13 @@ it('exposes reading, ingredient, and listening actions with accessible names', a
   const user = userEvent.setup();
   const handlers = callbacks();
   await render(
-    <CookingModeVoiceStatus status="ready" transcript={null} error={null} {...handlers} />,
+    <CookingModeVoiceStatus
+      status="ready"
+      transcript={null}
+      error={null}
+      handsFreeEnabled={false}
+      {...handlers}
+    />,
   );
 
   await user.press(screen.getByRole('button', { name: 'Vorlesen' }));
@@ -89,7 +100,13 @@ it('switches to stop actions while reading or processing', async () => {
   const user = userEvent.setup();
   const readingHandlers = callbacks();
   await render(
-    <CookingModeVoiceStatus status="reading" transcript={null} error={null} {...readingHandlers} />,
+    <CookingModeVoiceStatus
+      status="reading"
+      transcript={null}
+      error={null}
+      handsFreeEnabled={false}
+      {...readingHandlers}
+    />,
   );
   await user.press(screen.getByRole('button', { name: 'Vorlesen stoppen' }));
   expect(readingHandlers.onStopReading).toHaveBeenCalledTimes(1);
@@ -100,6 +117,7 @@ it('switches to stop actions while reading or processing', async () => {
       status="processing"
       transcript="weiter"
       error={null}
+      handsFreeEnabled={false}
       {...processingHandlers}
     />,
   );
@@ -108,12 +126,43 @@ it('switches to stop actions while reading or processing', async () => {
   expect(processingHandlers.onStopListening).toHaveBeenCalledTimes(1);
 });
 
+it('zeigt manuelle Pause, Fortsetzung und Beenden für Hands-free', async () => {
+  const user = userEvent.setup();
+  const handlers = callbacks();
+  await render(
+    <CookingModeVoiceStatus
+      status="listening"
+      transcript={null}
+      error={null}
+      handsFreeEnabled
+      {...handlers}
+    />,
+  );
+
+  await user.press(screen.getByRole('button', { name: 'Hands-free pausieren' }));
+  expect(handlers.onPauseHandsFree).toHaveBeenCalledTimes(1);
+  await user.press(screen.getByRole('button', { name: 'Hands-free beenden' }));
+  expect(handlers.onEndHandsFree).toHaveBeenCalledTimes(1);
+
+  await screen.rerender(
+    <CookingModeVoiceStatus
+      status="paused"
+      transcript={null}
+      error={null}
+      handsFreeEnabled
+      {...handlers}
+    />,
+  );
+  await user.press(screen.getByRole('button', { name: 'Hands-free fortsetzen' }));
+  expect(handlers.onResumeHandsFree).toHaveBeenCalledTimes(1);
+});
 it('announces voice errors visibly', async () => {
   await render(
     <CookingModeVoiceStatus
       status="error"
       transcript="unbekannt"
       error="Befehl nicht erkannt"
+      handsFreeEnabled={false}
       {...callbacks()}
     />,
   );

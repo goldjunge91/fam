@@ -108,6 +108,24 @@ async function waitForRecognitionStart(): Promise<void> {
 }
 
 describe('speech recognition adapter', () => {
+  it('preflights permissions without starting native recognition and reuses the grant', async () => {
+    const client = createFakeSpeechClient();
+    const adapter = createSpeechRecognitionAdapter(client);
+
+    await expect(adapter.prepare?.()).resolves.toEqual({ status: 'ready' });
+    expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestSpeechRecognizerPermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.start).not.toHaveBeenCalled();
+
+    const session = adapter.start({ continuous: false });
+    await waitForRecognitionStart();
+
+    expect(client.requestMicrophonePermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.requestSpeechRecognizerPermissionsAsync).toHaveBeenCalledTimes(1);
+    expect(client.start).toHaveBeenCalledWith(expect.objectContaining({ continuous: false }));
+    session.cancel();
+  });
+
   it('starts the network-capable recognition contract', async () => {
     const client = createFakeSpeechClient();
     const adapter = createSpeechRecognitionAdapter(client);

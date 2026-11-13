@@ -47,7 +47,9 @@ function createSession(): TestSession {
 
 function createVoiceHarness() {
   const sessions: TestSession[] = [];
+  const prepare = jest.fn(async () => ({ status: 'ready' as const }));
   const adapter: SpeechRecognitionAdapter = {
+    prepare,
     start: jest.fn(() => {
       const session = createSession();
       sessions.push(session);
@@ -58,7 +60,7 @@ function createVoiceHarness() {
     speak: jest.fn(),
     stop: jest.fn(async () => undefined),
   };
-  return { adapter, speech, sessions };
+  return { adapter, prepare, speech, sessions };
 }
 
 async function flushAsyncWork() {
@@ -67,6 +69,7 @@ async function flushAsyncWork() {
 }
 
 async function flushScheduledCommand() {
+  await flushAsyncWork();
   await new Promise<void>((resolve) => setTimeout(resolve, 0));
   await flushAsyncWork();
 }
@@ -502,6 +505,280 @@ describe('useCookingModeVoice', () => {
     });
     expect(stopHook.current.status).toBe('error');
     expect(stopHook.current.error).toBe('stop failed');
-    resolveStopResult(result('cancelled'));
+    await act(async () => {
+      resolveStopResult(result('cancelled'));
+      await flushAsyncWork();
+    });
+  });
+
+  it('does not start hands-free recognition until opt-in and waits for TTS completion', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    expect(hook.current.handsFreeEnabled).toBe(false);
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+    });
+
+    expect(hook.current.handsFreeEnabled).toBe(true);
+    expect(hook.current.status).toBe('reading');
+    expect(speech.speak).toHaveBeenCalledWith('Zwiebeln fein hacken.', expect.anything());
+    expect(adapter.start).not.toHaveBeenCalled();
+
+    const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+      onDone: () => void;
+    };
+    await act(async () => {
+      speechOptions.onDone();
+      await flushAsyncWork();
+    });
+
+    expect(adapter.start).toHaveBeenCalledWith({
+      locale: expect.any(String),
+      continuous: false,
+    });
+    expect(sessions).toHaveLength(1);
+    expect(hook.current.status).toBe('listening');
+  });
+
+  it('preflights permissions before speaking the first hands-free step', async () => {
+    let resolvePreflight!: (value: { status: 'ready' }) => void;
+    const prepare = jest.fn(
+      () => new Promise<{ status: 'ready' }>((resolve) => (resolvePreflight = resolve)),
+    );
+    const { adapter, speech } = createVoiceHarness();
+    adapter.prepare = prepare;
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+    });
+
+    expect(prepare).toHaveBeenCalledTimes(1);
+    expect(speech.speak).not.toHaveBeenCalled();
+
+    await act(async () => {
+      resolvePreflight({ status: 'ready' });
+      await flushAsyncWork();
+    });
+
+    expect(speech.speak).toHaveBeenCalledWith('Zwiebeln fein hacken.', expect.anything());
+    expect(adapter.start).not.toHaveBeenCalled();
+  });
+
+  it('falls back to touch controls when the hands-free preflight is denied', async () => {
+    const { adapter, speech } = createVoiceHarness();
+    adapter.prepare = jest.fn(async () => ({
+      status: 'permission-denied' as const,
+      error: 'Sprachberechtigung verweigert',
+    }));
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+    });
+
+    expect(speech.speak).not.toHaveBeenCalled();
+    expect(adapter.start).not.toHaveBeenCalled();
+    expect(hook.current.handsFreeEnabled).toBe(false);
+    expect(hook.current.status).toBe('denied');
+    expect(hook.current.error).toBe('Sprachberechtigung verweigert');
+  });
+
+  it('re-arms the current step after a spoken previous command at the first step', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const onPreviousStep = jest.fn(() => false);
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech, onPreviousStep }),
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+      const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+        onDone: () => void;
+      };
+      speechOptions.onDone();
+      await flushAsyncWork();
+      sessions[0].emitFinalResult(transcript('zurück'));
+      await flushScheduledCommand();
+    });
+
+    expect(onPreviousStep).toHaveBeenCalledTimes(1);
+    expect(speech.speak).toHaveBeenCalledTimes(2);
+
+    const repeatSpeechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+      onDone: () => void;
+    };
+    await act(async () => {
+      repeatSpeechOptions.onDone();
+      await flushAsyncWork();
+    });
+
+    expect(sessions).toHaveLength(2);
+    expect(hook.current.status).toBe('listening');
+  });
+
+  it('routes a spoken pause through the timer-aware pause coordinator', async () => {
+    jest.useFakeTimers();
+    try {
+      const { adapter, speech, sessions } = createVoiceHarness();
+      const onPauseHandsFree = jest.fn((pause: () => void) => pause());
+      const { result: hook } = await renderHook(() =>
+        useCookingModeVoice({ ...options, adapter, speech, onPauseHandsFree }),
+      );
+
+      await act(async () => {
+        hook.current.startHandsFree();
+        await flushAsyncWork();
+        const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+          onDone: () => void;
+        };
+        speechOptions.onDone();
+        await flushAsyncWork();
+        sessions[0].emitFinalResult(transcript('Pause'));
+        await flushAsyncWork();
+      });
+
+      expect(hook.current.status).toBe('processing');
+      await act(async () => {
+        jest.runOnlyPendingTimers();
+        await flushAsyncWork();
+      });
+
+      expect(onPauseHandsFree).toHaveBeenCalledTimes(1);
+      expect(hook.current.status).toBe('paused');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('re-arms one-shot recognition after a spoken timer command', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const onStartTimer = jest.fn();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech, onStartTimer }),
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+    });
+    const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+      onDone: () => void;
+    };
+    await act(async () => {
+      speechOptions.onDone();
+      await flushAsyncWork();
+      sessions[0].emitFinalResult(transcript('Timer für 5 Minuten starten'));
+      await flushScheduledCommand();
+    });
+
+    expect(onStartTimer).toHaveBeenCalledWith(300);
+    expect(sessions).toHaveLength(2);
+    expect(hook.current.handsFreeEnabled).toBe(true);
+    expect(hook.current.status).toBe('listening');
+  });
+
+  it('speaks the next step automatically after a spoken next command', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const onNextStep = jest.fn();
+    const { result: hook, rerender } = await renderHook(
+      ({ stepId }: { stepId: string }) =>
+        useCookingModeVoice({
+          ...options,
+          stepId,
+          currentStepText: stepId === 'step-1' ? options.currentStepText : 'Nudeln kochen.',
+          adapter,
+          speech,
+          onNextStep,
+        }),
+      { initialProps: { stepId: 'step-1' } },
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+      const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+        onDone: () => void;
+      };
+      speechOptions.onDone();
+      await flushAsyncWork();
+      sessions[0].emitFinalResult(transcript('weiter'));
+      await flushScheduledCommand();
+    });
+
+    expect(onNextStep).toHaveBeenCalledTimes(1);
+    await rerender({ stepId: 'step-2' });
+    await act(async () => {
+      await flushAsyncWork();
+    });
+
+    expect(speech.speak).toHaveBeenLastCalledWith('Nudeln kochen.', expect.anything());
+    expect(hook.current.handsFreeEnabled).toBe(true);
+  });
+
+  it('pauses without changing the step and resumes through the manual path', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+      const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+        onDone: () => void;
+      };
+      speechOptions.onDone();
+      await flushAsyncWork();
+    });
+
+    await act(async () => {
+      hook.current.pauseHandsFree();
+      await flushAsyncWork();
+    });
+    expect(hook.current.status).toBe('paused');
+    expect(hook.current.handsFreeEnabled).toBe(true);
+    expect(sessions[0]?.cancel).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      hook.current.resumeHandsFree();
+      await flushAsyncWork();
+    });
+    expect(speech.speak).toHaveBeenCalledTimes(2);
+    expect(speech.speak).toHaveBeenLastCalledWith('Zwiebeln fein hacken.', expect.anything());
+  });
+
+  it('falls back to touch controls after an unknown hands-free transcript', async () => {
+    const { adapter, speech, sessions } = createVoiceHarness();
+    const { result: hook } = await renderHook(() =>
+      useCookingModeVoice({ ...options, adapter, speech }),
+    );
+
+    await act(async () => {
+      hook.current.startHandsFree();
+      await flushAsyncWork();
+      const speechOptions = (speech.speak as jest.Mock).mock.calls.at(-1)?.[1] as {
+        onDone: () => void;
+      };
+      speechOptions.onDone();
+      await flushAsyncWork();
+      sessions[0].emitFinalResult(transcript('Was mache ich jetzt?'));
+      await flushScheduledCommand();
+    });
+
+    expect(hook.current.status).toBe('error');
+    expect(hook.current.handsFreeEnabled).toBe(false);
+    expect(hook.current.error).toContain('Befehl nicht erkannt');
   });
 });

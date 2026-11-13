@@ -30,6 +30,9 @@ type CookingModeStepProps = {
   onResetTimer: () => void;
   onPreviousStep: () => void;
   onNextStep: () => void;
+  onPauseHandsFree?: () => void;
+  onResumeHandsFree?: () => void;
+  onEndHandsFree?: () => void;
 };
 
 const styles = StyleSheet.create((theme) => ({
@@ -125,6 +128,9 @@ export function CookingModeStep({
   onResetTimer,
   onPreviousStep,
   onNextStep,
+  onPauseHandsFree,
+  onResumeHandsFree,
+  onEndHandsFree,
 }: CookingModeStepProps) {
   const { colors } = useTheme();
   const scrollRef = useRef<ScrollView>(null);
@@ -222,6 +228,10 @@ export function CookingModeStep({
           onStopReading={voice.stopReading}
           onStartListening={voice.startListening}
           onStopListening={voice.stopListening}
+          handsFreeEnabled={voice.handsFreeEnabled}
+          onPauseHandsFree={onPauseHandsFree ?? voice.pauseHandsFree}
+          onResumeHandsFree={onResumeHandsFree ?? voice.resumeHandsFree}
+          onEndHandsFree={onEndHandsFree ?? voice.endHandsFree}
         />
 
         <CookingModeTimer

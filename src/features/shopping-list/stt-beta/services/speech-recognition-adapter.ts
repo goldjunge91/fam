@@ -56,7 +56,16 @@ export type SpeechRecognitionStartOptions = {
   continuous?: boolean;
 };
 
+export type SpeechRecognitionPreflightResult =
+  | { status: 'ready' }
+  | {
+      status: 'capability-unavailable' | 'permission-denied' | 'error';
+      error: string;
+      errorCode?: string;
+    };
+
 export type SpeechRecognitionAdapter = {
+  prepare?: (options?: { locale?: string }) => Promise<SpeechRecognitionPreflightResult>;
   start: (options?: SpeechRecognitionStartOptions) => SpeechRecognitionSession;
 };
 
@@ -128,7 +137,72 @@ export function createSpeechRecognitionAdapter(
   // Network-backed recognition is allowed when the user grants iOS speech permission.
   const requiresOnDeviceRecognition = REQUIRES_ON_DEVICE_RECOGNITION;
 
+  let permissionsPrepared = false;
+  const prepare = async ({ locale = getDeviceSpeechLocale() }: { locale?: string } = {}) => {
+    if (permissionsPrepared) return { status: 'ready' } as const;
+
+    let recognitionAvailable = false;
+    let onDeviceAvailable = true;
+    try {
+      recognitionAvailable = client.isRecognitionAvailable();
+      if (requiresOnDeviceRecognition) {
+        onDeviceAvailable = client.supportsOnDeviceRecognition();
+      }
+      speechTrace('capability.checked', { recognitionAvailable, onDeviceAvailable });
+    } catch (error) {
+      return { status: 'error' as const, error: errorMessage(error) };
+    }
+
+    if (!recognitionAvailable || (requiresOnDeviceRecognition && !onDeviceAvailable)) {
+      return {
+        status: 'capability-unavailable' as const,
+        error: !recognitionAvailable
+          ? 'Spracherkennung nicht verfügbar'
+          : 'On-Device-Spracherkennung nicht verfügbar',
+      };
+    }
+
+    try {
+      debugLogEvent('shopping-list.voice-permission.requested', { locale });
+      const permission = await client.requestMicrophonePermissionsAsync();
+      debugLogEvent('shopping-list.voice-permission.result', {
+        granted: permission.granted,
+        ...(permission.status ? { status: permission.status } : {}),
+        ...(permission.canAskAgain !== undefined ? { canAskAgain: permission.canAskAgain } : {}),
+      });
+
+      if (!permission.granted) {
+        return {
+          status: 'permission-denied' as const,
+          error: 'Sprachberechtigung verweigert',
+          errorCode: 'speech-permission-denied',
+        };
+      }
+
+      if (!requiresOnDeviceRecognition && Platform.OS === 'ios') {
+        const speechPermission = await client.requestSpeechRecognizerPermissionsAsync();
+        if (!speechPermission.granted) {
+          return {
+            status: 'permission-denied' as const,
+            error: 'Spracherkennung nicht freigegeben',
+            errorCode: 'speech-recognition-permission-denied',
+          };
+        }
+      }
+
+      permissionsPrepared = true;
+      return { status: 'ready' } as const;
+    } catch (error) {
+      return {
+        status: 'error' as const,
+        error: errorMessage(error),
+        errorCode: 'permission-request-failed',
+      };
+    }
+  };
+
   return {
+    prepare,
     start({ locale = getDeviceSpeechLocale(), onVolumeChange, continuous = true } = {}) {
       let settled = false;
       let recognitionStarted = false;
@@ -249,73 +323,19 @@ export function createSpeechRecognitionAdapter(
 
       const session = { result, stop, cancel } satisfies SpeechRecognitionSession;
 
-      let recognitionAvailable = false;
-      let onDeviceAvailable = true;
-      try {
-        recognitionAvailable = client.isRecognitionAvailable();
-        if (requiresOnDeviceRecognition) {
-          onDeviceAvailable = client.supportsOnDeviceRecognition();
-        }
-        speechTrace('capability.checked', { recognitionAvailable, onDeviceAvailable });
-      } catch (error) {
-        finish(fallback('error', locale, errorMessage(error)));
-        return session;
-      }
-
-      if (!recognitionAvailable || (requiresOnDeviceRecognition && !onDeviceAvailable)) {
-        finish(
-          fallback(
-            'capability-unavailable',
-            locale,
-            !recognitionAvailable
-              ? 'Spracherkennung nicht verfügbar'
-              : 'On-Device-Spracherkennung nicht verfügbar',
-          ),
-        );
-        return session;
-      }
-
-      debugLogEvent('shopping-list.voice-permission.requested', { locale });
-      const permissionRequest = client.requestMicrophonePermissionsAsync();
+      const permissionRequest = permissionsPrepared
+        ? Promise.resolve({ status: 'ready' as const })
+        : prepare({ locale });
       void permissionRequest
-        .then(async (permission) => {
+        .then((preflight) => {
           if (settled) return;
 
-          debugLogEvent('shopping-list.voice-permission.result', {
-            granted: permission.granted,
-            ...(permission.status ? { status: permission.status } : {}),
-            ...(permission.canAskAgain !== undefined
-              ? { canAskAgain: permission.canAskAgain }
-              : {}),
-          });
-
-          if (!permission.granted) {
-            finish(
-              fallback(
-                'permission-denied',
-                locale,
-                'Sprachberechtigung verweigert',
-                'speech-permission-denied',
-              ),
-            );
+          if (preflight.status !== 'ready') {
+            finish(fallback(preflight.status, locale, preflight.error, preflight.errorCode));
             return;
           }
 
-          if (!requiresOnDeviceRecognition && Platform.OS === 'ios') {
-            const speechPermission = await client.requestSpeechRecognizerPermissionsAsync();
-            if (!speechPermission.granted) {
-              finish(
-                fallback(
-                  'permission-denied',
-                  locale,
-                  'Spracherkennung nicht freigegeben',
-                  'speech-recognition-permission-denied',
-                ),
-              );
-              return;
-            }
-          }
-
+          permissionsPrepared = false;
           if (stopRequested) {
             speechTrace('stop.observed-before-native-start');
             finish(fallback('cancelled', locale, 'Spracherkennung abgebrochen'));

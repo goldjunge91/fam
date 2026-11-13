@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react';
+import { useKeepAwake } from 'expo-keep-awake';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useCatalogImageUrl } from '../../catalog/use-recipe-catalog';
 import {
@@ -20,12 +21,18 @@ type CatalogStepImage = {
   storage_path: string;
 };
 
+function CookingModeKeepAwake() {
+  useKeepAwake('cooking-mode-hands-free');
+  return null;
+}
+
 type CookingModePlusFlowProps = {
   recipe: RecipeDetail['recipe'];
   steps: RecipeStep[];
   ingredients: MentionableIngredient[];
   catalogStepImages?: readonly CatalogStepImage[];
   initialStepIndex?: number;
+  handsFreeEnabled?: boolean;
   onFinish: (stepIndex?: number) => void;
 };
 
@@ -35,6 +42,7 @@ export function CookingModePlusFlow({
   ingredients,
   catalogStepImages = [],
   initialStepIndex = 0,
+  handsFreeEnabled = false,
   onFinish,
 }: CookingModePlusFlowProps) {
   if (steps.length === 0) {
@@ -47,6 +55,7 @@ export function CookingModePlusFlow({
       ingredients={ingredients}
       catalogStepImages={catalogStepImages}
       initialStepIndex={initialStepIndex}
+      handsFreeEnabled={handsFreeEnabled}
       onFinish={onFinish}
     />
   );
@@ -57,6 +66,7 @@ function CookingModePlusStepFlow({
   ingredients,
   catalogStepImages = [],
   initialStepIndex = 0,
+  handsFreeEnabled = false,
   onFinish,
 }: Omit<CookingModePlusFlowProps, 'recipe'>) {
   const safeInitialStepIndex = Math.min(
@@ -77,6 +87,7 @@ function CookingModePlusStepFlow({
   const durationSeconds = getCookingTimerDurationSeconds(currentStep);
   const {
     remainingSeconds,
+    activeDurationSeconds,
     running,
     start: startTimer,
     pause: pauseTimer,
@@ -90,7 +101,21 @@ function CookingModePlusStepFlow({
     }
     setStepIndex((value) => value + 1);
   }, [finish, stepIndex, steps.length]);
-  const onPreviousStep = useCallback(() => setStepIndex((value) => Math.max(0, value - 1)), []);
+  const onPreviousStep = useCallback(() => {
+    if (stepIndex === 0) return false;
+    setStepIndex((value) => Math.max(0, value - 1));
+    return true;
+  }, [stepIndex]);
+  const handsFreeStartedRef = useRef(false);
+  const timerWasRunningBeforeHandsFreePauseRef = useRef(false);
+  const pauseHandsFree = useCallback(
+    (pauseVoice: () => void) => {
+      timerWasRunningBeforeHandsFreePauseRef.current = running;
+      pauseVoice();
+      pauseTimer();
+    },
+    [pauseTimer, running],
+  );
   const voice = useCookingModeVoice({
     stepId: currentStep.id,
     currentStepText,
@@ -98,26 +123,53 @@ function CookingModePlusStepFlow({
     onNextStep,
     onPreviousStep,
     onStartTimer: startTimer,
+    onPauseHandsFree: pauseHandsFree,
     onFinish: finish,
   });
+  const displayedDurationSeconds = activeDurationSeconds || durationSeconds;
+
+  const resumeHandsFree = useCallback(() => {
+    voice.resumeHandsFree();
+    if (timerWasRunningBeforeHandsFreePauseRef.current) startTimer();
+  }, [startTimer, voice.resumeHandsFree]);
+  const pauseHandsFreeFromUi = useCallback(
+    () => pauseHandsFree(voice.pauseHandsFree),
+    [pauseHandsFree, voice.pauseHandsFree],
+  );
+  const endHandsFree = useCallback(() => {
+    voice.endHandsFree();
+    pauseTimer();
+  }, [pauseTimer, voice.endHandsFree]);
+
+  useEffect(() => {
+    if (!handsFreeEnabled || handsFreeStartedRef.current) return;
+    handsFreeStartedRef.current = true;
+    voice.startHandsFree();
+  }, [handsFreeEnabled, voice.startHandsFree]);
 
   return (
-    <CookingModeStep
-      steps={steps}
-      stepIndex={stepIndex}
-      currentStep={currentStep}
-      currentStepImageUrl={currentStepImageUrl}
-      mentionIngredients={ingredients}
-      stepIngredients={stepIngredients}
-      durationSeconds={durationSeconds}
-      remainingSeconds={remainingSeconds}
-      timerRunning={running}
-      voice={voice}
-      onStartTimer={startTimer}
-      onPauseTimer={pauseTimer}
-      onResetTimer={resetTimer}
-      onPreviousStep={voice.onPreviousStep}
-      onNextStep={voice.onNextStep}
-    />
+    <>
+      {voice.handsFreeEnabled && voice.status !== 'paused' ? <CookingModeKeepAwake /> : null}
+      <CookingModeStep
+        steps={steps}
+        stepIndex={stepIndex}
+        currentStep={currentStep}
+        currentStepImageUrl={currentStepImageUrl}
+        mentionIngredients={ingredients}
+        stepIngredients={stepIngredients}
+        durationSeconds={displayedDurationSeconds}
+        remainingSeconds={remainingSeconds}
+        timerRunning={running}
+        voice={voice}
+        onStartTimer={startTimer}
+        onPauseTimer={pauseTimer}
+        onResetTimer={resetTimer}
+        onPreviousStep={voice.onPreviousStep}
+        onNextStep={voice.onNextStep}
+        onPauseHandsFree={pauseHandsFreeFromUi}
+        onResumeHandsFree={resumeHandsFree}
+        onEndHandsFree={endHandsFree}
+      />
+    </>
   );
 }

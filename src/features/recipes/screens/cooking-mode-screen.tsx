@@ -1,5 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Alert } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Txt } from '@/constants/ui';
@@ -74,7 +75,17 @@ export function CookingModeScreen() {
   const { hasPlus } = usePremium();
   const [finished, setFinished] = useState(false);
   const [lastPlusStepIndex, setLastPlusStepIndex] = useState(0);
+  const [handsFreeChoice, setHandsFreeChoice] = useState<{
+    key: string;
+    enabled: boolean;
+  } | null>(null);
+  const handsFreePromptedRef = useRef<string | null>(null);
   const completedRecipeIdRef = useRef<string | null>(null);
+  const handsFreePromptKey =
+    data && data.steps.length > 0
+      ? `${isCatalog ? 'catalog' : 'recipe'}:${isCatalog ? (slug ?? data.recipe.id) : data.recipe.id}`
+      : null;
+  const handsFreeEnabled = handsFreeChoice?.key === handsFreePromptKey && handsFreeChoice.enabled;
   const displayedSteps = useMemo(
     () =>
       data?.steps.map((step) => ({
@@ -93,6 +104,30 @@ export function CookingModeScreen() {
         : [],
     [data, temporarySwap],
   );
+  useEffect(() => {
+    if (!hasPlus || !handsFreePromptKey || handsFreePromptedRef.current === handsFreePromptKey) {
+      return;
+    }
+
+    handsFreePromptedRef.current = handsFreePromptKey;
+    setHandsFreeChoice({ key: handsFreePromptKey, enabled: false });
+    Alert.alert(
+      'Hands-free im Kochmodus?',
+      'Soll der aktuelle Schritt vorgelesen werden und danach auf einen Sprachbefehl warten?',
+      [
+        {
+          text: 'Nein',
+          style: 'cancel',
+          onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: false }),
+        },
+        {
+          text: 'Hands-free aktivieren',
+          onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: true }),
+        },
+      ],
+    );
+  }, [handsFreePromptKey, hasPlus]);
+
   useEffect(() => {
     const recipeId = data?.recipe.id;
     if (!finished || !recipeId || completedRecipeIdRef.current === recipeId) return;
@@ -133,8 +168,12 @@ export function CookingModeScreen() {
         ingredients={displayedIngredients}
         catalogStepImages={catalogData?.stepImages}
         initialStepIndex={lastPlusStepIndex}
+        handsFreeEnabled={handsFreeEnabled}
         onFinish={(stepIndex) => {
           if (stepIndex !== undefined) setLastPlusStepIndex(stepIndex);
+          setHandsFreeChoice((current) =>
+            current?.key === handsFreePromptKey ? { ...current, enabled: false } : current,
+          );
           setFinished(true);
         }}
       />

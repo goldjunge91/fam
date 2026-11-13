@@ -80,10 +80,52 @@ jest.mock('./cooking-mode-timer', () => {
 
 jest.mock('./cooking-mode-voice-status', () => {
   const React = jest.requireActual<typeof import('react')>('react');
-  const { Text: NativeText } = jest.requireActual<typeof import('react-native')>('react-native');
+  const { Pressable: NativePressable, Text: NativeText } =
+    jest.requireActual<typeof import('react-native')>('react-native');
   return {
-    CookingModeVoiceStatus: ({ status }: { status: string }) =>
-      React.createElement(NativeText, null, `Voice: ${status}`),
+    CookingModeVoiceStatus: ({
+      status,
+      onPauseHandsFree,
+      onResumeHandsFree,
+      onEndHandsFree,
+    }: {
+      status: string;
+      onPauseHandsFree: () => void;
+      onResumeHandsFree: () => void;
+      onEndHandsFree: () => void;
+    }) =>
+      React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(NativeText, null, `Voice: ${status}`),
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'pause-hands-free',
+            onPress: onPauseHandsFree,
+          },
+          React.createElement(NativeText, null, 'Pause Hands-free'),
+        ),
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'resume-hands-free',
+            onPress: onResumeHandsFree,
+          },
+          React.createElement(NativeText, null, 'Resume Hands-free'),
+        ),
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'end-hands-free',
+            onPress: onEndHandsFree,
+          },
+          React.createElement(NativeText, null, 'End Hands-free'),
+        ),
+      ),
   };
 });
 
@@ -97,6 +139,11 @@ function makeVoice() {
     stopReading: jest.fn(),
     startListening: jest.fn(),
     stopListening: jest.fn(),
+    handsFreeEnabled: false,
+    startHandsFree: jest.fn(),
+    pauseHandsFree: jest.fn(),
+    resumeHandsFree: jest.fn(),
+    endHandsFree: jest.fn(),
     onNextStep: jest.fn(),
     onPreviousStep: jest.fn(),
     onStartTimer: jest.fn(),
@@ -244,6 +291,43 @@ it('zeigt bei fehlenden Bildern die vollständige Anweisung ohne Fallback-Artwor
   expect(screen.getByText(/Zwiebeln fein hacken\./)).toBeOnTheScreen();
   expect(screen.queryByText('Schritt-Artwork')).not.toBeOnTheScreen();
   expect(screen.getByText('30:30:pausiert')).toBeOnTheScreen();
+});
+
+it('leitet die sichtbaren Hands-free-Aktionen an die uebergebenen Lifecycle-Callbacks weiter', async () => {
+  const user = userEvent.setup();
+  const onPauseHandsFree = jest.fn();
+  const onResumeHandsFree = jest.fn();
+  const onEndHandsFree = jest.fn();
+
+  await render(
+    <CookingModeStep
+      steps={[makeStep()]}
+      stepIndex={0}
+      currentStep={makeStep()}
+      mentionIngredients={[]}
+      stepIngredients={[]}
+      voice={{ ...makeVoice(), handsFreeEnabled: true }}
+      durationSeconds={null}
+      remainingSeconds={0}
+      timerRunning={false}
+      onStartTimer={jest.fn()}
+      onPauseTimer={jest.fn()}
+      onResetTimer={jest.fn()}
+      onPreviousStep={jest.fn()}
+      onNextStep={jest.fn()}
+      onPauseHandsFree={onPauseHandsFree}
+      onResumeHandsFree={onResumeHandsFree}
+      onEndHandsFree={onEndHandsFree}
+    />,
+  );
+
+  await user.press(screen.getByRole('button', { name: 'pause-hands-free' }));
+  await user.press(screen.getByRole('button', { name: 'resume-hands-free' }));
+  await user.press(screen.getByRole('button', { name: 'end-hands-free' }));
+
+  expect(onPauseHandsFree).toHaveBeenCalledTimes(1);
+  expect(onResumeHandsFree).toHaveBeenCalledTimes(1);
+  expect(onEndHandsFree).toHaveBeenCalledTimes(1);
 });
 
 it('setzt den Inhaltsbereich beim Wechsel auf einen neuen Schritt an den Anfang', async () => {
