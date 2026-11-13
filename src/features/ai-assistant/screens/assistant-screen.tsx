@@ -1728,8 +1728,8 @@ export function AssistantScreen() {
                 </Txt>
               </View>
             ) : null}
-            {renderExpiringFlow()}
             <FlashList
+              testID="assistant-message-list"
               data={activeThread?.messages ?? []}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
@@ -1822,6 +1822,7 @@ export function AssistantScreen() {
                   </View>
                 </View>
               )}
+              ListHeaderComponent={renderExpiringFlow()}
               ListEmptyComponent={
                 <View style={styles.emptyState}>
                   <Txt variant="heading" weight="700" center>

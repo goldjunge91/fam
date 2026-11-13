@@ -46,20 +46,25 @@ type MockHeaderProps = { header: { title: string; trailing?: ReactNode }; childr
 
 jest.mock('@shopify/flash-list', () => {
   const React = require('react');
-  const { View: NativeView } = require('react-native');
+  const { ScrollView: NativeScrollView } = require('react-native');
   return {
     FlashList: ({
       data,
       renderItem,
+      ListHeaderComponent,
       ListEmptyComponent,
+      testID,
     }: {
       data: unknown[];
       renderItem: (args: { item: unknown }) => ReactNode;
+      ListHeaderComponent?: ReactNode;
       ListEmptyComponent?: ReactNode | (() => ReactNode);
+      testID?: string;
     }) =>
       React.createElement(
-        NativeView,
-        null,
+        NativeScrollView,
+        { testID },
+        ListHeaderComponent,
         data.length
           ? data.map((item, index) =>
               React.createElement(React.Fragment, { key: index }, renderItem({ item })),
@@ -685,6 +690,35 @@ describe('AssistantScreen', () => {
       await user.press(screen.getByRole('button', { name: 'Mit Reis' }));
       await waitFor(() => expect(mockSendMessage).toHaveBeenCalledTimes(2));
       expect(mockSendMessage.mock.calls.at(-1)?.[0]).not.toHaveProperty('focusedInventoryLotIds');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('keeps the expiring picker inside the scrollable assistant list', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    try {
+      const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+      mockInventoryItems = Array.from({ length: 12 }, (_, index) =>
+        expiringInventoryItem(`lot-${index + 1}`, `Artikel ${index + 1}`, soon),
+      );
+      await renderAssistant();
+
+      await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+      await act(async () => {
+        jest.advanceTimersByTime(300);
+      });
+      expect(
+        await screen.findByText(
+          'Okay, wähle aus den ablaufenden Lebensmitteln die aus, die du retten willst.',
+        ),
+      ).toBeOnTheScreen();
+
+      const list = screen.getByTestId('assistant-message-list');
+      await user.scrollTo(list, { y: 1_000 });
+      expect(list).toContainElement(screen.getByText('Bald ablaufend'));
+      expect(list).toContainElement(screen.getByRole('checkbox', { name: 'Artikel 12' }));
     } finally {
       jest.useRealTimers();
     }
