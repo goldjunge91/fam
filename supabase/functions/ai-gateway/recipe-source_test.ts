@@ -1,6 +1,11 @@
 import { assert, assertEquals, assertStringIncludes } from 'jsr:@std/assert@1';
 
-import { extractPublicVideoUrl, isPublicHttpsUrl, loadRecipePage } from './recipe-source.ts';
+import {
+  extractInstagramEmbedCaption,
+  extractPublicVideoUrl,
+  isPublicHttpsUrl,
+  loadRecipePage,
+} from './recipe-source.ts';
 
 type FakeDns = (hostname: string, recordType: string) => Promise<string[]>;
 
@@ -38,6 +43,61 @@ function htmlResponse(body: string, contentType = 'text/html'): Response {
     headers: { 'content-type': contentType },
   });
 }
+
+Deno.test('extracts only visible text from the Instagram embed caption block', () => {
+  const html = `
+    <script>const hidden = '<div class="Caption">not visible</div>';</script>
+    <div class="Caption"><a href="/flohrsmixwelt">flohrsmixwelt</a><br /><br />
+      🥗 Thunfisch-Nudelsalat &amp; Wasser
+    </div>`;
+
+  assertEquals(
+    extractInstagramEmbedCaption(html),
+    'flohrsmixwelt\n\n🥗 Thunfisch-Nudelsalat & Wasser',
+  );
+  assertEquals(extractInstagramEmbedCaption('<div class="Other">kein Caption-Block</div>'), null);
+});
+
+Deno.test('loads the concrete Reel caption from its same-origin captioned embed fallback', async () => {
+  const reelUrl = 'https://www.instagram.com/reel/DflxckcqAIO/?vrfl=MTdvZ3ozYzBmaGFxNA==';
+  const embedUrl = 'https://www.instagram.com/reel/DflxckcqAIO/embed/captioned/';
+  const fetchCalls: string[] = [];
+
+  await withNetworkFakes(
+    (_hostname, recordType) => Promise.resolve(recordType === 'A' ? ['93.184.216.34'] : []),
+    (input, init) => {
+      const requestedUrl = String(input);
+      fetchCalls.push(requestedUrl);
+      assertEquals(new Headers(init?.headers).get('cookie'), null);
+      if (requestedUrl === reelUrl) {
+        return Promise.resolve(htmlResponse(`
+          <meta property="og:video:secure_url"
+            content="https://scontent.cdninstagram.com/reel.mp4?token=signed">
+          <main>Instagram</main>
+        `));
+      }
+      if (requestedUrl === embedUrl) {
+        return Promise.resolve(htmlResponse(
+          '<div class="Caption"><a href="/flohrsmixwelt">flohrsmixwelt</a><br /><br />' +
+            '🥗 Thunfisch-Nudelsalat im Glas<br /><br />✅ 120 g Nudeln</div>',
+        ));
+      }
+      return Promise.reject(new Error(`unexpected URL: ${requestedUrl}`));
+    },
+    async () => {
+      const result = await loadRecipePage(reelUrl);
+      assert(result.ok);
+      if (!result.ok) return;
+      assertEquals(
+        result.instagramCaption,
+        'flohrsmixwelt\n\n🥗 Thunfisch-Nudelsalat im Glas\n\n✅ 120 g Nudeln',
+      );
+      assertEquals(result.videoUrl, 'https://scontent.cdninstagram.com/reel.mp4?token=signed');
+      assertEquals(result.draft, null);
+      assertEquals(fetchCalls, [reelUrl, embedUrl]);
+    },
+  );
+});
 
 Deno.test('allows only public HTTPS hosts after resolving every address', async () => {
   const dnsCalls: string[] = [];

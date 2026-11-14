@@ -191,6 +191,58 @@ function tagAttribute(tag: string, name: string): string | null {
   return value?.replace(/&amp;/gi, '&').replace(/&#x26;/gi, '&') ?? null;
 }
 
+function hasHtmlClass(tag: string, className: string): boolean {
+  return tagAttribute(tag, 'class')?.split(/\s+/).includes(className) ?? false;
+}
+
+/** Extracts the visible caption block rendered by Instagram's captioned embed page. */
+export function extractInstagramEmbedCaption(html: string): string | null {
+  const visibleHtml = html
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|noscript|svg|iframe)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, ' ');
+  let depth = 0;
+  let contentStart = -1;
+  for (const match of visibleHtml.matchAll(/<\/?div\b[^>]*>/gi)) {
+    const tag = match[0];
+    const index = match.index ?? -1;
+    if (index < 0) continue;
+    if (/^<\//.test(tag)) {
+      if (depth === 0) continue;
+      depth -= 1;
+      if (depth === 0) {
+        const caption = textContentFromHtml(visibleHtml.slice(contentStart, index))
+          .replace(/[ \t]+\n/g, '\n')
+          .trim();
+        return caption || null;
+      }
+      continue;
+    }
+    if (depth > 0) {
+      depth += 1;
+      continue;
+    }
+    if (!hasHtmlClass(tag, 'Caption')) continue;
+    depth = 1;
+    contentStart = index + tag.length;
+  }
+  return null;
+}
+
+function instagramCaptionedEmbedUrl(value: string): string | null {
+  try {
+    const url = new URL(value);
+    const hostname = url.hostname.toLowerCase();
+    if (hostname !== 'instagram.com' && !hostname.endsWith('.instagram.com')) return null;
+    const reel = url.pathname.match(/^\/reel\/([a-z0-9_-]+)\/?$/i);
+    if (!reel) return null;
+    const embedUrl = new URL(url.origin);
+    embedUrl.pathname = `/reel/${reel[1]}/embed/captioned/`;
+    return embedUrl.href;
+  } catch {
+    return null;
+  }
+}
+
 function isInstagramPageUrl(value: string): boolean {
   try {
     const hostname = new URL(value).hostname.toLowerCase();
@@ -337,16 +389,11 @@ async function readLimitedText(response: Response): Promise<string | null> {
   return new TextDecoder().decode(bytes);
 }
 
-export async function loadRecipePage(url: string): Promise<
-  | {
-    ok: true;
-    text: string;
-    draft: RecipeImportDraft | null;
-    videoUrl: string | null;
-    instagramCaption?: string;
-  }
-  | { ok: false; status: number; error: string }
-> {
+type PublicHtmlResult =
+  | { ok: true; url: string; html: string }
+  | { ok: false; status: number; error: string };
+
+async function loadPublicHtml(url: string): Promise<PublicHtmlResult> {
   let currentUrl = url;
   for (let redirects = 0; redirects <= 3; redirects += 1) {
     if (!await isPublicHttpsUrl(currentUrl)) {
@@ -386,27 +433,50 @@ export async function loadRecipePage(url: string): Promise<
     }
     const html = await readLimitedText(response);
     if (html === null) return { ok: false, status: 413, error: 'source_too_large' };
-    let instagramCaption: string | null = null;
-    let instagramTitle: string | null = null;
-    if (isInstagramPageUrl(currentUrl)) {
-      for (const match of html.matchAll(/<meta\b[^>]*>/gi)) {
-        const tag = match[0];
-        const property = (tagAttribute(tag, 'property') ?? tagAttribute(tag, 'name'))
-          ?.toLowerCase();
-        const content = tagAttribute(tag, 'content');
-        if (!content) continue;
-        if (property === 'og:description') instagramCaption = textContentFromHtml(content);
-        else if (property === 'og:title') instagramTitle = textContentFromHtml(content);
-      }
-      instagramCaption ||= instagramTitle;
-    }
-    return {
-      ok: true,
-      text: textContentFromHtml(html),
-      draft: structuredRecipeFromHtml(html),
-      videoUrl: extractPublicVideoUrl(html, currentUrl),
-      ...(instagramCaption ? { instagramCaption } : {}),
-    };
+    return { ok: true, url: currentUrl, html };
   }
   return { ok: false, status: 422, error: 'source_redirect_failed' };
+}
+
+export async function loadRecipePage(url: string): Promise<
+  | {
+    ok: true;
+    text: string;
+    draft: RecipeImportDraft | null;
+    videoUrl: string | null;
+    instagramCaption?: string;
+  }
+  | { ok: false; status: number; error: string }
+> {
+  const page = await loadPublicHtml(url);
+  if (!page.ok) return page;
+
+  let instagramCaption: string | null = null;
+  let instagramTitle: string | null = null;
+  if (isInstagramPageUrl(page.url)) {
+    for (const match of page.html.matchAll(/<meta\b[^>]*>/gi)) {
+      const tag = match[0];
+      const property = (tagAttribute(tag, 'property') ?? tagAttribute(tag, 'name'))
+        ?.toLowerCase();
+      const content = tagAttribute(tag, 'content');
+      if (!content) continue;
+      if (property === 'og:description') instagramCaption = textContentFromHtml(content);
+      else if (property === 'og:title') instagramTitle = textContentFromHtml(content);
+    }
+    instagramCaption ||= instagramTitle;
+    if (!instagramCaption) {
+      const embedUrl = instagramCaptionedEmbedUrl(page.url);
+      if (embedUrl) {
+        const embedPage = await loadPublicHtml(embedUrl);
+        if (embedPage.ok) instagramCaption = extractInstagramEmbedCaption(embedPage.html);
+      }
+    }
+  }
+  return {
+    ok: true,
+    text: textContentFromHtml(page.html),
+    draft: structuredRecipeFromHtml(page.html),
+    videoUrl: extractPublicVideoUrl(page.html, page.url),
+    ...(instagramCaption ? { instagramCaption } : {}),
+  };
 }
