@@ -24,6 +24,7 @@ export function useFoodSearch(preferredMarket: string | readonly string[] | null
     results: search.results,
     searching: search.searching,
     searchFailed: search.failed,
+    searched: search.searched,
     hasMore: search.hasMore,
     loadingMore: search.loadingMore,
     retrySearch: search.retry,

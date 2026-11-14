@@ -8,7 +8,7 @@ describe('requireEnv', () => {
   });
 
   it('entfernt umgebende Leerzeichen', () => {
-    expect(requireEnv('EXPO_PUBLIC_SUPABASE_KEY', '  sb_publishable_abc  ')).toBe(
+    expect(requireEnv('EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY', '  sb_publishable_abc  ')).toBe(
       'sb_publishable_abc',
     );
   });
@@ -23,8 +23,8 @@ describe('requireEnv', () => {
   });
 
   it('nennt die fehlende Variable beim Namen', () => {
-    expect(() => requireEnv('EXPO_PUBLIC_SUPABASE_KEY', undefined)).toThrow(
-      /EXPO_PUBLIC_SUPABASE_KEY/,
+    expect(() => requireEnv('EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY', undefined)).toThrow(
+      /EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY/,
     );
   });
 
@@ -211,9 +211,9 @@ describe('env.posthogHost', () => {
     }
   });
 
-  it('faellt ohne gesetzte Variable auf den PostHog-Cloud-Standardhost zurueck', () => {
+  it('faellt ohne gesetzte Variable auf den konfigurierten EU-PostHog-Host zurueck', () => {
     delete process.env.EXPO_PUBLIC_POSTHOG_HOST;
-    expect(env.posthogHost).toBe('https://us.i.posthog.com');
+    expect(env.posthogHost).toBe('https://eu.i.posthog.com');
   });
 
   it('gibt getrimmten Host zurueck wenn gesetzt', () => {
@@ -281,7 +281,7 @@ describe('remaining environment settings', () => {
   ] as const;
   const keys = [
     'EXPO_PUBLIC_SUPABASE_URL',
-    'EXPO_PUBLIC_SUPABASE_KEY',
+    'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
     'EXPO_PUBLIC_DEBUG_LOGS',
     'EXPO_PUBLIC_FORCE_PREMIUM',
     'EXPO_PUBLIC_REVENUECAT_IOS_API_KEY',
@@ -302,10 +302,10 @@ describe('remaining environment settings', () => {
 
   it('reads and validates Supabase values through the public getters', () => {
     process.env.EXPO_PUBLIC_SUPABASE_URL = ' https://example.supabase.co ';
-    process.env.EXPO_PUBLIC_SUPABASE_KEY = ' sb_publishable_test ';
+    process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY = ' sb_publishable_test ';
 
     expect(env.supabaseUrl).toBe('https://example.supabase.co');
-    expect(env.supabaseKey).toBe('sb_publishable_test');
+    expect(env.supabasePublishableKey).toBe('sb_publishable_test');
 
     delete process.env.EXPO_PUBLIC_SUPABASE_URL;
     expect(() => env.supabaseUrl).toThrow(MissingEnvError);

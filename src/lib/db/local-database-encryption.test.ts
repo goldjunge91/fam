@@ -280,6 +280,9 @@ function createCutoverHarness(options?: {
   mainStartsPlaintext?: boolean;
   plaintextOpenFails?: boolean;
   plaintextReadFails?: boolean;
+  failDetach?: boolean;
+  failSourceClose?: boolean;
+  assertCurrent?: () => void;
 }) {
   const main = 'fam-v2.db';
   const next = 'fam-v2.encrypted.next.db';
@@ -294,6 +297,8 @@ function createCutoverHarness(options?: {
   const moves: Array<[string, string]> = [];
   const deleted: string[] = [];
   const executed: string[] = [];
+  const cleanupEvents: string[] = [];
+  const retainUnresolvedSourceCleanup = jest.fn();
   const encryptedFiles = new Set<string>(options?.mainStartsPlaintext ? [] : [main]);
   let recoveryCleanupFailures = 0;
 
@@ -334,7 +339,10 @@ function createCutoverHarness(options?: {
   class FakeDatabase implements CipherDatabase {
     private attachedFile: string | null = null;
 
-    constructor(private readonly fileName: string) {}
+    constructor(
+      private readonly fileName: string,
+      private readonly mode: 'plaintext' | 'encrypted',
+    ) {}
 
     async execAsync(source: string) {
       executed.push(`${this.fileName}:${source}`);
@@ -342,6 +350,12 @@ function createCutoverHarness(options?: {
         this.attachedFile = next;
         files.add(next);
         encryptedFiles.add(next);
+        return;
+      }
+      if (source === 'DETACH DATABASE encrypted') {
+        cleanupEvents.push('detach');
+        if (options?.failDetach) throw new Error('detach failed');
+        this.attachedFile = null;
         return;
       }
       if (source.startsWith('PRAGMA encrypted.user_version')) {
@@ -390,23 +404,31 @@ function createCutoverHarness(options?: {
       return null;
     }
 
-    async closeAsync() {}
+    async closeAsync() {
+      if (this.mode !== 'plaintext') return;
+      cleanupEvents.push('close');
+      if (options?.failSourceClose) throw new Error('source close failed');
+    }
   }
 
+  const closeDatabase = jest.fn((database: FakeDatabase) => database.closeAsync());
   const dependencies: DatabaseEncryptionCutoverDependencies<FakeDatabase> = {
     files: fileOps,
     mainFileName: main,
     encryptedNextFileName: next,
     plaintextRecoveryFileName: recovery,
+    assertCurrent: options?.assertCurrent,
+    closeDatabase,
+    retainUnresolvedSourceCleanup,
     async openPlaintext(fileName) {
       if (options?.plaintextOpenFails) throw new Error('kein Klartext');
-      return new FakeDatabase(fileName);
+      return new FakeDatabase(fileName, 'plaintext');
     },
     async openEncrypted(fileName) {
       if (options?.encryptedOpenAlwaysFails || !encryptedFiles.has(fileName)) {
         throw new Error('falscher Schlüssel');
       }
-      return new FakeDatabase(fileName);
+      return new FakeDatabase(fileName, 'encrypted');
     },
   };
 
@@ -416,6 +438,9 @@ function createCutoverHarness(options?: {
     moves,
     deleted,
     executed,
+    cleanupEvents,
+    closeDatabase,
+    retainUnresolvedSourceCleanup,
     snapshots,
     main,
     next,
@@ -504,11 +529,113 @@ describe('SQLCipher-Cutover', () => {
     expect(harness.snapshots.get(harness.main)).toEqual(harness.sourceSnapshot);
     expect(harness.files.has(harness.recovery)).toBe(false);
     expect(harness.files.has(harness.next)).toBe(false);
+    expect(harness.closeDatabase).toHaveBeenCalledTimes(2);
     expect(harness.moves).toEqual([
       [harness.main, harness.recovery],
       [harness.next, harness.main],
     ]);
   });
+
+  it('stoppt einen stale Cutover vor dem Dateitausch bei Accountwechsel', async () => {
+    const harness = createCutoverHarness();
+    let accountChanged = false;
+    harness.dependencies.assertCurrent = jest.fn(() => {
+      if (!accountChanged && harness.snapshots.get(harness.next)?.schemaVersion === 0) {
+        accountChanged = true;
+        throw new Error('Accountwechsel');
+      }
+    });
+
+    await expect(migratePlaintextDatabase(harness.dependencies, key)).rejects.toThrow(
+      'Accountwechsel',
+    );
+
+    expect(harness.moves).toEqual([]);
+    expect(harness.files.has(harness.main)).toBe(true);
+    expect(harness.snapshots.get(harness.main)).toEqual(harness.sourceSnapshot);
+    expect(harness.dependencies.assertCurrent).toHaveBeenCalled();
+  });
+
+  it('hält dieselbe Writer-Lease bis zum Close der Klartextquelle', async () => {
+    const harness = createCutoverHarness();
+    const names: string[] = [];
+    const ends: jest.Mock<void, []>[] = [];
+    const writerOwner = {
+      beginWriterLease: jest.fn((name: string) => {
+        names.push(name);
+        let ended = false;
+        const end = jest.fn(() => {
+          ended = true;
+          harness.cleanupEvents.push('end');
+        });
+        ends.push(end);
+        return {
+          signal: new AbortController().signal,
+          get ended() {
+            return ended;
+          },
+          end,
+        };
+      }),
+    };
+    harness.dependencies.writerOwner = writerOwner;
+
+    const active = await migratePlaintextDatabase(harness.dependencies, key);
+    await active.closeAsync();
+
+    expect(names).toEqual(['db.cutover.source']);
+    expect(ends).toHaveLength(1);
+    expect(ends[0]).toHaveBeenCalledTimes(1);
+    expect(harness.cleanupEvents).toEqual(['detach', 'close', 'end']);
+  });
+
+  it.each([
+    {
+      name: 'endet nach bestätigtem Raw-Close',
+      failSourceClose: false,
+      expectedEvents: ['detach', 'close', 'end'],
+      expectedEndCalls: 1,
+    },
+    {
+      name: 'bleibt nach fehlgeschlagenem Raw-Close gehalten',
+      failSourceClose: true,
+      expectedEvents: ['detach', 'close'],
+      expectedEndCalls: 0,
+    },
+  ])(
+    '$name, wenn SQLCipher-DETACH fehlschlägt',
+    async ({ failSourceClose, expectedEvents, expectedEndCalls }) => {
+      const harness = createCutoverHarness({ failDetach: true, failSourceClose });
+      const ends: jest.Mock<void, []>[] = [];
+      harness.dependencies.writerOwner = {
+        beginWriterLease: jest.fn(() => {
+          let ended = false;
+          const end = jest.fn(() => {
+            ended = true;
+            harness.cleanupEvents.push('end');
+          });
+          ends.push(end);
+          return {
+            signal: new AbortController().signal,
+            get ended() {
+              return ended;
+            },
+            end,
+          };
+        }),
+      };
+
+      await expect(migratePlaintextDatabase(harness.dependencies, key)).rejects.toThrow(
+        'detach failed',
+      );
+
+      expect(ends).toHaveLength(1);
+      expect(harness.cleanupEvents).toEqual(expectedEvents);
+      expect(ends[0]).toHaveBeenCalledTimes(expectedEndCalls);
+      expect(harness.retainUnresolvedSourceCleanup).toHaveBeenCalledTimes(failSourceClose ? 1 : 0);
+      expect(harness.moves).toEqual([]);
+    },
+  );
 
   it('lässt die Klartextquelle bei abweichender Outbox-Parität unangetastet', async () => {
     const harness = createCutoverHarness({ corruptExport: true });

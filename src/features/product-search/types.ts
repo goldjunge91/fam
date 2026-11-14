@@ -37,6 +37,8 @@ export type CatalogProduct = {
   categoryTags: string[];
   /** ISO-Zeitstempel aus OFFs `last_modified_t` (Unix-Sekunden), sofern gueltig. */
   offLastModifiedAt?: string;
+  /** Version des lokalen fam-Produktdatensatzes fuer gepruefte Quellbelege. */
+  recordUpdatedAt?: string;
 };
 
 export type ProductSearchResult = {

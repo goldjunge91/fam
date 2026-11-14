@@ -17,8 +17,11 @@ const mockSaveComponentsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockSaveStepsMutateAsync = jest.fn().mockResolvedValue(undefined);
 const mockReplace = jest.fn();
 const mockBack = jest.fn();
+const mockCompleteRecipeImportDraft = jest.fn();
 
 let mockRecipeData: unknown = null;
+let mockParams: { id?: string; importDraftId?: string } = {};
+const mockLoadRecipeImportDrafts = jest.fn();
 
 jest.mock('expo-router', () => ({
   router: {
@@ -27,7 +30,7 @@ jest.mock('expo-router', () => ({
     back: (...args: unknown[]) => mockBack(...args),
     canGoBack: () => false,
   },
-  useLocalSearchParams: () => ({}),
+  useLocalSearchParams: () => mockParams,
 }));
 
 jest.mock('@/features/auth/session-provider', () => ({
@@ -37,6 +40,11 @@ jest.mock('@/features/auth/session-provider', () => ({
 jest.mock('@/features/household/active-household-provider', () => ({
   useActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
   useOptionalActiveHousehold: () => ({ activeHouseholdId: 'hh-1' }),
+}));
+
+jest.mock('@/features/recipe-import/data/recipe-import-storage', () => ({
+  completeRecipeImportDraft: (...args: unknown[]) => mockCompleteRecipeImportDraft(...args),
+  loadRecipeImportDrafts: (...args: unknown[]) => mockLoadRecipeImportDrafts(...args),
 }));
 
 jest.mock('@/features/recipes/hooks/use-recipes', () => ({
@@ -86,6 +94,8 @@ jest.mock('@/features/inventory/product-search-dropdown', () => ({
       barcode: string;
       name: string;
       categoryTags: string[];
+      recordUpdatedAt?: string;
+      offLastModifiedAt?: string;
     }) => void;
   }) => {
     const React = require('react') as typeof import('react');
@@ -105,6 +115,8 @@ jest.mock('@/features/inventory/product-search-dropdown', () => ({
               barcode: '400123',
               name: 'Tomate',
               categoryTags: [],
+              recordUpdatedAt: '2026-11-10T00:00:00.000Z',
+              offLastModifiedAt: '2026-11-09T00:00:00.000Z',
             }),
         },
         React.createElement(Text, null, 'Tomate auswählen'),
@@ -169,6 +181,94 @@ describe('RecipeCreateScreen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockRecipeData = null;
+    mockParams = {};
+    mockLoadRecipeImportDrafts.mockResolvedValue([]);
+  });
+
+  const importedDraft = {
+    id: 'draft-1',
+    sourceType: 'text',
+    sourceLabel: 'Notiz',
+    sourceUrl: null,
+    originalText: 'Tomaten waschen',
+    mediaUris: [],
+    method: 'ai',
+    createdAt: '2026-11-10T10:00:00.000Z',
+    draft: {
+      kind: 'recipe_import_draft.v1',
+      title: 'Importierte Suppe',
+      servings: 2,
+      ingredients: [{ name: 'Tomaten', quantity: 150, unit: 'g', confidence: 'high' }],
+      steps: ['Tomaten waschen'],
+      notes: 'Schnell kochen',
+      warnings: [],
+    },
+  };
+
+  it('lädt einen vorhandenen Importentwurf in den Wizard', async () => {
+    mockParams = { importDraftId: importedDraft.id };
+    mockLoadRecipeImportDrafts.mockResolvedValueOnce([importedDraft]);
+
+    await renderScreen();
+
+    expect(await screen.findByDisplayValue('Importierte Suppe')).toBeOnTheScreen();
+    expect(screen.getByDisplayValue('Schnell kochen')).toBeOnTheScreen();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+    expect(screen.getByDisplayValue('Tomaten')).toBeOnTheScreen();
+    expect(screen.getByDisplayValue('150')).toBeOnTheScreen();
+  });
+
+  it('lässt unklare Importmengen leer statt sie in Mengen- oder Einheitsfelder zu schreiben', async () => {
+    mockParams = { importDraftId: 'draft-unclear' };
+    mockLoadRecipeImportDrafts.mockResolvedValueOnce([
+      {
+        ...importedDraft,
+        id: 'draft-unclear',
+        draft: {
+          ...importedDraft.draft,
+          ingredients: [{ name: 'Mais', quantity: null, unit: null, confidence: 'low' }],
+        },
+      },
+    ]);
+
+    await renderScreen();
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+    expect(screen.getByDisplayValue('Mais')).toBeOnTheScreen();
+    expect(screen.getByPlaceholderText('Menge')).toHaveDisplayValue('');
+  });
+
+  it('meldet einen fehlenden Importentwurf', async () => {
+    mockParams = { importDraftId: 'missing-draft' };
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    await renderScreen();
+
+    await waitFor(() =>
+      expect(alert).toHaveBeenCalledWith(
+        'Importentwurf fehlt',
+        'Der lokal gespeicherte Entwurf ist nicht mehr verfügbar.',
+      ),
+    );
+    alert.mockRestore();
+  });
+
+  it('meldet Fehler beim Laden eines Importentwurfs', async () => {
+    mockParams = { importDraftId: 'draft-1' };
+    mockLoadRecipeImportDrafts.mockRejectedValueOnce(new Error('storage failed'));
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    await renderScreen();
+
+    await waitFor(() =>
+      expect(alert).toHaveBeenCalledWith(
+        'Importentwurf konnte nicht geöffnet werden',
+        'storage failed',
+      ),
+    );
+    alert.mockRestore();
   });
 
   it('rendert Schritt 1 des Rezept-Wizards mit Basisfeldern', async () => {
@@ -208,6 +308,7 @@ describe('RecipeCreateScreen', () => {
 
   it('übergibt beim Speichern ausschließlich die von Zod validierte Payload', async () => {
     const user = userEvent.setup();
+    mockParams = { importDraftId: 'draft-1' };
     await renderScreen();
 
     await user.paste(screen.getByLabelText('Titel'), '  Pasta Pesto  ');
@@ -219,6 +320,7 @@ describe('RecipeCreateScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Speichern' }));
 
     await waitFor(() => expect(mockCreateRecipeMutateAsync).toHaveBeenCalledTimes(1));
+    expect(mockCompleteRecipeImportDraft).toHaveBeenCalledWith('user-1', 'draft-1', 'rec-1');
     expect(mockCreateRecipeMutateAsync).toHaveBeenCalledWith(
       expect.objectContaining({
         household_id: 'hh-1',
@@ -317,9 +419,44 @@ describe('RecipeCreateScreen', () => {
           grams: 100,
           quantity: 100,
           unit: 'g',
+          sourceText: 'Tomate',
+          ingredientSource: {
+            source: 'product_label',
+            sourceId: '400123',
+            sourceUrl: 'https://world.openfoodfacts.org/product/400123',
+            sourceVersion: '2026-11-09T00:00:00.000Z',
+            license: 'ODbL',
+          },
+          ingredientMapping: {
+            version: 1,
+            status: 'verified',
+            ingredientIds: ['12345678-1234-1234-1234-123456789012'],
+            complete: true,
+            source: 'product_label',
+            sourceId: '400123',
+            sourceUrl: 'https://world.openfoodfacts.org/product/400123',
+            sourceVersion: '2026-11-09T00:00:00.000Z',
+            license: 'ODbL',
+            evidenceSnapshot: 'Tomate',
+            reviewedAt: '2026-11-10T00:00:00.000Z',
+            reviewedBy: 'tester',
+          },
+          mappingEvidenceSnapshot: 'Tomate',
         },
       ],
-      productsById: new Map([['product-1', { id: 'product-1', name: 'Tomate' }]]),
+      productsById: new Map([
+        [
+          'product-1',
+          {
+            id: 'product-1',
+            name: 'Tomate',
+            barcode: '400123',
+            source: 'off',
+            updated_at: '2026-11-10T00:00:00.000Z',
+            off_last_modified_at: '2026-11-09T00:00:00.000Z',
+          },
+        ],
+      ]),
       steps: [
         {
           id: 'step-1',
@@ -329,14 +466,23 @@ describe('RecipeCreateScreen', () => {
           image_path: null,
           timer_minutes: null,
           ingredientIds: [],
-          images: [],
+          images: [
+            {
+              id: 'image-1',
+              step_id: 'step-1',
+              recipe_id: 'recipe-existing',
+              household_id: 'hh-1',
+              storage_path: 'steps/one.jpg',
+              position: 0,
+            },
+          ],
         },
         {
           id: 'step-2',
           recipe_id: 'recipe-existing',
           position: 1,
           text: 'Tomaten schneiden',
-          image_path: null,
+          image_path: 'steps/two.jpg',
           timer_minutes: null,
           ingredientIds: [],
           images: [],
@@ -407,11 +553,35 @@ describe('RecipeCreateScreen', () => {
           grams: 100,
           quantity: 100,
           unit: 'g',
+          sourceText: 'Tomate',
+          ingredientSource: {
+            source: 'product_label',
+            sourceId: '400123',
+            sourceUrl: 'https://world.openfoodfacts.org/product/400123',
+            sourceVersion: '2026-11-09T00:00:00.000Z',
+            license: 'ODbL',
+          },
+          ingredientMapping: {
+            version: 1,
+            status: 'verified',
+            ingredientIds: ['12345678-1234-1234-1234-123456789012'],
+            complete: true,
+            source: 'product_label',
+            sourceId: '400123',
+            sourceUrl: 'https://world.openfoodfacts.org/product/400123',
+            sourceVersion: '2026-11-09T00:00:00.000Z',
+            license: 'ODbL',
+            evidenceSnapshot: 'Tomate',
+            reviewedAt: '2026-11-10T00:00:00.000Z',
+            reviewedBy: 'tester',
+          },
+          mappingEvidenceSnapshot: 'Tomate',
         },
       ],
       productsById: new Map([['product-1', { id: 'product-1', name: 'Mehl' }]]),
       steps: [],
     };
+    mockParams = { importDraftId: 'draft-1' };
     await renderScreen();
 
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
@@ -422,6 +592,7 @@ describe('RecipeCreateScreen', () => {
 
     await waitFor(() => expect(alert).toHaveBeenCalledWith('Zutaten prüfen', expect.any(String)));
     expect(mockUpdateRecipeMutateAsync).not.toHaveBeenCalled();
+    expect(mockCompleteRecipeImportDraft).not.toHaveBeenCalled();
     expect(screen.getByText('Gruppen und Zutaten')).toBeOnTheScreen();
     alert.mockRestore();
   });

@@ -573,9 +573,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     justifyContent: 'center',
   },
-  // Der sichtbare Knopf bleibt bewusst kleiner als der Trefferbereich: die
-  // 44-Punkt-Flaeche traegt nur die unsichtbare Interaktionsflaeche, das
-  // Kreis-Design bleibt erhalten.
+  // The visible face stays smaller than the Press target while preserving the
+  // required 44-point interaction area on the native pressable itself.
   closeButtonFace: {
     width: 36,
     height: 36,
@@ -590,7 +589,12 @@ const styles = StyleSheet.create({
     height: MIN_TOUCH_SIZE,
     zIndex: 10,
   },
-  closeButton: { justifyContent: 'center', alignItems: 'center' },
+  closeButton: {
+    width: MIN_TOUCH_SIZE,
+    height: MIN_TOUCH_SIZE,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   backdropPressArea: { flex: 1, zIndex: 90 },
   bottomSheet: {
     position: 'absolute',

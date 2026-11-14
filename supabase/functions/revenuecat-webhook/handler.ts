@@ -85,6 +85,7 @@ type Dependencies = {
   ) => Promise<UpdateResult>;
   readSubscriberStatus?: (appUserId: string) => Promise<RevenueCatSubscriberStatus>;
   resolveLocalProfiles?: (subscriberIds: string[]) => Promise<LocalProfileMappings>;
+  allowSandbox?: boolean;
   now?: () => Date;
   signatureToleranceSeconds?: number;
 };
@@ -232,6 +233,7 @@ export function createRevenueCatWebhookHandler({
   applyEntitlementEvent,
   readSubscriberStatus,
   resolveLocalProfiles,
+  allowSandbox = false,
   now = () => new Date(),
   signatureToleranceSeconds = DEFAULT_SIGNATURE_TOLERANCE_SECONDS,
 }: Dependencies) {
@@ -272,7 +274,11 @@ export function createRevenueCatWebhookHandler({
     }
 
     if (isRevenueCatTransferEvent(event)) {
-      if (event.environment != null && event.environment !== 'PRODUCTION') {
+      if (
+        event.environment != null &&
+        event.environment !== 'PRODUCTION' &&
+        !(allowSandbox && event.environment === 'SANDBOX')
+      ) {
         return json({ ignored: 'non_production' });
       }
       if (!readSubscriberStatus) {
@@ -367,7 +373,10 @@ export function createRevenueCatWebhookHandler({
       return json({ ignored: event.type });
     }
 
-    if (event.environment !== 'PRODUCTION') {
+    if (
+      event.environment !== 'PRODUCTION' &&
+      !(allowSandbox && event.environment === 'SANDBOX')
+    ) {
       return json({ ignored: 'non_production' });
     }
 

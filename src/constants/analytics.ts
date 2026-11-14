@@ -40,7 +40,10 @@ export type AnalyticsSettingPath =
   | `channels.${keyof AnalyticsSettings['channels']}`
   | `features.${keyof AnalyticsSettings['features']}`;
 
+export type PostHogConsent = 'pending' | 'granted' | 'denied';
+
 const STORAGE_KEY = 'dev.analytics_overrides.v1';
+const POSTHOG_CONSENT_STORAGE_KEY = 'analytics.posthog_consent.v1';
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -76,6 +79,23 @@ function readStoredOverrides(): AnalyticsOverrides {
     };
   } catch {
     return {};
+  }
+}
+
+function readPostHogConsent(): PostHogConsent {
+  try {
+    const value = getDeviceStorage().getString(POSTHOG_CONSENT_STORAGE_KEY);
+    return value === 'granted' || value === 'denied' ? value : 'pending';
+  } catch {
+    return 'pending';
+  }
+}
+
+function persistPostHogConsent(consent: PostHogConsent): void {
+  try {
+    getDeviceStorage().set(POSTHOG_CONSENT_STORAGE_KEY, consent);
+  } catch (error) {
+    debugWarn('[Analytics] PostHog-Einwilligung konnte nicht gespeichert werden:', error);
   }
 }
 
@@ -148,18 +168,25 @@ function updateOverride(
 
 interface AnalyticsSettingsStore {
   overrides: AnalyticsOverrides;
+  posthogConsent: PostHogConsent;
   setOverride: (path: AnalyticsSettingPath, value: boolean | null) => void;
+  setPostHogConsent: (consent: PostHogConsent) => void;
   resetOverrides: () => void;
 }
 
 export const useAnalyticsSettingsStore = create<AnalyticsSettingsStore>((set) => ({
   overrides: readStoredOverrides(),
+  posthogConsent: readPostHogConsent(),
   setOverride: (path, value) =>
     set((state) => {
       const overrides = updateOverride(state.overrides, path, value);
       persistOverrides(overrides);
       return { overrides };
     }),
+  setPostHogConsent: (consent) => {
+    persistPostHogConsent(consent);
+    set({ posthogConsent: consent });
+  },
   resetOverrides: () => {
     persistOverrides({});
     set({ overrides: {} });
@@ -168,6 +195,14 @@ export const useAnalyticsSettingsStore = create<AnalyticsSettingsStore>((set) =>
 
 export function getAnalyticsSettings(): AnalyticsSettings {
   return mergeAnalyticsSettings(useAnalyticsSettingsStore.getState().overrides);
+}
+
+export function getPostHogConsent(): PostHogConsent {
+  return useAnalyticsSettingsStore.getState().posthogConsent;
+}
+
+export function isPostHogConsentGranted(): boolean {
+  return getPostHogConsent() === 'granted';
 }
 
 export function isAnalyticsFeatureEnabled(feature: keyof AnalyticsSettings['features']): boolean {

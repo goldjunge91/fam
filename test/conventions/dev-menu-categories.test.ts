@@ -51,6 +51,20 @@ const CATEGORY_SPECS = [
     ],
   },
   {
+    label: 'KI-Provider & Modelle',
+    screenTitle: 'KI-Modell testen',
+    route: '/settings/dev-ai-models',
+    screenFile: 'ai-model-test-screen.tsx',
+    routeFile: 'dev-ai-models.tsx',
+    componentName: 'AiModelTestScreen',
+    sourceFiles: ['ai-model-test-screen.tsx'],
+    markers: [
+      '<ContentCard title="Provider">',
+      '<ContentCard title="Modell-ID">',
+      '<ContentCard title="Modellprompt testen">',
+    ],
+  },
+  {
     label: 'Daten & Synchronisation',
     route: '/settings/dev-data',
     screenFile: 'dev-data-screen.tsx',
@@ -175,7 +189,7 @@ function parseCategoryEntries(source: string): Array<{ label: string; route: str
 const categoryEntries = parseCategoryEntries(menuSource);
 
 describe('Dev-Menü-Kategorien', () => {
-  it('definiert sechs Kategorien mit gültigen Route-Wrappern', () => {
+  it('definiert acht Kategorien mit gültigen Route-Wrappern', () => {
     expect(categoryEntries).toEqual(CATEGORY_SPECS.map(({ label, route }) => ({ label, route })));
 
     for (const category of CATEGORY_SPECS) {

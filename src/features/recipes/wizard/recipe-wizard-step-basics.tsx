@@ -11,6 +11,8 @@ import { ProductSearchDropdown } from '@/features/inventory/product-search-dropd
 import type { CatalogProduct } from '@/features/product-search/types';
 import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
 import { UNIT_OPTIONS } from '@/lib/units';
+import { IngredientMappingEditor } from '../components/ingredient-mapping-editor';
+import type { IngredientMappingReview } from '../domain/ingredient-mapping';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup } from './types';
 
@@ -186,6 +188,17 @@ interface RecipeWizardStepBasicsProps {
   onUpdateIngredientQuery: (componentId: string, ingredientId: string, query: string) => void;
   onUpdateQuantity: (componentId: string, ingredientId: string, quantity: string) => void;
   onUpdateUnit: (componentId: string, ingredientId: string, unit: string) => void;
+  reviewerId?: string;
+  onIngredientMappingChange?: (
+    componentId: string,
+    ingredientId: string,
+    mapping: IngredientMappingReview,
+  ) => void;
+  onIngredientEvidenceChange?: (
+    componentId: string,
+    ingredientId: string,
+    evidence: string,
+  ) => void;
   onAddComponentGroup: () => void;
   onUpdateComponentTitle: (componentId: string, title: string) => void;
   onRemoveComponentGroup: (componentId: string) => void;
@@ -206,6 +219,9 @@ export function RecipeWizardStepBasics({
   onUpdateIngredientQuery,
   onUpdateQuantity,
   onUpdateUnit,
+  reviewerId,
+  onIngredientMappingChange,
+  onIngredientEvidenceChange,
   onAddComponentGroup,
   onUpdateComponentTitle,
   onRemoveComponentGroup,
@@ -541,6 +557,27 @@ export function RecipeWizardStepBasics({
                     value={item.productQuery}
                     onChangeText={(val) => onUpdateIngredientQuery(comp.id, item.id, val)}
                     onSelectProduct={(product) => onSelectProduct(comp.id, item.id, product)}
+                  />
+                  <IngredientMappingEditor
+                    key={`${item.id}:${item.mappingSource?.sourceId ?? 'unknown'}:${item.mappingSource?.sourceVersion ?? 'unversioned'}`}
+                    itemId={item.id}
+                    sourceText={item.sourceText ?? null}
+                    extractionConfidence={item.ingredientExtractionConfidence}
+                    mapping={
+                      item.ingredientMapping ?? {
+                        version: 1,
+                        status: 'unknown',
+                        ingredientIds: [],
+                        complete: false,
+                      }
+                    }
+                    evidenceSnapshot={item.mappingEvidenceSnapshot ?? ''}
+                    source={item.mappingSource ?? null}
+                    reviewerId={reviewerId}
+                    onChange={(mapping) => onIngredientMappingChange?.(comp.id, item.id, mapping)}
+                    onEvidenceChange={(evidence) =>
+                      onIngredientEvidenceChange?.(comp.id, item.id, evidence)
+                    }
                   />
                   <View style={styles.ingredientFields}>
                     <View style={styles.ingredientInput}>

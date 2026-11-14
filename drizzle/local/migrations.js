@@ -29,6 +29,9 @@ import m0025 from './20260924044003_redundant_sasquatch/migration.sql';
 import m0026 from './20260924044031_curved_joseph/migration.sql';
 import m0027 from './20260924140706_lazy_anthem/migration.sql';
 import m0028 from './20260928021414_conscious_kylun/migration.sql';
+import m0029 from './20261108083750_gigantic_gambit/migration.sql';
+import m0030 from './20261108085548_peaceful_iron_lad/migration.sql';
+import m0031 from './20261108233625_far_gamma_corps/migration.sql';
 
   export default {
     migrations: {
@@ -60,6 +63,9 @@ import m0028 from './20260928021414_conscious_kylun/migration.sql';
 "20260924044003_redundant_sasquatch": m0025,
 "20260924044031_curved_joseph": m0026,
 "20260924140706_lazy_anthem": m0027,
-"20260928021414_conscious_kylun": m0028
+"20260928021414_conscious_kylun": m0028,
+"20261108083750_gigantic_gambit": m0029,
+"20261108085548_peaceful_iron_lad": m0030,
+"20261108233625_far_gamma_corps": m0031
 }
   }

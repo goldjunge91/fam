@@ -4,7 +4,7 @@ import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 
 export type ForeignKeyViolationResolver = (
-  ctx: { db: SqlDatabase; supabase: TypedSupabaseClient },
+  ctx: { db: SqlDatabase; supabase: TypedSupabaseClient; signal?: AbortSignal },
   payload: Record<string, unknown>,
   error: { code?: string; message?: string },
 ) => Promise<Record<string, unknown> | null>;
@@ -21,6 +21,8 @@ export type EntityMeta = {
   pushOnly?: boolean;
   /** Normalisiert Mengen-Einheiten aus Nutzereingaben auf den gemeinsamen Inventory-Vertrag. */
   normalizeQuantityUnits?: true;
+  /** Server JSON/JSONB objects stored locally as JSON text. */
+  jsonObjectColumns?: readonly string[];
   /** Append-only-Tabelle ohne updated_at/deleted_at auf dem Server. */
   appendOnly?: true;
   /** Remote-Pull-Cursor; Transaktionen werden nach der Server-Reihenfolge geladen. */
@@ -315,6 +317,7 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     hasServerTombstone: true,
     householdScoped: true,
     normalizeQuantityUnits: true,
+    jsonObjectColumns: ['ingredient_mapping'],
     columns: [
       'id',
       'component_id',
@@ -327,6 +330,13 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
       'unit',
       'optional',
       'note',
+      'source_text',
+      'ingredient_source_type',
+      'ingredient_source_id',
+      'ingredient_source_url',
+      'ingredient_source_version',
+      'ingredient_source_license',
+      'ingredient_mapping',
       'created_at',
     ],
   },

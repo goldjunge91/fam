@@ -13,8 +13,12 @@ export function applyPinchZoom(
   focalPoint: Point,
 ): ZoomTransform {
   'worklet';
+  const nextScale = current.scale * scaleChange;
+
+  if (nextScale <= 1) return { scale: 1, translateX: 0, translateY: 0 };
+
   return {
-    scale: current.scale * scaleChange,
+    scale: nextScale,
     translateX: focalPoint.x - (focalPoint.x - current.translateX) * scaleChange,
     translateY: focalPoint.y - (focalPoint.y - current.translateY) * scaleChange,
   };

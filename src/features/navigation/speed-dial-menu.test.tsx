@@ -143,6 +143,17 @@ describe('SpeedDialMenu', () => {
     expect(screen.getByText('Einkaufsartikel')).toBeOnTheScreen();
     expect(screen.getByText('Tagebucheintrag')).toBeOnTheScreen();
     expect(screen.getByText('Rezept')).toBeOnTheScreen();
+    expect(screen.getByText('Assistant')).toBeOnTheScreen();
+  });
+
+  it('schliesst Quick-Add und öffnet den Assistant', async () => {
+    const user = userEvent.setup();
+    await renderSpeedDial();
+
+    await user.press(screen.getByRole('button', { name: 'Assistant' }));
+
+    expect(mockCloseQuickAdd).toHaveBeenCalledTimes(1);
+    expect(mockRouterPush).toHaveBeenCalledWith('/assistant');
   });
 
   it('blendet die Vorrats-Aktion aus, wenn das Vorrat-Modul deaktiviert ist', async () => {

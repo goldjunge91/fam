@@ -1,6 +1,7 @@
 import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { enqueueMutation, recordOutboxOutcome } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
+import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 import {
   createInventoryMergeUndoMutation,
@@ -42,6 +43,210 @@ function storageLocationsInsertOk() {
   const select = jest.fn().mockResolvedValue({ data: null, error: null, status: 201 });
   return jest.fn().mockReturnValue({ select });
 }
+
+function abortableResponse<T>(value: T) {
+  const request = Object.assign(Promise.resolve(value), { abortSignal: jest.fn() });
+  request.abortSignal.mockReturnValue(request);
+  return request;
+}
+
+describe('pushOutbox — Lifecycle-Abbruch', () => {
+  it('startet nach einer abgebrochenen generischen Inventory-Antwort keinen lokalen Commit', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-generic-aborted',
+      op: 'update',
+      payload: { id: 'item-generic-aborted', name: 'Milch' },
+      now: 1,
+      applyLocally: async () => {},
+    });
+
+    const controller = new AbortController();
+    const remoteRow = {
+      id: 'item-generic-aborted',
+      household_id: 'household-1',
+      name: 'Milch',
+      quantity: 1,
+      unit: 'piece',
+      created_at: '2026-01-01T00:00:00Z',
+      updated_at: '2026-01-01T00:00:01Z',
+      deleted_at: null,
+    };
+    const requestAbortSignal = jest.fn();
+    const request = {
+      abortSignal: requestAbortSignal,
+      // biome-ignore lint/suspicious/noThenProperty: Supabase verwendet bewusst einen thenable Query-Builder.
+      then(
+        onfulfilled: (value: {
+          data: (typeof remoteRow)[];
+          error: null;
+          status: number;
+        }) => unknown,
+        onrejected?: (reason: unknown) => unknown,
+      ) {
+        controller.abort('generic-push-response-completed');
+        return Promise.resolve({ data: [remoteRow], error: null, status: 200 }).then(
+          onfulfilled,
+          onrejected,
+        );
+      },
+    };
+    requestAbortSignal.mockReturnValue(request);
+    const select = jest.fn().mockReturnValue(request);
+    const eq = jest.fn().mockReturnValue({ select });
+    const update = jest.fn().mockReturnValue({ eq });
+    const client = {
+      from: jest.fn().mockReturnValue({ update }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await expect(
+        pushOutbox({ db, supabase: client, now: () => 2, signal: controller.signal }),
+      ).rejects.toMatchObject({ name: 'AbortError' });
+
+      expect(requestAbortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(
+        await db.getAllAsync('select id from outbox where entity_id = ?', ['item-generic-aborted']),
+      ).toHaveLength(1);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('rollt Outbox und History gemeinsam zurück, wenn Cancellation zwischen beiden Writes eintritt', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+    await enqueueMutation(db, {
+      entity: 'storage_locations',
+      entityId: 'location-failed',
+      op: 'update',
+      payload: { id: 'location-failed', name: 'Kühlschrank' },
+      now: 1,
+      applyLocally: async () => {},
+    });
+
+    const controller = new AbortController();
+    const abortingDb: SqlDatabase = {
+      ...db,
+      withExclusiveTransactionAsync: (task, options) =>
+        db.withExclusiveTransactionAsync(
+          (txn) =>
+            task({
+              ...txn,
+              runAsync: async (source, params) => {
+                const result = await txn.runAsync(source, params);
+                if (source.includes('update outbox set attempts')) {
+                  controller.abort('between-outbox-outcome-writes');
+                }
+                return result;
+              },
+            }),
+          options,
+        ),
+    };
+    const select = jest.fn().mockResolvedValue({
+      data: null,
+      error: { message: 'offline' },
+      status: 0,
+    });
+    const eq = jest.fn().mockReturnValue({ select });
+    const update = jest.fn().mockReturnValue({ eq });
+    const client = {
+      from: jest.fn().mockReturnValue({ update }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await expect(
+        pushOutbox({ db: abortingDb, supabase: client, now: () => 2, signal: controller.signal }),
+      ).rejects.toMatchObject({ name: 'AbortError' });
+
+      expect(
+        await db.getFirstAsync<{
+          attempts: number;
+          last_error: string | null;
+          last_error_kind: string | null;
+        }>('select attempts, last_error, last_error_kind from outbox where entity_id = ?', [
+          'location-failed',
+        ]),
+      ).toEqual({ attempts: 0, last_error: null, last_error_kind: null });
+      expect(
+        await db.getFirstAsync<{
+          status: string;
+          attempts: number;
+          last_error: string | null;
+          last_error_kind: string | null;
+        }>(
+          'select status, attempts, last_error, last_error_kind from outbox_history where entity_id = ?',
+          ['location-failed'],
+        ),
+      ).toEqual({
+        status: 'queued',
+        attempts: 0,
+        last_error: null,
+        last_error_kind: null,
+      });
+    } finally {
+      db.close();
+    }
+  });
+
+  it('bricht nach einer Inventory-RPC-Antwort vor der maßgeblichen Folgeabfrage ab', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+    await enqueueMutation(db, {
+      entity: 'fridge_items',
+      entityId: 'item-aborted',
+      op: 'adjust_quantity',
+      payload: {
+        operation_id: 'operation-aborted',
+        transaction_id: 'transaction-aborted',
+        item_id: 'item-aborted',
+        household_id: 'household-1',
+        delta: -1,
+        created_at: '2026-01-01T00:00:00.000Z',
+      },
+      now: 1,
+      applyLocally: async () => {},
+    });
+
+    const controller = new AbortController();
+    const rpcAbortSignal = jest.fn();
+    const rpcRequest = {
+      abortSignal: rpcAbortSignal,
+      // biome-ignore lint/suspicious/noThenProperty: Supabase verwendet bewusst einen thenable Query-Builder.
+      then(
+        onfulfilled: (value: { data: string; error: null; status: number }) => unknown,
+        onrejected?: (reason: unknown) => unknown,
+      ) {
+        controller.abort('inventory-response-completed');
+        return Promise.resolve({ data: 'item-aborted', error: null, status: 200 }).then(
+          onfulfilled,
+          onrejected,
+        );
+      },
+    };
+    rpcAbortSignal.mockReturnValue(rpcRequest);
+    const rpc = jest.fn().mockReturnValue(rpcRequest);
+    const from = jest.fn();
+    const client = { rpc, from } as unknown as TypedSupabaseClient;
+
+    try {
+      await expect(
+        pushOutbox({ db, supabase: client, now: () => 2, signal: controller.signal }),
+      ).rejects.toMatchObject({ name: 'AbortError' });
+
+      expect(rpcAbortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(from).not.toHaveBeenCalled();
+      expect(
+        await db.getFirstAsync('select id from outbox where entity_id = ?', ['item-aborted']),
+      ).not.toBeNull();
+    } finally {
+      db.close();
+    }
+  });
+});
 
 describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
   let db: TestDatabase;
@@ -134,6 +339,42 @@ describe('pushOutbox — generischer onForeignKeyViolation-Dispatch', () => {
     expect(update.mock.calls[0][0]).not.toHaveProperty('location_name');
   });
 
+  it('bricht nach einer Inventory-FK-Reparaturantwort vor dem Retry ab', async () => {
+    const controller = new AbortController();
+    const fkError = { code: '23503', message: 'violates foreign key constraint' };
+    const update = fridgeItemsUpdateResponses([{ data: null, error: fkError }]);
+    const repairAbortSignal = jest.fn();
+    const repairRequest = {
+      abortSignal: repairAbortSignal,
+      // biome-ignore lint/suspicious/noThenProperty: Supabase verwendet bewusst einen thenable Query-Builder.
+      then(
+        onfulfilled: (value: { data: null; error: null; status: number }) => unknown,
+        onrejected?: (reason: unknown) => unknown,
+      ) {
+        controller.abort('inventory-repair-response-completed');
+        return Promise.resolve({ data: null, error: null, status: 201 }).then(
+          onfulfilled,
+          onrejected,
+        );
+      },
+    };
+    repairAbortSignal.mockReturnValue(repairRequest);
+    const insert = jest.fn().mockReturnValue({
+      select: jest.fn().mockReturnValue(repairRequest),
+    });
+    const from = jest.fn((table: string) =>
+      table === 'storage_locations' ? { insert } : { update },
+    );
+    const client = { from } as unknown as TypedSupabaseClient;
+
+    await expect(
+      pushOutbox({ db, supabase: client, now: () => 12_345, signal: controller.signal }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    expect(repairAbortSignal).toHaveBeenCalledWith(controller.signal);
+    expect(update).toHaveBeenCalledTimes(1);
+  });
+
   it('klassifiziert den Fehler wie gewohnt, wenn der Resolver nicht reparieren kann (kein FK-Fehler)', async () => {
     const otherError = { code: '23505', message: 'duplicate key' };
     const update = fridgeItemsUpdateResponses([{ data: null, error: otherError }]);
@@ -187,6 +428,70 @@ describe('pushOutbox — medizinische Einheiten', () => {
       await pushOutbox({ db, supabase: client, now: () => 2 });
 
       expect(insert).toHaveBeenCalledWith(expect.objectContaining({ unit: 'units' }));
+    } finally {
+      db.close();
+    }
+  });
+});
+
+describe('pushOutbox — Rezeptzutatenmapping', () => {
+  it('sendet lokales JSON-Textmapping als JSONB-Objekt an Supabase', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+    const ingredientMapping = {
+      version: 1,
+      status: 'unknown',
+      ingredientIds: [],
+      complete: false,
+    };
+    const remoteRow = {
+      id: 'recipe-item-1',
+      component_id: 'component-1',
+      recipe_id: 'recipe-1',
+      household_id: 'hh-1',
+      product_id: 'product-1',
+      sub_component_id: null,
+      grams: 100,
+      quantity: 1,
+      unit: 'g',
+      optional: false,
+      note: null,
+      ingredient_mapping: ingredientMapping,
+      created_at: '2026-11-08T00:00:00.000Z',
+      updated_at: '2026-11-08T00:00:01.000Z',
+      deleted_at: null,
+    };
+    const select = jest.fn().mockResolvedValue({ data: [remoteRow], error: null, status: 201 });
+    const insert = jest.fn().mockReturnValue({ select });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await enqueueMutation(db, {
+        entity: 'recipe_component_items',
+        entityId: remoteRow.id,
+        op: 'insert',
+        payload: { ...remoteRow, ingredient_mapping: JSON.stringify(ingredientMapping) },
+        now: 1,
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_component_items', 'insert', remoteRow, 1),
+      });
+
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({
+        kind: 'pushed',
+        entity: 'recipe_component_items',
+      });
+      expect(insert).toHaveBeenCalledWith(
+        expect.objectContaining({ ingredient_mapping: ingredientMapping }),
+      );
+      const local = await db.getFirstAsync<{ ingredient_mapping: string }>(
+        'select ingredient_mapping from recipe_component_items where id = ?',
+        [remoteRow.id],
+      );
+      expect(JSON.parse(local?.ingredient_mapping ?? '{}')).toEqual(ingredientMapping);
     } finally {
       db.close();
     }
@@ -858,7 +1163,7 @@ describe('pushOutbox — Rebase neuer lokaler Mutationen', () => {
 });
 
 describe('pushOutbox — atomare Mengenänderung', () => {
-  it('ruft den Delta-RPC auf und übernimmt die kanonische Bestandszeile', async () => {
+  it('ruft den Delta-RPC auf und übernimmt die maßgebliche Bestandszeile', async () => {
     const db = createTestDatabase();
     await applyLocalSchema(db);
 
@@ -921,19 +1226,28 @@ describe('pushOutbox — atomare Mengenänderung', () => {
       updated_at: '2026-09-07T10:00:01.000Z',
       deleted_at: null,
     };
-    const maybeSingle = jest.fn().mockResolvedValue({ data: remoteRow, error: null, status: 200 });
+    const controller = new AbortController();
+    const remoteRequest = abortableResponse({ data: remoteRow, error: null, status: 200 });
+    const maybeSingle = jest.fn().mockReturnValue(remoteRequest);
     const eq = jest.fn().mockReturnValue({ maybeSingle });
-    const select = jest.fn().mockReturnValue({ eq });
-    const rpc = jest.fn().mockResolvedValue({ data: 'item-quantity', error: null, status: 200 });
+    const rpcRequest = abortableResponse({ data: 'item-quantity', error: null, status: 200 });
+    const rpc = jest.fn().mockReturnValue(rpcRequest);
     const client = {
       rpc,
-      from: jest.fn().mockReturnValue({ select }),
+      from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
     } as unknown as TypedSupabaseClient;
 
     try {
-      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+      const result = await pushOutbox({
+        db,
+        supabase: client,
+        now: () => 2,
+        signal: controller.signal,
+      });
 
       expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-quantity' });
+      expect(rpcRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(remoteRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
       expect(rpc).toHaveBeenCalledWith('adjust_fridge_item_quantity', {
         p_operation_id: 'quantity-operation-1',
         p_transaction_id: 'quantity-transaction-1',
@@ -1289,7 +1603,7 @@ describe('pushOutbox — atomare Mengenänderung', () => {
 });
 
 describe('pushOutbox — atomarer Split', () => {
-  it('ruft die Split-RPC auf und uebernimmt beide kanonischen Bestandszeilen', async () => {
+  it('ruft die Split-RPC auf und uebernimmt beide maßgeblichen Bestandszeilen', async () => {
     const db = createTestDatabase();
     await applyLocalSchema(db);
 
@@ -1390,20 +1704,32 @@ describe('pushOutbox — atomarer Split', () => {
       updated_at: '2026-09-07T10:00:01.000Z',
       deleted_at: null,
     };
-    const inQuery = jest
-      .fn()
-      .mockResolvedValue({ data: [sourceRow, openedRow], error: null, status: 200 });
+    const controller = new AbortController();
+    const rowsRequest = abortableResponse({
+      data: [sourceRow, openedRow],
+      error: null,
+      status: 200,
+    });
+    const inQuery = jest.fn().mockReturnValue(rowsRequest);
     const select = jest.fn().mockReturnValue({ in: inQuery });
-    const rpc = jest.fn().mockResolvedValue({ data: 'item-opened', error: null, status: 200 });
+    const rpcRequest = abortableResponse({ data: 'item-opened', error: null, status: 200 });
+    const rpc = jest.fn().mockReturnValue(rpcRequest);
     const client = {
       rpc,
       from: jest.fn().mockReturnValue({ select }),
     } as unknown as TypedSupabaseClient;
 
     try {
-      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+      const result = await pushOutbox({
+        db,
+        supabase: client,
+        now: () => 2,
+        signal: controller.signal,
+      });
 
       expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-source' });
+      expect(rpcRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(rowsRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
       expect(rpc).toHaveBeenCalledWith('split_fridge_item_open', {
         p_transaction_id: 'split-transaction-1',
         p_source_item_id: 'item-source',
@@ -1445,7 +1771,7 @@ describe('pushOutbox — atomarer Split', () => {
 });
 
 describe('pushOutbox — atomares Split-Undo (Merge)', () => {
-  it('ruft die Merge-Undo-RPC auf und uebernimmt beide kanonischen Bestandszeilen', async () => {
+  it('ruft die Merge-Undo-RPC auf und uebernimmt beide maßgeblichen Bestandszeilen', async () => {
     const db = createTestDatabase();
     await applyLocalSchema(db);
 
@@ -1543,25 +1869,41 @@ describe('pushOutbox — atomares Split-Undo (Merge)', () => {
       updated_at: '2026-09-07T10:05:01.000Z',
       deleted_at: '2026-09-07T10:05:01.000Z',
     };
-    const ledgerMaybeSingle = jest
-      .fn()
-      .mockResolvedValue({ data: { fridge_item_id: 'item-opened' }, error: null, status: 200 });
+    const controller = new AbortController();
+    const ledgerRequest = abortableResponse({
+      data: { fridge_item_id: 'item-opened' },
+      error: null,
+      status: 200,
+    });
+    const ledgerMaybeSingle = jest.fn().mockReturnValue(ledgerRequest);
     const ledgerEq = jest.fn().mockReturnValue({ maybeSingle: ledgerMaybeSingle });
     const ledgerSelect = jest.fn().mockReturnValue({ eq: ledgerEq });
-    const inQuery = jest
-      .fn()
-      .mockResolvedValue({ data: [sealedRow, openedRowAfterMerge], error: null, status: 200 });
+    const rowsRequest = abortableResponse({
+      data: [sealedRow, openedRowAfterMerge],
+      error: null,
+      status: 200,
+    });
+    const inQuery = jest.fn().mockReturnValue(rowsRequest);
     const itemsSelect = jest.fn().mockReturnValue({ in: inQuery });
-    const rpc = jest.fn().mockResolvedValue({ data: 'item-sealed', error: null, status: 200 });
+    const rpcRequest = abortableResponse({ data: 'item-sealed', error: null, status: 200 });
+    const rpc = jest.fn().mockReturnValue(rpcRequest);
     const from = jest.fn((table: string) =>
       table === 'transactions' ? { select: ledgerSelect } : { select: itemsSelect },
     );
     const client = { rpc, from } as unknown as TypedSupabaseClient;
 
     try {
-      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+      const result = await pushOutbox({
+        db,
+        supabase: client,
+        now: () => 2,
+        signal: controller.signal,
+      });
 
       expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entityId: 'item-sealed' });
+      expect(rpcRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(ledgerRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(rowsRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
       expect(rpc).toHaveBeenCalledWith('merge_undo_fridge_item_open', {
         p_reversal_transaction_id: 'merge-undo-transaction-1',
         p_reversal_of: 'split-transaction-1',
@@ -2135,18 +2477,28 @@ describe('pushOutbox — Inventory-Move-Reversal', () => {
       updated_at: '2026-09-07T10:00:01.000Z',
       deleted_at: null,
     };
-    const maybeSingle = jest.fn().mockResolvedValue({ data: remoteRow, error: null, status: 200 });
+    const controller = new AbortController();
+    const remoteRequest = abortableResponse({ data: remoteRow, error: null, status: 200 });
+    const maybeSingle = jest.fn().mockReturnValue(remoteRequest);
     const eq = jest.fn().mockReturnValue({ maybeSingle });
-    const rpc = jest.fn().mockResolvedValue({ data: 'item-1', error: null, status: 200 });
+    const rpcRequest = abortableResponse({ data: 'item-1', error: null, status: 200 });
+    const rpc = jest.fn().mockReturnValue(rpcRequest);
     const client = {
       rpc,
       from: jest.fn().mockReturnValue({ select: jest.fn().mockReturnValue({ eq }) }),
     } as unknown as TypedSupabaseClient;
 
     try {
-      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+      const result = await pushOutbox({
+        db,
+        supabase: client,
+        now: () => 2,
+        signal: controller.signal,
+      });
 
       expect(result.outcomes[0]).toMatchObject({ kind: 'pushed', entity: 'fridge_items' });
+      expect(rpcRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
+      expect(remoteRequest.abortSignal).toHaveBeenCalledWith(controller.signal);
       expect(rpc).toHaveBeenCalledWith(
         'reverse_move_fridge_item',
         expect.objectContaining({

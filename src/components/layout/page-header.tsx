@@ -8,6 +8,7 @@ import { Txt } from '@/constants/ui';
 type PageHeaderProps = {
   title: string;
   subtitle?: string;
+  titleVariant?: 'title' | 'brand';
   leading?: ReactNode;
   trailing?: ReactNode;
   align?: 'start' | 'center';
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
 export function PageHeader({
   title,
   subtitle,
+  titleVariant = 'title',
   leading,
   trailing,
   align = 'start',
@@ -69,7 +71,7 @@ export function PageHeader({
             {subtitle}
           </Txt>
         ) : null}
-        <Txt variant="title" numberOfLines={1} accessibilityLabel={title}>
+        <Txt variant={titleVariant} numberOfLines={1} accessibilityLabel={title}>
           {title}
         </Txt>
       </View>

@@ -1,4 +1,9 @@
 import type { CatalogProduct } from '@/features/product-search/types';
+import {
+  type IngredientMappingReview,
+  type IngredientMappingSourceContext,
+  UNKNOWN_INGREDIENT_MAPPING,
+} from '../domain/ingredient-mapping';
 
 export const MAX_RECIPE_STEP_IMAGES = 3;
 
@@ -21,6 +26,11 @@ export interface IngredientItem {
   existingItemId: string | null;
 
   existingProductId: string | null;
+  sourceText?: string | null;
+  ingredientExtractionConfidence?: 'high' | 'medium' | 'low';
+  ingredientMapping?: IngredientMappingReview;
+  mappingEvidenceSnapshot?: string;
+  mappingSource?: IngredientMappingSourceContext | null;
 }
 
 export interface IngredientComponentGroup {
@@ -54,6 +64,10 @@ export function newIngredient(): IngredientItem {
     notConvertible: false,
     existingItemId: null,
     existingProductId: null,
+    sourceText: null,
+    ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+    mappingEvidenceSnapshot: '',
+    mappingSource: null,
   };
 }
 

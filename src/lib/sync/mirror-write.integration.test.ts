@@ -103,6 +103,53 @@ describe('upsertMirrorRow', () => {
     });
   });
 
+  it('spiegelt ein geprueftes Rezeptmapping als lokalen JSON-Text', async () => {
+    const ingredientMapping = {
+      version: 1,
+      status: 'verified',
+      ingredientIds: ['ingredient-1'],
+      complete: true,
+      source: 'product_label',
+      sourceId: 'product-1',
+      sourceUrl: 'https://world.openfoodfacts.org/product/123',
+      sourceVersion: 'off-2026-11-08',
+      license: 'ODbL',
+      evidenceSnapshot: 'Zutaten: Wasser, Hafer',
+      reviewedAt: '2026-11-08T00:00:00.000Z',
+      reviewedBy: 'user-1',
+    };
+
+    await upsertMirrorRow(
+      db,
+      'recipe_component_items',
+      {
+        id: 'recipe-item-1',
+        component_id: 'component-1',
+        recipe_id: 'recipe-1',
+        household_id: 'hh-1',
+        product_id: 'product-1',
+        sub_component_id: null,
+        grams: 100,
+        quantity: 1,
+        unit: 'package',
+        optional: false,
+        note: null,
+        ingredient_mapping: ingredientMapping,
+        created_at: '2026-11-08T00:00:00.000Z',
+        updated_at: '2026-11-08T00:00:01.000Z',
+        deleted_at: null,
+      },
+      { dirty: 0 },
+    );
+
+    const row = await db.getFirstAsync<{ ingredient_mapping: string; _dirty: number }>(
+      'select ingredient_mapping, _dirty from recipe_component_items where id = ?',
+      ['recipe-item-1'],
+    );
+    expect(JSON.parse(row?.ingredient_mapping ?? '{}')).toEqual(ingredientMapping);
+    expect(row?._dirty).toBe(0);
+  });
+
   it('schreibt einen Tombstone als epoch ms', async () => {
     await upsertMirrorRow(
       db,
@@ -1088,6 +1135,42 @@ describe('applyLocalMirrorWrite', () => {
       ['prod-1'],
     );
     expect(JSON.parse(row?.off_category_tags ?? '[]')).toEqual(['en:meats', 'en:pork']);
+  });
+
+  it('insert: serialisiert ein Zutatenmapping als JSON-Text', async () => {
+    const ingredientMapping = {
+      version: 1,
+      status: 'unknown',
+      ingredientIds: [],
+      complete: false,
+    };
+    await applyLocalMirrorWrite(
+      db,
+      'recipe_component_items',
+      'insert',
+      {
+        id: 'recipe-item-local',
+        component_id: 'component-1',
+        recipe_id: 'recipe-1',
+        household_id: 'hh-1',
+        product_id: 'product-1',
+        sub_component_id: null,
+        grams: 100,
+        quantity: 1,
+        unit: 'g',
+        optional: false,
+        note: null,
+        ingredient_mapping: ingredientMapping,
+        created_at: '2026-11-08T00:00:00.000Z',
+      },
+      1_000,
+    );
+
+    const row = await db.getFirstAsync<{ ingredient_mapping: string }>(
+      'select ingredient_mapping from recipe_component_items where id = ?',
+      ['recipe-item-local'],
+    );
+    expect(JSON.parse(row?.ingredient_mapping ?? '{}')).toEqual(ingredientMapping);
   });
 
   it('insert: funktioniert auch fuer globale, nicht household-gebundene Entitaeten (products)', async () => {

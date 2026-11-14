@@ -12,7 +12,6 @@ import {
   hasPlusEntitlement,
   isPurchasesConfigured,
   resetPurchasesIdentity,
-  setPurchasesEmail,
   syncPurchasesIdentity,
 } from '@/lib/backend/revenuecat';
 
@@ -58,7 +57,6 @@ jest.mock('@/lib/backend/revenuecat', () => ({
   syncPurchasesIdentity: jest.fn().mockResolvedValue(null),
   resetPurchasesIdentity: jest.fn().mockResolvedValue(null),
   setPurchasesAttributes: jest.fn().mockResolvedValue(undefined),
-  setPurchasesEmail: jest.fn().mockResolvedValue(undefined),
 }));
 
 jest.mock('@/lib/sync/household-bootstrap-sync', () => ({
@@ -193,7 +191,7 @@ describe('PremiumProvider', () => {
     expect(result.current.hasAI).toBe(true);
   });
 
-  it('synchronisiert User-ID und Attribute mit RevenueCat wenn konfiguriert und eingeloggt', async () => {
+  it('synchronisiert User-ID und Haushaltsattribut mit RevenueCat wenn konfiguriert und eingeloggt', async () => {
     (isPurchasesConfigured as jest.Mock).mockReturnValue(true);
     mockSession = { user: { id: 'user-123', email: 'test@fam.app' } };
     mockActiveHousehold = { id: 'hh-1', plus_active: false };
@@ -203,9 +201,7 @@ describe('PremiumProvider', () => {
     await waitFor(() => {
       expect(syncPurchasesIdentity).toHaveBeenCalledWith('user-123', {
         household_id: 'hh-1',
-        $posthogUserId: 'user-123',
       });
-      expect(setPurchasesEmail).toHaveBeenCalledWith('test@fam.app');
     });
 
     expect(result.current.loading).toBe(false);

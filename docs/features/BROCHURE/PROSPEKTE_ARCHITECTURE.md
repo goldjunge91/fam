@@ -17,16 +17,42 @@ Die Prospekte-Funktion stellt für jede deutsche Postleitzahl (PLZ) aktuelle Kau
 
 Durch Analyse der Netzwerkkommunikation von KaufDA / Bonial konnte der Datenabruf vollständig auf native REST-Endpunkte umgestellt werden.
 
-### 2.1 Schritt 1: Geocoding (PLZ $\to$ Koordinaten)
-Für eine angefragte 5-stellige PLZ werden Breitengrad (`lat`), Längengrad (`lng`) und Ortsname aus der lokalen GeoNames-PLZ-Datei bestimmt. Der Runner liest diese Datei lokal und ruft KaufDA nur für die ausgewählte PLZ auf. Er iteriert nicht über alle PLZ.
-- Beispiel PLZ `22043`: `lat: 53.5659`, `lng: 10.0254`, Ort: `Hamburg`.
+### 2.1 Schritt 1: Ortsauflösung (PLZ $\to$ Koordinaten)
+Der Runner erhält ausschließlich die angefragte fünfstellige PLZ. Er verwendet
+keinen selbst berechneten Mittelpunkt und keine feste Koordinatenliste. Stattdessen
+bildet er den öffentlichen KaufDA-Standortdialog serverseitig mit einer eigenen,
+auf die Places API (New) begrenzten Google-Cloud-Berechtigung nach:
+
+1. [Autocomplete (New)](https://developers.google.com/maps/documentation/places/web-service/place-autocomplete)
+   sucht die unveränderte PLZ mit KaufDAs beobachteter Typauswahl
+   `postal_code`, `locality`, `sublocality` und `route` sowie der
+   Länderbegrenzung `DE`. Der Browser kann Vorschläge mit seinem aktuellen
+   Standort gewichten; der serverseitige Runner besitzt keine Nutzerposition
+   und lässt diesen optionalen Bias deshalb bewusst weg.
+2. Genau ein Vorschlag mit Typ `postal_code` muss vorhanden sein.
+3. [Place Details (New)](https://developers.google.com/maps/documentation/places/web-service/place-details)
+   liefert nur `id`, `location` und `addressComponents`.
+4. Ergebnis-PLZ und Land müssen exakt der Anfrage und `DE` entsprechen.
+5. KaufDAs `/api/localize` muss die erhaltene Koordinate wieder derselben PLZ
+   zuordnen.
+
+Schlägt eine Prüfung fehl, endet der Lauf ohne Veröffentlichung. Es gibt keinen
+GeoNames-, Festwert- oder Ersttreffer-Fallback. Koordinaten werden nur für den
+laufenden Abruf verwendet und nicht gespeichert. Google erlaubt Place IDs zur
+dauerhaften Speicherung, Koordinaten jedoch nur zeitlich begrenzt; die Pipeline
+speichert deshalb beides nicht. Siehe
+[Google Maps Platform-Richtlinien](https://developers.google.com/maps/documentation/places/web-service/policies).
+
+Beim KaufDA-Standortdialog wurde für `22043` beispielsweise `Hamburg` mit
+`lat: 53.5683271` und `lng: 10.100758599999999` gewählt. Diese Werte sind ein
+beobachteter Nachweis und kein im Runner hinterlegter Sonderfall.
 
 ### 2.2 Schritt 2: PLZ-Katalog und Prospekt-Erkennung
-KaufDAs regionale Shelf-API liefert die für einen Standort sichtbaren Karten über alle Kategorien. Der Runner ruft sie mit PLZ-Koordinaten und leerem `sectorIds`-Parameter ab und liest die Seitennavigation vollständig:
+KaufDAs regionale Shelf-API liefert die für einen Standort sichtbaren Karten über alle Kategorien. Der Runner ruft sie mit den zuvor geprüften PLZ-Koordinaten und leerem `sectorIds`-Parameter ab und liest die Seitennavigation vollständig:
 ```http
-GET /api/shelf?lat=53.5659&lng=10.0254&size=250&page=0&sectorIds= HTTP/1.1
+GET /api/shelf?lat=53.5683271&lng=10.100758599999999&size=250&page=0&sectorIds= HTTP/1.1
 Host: www.kaufda.de
-Cookie: location=%7B%22lat%22%3A53.5659%2C%22lng%22%3A10.0254%2C%22city%22%3A%22Hamburg%22%2C%22zip%22%3A%2222043%22%2C%22countryCode%22%3A%22DE%22%7D
+Cookie: location=%7B%22lat%22%3A53.5683271%2C%22lng%22%3A10.100758599999999%2C%22city%22%3A%22Hamburg%22%2C%22zip%22%3A%2222043%22%2C%22countryCode%22%3A%22DE%22%7D
 Accept: application/json
 User-Agent: Mozilla/5.0 ...
 ```
@@ -62,10 +88,12 @@ flowchart TD
     end
 
     subgraph Scraper ["Scraper-Service (TypeScript / Bun)"]
-        FetchMeta["1. KaufDA Shelf /api/shelf, alle Kategorien und Seiten"]
-        ExtractContentId["2. Echte BROCHURE-Karten und Publisher-Metadaten"]
-        FetchPages["3. REST-API: content-viewer-be.kaufda.de (Pages & Hotspots)"]
-        Publish["4. Vollständige PLZ atomar veröffentlichen"]
+        ResolveLocation["1. Google Places: eindeutige deutsche PLZ"]
+        VerifyLocation["2. KaufDA /api/localize: PLZ rückprüfen"]
+        FetchMeta["3. KaufDA Shelf /api/shelf, alle Kategorien und Seiten"]
+        ExtractContentId["4. Echte BROCHURE-Karten und Publisher-Metadaten"]
+        FetchPages["5. REST-API: content-viewer-be.kaufda.de (Pages & Hotspots)"]
+        Publish["6. Vollständige PLZ atomar veröffentlichen"]
     end
 
     subgraph Backend ["Supabase (PostgreSQL)"]
@@ -86,10 +114,12 @@ flowchart TD
     AppRequest --> TableQueue
     TableQueue --> DbWebhook
     DbWebhook --> Dispatch
-    Dispatch -->|"workflow_dispatch(zip)"| FetchMeta
+    Dispatch -->|"workflow_dispatch(zip)"| ResolveLocation
     QueuePoll -->|"Fallback: fällige PLZ"| TableQueue
-    TableQueue -->|"Fallback-Matrix"| FetchMeta
-    Manual --> FetchMeta
+    TableQueue -->|"Fallback-Matrix"| ResolveLocation
+    Manual --> ResolveLocation
+    ResolveLocation --> VerifyLocation
+    VerifyLocation --> FetchMeta
     FetchMeta --> ExtractContentId
     ExtractContentId --> FetchPages
     FetchPages --> Publish
@@ -245,18 +275,26 @@ Für die sofortige Auslösung benötigt Supabase das serverseitige Secret
 im Repository `goldjunge91/fam`. Die Datenbank liest die Function-URL und das
 eigene Webhook-Secret aus Supabase Vault; dasselbe Webhook-Secret wird als
 `BROCHURE_DISPATCH_WEBHOOK_SECRET` in den Edge-Function-Secrets hinterlegt.
-Keines dieser Secrets liegt in der Expo-App oder im Git.
+Der GitHub-Workflow erhält zusätzlich `GOOGLE_PLACES_API_KEY` als
+Repository-Secret. Dieser Key ist ausschließlich für Places API (New)
+freigeschaltet, wird als HTTP-Header gesendet und weder protokolliert noch in
+der App gebündelt. Keines dieser Secrets liegt in der Expo-App oder im Git.
 
-Für jede PLZ ruft der Runner den KaufDA-Shelf mit deren Koordinaten ab. Er
-paginiert alle Kategorien und lädt die Viewer-Seiten echter Prospekte
-(`content.type === BROCHURE`). Dynamische Angebotskarten ohne Prospektseiten
-werden übersprungen. Publisher werden anhand der KaufDA-Antwort angelegt oder
-aktualisiert. Ein Fehler bei der Pagination oder einem Prospekt verhindert den
-Austausch der gesamten PLZ und lässt deren letzten veröffentlichten Bestand
-bestehen. Die App zeigt den zuletzt veröffentlichten Bestand für ihre aktive
-PLZ und stellt bei Bedarf im Hintergrund einen Scanwunsch ein. Eine PLZ erhält
-eigene Prospektzeilen und Seiten; dieselbe KaufDA-contentId führt nicht dazu,
-dass eine PLZ die gespeicherten Seiten einer anderen PLZ nutzt.
+Für jede PLZ löst der Runner den Standort zuerst mit Google Places Autocomplete
+und Place Details auf. Er akzeptiert nur einen eindeutigen deutschen
+`postal_code`-Treffer und ruft anschließend KaufDAs `/api/localize` auf. Nur
+wenn KaufDA dieselbe PLZ bestätigt, werden Shelf und Viewer mit genau dieser
+Koordinate abgefragt. Eine fehlende oder widersprüchliche Ortsauflösung
+verhindert den Austausch der gesamten PLZ und lässt deren letzten
+veröffentlichten Bestand bestehen. Danach paginiert der Runner alle Kategorien
+und lädt die Viewer-Seiten echter Prospekte (`content.type === BROCHURE`).
+Dynamische Angebotskarten ohne Prospektseiten werden übersprungen. Publisher
+werden anhand der KaufDA-Antwort angelegt oder aktualisiert. Auch ein Fehler bei
+der Pagination oder einem Prospekt verhindert den Austausch. Die App zeigt den
+zuletzt veröffentlichten Bestand für ihre aktive PLZ und stellt bei Bedarf im
+Hintergrund einen Scanwunsch ein. Eine PLZ erhält eigene Prospektzeilen und
+Seiten; dieselbe KaufDA-contentId führt nicht dazu, dass eine PLZ die
+gespeicherten Seiten einer anderen PLZ nutzt.
 
 Supabase-Schlüssel werden nur auf `main` eingebunden. Der Workflow hat nur
 `contents: read`; der separate Workflow-Dispatch-Token wird ausschließlich
@@ -274,5 +312,5 @@ dem fünf Tage langen Frischefenster.
 | **Hotspot-Präzision** | Teilweise geprüft | Koordinaten werden auf den Seitenbereich begrenzt und als Prozentwerte normalisiert; die visuelle Ausrichtung wird im Pilot geprüft. |
 | **Abrufumfang** | Nachfragegesteuert | KaufDA wird nur für eine neue aktive PLZ oder nach fünf Tagen erneut abgefragt. Ein vollständiger Deutschlandlauf findet nicht statt. |
 | **Ressourcenverbrauch** | Verifiziert | Kein Playwright/Chromium im Produktionsbetrieb erforderlich; läuft als leichtes Bun/Node-Skript. |
-| **Typ- und Testabdeckung** | Lokal verifiziert | TypeScript-Check, Biome, 11 Scraper-Tests, 29 App-Tests, 51 pgTAP-Assertions, lokale Migration und Typgenerierung bestanden. |
+| **Typ- und Testabdeckung** | Lokal verifiziert | TypeScript-Check, Biome sowie gezielte Resolver-, Crawler-, Runner- und Workflow-Tests bestanden. |
 | **Sprachregel** | Eingehalten | Untersagter K-Begriff wird weder in Schema, Code, noch Dokumentation verwendet. |

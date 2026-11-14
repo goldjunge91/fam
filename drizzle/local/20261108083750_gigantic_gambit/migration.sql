@@ -1,0 +1,1 @@
+ALTER TABLE `recipe_component_items` ADD `ingredient_mapping` text DEFAULT '{"version":1,"status":"unknown","ingredientIds":[],"complete":false}' NOT NULL;

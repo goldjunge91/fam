@@ -82,6 +82,8 @@ create index if not exists catalog_recipe_items_component_idx
   on public.catalog_recipe_component_items (component_id, position);
 create index if not exists catalog_recipe_items_recipe_idx
   on public.catalog_recipe_component_items (recipe_id);
+create index if not exists catalog_recipe_items_product_recipe_position_idx
+  on public.catalog_recipe_component_items (product_id, recipe_id, position, id);
 
 create table if not exists public.catalog_recipe_steps (
   id uuid primary key default gen_random_uuid(),

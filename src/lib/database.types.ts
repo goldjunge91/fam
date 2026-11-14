@@ -28,6 +28,7 @@ export type Database = {
           action: string;
           created_at: string;
           credits: number;
+          household_id: string | null;
           request_id: string;
           subscriber_user_id: string;
         };
@@ -35,6 +36,7 @@ export type Database = {
           action: string;
           created_at?: string;
           credits: number;
+          household_id?: string | null;
           request_id: string;
           subscriber_user_id: string;
         };
@@ -42,10 +44,18 @@ export type Database = {
           action?: string;
           created_at?: string;
           credits?: number;
+          household_id?: string | null;
           request_id?: string;
           subscriber_user_id?: string;
         };
         Relationships: [
+          {
+            foreignKeyName: "ai_credit_bookings_household_id_fkey";
+            columns: ["household_id"];
+            isOneToOne: false;
+            referencedRelation: "households";
+            referencedColumns: ["id"];
+          },
           {
             foreignKeyName: "ai_credit_bookings_subscriber_user_id_fkey";
             columns: ["subscriber_user_id"];
@@ -80,6 +90,106 @@ export type Database = {
             referencedColumns: ["subscriber_user_id", "request_id"];
           },
         ];
+      };
+      ai_usage_events: {
+        Row: {
+          completion_tokens: number | null;
+          cost_source: string | null;
+          created_at: string;
+          household_id: string | null;
+          is_test: boolean;
+          model: string;
+          prompt_tokens: number | null;
+          provider: string;
+          provider_call_index: number;
+          provider_cost_usd: number | null;
+          request_id: string;
+          skill: string;
+          subscriber_user_id: string | null;
+          total_tokens: number | null;
+          user_id: string;
+        };
+        Insert: {
+          completion_tokens?: number | null;
+          cost_source?: string | null;
+          created_at?: string;
+          household_id?: string | null;
+          is_test?: boolean;
+          model: string;
+          prompt_tokens?: number | null;
+          provider: string;
+          provider_call_index: number;
+          provider_cost_usd?: number | null;
+          request_id: string;
+          skill: string;
+          subscriber_user_id?: string | null;
+          total_tokens?: number | null;
+          user_id: string;
+        };
+        Update: {
+          completion_tokens?: number | null;
+          cost_source?: string | null;
+          created_at?: string;
+          household_id?: string | null;
+          is_test?: boolean;
+          model?: string;
+          prompt_tokens?: number | null;
+          provider?: string;
+          provider_call_index?: number;
+          provider_cost_usd?: number | null;
+          request_id?: string;
+          skill?: string;
+          subscriber_user_id?: string | null;
+          total_tokens?: number | null;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ai_usage_events_household_id_fkey";
+            columns: ["household_id"];
+            isOneToOne: false;
+            referencedRelation: "households";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ai_usage_events_subscriber_user_id_fkey";
+            columns: ["subscriber_user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ai_usage_events_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      allergen_taxonomy: {
+        Row: {
+          created_at: string;
+          id: string;
+          legal_name_de: string;
+          sort_order: number;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          id: string;
+          legal_name_de: string;
+          sort_order: number;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          id?: string;
+          legal_name_de?: string;
+          sort_order?: number;
+          updated_at?: string;
+        };
+        Relationships: [];
       };
       brochure_availability: {
         Row: {
@@ -654,6 +764,47 @@ export type Database = {
         };
         Relationships: [];
       };
+      child_profile_food_rules: {
+        Row: {
+          allergy_codes: string[];
+          child_profile_id: string;
+          created_at: string;
+          custom_allergies: string[];
+          custom_intolerances: string[];
+          disliked_foods: string[];
+          intolerance_codes: string[];
+          updated_at: string;
+        };
+        Insert: {
+          allergy_codes?: string[];
+          child_profile_id: string;
+          created_at?: string;
+          custom_allergies?: string[];
+          custom_intolerances?: string[];
+          disliked_foods?: string[];
+          intolerance_codes?: string[];
+          updated_at?: string;
+        };
+        Update: {
+          allergy_codes?: string[];
+          child_profile_id?: string;
+          created_at?: string;
+          custom_allergies?: string[];
+          custom_intolerances?: string[];
+          disliked_foods?: string[];
+          intolerance_codes?: string[];
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "child_profile_food_rules_child_profile_id_fkey";
+            columns: ["child_profile_id"];
+            isOneToOne: true;
+            referencedRelation: "child_profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       child_profiles: {
         Row: {
           birth_date: string | null;
@@ -1006,6 +1157,89 @@ export type Database = {
           },
         ];
       };
+      food_ingredient_aliases: {
+        Row: {
+          alias: string;
+          confidence: string;
+          created_at: string;
+          id: string;
+          ingredient_id: string;
+          license: string;
+          locale: string;
+          reviewed_at: string | null;
+          reviewed_by: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at: string;
+        };
+        Insert: {
+          alias: string;
+          confidence: string;
+          created_at?: string;
+          id?: string;
+          ingredient_id: string;
+          license: string;
+          locale?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at?: string;
+        };
+        Update: {
+          alias?: string;
+          confidence?: string;
+          created_at?: string;
+          id?: string;
+          ingredient_id?: string;
+          license?: string;
+          locale?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source?: string;
+          source_id?: string;
+          source_url?: string;
+          source_version?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "food_ingredient_aliases_ingredient_id_fkey";
+            columns: ["ingredient_id"];
+            isOneToOne: false;
+            referencedRelation: "food_ingredients";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      food_ingredients: {
+        Row: {
+          canonical_name: string;
+          created_at: string;
+          id: string;
+          revision: number;
+          updated_at: string;
+        };
+        Insert: {
+          canonical_name: string;
+          created_at?: string;
+          id?: string;
+          revision?: number;
+          updated_at?: string;
+        };
+        Update: {
+          canonical_name?: string;
+          created_at?: string;
+          id?: string;
+          revision?: number;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       fridge_items: {
         Row: {
           added_by: string | null;
@@ -1317,6 +1551,84 @@ export type Database = {
             columns: ["created_by"];
             isOneToOne: false;
             referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      ingredient_allergen_assessments: {
+        Row: {
+          allergen_id: string;
+          assessment: string;
+          confidence: string;
+          created_at: string;
+          evidence_sha256: string | null;
+          evidence_snapshot: string;
+          id: string;
+          ingredient_id: string;
+          ingredient_revision: number;
+          license: string;
+          review_scope: string;
+          reviewed_at: string | null;
+          reviewed_by: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at: string;
+        };
+        Insert: {
+          allergen_id: string;
+          assessment: string;
+          confidence: string;
+          created_at?: string;
+          evidence_sha256?: string | null;
+          evidence_snapshot: string;
+          id?: string;
+          ingredient_id: string;
+          ingredient_revision: number;
+          license: string;
+          review_scope: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source: string;
+          source_id: string;
+          source_url: string;
+          source_version: string;
+          updated_at?: string;
+        };
+        Update: {
+          allergen_id?: string;
+          assessment?: string;
+          confidence?: string;
+          created_at?: string;
+          evidence_sha256?: string | null;
+          evidence_snapshot?: string;
+          id?: string;
+          ingredient_id?: string;
+          ingredient_revision?: number;
+          license?: string;
+          review_scope?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          source?: string;
+          source_id?: string;
+          source_url?: string;
+          source_version?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ingredient_allergen_assessments_allergen_id_fkey";
+            columns: ["allergen_id"];
+            isOneToOne: false;
+            referencedRelation: "allergen_taxonomy";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ingredient_allergen_assessments_ingredient_id_fkey";
+            columns: ["ingredient_id"];
+            isOneToOne: false;
+            referencedRelation: "food_ingredients";
             referencedColumns: ["id"];
           },
         ];
@@ -2008,11 +2320,18 @@ export type Database = {
           grams: number;
           household_id: string;
           id: string;
+          ingredient_mapping: NonNullable<Json>;
+          ingredient_source_id: string | null;
+          ingredient_source_license: string | null;
+          ingredient_source_type: string | null;
+          ingredient_source_url: string | null;
+          ingredient_source_version: string | null;
           note: string | null;
           optional: boolean;
           product_id: string | null;
           quantity: number | null;
           recipe_id: string;
+          source_text: string | null;
           sub_component_id: string | null;
           unit: string;
           updated_at: string;
@@ -2024,11 +2343,18 @@ export type Database = {
           grams: number;
           household_id: string;
           id?: string;
+          ingredient_mapping?: NonNullable<Json>;
+          ingredient_source_id?: string | null;
+          ingredient_source_license?: string | null;
+          ingredient_source_type?: string | null;
+          ingredient_source_url?: string | null;
+          ingredient_source_version?: string | null;
           note?: string | null;
           optional?: boolean;
           product_id?: string | null;
           quantity?: number | null;
           recipe_id: string;
+          source_text?: string | null;
           sub_component_id?: string | null;
           unit?: string;
           updated_at?: string;
@@ -2040,11 +2366,18 @@ export type Database = {
           grams?: number;
           household_id?: string;
           id?: string;
+          ingredient_mapping?: NonNullable<Json>;
+          ingredient_source_id?: string | null;
+          ingredient_source_license?: string | null;
+          ingredient_source_type?: string | null;
+          ingredient_source_url?: string | null;
+          ingredient_source_version?: string | null;
           note?: string | null;
           optional?: boolean;
           product_id?: string | null;
           quantity?: number | null;
           recipe_id?: string;
+          source_text?: string | null;
           sub_component_id?: string | null;
           unit?: string;
           updated_at?: string;

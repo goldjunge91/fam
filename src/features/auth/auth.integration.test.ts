@@ -12,7 +12,7 @@ type SessionStorage = {
  */
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
-const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
+const SUPABASE_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? '';
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SECRET_KEY ?? '';
 
 let _admin: SupabaseClient<Database> | null = null;
@@ -74,7 +74,7 @@ describe('Auth Integration Tests', () => {
   let client: SupabaseClient<Database>;
 
   function makeClient(storage: SessionStorage) {
-    return createClient<Database>(SUPABASE_URL, SUPABASE_KEY, {
+    return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
       auth: {
         storage,
         autoRefreshToken: false,
@@ -88,8 +88,8 @@ describe('Auth Integration Tests', () => {
     if (!SUPABASE_URL) {
       throw new Error('Keine SUPABASE_URL konfiguriert.');
     }
-    if (!SUPABASE_KEY) {
-      throw new Error('Kein ANON_KEY konfiguriert.');
+    if (!SUPABASE_PUBLISHABLE_KEY) {
+      throw new Error('Kein EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY konfiguriert.');
     }
   });
 

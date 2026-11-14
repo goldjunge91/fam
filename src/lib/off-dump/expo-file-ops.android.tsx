@@ -1,7 +1,13 @@
 import { File } from 'expo-file-system';
+import * as LegacyFileSystem from 'expo-file-system/legacy';
 
 import type { SqlDatabase } from '@/lib/db/types';
-import type { DumpInspection, FileOps } from './file-ops';
+import {
+  createOffDumpAbortError,
+  type DumpInspection,
+  type FileOps,
+  throwIfOffDumpAborted,
+} from './file-ops';
 import { attachPlaintextDatabase } from './plaintext-attachment';
 
 function toFileUri(path: string): string {
@@ -16,8 +22,20 @@ export function createExpoFileOps(db: SqlDatabase): FileOps {
     async size(path: string): Promise<number> {
       return new File(toFileUri(path)).size ?? 0;
     },
-    async download(url: string, destPath: string): Promise<void> {
-      await File.downloadFileAsync(url, new File(toFileUri(destPath)), { idempotent: true });
+    async download(url: string, destPath: string, signal?: AbortSignal): Promise<void> {
+      throwIfOffDumpAborted(signal);
+      const download = LegacyFileSystem.createDownloadResumable(url, toFileUri(destPath));
+      const cancel = () => {
+        void download.cancelAsync().catch(() => undefined);
+      };
+      signal?.addEventListener('abort', cancel, { once: true });
+      try {
+        const result = await download.downloadAsync();
+        throwIfOffDumpAborted(signal);
+        if (!result) throw createOffDumpAbortError();
+      } finally {
+        signal?.removeEventListener('abort', cancel);
+      }
     },
     async move(fromPath: string, toPath: string): Promise<void> {
       new File(toFileUri(fromPath)).move(new File(toFileUri(toPath)));

@@ -35,6 +35,10 @@ jest.mock('@/features/product-search/preferred-market', () => ({
   usePreferredProductMarketName: () => null,
 }));
 
+jest.mock('@/features/recipes/hooks/use-food-ingredients', () => ({
+  useFoodIngredients: () => ({ data: [], isError: false, isFetching: false }),
+}));
+
 describe('Recipe Wizard Steps', () => {
   const dummyComponents: IngredientComponentGroup[] = [
     {

@@ -469,6 +469,16 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
             </View>
             {items.map((item, index) => {
               const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
+              const originalName = product?.name ?? 'Zutat';
+              const substitution = data.recipe.substitutions?.find(
+                (candidate) =>
+                  candidate.forIngredientId === item.id ||
+                  candidate.forIngredientId.toLocaleLowerCase('de-DE') ===
+                    originalName.toLocaleLowerCase('de-DE'),
+              );
+              const name = substitution
+                ? `${substitution.swap} (statt ${originalName})`
+                : originalName;
               const quantity =
                 item.quantity !== null ? item.quantity * servings : item.grams * servings;
               const unit = item.quantity !== null ? item.unit : 'g';
@@ -483,11 +493,13 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                     },
                   ]}>
                   <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
-                    {product?.name ?? 'Zutat'}
+                    {name}
                   </Txt>
-                  <Txt variant="body" tone="secondary" weight="500">
-                    {round(quantity)} {unit}
-                  </Txt>
+                  {substitution ? null : (
+                    <Txt variant="body" tone="secondary" weight="500">
+                      {round(quantity)} {unit}
+                    </Txt>
+                  )}
                 </View>
               );
             })}
@@ -519,9 +531,8 @@ export function RecipeDetailScreen() {
   const [ratingOpen, setRatingOpen] = useState(false);
   const { data, isLoading } = useRecipeDetail(id);
   const { data: coverUrl } = useRecipeCoverUrl(data?.recipe.cover_image_path);
-  const deleteMutation = useDeleteRecipeMutation();
   const { isFavorite, toggleFavorite } = useRecipeFavorites();
-  const favorite = isFavorite(`recipe:${id}`);
+  const deleteMutation = useDeleteRecipeMutation();
   const rating = useRecipeRating(id);
 
   const baseServing = useMemo(
@@ -563,6 +574,8 @@ export function RecipeDetailScreen() {
   }
 
   const { recipe } = data;
+  const favoriteKey = `recipe:${recipe.id}` as const;
+  const favorite = isFavorite(favoriteKey);
   const tags = Array.from(
     new Set([
       ...recipe.dish_types.map((tag) => DISH_TYPE_LABELS[tag]),
@@ -581,8 +594,20 @@ export function RecipeDetailScreen() {
           <>
             <HeaderIconButton
               label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
-              onPress={() => toggleFavorite(`recipe:${id}`)}>
+              onPress={() => void toggleFavorite(favoriteKey)}>
               <HeartGlyph filled={favorite} />
+            </HeaderIconButton>
+            <HeaderIconButton
+              label="Assistant mit Rezeptkontext öffnen"
+              onPress={() =>
+                router.push({
+                  pathname: '/assistant',
+                  params: { pageContextKind: 'recipe', pageContextRecipeId: recipe.id },
+                })
+              }>
+              <Txt variant="glyph" tone="accent" weight="700">
+                ✦
+              </Txt>
             </HeaderIconButton>
             <HeaderIconButton label="Rezept verwalten" onPress={() => setManageOpen(true)}>
               <MoreGlyph />

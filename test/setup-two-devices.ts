@@ -11,7 +11,7 @@ import { applyLocalSchema, createTestDatabase, type TestDatabase } from './node-
  */
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
-const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY ?? '';
+const SUPABASE_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? '';
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SECRET_KEY ?? '';
 
 /**
@@ -45,7 +45,7 @@ function inMemoryStorage() {
 }
 
 export function makeClient(): SupabaseClient<Database> {
-  return createClient<Database>(SUPABASE_URL, SUPABASE_KEY, {
+  return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
     auth: { storage: inMemoryStorage(), autoRefreshToken: false, persistSession: true },
   });
 }
@@ -189,7 +189,7 @@ export function assertLocalSupabase(): void {
   if (!/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(SUPABASE_URL)) {
     throw new Error(`Nur gegen localhost erlaubt. Erhalten: ${SUPABASE_URL || '(leer)'}`);
   }
-  if (!SUPABASE_KEY) {
-    throw new Error('Kein ANON_KEY. Laeuft `supabase start`?');
+  if (!SUPABASE_PUBLISHABLE_KEY) {
+    throw new Error('Kein EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY. Laeuft `supabase start`?');
   }
 }

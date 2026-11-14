@@ -50,6 +50,26 @@ export function findMentionableIngredient(
   return ingredients.find((i) => i.name.toLowerCase() === lower);
 }
 
+/** Resolves the explicit ingredient links of one step without inventing matches. */
+export function resolveStepIngredients(
+  ingredientIds: readonly string[],
+  ingredients: readonly MentionableIngredient[],
+): MentionableIngredient[] {
+  const ingredientsById = new Map(ingredients.map((ingredient) => [ingredient.itemId, ingredient]));
+  const resolved: MentionableIngredient[] = [];
+  const seenIds = new Set<string>();
+
+  for (const ingredientId of ingredientIds) {
+    if (seenIds.has(ingredientId)) continue;
+    const ingredient = ingredientsById.get(ingredientId);
+    if (!ingredient) continue;
+    seenIds.add(ingredientId);
+    resolved.push(ingredient);
+  }
+
+  return resolved;
+}
+
 export type MentionSegmentKind = 'text' | 'resolved' | 'unresolved';
 
 export interface MentionSegment {

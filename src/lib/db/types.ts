@@ -16,7 +16,10 @@ export type SqlDatabase = {
 
   getAllRawAsync?(source: string, params?: readonly SqlParam[]): Promise<SqlParam[][]>;
 
-  withExclusiveTransactionAsync(task: (txn: SqlDatabase) => Promise<void>): Promise<void>;
+  withExclusiveTransactionAsync(
+    task: (txn: SqlDatabase) => Promise<void>,
+    options?: { signal?: AbortSignal },
+  ): Promise<void>;
 };
 
 // ------------------------------------------------------------------ Entitaeten

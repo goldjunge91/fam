@@ -146,7 +146,17 @@ describe('lokales Schema', () => {
       ]),
     );
     expect((await columnsOf(db, 'recipe_component_items')).map(({ name }) => name)).toEqual(
-      expect.arrayContaining(['optional', 'note']),
+      expect.arrayContaining([
+        'optional',
+        'note',
+        'source_text',
+        'ingredient_source_type',
+        'ingredient_source_id',
+        'ingredient_source_url',
+        'ingredient_source_version',
+        'ingredient_source_license',
+        'ingredient_mapping',
+      ]),
     );
   });
 

@@ -57,7 +57,7 @@ enabled = true
 enabled = true
 # Specifies an ordered list of seed files to load during db reset.
 # Supports glob patterns relative to supabase directory: "./seeds/*.sql"
-sql_paths = ["./seed.sql"]
+sql_paths = ["./seed.sql", "./seeds/ingredient_allergen_knowledge.sql"]
 
 [db.network_restrictions]
 # Enable management of network restrictions.
@@ -370,6 +370,11 @@ verify_jwt = false
 # Der AI-Gateway ist ausschließlich für eingeloggte App-Nutzer erreichbar.
 # Der Handler prüft zusätzlich den Haushaltsscope, bevor er Inventar liest.
 [functions.ai-gateway]
+verify_jwt = true
+
+# Reconciles the signed-in RevenueCat customer against the household projection.
+# Only the local Supabase URL accepts RevenueCat sandbox purchases.
+[functions.revenuecat-entitlement-sync]
 verify_jwt = true
 
 [edge_runtime]

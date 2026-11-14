@@ -243,6 +243,21 @@ describe('Siri extension intent convention', () => {
     expect(appConfig).toContain('keychainGroup');
   });
 
+  it('hält Siri als synchronen Extension-Pfad ohne UIKit-Assertion', () => {
+    const databaseSource = fs.readFileSync(DATABASE_PATH, 'utf8');
+    const writerSource = fs.readFileSync(DATABASE_WRITER_PATH, 'utf8');
+    const source = `${databaseSource}\n${writerSource}`;
+
+    expect(source).not.toContain('UIApplication');
+    expect(source).not.toContain('beginBackgroundTask');
+    expect(source).not.toContain('endBackgroundTask');
+    expect(source).toContain('try execute("BEGIN IMMEDIATE", on: database)');
+    expect(source).toContain('try execute("COMMIT", on: database)');
+    expect(source).toContain('try execute("ROLLBACK", on: database)');
+    expect(source).toContain('defer {');
+    expect(source).toContain('exsqlite3_close(database)');
+  });
+
   it('verwendet dieselbe App-Group-Datei wie die Haupt-App', () => {
     const sharedAppGroup = fs.readFileSync(SHARED_APP_GROUP_PATH, 'utf8');
     const database = fs.readFileSync(DATABASE_PATH, 'utf8');

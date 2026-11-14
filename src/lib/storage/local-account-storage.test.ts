@@ -12,6 +12,7 @@ import * as browserAccountStorage from './local-account-storage.web';
 
 const mockDigestString = jest.fn();
 const mockRandomBytes = jest.fn();
+const mockRemoveContentChangedListener = jest.fn();
 let mockMMKVExists = true;
 
 jest.mock('expo-crypto', () => ({
@@ -29,6 +30,7 @@ jest.mock('expo-secure-store', () => ({
 
 jest.mock('react-native-mmkv', () => ({
   createMMKV: jest.fn(),
+  removeContentChangedListener: (...args: unknown[]) => mockRemoveContentChangedListener(...args),
   deleteMMKV: jest.fn(() => {
     mockMMKVExists = false;
     return true;
@@ -93,7 +95,11 @@ describe('encrypted account storage', () => {
 
   it('verwendet vorhandenes Schlüsselmaterial aus dem SecureStore', async () => {
     mockDigestString.mockResolvedValue('hash-b');
-    jest.mocked(SecureStore.getItemAsync).mockResolvedValue('existing-encryption-key-123456');
+    jest
+      .mocked(SecureStore.getItemAsync)
+      .mockImplementation(async (key) =>
+        key === 'fam.mmkv.account-key.v1.hash-b' ? 'existing-encryption-key-123456' : null,
+      );
     const storage = createStorage('fam-account-user-b-v1');
     jest.mocked(createMMKV).mockReturnValue(storage as never);
 
@@ -117,7 +123,27 @@ describe('encrypted account storage', () => {
     expect(createMMKV).toHaveBeenCalledTimes(1);
   });
 
-  it('entfernt Instanzdatei und Schlüsselmaterial beim Account-Cleanup', async () => {
+  it('teilt auch parallele erste Zugriffe während des Kaltstart-Cleanups', async () => {
+    let resolveDigest: ((value: string) => void) | undefined;
+    mockDigestString.mockReturnValueOnce(
+      new Promise<string>((resolve) => {
+        resolveDigest = resolve;
+      }),
+    );
+    const storage = createStorage('fam-account-user-concurrent-v1');
+    jest.mocked(createMMKV).mockReturnValue(storage as never);
+
+    const first = getEncryptedAccountStorage('user-concurrent');
+    const second = getEncryptedAccountStorage('user-concurrent');
+    await Promise.resolve();
+    resolveDigest?.('hash-concurrent');
+
+    await expect(first).resolves.toBe(storage);
+    await expect(second).resolves.toBe(storage);
+    expect(createMMKV).toHaveBeenCalledTimes(1);
+  });
+
+  it('leert eine geöffnete Instanz und verschiebt Datei- und Schlüssel-Löschung bis zum Kaltstart', async () => {
     mockDigestString.mockResolvedValue('hash-d');
     const storage = createStorage('fam-account-user-d-v1');
     jest.mocked(createMMKV).mockReturnValue(storage as never);
@@ -126,10 +152,54 @@ describe('encrypted account storage', () => {
     await deleteEncryptedAccountStorage('user-d');
 
     expect(storage.clearAll).toHaveBeenCalledTimes(1);
-    expect(storage.dispose).toHaveBeenCalledTimes(1);
-    expect(deleteMMKV).toHaveBeenCalledWith('fam-account-user-d-v1');
-    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('fam.mmkv.account-key.v1.hash-d');
-    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalledWith('fam_onboarding_completed_v1');
+    expect(storage.dispose).not.toHaveBeenCalled();
+    expect(deleteMMKV).not.toHaveBeenCalled();
+    expect(SecureStore.setItemAsync).toHaveBeenCalledWith(
+      'fam.mmkv.pending-deletions.v1',
+      JSON.stringify([
+        {
+          instanceId: 'fam-account-user-d-v1',
+          secureStoreKey: 'fam.mmkv.account-key.v1.hash-d',
+        },
+      ]),
+      { keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY },
+    );
+    const pendingMarkerCallIndex = jest
+      .mocked(SecureStore.setItemAsync)
+      .mock.calls.findIndex(([key]) => key === 'fam.mmkv.pending-deletions.v1');
+    expect(pendingMarkerCallIndex).toBeGreaterThanOrEqual(0);
+    expect(
+      jest.mocked(SecureStore.setItemAsync).mock.invocationCallOrder[pendingMarkerCallIndex],
+    ).toBeLessThan(storage.clearAll.mock.invocationCallOrder[0]);
+    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalledWith('fam.mmkv.account-key.v1.hash-d');
+  });
+
+  it('verwendet eine geleerte Instanz nach erneuter Anmeldung im selben Prozess weiter', async () => {
+    const secureValues = new Map<string, string>();
+    jest
+      .mocked(SecureStore.getItemAsync)
+      .mockImplementation(async (key) => secureValues.get(key) ?? null);
+    jest.mocked(SecureStore.setItemAsync).mockImplementation(async (key, value) => {
+      secureValues.set(key, value);
+    });
+    jest.mocked(SecureStore.deleteItemAsync).mockImplementation(async (key) => {
+      secureValues.delete(key);
+    });
+    mockDigestString.mockResolvedValue('hash-same-process');
+    const storage = createStorage('fam-account-user-same-process-v1');
+    jest.mocked(createMMKV).mockReturnValue(storage as never);
+
+    await getEncryptedAccountStorage('user-same-process');
+    await deleteEncryptedAccountStorage('user-same-process');
+    expect(secureValues.has('fam.mmkv.pending-deletions.v1')).toBe(true);
+
+    activateEncryptedAccountStorage('user-same-process');
+    await expect(getEncryptedAccountStorage('user-same-process')).resolves.toBe(storage);
+
+    expect(createMMKV).toHaveBeenCalledTimes(1);
+    expect(deleteMMKV).not.toHaveBeenCalled();
+    expect(storage.dispose).not.toHaveBeenCalled();
+    expect(secureValues.has('fam.mmkv.pending-deletions.v1')).toBe(false);
   });
 
   it('lässt einen veralteten asynchronen Open nach begonnenem Cleanup nichts neu anlegen', async () => {
@@ -181,7 +251,7 @@ describe('encrypted account storage', () => {
     expect(createMMKV).toHaveBeenCalledTimes(1);
   });
 
-  it('schließt den Cleanup ab wenn der physische Delete trotz Clear-Fehler gelingt', async () => {
+  it('bricht bei Clear-Fehler ab und ruft deleteMMKV nicht auf einer geöffneten Instanz auf', async () => {
     mockDigestString.mockResolvedValue('hash-cleanup-error');
     const storage = createStorage('fam-account-user-cleanup-error-v1');
     storage.clearAll.mockImplementation(() => {
@@ -190,11 +260,18 @@ describe('encrypted account storage', () => {
     jest.mocked(createMMKV).mockReturnValue(storage as never);
 
     await getEncryptedAccountStorage('user-cleanup-error');
-    await expect(deleteEncryptedAccountStorage('user-cleanup-error')).resolves.toBeUndefined();
+    await expect(deleteEncryptedAccountStorage('user-cleanup-error')).rejects.toThrow(
+      'corrupt MMKV',
+    );
 
-    expect(storage.dispose).toHaveBeenCalledTimes(1);
-    expect(deleteMMKV).toHaveBeenCalledWith('fam-account-user-cleanup-error-v1');
-    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith(
+    expect(storage.dispose).not.toHaveBeenCalled();
+    expect(deleteMMKV).not.toHaveBeenCalled();
+    expect(SecureStore.setItemAsync).toHaveBeenCalledWith(
+      'fam.mmkv.pending-deletions.v1',
+      expect.stringContaining('fam-account-user-cleanup-error-v1'),
+      { keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY },
+    );
+    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalledWith(
       'fam.mmkv.account-key.v1.hash-cleanup-error',
     );
   });
@@ -227,6 +304,51 @@ describe('encrypted account storage', () => {
     await expect(deleteEncryptedAccountStorage('user-key-retry')).resolves.toBeUndefined();
     expect(deleteMMKV).toHaveBeenCalledTimes(1);
     expect(SecureStore.deleteItemAsync).toHaveBeenCalledTimes(2);
+  });
+
+  it('löscht vorgemerkte Dateien beim nächsten Lauf vor dem ersten createMMKV', async () => {
+    const pendingMarker = 'fam.mmkv.pending-deletions.v1';
+    jest.mocked(SecureStore.getItemAsync).mockImplementation(async (key) => {
+      if (key === pendingMarker) {
+        return JSON.stringify([
+          {
+            instanceId: 'fam-account-deferred-user-v1',
+            secureStoreKey: 'fam.mmkv.account-key.v1.deferred-hash',
+          },
+        ]);
+      }
+      if (key === 'fam.mmkv.account-key.v1.hash-cold-start') return 'existing-key';
+      return null;
+    });
+    mockDigestString.mockResolvedValue('hash-cold-start');
+    const storage = createStorage('fam-account-cold-start-v1');
+    jest.mocked(createMMKV).mockReturnValue(storage as never);
+
+    await getEncryptedAccountStorage('cold-start');
+
+    expect(deleteMMKV).toHaveBeenCalledWith('fam-account-deferred-user-v1');
+    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith(
+      'fam.mmkv.account-key.v1.deferred-hash',
+    );
+    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith(pendingMarker);
+    expect(jest.mocked(deleteMMKV).mock.invocationCallOrder[0]).toBeLessThan(
+      jest.mocked(createMMKV).mock.invocationCallOrder[0],
+    );
+  });
+
+  it('blockiert neue Instanzen bei einem beschädigten Cleanup-Marker', async () => {
+    jest
+      .mocked(SecureStore.getItemAsync)
+      .mockImplementation(async (key) =>
+        key === 'fam.mmkv.pending-deletions.v1' ? '{kaputt' : null,
+      );
+
+    await expect(getEncryptedAccountStorage('invalid-marker-user')).rejects.toThrow(
+      'Der vorgemerkte MMKV-Cleanup ist ungültig.',
+    );
+
+    expect(createMMKV).not.toHaveBeenCalled();
+    expect(deleteMMKV).not.toHaveBeenCalled();
   });
 
   it('merkt den letzten lokalen Account ausschließlich im SecureStore', async () => {

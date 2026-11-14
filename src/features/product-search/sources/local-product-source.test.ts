@@ -68,8 +68,8 @@ describe('createLocalProductSource.search', () => {
       carbsPer100g: undefined,
       fatPer100g: undefined,
       categoryTags: [],
-      offLastModifiedAt: undefined,
     });
+    expect(result.products[0]).not.toHaveProperty('offLastModifiedAt');
   });
 
   it('reicht Offset und Limit an die Abfrage durch', async () => {

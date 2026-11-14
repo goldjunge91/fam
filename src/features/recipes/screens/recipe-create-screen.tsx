@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
+import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -11,11 +12,17 @@ import { BackButton } from '@/components/layout/back-button';
 import { PageHeader } from '@/components/layout/page-header';
 import { radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
+import { Press, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { persistOffProductIfNeeded } from '@/features/inventory/persist-off-product';
 import { useAddProductMutation } from '@/features/inventory/use-product-mutations';
 import type { CatalogProduct } from '@/features/product-search/types';
+import {
+  completeRecipeImportDraft,
+  loadRecipeImportDrafts,
+} from '@/features/recipe-import/data/recipe-import-storage';
+import type { RecipeImportDraftRecord } from '@/features/recipe-import/types';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getDatabase } from '@/lib/db/local-client';
 import {
@@ -31,6 +38,13 @@ import {
   uploadRecipeStepImage,
   useRecipeCoverUrl,
 } from '../data/household-recipe-images';
+import {
+  type IngredientMappingReview,
+  type IngredientMappingSourceContext,
+  isCurrentIngredientMappingReview,
+  normalizeIngredientMappingReview,
+  UNKNOWN_INGREDIENT_MAPPING,
+} from '../domain/ingredient-mapping';
 import {
   useAddComponentMutation,
   useAddItemMutation,
@@ -50,6 +64,7 @@ import {
   useUpdateStepMutation,
 } from '../hooks/use-recipe-steps';
 import {
+  type ProductRow,
   useAddRecipeMutation,
   useRecipeDetail,
   useUpdateRecipeMutation,
@@ -73,7 +88,65 @@ type ResolvedIngredient = {
   grams: number;
   quantity: number;
   unit: string;
+  sourceText: string | null;
+  ingredientSource: IngredientMappingSourceContext | null;
+  ingredientMapping: IngredientMappingReview;
 };
+
+function mappingForRecipeItem(
+  item: IngredientComponentGroup['items'][number],
+): IngredientMappingReview {
+  const mapping = normalizeIngredientMappingReview(item.ingredientMapping);
+  if (
+    mapping.status === 'verified' &&
+    isCurrentIngredientMappingReview(mapping, item.mappingSource ?? null) &&
+    mapping.evidenceSnapshot === (item.mappingEvidenceSnapshot ?? '').trim()
+  )
+    return mapping;
+  return { ...UNKNOWN_INGREDIENT_MAPPING };
+}
+
+function productLabelSource(product: CatalogProduct): IngredientMappingSourceContext | null {
+  const sourceVersion = product.offLastModifiedAt ?? product.recordUpdatedAt;
+  const sourceId = product.barcode || product.productId;
+  if (!sourceVersion || !sourceId) return null;
+  return {
+    source: 'product_label',
+    sourceId,
+    sourceUrl: product.barcode
+      ? `https://world.openfoodfacts.org/product/${encodeURIComponent(product.barcode)}`
+      : null,
+    sourceVersion,
+    license: product.offLastModifiedAt ? 'ODbL' : null,
+  };
+}
+
+function storedProductLabelSource(product: ProductRow): IngredientMappingSourceContext | null {
+  const sourceVersion =
+    product.off_last_modified_at ??
+    (product.updated_at ? new Date(product.updated_at).toISOString() : null);
+  const sourceId = product.barcode || product.id;
+  if (!sourceVersion || !sourceId) return null;
+  return {
+    source: 'product_label',
+    sourceId,
+    sourceUrl: product.barcode
+      ? `https://world.openfoodfacts.org/product/${encodeURIComponent(product.barcode)}`
+      : null,
+    sourceVersion,
+    license: product.source === 'off' ? 'ODbL' : null,
+  };
+}
+
+function importSourceContext(draft: RecipeImportDraftRecord): IngredientMappingSourceContext {
+  return {
+    source: 'import_source',
+    sourceId: draft.sourceUrl ?? draft.id,
+    sourceUrl: draft.sourceUrl,
+    sourceVersion: draft.createdAt,
+    license: null,
+  };
+}
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -99,6 +172,19 @@ const styles = StyleSheet.create((theme) => ({
     height: rs(4),
     borderRadius: radius.s,
   },
+  importInfo: {
+    gap: theme.space.sm,
+    paddingHorizontal: theme.space.lg,
+    paddingTop: theme.space.xs,
+    paddingBottom: theme.space.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.border,
+  },
+  importSourceImage: {
+    width: rs(112),
+    height: rs(84),
+    borderRadius: theme.radius.md,
+  },
   keyboard: {
     flex: 1,
   },
@@ -113,7 +199,7 @@ const styles = StyleSheet.create((theme) => ({
 
 export function RecipeCreateScreen() {
   const { colors } = useTheme();
-  const { id } = useLocalSearchParams<{ id?: string }>();
+  const { id, importDraftId } = useLocalSearchParams<{ id?: string; importDraftId?: string }>();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
@@ -173,6 +259,8 @@ export function RecipeCreateScreen() {
   ]);
 
   const [wizardSteps, setWizardSteps] = useState<WizardStepItem[]>([newWizardStep()]);
+  const [importedDraft, setImportedDraft] = useState<RecipeImportDraftRecord | null>(null);
+  const [showOriginalText, setShowOriginalText] = useState(false);
 
   useEffect(() => {
     if (!data) return;
@@ -196,6 +284,14 @@ export function RecipeCreateScreen() {
         .filter((item) => item.component_id === component.id && item.product_id !== null)
         .map((item) => {
           const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
+          const savedMapping = item.ingredientMapping ?? { ...UNKNOWN_INGREDIENT_MAPPING };
+          const mappingSource = product ? storedProductLabelSource(product) : item.ingredientSource;
+          const currentMapping = isCurrentIngredientMappingReview(
+            savedMapping,
+            mappingSource ?? null,
+          )
+            ? savedMapping
+            : { ...UNKNOWN_INGREDIENT_MAPPING };
           return {
             id: item.id,
             product: null,
@@ -205,6 +301,11 @@ export function RecipeCreateScreen() {
             notConvertible: false,
             existingItemId: item.id,
             existingProductId: item.product_id,
+            sourceText: item.sourceText ?? null,
+            ingredientMapping: currentMapping,
+            mappingEvidenceSnapshot:
+              currentMapping.status === 'verified' ? currentMapping.evidenceSnapshot : '',
+            mappingSource,
           };
         }),
     }));
@@ -233,6 +334,65 @@ export function RecipeCreateScreen() {
       }));
     if (hydratedSteps.length > 0) setWizardSteps(hydratedSteps);
   }, [data, reset]);
+
+  useEffect(() => {
+    if (!importDraftId || !userId || data) return;
+    let current = true;
+    void loadRecipeImportDrafts(userId)
+      .then((drafts) => {
+        if (!current) return;
+        const imported = drafts.find((candidate) => candidate.id === importDraftId);
+        if (!imported) {
+          Alert.alert(
+            'Importentwurf fehlt',
+            'Der lokal gespeicherte Entwurf ist nicht mehr verfügbar.',
+          );
+          return;
+        }
+        setImportedDraft(imported);
+        reset({
+          ...RECIPE_FORM_DEFAULTS,
+          title: imported.draft.title,
+          description: imported.draft.notes ?? '',
+          defaultServings: imported.draft.servings ?? RECIPE_FORM_DEFAULTS.defaultServings,
+        });
+        setComponents([
+          {
+            id: 'imported-ingredients',
+            title: 'Zutaten',
+            existingComponentId: null,
+            items: imported.draft.ingredients.map((ingredient) => ({
+              ...newIngredient(),
+              productQuery: ingredient.name,
+              quantity: ingredient.quantity === null ? '' : String(ingredient.quantity),
+              unit: ingredient.unit ?? '',
+              sourceText: ingredient.name,
+              ingredientExtractionConfidence: ingredient.confidence,
+              ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+              mappingEvidenceSnapshot: imported.originalText ?? '',
+              mappingSource: importSourceContext(imported),
+            })),
+          },
+        ]);
+        setWizardSteps(
+          imported.draft.steps.map((text) => ({
+            ...newWizardStep(),
+            text,
+          })),
+        );
+      })
+      .catch((loadError: unknown) => {
+        if (current) {
+          Alert.alert(
+            'Importentwurf konnte nicht geöffnet werden',
+            loadError instanceof Error ? loadError.message : 'Bitte versuche es erneut.',
+          );
+        }
+      });
+    return () => {
+      current = false;
+    };
+  }, [data, importDraftId, reset, userId]);
 
   async function handlePickCover() {
     const uri = await pickRecipeImage();
@@ -264,7 +424,17 @@ export function RecipeCreateScreen() {
         return {
           ...comp,
           items: comp.items.map((item) =>
-            item.id === ingredientId ? { ...item, product, productQuery: product.name } : item,
+            item.id === ingredientId
+              ? {
+                  ...item,
+                  product,
+                  productQuery: product.name,
+                  existingProductId: null,
+                  ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+                  mappingEvidenceSnapshot: product.ingredients ?? '',
+                  mappingSource: productLabelSource(product),
+                }
+              : item,
           ),
         };
       }),
@@ -278,10 +448,62 @@ export function RecipeCreateScreen() {
         return {
           ...comp,
           items: comp.items.map((item) =>
-            item.id === ingredientId ? { ...item, productQuery: query, product: null } : item,
+            item.id === ingredientId
+              ? {
+                  ...item,
+                  productQuery: query,
+                  product: null,
+                  existingProductId: null,
+                  ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+                  mappingEvidenceSnapshot:
+                    item.mappingSource?.source === 'import_source'
+                      ? item.mappingEvidenceSnapshot
+                      : '',
+                  mappingSource:
+                    item.mappingSource?.source === 'import_source' ? item.mappingSource : null,
+                }
+              : item,
           ),
         };
       }),
+    );
+  }
+
+  function handleIngredientMappingChange(
+    componentId: string,
+    ingredientId: string,
+    ingredientMapping: IngredientMappingReview,
+  ) {
+    setComponents((prev) =>
+      prev.map((comp) =>
+        comp.id !== componentId
+          ? comp
+          : {
+              ...comp,
+              items: comp.items.map((item) =>
+                item.id === ingredientId ? { ...item, ingredientMapping } : item,
+              ),
+            },
+      ),
+    );
+  }
+
+  function handleIngredientEvidenceChange(
+    componentId: string,
+    ingredientId: string,
+    mappingEvidenceSnapshot: string,
+  ) {
+    setComponents((prev) =>
+      prev.map((comp) =>
+        comp.id !== componentId
+          ? comp
+          : {
+              ...comp,
+              items: comp.items.map((item) =>
+                item.id === ingredientId ? { ...item, mappingEvidenceSnapshot } : item,
+              ),
+            },
+      ),
     );
   }
 
@@ -415,6 +637,9 @@ export function RecipeCreateScreen() {
             grams: conversion.grams,
             quantity,
             unit: item.unit,
+            sourceText: item.sourceText ?? null,
+            ingredientSource: item.mappingSource ?? null,
+            ingredientMapping: mappingForRecipeItem(item),
           });
         }
 
@@ -552,9 +777,13 @@ export function RecipeCreateScreen() {
                 id: resolved.existingItemId,
                 recipe_id: newRecipeId,
                 household_id: householdId,
+                product_id: productId,
                 grams: resolved.grams,
                 quantity: resolved.quantity,
                 unit: resolved.unit,
+                source_text: resolved.sourceText,
+                ingredientSource: resolved.ingredientSource,
+                ingredientMapping: resolved.ingredientMapping,
               });
               localToRealItemId.set(resolved.sourceItemId, resolved.existingItemId);
             } else {
@@ -566,6 +795,9 @@ export function RecipeCreateScreen() {
                 grams: resolved.grams,
                 quantity: resolved.quantity,
                 unit: resolved.unit,
+                source_text: resolved.sourceText,
+                ingredientSource: resolved.ingredientSource,
+                ingredientMapping: resolved.ingredientMapping,
               });
               localToRealItemId.set(resolved.sourceItemId, added.id);
             }
@@ -751,6 +983,9 @@ export function RecipeCreateScreen() {
 
       trackAnalyticsEvent(isEditing ? 'recipe.update.completed' : 'recipe.create.completed');
 
+      if (importDraftId && userId) {
+        await completeRecipeImportDraft(userId, importDraftId, newRecipeId).catch(() => undefined);
+      }
       router.replace({ pathname: '/recipe/[id]', params: { id: newRecipeId } });
     } catch (err) {
       Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
@@ -766,7 +1001,9 @@ export function RecipeCreateScreen() {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         {/* Header mit Titel (Erstellen/Bearbeiten) und Abbrechen-Button */}
         <PageHeader
-          title={isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'}
+          title={
+            importedDraft ? 'Import prüfen' : isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'
+          }
           leading={<BackButton label="Zurück" variant="header" onPress={handleCancel} />}
         />
 
@@ -782,6 +1019,58 @@ export function RecipeCreateScreen() {
             />
           ))}
         </View>
+        {importedDraft ? (
+          <View style={styles.importInfo}>
+            <Txt variant="caption" weight="700">
+              {importedDraft.sourceLabel}
+            </Txt>
+            <Txt variant="caption" tone="secondary">
+              Ordne jede Zutat einem Produkt zu und ergänze eine gültige Grammmenge. Gespeichert
+              wird erst nach deiner Bestätigung.
+            </Txt>
+            {importedDraft.mediaUris[0] ? (
+              <Image
+                source={{ uri: importedDraft.mediaUris[0] }}
+                contentFit="cover"
+                style={styles.importSourceImage}
+              />
+            ) : null}
+            {importedDraft.draft.warnings.map((warning, index) =>
+              index < 3 ? (
+                <Txt key={String(index)} variant="caption" tone="secondary">
+                  {warning}
+                </Txt>
+              ) : null,
+            )}
+            {importedDraft.draft.ingredients.some(
+              (ingredient) => ingredient.confidence !== 'high',
+            ) ? (
+              <Txt variant="caption" tone="secondary">
+                Bitte prüfe die erkannten Zutaten:{' '}
+                {importedDraft.draft.ingredients
+                  .filter((ingredient) => ingredient.confidence !== 'high')
+                  .map((ingredient) => ingredient.name)
+                  .join(' · ')}
+              </Txt>
+            ) : null}
+            {importedDraft.originalText ? (
+              <>
+                <Press
+                  accessibilityRole="button"
+                  onPress={() => setShowOriginalText((visible) => !visible)}>
+                  <Txt variant="caption" weight="700">
+                    {showOriginalText ? 'Originaltext ausblenden' : 'Originaltext anzeigen'}
+                  </Txt>
+                </Press>
+                {showOriginalText ? (
+                  <Txt variant="caption" tone="secondary" numberOfLines={8}>
+                    {importedDraft.originalText.slice(0, 1_200)}
+                  </Txt>
+                ) : null}
+              </>
+            ) : null}
+          </View>
+        ) : null}
 
         <KeyboardAvoidingView
           style={styles.keyboard}
@@ -806,6 +1095,9 @@ export function RecipeCreateScreen() {
                 onUpdateIngredientQuery={handleUpdateIngredientQuery}
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
+                reviewerId={userId}
+                onIngredientMappingChange={handleIngredientMappingChange}
+                onIngredientEvidenceChange={handleIngredientEvidenceChange}
                 onAddComponentGroup={handleAddComponentGroup}
                 onUpdateComponentTitle={handleUpdateComponentTitle}
                 onRemoveComponentGroup={handleRemoveComponentGroup}
@@ -833,6 +1125,9 @@ export function RecipeCreateScreen() {
                 onUpdateIngredientQuery={handleUpdateIngredientQuery}
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
+                reviewerId={userId}
+                onIngredientMappingChange={handleIngredientMappingChange}
+                onIngredientEvidenceChange={handleIngredientEvidenceChange}
                 onAddComponentGroup={handleAddComponentGroup}
                 onUpdateComponentTitle={handleUpdateComponentTitle}
                 onRemoveComponentGroup={handleRemoveComponentGroup}

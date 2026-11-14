@@ -1,8 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
 import { FAM_APP_GROUP, FAM_SIRI_CONTEXT_FILE } from '@/lib/apple/shared-app-group';
+import {
+  sharedStoreWriterOwner,
+  withSharedStoreWriterSync,
+} from '@/lib/apple/shared-store-lifecycle';
 
 const STORAGE_KEY = '@fam/active_household_id';
+let sharedContextWriteSequence = 0;
 
 type SharedContextFile = import('expo-file-system').File;
 
@@ -32,13 +37,29 @@ async function readSharedHouseholdId(file: SharedContextFile): Promise<string | 
 }
 
 function writeSharedHouseholdId(file: SharedContextFile, id: string | null): void {
-  if (id === null) {
-    if (file.exists) file.delete();
-    return;
-  }
+  withSharedStoreWriterSync(sharedStoreWriterOwner, 'active-household.context', () => {
+    if (id === null) {
+      if (file.exists) file.delete();
+      return;
+    }
 
-  file.create({ overwrite: true });
-  file.write(JSON.stringify({ activeHouseholdId: id }));
+    sharedContextWriteSequence += 1;
+    const { File } = require('expo-file-system') as typeof import('expo-file-system');
+    const temporary = new File(
+      file.parentDirectory,
+      `.${file.name}.${sharedContextWriteSequence}.tmp`,
+    );
+    try {
+      temporary.create({ overwrite: true });
+      temporary.write(JSON.stringify({ activeHouseholdId: id }));
+      // The temporary file and target share the App Group directory. The
+      // native same-container move publishes one complete JSON document.
+      temporary.moveSync(file, { overwrite: true });
+    } catch (error) {
+      if (temporary.exists && temporary.uri !== file.uri) temporary.delete();
+      throw error;
+    }
+  });
 }
 
 export async function getStoredActiveHouseholdId(): Promise<string | null> {
@@ -47,7 +68,13 @@ export async function getStoredActiveHouseholdId(): Promise<string | null> {
 
   try {
     const legacyValue = await AsyncStorage.getItem(STORAGE_KEY);
-    if (sharedFile && legacyValue) writeSharedHouseholdId(sharedFile, legacyValue);
+    if (sharedFile && legacyValue) {
+      try {
+        writeSharedHouseholdId(sharedFile, legacyValue);
+      } catch {
+        // Die private Quelle bleibt verfügbar, auch wenn der Shared-Write wartet.
+      }
+    }
     return legacyValue;
   } catch {
     return null;

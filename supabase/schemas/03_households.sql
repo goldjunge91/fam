@@ -567,6 +567,7 @@ create table if not exists public.ai_credit_bookings (
   subscriber_user_id uuid not null references public.profiles (id) on delete cascade,
   request_id uuid not null,
   action text not null check (action in ('suggestion', 'recipe', 'voice')),
+  household_id uuid references public.households (id) on delete cascade,
   credits smallint not null check (credits > 0),
   created_at timestamptz not null default now(),
   primary key (subscriber_user_id, request_id)

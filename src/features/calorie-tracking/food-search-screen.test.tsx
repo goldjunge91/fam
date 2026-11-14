@@ -7,6 +7,11 @@ import { FoodSearchScreen } from '@/features/calorie-tracking/food-search-screen
 const mockUseLocalFoodUsage = jest.fn();
 const mockCatalogSearch = jest.fn();
 const mockCatalogFindByBarcode = jest.fn();
+const mockTrackAnalyticsEvent = jest.fn();
+
+jest.mock('@/lib/analytics', () => ({
+  trackAnalyticsEvent: (...args: unknown[]) => mockTrackAnalyticsEvent(...args),
+}));
 
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), canGoBack: () => false },
@@ -121,6 +126,21 @@ beforeEach(() => {
 });
 
 describe('FoodSearchScreen', () => {
+  it('instrumentiert den schnellen Eintrag aus dem Such-Empty-State', async () => {
+    await renderScreen();
+
+    await fireEvent.press(screen.getByText('Schneller Eintrag'));
+
+    expect(mockTrackAnalyticsEvent).toHaveBeenCalledWith('empty_state.action_pressed', {
+      screen: 'food_search',
+      action: 'quick_entry',
+    });
+    expect(router.push).toHaveBeenCalledWith({
+      pathname: '/add-food-entry',
+      params: { date: '2026-08-10', mealType: 'breakfast' },
+    });
+  });
+
   it('zeigt den Barcode-Button in Suchfeldhöhe mit sichtbarem Rahmen', async () => {
     await renderScreen();
 
@@ -173,6 +193,10 @@ describe('FoodSearchScreen', () => {
       'Hafermilch',
       expect.objectContaining({ limit: 20 }),
     );
+    expect(mockTrackAnalyticsEvent).toHaveBeenCalledWith('search.completed', {
+      source: 'food_search',
+      result_bucket: '1-5',
+    });
 
     await fireEvent.press(screen.getByText('Hafermilch'));
 
@@ -295,6 +319,10 @@ describe('FoodSearchScreen', () => {
 
     expect(screen.getByText(/Open Food Facts ist gerade nicht erreichbar/)).toBeTruthy();
     expect(screen.queryByText(/Keine Treffer/)).toBeNull();
+    expect(mockTrackAnalyticsEvent).toHaveBeenCalledWith('search.failed', {
+      source: 'food_search',
+      reason: 'catalog_unavailable',
+    });
 
     mockCatalogSearch.mockResolvedValue({
       products: [{ barcode: '123', name: 'Haferflocken', caloriesPer100g: 380, categoryTags: [] }],

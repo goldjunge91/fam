@@ -9,6 +9,7 @@ import { i18n } from '@/i18n';
 const mockInvoke = jest.fn().mockResolvedValue({ data: { success: true }, error: null });
 const mockReplace = jest.fn();
 const mockSignOutAndClearLocalData = jest.fn();
+const mockDisablePostHogCapture = jest.fn();
 
 jest.mock('@/features/auth/sign-out', () => ({
   signOutAndClearLocalData: (...args: unknown[]) => mockSignOutAndClearLocalData(...args),
@@ -20,6 +21,10 @@ jest.mock('expo-router', () => ({
     replace: (...args: unknown[]) => mockReplace(...args),
     back: jest.fn(),
   },
+}));
+
+jest.mock('@/lib/observability/providers/posthog', () => ({
+  disablePostHogCapture: () => mockDisablePostHogCapture(),
 }));
 
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
@@ -106,6 +111,10 @@ describe('DeleteAccountScreen', () => {
 
     await waitFor(() => expect(mockSignOutAndClearLocalData).toHaveBeenCalled());
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledWith(expect.any(QueryClient));
+    expect(mockDisablePostHogCapture).toHaveBeenCalledTimes(1);
+    expect(mockDisablePostHogCapture.mock.invocationCallOrder[0]).toBeLessThan(
+      mockInvoke.mock.invocationCallOrder[0],
+    );
     expect(mockInvoke.mock.invocationCallOrder[0]).toBeLessThan(
       mockSignOutAndClearLocalData.mock.invocationCallOrder[0],
     );

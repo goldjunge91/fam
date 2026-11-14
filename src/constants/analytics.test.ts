@@ -18,6 +18,7 @@ describe('analytics settings', () => {
   beforeEach(() => {
     mockStorageData.clear();
     useAnalyticsSettingsStore.getState().resetOverrides();
+    useAnalyticsSettingsStore.getState().setPostHogConsent('pending');
   });
 
   it('liefert die Build-Defaults', () => {
@@ -83,5 +84,48 @@ describe('analytics settings', () => {
       expect(isolatedAnalytics.getAnalyticsSettings().features.recipes).toBe(false);
       expect(isolatedAnalytics.getAnalyticsSettings().features.household).toBe(true);
     });
+  });
+
+  it('startet mit ausstehender PostHog-Einwilligung und persistiert die Entscheidung', () => {
+    const store = useAnalyticsSettingsStore.getState();
+
+    expect(store.posthogConsent).toBe('pending');
+
+    store.setPostHogConsent('granted');
+    expect(useAnalyticsSettingsStore.getState().posthogConsent).toBe('granted');
+    expect(mockStorageData.get('analytics.posthog_consent.v1')).toBe('granted');
+
+    store.setPostHogConsent('denied');
+    expect(useAnalyticsSettingsStore.getState().posthogConsent).toBe('denied');
+    expect(mockStorageData.get('analytics.posthog_consent.v1')).toBe('denied');
+  });
+
+  it('liest eine gespeicherte PostHog-Einwilligung beim Modulstart', () => {
+    mockStorageData.set('analytics.posthog_consent.v1', 'granted');
+
+    jest.isolateModules(() => {
+      const isolatedAnalytics = require('@/constants/analytics') as typeof import('./analytics');
+      expect(isolatedAnalytics.getPostHogConsent()).toBe('granted');
+      expect(isolatedAnalytics.isPostHogConsentGranted()).toBe(true);
+    });
+  });
+
+  it('ignoriert unbekannte gespeicherte PostHog-Einwilligungen', () => {
+    mockStorageData.set('analytics.posthog_consent.v1', 'unexpected');
+
+    jest.isolateModules(() => {
+      const isolatedAnalytics = require('@/constants/analytics') as typeof import('./analytics');
+      expect(isolatedAnalytics.getPostHogConsent()).toBe('pending');
+      expect(isolatedAnalytics.isPostHogConsentGranted()).toBe(false);
+    });
+  });
+
+  it('setzt die Einwilligung beim Zurücksetzen der Dev-Overrides nicht zurück', () => {
+    const store = useAnalyticsSettingsStore.getState();
+    store.setPostHogConsent('granted');
+    store.setOverride('providers.posthog', false);
+    store.resetOverrides();
+
+    expect(useAnalyticsSettingsStore.getState().posthogConsent).toBe('granted');
   });
 });

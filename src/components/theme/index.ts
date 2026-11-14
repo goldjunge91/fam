@@ -11,6 +11,7 @@ export const SPEED_DIAL_COLOR_KEYS = [
   'speedDialShopping',
   'speedDialRecipes',
   'speedDialCalories',
+  'speedDialAssistant',
 ] as const;
 
 export type SpeedDialColorKey = (typeof SPEED_DIAL_COLOR_KEYS)[number];
@@ -51,6 +52,7 @@ const famColorsLight = {
   speedDialShopping: '#EBE5F1',
   speedDialRecipes: '#E4EDE3',
   speedDialCalories: '#F3E9D7',
+  speedDialAssistant: '#E6E0EE',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
   scrim: 'rgba(42,31,44,0.45)',
@@ -91,6 +93,7 @@ const famColorsDark = {
   speedDialShopping: '#EBE5F1',
   speedDialRecipes: '#E4EDE3',
   speedDialCalories: '#F3E9D7',
+  speedDialAssistant: '#E6E0EE',
   shadowCard: '#594059',
   shadowSheet: '#2A1F2C',
   scrim: 'rgba(0,0,0,0.55)',

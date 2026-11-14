@@ -9,10 +9,13 @@ direkt auf.
 
 Der KaufDA-Runner liegt in [`scripts/scrapers/run-kaufda.ts`](../../../scripts/scrapers/run-kaufda.ts)
 und wird über [`.github/workflows/scrape-brochures.yml`](../../../.github/workflows/scrape-brochures.yml)
-ausgeführt. Ein Lauf liest den vollständig paginierten KaufDA-Shelf für die
-angefragte PLZ und übernimmt echte Prospekte aus allen Kategorien. KaufDA
-entscheidet dadurch, welche Publisher und Prospekte an diesem Standort
-verfügbar sind. Die App zeigt standardmäßig alle veröffentlichten
+ausgeführt. Vor dem Shelf-Abruf löst der Runner die unveränderte PLZ über
+Google Places API (New) auf und akzeptiert nur einen eindeutigen deutschen
+`postal_code`-Treffer. KaufDAs `/api/localize` muss die erhaltene Koordinate
+wieder derselben PLZ zuordnen; andernfalls wird nichts veröffentlicht. Danach
+liest der Lauf den vollständig paginierten KaufDA-Shelf für die angefragte PLZ
+und übernimmt echte Prospekte aus allen Kategorien. KaufDA entscheidet dadurch,
+welche Publisher und Prospekte an diesem Standort verfügbar sind. Die App zeigt standardmäßig alle veröffentlichten
 Prospekte der aktiven PLZ; Händler ohne Angebot für diese PLZ erscheinen dort
 nicht. Der Runner prüft Seiten und Hotspots und veröffentlicht den ganzen
 PLZ-Scope atomar. Die Bilder bleiben originale
@@ -27,7 +30,10 @@ eine einzelne PLZ geprüft oder die fällige Warteschlange abgearbeitet werden.
 Ein Ein-PLZ-Dry-Run prüft die Live-Antworten ohne Supabase-Schreibzugriff und
 ohne Übergabe von Datenbank-Zugangsdaten an den Runner-Schritt.
 
-Supabase-Zugangsdaten stehen nur Läufen auf `main` zur Verfügung. Die
+Supabase-Zugangsdaten stehen nur Läufen auf `main` zur Verfügung. Zusätzlich
+muss `GOOGLE_PLACES_API_KEY` als GitHub-Actions-Repository-Secret hinterlegt
+und im Google-Cloud-Projekt ausschließlich für Places API (New) freigeschaltet
+sein. Der Key bleibt serverseitig und wird nicht in die App gebündelt. Die
 Scanwarteschlange enthält ausschließlich PLZ, die von einer App-Sitzung
 angefragt wurden. Vollständige Scans über alle 10.813 PLZ finden nicht statt.
 
@@ -42,7 +48,9 @@ als leerer Bestand übernommen.
 
 ## Lokaler Dry-Run
 
-Mit `--dry-run` werden alle Shelf-Seiten und Prospektabrufe für eine PLZ geprüft, ohne eine
+`GOOGLE_PLACES_API_KEY` muss in der lokalen, nicht versionierten Umgebung gesetzt
+sein. Mit `--dry-run` werden die Places-Auflösung, KaufDAs PLZ-Rückprüfung sowie
+alle Shelf-Seiten und Prospektabrufe für eine PLZ geprüft, ohne eine
 Datenbankverbindung oder lokale JSON-Ausgabe zu benötigen:
 
 ```bash

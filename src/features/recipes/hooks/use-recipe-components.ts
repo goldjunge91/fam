@@ -1,5 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
+import {
+  type IngredientMappingReview,
+  type IngredientMappingSourceContext,
+  isCurrentIngredientMappingReview,
+  UNKNOWN_INGREDIENT_MAPPING,
+} from '@/features/recipes/domain/ingredient-mapping';
 import type {
   RecipeComponentItemRow,
   RecipeComponentRow,
@@ -17,10 +23,23 @@ export type RecipeComponentItem = RecipeComponentItemRow & {
   unit: string;
   optional?: boolean;
   note?: string | null;
+  sourceText?: string | null;
+  ingredientSource?: IngredientMappingSourceContext | null;
+  ingredientMapping?: IngredientMappingReview;
 };
 
 function nowStamp() {
   return { iso: new Date().toISOString(), ms: Date.now() };
+}
+
+function mappingForSource(
+  mapping: IngredientMappingReview | undefined,
+  source: IngredientMappingSourceContext | null | undefined,
+): IngredientMappingReview {
+  if (!mapping || !isCurrentIngredientMappingReview(mapping, source ?? null)) {
+    return { ...UNKNOWN_INGREDIENT_MAPPING };
+  }
+  return mapping;
 }
 
 // ----------------------------------------------------------------- Mutations
@@ -211,6 +230,9 @@ export function useAddItemMutation() {
       unit?: string;
       optional?: boolean;
       note?: string | null;
+      source_text?: string | null;
+      ingredientSource?: IngredientMappingSourceContext | null;
+      ingredientMapping?: IngredientMappingReview;
     }) => {
       const db = await getDatabase();
       const id = Crypto.randomUUID();
@@ -221,6 +243,9 @@ export function useAddItemMutation() {
       const unit = input.unit ?? 'g';
       const optional = input.optional ?? false;
       const note = input.note ?? null;
+      const sourceText = input.source_text ?? null;
+      const ingredientSource = input.ingredientSource ?? null;
+      const ingredientMapping = mappingForSource(input.ingredientMapping, ingredientSource);
 
       await enqueueMutation(db, {
         entity: 'recipe_component_items',
@@ -238,6 +263,13 @@ export function useAddItemMutation() {
           unit,
           optional,
           note,
+          source_text: sourceText,
+          ingredient_source_type: ingredientSource?.source ?? null,
+          ingredient_source_id: ingredientSource?.sourceId ?? null,
+          ingredient_source_url: ingredientSource?.sourceUrl ?? null,
+          ingredient_source_version: ingredientSource?.sourceVersion ?? null,
+          ingredient_source_license: ingredientSource?.license ?? null,
+          ingredient_mapping: ingredientMapping,
           created_at: iso,
           updated_at: iso,
         },
@@ -258,6 +290,13 @@ export function useAddItemMutation() {
               unit,
               optional,
               note,
+              source_text: sourceText,
+              ingredient_source_type: ingredientSource?.source ?? null,
+              ingredient_source_id: ingredientSource?.sourceId ?? null,
+              ingredient_source_url: ingredientSource?.sourceUrl ?? null,
+              ingredient_source_version: ingredientSource?.sourceVersion ?? null,
+              ingredient_source_license: ingredientSource?.license ?? null,
+              ingredient_mapping: ingredientMapping,
               created_at: iso,
             },
             ms,
@@ -288,17 +327,40 @@ export function useUpdateItemMutation() {
       unit?: string;
       optional?: boolean;
       note?: string | null;
+      source_text?: string | null;
+      ingredientSource?: IngredientMappingSourceContext | null;
+      product_id?: string | null;
+      ingredientMapping?: IngredientMappingReview;
     }) => {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
       const quantity = input.quantity ?? null;
       const unit = input.unit ?? 'g';
+      const ingredientSource = input.ingredientSource;
+      const ingredientMapping = mappingForSource(input.ingredientMapping, ingredientSource);
       const patch = {
         grams: input.grams,
         quantity,
         unit,
         ...(input.optional !== undefined && { optional: input.optional }),
         ...(input.note !== undefined && { note: input.note }),
+        ...(input.source_text !== undefined && { source_text: input.source_text }),
+        ...(ingredientSource !== undefined && {
+          ingredient_source_type: ingredientSource?.source ?? null,
+          ingredient_source_id: ingredientSource?.sourceId ?? null,
+          ingredient_source_url: ingredientSource?.sourceUrl ?? null,
+          ingredient_source_version: ingredientSource?.sourceVersion ?? null,
+          ingredient_source_license: ingredientSource?.license ?? null,
+        }),
+        ...(input.product_id !== undefined && { product_id: input.product_id }),
+        ...((input.ingredientMapping !== undefined || ingredientSource !== undefined) && {
+          ingredient_mapping: ingredientMapping,
+        }),
+        ...(input.product_id !== undefined &&
+          input.ingredientMapping === undefined &&
+          ingredientSource === undefined && {
+            ingredient_mapping: { ...UNKNOWN_INGREDIENT_MAPPING },
+          }),
       };
 
       await enqueueMutation(db, {

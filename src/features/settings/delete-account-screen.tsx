@@ -6,9 +6,11 @@ import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
 import { Button, Txt } from '@/constants/ui';
 import { signOutAndClearLocalData } from '@/features/auth/sign-out';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { disablePostHogCapture } from '@/lib/observability/providers/posthog';
 
 const styles = StyleSheet.create((theme) => ({
   deleteButtonContainer: {
@@ -19,10 +21,13 @@ const styles = StyleSheet.create((theme) => ({
 export function DeleteAccountScreen() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
+  const setPostHogConsent = useAnalyticsSettingsStore((state) => state.setPostHogConsent);
   const [deleting, setDeleting] = useState(false);
 
   async function performDeletion() {
     setDeleting(true);
+    setPostHogConsent('denied');
+    disablePostHogCapture();
     try {
       const { data, error } = await getSupabase().functions.invoke('delete-account', {
         method: 'POST',

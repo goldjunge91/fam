@@ -241,19 +241,6 @@ export async function setPurchasesAttributes(
 }
 
 /**
- * Setzt die E-Mail-Adresse des Nutzers in RevenueCat.
- */
-export async function setPurchasesEmail(email: string | null): Promise<void> {
-  if (!isPurchasesConfigured() || !email) return;
-
-  try {
-    await Purchases.setEmail(email);
-  } catch (err) {
-    debugWarn('[Purchases] setPurchasesEmail fehlgeschlagen:', err);
-  }
-}
-
-/**
  * Loggt den aktuellen RevenueCat-Nutzer aus, sofern er nicht bereits anonym ist.
  */
 export async function resetPurchasesIdentity(): Promise<CustomerInfo | null> {

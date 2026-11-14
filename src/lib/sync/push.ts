@@ -5,8 +5,9 @@ import {
   loadPendingOutboxEntries,
   recordOutboxOutcome,
 } from '@/lib/db/outbox';
-import type { Entity, OutboxEntry, SqlDatabase } from '@/lib/db/types';
+import type { Entity, OutboxEntry, SqlDatabase, SqlParam } from '@/lib/db/types';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
+import { throwIfSyncAborted } from '@/lib/sync/cancellation';
 import { type CoalescedEntry, coalesce } from '@/lib/sync/coalesce';
 import {
   applyInventoryMergeUndoPush,
@@ -41,6 +42,7 @@ function buildServerPayload(
   columns: readonly string[],
   normalizeQuantityUnits: boolean,
   includeId: boolean,
+  jsonObjectColumns: readonly string[] = [],
 ): Record<string, unknown> {
   const serverColumns = new Set(columns);
   const result = Object.fromEntries(
@@ -51,6 +53,24 @@ function buildServerPayload(
   if (normalizeQuantityUnits && 'unit' in result) {
     result.unit = normalizeUnit(typeof result.unit === 'string' ? result.unit : undefined);
   }
+  for (const column of jsonObjectColumns) {
+    const value = result[column];
+    if (typeof value === 'string') {
+      try {
+        result[column] = JSON.parse(value) as unknown;
+      } catch {
+        throw new Error(`Lokales JSON-Feld ${column} ist ungueltig.`);
+      }
+    }
+    if (
+      result[column] !== undefined &&
+      (typeof result[column] !== 'object' ||
+        result[column] === null ||
+        Array.isArray(result[column]))
+    ) {
+      throw new Error(`Lokales JSON-Feld ${column} muss ein Objekt enthalten.`);
+    }
+  }
   return result;
 }
 
@@ -59,8 +79,9 @@ function buildInsertPayload(
   payload: Record<string, unknown>,
   columns: readonly string[],
   normalizeQuantityUnits: boolean,
+  jsonObjectColumns: readonly string[] = [],
 ): Record<string, unknown> {
-  return buildServerPayload(payload, columns, normalizeQuantityUnits, true);
+  return buildServerPayload(payload, columns, normalizeQuantityUnits, true, jsonObjectColumns);
 }
 
 /** Update-Payload: geaenderte Server-Felder ohne Sync-Spalten und id. */
@@ -68,8 +89,9 @@ function buildUpdatePayload(
   payload: Record<string, unknown>,
   columns: readonly string[],
   normalizeQuantityUnits: boolean,
+  jsonObjectColumns: readonly string[] = [],
 ): Record<string, unknown> {
-  return buildServerPayload(payload, columns, normalizeQuantityUnits, false);
+  return buildServerPayload(payload, columns, normalizeQuantityUnits, false, jsonObjectColumns);
 }
 
 export type AttemptResult = {
@@ -131,6 +153,17 @@ type GenericQuery<T> = {
   update(payload: Record<string, unknown>): GenericQuery<T>;
   select(columns?: string): GenericQuery<T>;
   eq(column: string, value: unknown): GenericQuery<T>;
+  abortSignal?(signal: AbortSignal): GenericQuery<T>;
+};
+
+type SingleRowResponse = {
+  data: Record<string, unknown> | null;
+  error: { code?: string; message: string } | null;
+  status: number;
+};
+
+type SingleRowRequest = PromiseLike<SingleRowResponse> & {
+  abortSignal?(signal: AbortSignal): SingleRowRequest;
 };
 
 type SingleRowQuery = {
@@ -139,11 +172,7 @@ type SingleRowQuery = {
       column: string,
       value: unknown,
     ): {
-      maybeSingle(): Promise<{
-        data: Record<string, unknown> | null;
-        error: { code?: string; message: string } | null;
-        status: number;
-      }>;
+      maybeSingle(): SingleRowRequest;
     };
   };
 };
@@ -167,13 +196,23 @@ async function verifyAppendOnlyDuplicate(
   table: Entity,
   entityId: string,
   payload: Record<string, unknown>,
+  signal?: AbortSignal,
 ): Promise<{ matches: boolean; error?: string }> {
+  throwIfSyncAborted(signal);
   const meta = metaOf(table);
-  const expected = buildInsertPayload(payload, meta.columns, meta.normalizeQuantityUnits === true);
+  const expected = buildInsertPayload(
+    payload,
+    meta.columns,
+    meta.normalizeQuantityUnits === true,
+    meta.jsonObjectColumns,
+  );
   const columns = Object.keys(expected);
   const idColumn = meta.columns[0];
   const query = supabase.from(table as never) as unknown as SingleRowQuery;
-  const response = await query.select(columns.join(',')).eq(idColumn, entityId).maybeSingle();
+  let request = query.select(columns.join(',')).eq(idColumn, entityId).maybeSingle();
+  if (signal) request = request.abortSignal?.(signal) ?? request;
+  const response = await request;
+  throwIfSyncAborted(signal);
   if (response.error) return { matches: false, error: response.error.message };
   if (response.data === null) return { matches: false, error: 'Serverzeile fehlt.' };
 
@@ -192,34 +231,50 @@ async function attempt(
   entityId: string,
   payload: Record<string, unknown>,
   nowMs: number,
+  signal?: AbortSignal,
 ): Promise<AttemptResult> {
+  throwIfSyncAborted(signal);
   // Die Tabellenkorrelation geht bei einem dynamischen `Entity`-Union verloren.
   // Dieser kleine Adapter typisiert nur die tatsächlich verwendete Query-Fläche;
   // Tabelle und Spalten kommen weiterhin ausschließlich aus `entities.ts`.
   const query = supabase.from(table as never) as unknown as GenericQuery<AttemptResult>;
   const meta = metaOf(table);
+  // PostgrestQueryBuilder übernimmt sein Signal nicht in insert()/update().
+  // Deshalb wird es erst an den vollständig aufgebauten Request gehängt.
+  const execute = async (request: GenericQuery<AttemptResult>): Promise<AttemptResult> => {
+    const abortableRequest = signal ? (request.abortSignal?.(signal) ?? request) : request;
+    const response = await abortableRequest;
+    throwIfSyncAborted(signal);
+    return response;
+  };
 
   if (op === 'insert') {
     const insertPayload = buildInsertPayload(
       payload,
       meta.columns,
       meta.normalizeQuantityUnits === true,
+      meta.jsonObjectColumns,
     );
-    const response = meta.pushOnly
-      ? await query.insert(insertPayload)
-      : await query.insert(insertPayload).select();
-    return response as AttemptResult;
+    const request = meta.pushOnly
+      ? query.insert(insertPayload)
+      : query.insert(insertPayload).select();
+    return execute(request);
   }
 
   if (op === 'delete') {
-    const response = await query
+    const request = query
       .update({
-        ...buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true),
+        ...buildUpdatePayload(
+          payload,
+          meta.columns,
+          meta.normalizeQuantityUnits === true,
+          meta.jsonObjectColumns,
+        ),
         deleted_at: new Date(nowMs).toISOString(),
       })
       .eq('id', entityId)
       .select();
-    return response as AttemptResult;
+    return execute(request);
   }
 
   if (op === 'restore') {
@@ -230,21 +285,33 @@ async function attempt(
     // verworfen. Fuer bestehende reine Undo-Restores (#69) aendert das
     // nichts: deren Payload traegt ausser deleted_at nur unveraenderte
     // Identitaetsfelder (z. B. household_id), ein Update darauf ist idempotent.
-    const response = await query
+    const request = query
       .update({
-        ...buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true),
+        ...buildUpdatePayload(
+          payload,
+          meta.columns,
+          meta.normalizeQuantityUnits === true,
+          meta.jsonObjectColumns,
+        ),
         deleted_at: null,
       })
       .eq('id', entityId)
       .select();
-    return response as AttemptResult;
+    return execute(request);
   }
 
-  const response = await query
-    .update(buildUpdatePayload(payload, meta.columns, meta.normalizeQuantityUnits === true))
+  const request = query
+    .update(
+      buildUpdatePayload(
+        payload,
+        meta.columns,
+        meta.normalizeQuantityUnits === true,
+        meta.jsonObjectColumns,
+      ),
+    )
     .eq('id', entityId)
     .select();
-  return response as AttemptResult;
+  return execute(request);
 }
 
 /** Markiert einen Outbox-Eintrag als permanent gescheitert ohne weiteren Netzwerk-I/O. */
@@ -252,13 +319,21 @@ async function rejectPermanent(
   db: SqlDatabase,
   entry: CoalescedEntry,
   message: string,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
-  await recordOutboxOutcome(db, entry.sourceIds, {
-    attempts: MAX_ATTEMPTS,
-    lastError: message,
-    kind: 'permanent',
-    nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
-  });
+  throwIfSyncAborted(signal);
+  await recordOutboxOutcome(
+    db,
+    entry.sourceIds,
+    {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      kind: 'permanent',
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    },
+    { signal },
+  );
+  throwIfSyncAborted(signal);
   return {
     outcome: {
       kind: 'failed-permanent',
@@ -288,13 +363,16 @@ async function resolveDuplicateInsert(
   entry: CoalescedEntry,
   nowMs: number,
   response: AttemptResult,
+  signal?: AbortSignal,
 ): Promise<DuplicateInsertResolution> {
+  throwIfSyncAborted(signal);
   if (meta.appendOnly) {
     const verification = await verifyAppendOnlyDuplicate(
       supabase,
       meta.table,
       entry.entityId,
       entry.payload,
+      signal,
     );
     if (!verification.matches) {
       return {
@@ -310,10 +388,15 @@ async function resolveDuplicateInsert(
       };
     }
 
-    await db.withExclusiveTransactionAsync(async (txn) => {
-      await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
-      await txn.runAsync(`update ${meta.table} set _dirty = 0 where id = ?`, [entry.entityId]);
-    });
+    await db.withExclusiveTransactionAsync(
+      async (txn) => {
+        throwIfSyncAborted(signal);
+        await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
+        throwIfSyncAborted(signal);
+        await txn.runAsync(`update ${meta.table} set _dirty = 0 where id = ?`, [entry.entityId]);
+      },
+      { signal },
+    );
     return {
       outcome: 'confirmed',
       result: {
@@ -342,7 +425,9 @@ async function resolveDuplicateInsert(
     entry.entityId,
     entry.payload,
     nowMs,
+    signal,
   );
+  throwIfSyncAborted(signal);
   return { outcome: 'continue', response: updated };
 }
 
@@ -353,22 +438,24 @@ async function applyOnePush(
   entry: CoalescedEntry,
   nowMs: number,
   currentAttempts: number,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  throwIfSyncAborted(signal);
   if (entry.op === 'move') {
-    return applyInventoryMovePush(db, supabase, entry, nowMs, currentAttempts);
+    return applyInventoryMovePush(db, supabase, entry, nowMs, currentAttempts, signal);
   }
   if (
     entry.op === 'adjust_quantity' ||
     entry.op === 'correct_quantity' ||
     entry.op === 'reverse_quantity'
   ) {
-    return applyInventoryQuantityPush(db, supabase, entry, nowMs, currentAttempts);
+    return applyInventoryQuantityPush(db, supabase, entry, nowMs, currentAttempts, signal);
   }
   if (entry.op === 'split_open') {
-    return applyInventorySplitPush(db, supabase, entry, nowMs, currentAttempts);
+    return applyInventorySplitPush(db, supabase, entry, nowMs, currentAttempts, signal);
   }
   if (entry.op === 'merge_undo_open') {
-    return applyInventoryMergeUndoPush(db, supabase, entry, nowMs, currentAttempts);
+    return applyInventoryMergeUndoPush(db, supabase, entry, nowMs, currentAttempts, signal);
   }
 
   const meta = metaOf(entry.entity);
@@ -378,6 +465,7 @@ async function applyOnePush(
       db,
       entry,
       `${entry.entity} ist append-only und akzeptiert ausschliesslich insert.`,
+      signal,
     );
   }
 
@@ -389,6 +477,7 @@ async function applyOnePush(
       db,
       entry,
       `${entry.entity} ist push-only und akzeptiert ausschliesslich insert.`,
+      signal,
     );
   }
 
@@ -399,6 +488,7 @@ async function applyOnePush(
       db,
       entry,
       `${entry.entity} unterstuetzt kein Loeschen/Wiederherstellen (kein Server-Tombstone).`,
+      signal,
     );
   }
 
@@ -409,10 +499,19 @@ async function applyOnePush(
     entry.entityId,
     entry.payload,
     nowMs,
+    signal,
   );
 
   if (entry.op === 'insert' && response.error?.code === '23505') {
-    const resolution = await resolveDuplicateInsert(db, supabase, meta, entry, nowMs, response);
+    const resolution = await resolveDuplicateInsert(
+      db,
+      supabase,
+      meta,
+      entry,
+      nowMs,
+      response,
+      signal,
+    );
     if (resolution.outcome === 'confirmed') return resolution.result;
     response = resolution.response;
   }
@@ -423,11 +522,13 @@ async function applyOnePush(
   // (siehe `entities.ts`, #192). Push.ts kennt weder Tabellennamen wie
   // `fridge_items` noch Spalten wie `location_id`.
   if (response.error && meta.onForeignKeyViolation) {
+    throwIfSyncAborted(signal);
     const repairedPayload = await meta.onForeignKeyViolation(
-      { db, supabase },
+      { db, supabase, signal },
       entry.payload,
       response.error,
     );
+    throwIfSyncAborted(signal);
     if (repairedPayload) {
       response = await attempt(
         supabase,
@@ -436,10 +537,12 @@ async function applyOnePush(
         entry.entityId,
         repairedPayload,
         nowMs,
+        signal,
       );
     }
   }
 
+  throwIfSyncAborted(signal);
   if (response.error) {
     const rawStatus = response.status;
     // postgrest-js liefert bei einem echten Netzwerkfehler status: 0, nicht
@@ -451,14 +554,21 @@ async function applyOnePush(
     if (kind === 'transient') {
       const nextAttempts = currentAttempts + 1;
       const terminal = nextAttempts >= MAX_ATTEMPTS;
-      await recordOutboxOutcome(db, entry.sourceIds, {
-        attempts: nextAttempts,
-        lastError: message,
-        kind: 'transient',
-        nextAttemptAtMs: terminal
-          ? Number.MAX_SAFE_INTEGER
-          : nowMs + backoffDelayMs(currentAttempts),
-      });
+      throwIfSyncAborted(signal);
+      await recordOutboxOutcome(
+        db,
+        entry.sourceIds,
+        {
+          attempts: nextAttempts,
+          lastError: message,
+          kind: 'transient',
+          nextAttemptAtMs: terminal
+            ? Number.MAX_SAFE_INTEGER
+            : nowMs + backoffDelayMs(currentAttempts),
+        },
+        { signal },
+      );
+      throwIfSyncAborted(signal);
       return {
         outcome: {
           kind: 'failed-transient',
@@ -473,12 +583,19 @@ async function applyOnePush(
       };
     }
 
-    await recordOutboxOutcome(db, entry.sourceIds, {
-      attempts: MAX_ATTEMPTS,
-      lastError: message,
-      kind: 'permanent',
-      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
-    });
+    throwIfSyncAborted(signal);
+    await recordOutboxOutcome(
+      db,
+      entry.sourceIds,
+      {
+        attempts: MAX_ATTEMPTS,
+        lastError: message,
+        kind: 'permanent',
+        nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+      },
+      { signal },
+    );
+    throwIfSyncAborted(signal);
     return {
       outcome: {
         kind: 'failed-permanent',
@@ -493,13 +610,19 @@ async function applyOnePush(
   }
 
   if (meta.pushOnly) {
-    await db.withExclusiveTransactionAsync(async (txn) => {
-      await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
-      await txn.runAsync(`update ${meta.table} set _dirty = 0, synced_at = ? where event_id = ?`, [
-        nowMs,
-        entry.entityId,
-      ]);
-    });
+    throwIfSyncAborted(signal);
+    await db.withExclusiveTransactionAsync(
+      async (txn) => {
+        throwIfSyncAborted(signal);
+        await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
+        throwIfSyncAborted(signal);
+        await txn.runAsync(
+          `update ${meta.table} set _dirty = 0, synced_at = ? where event_id = ?`,
+          [nowMs, entry.entityId],
+        );
+      },
+      { signal },
+    );
 
     return {
       outcome: {
@@ -519,15 +642,27 @@ async function applyOnePush(
   // fuer Postgres kein Fehlerfall). Ohne diesen Fall wuerde unten auf eine nie
   // vorhandene Zeile zugegriffen.
   if (returnedRow === undefined) {
-    return rejectPermanent(db, entry, 'Zeile nicht gefunden oder keine Berechtigung (RLS).');
+    return rejectPermanent(
+      db,
+      entry,
+      'Zeile nicht gefunden oder keine Berechtigung (RLS).',
+      signal,
+    );
   }
 
-  await db.withExclusiveTransactionAsync(async (txn) => {
-    await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
-    if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
-      await upsertMirrorRow(txn, entry.entity, returnedRow, { dirty: 0 });
-    }
-  });
+  throwIfSyncAborted(signal);
+  await db.withExclusiveTransactionAsync(
+    async (txn) => {
+      throwIfSyncAborted(signal);
+      await deleteOutboxEntries(txn, entry.sourceIds, 'pushed');
+      throwIfSyncAborted(signal);
+      if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
+        throwIfSyncAborted(signal);
+        await upsertMirrorRow(txn, entry.entity, returnedRow, { dirty: 0 });
+      }
+    },
+    { signal },
+  );
 
   return {
     outcome: {
@@ -558,14 +693,67 @@ function fridgeItemIdsReferencedBy(push: CoalescedEntry): string[] {
   return [];
 }
 
+function createAbortAwareDatabase(db: SqlDatabase, signal?: AbortSignal): SqlDatabase {
+  if (!signal) return db;
+
+  return {
+    execAsync: async (source) => {
+      throwIfSyncAborted(signal);
+      const result = await db.execAsync(source);
+      throwIfSyncAborted(signal);
+      return result;
+    },
+    runAsync: async (source, params) => {
+      throwIfSyncAborted(signal);
+      const result = await db.runAsync(source, params);
+      throwIfSyncAborted(signal);
+      return result;
+    },
+    getAllAsync: async <T>(source: string, params?: readonly SqlParam[]) => {
+      throwIfSyncAborted(signal);
+      const result = await db.getAllAsync<T>(source, params);
+      throwIfSyncAborted(signal);
+      return result;
+    },
+    getFirstAsync: async <T>(source: string, params?: readonly SqlParam[]) => {
+      throwIfSyncAborted(signal);
+      const result = await db.getFirstAsync<T>(source, params);
+      throwIfSyncAborted(signal);
+      return result;
+    },
+    getAllRawAsync: db.getAllRawAsync
+      ? async (source, params) => {
+          throwIfSyncAborted(signal);
+          const result = await db.getAllRawAsync?.(source, params);
+          throwIfSyncAborted(signal);
+          return result ?? [];
+        }
+      : undefined,
+    withExclusiveTransactionAsync: async (task, options) => {
+      throwIfSyncAborted(signal);
+      await db.withExclusiveTransactionAsync(
+        async (txn) => {
+          throwIfSyncAborted(signal);
+          await task(createAbortAwareDatabase(txn, signal));
+          throwIfSyncAborted(signal);
+        },
+        { ...options, signal: options?.signal ?? signal },
+      );
+    },
+  };
+}
+
 export async function pushOutbox(deps: {
   db: SqlDatabase;
   supabase: TypedSupabaseClient;
   now?(): number;
+  signal?: AbortSignal;
 }): Promise<PushResult> {
+  throwIfSyncAborted(deps.signal);
   const nowMs = deps.now ? deps.now() : Date.now();
+  const db = createAbortAwareDatabase(deps.db, deps.signal);
 
-  const pendingEntries = await loadPendingOutboxEntries(deps.db);
+  const pendingEntries = await loadPendingOutboxEntries(db);
   const blockedKeys = new Set<string>();
   const entries: OutboxEntry[] = [];
 
@@ -583,7 +771,14 @@ export async function pushOutbox(deps: {
   const outcomes: PushOutcome[] = [];
 
   if (discardable.length > 0) {
-    await deleteOutboxEntries(deps.db, discardable);
+    throwIfSyncAborted(deps.signal);
+    await db.withExclusiveTransactionAsync(
+      async (txn) => {
+        await deleteOutboxEntries(txn, discardable);
+      },
+      { signal: deps.signal },
+    );
+    throwIfSyncAborted(deps.signal);
     outcomes.push({ kind: 'discarded', sourceIds: discardable });
   }
 
@@ -591,7 +786,7 @@ export async function pushOutbox(deps: {
 
   // Einmal vorab geladen statt einer Abfrage pro betroffenem Artikel je
   // transactions-Push weiter unten.
-  const pendingFridgeItemInsertIds = await loadPendingFridgeItemInsertIds(deps.db);
+  const pendingFridgeItemInsertIds = await loadPendingFridgeItemInsertIds(db);
 
   // Artikel, deren vorherige Operation im laufenden Batch bereits gescheitert
   // ist. Nachfolgende Operationen desselben Artikels beruhen moeglicherweise
@@ -603,10 +798,11 @@ export async function pushOutbox(deps: {
   // Positionen halten, solange der Parent-Insert nicht auf dem Server
   // angekommen ist (siehe loadPendingReceiptInsertIds). Nach einem
   // erfolgreichen Parent-Push im selben Lauf gibt der Push unten die id frei.
-  const blockedReceiptIds = await loadPendingReceiptInsertIds(deps.db);
+  const blockedReceiptIds = await loadPendingReceiptInsertIds(db);
 
   let stoppedEarly = false;
   for (const push of pushes) {
+    throwIfSyncAborted(deps.signal);
     const itemIds = fridgeItemIdsReferencedBy(push);
     if (itemIds.some((itemId) => blockedItemIds.has(itemId))) continue;
 
@@ -618,18 +814,20 @@ export async function pushOutbox(deps: {
     }
 
     if (push.entity === 'purchase_receipt_items' && blockedReceiptIds.size > 0) {
-      const receiptId = await receiptIdReferencedBy(deps.db, push);
+      const receiptId = await receiptIdReferencedBy(db, push);
       if (receiptId !== undefined && blockedReceiptIds.has(receiptId)) continue;
     }
 
     const currentAttempts = Math.max(0, ...push.sourceIds.map((id) => attemptsById.get(id) ?? 0));
     const { outcome, stop } = await applyOnePush(
-      deps.db,
+      db,
       deps.supabase,
       push,
       nowMs,
       currentAttempts,
+      deps.signal,
     );
+    throwIfSyncAborted(deps.signal);
     outcomes.push(outcome);
 
     if (outcome.kind === 'pushed' && push.entity === 'purchase_receipts') {

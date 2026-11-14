@@ -141,7 +141,6 @@ tools/crawler/brochures/last_crawl_backup.json
 siri.md
 *.bak
 *.backup
-# Agent-generated local workflow state
-.agents/tmp/
-.agents/pipeline/
-.agents/tasks/
+# Agent-generated local workflow and device state
+.agent-device/
+.agents/

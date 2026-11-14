@@ -7,10 +7,12 @@ describe('Unistyles Expo entry convention', () => {
   it('imports the Unistyles configuration before Expo Router', () => {
     const source = fs.readFileSync(path.join(REPO_ROOT, 'src/index.ts'), 'utf8');
     const configImport = source.indexOf("import './components/theme/index';");
+    const backgroundTaskImport = source.indexOf("import './lib/sync/remote-background-sync';");
     const routerImport = source.indexOf("import 'expo-router/entry';");
 
     expect(configImport).toBeGreaterThanOrEqual(0);
-    expect(routerImport).toBeGreaterThan(configImport);
+    expect(backgroundTaskImport).toBeGreaterThan(configImport);
+    expect(routerImport).toBeGreaterThan(backgroundTaskImport);
   });
 
   it('loads the Unistyles Jest mock before the app configuration', () => {

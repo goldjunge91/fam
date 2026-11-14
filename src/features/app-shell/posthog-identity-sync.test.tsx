@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react-native';
 import { AppState } from 'react-native';
 
+import { useAnalyticsSettingsStore } from '@/constants/analytics';
+
 let mockSession: { user: { id: string; email?: string } } | null = null;
 let mockIsLoading = false;
 let mockAccountReady = true;
@@ -16,6 +18,7 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 const mockIdentify = jest.fn();
+const mockSetPersonPropertiesForFlags = jest.fn();
 const mockReset = jest.fn();
 const mockReloadFeatureFlags = jest.fn();
 let mockConfigured = true;
@@ -24,7 +27,12 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
   isPostHogConfigured: () => mockConfigured,
   getPostHogClient: () =>
     mockConfigured
-      ? { identify: mockIdentify, reset: mockReset, reloadFeatureFlags: mockReloadFeatureFlags }
+      ? {
+          identify: mockIdentify,
+          setPersonPropertiesForFlags: mockSetPersonPropertiesForFlags,
+          reset: mockReset,
+          reloadFeatureFlags: mockReloadFeatureFlags,
+        }
       : undefined,
 }));
 
@@ -46,6 +54,7 @@ describe('PostHogIdentitySync', () => {
     mockAccountReady = true;
     mockSessionError = null;
     mockConfigured = true;
+    useAnalyticsSettingsStore.getState().setPostHogConsent('granted');
     mockAppStateHandler = undefined;
     jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, handler) => {
       mockAppStateHandler = handler as (state: string) => void;
@@ -57,16 +66,25 @@ describe('PostHogIdentitySync', () => {
     jest.restoreAllMocks();
   });
 
-  it('ruft identify() mit der Supabase-User-ID und E-Mail auf, sobald eine Session vorliegt', async () => {
+  it('nutzt die Konto-E-Mail nur für Feature-Flags nach erteilter Einwilligung', async () => {
     mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
 
     await render(<PostHogIdentitySync />);
 
-    expect(mockIdentify).toHaveBeenCalledWith('user-1', {
-      email: 'test@example.com',
-      userId: 'user-1',
-    });
+    expect(mockIdentify).toHaveBeenCalledWith('user-1');
+    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith({ email: 'test@example.com' });
     expect(mockReset).not.toHaveBeenCalled();
+  });
+
+  it('identifiziert keinen User ohne explizite PostHog-Einwilligung', async () => {
+    useAnalyticsSettingsStore.getState().setPostHogConsent('pending');
+    mockSession = { user: { id: 'user-1', email: 'test@example.com' } };
+
+    await render(<PostHogIdentitySync />);
+
+    expect(mockIdentify).not.toHaveBeenCalled();
+    expect(mockSetPersonPropertiesForFlags).not.toHaveBeenCalled();
+    expect(mockReset).toHaveBeenCalled();
   });
 
   it('ruft reset() auf wenn keine Session (mehr) vorliegt', async () => {
@@ -76,6 +94,7 @@ describe('PostHogIdentitySync', () => {
 
     expect(mockReset).toHaveBeenCalled();
     expect(mockIdentify).not.toHaveBeenCalled();
+    expect(mockSetPersonPropertiesForFlags).not.toHaveBeenCalled();
   });
 
   it('setzt keine Identitaet solange die Session noch laedt', async () => {
@@ -119,10 +138,8 @@ describe('PostHogIdentitySync', () => {
     mockConfigured = true;
     await view.rerender(<PostHogIdentitySync />);
 
-    expect(mockIdentify).toHaveBeenCalledWith('user-1', {
-      email: 'test@example.com',
-      userId: 'user-1',
-    });
+    expect(mockIdentify).toHaveBeenCalledWith('user-1');
+    expect(mockSetPersonPropertiesForFlags).toHaveBeenCalledWith({ email: 'test@example.com' });
   });
 
   it('laedt Feature-Flags nicht innerhalb des automatischen 12-Stunden-Intervalls', async () => {

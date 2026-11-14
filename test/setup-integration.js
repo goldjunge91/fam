@@ -43,7 +43,7 @@ function resolveSupabaseEnv() {
     if (values.API_URL && values.ANON_KEY) {
       return {
         url: values.API_URL,
-        anonKey: values.ANON_KEY,
+        publishableKey: values.ANON_KEY,
         serviceRoleKey: values.SERVICE_ROLE_KEY || '',
       };
     }
@@ -54,22 +54,24 @@ function resolveSupabaseEnv() {
   // 2. .env.development / process.env auslesen
   const env = readDotenv();
   const url = process.env.EXPO_PUBLIC_SUPABASE_URL || env.EXPO_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.EXPO_PUBLIC_SUPABASE_KEY || env.EXPO_PUBLIC_SUPABASE_KEY;
+  const publishableKey =
+    process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   const serviceRoleKey = process.env.SUPABASE_SECRET_KEY || env.SUPABASE_SECRET_KEY;
 
-  if (!url || !anonKey) {
+  if (!url || !publishableKey) {
     throw new Error(
       'Keine Supabase-Konfiguration gefunden. Bitte `.env.development` pflegen oder `supabase start` ausfuehren.',
     );
   }
 
-  return { url, anonKey, serviceRoleKey };
+  return { url, publishableKey, serviceRoleKey };
 }
 
 const config = resolveSupabaseEnv();
 
 process.env.EXPO_PUBLIC_SUPABASE_URL = config.url;
-process.env.EXPO_PUBLIC_SUPABASE_KEY = config.anonKey;
+process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY = config.publishableKey;
 process.env.SUPABASE_SECRET_KEY = config.serviceRoleKey;
 
 jest.mock('@sentry/react-native', () => ({

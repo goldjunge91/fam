@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
+import { ScrollView } from 'react-native';
 import type { RecipeStep } from '../../hooks/use-recipe-steps';
 import { CookingModeStep } from './cooking-mode-step';
 
@@ -77,6 +78,79 @@ jest.mock('./cooking-mode-timer', () => {
   };
 });
 
+jest.mock('./cooking-mode-voice-status', () => {
+  const React = jest.requireActual<typeof import('react')>('react');
+  const { Pressable: NativePressable, Text: NativeText } =
+    jest.requireActual<typeof import('react-native')>('react-native');
+  return {
+    CookingModeVoiceStatus: ({
+      status,
+      onPauseHandsFree,
+      onResumeHandsFree,
+      onEndHandsFree,
+    }: {
+      status: string;
+      onPauseHandsFree: () => void;
+      onResumeHandsFree: () => void;
+      onEndHandsFree: () => void;
+    }) =>
+      React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(NativeText, null, `Voice: ${status}`),
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'pause-hands-free',
+            onPress: onPauseHandsFree,
+          },
+          React.createElement(NativeText, null, 'Pause Hands-free'),
+        ),
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'resume-hands-free',
+            onPress: onResumeHandsFree,
+          },
+          React.createElement(NativeText, null, 'Resume Hands-free'),
+        ),
+        React.createElement(
+          NativePressable,
+          {
+            accessibilityRole: 'button',
+            accessibilityLabel: 'end-hands-free',
+            onPress: onEndHandsFree,
+          },
+          React.createElement(NativeText, null, 'End Hands-free'),
+        ),
+      ),
+  };
+});
+
+function makeVoice() {
+  return {
+    status: 'ready' as const,
+    transcript: null,
+    error: null,
+    readStep: jest.fn(),
+    readIngredients: jest.fn(),
+    stopReading: jest.fn(),
+    startListening: jest.fn(),
+    stopListening: jest.fn(),
+    handsFreeEnabled: false,
+    startHandsFree: jest.fn(),
+    pauseHandsFree: jest.fn(),
+    resumeHandsFree: jest.fn(),
+    endHandsFree: jest.fn(),
+    onNextStep: jest.fn(),
+    onPreviousStep: jest.fn(),
+    onStartTimer: jest.fn(),
+    onFinish: jest.fn(),
+  };
+}
+
 function makeStep(overrides: Partial<RecipeStep> = {}): RecipeStep {
   return {
     id: 'step-1',
@@ -123,6 +197,8 @@ it('zeigt mehrere platzierte Schrittbilder und sperrt Zurück am ersten Schritt'
       stepIndex={0}
       currentStep={currentStep}
       mentionIngredients={[]}
+      stepIngredients={[]}
+      voice={makeVoice()}
       durationSeconds={null}
       remainingSeconds={0}
       timerRunning={false}
@@ -135,7 +211,6 @@ it('zeigt mehrere platzierte Schrittbilder und sperrt Zurück am ersten Schritt'
   );
 
   expect(screen.getByText('SCHRITT 1 VON 2')).toBeOnTheScreen();
-  expect(screen.getByText(/Zuerst , dann/)).toBeOnTheScreen();
   expect(
     screen.getByText('Zuerst [[Bild 1]], dann [[Bild 2]]. (2 Inlinebilder)'),
   ).toBeOnTheScreen();
@@ -166,6 +241,8 @@ it('nutzt das ältere Bildfeld und bietet am letzten Schritt Abschluss an', asyn
       currentStep={currentStep}
       currentStepImageUrl="https://images.example/legacy.jpg"
       mentionIngredients={[]}
+      stepIngredients={[]}
+      voice={makeVoice()}
       durationSeconds={180}
       remainingSeconds={90}
       timerRunning
@@ -177,7 +254,10 @@ it('nutzt das ältere Bildfeld und bietet am letzten Schritt Abschluss an', asyn
     />,
   );
 
-  expect(screen.getByText('Schritt 2')).toBeOnTheScreen();
+  expect(screen.queryByText('Schritt 2')).not.toBeOnTheScreen();
+  expect(
+    screen.getByText(/Eine besonders lange Zubereitungsanweisung, die als Titel zu lang wäre/),
+  ).toBeOnTheScreen();
   expect(screen.getByText('Schritt-Artwork mit Bild')).toBeOnTheScreen();
   expect(screen.getByText(/Eine besonders lange.*0 Inlinebilder/)).toBeOnTheScreen();
   expect(screen.getByText('180:90:läuft')).toBeOnTheScreen();
@@ -187,7 +267,7 @@ it('nutzt das ältere Bildfeld und bietet am letzten Schritt Abschluss an', asyn
   expect(onNextStep).toHaveBeenCalledTimes(1);
 });
 
-it('zeigt bei fehlenden Bildern den Anweisungstext als Schrittüberschrift', async () => {
+it('zeigt bei fehlenden Bildern die vollständige Anweisung ohne Fallback-Artwork', async () => {
   const currentStep = makeStep({ text: 'Zwiebeln fein hacken.' });
   await render(
     <CookingModeStep
@@ -195,6 +275,8 @@ it('zeigt bei fehlenden Bildern den Anweisungstext als Schrittüberschrift', asy
       stepIndex={0}
       currentStep={currentStep}
       mentionIngredients={[]}
+      stepIngredients={[]}
+      voice={makeVoice()}
       durationSeconds={30}
       remainingSeconds={30}
       timerRunning={false}
@@ -206,7 +288,74 @@ it('zeigt bei fehlenden Bildern den Anweisungstext als Schrittüberschrift', asy
     />,
   );
 
-  expect(screen.getByText('Zwiebeln fein hacken')).toBeOnTheScreen();
-  expect(screen.getByText('Schritt-Artwork')).toBeOnTheScreen();
+  expect(screen.getByText(/Zwiebeln fein hacken\./)).toBeOnTheScreen();
+  expect(screen.queryByText('Schritt-Artwork')).not.toBeOnTheScreen();
   expect(screen.getByText('30:30:pausiert')).toBeOnTheScreen();
+});
+
+it('leitet die sichtbaren Hands-free-Aktionen an die uebergebenen Lifecycle-Callbacks weiter', async () => {
+  const user = userEvent.setup();
+  const onPauseHandsFree = jest.fn();
+  const onResumeHandsFree = jest.fn();
+  const onEndHandsFree = jest.fn();
+
+  await render(
+    <CookingModeStep
+      steps={[makeStep()]}
+      stepIndex={0}
+      currentStep={makeStep()}
+      mentionIngredients={[]}
+      stepIngredients={[]}
+      voice={{ ...makeVoice(), handsFreeEnabled: true }}
+      durationSeconds={null}
+      remainingSeconds={0}
+      timerRunning={false}
+      onStartTimer={jest.fn()}
+      onPauseTimer={jest.fn()}
+      onResetTimer={jest.fn()}
+      onPreviousStep={jest.fn()}
+      onNextStep={jest.fn()}
+      onPauseHandsFree={onPauseHandsFree}
+      onResumeHandsFree={onResumeHandsFree}
+      onEndHandsFree={onEndHandsFree}
+    />,
+  );
+
+  await user.press(screen.getByRole('button', { name: 'pause-hands-free' }));
+  await user.press(screen.getByRole('button', { name: 'resume-hands-free' }));
+  await user.press(screen.getByRole('button', { name: 'end-hands-free' }));
+
+  expect(onPauseHandsFree).toHaveBeenCalledTimes(1);
+  expect(onResumeHandsFree).toHaveBeenCalledTimes(1);
+  expect(onEndHandsFree).toHaveBeenCalledTimes(1);
+});
+
+it('setzt den Inhaltsbereich beim Wechsel auf einen neuen Schritt an den Anfang', async () => {
+  const scrollTo = jest.spyOn(ScrollView.prototype, 'scrollTo').mockImplementation(() => undefined);
+  const firstStep = makeStep();
+  const secondStep = makeStep({ id: 'step-2', position: 1, text: 'Tomaten dazugeben.' });
+  const commonProps = {
+    steps: [firstStep, secondStep],
+    mentionIngredients: [],
+    stepIngredients: [],
+    voice: makeVoice(),
+    durationSeconds: null,
+    remainingSeconds: 0,
+    timerRunning: false,
+    onStartTimer: jest.fn(),
+    onPauseTimer: jest.fn(),
+    onResetTimer: jest.fn(),
+    onPreviousStep: jest.fn(),
+    onNextStep: jest.fn(),
+  };
+
+  const { rerender } = await render(
+    <CookingModeStep {...commonProps} stepIndex={0} currentStep={firstStep} />,
+  );
+  scrollTo.mockClear();
+
+  await rerender(<CookingModeStep {...commonProps} stepIndex={1} currentStep={secondStep} />);
+
+  expect(scrollTo).toHaveBeenCalledWith({ y: 0, animated: false });
+  scrollTo.mockRestore();
 });

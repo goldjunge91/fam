@@ -70,6 +70,8 @@ import {
   getRealtimeDiagnostics,
   getRealtimeLatencySamples,
   getRealtimeLatencySampleVersion,
+  resumeForegroundSync,
+  suspendForegroundSync,
   syncRunHasErrors,
   triggerHouseholdSync,
   triggerHouseholdSyncAfterOutboxMutation,
@@ -83,6 +85,10 @@ import {
 const { __triggerOutboxChanged } = jest.requireMock('@/lib/db/outbox') as {
   __triggerOutboxChanged: () => void;
 };
+
+afterEach(() => {
+  resumeForegroundSync();
+});
 
 function fakeQueryClient() {
   return { invalidateQueries: jest.fn() };
@@ -315,6 +321,59 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     const result: SyncRunResult = { push: { outcomes: [], stoppedEarly: false }, pull: [] };
     releaseSync(result);
     await expect(firstRun).resolves.toEqual(result);
+  });
+
+  it('aborts an active foreground sync when suspension begins', async () => {
+    let receivedSignal: AbortSignal | undefined;
+    let releaseSync!: (result: SyncRunResult) => void;
+    const pendingResult = new Promise<SyncRunResult>((resolve) => {
+      releaseSync = resolve;
+    });
+    mockSyncHousehold.mockReset().mockImplementation(({ signal }: { signal: AbortSignal }) => {
+      receivedSignal = signal;
+      return pendingResult;
+    });
+
+    const running = triggerHouseholdSync(['household-1']);
+    for (let attempt = 0; attempt < 10 && !receivedSignal; attempt += 1) {
+      await Promise.resolve();
+    }
+
+    suspendForegroundSync();
+    expect(receivedSignal?.aborted).toBe(true);
+
+    releaseSync({ push: { outcomes: [], stoppedEarly: false }, pull: [] });
+    await expect(running).resolves.toEqual({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [],
+    });
+  });
+
+  it('does not start or queue foreground sync while suspended', async () => {
+    let releaseSync: ((result: SyncRunResult) => void) | undefined;
+    const pendingResult = new Promise<SyncRunResult>((resolve) => {
+      releaseSync = resolve;
+    });
+    mockSyncHousehold.mockReset().mockReturnValueOnce(pendingResult);
+
+    const running = triggerHouseholdSync(['household-1']);
+    for (let attempt = 0; attempt < 10 && mockSyncHousehold.mock.calls.length === 0; attempt += 1) {
+      await Promise.resolve();
+    }
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(1);
+
+    suspendForegroundSync();
+    await expect(triggerHouseholdSyncAfterOutboxMutation(['household-1'])).resolves.toBeNull();
+
+    mockSyncHousehold.mockResolvedValueOnce({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [],
+    });
+    resumeForegroundSync();
+    releaseSync?.({ push: { outcomes: [], stoppedEarly: false }, pull: [] });
+
+    await expect(running).resolves.not.toBeNull();
+    expect(mockSyncHousehold).toHaveBeenCalledTimes(2);
   });
 
   it('retries due outbox rows and reports only permanent push failures', async () => {

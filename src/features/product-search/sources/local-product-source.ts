@@ -15,10 +15,11 @@ type LocalProductRow = {
   /** JSON-serialisiertes `text[]` (#223), siehe `off_category_tags` in `migrations.ts`. */
   off_category_tags?: string | null;
   off_last_modified_at?: string | null;
+  updated_at?: string | null;
 };
 
 const COLUMNS =
-  'id, barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100, off_category_tags, off_last_modified_at';
+  'id, barcode, name, brand, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100, off_category_tags, off_last_modified_at, updated_at';
 
 export function toCatalogProductFromLocalRow(row: LocalProductRow): CatalogProduct {
   return {
@@ -31,7 +32,8 @@ export function toCatalogProductFromLocalRow(row: LocalProductRow): CatalogProdu
     carbsPer100g: row.carbs_g_per_100 ?? undefined,
     fatPer100g: row.fat_g_per_100 ?? undefined,
     categoryTags: parseCategoryTagsJson(row.off_category_tags),
-    offLastModifiedAt: row.off_last_modified_at ?? undefined,
+    ...(row.off_last_modified_at ? { offLastModifiedAt: row.off_last_modified_at } : {}),
+    ...(row.updated_at ? { recordUpdatedAt: row.updated_at } : {}),
   };
 }
 

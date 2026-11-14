@@ -62,6 +62,25 @@ describe('syncHousehold', () => {
     });
   });
 
+  it('propagates the cancellation signal to push and pull page boundaries', async () => {
+    const controller = new AbortController();
+
+    await syncHousehold({
+      db,
+      supabase,
+      serverClock: { fetch, serverNowMs: () => 9_500 },
+      householdIds,
+      signal: controller.signal,
+    });
+
+    expect(mockPushOutbox.mock.calls[0]?.[0]).toEqual(
+      expect.objectContaining({ signal: controller.signal }),
+    );
+    expect(mockPullHousehold.mock.calls[0]?.[0]).toEqual(
+      expect.objectContaining({ signal: controller.signal }),
+    );
+  });
+
   it('falls back to the current time when no client clock or server time is available', async () => {
     jest.useFakeTimers().setSystemTime(new Date('2026-10-11T10:00:00.000Z'));
     const nowMs = Date.now();

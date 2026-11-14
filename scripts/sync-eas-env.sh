@@ -67,6 +67,14 @@ const variables = [
   // Expo SDK 57: Supabase muss auf iOS den stabilen React-Native-Fetch nutzen.
   { name: 'EXPO_PUBLIC_USE_RN_FETCH', visibility: 'plaintext', defaultValue: '1' },
 
+  // Supabase client configuration is public and must be available to EAS Updates.
+  { name: 'EXPO_PUBLIC_SUPABASE_URL', visibility: 'plaintext' },
+  { name: 'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY', visibility: 'plaintext' },
+
+  // PostHog nutzt für den Runtime-Fallback EU. Der öffentliche Projekt-Key
+  // bleibt pro EAS-Umgebung optional, damit lokale No-PostHog-Builds möglich sind.
+  { name: 'EXPO_PUBLIC_POSTHOG_HOST', visibility: 'plaintext', defaultValue: 'https://eu.i.posthog.com' },
+
   // Der CLI-Key wird nur vom EAS-Build benötigt und bleibt serverseitig geheim.
   // Lokale Builds laden ihn weiterhin über dotenv aus der lokalen Env-Datei.
   { name: 'POSTHOG_CLI_API_KEY', visibility: 'secret' },
@@ -79,6 +87,8 @@ const variables = [
   { name: 'EXPO_PUBLIC_ADMOB_INTERSTITIAL_ID_IOS', visibility: 'plaintext' },
 ];
 const optionalVariables = [
+  // Öffentliche PostHog-Clientwerte werden je EAS-Umgebung mit dem Build verteilt.
+  { name: 'EXPO_PUBLIC_POSTHOG_API_KEY', visibility: 'plaintext' },
   // Ohne diesen Wert bleibt Werbung in der App aus Kompatibilitätsgründen aktiviert.
   { name: 'EXPO_PUBLIC_ADS_ENABLED', visibility: 'plaintext' },
   // Erzeugt HTTPS-Recovery-Links und native App-Link-Allowlists für den Account-Host.
