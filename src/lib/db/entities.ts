@@ -4,7 +4,7 @@ import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 
 export type ForeignKeyViolationResolver = (
-  ctx: { db: SqlDatabase; supabase: TypedSupabaseClient },
+  ctx: { db: SqlDatabase; supabase: TypedSupabaseClient; signal?: AbortSignal },
   payload: Record<string, unknown>,
   error: { code?: string; message?: string },
 ) => Promise<Record<string, unknown> | null>;

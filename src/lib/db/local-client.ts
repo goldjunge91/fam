@@ -1,6 +1,12 @@
 import { drizzle as createExpoDrizzleDatabase } from 'drizzle-orm/expo-sqlite';
 import { migrate as migrateExpoDatabase } from 'drizzle-orm/expo-sqlite/migrator';
 import { FAM_APP_GROUP } from '@/lib/apple/shared-app-group';
+import {
+  createSharedStoreWriterOwner,
+  getSharedStoreLifecycleState,
+  type SharedStoreLease,
+  type SharedStoreWriterOwner,
+} from '@/lib/apple/shared-store-lifecycle';
 import { createExpoDatabaseFileOps, DATABASE_FILE_NAMES } from '@/lib/db/database-files';
 import { createDrizzleDatabase, type DrizzleDatabase } from '@/lib/db/drizzle-driver';
 import {
@@ -38,6 +44,63 @@ type DatabaseDirectories = {
   primary: string;
   appGroup?: string;
 };
+
+export type DatabaseExecutionContext =
+  | { kind: 'foreground'; signal?: AbortSignal }
+  | { kind: 'background'; backgroundContext: SharedStoreLease; signal?: AbortSignal };
+
+export type ActiveDatabaseAccount = {
+  userId: string | null;
+  generation: number;
+};
+
+export type DatabaseLifecycleCloseResult =
+  | { status: 'closed'; account: ActiveDatabaseAccount }
+  | { status: 'not-open' }
+  | { status: 'ownership-mismatch'; account: ActiveDatabaseAccount };
+
+const FOREGROUND_CONTEXT: DatabaseExecutionContext = { kind: 'foreground' };
+const DATABASE_LIFECYCLE_ERROR =
+  'Die lokale Datenbank ist im aktuellen Lifecycle nicht zugelassen.';
+const DATABASE_CONTEXT_MISMATCH_ERROR =
+  'Die lokale Datenbank ist bereits in einem anderen Ausführungskontext geöffnet.';
+
+function contextKey(context: DatabaseExecutionContext): string {
+  return context.kind === 'foreground'
+    ? 'foreground'
+    : `background:${context.backgroundContext.token}`;
+}
+
+function assertDatabaseAdmission(context: DatabaseExecutionContext): void {
+  if (context.signal?.aborted) {
+    throw new Error('Der Datenbankkontext ist abgelaufen.');
+  }
+
+  if (context.kind === 'background') {
+    if (
+      context.backgroundContext.kind !== 'background' ||
+      context.backgroundContext.ended ||
+      context.backgroundContext.signal.aborted
+    ) {
+      throw new Error('Der Datenbankkontext ist abgelaufen.');
+    }
+    return;
+  }
+
+  if (getSharedStoreLifecycleState() !== 'active') {
+    throw new Error(DATABASE_LIFECYCLE_ERROR);
+  }
+}
+
+function createDatabaseWriterOwner(context: DatabaseExecutionContext): SharedStoreWriterOwner {
+  return context.kind === 'background'
+    ? createSharedStoreWriterOwner(context.backgroundContext)
+    : createSharedStoreWriterOwner();
+}
+
+function isAppGroupDirectory(directories: DatabaseDirectories, directory: string): boolean {
+  return directories.appGroup === directory;
+}
 
 function getDatabaseDirectories(SQLite: typeof import('expo-sqlite')): DatabaseDirectories {
   const defaultDirectory = SQLite.defaultDatabaseDirectory;
@@ -85,6 +148,15 @@ function toDriver(db: import('expo-sqlite').SQLiteDatabase): SqlStatementDriver 
 type DatabaseConnection = {
   raw: import('expo-sqlite').SQLiteDatabase;
   db: SerializedSqlDatabase;
+  account: ActiveDatabaseAccount;
+};
+
+type PendingDatabaseCleanup = {
+  readonly raw: import('expo-sqlite').SQLiteDatabase;
+  readonly account: ActiveDatabaseAccount;
+  readonly openId: number;
+  state: 'opening' | 'unresolved';
+  close(): Promise<void>;
 };
 
 async function ensureWalJournalMode(db: SerializedSqlDatabase): Promise<void> {
@@ -113,26 +185,43 @@ async function ensureWalJournalMode(db: SerializedSqlDatabase): Promise<void> {
 }
 
 // Expo empfiehlt Foreign Keys direkt nach dem Öffnen der SQLite-Verbindung
-// zu aktivieren: https://docs.expo.dev/versions/latest/sdk/sqlite/index.md
+// zu aktivieren: https://docs.expo.dev/versions/v57.0.0/sdk/sqlite/
 async function ensureForeignKeys(db: SerializedSqlDatabase): Promise<void> {
   await db.execAsync('PRAGMA foreign_keys = ON');
 }
 
-async function runLocalDrizzleMigrations(db: import('expo-sqlite').SQLiteDatabase): Promise<void> {
-  // Der offizielle Expo-Migrator arbeitet synchron auf derselben nativen
-  // Verbindung. Das passiert vor der Veröffentlichung der Connection; danach
-  // laufen alle App-Zugriffe weiterhin durch unseren serialisierten Proxy.
-  await migrateExpoDatabase(createExpoDrizzleDatabase(db), localMigrations);
+async function runLocalDrizzleMigrations(
+  raw: import('expo-sqlite').SQLiteDatabase,
+  db: SerializedSqlDatabase,
+): Promise<void> {
+  await db.withWriterLeaseAsync('db.migrations', async ({ markConnectionCleanupUnresolved }) => {
+    try {
+      await migrateExpoDatabase(createExpoDrizzleDatabase(raw), localMigrations);
+    } catch (error) {
+      // Drizzle runs its own synchronous BEGIN/ROLLBACK against the raw
+      // handle. Any migration rejection may therefore leave that handle in
+      // an unresolved transaction if its internal ROLLBACK also failed.
+      markConnectionCleanupUnresolved(error);
+      throw error;
+    }
+  });
 }
 
 let rawDatabase: import('expo-sqlite').SQLiteDatabase | null = null;
 let database: SerializedSqlDatabase | null = null;
 let drizzleDatabase: DrizzleDatabase | null = null;
 let opening: Promise<SerializedSqlDatabase> | null = null;
-let lifecycleClosing: Promise<void> | null = null;
+let lifecycleClosing: Promise<DatabaseLifecycleCloseResult> | null = null;
 let wipeInProgress: Promise<void> | null = null;
 let lifecycleGeneration = 0;
 let openSequence = 0;
+let connectionContextKey: string | null = null;
+let connectionAccount: ActiveDatabaseAccount | null = null;
+const pendingDatabaseCleanups = new Map<
+  import('expo-sqlite').SQLiteDatabase,
+  PendingDatabaseCleanup
+>();
+let openingContextKey: string | null = null;
 
 const NO_ACTIVE_USER_ERROR = 'Ohne angemeldeten Nutzer ist die lokale Datenbank gesperrt.';
 const DATABASE_CLOSING_ERROR = 'Die lokale Datenbank wird geschlossen.';
@@ -164,8 +253,12 @@ async function runStartupStep(
 
 /** Der zuletzt gemeldete angemeldete Nutzer. `null` = noch unbekannt oder abgemeldet. */
 let activeUserId: string | null = null;
-/** Fuer welche Nutzer-Id die geoeffnete Datei bereits geprueft wurde. */
+/** Für welche Nutzer-Id die geöffnete Datei bereits geprüft wurde. */
 let checkedUserId: string | null = null;
+
+export function getActiveDatabaseAccount(): ActiveDatabaseAccount {
+  return { userId: activeUserId, generation: lifecycleGeneration };
+}
 
 export function setActiveUserId(userId: string | null): void {
   if (activeUserId !== userId) lifecycleGeneration += 1;
@@ -173,26 +266,191 @@ export function setActiveUserId(userId: string | null): void {
 }
 
 function isVerifiedForActiveUser(): boolean {
-  return activeUserId !== null && checkedUserId === activeUserId;
+  return (
+    activeUserId !== null &&
+    checkedUserId === activeUserId &&
+    connectionAccount !== null &&
+    connectionAccount.userId === activeUserId &&
+    connectionAccount.generation === lifecycleGeneration
+  );
 }
 
-function assertLifecycle(generation: number, userId: string): void {
+function sameAccount(left: ActiveDatabaseAccount, right: ActiveDatabaseAccount): boolean {
+  return left.userId === right.userId && left.generation === right.generation;
+}
+
+function currentDatabaseConnection(): DatabaseConnection | null {
+  if (!database && !rawDatabase) return null;
+  if (!database || !rawDatabase || !connectionAccount) {
+    throw new Error('Der lokale Datenbankzustand besitzt keine eindeutige Connection-Ownership.');
+  }
+  return { db: database, raw: rawDatabase, account: connectionAccount };
+}
+
+function clearCurrentConnection(raw: import('expo-sqlite').SQLiteDatabase): void {
+  if (rawDatabase !== raw) return;
+  rawDatabase = null;
+  database = null;
+  drizzleDatabase = null;
+  connectionContextKey = null;
+  connectionAccount = null;
+  resetOffDumpAttachment();
+}
+
+function hasUnresolvedDatabaseCleanup(): boolean {
+  for (const pending of pendingDatabaseCleanups.values()) {
+    if (pending.state === 'unresolved') return true;
+  }
+  return false;
+}
+
+function registerDatabaseHandle(
+  raw: import('expo-sqlite').SQLiteDatabase,
+  account: ActiveDatabaseAccount,
+  openId: number,
+): PendingDatabaseCleanup {
+  const existing = pendingDatabaseCleanups.get(raw);
+  if (existing) {
+    if (existing.openId !== openId || !sameAccount(existing.account, account)) {
+      throw new Error('Ein SQLite-Handle besitzt bereits eine andere Lifecycle-Ownership.');
+    }
+    return existing;
+  }
+
+  const pending: PendingDatabaseCleanup = {
+    raw,
+    account: { ...account },
+    openId,
+    state: 'opening',
+    close: () => raw.closeAsync(),
+  };
+  pendingDatabaseCleanups.set(raw, pending);
+  return pending;
+}
+
+function setDatabaseHandleCleanup(
+  raw: import('expo-sqlite').SQLiteDatabase,
+  close: () => Promise<void>,
+  state?: PendingDatabaseCleanup['state'],
+): void {
+  const pending = pendingDatabaseCleanups.get(raw);
+  if (!pending) {
+    throw new Error('Ein geöffneter SQLite-Handle besitzt keine Lifecycle-Ownership.');
+  }
+  pending.close = close;
+  if (state) pending.state = state;
+}
+
+async function closeRegisteredDatabaseHandle(
+  raw: import('expo-sqlite').SQLiteDatabase,
+): Promise<void> {
+  const pending = pendingDatabaseCleanups.get(raw);
+  if (!pending) {
+    await raw.closeAsync();
+    return;
+  }
+
+  try {
+    await pending.close();
+  } catch (error) {
+    pending.state = 'unresolved';
+    throw error;
+  }
+  if (pendingDatabaseCleanups.get(raw) === pending) pendingDatabaseCleanups.delete(raw);
+}
+
+async function closeOpeningDatabaseHandles(openId: number): Promise<unknown[]> {
+  const errors: unknown[] = [];
+  const openingHandles = [...pendingDatabaseCleanups.values()].filter(
+    (pending) => pending.openId === openId && pending.state === 'opening',
+  );
+  for (const pending of openingHandles) {
+    try {
+      await closeRegisteredDatabaseHandle(pending.raw);
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+  return errors;
+}
+
+async function closePendingDatabaseCleanups(
+  expectedAccount?: ActiveDatabaseAccount,
+): Promise<DatabaseLifecycleCloseResult | null> {
+  const pending = [...pendingDatabaseCleanups.values()];
+  if (pending.length === 0) return null;
+
+  if (expectedAccount) {
+    const mismatch = pending.find((entry) => !sameAccount(entry.account, expectedAccount));
+    if (mismatch) return { status: 'ownership-mismatch', account: mismatch.account };
+  }
+
+  const errors: unknown[] = [];
+  for (const entry of pending) {
+    try {
+      await closeRegisteredDatabaseHandle(entry.raw);
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+  if (errors.length > 0) throw errors[0];
+  return { status: 'closed', account: pending[0].account };
+}
+
+function assertLifecycle(
+  generation: number,
+  userId: string,
+  context: DatabaseExecutionContext,
+): void {
+  assertDatabaseAdmission(context);
+  if (hasUnresolvedDatabaseCleanup()) throw new Error(DATABASE_CLOSING_ERROR);
   if (generation !== lifecycleGeneration || activeUserId !== userId || wipeInProgress !== null) {
     throw new Error('Der Datenbankzugriff wurde durch einen Accountwechsel abgebrochen.');
   }
 }
 
-async function open(openId: number): Promise<DatabaseConnection> {
+async function open(
+  openId: number,
+  context: DatabaseExecutionContext,
+  generation: number,
+  userId: string,
+): Promise<DatabaseConnection> {
+  const assertCurrent = () => assertLifecycle(generation, userId, context);
+  assertCurrent();
   dbTrace('OPEN-START', { openId });
   const SQLite = loadSQLite();
   const directories = getDatabaseDirectories(SQLite);
   const databaseDirectory = directories.primary;
+  const writerOwner = createDatabaseWriterOwner(context);
+  const fileWriterOwner = isAppGroupDirectory(directories, databaseDirectory)
+    ? writerOwner
+    : undefined;
 
-  const key = await getOrCreateDatabaseEncryptionKey();
-  const files = createExpoDatabaseFileOps(databaseDirectory);
-  const openPlaintext = (fileName: string) =>
-    SQLite.openDatabaseAsync(fileName, { useNewConnection: true }, databaseDirectory);
+  assertCurrent();
+  const key = await getOrCreateDatabaseEncryptionKey(writerOwner);
+  assertCurrent();
+  const openingAccount: ActiveDatabaseAccount = { userId, generation };
+  const files = fileWriterOwner
+    ? createExpoDatabaseFileOps(databaseDirectory, { writerOwner: fileWriterOwner })
+    : createExpoDatabaseFileOps(databaseDirectory);
+  const openPlaintext = async (fileName: string) => {
+    assertCurrent();
+    const opened = await SQLite.openDatabaseAsync(
+      fileName,
+      { useNewConnection: true },
+      databaseDirectory,
+    );
+    registerDatabaseHandle(opened, openingAccount, openId);
+    try {
+      assertCurrent();
+      return opened;
+    } catch (error) {
+      await closeRegisteredDatabaseHandle(opened);
+      throw error;
+    }
+  };
   const openEncrypted = async (fileName: string, encryptionKey: string) => {
+    assertCurrent();
     const opened = await SQLite.openDatabaseAsync(
       fileName,
       {
@@ -200,7 +458,9 @@ async function open(openId: number): Promise<DatabaseConnection> {
       },
       databaseDirectory,
     );
+    registerDatabaseHandle(opened, openingAccount, openId);
     try {
+      assertCurrent();
       // Muss das allererste Statement nach openDatabaseAsync bleiben.
       dbTrace('KEY-START', { openId });
       try {
@@ -210,9 +470,10 @@ async function open(openId: number): Promise<DatabaseConnection> {
         dbTrace('KEY-FAIL', { error: errorMessage(error), openId });
         throw error;
       }
+      assertCurrent();
       return opened;
     } catch (error) {
-      await opened.closeAsync();
+      await closeRegisteredDatabaseHandle(opened);
       throw error;
     }
   };
@@ -227,15 +488,53 @@ async function open(openId: number): Promise<DatabaseConnection> {
         plaintextRecoveryFileName: DATABASE_FILE_NAMES.plaintextRecovery,
         openPlaintext,
         openEncrypted,
+        closeDatabase: closeRegisteredDatabaseHandle,
+        writerOwner,
+        assertCurrent,
+        retainUnresolvedSourceCleanup: (databaseToClose, close) => {
+          registerDatabaseHandle(databaseToClose, openingAccount, openId);
+          setDatabaseHandleCleanup(databaseToClose, close, 'unresolved');
+        },
       },
       key,
     );
+    registerDatabaseHandle(openedDatabase, openingAccount, openId);
+    assertCurrent();
     dbTrace('OPEN-CONNECTION-OK', { openId });
   } catch (error) {
+    const closeErrors = await closeOpeningDatabaseHandles(openId);
     dbTrace('OPEN-CONNECTION-FAIL', { error: errorMessage(error), openId });
+    if (closeErrors.length > 0) {
+      throw new Error('Die veraltete Datenbanköffnung konnte nicht geschlossen werden.', {
+        cause: new AggregateError([error, ...closeErrors]),
+      });
+    }
     throw error;
   }
-  const db = serializeDatabase(toDriver(openedDatabase));
+  const db = serializeDatabase(toDriver(openedDatabase), {
+    writerOwner,
+    signal: context.signal,
+    recoverAfterCleanupFailure: async () => {
+      try {
+        await openedDatabase.closeAsync();
+      } catch (error) {
+        const pending = pendingDatabaseCleanups.get(openedDatabase);
+        if (pending) pending.state = 'unresolved';
+        throw error;
+      }
+      pendingDatabaseCleanups.delete(openedDatabase);
+      clearCurrentConnection(openedDatabase);
+    },
+  });
+  setDatabaseHandleCleanup(openedDatabase, () =>
+    db.closeForLifecycle(() => openedDatabase.closeAsync()),
+  );
+  const runOwnedStartupStep = (step: string, operation: () => Promise<unknown>) =>
+    runStartupStep(openId, step, async () => {
+      assertCurrent();
+      await operation();
+      assertCurrent();
+    });
 
   try {
     // Netz fuer Connections, die uns nicht gehoeren: die Devtools-Registrierung
@@ -245,18 +544,21 @@ async function open(openId: number): Promise<DatabaseConnection> {
     // WAL-Modus gesetzt werden, damit auch der erste potenziell sperrende
     // Schreibzugriff beim Öffnen warten kann. Wert 5000, weil die UI alle 3 s
     // pollt: kuerzer hiesse, mitten im normalen Takt aufzugeben.
-    await runStartupStep(openId, 'busy_timeout', () => db.execAsync('PRAGMA busy_timeout = 5000'));
+    await runOwnedStartupStep('busy_timeout', () => db.execAsync('PRAGMA busy_timeout = 5000'));
 
-    await runStartupStep(openId, 'foreign_keys', () => ensureForeignKeys(db));
+    await runOwnedStartupStep('foreign_keys', () => ensureForeignKeys(db));
 
     // WAL muss ausserhalb jeder Transaktion gesetzt werden — innerhalb lehnt
     // SQLite den Moduswechsel ab. Deshalb hier, vor den Migrationen. Bei einer
     // bereits als WAL geöffneten Datei bleibt der lock-sensitive Wechsel aus.
-    await runStartupStep(openId, 'journal_mode_wal', () => ensureWalJournalMode(db));
+    await runOwnedStartupStep('journal_mode_wal', () => ensureWalJournalMode(db));
 
-    await runStartupStep(openId, 'drizzle_migrations', () =>
-      runLocalDrizzleMigrations(openedDatabase),
+    await runOwnedStartupStep('drizzle_migrations', () =>
+      runLocalDrizzleMigrations(openedDatabase, db),
     );
+    await runOwnedStartupStep('admission_final', async () => {
+      assertDatabaseAdmission(context);
+    });
     dbTrace('INIT-OK', { openId });
   } catch (error) {
     // Nie automatisch löschen: In der Datei kann eine nicht synchronisierte
@@ -265,10 +567,8 @@ async function open(openId: number): Promise<DatabaseConnection> {
     dbTrace('INIT-FAIL', { error: errorMessage(error), openId });
     debugWarn('[db] Initialisierung fehlgeschlagen; Datenbank bleibt erhalten:', error);
     try {
-      await db.closeForLifecycle(() => openedDatabase.closeAsync());
+      await closeRegisteredDatabaseHandle(openedDatabase);
     } catch (closeError) {
-      rawDatabase = openedDatabase;
-      database = db;
       throw new Error('Die fehlgeschlagene Datenbanköffnung konnte nicht geschlossen werden.', {
         cause: closeError,
       });
@@ -276,43 +576,53 @@ async function open(openId: number): Promise<DatabaseConnection> {
     throw error;
   }
 
-  return { raw: openedDatabase, db };
+  return { raw: openedDatabase, db, account: { userId, generation } };
 }
 
 async function openAndVerify(
   openId: number,
   generation: number,
   userId: string,
+  context: DatabaseExecutionContext,
 ): Promise<SerializedSqlDatabase> {
   dbTrace('VERIFY-START', {
     hasCachedConnection: Boolean(database && rawDatabase),
     openId,
   });
-  let connection =
-    database && rawDatabase ? { db: database, raw: rawDatabase } : await open(openId);
+  const requestedAccount = { userId, generation };
+  let connection = currentDatabaseConnection() ?? (await open(openId, context, generation, userId));
 
   try {
-    assertLifecycle(generation, userId);
-    if (checkedUserId !== userId) {
+    assertLifecycle(generation, userId, context);
+    if (checkedUserId !== userId || !sameAccount(connection.account, requestedAccount)) {
       const verified = await ensureDatabaseBelongsTo(
         connection.db,
         userId,
         async () => {
-          await closeAndDeleteFile(connection);
-          assertLifecycle(generation, userId);
-          connection = await open(openId);
-          assertLifecycle(generation, userId);
+          await closeAndDeleteFile(connection, context);
+          assertLifecycle(generation, userId, context);
+          connection = await open(openId, context, generation, userId);
+          assertLifecycle(generation, userId, context);
           return connection.db;
         },
-        () => assertLifecycle(generation, userId),
+        () => assertLifecycle(generation, userId, context),
       );
-      connection = { ...connection, db: verified as SerializedSqlDatabase };
+      connection = {
+        ...connection,
+        db: verified as SerializedSqlDatabase,
+        account: requestedAccount,
+      };
     }
 
-    assertLifecycle(generation, userId);
+    assertLifecycle(generation, userId, context);
     rawDatabase = connection.raw;
     database = connection.db;
+    connectionContextKey = contextKey(context);
+    connectionAccount = requestedAccount;
     checkedUserId = userId;
+    // Publication and registry release are synchronous, so the raw handle is
+    // always owned by either pending cleanup or the active connection.
+    pendingDatabaseCleanups.delete(connection.raw);
     dbTrace('READY', { openId });
     return connection.db;
   } catch (error) {
@@ -321,13 +631,8 @@ async function openAndVerify(
     // fehlgeschlagenen Open-Lauf und darf nicht bis nach dem Wipe offen bleiben.
     if (connection.raw !== rawDatabase) {
       try {
-        await connection.db.closeForLifecycle(() => connection.raw.closeAsync());
+        await closeRegisteredDatabaseHandle(connection.raw);
       } catch (closeError) {
-        // Auch eine stale, noch nicht veröffentlichte Connection muss für den
-        // Retry erreichbar bleiben. `activeUserId === null` blockiert Zugriffe.
-        rawDatabase = connection.raw;
-        database = connection.db;
-        drizzleDatabase = null;
         throw new Error('Eine veraltete Datenbanköffnung konnte nicht geschlossen werden.', {
           cause: closeError,
         });
@@ -337,45 +642,73 @@ async function openAndVerify(
   }
 }
 
-export function getDatabase(): Promise<SerializedSqlDatabase> {
+export function getDatabase(
+  context: DatabaseExecutionContext = FOREGROUND_CONTEXT,
+): Promise<SerializedSqlDatabase> {
   if (activeUserId === null) {
     return Promise.reject(new Error(NO_ACTIVE_USER_ERROR));
   }
   if (wipeInProgress) {
     return Promise.reject(new Error('Die lokale Datenbank wird gerade gelöscht.'));
   }
-  if (lifecycleClosing) return lifecycleClosing.then(() => getDatabase());
+  if (hasUnresolvedDatabaseCleanup()) {
+    return Promise.reject(new Error(DATABASE_CLOSING_ERROR));
+  }
+
+  try {
+    assertDatabaseAdmission(context);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+
+  const requestedContextKey = contextKey(context);
+  if (lifecycleClosing) {
+    return lifecycleClosing.then(() => getDatabase(context));
+  }
   if (database && isVerifiedForActiveUser()) {
+    if (connectionContextKey !== requestedContextKey) {
+      return Promise.reject(new Error(DATABASE_CONTEXT_MISMATCH_ERROR));
+    }
     return Promise.resolve(database);
   }
 
-  if (!opening) {
-    openSequence += 1;
-    const openId = openSequence;
-    const generation = lifecycleGeneration;
-    const userId = activeUserId;
-    dbTrace('REQUEST-NEW', { generation, openId });
-    const pending = measureOperation('db.open', async () => {
-      try {
-        return await openAndVerify(openId, generation, userId);
-      } catch (error) {
-        dbTrace('REQUEST-FAIL', { error: errorMessage(error), openId });
-        throw error;
-      }
-    }).finally(() => {
-      dbTrace('REQUEST-SETTLED', { openId });
-      if (opening === pending) opening = null;
-    });
-    opening = pending;
-  } else {
+  if (opening) {
+    if (openingContextKey !== requestedContextKey) {
+      return Promise.reject(new Error(DATABASE_CONTEXT_MISMATCH_ERROR));
+    }
     dbTrace('REQUEST-JOINED');
+    return opening;
   }
+
+  openSequence += 1;
+  const openId = openSequence;
+  const generation = lifecycleGeneration;
+  const userId = activeUserId;
+  openingContextKey = requestedContextKey;
+  dbTrace('REQUEST-NEW', { generation, openId });
+  const pending = measureOperation('db.open', async () => {
+    try {
+      return await openAndVerify(openId, generation, userId, context);
+    } catch (error) {
+      dbTrace('REQUEST-FAIL', { error: errorMessage(error), openId });
+      throw error;
+    }
+  }).finally(() => {
+    dbTrace('REQUEST-SETTLED', { openId });
+    if (opening === pending) {
+      opening = null;
+      openingContextKey = null;
+    }
+  });
+  opening = pending;
 
   return opening;
 }
 
-export async function getDrizzleDatabase(): Promise<DrizzleDatabase> {
-  const db = await getDatabase();
+export async function getDrizzleDatabase(
+  context: DatabaseExecutionContext = FOREGROUND_CONTEXT,
+): Promise<DrizzleDatabase> {
+  const db = await getDatabase(context);
   drizzleDatabase ??= createDrizzleDatabase(db);
   return drizzleDatabase;
 }
@@ -388,15 +721,16 @@ export async function getDrizzleDatabase(): Promise<DrizzleDatabase> {
  */
 export async function runWithCurrentDatabase<T>(
   action: (db: SerializedSqlDatabase) => Promise<T>,
+  context: DatabaseExecutionContext = FOREGROUND_CONTEXT,
 ): Promise<T> {
   const userId = activeUserId;
   if (userId === null) throw new Error(NO_ACTIVE_USER_ERROR);
   const generation = lifecycleGeneration;
 
   while (true) {
-    assertLifecycle(generation, userId);
-    const db = await getDatabase();
-    assertLifecycle(generation, userId);
+    assertLifecycle(generation, userId, context);
+    const db = await getDatabase(context);
+    assertLifecycle(generation, userId, context);
 
     try {
       return await action(db);
@@ -410,40 +744,58 @@ export async function runWithCurrentDatabase<T>(
 
       // A very fast close can settle before this rejection is observed. Retry
       // only if getDatabase has replaced the closed connection successfully.
-      assertLifecycle(generation, userId);
-      const reopenedDb = await getDatabase();
-      assertLifecycle(generation, userId);
+      assertLifecycle(generation, userId, context);
+      const reopenedDb = await getDatabase(context);
+      assertLifecycle(generation, userId, context);
       if (reopenedDb === db) throw error;
     }
   }
 }
 
 /** Schließt die SQLite-Verbindung nach dem Leeren der serialisierten Query-Warteschlange. */
-export function closeDatabaseForLifecycle(): Promise<void> {
-  if (lifecycleClosing) return lifecycleClosing;
-  const closing = (async () => {
+export function closeDatabaseForLifecycle(
+  expectedAccount?: ActiveDatabaseAccount,
+): Promise<DatabaseLifecycleCloseResult> {
+  if (lifecycleClosing) {
+    if (!expectedAccount) return lifecycleClosing;
+    return lifecycleClosing.then(() => closeDatabaseForLifecycle(expectedAccount));
+  }
+
+  const closing = (async (): Promise<DatabaseLifecycleCloseResult> => {
     if (opening) {
       try {
         await opening;
       } catch {
-        return;
+        // A failed open may have retained a raw handle because its own close
+        // failed. Continue and inspect the retained connection directly.
       }
     }
 
-    const connection = database && rawDatabase ? { db: database, raw: rawDatabase } : null;
-    if (!connection) return;
+    let pendingCleanupResult: DatabaseLifecycleCloseResult | null = null;
+    if (pendingDatabaseCleanups.size > 0) {
+      try {
+        pendingCleanupResult = await closePendingDatabaseCleanups(expectedAccount);
+      } catch (error) {
+        debugWarn('[db] Offener SQLite-Handle konnte nicht geschlossen werden:', error);
+        throw error;
+      }
+      if (pendingCleanupResult?.status === 'ownership-mismatch') return pendingCleanupResult;
+    }
+
+    const connection = currentDatabaseConnection();
+    if (!connection) return pendingCleanupResult ?? { status: 'not-open' };
+    if (expectedAccount && !sameAccount(connection.account, expectedAccount)) {
+      return { status: 'ownership-mismatch', account: connection.account };
+    }
 
     try {
       await connection.db.closeForLifecycle(() => connection.raw.closeAsync());
-      if (rawDatabase === connection.raw) {
-        rawDatabase = null;
-        database = null;
-        drizzleDatabase = null;
-        resetOffDumpAttachment();
-      }
+      clearCurrentConnection(connection.raw);
       dbTrace('LIFECYCLE-CLOSED');
+      return { status: 'closed', account: connection.account };
     } catch (error) {
       debugWarn('[db] Verbindung beim App-Wechsel konnte nicht geschlossen werden:', error);
+      throw error;
     }
   })().finally(() => {
     if (lifecycleClosing === closing) lifecycleClosing = null;
@@ -452,37 +804,52 @@ export function closeDatabaseForLifecycle(): Promise<void> {
   return closing;
 }
 
-async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void> {
+async function closeAndDeleteFile(
+  connection: DatabaseConnection | undefined,
+  context: DatabaseExecutionContext,
+): Promise<void> {
+  assertDatabaseAdmission(context);
   const SQLite = loadSQLite();
   const errors: unknown[] = [];
-  const connectionToClose =
-    connection ?? (database && rawDatabase ? { db: database, raw: rawDatabase } : null);
+  const connectionToClose = connection ?? currentDatabaseConnection();
 
   if (connectionToClose) {
+    const isPublishedConnection = connectionToClose.raw === rawDatabase;
+    if (!isPublishedConnection && !pendingDatabaseCleanups.has(connectionToClose.raw)) {
+      registerDatabaseHandle(connectionToClose.raw, connectionToClose.account, openSequence);
+      setDatabaseHandleCleanup(connectionToClose.raw, () =>
+        connectionToClose.db.closeForLifecycle(() => connectionToClose.raw.closeAsync()),
+      );
+    }
+
     try {
-      await connectionToClose.db.closeForLifecycle(() => connectionToClose.raw.closeAsync());
+      if (pendingDatabaseCleanups.has(connectionToClose.raw)) {
+        await closeRegisteredDatabaseHandle(connectionToClose.raw);
+      } else {
+        await connectionToClose.db.closeForLifecycle(() => connectionToClose.raw.closeAsync());
+      }
     } catch (error) {
-      // Den Handle für einen späteren orphan-cleanup behalten. Der serialisierte
-      // Port nimmt keine Statements mehr an, kann den nativen Close nach einem
-      // Fehler aber erneut versuchen.
-      rawDatabase = connectionToClose.raw;
-      database = connectionToClose.db;
-      drizzleDatabase = null;
       throw new Error('Die lokale Datenbank konnte nicht geschlossen werden.', {
         cause: error,
       });
     }
   }
 
-  if (!connection || rawDatabase === connection.raw) {
-    rawDatabase = null;
-    database = null;
-    drizzleDatabase = null;
+  if (pendingDatabaseCleanups.size > 0) {
+    try {
+      await closePendingDatabaseCleanups();
+    } catch (error) {
+      throw new Error('Die lokale Datenbank konnte nicht geschlossen werden.', {
+        cause: error,
+      });
+    }
   }
+
   // Die geloeschte Datei nimmt jeden bisherigen `ATTACH ... AS off_dump` mit —
   // ohne diesen Reset wuerde `attachOffDump()` faelschlich "schon angehaengt"
   // gegen die naechste, frische Connection melden (siehe off-dump.ts).
-  resetOffDumpAttachment();
+  if (connectionToClose) clearCurrentConnection(connectionToClose.raw);
+  else resetOffDumpAttachment();
 
   const filesToDelete = [
     DATABASE_FILE_NAMES.main,
@@ -504,8 +871,11 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
     const directoriesToDelete = [
       ...new Set([directories.primary, directories.defaultDirectory, directories.appGroup]),
     ].filter((directory): directory is string => directory !== undefined);
+    const writerOwner = createDatabaseWriterOwner(context);
     for (const directory of directoriesToDelete) {
-      const files = createExpoDatabaseFileOps(directory);
+      const files = isAppGroupDirectory(directories, directory)
+        ? createExpoDatabaseFileOps(directory, { writerOwner })
+        : createExpoDatabaseFileOps(directory);
       for (const fileName of filesToDelete) {
         try {
           await files.delete(fileName);
@@ -535,10 +905,12 @@ async function closeAndDeleteFile(connection?: DatabaseConnection): Promise<void
 
   // Den Key nie vor den Dateien löschen. Sonst würde ein fehlgeschlagener Wipe
   // die verbliebene Datenbank nur unlesbar machen, aber nicht entfernen.
-  await deleteDatabaseEncryptionKey();
+  await deleteDatabaseEncryptionKey(createDatabaseWriterOwner(context));
 }
 
-export function deleteLocalDatabase(): Promise<void> {
+export function deleteLocalDatabase(
+  context: DatabaseExecutionContext = FOREGROUND_CONTEXT,
+): Promise<void> {
   if (wipeInProgress) return wipeInProgress;
 
   // Synchronous barrier: Jeder bereits gestartete Open-Lauf wird stale, und
@@ -555,7 +927,7 @@ export function deleteLocalDatabase(): Promise<void> {
       }
     }
 
-    await closeAndDeleteFile();
+    await closeAndDeleteFile(undefined, context);
     checkedUserId = null;
   })().finally(() => {
     if (wipeInProgress === wipe) wipeInProgress = null;

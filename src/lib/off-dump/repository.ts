@@ -40,6 +40,7 @@ type ApplyPatchFn = (
     expectedSchemaVersion: number;
     toVersion: string;
     attachmentMode: PlaintextAttachmentMode;
+    signal?: AbortSignal;
   },
 ) => Promise<ApplyPatchResult>;
 
@@ -47,15 +48,22 @@ type ApplyPatchFn = (
  * Vor jedem Attach: bereinigt einen ggf. inkonsistenten Dateizustand vom
  * letzten Absturz (siehe `baseline-reconcile.ts`).
  */
-export async function reconcileOnStart(fileOps: FileOps, paths: DumpPaths): Promise<void> {
+export async function reconcileOnStart(
+  fileOps: FileOps,
+  paths: DumpPaths,
+  signal?: AbortSignal,
+): Promise<void> {
+  throwIfOffDumpAborted(signal);
   const [active, next, recovery] = await Promise.all([
     fileOps.exists(paths.activePath),
     fileOps.exists(paths.nextPath),
     fileOps.exists(paths.recoveryPath),
   ]);
 
+  throwIfOffDumpAborted(signal);
   const actions = reconcileBaselineState({ active, next, recovery });
   for (const action of actions) {
+    throwIfOffDumpAborted(signal);
     if (action.kind === 'move') {
       const from = action.from === 'next' ? paths.nextPath : paths.recoveryPath;
       await fileOps.move(from, paths.activePath);
@@ -63,6 +71,7 @@ export async function reconcileOnStart(fileOps: FileOps, paths: DumpPaths): Prom
       const file = action.file === 'next' ? paths.nextPath : paths.recoveryPath;
       await fileOps.delete(file);
     }
+    throwIfOffDumpAborted(signal);
   }
 }
 
@@ -86,6 +95,7 @@ async function applyPatchChain(
         expectedSchemaVersion: manifest.schemaVersion,
         toVersion: patch.to,
         attachmentMode: 'sqlcipher',
+        signal,
       });
       if (!result.ok) return { ok: false };
     } finally {
@@ -140,6 +150,7 @@ export async function checkForUpdate(params: {
   const schemaVersion = manifest.schemaVersion;
 
   async function runBaselineInstall(): Promise<UpdateOutcome> {
+    throwIfOffDumpAborted(signal);
     const result = await installBaselineFn(db, fileOps, {
       downloadUrl: baseline.url,
       expectedChecksum: baseline.checksum,

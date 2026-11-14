@@ -13,6 +13,7 @@ import { onOutboxChanged } from '@/lib/db/outbox';
 import { retryFailedOutboxEntries } from '@/lib/db/outbox-retry';
 import type { Entity } from '@/lib/db/types';
 import { startPerformanceSpan } from '@/lib/observability/performance';
+import { isSyncAbortError } from '@/lib/sync/cancellation';
 import { startNetworkReconnectTrigger } from '@/lib/sync/network-trigger';
 import { type RealtimeSubscribeState, subscribeHouseholdRealtime } from '@/lib/sync/realtime';
 import { type SyncRunResult, syncHousehold } from '@/lib/sync/remote-sync-engine';
@@ -30,10 +31,12 @@ type ActiveSync = {
 
 let activeSync: ActiveSync | null = null;
 let foregroundSyncSuspended = false;
+let foregroundSyncAbortController = new AbortController();
 
 /** Verhindert neue Foreground-Läufe und verwirft einen vorgemerkten Folgelauf. */
 export function suspendForegroundSync(): void {
   foregroundSyncSuspended = true;
+  foregroundSyncAbortController.abort();
   if (activeSync) activeSync.pending = false;
 }
 
@@ -41,6 +44,7 @@ export function suspendForegroundSync(): void {
 export function resumeForegroundSync(): void {
   if (!foregroundSyncSuspended) return;
   foregroundSyncSuspended = false;
+  foregroundSyncAbortController = new AbortController();
   if (activeSync) activeSync.pending = true;
 }
 
@@ -217,21 +221,26 @@ async function performHouseholdSync(
     finishAccountSyncRun?.();
     return null;
   }
+  const signal = foregroundSyncAbortController.signal;
   const finishPerformance = startPerformanceSpan('sync.run', {
     household_count: householdIds.length,
     retry_failed: retryFailed,
   });
   addDiagnosticStep('sync.run.started', { operation: 'sync.run' });
   try {
-    const db = await getDatabase();
-    if (foregroundSyncSuspended) {
+    const db = await getDatabase({ kind: 'foreground', signal });
+    if (foregroundSyncSuspended || signal.aborted) {
       finishPerformance('completed', { cancelled: true });
       return null;
     }
     if (retryFailed) {
-      await retryFailedOutboxEntries(db);
+      await retryFailedOutboxEntries(db, undefined, signal);
+      if (signal.aborted) {
+        finishPerformance('completed', { cancelled: true });
+        return null;
+      }
     }
-    if (foregroundSyncSuspended) {
+    if (foregroundSyncSuspended || signal.aborted) {
       finishPerformance('completed', { cancelled: true });
       return null;
     }
@@ -241,6 +250,7 @@ async function performHouseholdSync(
       supabase,
       serverClock,
       householdIds,
+      signal,
     });
 
     const pushedCount = result.push.outcomes.filter((o) => o.kind === 'pushed').length;
@@ -333,6 +343,10 @@ async function performHouseholdSync(
 
     return result;
   } catch (err) {
+    if (signal.aborted || isSyncAbortError(err)) {
+      finishPerformance('completed', { cancelled: true });
+      return null;
+    }
     finishPerformance('failed');
     reportError(err, { operation: 'sync.run', error_code: 'sync_run_failed' });
     debugWarn('[SyncRunner] Sync fehlgeschlagen:', err);

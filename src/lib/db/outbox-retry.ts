@@ -1,5 +1,6 @@
 import type { SqlDatabase } from '@/lib/db/types';
 import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
+import { throwIfSyncAborted } from '@/lib/sync/cancellation';
 
 /**
  * Retry-Primitive fuer dauerhaft gescheiterte Outbox-Eintraege (#51).
@@ -8,17 +9,22 @@ import { MAX_ATTEMPTS } from '@/lib/sync/backoff';
 export async function retryFailedOutboxEntries(
   db: SqlDatabase,
   nowMs = Date.now(),
+  signal?: AbortSignal,
 ): Promise<number> {
+  throwIfSyncAborted(signal);
   // Reparatur von veralteten uppercase 'L' Einheiten im Outbox JSON payload
   const entries = await db.getAllAsync<{ id: number; payload: string }>(
     'select id, payload from outbox where payload like \'%"unit":"L"%\' or payload like \'%"unit":"LITER"%\'',
   );
+  throwIfSyncAborted(signal);
 
   for (const entry of entries) {
     const fixedPayload = entry.payload
       .replace(/"unit":"L"/g, '"unit":"l"')
       .replace(/"unit":"LITER"/g, '"unit":"l"');
+    throwIfSyncAborted(signal);
     await db.runAsync('update outbox set payload = ? where id = ?', [fixedPayload, entry.id]);
+    throwIfSyncAborted(signal);
   }
 
   // Alte Inventar-Updates koennen die aus dem JOIN stammenden Felder
@@ -33,6 +39,7 @@ export async function retryFailedOutboxEntries(
         and (payload like '%"location_kind"%' or payload like '%"location_name"%')`,
     [MAX_ATTEMPTS],
   );
+  throwIfSyncAborted(signal);
 
   for (const entry of staleInventoryEntries) {
     let parsed: unknown;
@@ -51,13 +58,17 @@ export async function retryFailedOutboxEntries(
         ),
       ),
     );
+    throwIfSyncAborted(signal);
     await db.runAsync('update outbox set payload = ? where id = ?', [fixedPayload, entry.id]);
+    throwIfSyncAborted(signal);
   }
 
+  throwIfSyncAborted(signal);
   const result = await db.runAsync(
     "update outbox set attempts = 0, next_attempt_at = ? where attempts >= ? or last_error like '%unit%'",
     [nowMs, MAX_ATTEMPTS],
   );
+  throwIfSyncAborted(signal);
 
   return result.changes;
 }

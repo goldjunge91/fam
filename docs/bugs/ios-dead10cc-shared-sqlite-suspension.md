@@ -1,10 +1,10 @@
 # iOS: `0xdead10cc` beim Suspendieren der geteilten SQLite-Datenbank
 
-- Status: Offen
-- Beads: `fam-m9fv`
-- Untersucht: 2026-11-08
-- Quellstand der Untersuchung: `7717d262827e2aa6ceaddde1b93ce0bd17be1b1d`
-- Entscheidungsstatus: Fixpfad vorgeschlagen, noch nicht zur Implementierung freigegeben
+- Status: Offen, physische iPhone-Abnahme ausstehend
+- Beads: `fam-t53z`
+- Untersucht: 2026-11-13
+- Quellstand der Untersuchung: Build 113 plus FEAT-001 bis FEAT-003 im Arbeitsstand
+- Entscheidungsstatus: Variante A angenommen und im Quelltext umgesetzt; kein Produktions-Fixnachweis ohne neuen nativen Build
 
 ## Kurzfassung
 
@@ -37,6 +37,46 @@ vor der Suspension, trennt lange Arbeit von kurzen DB-Transaktionen und prüft
 verschlüsselter Siri-Inbox bleibt der Rückfallpfad, falls sich die gemeinsame
 Datenbank trotz dieser Invarianten nicht zuverlässig betreiben lässt.
 
+## Aktueller Implementierungsstand
+
+Variante A bleibt verbindlich: Haupt-App und Siri verwenden weiterhin dieselbe
+SQLCipher-/WAL-Datei. Der Rückfallpfad mit privater Hauptdatenbank und
+verschlüsselter Siri-Inbox wurde nicht begonnen.
+
+Im Arbeitsstand sind der iOS-only Expo-Lifecycle-Owner, die native AppDelegate-
+Zulassung vor React Native AppState, die Writer-/Background-Token, die
+lifecycle-aware SQLite-Öffnung, die kurzen App-Group-Leases sowie die
+abort-aware OFF-/Sync-Phasen umgesetzt. Der native Admission-Race wird auf der
+Main Queue vor `beginBackgroundTask` erneut geprüft. Nach Expiration wechselt der
+Owner fail-closed nach `suspended`, bricht die abhängigen JS-Operationen ab und
+hält die Assertion bis zum expliziten Rollback-/Ressourcen-Cleanup; erst danach
+endet der Token idempotent. Bereits reservierte Lifecycle-Operationen dürfen
+nach dem synchronen Close-Barrer kein neues Statement mehr starten. Der
+systemgestartete BackgroundTask öffnet die Datenbank nur mit einem expliziten
+Background-Kontext und beendet zuerst den Close und danach den Kontext. Die
+Siri-Produktionsdateien bleiben unverändert; statische Verträge sichern ihren
+synchronen WAL-, BEGIN-/COMMIT-oder-ROLLBACK- und Close-Pfad ohne
+UIKit-Assertion.
+
+Die grünen fokussierten Jest-, TypeScript-, Biome- und statischen Vertragsprüfungen
+belegen keine UIApplication- oder RunningBoard-Suspension auf einem Gerät. Die
+Review-Korrekturen halten native Token auch bei externer Abbruchmeldung bis zum
+Rollback-/Detach-/Close-Cleanup, halten Account-Ownership während des
+Background-Close, prüfen die Account-Generation in jedem Cutover-Dateischritt
+und veröffentlichen den aktiven Household-Kontext über eine temporäre Datei und
+same-container Move. OFF-Patch und Dump-Inspektion detachen über die bereits
+gehaltene Writer-Scope statt nach der Lifecycle-Sperre einen neuen Foreground-
+Writer anzufordern. Jeder native SQLite-Handle wird unmittelbar nach dem Öffnen
+mit unveränderlicher Account-Ownership registriert. Diese Registrierung bleibt
+bis zur erfolgreichen Veröffentlichung oder einem bestätigten Close bestehen.
+Schlägt ein Close vor der Veröffentlichung fehl, bleibt der Handle für den
+Lifecycle-Close sichtbar; der Background-Kontext kann dadurch nicht über ein
+falsches `not-open` vorzeitig enden.
+
+Ein neuer Dev-Client- oder TestFlight-Build ist für die native Schnittstelle
+notwendig und wurde in dieser Sitzung nicht gestartet. `0xdead10cc` gilt daher
+nicht als behoben.
+
 ## Gesicherter Crashbefund
 
 ### Angegebener Vorfall
@@ -55,7 +95,35 @@ Datenbank trotz dieser Invarianten nicht zuverlässig betreiben lässt.
 | Exception | `EXC_CRASH (SIGKILL)` |
 | Terminierungsgrund | `RUNNINGBOARD 0xdead10cc` |
 
-Der Crashpoint liegt lokal im Xcode-Organizer-Cache unter
+### Nachfolgende Produktionsbelege
+
+Der JavaScript-/WAL-Gegenmaßnahmenstand aus Build 112 enthielt `dbd9ecc0` und
+beendete den Prozess nach ungefähr 99 Sekunden weiterhin mit
+`RUNNINGBOARD 0xdead10cc`. Das widerlegt eine weitere JS-only-Close-Variante als
+hinreichende Lösung.
+
+Build 113 enthielt zusätzlich den separaten MMKV-Workaround `f2bd065c` sowie
+die bis dahin vorhandenen WAL- und Sync-Gegenmaßnahmen. Der erhaltene Bericht
+
+`/Users/marco/Library/Developer/Xcode/Products/com.goldjunge91.fam1/Crashes/Points/ePw7UaLvCDcAYbJhPasnk.xccrashpoint/Filters/Filter_ePw7UaLvCDcAYbJhPasnk-6803078545-com.goldjunge91.fam1-com.apple.platform.iphoneos-com.apple.platform.iphoneos-Any-Any/Logs/2026-11-13_20-36-47.9797_+0100-b8a269f07961af752ab5bcac3ea3b4a82e6a946f.crash`
+
+belegt den erneuten Vorfall:
+
+| Feld | Wert |
+| --- | --- |
+| Incident | `603E4000-61FB-4EA8-A0A2-BEDB5B9BA68C` |
+| Version | `0.0.6 (113)` |
+| Gerät / iOS | `iPhone12,5` / `iPhone OS 27.0.1 (24A446)` |
+| Start | `2026-11-13 20:36:13.9323 +0100` |
+| Terminierung | `2026-11-13 20:36:47.9797 +0100` |
+| Laufzeit | ungefähr 34 Sekunden |
+| Terminierungsgrund | `RUNNINGBOARD 0xdead10cc` |
+
+Der Crashreport zeigt ausschließlich ruhende Threads und keinen identifizierbaren
+MMKV-, SQLite- oder Writer-Ursprungsframe. Die Produktionsbelege verlangen
+daher die native Admission-/Assertion-Grenze und nicht eine weitere
+JavaScript-only Close-Änderung.
+
 `~/Library/Developer/Xcode/Products/com.goldjunge91.fam1/Crashes/Points/`
 `ePw7UaLvCDcAYbJhPasnk.xccrashpoint`.
 
@@ -150,17 +218,16 @@ Outbox speichern, wenn die Haupt-App nicht läuft. Der frühere Siri-Bug
 `docs/architecture/2026-10-03-siri-killed-state-research.md` dokumentieren diese
 Produktgrenze.
 
-### WAL wird angestrebt, aber nicht vollständig belegt
+### WAL im Build-109-Ausgangsstand
 
-`ensureWalJournalMode()` liest den Modus. Ist er nicht `wal`, führt die Funktion
-`PRAGMA journal_mode = WAL` über `execAsync()` aus. Sie liest das Ergebnis des
-Setzens nicht aus und prüft den Modus danach nicht erneut. Die Siri-Extension
-setzt `busy_timeout` und `foreign_keys`, prüft den Journalmodus aber überhaupt
-nicht.
+Im untersuchten Ausgangsstand las `ensureWalJournalMode()` den Modus. War er nicht
+`wal`, führte die Funktion `PRAGMA journal_mode = WAL` aus, las das Ergebnis
+aber nicht erneut. Die Siri-Extension setzte `busy_timeout` und
+`foreign_keys`, prüfte den Journalmodus aber ebenfalls nicht.
 
-Damit gibt es im aktuellen Build keinen dauerhaften Nachweis dafür, dass beide
-Prozesse die geteilte Datei tatsächlich als WAL-Datenbank verwenden. Der
-Crashreport enthält diese Information ebenfalls nicht.
+Der aktuelle Arbeitsstand liest und verifiziert `WAL` auf beiden Prozessseiten.
+Ob der reale TestFlight-Prozess zur Laufzeit tatsächlich `WAL` verwendete, kann
+der Build-113-Crashreport weiterhin nicht belegen.
 
 ### Transaktionen überleben mehrere JavaScript-Awaits
 
@@ -174,12 +241,11 @@ Zwischen diesen Aufrufen kehrt die Kontrolle jeweils in die
 JavaScript-Laufzeit zurück. Eine Gerätesperre kann deshalb mitten in einer
 bereits begonnenen Schreibtransaktion eintreten.
 
-`execWithBusyRetry()` wird sowohl für `BEGIN IMMEDIATE` als auch für `COMMIT`
-verwendet. Bei einem fehlgeschlagenen `BEGIN` besteht noch keine eigene
-Schreibtransaktion. Bei einem fehlgeschlagenen `COMMIT` bleibt sie laut SQLite
-jedoch offen. Der heutige Retry kann dann mit Timern warten, während der
-Schreiblock bestehen bleibt. Zusammen mit dem nativen `busy_timeout = 5000`
-ist das ein besonders riskanter Suspend-Pfad.
+Im Build-109-Ausgangsstand wurde `execWithBusyRetry()` sowohl für
+`BEGIN IMMEDIATE` als auch für `COMMIT` verwendet. Der aktuelle Arbeitsstand
+retryt nur den Transaktionsstart, commit retryt nicht und rollt bei einem
+Fehler fail-closed zurück. Ein Gerätesperrtest bleibt trotzdem erforderlich,
+weil der Crashreport keinen konkreten Writer nennt.
 
 ### Der Close ist asynchron und wartet auf Arbeit
 
@@ -466,7 +532,7 @@ unterbrochene DB-Operation gemeldet. Der heutige Sessionmarker stuft einen in
 `background` beendeten Prozess allgemein als Hintergrundterminierung ein und
 reicht allein nicht zur Unterscheidung dieses Fehlers.
 
-## Prüf- und Freigabeplan für eine spätere Implementierung
+## Prüf- und Freigabeplan für die physische Abnahme
 
 ### Fokussierte automatische Prüfungen
 
@@ -479,6 +545,9 @@ reicht allein nicht zur Unterscheidung dieses Fehlers.
   - Nicht-WAL schlägt vor Migrationen und Writes fehl.
   - Kein Reopen während `draining` oder `suspended`.
   - Expliziter Background-Task-Kontext bleibt nutzbar.
+  - Verschlüsselte, Klartext- und Cutover-Handles bleiben bei einem
+    fehlgeschlagenen Close unter ihrer ursprünglichen Account-Ownership sichtbar.
+  - Ein Close nach abgelaufener Cutover-Öffnung meldet nicht fälschlich `not-open`.
 - `src/lib/off-dump/off-dump.test.ts`
   - Backgrounding zwischen Download und Commit startet keinen Writer.
   - Ein vorbereiteter Vorgang kann beim nächsten Foreground fortgesetzt werden.
@@ -498,7 +567,9 @@ Es werden nur die betroffenen Testdateien mit `bun run test <datei>` ausgeführt
 ### Geräteprüfung
 
 Ein echter iOS-Build ist erforderlich, weil JavaScript-Tests weder
-UIApplication-Assertions noch RunningBoard-Suspension belegen.
+UIApplication-Assertions noch RunningBoard-Suspension belegen. Die aktuellen
+fokussierten Prüfungen sind nur Source-/Port-Verträge. Sie sind grün, schließen
+aber einen neuen nativen Build und die physische Abnahme nicht ein.
 
 Gezielte Fälle:
 
@@ -604,41 +675,31 @@ Dann gilt:
 Dieser Rückfallpfad benötigt eine eigene, von Marco akzeptierte ADR, weil er
 Datenbesitz, Siri-Sichtbarkeit, Migration und Offline-Semantik verändert.
 
-## Voraussichtlich betroffene Dateien
+## Umgesetzte Quellen und bewusste Grenzen
 
-Noch keine dieser Dateien wurde im Rahmen dieser Dokumentation verändert:
+Der Arbeitsstand enthält die FEAT-001/002-Integration und die FEAT-003-Änderungen
+für native Lifecycle-Zulassung, SQLite-Writer, App-Group-Dateien, OFF, Sync und
+den systemgestarteten BackgroundTask. Die generierten `ios/`- und `android/`
+Ausgaben wurden nicht geändert.
 
-```text
-modules/fam-shared-store-lifecycle/**              neu, iOS-only
-src/lib/db/serialize.ts
-src/lib/db/local-client.ts
-src/lib/db/database-files.ts
-src/lib/db/local-database-encryption.ts
-src/lib/db/database-key-file-store.ts
-src/features/household/active-household-store.ts
-src/lib/off-dump/off-dump.ts
-src/lib/off-dump/patch-applier.ts
-src/lib/sync/remote-background-sync.ts
-src/lib/sync/sync-runner.ts
-targets/siri/siri-shopping-list-database.swift
-targets/siri/siri-shopping-list-database-writer.swift
-betroffene fokussierte TypeScript- und Swift-Tests
-```
+Die WidgetKit-Timeline-Übergabe, WatchConnectivity-IPC und der extension-eigene
+Watch-Speicher bleiben außerhalb des Haupt-App-Writer-Owners. Die Begründung und
+der statische Ownership-Vertrag stehen in
+`test/conventions/app-group-writer-ownership.test.ts`. Siri bleibt ein eigener
+synchroner Prozess ohne `UIApplication`-Assertion.
 
-Ob Widget- und Watch-Publisher angepasst werden müssen, bleibt bis zur Prüfung
-ihrer nativen App-Group-Schreibgarantien offen.
+## Architekturentscheidung und Freigabegrenze
 
-## Entscheidung vor Implementierung
+Variante A ist angenommen und umgesetzt: Die gemeinsame SQLCipher-/WAL-Datei
+und der bestehende Siri-Killed-State-Flow bleiben erhalten. Variante B mit
+privater Hauptdatenbank und verschlüsselter Siri-Inbox ist ausschließlich der
+dokumentierte Rückfallpfad und nicht Teil dieser Änderung.
 
-Vor Codeänderungen entscheidet Marco zwischen:
-
-- **A, empfohlen:** gemeinsame SQLCipher-WAL-Datenbank behalten und den oben
-  beschriebenen nativen Writer-/Lifecycle-Vertrag implementieren;
-- **B, Rückfallpfad:** private Hauptdatenbank plus getrennte verschlüsselte
-  Siri-Inbox und Store-Snapshot.
-
-Für A ist ein neuer nativer Build erforderlich. Für B kommen zusätzlich eine
-sichere Datenmigration und eine neue lokale Inbox-Semantik hinzu.
+Ein neuer Dev-Client- oder TestFlight-Build ist zwingend erforderlich, weil das
+lokale iOS-Expo-Modul erst durch den nativen Build in die App gelangt. Bis dahin
+bleibt der Beads-Bug `fam-t53z` offen. Die physische iPhone-Abnahme darf erst
+nach den erzwungenen Sperr-, Expiration-, Accountwechsel-, Cutover-, Siri- und
+Outbox-Szenarien als abgeschlossen gelten.
 
 ## Quellen
 
@@ -665,7 +726,7 @@ sichere Datenmigration und eine neue lokale Inbox-Semantik hinzu.
 - `targets/siri/siri-shopping-list-database-writer.swift`
 - `docs/architecture/2026-10-03-siri-killed-state-research.md`
 - `tasks/siri/plan.md`
-- Beads `fam-8zbm` und `fam-m9fv`
+- Beads `fam-8zbm` und `fam-t53z`
 
 Externe Quellen wurden zusammengefasst und neu formuliert, um ihre
 Lizenzbedingungen einzuhalten.

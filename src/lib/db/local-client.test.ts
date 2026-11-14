@@ -1,6 +1,7 @@
 import {
   closeDatabaseForLifecycle,
   deleteLocalDatabase,
+  getActiveDatabaseAccount,
   getDatabase,
   getDrizzleDatabase,
   runWithCurrentDatabase,
@@ -35,6 +36,35 @@ const mockRawDatabase = {
 };
 
 const mockExpoDrizzleDatabase = {};
+let mockLifecycleState = 'active';
+const mockWriterLeases: Array<{ name: string; end: jest.Mock<void, []> }> = [];
+
+jest.mock('@/lib/apple/shared-store-lifecycle', () => ({
+  getSharedStoreLifecycleState: jest.fn(() => mockLifecycleState),
+  createSharedStoreWriterOwner: jest.fn(() => ({
+    beginWriterLease: jest.fn((name: string) => {
+      let ended = false;
+      const end = jest.fn(() => {
+        ended = true;
+      });
+      mockWriterLeases.push({ name, end });
+      return {
+        signal: new AbortController().signal,
+        get ended() {
+          return ended;
+        },
+        end,
+      };
+    }),
+  })),
+  withSharedStoreWriter: jest.fn(async (_owner, _name, operation) =>
+    operation({
+      signal: new AbortController().signal,
+      ended: false,
+      end: jest.fn(),
+    }),
+  ),
+}));
 
 jest.mock('expo-sqlite', () => ({
   defaultDatabaseDirectory: '/mock/sqlite',
@@ -147,7 +177,10 @@ describe('database client lifecycle', () => {
     const { createExpoDatabaseFileOps } = jest.requireMock('@/lib/db/database-files') as {
       createExpoDatabaseFileOps: jest.Mock;
     };
-    expect(createExpoDatabaseFileOps).toHaveBeenCalledWith('/mock/app-group');
+    expect(createExpoDatabaseFileOps).toHaveBeenCalledWith(
+      '/mock/app-group',
+      expect.objectContaining({ writerOwner: expect.any(Object) }),
+    );
     expect(mockRawDatabase.execAsync).not.toHaveBeenCalledWith('PRAGMA journal_mode = WAL');
   });
 
@@ -190,7 +223,7 @@ describe('database client lifecycle', () => {
     expect(failedStatement.finalizeAsync).toHaveBeenCalledTimes(1);
   });
 
-  it('schließt den Lifecycle-Handle, warnt bei Close-Fehlern und cached Drizzle', async () => {
+  it('propagiert Close-Fehler, warnt und erlaubt einen bestätigten Wiederholungsversuch', async () => {
     setActiveUserId('user-a');
     const { createDrizzleDatabase } = jest.requireMock('@/lib/db/drizzle-driver') as {
       createDrizzleDatabase: jest.Mock;
@@ -202,7 +235,7 @@ describe('database client lifecycle', () => {
     expect(createDrizzleDatabase).toHaveBeenCalledTimes(1);
 
     mockRawDatabase.closeAsync.mockRejectedValueOnce(new Error('temporary close failure'));
-    await closeDatabaseForLifecycle();
+    await expect(closeDatabaseForLifecycle()).rejects.toThrow('temporary close failure');
 
     const { debugWarn } = jest.requireMock('@/lib/observability/debug-log') as {
       debugWarn: jest.Mock;
@@ -230,6 +263,235 @@ describe('database client lifecycle', () => {
     await getDrizzleDatabase();
     expect(createDrizzleDatabase).toHaveBeenCalledTimes(2);
     expect(mockRawDatabase.closeAsync).toHaveBeenCalledTimes(2);
+  });
+
+  it('behält die Migrations-Lease nach fehlgeschlagenem Rollback und Raw-Close bis zur Recovery', async () => {
+    await closeDatabaseForLifecycle();
+    setActiveUserId('migration-cleanup-user');
+    const { migrate } = jest.requireMock('drizzle-orm/expo-sqlite/migrator') as {
+      migrate: jest.Mock;
+    };
+    const leaseCountBefore = mockWriterLeases.length;
+    mockRawDatabase.closeAsync.mockClear();
+    let migrationLeaseEnd: jest.Mock<void, []> | undefined;
+    migrate.mockImplementationOnce(async () => {
+      migrationLeaseEnd = mockWriterLeases
+        .slice(leaseCountBefore)
+        .find(({ name }) => name === 'db.migrations')?.end;
+      throw new Error('migration rollback failed', {
+        cause: new Error('migration statement failed'),
+      });
+    });
+    mockRawDatabase.closeAsync
+      .mockRejectedValueOnce(new Error('migration recovery close failed'))
+      .mockRejectedValueOnce(new Error('startup cleanup close failed'))
+      .mockImplementationOnce(async () => {
+        expect(migrationLeaseEnd).not.toHaveBeenCalled();
+      });
+
+    try {
+      await expect(getDatabase()).rejects.toThrow(
+        'Die fehlgeschlagene Datenbanköffnung konnte nicht geschlossen werden.',
+      );
+      expect(migrationLeaseEnd).toBeDefined();
+      expect(migrationLeaseEnd).not.toHaveBeenCalled();
+
+      await expect(closeDatabaseForLifecycle()).resolves.toMatchObject({ status: 'closed' });
+      expect(migrationLeaseEnd).toHaveBeenCalledTimes(1);
+      expect(mockRawDatabase.closeAsync).toHaveBeenCalledTimes(3);
+    } finally {
+      mockRawDatabase.closeAsync.mockReset().mockResolvedValue(undefined);
+      await closeDatabaseForLifecycle().catch(() => undefined);
+      setActiveUserId(null);
+    }
+  });
+
+  it('hält einen unresolved Cutover-Handle für den erwarteten Account bis zum Close-Retry', async () => {
+    await closeDatabaseForLifecycle();
+    setActiveUserId('cutover-cleanup-user');
+    const expectedAccount = getActiveDatabaseAccount();
+    const retryCleanup = jest
+      .fn()
+      .mockRejectedValueOnce(new Error('cutover raw close failed'))
+      .mockResolvedValueOnce(undefined);
+    jest.mocked(openEncryptedDatabaseWithCutover).mockImplementationOnce(async (dependencies) => {
+      dependencies.retainUnresolvedSourceCleanup?.(mockRawDatabase, retryCleanup);
+      throw new Error('detach failed');
+    });
+
+    try {
+      await expect(getDatabase()).rejects.toThrow('detach failed');
+      await expect(closeDatabaseForLifecycle(expectedAccount)).rejects.toThrow(
+        'cutover raw close failed',
+      );
+      await expect(closeDatabaseForLifecycle(expectedAccount)).resolves.toEqual({
+        status: 'closed',
+        account: expectedAccount,
+      });
+      expect(retryCleanup).toHaveBeenCalledTimes(2);
+    } finally {
+      await closeDatabaseForLifecycle().catch(() => undefined);
+      setActiveUserId(null);
+    }
+  });
+
+  it('behält einen verschlüsselten Handle nach einem fehlgeschlagenen stale Close', async () => {
+    await closeDatabaseForLifecycle();
+    setActiveUserId('encrypted-opening-user');
+    const expectedAccount = getActiveDatabaseAccount();
+    const opened = {
+      ...mockRawDatabase,
+      closeAsync: jest
+        .fn()
+        .mockRejectedValueOnce(new Error('encrypted helper close failed'))
+        .mockResolvedValueOnce(undefined),
+    };
+    const SQLite = jest.requireMock('expo-sqlite') as { openDatabaseAsync: jest.Mock };
+    let resolveNativeOpen: ((database: typeof opened) => void) | undefined;
+    let markNativeOpenStarted: (() => void) | undefined;
+    const nativeOpenStarted = new Promise<void>((resolve) => {
+      markNativeOpenStarted = resolve;
+    });
+    SQLite.openDatabaseAsync.mockImplementationOnce(
+      () =>
+        new Promise<typeof opened>((resolve) => {
+          resolveNativeOpen = resolve;
+          markNativeOpenStarted?.();
+        }),
+    );
+    jest
+      .mocked(openEncryptedDatabaseWithCutover)
+      .mockImplementationOnce((dependencies, key) =>
+        dependencies.openEncrypted(dependencies.mainFileName, key),
+      );
+
+    try {
+      const opening = getDatabase();
+      await nativeOpenStarted;
+      setActiveUserId(null);
+      resolveNativeOpen?.(opened);
+
+      await expect(opening).rejects.toThrow('encrypted helper close failed');
+      expect(opened.closeAsync).toHaveBeenCalledTimes(1);
+      await expect(closeDatabaseForLifecycle(expectedAccount)).resolves.toEqual({
+        status: 'closed',
+        account: expectedAccount,
+      });
+      expect(opened.closeAsync).toHaveBeenCalledTimes(2);
+    } finally {
+      await closeDatabaseForLifecycle().catch(() => undefined);
+      mockLifecycleState = 'active';
+      setActiveUserId(null);
+    }
+  });
+
+  it('behält einen Klartext-Handle nach einem fehlgeschlagenen stale Close', async () => {
+    await closeDatabaseForLifecycle();
+    setActiveUserId('plaintext-opening-user');
+    const expectedAccount = getActiveDatabaseAccount();
+    const opened = {
+      ...mockRawDatabase,
+      closeAsync: jest
+        .fn()
+        .mockRejectedValueOnce(new Error('plaintext helper close failed'))
+        .mockResolvedValueOnce(undefined),
+    };
+    const SQLite = jest.requireMock('expo-sqlite') as { openDatabaseAsync: jest.Mock };
+    let resolveNativeOpen: ((database: typeof opened) => void) | undefined;
+    let markNativeOpenStarted: (() => void) | undefined;
+    const nativeOpenStarted = new Promise<void>((resolve) => {
+      markNativeOpenStarted = resolve;
+    });
+    SQLite.openDatabaseAsync.mockImplementationOnce(
+      () =>
+        new Promise<typeof opened>((resolve) => {
+          resolveNativeOpen = resolve;
+          markNativeOpenStarted?.();
+        }),
+    );
+    jest
+      .mocked(openEncryptedDatabaseWithCutover)
+      .mockImplementationOnce((dependencies) =>
+        dependencies.openPlaintext(dependencies.mainFileName),
+      );
+
+    try {
+      const opening = getDatabase();
+      await nativeOpenStarted;
+      setActiveUserId(null);
+      resolveNativeOpen?.(opened);
+
+      await expect(opening).rejects.toThrow('plaintext helper close failed');
+      expect(opened.closeAsync).toHaveBeenCalledTimes(1);
+      await expect(closeDatabaseForLifecycle(expectedAccount)).resolves.toEqual({
+        status: 'closed',
+        account: expectedAccount,
+      });
+      expect(opened.closeAsync).toHaveBeenCalledTimes(2);
+    } finally {
+      await closeDatabaseForLifecycle().catch(() => undefined);
+      mockLifecycleState = 'active';
+      setActiveUserId(null);
+    }
+  });
+
+  it('registriert den Cutover-Rückgabewert vor der letzten Admission-Prüfung', async () => {
+    await closeDatabaseForLifecycle();
+    setActiveUserId('cutover-result-user');
+    const expectedAccount = getActiveDatabaseAccount();
+    const cancellation = new AbortController();
+    const backgroundContext = {
+      kind: 'background' as const,
+      name: 'cutover-result-test',
+      token: 'cutover-result-token',
+      signal: cancellation.signal,
+      ended: false,
+      end: jest.fn(),
+    };
+    const opened = {
+      ...mockRawDatabase,
+      closeAsync: jest
+        .fn()
+        .mockRejectedValueOnce(new Error('cutover result close failed'))
+        .mockResolvedValueOnce(undefined),
+    };
+    let resolveCutover: ((database: typeof opened) => void) | undefined;
+    let markCutoverStarted: (() => void) | undefined;
+    const cutoverStarted = new Promise<void>((resolve) => {
+      markCutoverStarted = resolve;
+    });
+    jest.mocked(openEncryptedDatabaseWithCutover).mockImplementationOnce(
+      () =>
+        new Promise<typeof opened>((resolve) => {
+          resolveCutover = resolve;
+          markCutoverStarted?.();
+        }),
+    );
+
+    try {
+      const opening = getDatabase({
+        kind: 'background',
+        backgroundContext,
+        signal: cancellation.signal,
+      });
+      await cutoverStarted;
+      cancellation.abort('background-task-expired');
+      resolveCutover?.(opened);
+
+      await expect(opening).rejects.toThrow(/abgelaufen|konnte nicht geschlossen/);
+      expect(opened.closeAsync).toHaveBeenCalledTimes(1);
+      expect(backgroundContext.end).not.toHaveBeenCalled();
+      await expect(closeDatabaseForLifecycle(expectedAccount)).resolves.toEqual({
+        status: 'closed',
+        account: expectedAccount,
+      });
+      expect(opened.closeAsync).toHaveBeenCalledTimes(2);
+      expect(backgroundContext.end).not.toHaveBeenCalled();
+    } finally {
+      await closeDatabaseForLifecycle().catch(() => undefined);
+      mockLifecycleState = 'active';
+      setActiveUserId(null);
+    }
   });
 
   it('wartet einen OFF-Lifecycle-Aufruf ab, wenn der App-Close dazwischen startet', async () => {
@@ -388,6 +650,101 @@ describe('database client lifecycle', () => {
     await expect(staleOpening).rejects.toThrow(/Accountwechsel/);
     await expect(deferredWipe).rejects.toThrow(/Wipe ist fehlgeschlagen/);
     await expect(getDatabase()).rejects.toThrow(/Ohne angemeldeten Nutzer/);
+  });
+
+  it('weist einen normalen Datenbank-Open nach native resigning synchron zurück', async () => {
+    const SQLite = jest.requireMock('expo-sqlite') as typeof import('expo-sqlite');
+    const openCallsBefore = jest.mocked(SQLite.openDatabaseAsync).mock.calls.length;
+    setActiveUserId('lifecycle-resigning-user');
+    mockLifecycleState = 'resigning';
+
+    await expect(getDatabase()).rejects.toThrow(/Lifecycle nicht zugelassen/);
+    expect(jest.mocked(SQLite.openDatabaseAsync).mock.calls.length).toBe(openCallsBefore);
+
+    mockLifecycleState = 'active';
+    setActiveUserId(null);
+  });
+
+  it('erlaubt einen expliziten Background-Kontext und schließt ihn danach regulär', async () => {
+    setActiveUserId('background-user');
+    mockLifecycleState = 'background';
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
+    const context = {
+      kind: 'background' as const,
+      backgroundContext: {
+        kind: 'background' as const,
+        name: 'background-sync',
+        token: 'background-token',
+        signal: new AbortController().signal,
+        ended: false,
+        end: jest.fn(),
+      },
+    };
+
+    await expect(getDatabase(context)).resolves.toBeDefined();
+    await closeDatabaseForLifecycle();
+    expect(context.backgroundContext.end).not.toHaveBeenCalled();
+
+    mockLifecycleState = 'active';
+    setActiveUserId(null);
+  });
+
+  it('schließt die Background-Connection trotz eines bereits gestarteten Accountwechsels', async () => {
+    setActiveUserId('background-transition-old');
+    mockLifecycleState = 'active';
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
+    await getDatabase();
+    const oldAccount = getActiveDatabaseAccount();
+    mockRawDatabase.closeAsync.mockClear();
+
+    setActiveUserId(null);
+    await expect(closeDatabaseForLifecycle(oldAccount)).resolves.toEqual({
+      status: 'closed',
+      account: oldAccount,
+    });
+
+    expect(mockRawDatabase.closeAsync).toHaveBeenCalledTimes(1);
+    mockLifecycleState = 'active';
+  });
+
+  it('schließt keine neue Account-Connection mit einer stale Background-Ownership', async () => {
+    setActiveUserId('background-old');
+    mockLifecycleState = 'active';
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
+    await getDatabase();
+    const oldAccount = getActiveDatabaseAccount();
+
+    setActiveUserId('background-new');
+    await getDatabase();
+    mockRawDatabase.closeAsync.mockClear();
+
+    await expect(closeDatabaseForLifecycle(oldAccount)).resolves.toEqual({
+      status: 'ownership-mismatch',
+      account: getActiveDatabaseAccount(),
+    });
+
+    expect(mockRawDatabase.closeAsync).not.toHaveBeenCalled();
+
+    await closeDatabaseForLifecycle();
+    mockLifecycleState = 'active';
+    setActiveUserId(null);
+  });
+
+  it('öffnet nach dem Lifecycle-Close im resigning-Zustand nicht erneut', async () => {
+    setActiveUserId('reopen-user');
+    mockLifecycleState = 'active';
+    mockRawDatabase.getFirstAsync.mockResolvedValueOnce({ journal_mode: 'wal' });
+    await getDatabase();
+    const SQLite = jest.requireMock('expo-sqlite') as typeof import('expo-sqlite');
+    const openCallsBeforeClose = jest.mocked(SQLite.openDatabaseAsync).mock.calls.length;
+
+    mockLifecycleState = 'resigning';
+    await closeDatabaseForLifecycle();
+    await expect(getDatabase()).rejects.toThrow(/Lifecycle nicht zugelassen/);
+    expect(jest.mocked(SQLite.openDatabaseAsync).mock.calls.length).toBe(openCallsBeforeClose);
+
+    mockLifecycleState = 'active';
+    setActiveUserId(null);
   });
 
   it('löscht Dateien aus dem Standardverzeichnis, wenn kein App-Group-Pfad verfügbar ist', async () => {

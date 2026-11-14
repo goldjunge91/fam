@@ -1,6 +1,7 @@
 import { File } from 'expo-file-system';
 import * as LegacyFileSystem from 'expo-file-system/legacy';
 
+import { isSerializedSqlDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
 import {
   createOffDumpAbortError,
@@ -56,29 +57,62 @@ export function createExpoFileOps(db: SqlDatabase): FileOps {
     async inspectDump(path: string): Promise<DumpInspection | null> {
       if (!new File(path).exists) return null;
 
-      // Eindeutiger Alias pro Aufruf, da ATTACH/DETACH nicht als Einheit serialisiert werden.
-      const alias = `off_dump_inspect_${Math.random().toString(36).slice(2)}`;
-      try {
-        await attachPlaintextDatabase(db, path, alias, 'sqlcipher');
-      } catch {
-        return null;
-      }
+      const inspectWithCleanup = async (
+        inspectionDb: SqlDatabase,
+        cleanupExecAsync: (source: string) => Promise<void>,
+      ): Promise<DumpInspection | null> => {
+        // Eindeutiger Alias pro Aufruf. The serialized path keeps ATTACH and
+        // DETACH in one writer scope so cleanup cannot reacquire after the
+        // lifecycle admission closes.
+        const alias = `off_dump_inspect_${Math.random().toString(36).slice(2)}`;
+        try {
+          await attachPlaintextDatabase(inspectionDb, path, alias, 'sqlcipher');
+        } catch {
+          return null;
+        }
 
-      try {
-        const meta = await db.getFirstAsync<{ schema_version: number; data_version: string }>(
-          `select schema_version, data_version from ${alias}.dump_meta limit 1`,
+        let primaryError = false;
+        let cleanupError: unknown;
+        let result: DumpInspection | null = null;
+        try {
+          const meta = await inspectionDb.getFirstAsync<{
+            schema_version: number;
+            data_version: string;
+          }>(`select schema_version, data_version from ${alias}.dump_meta limit 1`);
+          if (meta) {
+            const check = await inspectionDb.getFirstAsync<Record<string, string>>(
+              `PRAGMA ${alias}.quick_check`,
+            );
+            const integrityOk =
+              check !== null && Object.values(check).some((value) => value === 'ok');
+
+            result = {
+              schemaVersion: meta.schema_version,
+              dataVersion: meta.data_version,
+              integrityOk,
+            };
+          }
+        } catch {
+          primaryError = true;
+        } finally {
+          try {
+            await cleanupExecAsync(`DETACH DATABASE ${alias}`);
+          } catch (error) {
+            cleanupError = error;
+          }
+        }
+
+        if (!primaryError && cleanupError !== undefined) throw cleanupError;
+        return result;
+      };
+
+      if (isSerializedSqlDatabase(db)) {
+        return db.withWriterLeaseAsync('off.inspect', ({ db: scopedDb, cleanupExecAsync }) =>
+          inspectWithCleanup(scopedDb, cleanupExecAsync),
         );
-        if (!meta) return null;
-
-        const check = await db.getFirstAsync<Record<string, string>>(`PRAGMA ${alias}.quick_check`);
-        const integrityOk = check !== null && Object.values(check).some((value) => value === 'ok');
-
-        return { schemaVersion: meta.schema_version, dataVersion: meta.data_version, integrityOk };
-      } catch {
-        return null;
-      } finally {
-        await db.execAsync(`DETACH DATABASE ${alias}`);
       }
+
+      return inspectWithCleanup(db, (source) => db.execAsync(source));
     },
   };
 }

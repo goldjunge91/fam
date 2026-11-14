@@ -57,7 +57,9 @@ export function useAppLifecycle(): void {
       // leert der Datenbank-Close die verbleibende Statement-Warteschlange.
       suspendForegroundSync();
       suspendOffDumpOperations();
-      void closeDatabaseForLifecycle();
+      void closeDatabaseForLifecycle().catch((error) => {
+        debugWarn('[AppLifecycle] Datenbank-Close fehlgeschlagen:', error);
+      });
     });
 
     return () => subscription.remove();

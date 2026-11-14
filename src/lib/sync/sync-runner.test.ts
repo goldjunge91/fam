@@ -323,6 +323,32 @@ describe('triggerHouseholdSync — Query-Invalidierung (#115-Befund)', () => {
     await expect(firstRun).resolves.toEqual(result);
   });
 
+  it('aborts an active foreground sync when suspension begins', async () => {
+    let receivedSignal: AbortSignal | undefined;
+    let releaseSync!: (result: SyncRunResult) => void;
+    const pendingResult = new Promise<SyncRunResult>((resolve) => {
+      releaseSync = resolve;
+    });
+    mockSyncHousehold.mockReset().mockImplementation(({ signal }: { signal: AbortSignal }) => {
+      receivedSignal = signal;
+      return pendingResult;
+    });
+
+    const running = triggerHouseholdSync(['household-1']);
+    for (let attempt = 0; attempt < 10 && !receivedSignal; attempt += 1) {
+      await Promise.resolve();
+    }
+
+    suspendForegroundSync();
+    expect(receivedSignal?.aborted).toBe(true);
+
+    releaseSync({ push: { outcomes: [], stoppedEarly: false }, pull: [] });
+    await expect(running).resolves.toEqual({
+      push: { outcomes: [], stoppedEarly: false },
+      pull: [],
+    });
+  });
+
   it('does not start or queue foreground sync while suspended', async () => {
     let releaseSync: ((result: SyncRunResult) => void) | undefined;
     const pendingResult = new Promise<SyncRunResult>((resolve) => {

@@ -22,6 +22,7 @@ const mockCreateDownloadResumable = jest.fn(
   }),
 );
 const mockExecAsync = jest.fn(async (..._args: unknown[]) => undefined);
+const mockCleanupExecAsync = jest.fn(async (..._args: unknown[]) => undefined);
 const mockGetFirstAsync = jest.fn();
 let mockNextFileExists = true;
 let mockFileSize: number | undefined = 42;
@@ -58,13 +59,43 @@ const variants = [
   { name: 'Android file operations', create: createAndroidExpoFileOps, android: true },
 ] as const;
 
-function createDatabase(): SqlDatabase {
-  return {
-    execAsync: (...args) => mockExecAsync(...args),
+type WriterScopeDatabase = SqlDatabase & {
+  withWriterLeaseAsync(
+    name: string,
+    task: (scope: {
+      db: SqlDatabase;
+      cleanupExecAsync(source: string): Promise<void>;
+    }) => Promise<unknown>,
+    signal?: AbortSignal,
+  ): Promise<unknown>;
+};
+
+function createDatabase(
+  options: { writerScope?: boolean; rejectDetach?: boolean } = {},
+): SqlDatabase | WriterScopeDatabase {
+  const database: SqlDatabase = {
+    execAsync: async (source) => {
+      if (options.rejectDetach && source.startsWith('DETACH DATABASE')) {
+        throw new Error('foreground admission closed');
+      }
+      await mockExecAsync(source);
+    },
     runAsync: async () => ({ changes: 0, lastInsertRowId: 0 }),
     getAllAsync: async <T>() => [] as T[],
     getFirstAsync: async <T>(...args: unknown[]) => (await mockGetFirstAsync(...args)) as T | null,
     withExclusiveTransactionAsync: async () => undefined,
+  };
+  if (!options.writerScope) return database;
+
+  return {
+    ...database,
+    withWriterLeaseAsync: async (
+      _name: string,
+      task: (scope: {
+        db: SqlDatabase;
+        cleanupExecAsync(source: string): Promise<void>;
+      }) => Promise<unknown>,
+    ) => task({ db: database, cleanupExecAsync: mockCleanupExecAsync }),
   };
 }
 
@@ -78,6 +109,7 @@ describe.each(variants)('$name', ({ create, android }) => {
     mockDownloadAsync.mockReset().mockResolvedValue({ uri: '/downloaded' });
     mockCancelDownload.mockReset().mockResolvedValue(undefined);
     mockExecAsync.mockReset().mockResolvedValue(undefined);
+    mockCleanupExecAsync.mockReset().mockResolvedValue(undefined);
     mockGetFirstAsync.mockReset();
     jest.mocked(attachPlaintextDatabase).mockReset();
   });
@@ -182,6 +214,27 @@ describe.each(variants)('$name', ({ create, android }) => {
       dataVersion: 'v8',
       integrityOk: false,
     });
+  });
+
+  it('uses the held writer scope for detach after normal admission closes', async () => {
+    if (android) return;
+    const db = createDatabase({ writerScope: true, rejectDetach: true });
+    const inspector = create(db);
+    jest.mocked(attachPlaintextDatabase).mockResolvedValue(undefined);
+    mockGetFirstAsync
+      .mockResolvedValueOnce({ schema_version: 8, data_version: 'v8' })
+      .mockResolvedValueOnce({ quick_check: 'ok' });
+
+    await expect(inspector.inspectDump('/tmp/scope.db')).resolves.toEqual({
+      schemaVersion: 8,
+      dataVersion: 'v8',
+      integrityOk: true,
+    });
+
+    expect(mockExecAsync).not.toHaveBeenCalledWith(expect.stringMatching(/^DETACH DATABASE/));
+    expect(mockCleanupExecAsync).toHaveBeenCalledWith(
+      expect.stringMatching(/^DETACH DATABASE off_dump_inspect_[a-z0-9]+$/),
+    );
   });
 
   it('returns null for absent, unattached, invalid, and unreadable dumps', async () => {
