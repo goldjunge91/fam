@@ -30,6 +30,10 @@ describe('shared store lifecycle native module contract', () => {
   });
 
   it('keeps the pod metadata limited to ExpoModulesCore', () => {
+    expect(podspecSource).toContain("s.homepage = 'https://github.com/goldjunge91/fam'");
+    expect(podspecSource).toContain(
+      "s.source = { :git => 'https://github.com/goldjunge91/fam.git'",
+    );
     expect(podspecSource).toContain("s.dependency 'ExpoModulesCore'");
     expect(podspecSource).not.toMatch(/s\.dependency(?! 'ExpoModulesCore')/);
     expect(podspecSource).not.toMatch(/WatchConnectivity|SQLCipher|SQLite/);

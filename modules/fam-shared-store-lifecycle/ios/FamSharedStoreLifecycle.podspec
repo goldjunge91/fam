@@ -5,6 +5,8 @@ Pod::Spec.new do |s|
   s.description = 'Provides an iOS-only Expo bridge for named writer and background assertions.'
   s.license = { :type => 'Proprietary' }
   s.author = 'fam'
+  s.homepage = 'https://github.com/goldjunge91/fam'
+  s.source = { :git => 'https://github.com/goldjunge91/fam.git', :branch => 'main' }
   s.platform = :ios, '17.0'
   s.swift_version = '5.9'
   s.static_framework = true
