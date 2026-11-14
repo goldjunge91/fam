@@ -363,8 +363,10 @@ export function RecipeCreateScreen() {
             existingComponentId: null,
             items: imported.draft.ingredients.map((ingredient) => ({
               ...newIngredient(),
-              productQuery: ingredient.text,
-              sourceText: ingredient.text,
+              productQuery: ingredient.name,
+              quantity: ingredient.quantity === null ? '' : String(ingredient.quantity),
+              unit: ingredient.unit ?? '',
+              sourceText: ingredient.name,
               ingredientExtractionConfidence: ingredient.confidence,
               ingredientMapping: { ...UNKNOWN_INGREDIENT_MAPPING },
               mappingEvidenceSnapshot: imported.originalText ?? '',
@@ -1047,7 +1049,7 @@ export function RecipeCreateScreen() {
                 Bitte prüfe die erkannten Zutaten:{' '}
                 {importedDraft.draft.ingredients
                   .filter((ingredient) => ingredient.confidence !== 'high')
-                  .map((ingredient) => ingredient.text)
+                  .map((ingredient) => ingredient.name)
                   .join(' · ')}
               </Txt>
             ) : null}

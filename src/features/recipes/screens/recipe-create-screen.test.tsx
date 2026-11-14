@@ -198,7 +198,7 @@ describe('RecipeCreateScreen', () => {
       kind: 'recipe_import_draft.v1',
       title: 'Importierte Suppe',
       servings: 2,
-      ingredients: [{ text: 'Tomaten', confidence: 'high' }],
+      ingredients: [{ name: 'Tomaten', quantity: 150, unit: 'g', confidence: 'high' }],
       steps: ['Tomaten waschen'],
       notes: 'Schnell kochen',
       warnings: [],
@@ -216,6 +216,28 @@ describe('RecipeCreateScreen', () => {
     const user = userEvent.setup();
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
     expect(screen.getByDisplayValue('Tomaten')).toBeOnTheScreen();
+    expect(screen.getByDisplayValue('150')).toBeOnTheScreen();
+  });
+
+  it('lässt unklare Importmengen leer statt sie in Mengen- oder Einheitsfelder zu schreiben', async () => {
+    mockParams = { importDraftId: 'draft-unclear' };
+    mockLoadRecipeImportDrafts.mockResolvedValueOnce([
+      {
+        ...importedDraft,
+        id: 'draft-unclear',
+        draft: {
+          ...importedDraft.draft,
+          ingredients: [{ name: 'Mais', quantity: null, unit: null, confidence: 'low' }],
+        },
+      },
+    ]);
+
+    await renderScreen();
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+    expect(screen.getByDisplayValue('Mais')).toBeOnTheScreen();
+    expect(screen.getByPlaceholderText('Menge')).toHaveDisplayValue('');
   });
 
   it('meldet einen fehlenden Importentwurf', async () => {

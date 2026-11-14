@@ -79,7 +79,9 @@ describe('recipe import API', () => {
     });
 
     expect(imported.draft.ingredients[0]).toEqual({
-      text: 'Milch',
+      name: 'Milch',
+      quantity: null,
+      unit: null,
       confidence: 'high',
       mapping: UNKNOWN_INGREDIENT_MAPPING,
     });
@@ -91,6 +93,48 @@ describe('recipe import API', () => {
       'recipe_import.completed',
       expect.objectContaining({ method: 'ai', duration_bucket: expect.any(String) }),
     );
+  });
+
+  it('passes structured ingredient quantities and units through the import draft', async () => {
+    mockInvoke.mockResolvedValue({
+      data: {
+        source: 'ai',
+        result: {
+          kind: 'recipe_import_draft.v1',
+          title: 'Cremiger Gurkensalat',
+          servings: 2,
+          ingredients: [
+            { name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' },
+            { name: 'Cocktailtomaten', quantity: 120, unit: 'g', confidence: 'high' },
+            { name: 'Mais', quantity: 140, unit: 'g', confidence: 'high' },
+            { name: 'Creme mit 7 % Fett', quantity: 50, unit: 'ml', confidence: 'high' },
+          ],
+          steps: ['Dressing anrühren.', 'Alles vermengen.'],
+          notes: null,
+          warnings: [],
+        },
+      },
+      error: null,
+    });
+
+    const imported = await importRecipeSource({
+      householdId: 'household-1',
+      sourceType: 'video',
+      sourceUrl: 'https://www.instagram.com/reel/example/',
+    });
+
+    expect(
+      imported.draft.ingredients.map(({ name, quantity, unit }) => ({
+        name,
+        quantity,
+        unit,
+      })),
+    ).toEqual([
+      { name: 'Gurke', quantity: 150, unit: 'g' },
+      { name: 'Cocktailtomaten', quantity: 120, unit: 'g' },
+      { name: 'Mais', quantity: 140, unit: 'g' },
+      { name: 'Creme mit 7 % Fett', quantity: 50, unit: 'ml' },
+    ]);
   });
 
   it('rejects malformed model output instead of saving a partial import draft', async () => {

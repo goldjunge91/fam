@@ -190,7 +190,9 @@ const draft: RecipeImportDraft = {
   servings: 4,
   ingredients: [
     {
-      text: 'Linsen',
+      name: 'Linsen',
+      quantity: null,
+      unit: null,
       confidence: 'high',
       mapping: UNKNOWN_INGREDIENT_MAPPING,
     },

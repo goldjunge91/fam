@@ -64,7 +64,7 @@ const RECIPE_IMPORT_RESULT = {
   kind: 'recipe_import_draft.v1',
   title: 'Linsensuppe',
   servings: 4,
-  ingredients: [{ text: '200 g Linsen', confidence: 'high' }],
+  ingredients: [{ name: 'Linsen', quantity: 200, unit: 'g', confidence: 'high' }],
   steps: ['Linsen weich kochen.'],
   notes: null,
   warnings: [],
@@ -561,6 +561,10 @@ Deno.test('accepts recipe request boundaries and keeps invalid provider drafts r
 
   const invalidDrafts = [
     { ...RECIPE_IMPORT_RESULT, ingredients: [] },
+    {
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ text: '200 g Linsen', confidence: 'high' }],
+    },
     { ...RECIPE_IMPORT_RESULT, steps: [] },
     { ...RECIPE_IMPORT_RESULT, servings: 0 },
     { ...RECIPE_IMPORT_RESULT, title: 'x'.repeat(161) },
@@ -696,6 +700,124 @@ Deno.test('imports an Instagram recipe found only in the Whisper transcript thro
   assertEquals((calls[0]?.transcript ?? '').includes('video_url'), false);
   assertEquals(bookings.length, 1);
   assertEquals(refunds, []);
+});
+
+Deno.test('prioritizes exact Instagram caption facts and adds Whisper preparation steps', async () => {
+  const mediaUrl = 'https://scontent.cdninstagram.com/gurkensalat.mp4?token=signed';
+  const caption = [
+    'Cremiger Gurkensalat',
+    '2 Portionen',
+    '150 g Gurke',
+    '120 g Cocktailtomaten',
+    '140 g Mais',
+    '50 ml Creme mit 7 % Fett',
+  ].join('\n');
+  const transcript = [
+    'Eine Salatgurke, kleine Tomaten und ein bisschen Mais.',
+    'Zuerst das Dressing anrühren, dann alle Zutaten zusammenführen und gründlich umrühren.',
+    'Anschließend 10 Minuten ziehen lassen.',
+  ].join(' ');
+  const expectedResult = {
+    kind: 'recipe_import_draft.v1',
+    title: 'Cremiger Gurkensalat',
+    servings: 2,
+    ingredients: [
+      { name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' },
+      { name: 'Cocktailtomaten', quantity: 120, unit: 'g', confidence: 'high' },
+      { name: 'Mais', quantity: 140, unit: 'g', confidence: 'high' },
+      { name: 'Creme mit 7 % Fett', quantity: 50, unit: 'ml', confidence: 'high' },
+    ],
+    steps: [
+      'Dressing anrühren.',
+      'Alle Zutaten zusammenführen und gründlich umrühren.',
+      '10 Minuten ziehen lassen.',
+    ],
+    notes: null,
+    warnings: [],
+  };
+  const { handler, calls, transcriptionUrls } = setup({
+    publicUrlAllowed: true,
+    recipePage: {
+      ok: true,
+      text: 'Instagram',
+      draft: null,
+      videoUrl: mediaUrl,
+      instagramCaption: caption,
+    },
+    transcriptionText: transcript,
+    providerContent: JSON.stringify(expectedResult),
+  });
+
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/merge123/',
+  }));
+
+  assertEquals(response.status, 200);
+  const body = await response.json();
+  assertEquals(body.result, expectedResult);
+  assertEquals(calls[0]?.provider, 'groq');
+  assertEquals(calls[0]?.model, 'qwen/qwen3.8-27b');
+  assertEquals(transcriptionUrls, [mediaUrl]);
+  assertStringIncludes(calls[0]?.user ?? '', '150 g Gurke');
+  assertStringIncludes(calls[0]?.user ?? '', '10 Minuten ziehen lassen.');
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'Die öffentliche Caption ist die Primärquelle für exakte Fakten wie Mengen, Einheiten, konkrete Zutaten, Titel und Portionen.',
+  );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'Whisper ergänzt fehlende Zutaten und vor allem Zubereitungsdetails wie Reihenfolge, Zusammenführen, Rühren, Kochen, Backen und Zeiten.',
+  );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'Führe Caption und Whisper zu einem Rezept zusammen, ohne doppelte Zutaten oder Schritte zu erzeugen.',
+  );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'Wenn die Caption eine Whisper-Angabe präzisiert, übernimm die Caption-Angabe ohne Warnung und ohne Meta-Erklärung in notes.',
+  );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'warnings ausschließlich ungelöste Unsicherheiten; notes enthalten ausschließlich echte Rezeptnotizen.',
+  );
+});
+
+Deno.test('keeps missing and unclear ingredient amounts empty instead of combining fields', async () => {
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    ingredients: [
+      { name: 'Gurke', quantity: null, unit: null, confidence: 'medium' },
+      { name: 'Mais', quantity: null, unit: null, confidence: 'low' },
+    ],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'eine Gurke und ein bisschen Mais vermengen.',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, result);
+
+  const combined = setup({
+    providerContent: JSON.stringify({
+      ...result,
+      ingredients: [{ name: 'Gurke', quantity: 'eine Gurke', unit: 'g', confidence: 'low' }],
+    }),
+  });
+  const invalidResponse = await combined.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'eine Gurke vermengen.',
+  }));
+  assertEquals(invalidResponse.status, 502);
+  assertEquals(await invalidResponse.json(), { error: 'invalid_recipe_import_draft' });
 });
 
 Deno.test('imports an Instagram recipe caption when Whisper finds no speech', async () => {

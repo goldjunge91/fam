@@ -171,7 +171,7 @@ Deno.test('extracts structured recipes from JSON-LD graphs and instruction varia
         kind: 'recipe_import_draft.v1',
         title: 'Linsensuppe',
         servings: 4,
-        ingredients: [{ text: '200 g Linsen', confidence: 'high' }],
+        ingredients: [{ name: 'Linsen', quantity: 200, unit: 'g', confidence: 'high' }],
         steps: [
           'Linsen waschen.',
           'Linsen weich kochen.',

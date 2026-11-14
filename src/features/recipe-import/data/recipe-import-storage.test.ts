@@ -27,7 +27,9 @@ const draft = {
   servings: 4,
   ingredients: [
     {
-      text: 'Linsen',
+      name: 'Linsen',
+      quantity: null,
+      unit: null,
       confidence: 'high' as const,
       mapping: UNKNOWN_INGREDIENT_MAPPING,
     },
@@ -126,6 +128,29 @@ describe('recipe import account storage', () => {
     const loaded = await loadRecipeImportDrafts('user-1');
     expect(loaded).toHaveLength(1);
     expect(loaded[0]?.draft.ingredients[0]?.mapping).toEqual(UNKNOWN_INGREDIENT_MAPPING);
+  });
+
+  it('normalizes legacy raw ingredient lines when loading stored drafts', async () => {
+    values.set(
+      'recipe-import.drafts.v1',
+      JSON.stringify([
+        {
+          ...record(),
+          draft: {
+            ...draft,
+            ingredients: [{ text: '150 g Gurke', confidence: 'high' }],
+          },
+        },
+      ]),
+    );
+
+    await expect(loadRecipeImportDrafts('user-1')).resolves.toMatchObject([
+      {
+        draft: {
+          ingredients: [{ name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' }],
+        },
+      },
+    ]);
   });
 
   it('sorts and limits drafts, then replaces records with the same id', async () => {

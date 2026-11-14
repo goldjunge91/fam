@@ -5,7 +5,12 @@ import { UNKNOWN_INGREDIENT_MAPPING } from '@/features/recipes/domain/ingredient
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { getDurationBucket } from '@/lib/telemetry/buckets';
-import type { RecipeImportDraft, RecipeImportMethod, RecipeImportSourceType } from '../types';
+import {
+  normalizeRecipeImportIngredient,
+  type RecipeImportDraft,
+  type RecipeImportMethod,
+  type RecipeImportSourceType,
+} from '../types';
 
 type RecipeImportInput = {
   householdId: string;
@@ -47,12 +52,6 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
     ) ||
     !Array.isArray(value.ingredients) ||
     value.ingredients.length === 0 ||
-    !value.ingredients.every(
-      (ingredient) =>
-        isRecord(ingredient) &&
-        typeof ingredient.text === 'string' &&
-        ['high', 'medium', 'low'].includes(String(ingredient.confidence)),
-    ) ||
     !Array.isArray(value.steps) ||
     value.steps.length === 0 ||
     !value.steps.every((step) => typeof step === 'string') ||
@@ -63,13 +62,20 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
     throw new Error('Der Rezeptentwurf konnte nicht gelesen werden.');
   }
 
+  const ingredients = value.ingredients.flatMap((ingredient) => {
+    const normalized = normalizeRecipeImportIngredient(ingredient);
+    return normalized ? [normalized] : [];
+  });
+  if (ingredients.length !== value.ingredients.length) {
+    throw new Error('Der Rezeptentwurf konnte nicht gelesen werden.');
+  }
+
   return {
     kind: 'recipe_import_draft.v1',
     title: value.title,
     servings: value.servings,
-    ingredients: value.ingredients.map((ingredient) => ({
-      text: ingredient.text,
-      confidence: ingredient.confidence as 'high' | 'medium' | 'low',
+    ingredients: ingredients.map((ingredient) => ({
+      ...ingredient,
       // The model's extraction confidence is never a mapping review.
       mapping: { ...UNKNOWN_INGREDIENT_MAPPING },
     })),

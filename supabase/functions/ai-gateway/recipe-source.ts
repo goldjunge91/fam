@@ -2,7 +2,12 @@ type RecipeImportDraft = {
   kind: 'recipe_import_draft.v1';
   title: string;
   servings: number | null;
-  ingredients: Array<{ text: string; confidence: 'high' | 'medium' | 'low' }>;
+  ingredients: Array<{
+    name: string;
+    quantity: number | null;
+    unit: string | null;
+    confidence: 'high' | 'medium' | 'low';
+  }>;
   steps: string[];
   notes: string | null;
   warnings: string[];
@@ -143,6 +148,52 @@ function instructionLines(value: unknown): string[] {
   return [];
 }
 
+const RECIPE_IMPORT_UNIT_ALIASES: Record<string, string> = {
+  g: 'g',
+  gram: 'g',
+  gramm: 'g',
+  kg: 'kg',
+  kilo: 'kg',
+  kilogramm: 'kg',
+  l: 'l',
+  liter: 'l',
+  litre: 'l',
+  ml: 'ml',
+  milliliter: 'ml',
+  millilitre: 'ml',
+  package: 'package',
+  packung: 'package',
+  pkg: 'package',
+  piece: 'piece',
+  stk: 'piece',
+  'stk.': 'piece',
+  stück: 'piece',
+  stueck: 'piece',
+  portion: 'portion',
+  portionen: 'portion',
+};
+
+function structuredIngredientFromText(text: string): {
+  name: string;
+  quantity: number | null;
+  unit: string | null;
+  confidence: 'high';
+} {
+  const trimmed = text.trim();
+  const match = trimmed.match(
+    /^(\d+(?:[.,]\d+)?)\s*(kg|g|ml|l|gramm|gram|kilo|kilogramm|liter|litre|milliliter|millilitre|package|packung|pkg|piece|stk\.?|stück|stueck|portionen?)\s+(.+)$/iu,
+  );
+  if (!match) return { name: trimmed, quantity: null, unit: null, confidence: 'high' };
+
+  const quantity = Number((match[1] ?? '').replace(',', '.'));
+  const unit = RECIPE_IMPORT_UNIT_ALIASES[(match[2] ?? '').toLowerCase()] ?? null;
+  const name = match[3]?.trim() ?? '';
+  if (!Number.isFinite(quantity) || quantity <= 0 || !unit || !name) {
+    return { name: trimmed, quantity: null, unit: null, confidence: 'high' };
+  }
+  return { name, quantity, unit, confidence: 'high' };
+}
+
 function structuredRecipeFromHtml(html: string): RecipeImportDraft | null {
   const scripts = html.matchAll(
     /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script\s*>/gi,
@@ -161,7 +212,7 @@ function structuredRecipeFromHtml(html: string): RecipeImportDraft | null {
     const ingredients = Array.isArray(recipe.recipeIngredient)
       ? recipe.recipeIngredient
         .filter((item): item is string => typeof item === 'string' && item.trim().length > 0)
-        .map((text) => ({ text: text.trim(), confidence: 'high' as const }))
+        .map(structuredIngredientFromText)
       : [];
     const steps = instructionLines(recipe.recipeInstructions);
     const yieldText = Array.isArray(recipe.recipeYield)

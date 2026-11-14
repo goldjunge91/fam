@@ -1,6 +1,11 @@
 import { normalizeIngredientMappingReview } from '@/features/recipes/domain/ingredient-mapping';
 import { getEncryptedAccountStorage } from '@/lib/storage/local-account-storage';
-import type { RecipeImportDraft, RecipeImportDraftRecord, SavedRecipeImportSource } from '../types';
+import {
+  normalizeRecipeImportIngredient,
+  type RecipeImportDraft,
+  type RecipeImportDraftRecord,
+  type SavedRecipeImportSource,
+} from '../types';
 
 const DRAFTS_KEY = 'recipe-import.drafts.v1';
 const SOURCES_KEY = 'recipe-import.sources.v1';
@@ -27,12 +32,6 @@ function normalizeRecipeImportDraft(value: unknown): RecipeImportDraft | null {
     ) ||
     !Array.isArray(value.ingredients) ||
     value.ingredients.length === 0 ||
-    !value.ingredients.every(
-      (ingredient) =>
-        isRecord(ingredient) &&
-        typeof ingredient.text === 'string' &&
-        ['high', 'medium', 'low'].includes(String(ingredient.confidence)),
-    ) ||
     !Array.isArray(value.steps) ||
     value.steps.length === 0 ||
     !value.steps.every((step) => typeof step === 'string') ||
@@ -42,15 +41,25 @@ function normalizeRecipeImportDraft(value: unknown): RecipeImportDraft | null {
   )
     return null;
 
+  const ingredients = value.ingredients.flatMap((ingredient) => {
+    const normalized = normalizeRecipeImportIngredient(ingredient);
+    if (!normalized) return [];
+    return [
+      {
+        ...normalized,
+        mapping: normalizeIngredientMappingReview(
+          isRecord(ingredient) ? ingredient.mapping : undefined,
+        ),
+      },
+    ];
+  });
+  if (ingredients.length !== value.ingredients.length) return null;
+
   return {
     kind: 'recipe_import_draft.v1',
     title: value.title,
     servings: value.servings,
-    ingredients: value.ingredients.map((ingredient) => ({
-      text: ingredient.text,
-      confidence: ingredient.confidence as 'high' | 'medium' | 'low',
-      mapping: normalizeIngredientMappingReview(ingredient.mapping),
-    })),
+    ingredients,
     steps: value.steps,
     notes: value.notes,
     warnings: value.warnings,
