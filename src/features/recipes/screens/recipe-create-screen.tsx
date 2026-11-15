@@ -605,11 +605,13 @@ export function RecipeCreateScreen() {
     try {
       const db = await getDatabase();
       const resolvedItemsByComponent = new Map<string, ResolvedIngredient[]>();
+      const enforceIngredientValidation = importedDraft === null;
       let hasInvalidIngredient = false;
       const validatedComponents: IngredientComponentGroup[] = [];
 
-      // Alle Zutaten vor der ersten Mutation prüfen. Leere neue Zeilen sind
-      // erlaubt; teilweise ausgefüllte oder nicht umrechenbare Zeilen nicht.
+      // Alle Zutaten vor der ersten Mutation sicher einlesen. Die allgemeine
+      // Rezeptanlage blockiert bei teilweise ausgefüllten oder nicht umrechenbaren
+      // Zeilen; Importentwürfe dürfen solche Eingaben ohne zusätzliche Prüfung speichern.
       for (const comp of components) {
         const resolvedItems: ResolvedIngredient[] = [];
         const validatedItems = [];
@@ -675,7 +677,7 @@ export function RecipeCreateScreen() {
 
           const quantity = Number.parseFloat(item.quantity);
           if (!hasProduct || !(quantity > 0)) {
-            hasInvalidIngredient = true;
+            if (enforceIngredientValidation) hasInvalidIngredient = true;
             validatedItems.push({ ...item, notConvertible: false });
             continue;
           }
@@ -691,8 +693,12 @@ export function RecipeCreateScreen() {
           });
 
           if (!conversion.convertible) {
-            hasInvalidIngredient = true;
-            validatedItems.push({ ...item, notConvertible: true });
+            if (enforceIngredientValidation) {
+              hasInvalidIngredient = true;
+              validatedItems.push({ ...item, notConvertible: true });
+            } else {
+              validatedItems.push({ ...item, notConvertible: false });
+            }
             continue;
           }
 
@@ -1198,6 +1204,7 @@ export function RecipeCreateScreen() {
                 onUpdateQuantity={handleUpdateQuantity}
                 onUpdateUnit={handleUpdateUnit}
                 reviewerId={userId}
+                showIngredientMapping={!importedDraft}
                 onIngredientMappingChange={handleIngredientMappingChange}
                 onIngredientEvidenceChange={handleIngredientEvidenceChange}
                 onAddComponentGroup={handleAddComponentGroup}

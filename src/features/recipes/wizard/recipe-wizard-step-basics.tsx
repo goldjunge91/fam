@@ -189,6 +189,7 @@ interface RecipeWizardStepBasicsProps {
   onUpdateQuantity: (componentId: string, ingredientId: string, quantity: string) => void;
   onUpdateUnit: (componentId: string, ingredientId: string, unit: string) => void;
   reviewerId?: string;
+  showIngredientMapping?: boolean;
   onIngredientMappingChange?: (
     componentId: string,
     ingredientId: string,
@@ -220,6 +221,7 @@ export function RecipeWizardStepBasics({
   onUpdateQuantity,
   onUpdateUnit,
   reviewerId,
+  showIngredientMapping = true,
   onIngredientMappingChange,
   onIngredientEvidenceChange,
   onAddComponentGroup,
@@ -558,27 +560,29 @@ export function RecipeWizardStepBasics({
                     onChangeText={(val) => onUpdateIngredientQuery(comp.id, item.id, val)}
                     onSelectProduct={(product) => onSelectProduct(comp.id, item.id, product)}
                   />
-                  <IngredientMappingEditor
-                    key={`${item.id}:${item.mappingSource?.sourceId ?? 'unknown'}:${item.mappingSource?.sourceVersion ?? 'unversioned'}`}
-                    itemId={item.id}
-                    sourceText={item.sourceText ?? null}
-                    extractionConfidence={item.ingredientExtractionConfidence}
-                    mapping={
-                      item.ingredientMapping ?? {
-                        version: 1,
-                        status: 'unknown',
-                        ingredientIds: [],
-                        complete: false,
+                  {showIngredientMapping ? (
+                    <IngredientMappingEditor
+                      key={`${item.id}:${item.mappingSource?.sourceId ?? 'unknown'}:${item.mappingSource?.sourceVersion ?? 'unversioned'}`}
+                      itemId={item.id}
+                      sourceText={item.sourceText ?? null}
+                      extractionConfidence={item.ingredientExtractionConfidence}
+                      mapping={
+                        item.ingredientMapping ?? {
+                          version: 1,
+                          status: 'unknown',
+                          ingredientIds: [],
+                          complete: false,
+                        }
                       }
-                    }
-                    evidenceSnapshot={item.mappingEvidenceSnapshot ?? ''}
-                    source={item.mappingSource ?? null}
-                    reviewerId={reviewerId}
-                    onChange={(mapping) => onIngredientMappingChange?.(comp.id, item.id, mapping)}
-                    onEvidenceChange={(evidence) =>
-                      onIngredientEvidenceChange?.(comp.id, item.id, evidence)
-                    }
-                  />
+                      evidenceSnapshot={item.mappingEvidenceSnapshot ?? ''}
+                      source={item.mappingSource ?? null}
+                      reviewerId={reviewerId}
+                      onChange={(mapping) => onIngredientMappingChange?.(comp.id, item.id, mapping)}
+                      onEvidenceChange={(evidence) =>
+                        onIngredientEvidenceChange?.(comp.id, item.id, evidence)
+                      }
+                    />
+                  ) : null}
                   <View style={styles.ingredientFields}>
                     <View style={styles.ingredientInput}>
                       <TextField

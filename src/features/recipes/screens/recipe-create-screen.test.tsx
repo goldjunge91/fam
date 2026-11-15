@@ -219,6 +219,47 @@ describe('RecipeCreateScreen', () => {
     expect(screen.getByDisplayValue('150')).toBeOnTheScreen();
   });
 
+  it('lässt den Import-Review ohne Produkt-, Mengen- oder Einheitenprüfung speichern', async () => {
+    mockParams = { importDraftId: importedDraft.id };
+    mockLoadRecipeImportDrafts.mockResolvedValueOnce([
+      {
+        ...importedDraft,
+        draft: {
+          ...importedDraft.draft,
+          ingredients: [{ name: 'Tomaten', quantity: null, unit: null, confidence: 'high' }],
+        },
+      },
+    ]);
+    mockCompleteRecipeImportDraft.mockResolvedValue(undefined);
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    try {
+      await renderScreen();
+
+      const user = userEvent.setup();
+      await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+
+      expect(screen.getByDisplayValue('Tomaten')).toBeOnTheScreen();
+      expect(screen.getByPlaceholderText('Menge')).toHaveDisplayValue('');
+      expect(screen.queryByText('Zutatenzuordnung prüfen')).not.toBeOnTheScreen();
+      expect(screen.queryByText('Vollständige Zutatenliste bestätigen')).not.toBeOnTheScreen();
+
+      await user.press(screen.getByRole('button', { name: 'Weiter zu den Schritten' }));
+      expect(screen.getByText('Zubereitungsschritte')).toBeOnTheScreen();
+      await user.press(screen.getByRole('button', { name: 'Weiter' }));
+      await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+      await waitFor(() => expect(mockCreateRecipeMutateAsync).toHaveBeenCalledTimes(1));
+      expect(alert).not.toHaveBeenCalled();
+      expect(mockCompleteRecipeImportDraft).toHaveBeenCalledWith('user-1', 'draft-1', 'rec-1');
+      expect(mockReplace).toHaveBeenCalledWith({
+        pathname: '/recipe/[id]',
+        params: { id: 'rec-1' },
+      });
+    } finally {
+      alert.mockRestore();
+    }
+  });
 
   it('speichert jede importierte Zeile mit ihren Rohwerten ohne Mapping-Bestätigung', async () => {
     mockParams = { importDraftId: importedDraft.id };
