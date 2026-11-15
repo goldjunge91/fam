@@ -87,6 +87,22 @@ Maestro wird direkt über `.maestro/scripts/maestro.ts` beziehungsweise
 `.maestro/scripts/android.ts` ausgeführt. Es gibt absichtlich keine Maestro-
 oder E2E-Scripts in `package.json`. Die Journey-Dateien und ihre
 [Maestro-Konfiguration](.maestro/config.yaml) definieren die ausführbaren Pfade.
+Der Runner legt Testartefakte und Debug-Logs unter `.agents/maestro/` ab.
+
+Ein iOS-Suitenlauf schließt zustandsabhängige, Fixture- und manuelle Flows
+standardmäßig aus:
+
+```bash
+bun .maestro/scripts/maestro.ts test .maestro/ios
+```
+
+Ein solcher Spezialflow bleibt über seinen konkreten YAML-Pfad einzeln
+startbar; dann greift der Standardausschluss nicht:
+
+```bash
+bun .maestro/scripts/maestro.ts test \
+  .maestro/ios/flows/session/signed-in-dashboard.yaml
+```
 
 ## React Native Harness
 
