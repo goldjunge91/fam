@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: Draft release tag containing catalog.de.json.gz
+        description: Public temporary release tag containing catalog.de.json.gz
         required: true
         type: string
       sha256:
