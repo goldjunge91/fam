@@ -8,6 +8,7 @@ import {
   writeSyncCursor,
 } from '@/lib/db/sync-state';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
+import { throwIfSyncAborted } from '@/lib/sync/cancellation';
 import { EPOCH_START } from '@/lib/sync/cursor';
 import { applyRemoteRow } from '@/lib/sync/mirror-write';
 import { addDiagnosticStep, reportWarning } from '@/lib/telemetry';
@@ -32,6 +33,7 @@ type GenericQuery<T> = {
   or(filter: string): GenericQuery<T>;
   order(column: string, options: { ascending: boolean }): GenericQuery<T>;
   limit(count: number): GenericQuery<T>;
+  abortSignal?(signal: AbortSignal): GenericQuery<T>;
 };
 
 export type PullOutcome = {
@@ -102,6 +104,7 @@ async function pullEntity(
     suppressJwtWarning: boolean;
     serverNowMs?: () => number | null;
   },
+  signal?: AbortSignal,
 ): Promise<PullOutcome> {
   const meta = metaOf(entity);
   const outcome: PullOutcome = {
@@ -110,14 +113,18 @@ async function pullEntity(
     rowsWritten: 0,
     rowsSkippedAsLocalWins: 0,
   };
+  throwIfSyncAborted(signal);
 
   // Push-only-Entities haben keinen Pull-Cursor und keine Remote-Spiegelzeile.
   if (meta.pushOnly) return outcome;
 
   for (const householdId of meta.householdScoped ? householdIds : [null]) {
+    throwIfSyncAborted(signal);
     const syncStateScope = householdId === null ? 'default' : `household:${householdId}`;
     const scopeHouseholdIds = householdId === null ? householdIds : [householdId];
+    throwIfSyncAborted(signal);
     const state = await readSyncState(db, entity, syncStateScope);
+    throwIfSyncAborted(signal);
     const { cursor: storedCursor, lastError: previousError } = state;
 
     // Haushalte immer vollständig laden: Beitritte ändern die RLS-Sichtbarkeit ohne Zeilen-Update.
@@ -129,6 +136,7 @@ async function pullEntity(
     let cursorWritten = false;
 
     for (;;) {
+      throwIfSyncAborted(signal);
       let query = (
         supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>
       ).select('*');
@@ -138,11 +146,13 @@ async function pullEntity(
         .order(cursorColumn, { ascending: true })
         .order('id', { ascending: true })
         .limit(PAGE_SIZE);
+      if (signal) query = query.abortSignal?.(signal) ?? query;
 
       const { data, error } = (await query) as {
         data: RemoteRow[] | null;
         error: { code?: string; message: string } | null;
       };
+      throwIfSyncAborted(signal);
 
       if (error) {
         await recordSyncError(db, entity, error.message, syncStateScope);
@@ -179,21 +189,28 @@ async function pullEntity(
 
       const last = page[page.length - 1];
 
-      await db.withExclusiveTransactionAsync(async (txn) => {
-        for (const row of page) {
-          const result = await applyRemoteRow(txn, entity, row, clockCeilingMs);
-          if (result === 'written') outcome.rowsWritten += 1;
-          else outcome.rowsSkippedAsLocalWins += 1;
-        }
+      throwIfSyncAborted(signal);
+      await db.withExclusiveTransactionAsync(
+        async (txn) => {
+          throwIfSyncAborted(signal);
+          for (const row of page) {
+            throwIfSyncAborted(signal);
+            const result = await applyRemoteRow(txn, entity, row, clockCeilingMs);
+            if (result === 'written') outcome.rowsWritten += 1;
+            else outcome.rowsSkippedAsLocalWins += 1;
+          }
 
-        // Cursor erst nach dem vollständigen Seiten-Commit vorrücken; Wiederholung bleibt idempotent.
-        const nextCursor = {
-          lastSyncedAt: cursorValue(last, cursorColumn),
-          lastSyncedId: last.id,
-        };
-        await writeSyncCursor(txn, entity, nextCursor, Date.now(), syncStateScope);
-        cursorWritten = true;
-      });
+          // Cursor erst nach dem vollständigen Seiten-Commit vorrücken; Wiederholung bleibt idempotent.
+          throwIfSyncAborted(signal);
+          const nextCursor = {
+            lastSyncedAt: cursorValue(last, cursorColumn),
+            lastSyncedId: last.id,
+          };
+          await writeSyncCursor(txn, entity, nextCursor, Date.now(), syncStateScope);
+          cursorWritten = true;
+        },
+        { signal },
+      );
 
       cursor = {
         lastSyncedAt: cursorValue(last, cursorColumn),
@@ -209,27 +226,41 @@ async function pullEntity(
     // Pull nach einem Fehler loescht den Fehlerzustand. Ein bereits erfolgreicher
     // unveraenderter Pull bleibt dagegen ein echtes No-Op ohne SQLite-Write.
     if (!cursorWritten && (storedCursor === null || previousError !== null)) {
+      throwIfSyncAborted(signal);
       await writeSyncCursor(db, entity, cursor, Date.now(), syncStateScope);
+      throwIfSyncAborted(signal);
     }
   }
 
   return outcome;
 }
 
-async function reconcileHouseholdOrphans(db: SqlDatabase, supabase: TypedSupabaseClient) {
-  const { data, error } = await supabase.from('households').select('id');
+async function reconcileHouseholdOrphans(
+  db: SqlDatabase,
+  supabase: TypedSupabaseClient,
+  signal?: AbortSignal,
+) {
+  throwIfSyncAborted(signal);
+  let query = (supabase.from('households') as unknown as GenericQuery<PullResponse>).select('id');
+  if (signal) query = query.abortSignal?.(signal) ?? query;
+  const { data, error } = await query;
+  throwIfSyncAborted(signal);
   if (error || !data) return;
 
   const remoteIds = new Set<string>((data as { id: string }[]).map((r) => r.id));
 
+  throwIfSyncAborted(signal);
   const localRows = await db.getAllAsync<{ id: string }>('select id from households');
+  throwIfSyncAborted(signal);
   const orphanIds = localRows.map((r) => r.id).filter((id) => !remoteIds.has(id));
 
-  if (orphanIds.length > 0)
+  if (orphanIds.length > 0) {
+    throwIfSyncAborted(signal);
     await db.runAsync(
       `delete from households where id in (${orphanIds.map(() => '?').join(',')})`,
       orphanIds,
     );
+  }
 }
 
 async function reconcileOrphans(
@@ -237,47 +268,56 @@ async function reconcileOrphans(
   supabase: TypedSupabaseClient,
   entity: Entity,
   householdIds: readonly string[],
+  signal?: AbortSignal,
 ) {
-  if (entity === 'households') return reconcileHouseholdOrphans(db, supabase);
+  throwIfSyncAborted(signal);
+  if (entity === 'households') return reconcileHouseholdOrphans(db, supabase, signal);
 
   const meta = metaOf(entity);
   if (meta.pushOnly || meta.appendOnly || !meta.householdScoped || householdIds.length === 0)
     return;
 
   // 1. Remote-IDs von Supabase fuer den Haushalt laden
-  const { data, error } = await (
-    supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>
-  )
+  let query = (supabase.from(meta.table as never) as unknown as GenericQuery<PullResponse>)
     .select('id')
     .in('household_id', householdIds);
+  if (signal) query = query.abortSignal?.(signal) ?? query;
+  const { data, error } = await query;
+  throwIfSyncAborted(signal);
 
   if (error || !data) return;
 
   const remoteIds = new Set<string>((data as { id: string }[]).map((r) => r.id));
 
   // 2. Lokale Outbox-IDs fuer diese Entity laden (lokal ungepushte Zeilen nicht loeschen)
+  throwIfSyncAborted(signal);
   const pendingOutbox = await db.getAllAsync<{ entity_id: string }>(
     'select entity_id from outbox where entity = ?',
     [entity],
   );
+  throwIfSyncAborted(signal);
   const pendingIds = new Set<string>(pendingOutbox.map((o) => o.entity_id));
 
   // 3. Lokale SQLite-IDs fuer die Haushalte laden
+  throwIfSyncAborted(signal);
   const localRows = await db.getAllAsync<{ id: string }>(
     `select id from ${meta.table} where household_id in (${householdIds.map(() => '?').join(',')})`,
     [...householdIds],
   );
+  throwIfSyncAborted(signal);
 
   // 4. Verwaiste Zeilen finden (lokal vorhanden, aber in Supabase geloescht & nicht in Outbox)
   const orphanIds = localRows
     .map((r) => r.id)
     .filter((id) => !remoteIds.has(id) && !pendingIds.has(id));
 
-  if (orphanIds.length > 0)
+  if (orphanIds.length > 0) {
+    throwIfSyncAborted(signal);
     await db.runAsync(
       `delete from ${meta.table} where id in (${orphanIds.map(() => '?').join(',')})`,
       orphanIds,
     );
+  }
 }
 
 export async function pullHousehold(deps: {
@@ -287,9 +327,11 @@ export async function pullHousehold(deps: {
   clockCeilingMs: number;
   serverNowMs?: () => number | null;
   entities?: readonly Entity[];
+  signal?: AbortSignal;
 }): Promise<PullOutcome[]> {
   const householdIds = [...new Set(deps.householdIds)].sort();
   const entities = (deps.entities ?? ALL_ENTITIES).filter((entity) => !metaOf(entity).pushOnly);
+  throwIfSyncAborted(deps.signal);
 
   const run = async (
     runEntities: readonly Entity[],
@@ -298,6 +340,7 @@ export async function pullHousehold(deps: {
   ): Promise<PullOutcome[]> => {
     const outcomes: PullOutcome[] = [];
     for (const entity of runEntities) {
+      throwIfSyncAborted(deps.signal);
       const serverNowMs = deps.serverNowMs?.();
       const outcome = await pullEntity(
         deps.db,
@@ -306,10 +349,11 @@ export async function pullHousehold(deps: {
         householdIds,
         serverNowMs ?? deps.clockCeilingMs,
         { retryCount, suppressJwtWarning, serverNowMs: deps.serverNowMs },
+        deps.signal,
       );
       outcomes.push(outcome);
       if (outcome.error) break;
-      await reconcileOrphans(deps.db, deps.supabase, entity, householdIds);
+      await reconcileOrphans(deps.db, deps.supabase, entity, householdIds, deps.signal);
     }
     return outcomes;
   };
@@ -320,8 +364,12 @@ export async function pullHousehold(deps: {
       outcome.error !== undefined &&
       isJwtIssuedInFuture({ code: outcome.errorCode, message: outcome.error }),
   );
-  if (failedIndex === -1) return initialOutcomes;
+  if (failedIndex === -1) {
+    throwIfSyncAborted(deps.signal);
+    return initialOutcomes;
+  }
 
+  throwIfSyncAborted(deps.signal);
   const failed = initialOutcomes[failedIndex];
   const serverNowMs = deps.serverNowMs?.();
   const context = {
@@ -336,7 +384,9 @@ export async function pullHousehold(deps: {
   };
 
   addDiagnosticStep('auth.session.refresh_started', { ...context, outcome: 'started' });
+  throwIfSyncAborted(deps.signal);
   const { error: refreshError } = await deps.supabase.auth.refreshSession();
+  throwIfSyncAborted(deps.signal);
   if (refreshError) {
     if (!failed.errorWasPreviouslyRecorded) {
       reportWarning(`Session-Aktualisierung fehlgeschlagen: ${refreshError.message}`, {

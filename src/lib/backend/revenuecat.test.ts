@@ -19,7 +19,6 @@ import {
   restorePurchases,
   selectRevenueCatApiKey,
   setPurchasesAttributes,
-  setPurchasesEmail,
   syncPurchasesIdentity,
   VERIFICATION_RESULT,
 } from './revenuecat';
@@ -37,7 +36,6 @@ jest.mock('react-native-purchases', () => ({
     logOut: jest.fn(),
     isAnonymous: jest.fn(),
     setAttributes: jest.fn(),
-    setEmail: jest.fn(),
   },
   LOG_LEVEL: { DEBUG: 'DEBUG' },
   ENTITLEMENT_VERIFICATION_MODE: {
@@ -389,15 +387,6 @@ describe('purchases security and entitlement checks', () => {
       await setPurchasesAttributes({ household: 'household-1' });
 
       expect(Purchases.setAttributes).toHaveBeenCalledWith({ household: 'household-1' });
-    });
-
-    it('sets non-empty email and ignores null or empty email', async () => {
-      await setPurchasesEmail('person@example.com');
-      await setPurchasesEmail(null);
-      await setPurchasesEmail('');
-
-      expect(Purchases.setEmail).toHaveBeenCalledTimes(1);
-      expect(Purchases.setEmail).toHaveBeenCalledWith('person@example.com');
     });
 
     it('logs out only a non-anonymous RevenueCat identity', async () => {

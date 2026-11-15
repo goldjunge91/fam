@@ -1,5 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import { act, fireEvent, render, screen, userEvent } from '@testing-library/react-native';
+import * as Speech from 'expo-speech';
+import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
@@ -31,6 +33,48 @@ jest.mock('../catalog/use-recipe-catalog', () => ({
   useCatalogImageUrl: () => ({ data: null }),
   toCookingRecipeDetail: () => mockDetail,
 }));
+
+jest.mock('expo-speech', () => ({
+  speak: jest.fn(),
+  stop: jest.fn(async () => undefined),
+}));
+
+jest.mock('expo-speech-recognition', () => ({
+  ExpoSpeechRecognitionModule: {
+    requestMicrophonePermissionsAsync: jest.fn(),
+    requestSpeechRecognizerPermissionsAsync: jest.fn(),
+  },
+}));
+
+function getSpeechPermissionSpies(): {
+  requestMicrophonePermissionsAsync: jest.Mock;
+  requestSpeechRecognizerPermissionsAsync: jest.Mock;
+} {
+  return (
+    jest.requireMock('expo-speech-recognition') as {
+      ExpoSpeechRecognitionModule: {
+        requestMicrophonePermissionsAsync: jest.Mock;
+        requestSpeechRecognizerPermissionsAsync: jest.Mock;
+      };
+    }
+  ).ExpoSpeechRecognitionModule;
+}
+
+jest.mock('@/features/shopping-list/stt-beta/services/native-speech-recognition', () => ({
+  nativeSpeechRecognitionAdapter: { start: jest.fn() },
+}));
+
+function getNativeSpeechRecognitionStart(): jest.Mock {
+  return (
+    jest.requireMock('@/features/shopping-list/stt-beta/services/native-speech-recognition') as {
+      nativeSpeechRecognitionAdapter: { start: jest.Mock };
+    }
+  ).nativeSpeechRecognitionAdapter.start;
+}
+
+function getSpeechSpies(): { speak: jest.Mock; stop: jest.Mock } {
+  return Speech as unknown as { speak: jest.Mock; stop: jest.Mock };
+}
 
 let mockIsPremium = false;
 
@@ -199,8 +243,19 @@ beforeEach(() => {
   mockCatalogDetail = null;
   mockCatalogLoading = false;
   mockIsPremium = false;
+  getNativeSpeechRecognitionStart().mockClear();
+  getSpeechSpies().speak.mockClear();
+  getSpeechSpies().stop.mockClear();
+  jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+  const permissionSpies = getSpeechPermissionSpies();
+  permissionSpies.requestMicrophonePermissionsAsync.mockClear();
+  permissionSpies.requestSpeechRecognizerPermissionsAsync.mockClear();
   jest.mocked(recordActivity).mockReturnValue({ count: 1, increased: true, milestone: false });
   jest.mocked(celebrate).mockClear();
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
 });
 
 describe('CookingModeScreen', () => {
@@ -262,6 +317,79 @@ describe('CookingModeScreen', () => {
 
     expect(screen.queryByRole('button', { name: /nächster schritt/i })).not.toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: /timer/i })).not.toBeOnTheScreen();
+    expect(screen.queryByText('Voice bereit')).not.toBeOnTheScreen();
+    expect(screen.queryByRole('button', { name: 'Zuhören' })).not.toBeOnTheScreen();
+    expect(getNativeSpeechRecognitionStart()).not.toHaveBeenCalled();
+    expect(getSpeechPermissionSpies().requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
+    expect(
+      getSpeechPermissionSpies().requestSpeechRecognizerPermissionsAsync,
+    ).not.toHaveBeenCalled();
+  });
+
+  it('fragt einmal nach Hands-free und bleibt bei Nein im Touch-Ablauf', async () => {
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    const view = await renderScreen();
+
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+    expect(Alert.alert).toHaveBeenCalledWith(
+      'Hands-free im Kochmodus?',
+      expect.any(String),
+      expect.any(Array),
+    );
+    const buttons = jest.mocked(Alert.alert).mock.calls[0]?.[2];
+    await act(async () => {
+      buttons?.find((button) => button.text === 'Nein')?.onPress?.();
+    });
+
+    expect(screen.getByRole('button', { name: 'Nächster Schritt' })).toBeOnTheScreen();
+    expect(getNativeSpeechRecognitionStart()).not.toHaveBeenCalled();
+    expect(getSpeechPermissionSpies().requestMicrophonePermissionsAsync).not.toHaveBeenCalled();
+    expect(
+      getSpeechPermissionSpies().requestSpeechRecognizerPermissionsAsync,
+    ).not.toHaveBeenCalled();
+
+    await view.rerender(
+      <QueryClientProvider client={new QueryClient()}>
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { x: 0, y: 0, width: 390, height: 844 },
+            insets: { top: 47, left: 0, right: 0, bottom: 34 },
+          }}>
+          <CookingModeScreen />
+        </SafeAreaProvider>
+      </QueryClientProvider>,
+    );
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+  });
+
+  it('startet den ersten Schritt nach der Hands-free-Zustimmung ohne weiteren Touch', async () => {
+    mockDetail = makeDetail();
+    mockIsPremium = true;
+    await renderScreen();
+
+    const buttons = jest.mocked(Alert.alert).mock.calls[0]?.[2];
+    await act(async () => {
+      buttons?.find((button) => button.text === 'Hands-free aktivieren')?.onPress?.();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(getSpeechSpies().speak).toHaveBeenCalledWith('Wasser aufsetzen', expect.anything());
+    expect(getNativeSpeechRecognitionStart()).not.toHaveBeenCalled();
+  });
+  it('zeigt im Plus-Schritt nur explizit verknüpfte Zutaten und den bereiten Voice-Status', async () => {
+    const detail = makeDetail();
+    detail.steps[0] = { ...detail.steps[0], ingredientIds: ['item-1', 'missing-item'] };
+    mockDetail = detail;
+    mockIsPremium = true;
+    await renderScreen();
+
+    expect(screen.getByText('Voice bereit')).toBeOnTheScreen();
+    expect(screen.getByText('50 g Tomaten')).toBeOnTheScreen();
+    expect(screen.queryByText('300 g Hackfleisch')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Vorlesen' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Zuhören' })).toBeOnTheScreen();
   });
 
   it('zeigt im Premium-Kochmodus die explizite Timer-Dauer vor dem Text-Fallback', async () => {
@@ -286,16 +414,19 @@ describe('CookingModeScreen', () => {
     expect(recordActivity).toHaveBeenCalledTimes(1);
   });
 
-  it('feiert einen erreichten Streak-Meilenstein', async () => {
+  it('kehrt nach dem Abschluss zum zuletzt angezeigten Schritt zurück', async () => {
+    const user = userEvent.setup();
     mockDetail = makeDetail();
     mockIsPremium = true;
-    jest.mocked(recordActivity).mockReturnValue({ count: 3, increased: true, milestone: true });
     await renderScreen();
 
-    await fireEvent.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
-    await fireEvent.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+    await user.press(screen.getByRole('button', { name: 'Nächster Schritt' }));
+    expect(screen.getByText('SCHRITT 2 VON 2')).toBeOnTheScreen();
 
-    expect(celebrate).toHaveBeenCalledTimes(1);
+    await user.press(screen.getByRole('button', { name: 'Zubereitung abschließen' }));
+    await user.press(screen.getByRole('button', { name: 'Zurück zum letzten Schritt' }));
+
+    expect(screen.getByText('SCHRITT 2 VON 2')).toBeOnTheScreen();
   });
 
   it('geht im Premium-Kochmodus zum vorherigen Schritt zurück', async () => {

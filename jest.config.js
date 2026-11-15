@@ -94,6 +94,7 @@ module.exports = {
     // eigenen Runner (`bun run test:dump-pipeline`), Tools haben eigene
     // Test-Runner (siehe tools/README.md).
     "/scripts/",
+    "/supabase/functions/",
   ],
 
   // Eigenstaendige Tools, lokale Agent-Skills und lokale Paket-Caches koennen

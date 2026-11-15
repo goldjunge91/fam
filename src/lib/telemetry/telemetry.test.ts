@@ -49,6 +49,7 @@ describe('telemetry fan-out', () => {
     process.env.EXPO_PUBLIC_DEBUG_LOGS = 'false';
     jest.clearAllMocks();
     useAnalyticsSettingsStore.getState().resetOverrides();
+    useAnalyticsSettingsStore.getState().setPostHogConsent('granted');
     useAnalyticsSettingsStore.getState().setOverride('providers.aptabase', true);
     setTelemetryUserId(null);
     (isAptabaseConfigured as jest.Mock).mockReturnValue(true);
@@ -66,14 +67,14 @@ describe('telemetry fan-out', () => {
     jest.useRealTimers();
   });
 
-  it('sendet exakt dasselbe Eventobjekt an Aptabase und PostHog', () => {
+  it('sendet an Aptabase und PostHog getrennte, für PostHog bereinigte Eventobjekte', () => {
     setTelemetryUserId('user-123');
 
     trackEvent('sync.pull.completed', { entity: 'households', duration_ms: 42 });
 
     const aptabaseProperties = (trackAptabaseEvent as jest.Mock).mock.calls[0][1];
     const postHogProperties = capture.mock.calls[0][1];
-    expect(aptabaseProperties).toBe(postHogProperties);
+    expect(aptabaseProperties).not.toBe(postHogProperties);
     expect(aptabaseProperties).toEqual(
       expect.objectContaining({
         correlation_id: expect.any(String),
@@ -86,6 +87,18 @@ describe('telemetry fan-out', () => {
         user_id: 'user-123',
       }),
     );
+    expect(postHogProperties).toEqual(
+      expect.objectContaining({
+        correlation_id: expect.any(String),
+        duration_ms: 42,
+        entity: 'households',
+        operation: 'sync.pull',
+        outcome: 'completed',
+        platform: expect.any(String),
+        timestamp: expect.any(Number),
+      }),
+    );
+    expect(postHogProperties).not.toHaveProperty('user_id');
   });
 
   it('spiegelt die gesendete PostHog-Event-Payload sicher ins Dev-Terminal', () => {
@@ -107,13 +120,11 @@ describe('telemetry fan-out', () => {
           properties: expect.objectContaining({
             entity: 'households',
             duration_ms: 42,
-            user_id: '[redacted]',
           }),
         }),
       );
-      expect(capture.mock.calls[0][1]).toEqual(
-        expect.objectContaining({ user_id: 'user-123', entity: 'households' }),
-      );
+      expect(capture.mock.calls[0][1]).toEqual(expect.objectContaining({ entity: 'households' }));
+      expect(capture.mock.calls[0][1]).not.toHaveProperty('user_id');
       expect(postHogLine).not.toContain('user-123');
     } finally {
       consoleLog.mockRestore();
@@ -147,13 +158,13 @@ describe('telemetry fan-out', () => {
       expect(captureExceptionPayload).toEqual(
         expect.objectContaining({
           event: 'error.occurred',
-          properties: expect.objectContaining({ user_id: '[redacted]' }),
+          properties: expect.not.objectContaining({ user_id: expect.anything() }),
         }),
       );
       expect(addExceptionStepPayload).toEqual(
         expect.objectContaining({
           step: 'route.changed',
-          properties: expect.objectContaining({ user_id: '[redacted]' }),
+          properties: expect.not.objectContaining({ user_id: expect.anything() }),
         }),
       );
       expect(consoleLog.mock.calls.flat().join(' ')).not.toContain('marco@example.com');
@@ -170,20 +181,20 @@ describe('telemetry fan-out', () => {
     reportError(error, { operation: 'sync.pull', entity: 'households' });
 
     expect(Sentry.captureException).toHaveBeenCalledWith(error, expect.any(Object));
-    expect(captureException).toHaveBeenCalledWith(error, expect.any(Object));
+    expect(captureException).toHaveBeenCalledWith(expect.any(Error), expect.any(Object));
     expect(trackAptabaseError).toHaveBeenCalledWith(error);
     expect(capture).toHaveBeenCalledWith(
       'error.occurred',
       expect.objectContaining({
         error_code: 'jwt_issued_in_future',
         error_id: expect.any(String),
-        error_message: 'JWT liegt in der Zukunft',
         outcome: 'failed',
       }),
     );
+    expect(capture.mock.calls.at(-1)?.[1]).not.toHaveProperty('error_message');
     expect(trackAptabaseEvent).toHaveBeenCalledWith(
       'error.occurred',
-      capture.mock.calls.at(-1)?.[1],
+      expect.objectContaining({ error_message: 'JWT liegt in der Zukunft' }),
     );
   });
 
@@ -205,9 +216,10 @@ describe('telemetry fan-out', () => {
         outcome: 'warning',
       }),
     );
+    expect(capture.mock.calls.at(-1)?.[1]).not.toHaveProperty('error_message');
     expect(trackAptabaseEvent).toHaveBeenCalledWith(
       'warning.occurred',
-      capture.mock.calls.at(-1)?.[1],
+      expect.objectContaining({ error_message: 'Pull ist fehlgeschlagen' }),
     );
   });
 

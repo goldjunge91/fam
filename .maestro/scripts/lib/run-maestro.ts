@@ -20,7 +20,20 @@ export function runMaestro(args: readonly string[]): number {
     return 127;
   }
 
-  const result = spawnSync(executable, [...args], { stdio: 'inherit' });
+  // Maestro schreibt Testartefakte und das Sitzungslog sonst nach ~/.maestro/tests.
+  // Beide CLI-Optionen sind nötig, damit sämtliche Ausgaben im Repository bleiben.
+  // Source: https://docs.maestro.dev/maestro-flows/workspace-management/test-reports-and-artifacts
+  const outputDirectory = join(process.cwd(), '.agents', 'maestro');
+  const maestroArgs =
+    args[0] === 'test'
+      ? [
+          args[0],
+          `--test-output-dir=${outputDirectory}`,
+          `--debug-output=${outputDirectory}`,
+          ...args.slice(1),
+        ]
+      : args;
+  const result = spawnSync(executable, [...maestroArgs], { stdio: 'inherit' });
   if (result.error) {
     console.error(`Maestro konnte nicht gestartet werden: ${result.error.message}`);
     return 1;

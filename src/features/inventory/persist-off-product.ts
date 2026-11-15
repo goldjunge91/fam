@@ -40,6 +40,7 @@ export async function persistOffProductIfNeeded(
     fat_g_per_100: product.fatPer100g ?? undefined,
     sugar_g_per_100: product.sugarsPer100g ?? undefined,
     salt_g_per_100: product.saltPer100g ?? undefined,
+    off_last_modified_at: product.offLastModifiedAt ?? undefined,
     source: 'off',
     created_by: userId,
   });

@@ -1,5 +1,6 @@
+import { isSerializedSqlDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase } from '@/lib/db/types';
-import type { FileOps } from './file-ops';
+import { type FileOps, throwIfOffDumpAborted } from './file-ops';
 import { setOffDumpAttached } from './off-dump-state';
 import { attachPlaintextDatabase, type PlaintextAttachmentMode } from './plaintext-attachment';
 
@@ -7,14 +8,33 @@ export type InstallBaselineResult =
   | { ok: true; dataVersion: string }
   | { ok: false; reason: 'checksum_mismatch' | 'schema_mismatch' | 'corrupted' };
 
-/** Detacht `off_dump`, falls angehängt — kein Fehler, wenn es das nicht ist. */
-async function detachOffDumpIfAttached(db: SqlDatabase): Promise<void> {
-  try {
-    await db.execAsync('DETACH DATABASE off_dump');
-  } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    if (!message.includes('no such database')) throw err;
+type CleanupExec = (source: string) => Promise<void>;
+
+/** Detacht `off_dump`, falls der Alias auf dieser Connection angehängt ist. */
+async function detachOffDumpIfAttached(
+  db: SqlDatabase,
+  cleanupExecAsync: CleanupExec,
+  signal?: AbortSignal,
+): Promise<void> {
+  throwIfOffDumpAborted(signal);
+  const attachedDatabases = await db.getAllAsync<{ name: string }>('PRAGMA database_list');
+  if (!attachedDatabases.some(({ name }) => name === 'off_dump')) return;
+
+  await cleanupExecAsync('DETACH DATABASE off_dump');
+}
+
+async function detachPersistentOffDump(db: SqlDatabase, signal?: AbortSignal): Promise<void> {
+  if (isSerializedSqlDatabase(db)) {
+    await db.withWriterLeaseAsync(
+      'off.baseline.detach',
+      ({ db: scopedDb, cleanupExecAsync }) =>
+        detachOffDumpIfAttached(scopedDb, cleanupExecAsync, signal),
+      signal,
+    );
+    return;
   }
+
+  await detachOffDumpIfAttached(db, (source) => db.execAsync(source), signal);
 }
 
 export async function installBaseline(
@@ -28,6 +48,7 @@ export async function installBaseline(
     nextPath: string;
     recoveryPath: string;
     attachmentMode: PlaintextAttachmentMode;
+    signal?: AbortSignal;
   },
 ): Promise<InstallBaselineResult> {
   const {
@@ -38,13 +59,16 @@ export async function installBaseline(
     nextPath,
     recoveryPath,
     attachmentMode,
+    signal,
   } = params;
 
   // 1. Download nach `next` (nie direkt in die aktive Datei).
-  await fileOps.download(downloadUrl, nextPath);
+  await fileOps.download(downloadUrl, nextPath, signal);
+  throwIfOffDumpAborted(signal);
 
   // 2. Prüfsumme.
   const actualChecksum = await fileOps.checksum(nextPath);
+  throwIfOffDumpAborted(signal);
   if (actualChecksum !== expectedChecksum) {
     await fileOps.delete(nextPath);
     return { ok: false, reason: 'checksum_mismatch' };
@@ -53,6 +77,7 @@ export async function installBaseline(
   // 3+4. Schema/data_version + PRAGMA quick_check, unabhängig von der
   // Hauptverbindung geöffnet.
   const inspected = await fileOps.inspectDump(nextPath);
+  throwIfOffDumpAborted(signal);
   if (!inspected || inspected.schemaVersion !== expectedSchemaVersion) {
     await fileOps.delete(nextPath);
     return { ok: false, reason: 'schema_mismatch' };
@@ -62,25 +87,33 @@ export async function installBaseline(
     return { ok: false, reason: 'corrupted' };
   }
 
-  // 5+6. Der OFF-Owner ordnet den gesamten Vorgang und hält die Connection
-  // während aller Datei- und DB-Schritte für Lifecycle-Close reserviert.
-  await detachOffDumpIfAttached(db);
+  // 5+6. Diese kurze DB-/Dateiphase beginnt erst nach Download, Prüfsumme
+  // und Integritätsprüfung. Eine Lifecycle-Reservierung bleibt dabei nicht
+  // über die Vorbereitung oder den Netzwerkzugriff offen.
+  throwIfOffDumpAborted(signal);
+  await detachPersistentOffDump(db, signal);
   setOffDumpAttached(false);
 
   // 7. Aktive Datei (falls vorhanden) zu recovery umbenennen.
+  throwIfOffDumpAborted(signal);
   if (await fileOps.exists(activePath)) {
+    throwIfOffDumpAborted(signal);
     await fileOps.move(activePath, recoveryPath);
   }
 
   // 8. Neue Datei atomar aktivieren.
+  throwIfOffDumpAborted(signal);
   await fileOps.move(nextPath, activePath);
 
   // 9. Neue Datei attachen.
+  throwIfOffDumpAborted(signal);
   await attachPlaintextDatabase(db, activePath, 'off_dump', attachmentMode);
   setOffDumpAttached(true);
 
   // 10. Recovery-Datei erst NACH erfolgreichem Attach entfernen.
+  throwIfOffDumpAborted(signal);
   if (await fileOps.exists(recoveryPath)) {
+    throwIfOffDumpAborted(signal);
     await fileOps.delete(recoveryPath);
   }
 

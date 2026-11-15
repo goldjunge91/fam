@@ -35,6 +35,7 @@ type QueryCall = {
   orFilter: string | null;
   orders: { column: string; ascending: boolean }[];
   limit: number | null;
+  abortSignal: AbortSignal | null;
 };
 
 function responseQuery(
@@ -47,6 +48,7 @@ function responseQuery(
     orFilter: null,
     orders: [],
     limit: null,
+    abortSignal: null,
   };
 
   type Query = {
@@ -55,6 +57,7 @@ function responseQuery(
     or: (filter: string) => Query;
     order: (column: string, options: { ascending: boolean }) => Query;
     limit: (count: number) => Query;
+    abortSignal: (signal: AbortSignal) => Query;
     then: (
       onfulfilled: (value: PullResponse) => unknown,
       onrejected?: (reason: unknown) => unknown,
@@ -81,6 +84,10 @@ function responseQuery(
     },
     limit(count) {
       call.limit = count;
+      return query;
+    },
+    abortSignal(signal) {
+      call.abortSignal = signal;
       return query;
     },
     // biome-ignore lint/suspicious/noThenProperty: Supabase verwendet bewusst einen thenable Query-Builder.
@@ -410,6 +417,44 @@ describe('pullHousehold – Cursor und JWT-Recovery', () => {
     );
     expect(await readSyncState(db, 'products')).toMatchObject({
       cursor: { lastSyncedAt: '2026-01-01T00:00:00.000Z', lastSyncedId: 'product-500' },
+      lastError: null,
+    });
+  });
+
+  it('bricht vor der nächsten Seite ab und behält den letzten Seiten-Cursor', async () => {
+    const controller = new AbortController();
+    const remote = evaluatingRemoteSource(
+      Array.from(
+        { length: 501 },
+        (_, index) =>
+          productRow({
+            id: `product-${String(index).padStart(3, '0')}`,
+            household_id: 'household-1',
+          }) as unknown as EvaluatedRemoteRow,
+      ),
+    );
+    const originalTransaction = db.withExclusiveTransactionAsync.bind(db);
+    let committedPages = 0;
+    db.withExclusiveTransactionAsync = async (task) => {
+      await originalTransaction(task);
+      committedPages += 1;
+      if (committedPages === 1) controller.abort();
+    };
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: remote.client,
+        householdIds: [],
+        clockCeilingMs: 10_000,
+        entities: ['products'],
+        signal: controller.signal,
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    expect(remote.pullCalls).toHaveLength(1);
+    expect(await readSyncState(db, 'products')).toMatchObject({
+      cursor: { lastSyncedId: 'product-499' },
       lastError: null,
     });
   });
@@ -1043,6 +1088,74 @@ describe('pullHousehold – lokale Wins und Reconciliation', () => {
     expect(
       await db.getFirstAsync('select entity_id from outbox where entity_id = ?', ['pending-1']),
     ).not.toBeNull();
+  });
+
+  it('reicht Cancellation an den Orphan-Request weiter und löscht danach keine lokale Zeile', async () => {
+    await db.runAsync(
+      `insert into fridge_items
+       (id, household_id, name, quantity, unit, updated_at, _dirty)
+       values (?, ?, ?, ?, ?, ?, ?)`,
+      ['orphan-aborted', 'household-1', 'Bleibt lokal', 1, 'piece', 1, 0],
+    );
+
+    const controller = new AbortController();
+    const pull = responseQuery({ data: [], error: null });
+    const reconcile = responseQuery({ data: [], error: null }, () => {
+      controller.abort('orphan-response-completed');
+      return { data: [], error: null };
+    });
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: fakeSupabase([pull, reconcile]).client,
+        householdIds: ['household-1'],
+        clockCeilingMs: 10_000,
+        entities: ['fridge_items'],
+        signal: controller.signal,
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    expect(pull.call.abortSignal).toBe(controller.signal);
+    expect(reconcile.call.abortSignal).toBe(controller.signal);
+    expect(
+      await db.getFirstAsync<{ id: string }>('select id from fridge_items where id = ?', [
+        'orphan-aborted',
+      ]),
+    ).toEqual({ id: 'orphan-aborted' });
+  });
+
+  it('reicht Cancellation auch an den Household-Orphan-Request weiter', async () => {
+    await db.runAsync(`insert into households (id, name, updated_at, _dirty) values (?, ?, ?, ?)`, [
+      'household-aborted',
+      'Bleibt lokal',
+      1,
+      0,
+    ]);
+
+    const controller = new AbortController();
+    const pull = responseQuery({ data: [], error: null });
+    const reconcile = responseQuery({ data: [], error: null }, () => {
+      controller.abort('household-orphan-response-completed');
+      return { data: [], error: null };
+    });
+
+    await expect(
+      pullHousehold({
+        db,
+        supabase: fakeSupabase([pull, reconcile]).client,
+        householdIds: [],
+        clockCeilingMs: 10_000,
+        entities: ['households'],
+        signal: controller.signal,
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    expect(pull.call.abortSignal).toBe(controller.signal);
+    expect(reconcile.call.abortSignal).toBe(controller.signal);
+    expect(
+      await db.getFirstAsync('select id from households where id = ?', ['household-aborted']),
+    ).toEqual({ id: 'household-aborted' });
   });
 
   it('reconciliert households und entfernt nur lokal verwaiste Haushalte', async () => {

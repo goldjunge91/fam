@@ -3,6 +3,7 @@ export type TelemetryProperties = Record<string, TelemetryValue>;
 
 /** Einzige typisierte Quelle für kuratierte Produkt-Events beider Analytics-Ziele. */
 export type ProductTelemetryEventMap = {
+  'activation.household_ready.completed': { path: 'created' | 'joined' };
   'paywall.view.completed': { source: string; offering_id?: string; tier?: string };
   'purchase.checkout.started': {
     package_id: string;
@@ -33,6 +34,21 @@ export type ProductTelemetryEventMap = {
   'household.member_remove.completed': Record<string, never>;
   'product.barcode_scan.completed': { found: boolean };
   'product.barcode_scan.failed': Record<string, never>;
+  'recipe_import.started': { source: 'url' | 'text' | 'image' | 'pdf' | 'video' };
+  'recipe_import.completed': {
+    method: 'structured' | 'ai';
+    duration_bucket: '0-1s' | '1-3s' | '3s+';
+  };
+  'recipe_import.failed': { stage: 'media' | 'request' | 'parse' };
+  'search.completed': {
+    source: 'food_search';
+    result_bucket: '0' | '1-5' | '6+';
+  };
+  'search.failed': { source: 'food_search'; reason: 'catalog_unavailable' };
+  'empty_state.action_pressed': {
+    screen: 'food_search';
+    action: 'quick_entry';
+  };
   'recipe.create.completed': Record<string, never>;
   'recipe.update.completed': Record<string, never>;
   'recipe.delete.completed': Record<string, never>;

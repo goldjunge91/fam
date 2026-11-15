@@ -1,5 +1,6 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
+import { requireSupabaseSecretKey } from '../_shared/env.ts';
 import { createEnrichOffProductHandler } from './handler.ts';
 import { fetchOffProduct } from './off-client.ts';
 import { SlidingWindowRateLimiter } from './rate-limiter.ts';
@@ -20,7 +21,7 @@ const rateLimiter = new SlidingWindowRateLimiter(12, 60_000);
 
 const adminClient = createClient(
   Deno.env.get('SUPABASE_URL')!,
-  Deno.env.get('SUPABASE_SECRET_KEY')!,
+  requireSupabaseSecretKey(),
 );
 
 Deno.serve(

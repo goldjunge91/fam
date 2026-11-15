@@ -1,5 +1,8 @@
 import { ExtensionStorage } from '@bacons/apple-targets';
-
+import {
+  sharedStoreWriterOwner,
+  withSharedStoreWriterSync,
+} from '@/lib/apple/shared-store-lifecycle';
 import watchConnectivity from '../../../../modules/fam-watch-connectivity';
 import { WATCH_SNAPSHOT_KEY, type WatchShoppingSnapshot } from './watch-snapshot-contract';
 
@@ -9,6 +12,8 @@ export function publishWatchShoppingSnapshot(snapshot: WatchShoppingSnapshot): v
   const snapshotJSON = JSON.stringify(snapshot);
   if (snapshotJSON === undefined) return;
 
-  watchStorage.set(WATCH_SNAPSHOT_KEY, snapshotJSON);
+  withSharedStoreWriterSync(sharedStoreWriterOwner, 'watch.snapshot.write', () => {
+    watchStorage.set(WATCH_SNAPSHOT_KEY, snapshotJSON);
+  });
   watchConnectivity?.publishSnapshot(snapshotJSON);
 }

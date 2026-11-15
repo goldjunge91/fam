@@ -1,7 +1,7 @@
 import { appendFile } from 'node:fs/promises';
 import type { Json } from '../../src/lib/database.types';
 import { type ScrapedBrochure, scrapeKaufdaZip } from './kaufda';
-import { loadPostalCodes, type ScrapeLocation } from './locations';
+import { resolveKaufdaLocation, type ScrapeLocation } from './locations';
 
 type PublishedBrochure = {
   id: string;
@@ -212,17 +212,6 @@ async function recordScanFailure(
   if (error) process.stderr.write(`Could not defer retry for ${zipCode}: ${String(error)}\n`);
 }
 
-function selectedLocation(
-  allLocations: readonly ScrapeLocation[],
-  zipCode: string | undefined,
-): ScrapeLocation {
-  if (!zipCode || !/^\d{5}$/.test(zipCode)) throw new Error('--zip must contain five digits.');
-  const locationsByZip = new Map(allLocations.map((location) => [location.zipCode, location]));
-  const location = locationsByZip.get(zipCode);
-  if (!location) throw new Error(`No location data found for postal code ${zipCode}.`);
-  return location;
-}
-
 async function writeStepSummary(summary: string): Promise<void> {
   const path = process.env.GITHUB_STEP_SUMMARY;
   if (path) await appendFile(path, `${summary}\n`, 'utf8');
@@ -252,7 +241,9 @@ async function main(): Promise<void> {
   );
 
   try {
-    const location = selectedLocation(await loadPostalCodes(), zipCode);
+    const location = await resolveKaufdaLocation(zipCode, {
+      apiKey: requiredEnvironment('GOOGLE_PLACES_API_KEY', process.env.GOOGLE_PLACES_API_KEY),
+    });
     const result = await scanAndPublishLocation(location, dependencies);
     totalBrochures += result.brochureCount;
     totalPages += result.pageCount;

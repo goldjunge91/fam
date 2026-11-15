@@ -26,6 +26,8 @@ aktuellen technischen Zustand.
   Entitlements Plus und AI.
 - [Supermarkt-Laufstrecke](features/Supermarkt%20Laufstrecke%20-%20Einkaufslisten%20Sortierung.md)
   – Kategorie-Reihenfolge der Einkaufsliste.
+- [AI-Abläufe](features/ai-ablaeufe.md) – getrennte Mermaid-Diagramme für
+  Assistant, Assistant-Werkzeuge, Rezeptimport, AI-Abo und Gateway-Credits.
 - [Funktionsdiagramme](features/FUNKTIONSDIAGRAMME.md) – Datenmodell und
   Feature-Workflows als Mermaid-Diagramme.
 

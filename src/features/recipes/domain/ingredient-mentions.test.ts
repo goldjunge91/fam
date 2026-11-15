@@ -3,6 +3,7 @@ import {
   flattenRecipeItems,
   matchPendingMention,
   mentionedIngredientIds,
+  resolveStepIngredients,
   splitStepMentions,
 } from './ingredient-mentions';
 
@@ -32,12 +33,46 @@ describe('flattenRecipeItems', () => {
 
     expect(items).toEqual([
       { itemId: 'product', name: 'Karotte', unit: 'g', quantity: 25 },
-      { itemId: 'stored', name: 'Möhren', unit: 'Stück', quantity: 0 },
+      { itemId: 'stored', name: 'Möhren', unit: 'Stück', quantity: null },
     ]);
   });
-});
 
-describe('splitStepMentions', () => {
+  it('verwendet source_text als Namen fuer eine importierte Position ohne Produkt', () => {
+    const items = flattenRecipeItems(
+      [
+        {
+          id: 'imported',
+          product_id: null,
+          ingredient_name: null,
+          source_text: '  Tomaten aus dem Video  ',
+          unit: null,
+          quantity: null,
+        },
+      ],
+      new Map(),
+    );
+
+    expect(items).toEqual([
+      { itemId: 'imported', name: 'Tomaten aus dem Video', unit: null, quantity: null },
+    ]);
+  });
+  it('preserves raw negative quantities and unknown units for imported mentions', () => {
+    expect(
+      flattenRecipeItems(
+        [
+          {
+            id: 'imported',
+            product_id: null,
+            source_text: 'Mehl',
+            unit: 'cup',
+            quantity: -2,
+          },
+        ],
+        new Map(),
+      ),
+    ).toEqual([{ itemId: 'imported', name: 'Mehl', unit: 'cup', quantity: -2 }]);
+  });
+
   it('löst eine Erwähnung mit Menge zu Klartext mit Zutaten-Einheit auf', () => {
     const segments = splitStepMentions('@Wurst50 in Scheiben schneiden.', INGREDIENTS);
     expect(segments[0]).toMatchObject({ kind: 'resolved', text: '50g Wurst' });
@@ -93,6 +128,20 @@ describe('mentionedIngredientIds', () => {
   it('gibt die IDs aller im Text erwähnten, bekannten Zutaten zurück', () => {
     const ids = mentionedIngredientIds('@Wurst50 und @Brühe250 dazugeben.', INGREDIENTS);
     expect(ids.sort()).toEqual(['bruehe', 'wurst']);
+  });
+});
+
+describe('resolveStepIngredients', () => {
+  it('keeps the explicit step order, skips unknown IDs, and removes duplicates', () => {
+    expect(resolveStepIngredients(['wurst', 'unknown', 'zwiebel', 'wurst'], INGREDIENTS)).toEqual([
+      INGREDIENTS[1],
+      INGREDIENTS[0],
+    ]);
+  });
+
+  it('returns no ingredients for an empty or unlinked step', () => {
+    expect(resolveStepIngredients([], INGREDIENTS)).toEqual([]);
+    expect(resolveStepIngredients(['unknown'], INGREDIENTS)).toEqual([]);
   });
 });
 

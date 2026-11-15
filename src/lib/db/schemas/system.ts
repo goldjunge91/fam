@@ -88,3 +88,15 @@ export const appMeta = sqliteTable(
   },
   (table) => [primaryKey({ columns: [table.key] })],
 );
+
+/** Local receipts prevent a failed chat-history save from applying shopping proposals twice. */
+export const appliedAssistantShoppingProposals = sqliteTable(
+  'applied_assistant_shopping_proposals',
+  {
+    userId: text('user_id').notNull(),
+    householdId: text('household_id').notNull(),
+    proposalKey: text('proposal_key').notNull(),
+    appliedAt: integer('applied_at').notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.userId, table.householdId, table.proposalKey] })],
+);

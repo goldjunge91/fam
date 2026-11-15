@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
+import type { PressableProps, StyleProp, ViewStyle } from 'react-native';
 import type { DashboardCardDef } from '@/features/dashboard/registry';
 import { clearCards, registerCard } from '@/features/dashboard/registry';
 import { useCardSizes } from '@/features/dashboard/use-card-sizes';
@@ -26,8 +27,18 @@ jest.mock('@/components/theme/ThemeProvider', () => ({
 jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({ bottom: 4 }) }));
 jest.mock('@/constants/ui', () => {
   const { createElement } = require('react');
-  const { Text } = require('react-native');
-  return { Txt: ({ children }: { children: ReactNode }) => createElement(Text, null, children) };
+  const { Pressable, Text } = require('react-native');
+  return {
+    Press: ({
+      containerStyle,
+      style,
+      children,
+      ...props
+    }: PressableProps & {
+      containerStyle?: StyleProp<ViewStyle>;
+    }) => createElement(Pressable, { ...props, style: [containerStyle, style] }, children),
+    Txt: ({ children }: { children: ReactNode }) => createElement(Text, null, children),
+  };
 });
 jest.mock('@/features/dashboard/use-card-sizes', () => ({
   useCardSizes: jest.fn(),

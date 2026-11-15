@@ -49,6 +49,19 @@ function singleStepIsDone(db: DatabaseSync, sql: string): boolean {
 }
 
 describe('Siri native Schreibpfad: PRAGMA-Semantik', () => {
+  describe('Konvention: Siri bleibt ohne UIApplication-Assertion', () => {
+    it('verlangt den Extension-eigenen synchronen Owner', () => {
+      const source = readDatabaseSources();
+
+      expect(source).not.toContain('UIApplication');
+      expect(source).not.toContain('beginBackgroundTask');
+      expect(source).not.toContain('endBackgroundTask');
+      expect(source).toContain('BEGIN IMMEDIATE');
+      expect(source).toContain('ROLLBACK');
+      expect(source).toContain('exsqlite3_close(database)');
+    });
+  });
+
   describe('execute() darf sich nicht auf SQLITE_DONE verlassen', () => {
     it('PRAGMA busy_timeout liefert eine Zeile und bricht eine DONE-Pruefung', () => {
       const db = new DatabaseSync(':memory:');

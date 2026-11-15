@@ -9,6 +9,7 @@ import {
 describe('telemetry policy', () => {
   beforeEach(() => {
     useAnalyticsSettingsStore.getState().resetOverrides();
+    useAnalyticsSettingsStore.getState().setPostHogConsent('granted');
   });
 
   it('ordnet bestehende Produkt-Events deterministisch Feature-Domaenen zu', () => {
@@ -17,6 +18,7 @@ describe('telemetry policy', () => {
     expect(getAnalyticsFeatureForEvent('inventory_item.consume.completed')).toBe('inventory');
     expect(getAnalyticsFeatureForEvent('shopping_item.check.completed')).toBe('shoppingList');
     expect(getAnalyticsFeatureForEvent('recipe.create.completed')).toBe('recipes');
+    expect(getAnalyticsFeatureForEvent('recipe_import.started')).toBe('recipes');
     expect(getAnalyticsFeatureForEvent('meal_plan.reuse.completed')).toBe('mealPlanner');
     expect(getAnalyticsFeatureForEvent('product.barcode_scan.completed')).toBe('productSearch');
     expect(getAnalyticsFeatureForEvent('purchase.checkout.completed')).toBe('premium');
@@ -50,6 +52,15 @@ describe('telemetry policy', () => {
     store.setOverride('providers.aptabase', false);
     expect(isAnalyticsProviderEnabled('aptabase')).toBe(false);
     expect(isAnalyticsProviderEnabled('posthog')).toBe(true);
+  });
+
+  it('blockiert PostHog ohne Einwilligung, lässt andere Provider aber unabhängig prüfen', () => {
+    const store = useAnalyticsSettingsStore.getState();
+    store.setPostHogConsent('pending');
+    store.setOverride('providers.aptabase', true);
+
+    expect(isAnalyticsProviderEnabled('posthog')).toBe(false);
+    expect(isAnalyticsProviderEnabled('aptabase')).toBe(true);
   });
 
   it('laesst unbekannte Produkt-Events aktiv, solange der Produktkanal aktiv ist', () => {

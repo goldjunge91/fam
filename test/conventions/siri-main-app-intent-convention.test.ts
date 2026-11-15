@@ -21,6 +21,8 @@ const SHORTCUT_PROVIDER_PATH = path.join(
   'siri',
   'main-app-shopping-list-intent.swift',
 );
+const APP_SHORTCUT_CATALOG_PATH = path.join(REPO_ROOT, 'targets', 'siri', 'AppShortcuts.xcstrings');
+const SIRI_INFO_PLIST_PATH = path.join(REPO_ROOT, 'targets', 'siri', 'Info.plist');
 const EXTENSION_ENTRYPOINT_PATH = path.join(REPO_ROOT, 'targets', 'siri', 'siri-extension.swift');
 const SIRI_TARGET_CONFIG_PATH = path.join(REPO_ROOT, 'targets', 'siri', 'expo-target.config.js');
 const APP_CONFIG_PATH = path.join(REPO_ROOT, 'app.config.ts');
@@ -46,6 +48,53 @@ const DATABASE_FILES_PATH = path.join(REPO_ROOT, 'src', 'lib', 'db', 'database-f
 
 /** Keychain-Gruppe: Team-ID + Bundle-ID, gedeckt durch `SW8RP7PA3W.*`. */
 const FAM_KEYCHAIN_GROUP = 'SW8RP7PA3W.com.goldjunge91.fam1';
+
+type AppShortcutsCatalog = {
+  sourceLanguage?: string;
+  strings?: Record<
+    string,
+    {
+      localizations?: Record<
+        string,
+        {
+          stringUnit?: {
+            state?: string;
+            value?: string;
+          };
+        }
+      >;
+    }
+  >;
+  version?: string;
+};
+
+const APP_SHORTCUT_PHRASES = [
+  'Füge einen Artikel mit \\(.applicationName) hinzu',
+  'Setze mit \\(.applicationName) einen Artikel auf die Einkaufsliste',
+  'Ergänze die Einkaufsliste mit \\(.applicationName)',
+  'Füge einen Artikel zur Einkaufsliste in \\(.applicationName) hinzu',
+  'Füge mehrere Artikel mit \\(.applicationName) hinzu',
+  'Setze mehrere Artikel mit \\(.applicationName) auf die Einkaufsliste',
+  'Packe mehrere Artikel mit \\(.applicationName) auf die Einkaufsliste',
+  'Füge mit \\(.applicationName) mehrere Artikel zur Einkaufsliste hinzu',
+  'Füge Artikel zur Einkaufsliste bei \\(\\.$store) mit \\(.applicationName) hinzu',
+  'Schreibe mit \\(.applicationName) etwas auf meine Einkaufsliste',
+  'Trage mit \\(.applicationName) etwas auf die Einkaufsliste ein',
+  'Ergänze meine Einkaufsliste mit \\(.applicationName)',
+  'Setze mit \\(.applicationName) etwas auf meine Einkaufsliste',
+  'Nimm mit \\(.applicationName) einen Artikel in die Einkaufsliste auf',
+  'Packe mit \\(.applicationName) etwas auf meine Einkaufsliste',
+  'Füge meiner Einkaufsliste mit \\(.applicationName) noch etwas hinzu',
+  'Ich möchte mit \\(.applicationName) etwas zur Einkaufsliste hinzufügen',
+] as const;
+
+const APPLICATION_NAME_TOKEN = '$' + '{applicationName}';
+const STORE_TOKEN = '$' + '{store}';
+
+const catalogPhrase = (phrase: string) =>
+  phrase
+    .replaceAll('\\(.applicationName)', APPLICATION_NAME_TOKEN)
+    .replaceAll('\\(\\.$store)', STORE_TOKEN);
 
 describe('Siri extension intent convention', () => {
   it('keeps intents, database access, and database writes in separate Swift files', () => {
@@ -110,25 +159,7 @@ describe('Siri extension intent convention', () => {
 
     expect(provider).toContain('intent: AddShoppingListItemsIntent()');
     expect(source).not.toContain('struct AddShoppingListItemIntent: AppIntent');
-    for (const phrase of [
-      'Füge einen Artikel zur Einkaufsliste in \\(.applicationName) hinzu',
-      'Füge einen Artikel mit \\(.applicationName) hinzu',
-      'Setze mit \\(.applicationName) einen Artikel auf die Einkaufsliste',
-      'Ergänze die Einkaufsliste mit \\(.applicationName)',
-      'Füge mit \\(.applicationName) mehrere Artikel zur Einkaufsliste hinzu',
-      'Füge Artikel zur Einkaufsliste bei \\(\\.$store) mit \\(.applicationName) hinzu',
-      'Füge mehrere Artikel mit \\(.applicationName) hinzu',
-      'Setze mehrere Artikel mit \\(.applicationName) auf die Einkaufsliste',
-      'Packe mehrere Artikel mit \\(.applicationName) auf die Einkaufsliste',
-      'Schreibe mit \\(.applicationName) etwas auf meine Einkaufsliste',
-      'Trage mit \\(.applicationName) etwas auf die Einkaufsliste ein',
-      'Ergänze meine Einkaufsliste mit \\(.applicationName)',
-      'Setze mit \\(.applicationName) etwas auf meine Einkaufsliste',
-      'Nimm mit \\(.applicationName) einen Artikel in die Einkaufsliste auf',
-      'Packe mit \\(.applicationName) etwas auf meine Einkaufsliste',
-      'Füge meiner Einkaufsliste mit \\(.applicationName) noch etwas hinzu',
-      'Ich möchte mit \\(.applicationName) etwas zur Einkaufsliste hinzufügen',
-    ]) {
+    for (const phrase of APP_SHORTCUT_PHRASES) {
       expect(provider).toContain(phrase);
     }
     expect(provider.match(/\\\(\.applicationName\)/gu)).toHaveLength(17);
@@ -217,6 +248,43 @@ describe('Siri extension intent convention', () => {
     });
   });
 
+  it('localizes app shortcut phrases for German NLU', () => {
+    const catalog = JSON.parse(
+      fs.readFileSync(APP_SHORTCUT_CATALOG_PATH, 'utf8'),
+    ) as AppShortcutsCatalog;
+    const strings = catalog.strings ?? {};
+    const phraseKeys = APP_SHORTCUT_PHRASES.map(catalogPhrase);
+
+    expect(catalog.sourceLanguage).toBe('en');
+    expect(catalog.version).toBe('1.0');
+    expect(Object.keys(strings).sort()).toEqual([...phraseKeys].sort());
+
+    for (const phrase of phraseKeys) {
+      const localizations = strings[phrase]?.localizations ?? {};
+      const stringUnit = localizations.de?.stringUnit;
+
+      expect(Object.keys(localizations)).toEqual(['de']);
+      expect(stringUnit?.state).toBe('translated');
+      expect(stringUnit?.value).toBe(phrase);
+      expect(stringUnit?.value?.match(/\$\{applicationName\}/gu) ?? []).toHaveLength(1);
+      expect(stringUnit?.value?.match(/\$\{store\}/gu) ?? []).toHaveLength(
+        phrase.includes(STORE_TOKEN) ? 1 : 0,
+      );
+    }
+  });
+
+  it('uses the generated Famm display name without duplicating app-level Siri names', () => {
+    const targetConfig = fs.readFileSync(SIRI_TARGET_CONFIG_PATH, 'utf8');
+    const extensionInfo = fs.readFileSync(SIRI_INFO_PLIST_PATH, 'utf8');
+
+    expect(targetConfig).toMatch(/type:\s*"app-intent"[\s\S]*displayName:\s*"Famm"/u);
+    expect(targetConfig).not.toContain('displayName: "siri"');
+    expect(extensionInfo).toContain('<key>EXAppExtensionAttributes</key>');
+    expect(extensionInfo).not.toMatch(
+      /<key>(?:CFBundleDisplayName|CFBundleSpokenName|INAlternativeAppNames|INAlternativeAppName)<\/key>/u,
+    );
+  });
+
   it('keeps the extension entry point separate from the shopping intent', () => {
     const source = fs.readFileSync(EXTENSION_ENTRYPOINT_PATH, 'utf8');
 
@@ -241,6 +309,21 @@ describe('Siri extension intent convention', () => {
     // Schreibende Seite (Haupt-App) braucht dieselbe Gruppe.
     expect(appConfig).toContain("'keychain-access-groups'");
     expect(appConfig).toContain('keychainGroup');
+  });
+
+  it('hält Siri als synchronen Extension-Pfad ohne UIKit-Assertion', () => {
+    const databaseSource = fs.readFileSync(DATABASE_PATH, 'utf8');
+    const writerSource = fs.readFileSync(DATABASE_WRITER_PATH, 'utf8');
+    const source = `${databaseSource}\n${writerSource}`;
+
+    expect(source).not.toContain('UIApplication');
+    expect(source).not.toContain('beginBackgroundTask');
+    expect(source).not.toContain('endBackgroundTask');
+    expect(source).toContain('try execute("BEGIN IMMEDIATE", on: database)');
+    expect(source).toContain('try execute("COMMIT", on: database)');
+    expect(source).toContain('try execute("ROLLBACK", on: database)');
+    expect(source).toContain('defer {');
+    expect(source).toContain('exsqlite3_close(database)');
   });
 
   it('verwendet dieselbe App-Group-Datei wie die Haupt-App', () => {

@@ -15,18 +15,20 @@ describe('feature registry SpeedDial configuration', () => {
       'speedDialShopping',
       'speedDialCalories',
       'speedDialRecipes',
+      'speedDialAssistant',
     ]);
   });
 
   it('looks up features by id and remote flag', () => {
     expect(getFeature('recipes')).toMatchObject({ id: 'recipes', title: 'Rezepte' });
+    expect(getFeature('assistant')).toMatchObject({ id: 'assistant', title: 'Assistant' });
     expect(getFeature('unknown')).toBeUndefined();
     expect(getFeatureByFlag('module-recipes')).toMatchObject({ id: 'recipes' });
   });
 
   it('groups drawer routes by household scope and configured order', () => {
     expect(getDrawerGroups().map(({ key, routes }) => [key, routes.map(({ id }) => id)])).toEqual([
-      ['today', ['overview']],
+      ['today', ['overview', 'assistant']],
       ['household', ['fridge', 'shoppingList', 'recipes', 'brochures', 'mealPlanner']],
       ['private', ['calories']],
     ]);

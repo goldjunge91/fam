@@ -129,8 +129,8 @@ function queuedFetcher(responses: Response[]) {
 const location = {
   zipCode: '22043',
   city: 'Hamburg',
-  latitude: 53.5659,
-  longitude: 10.0254,
+  latitude: 53.5683271,
+  longitude: 10.100758599999999,
 };
 
 describe('KaufDA brochure scraper', () => {
@@ -206,7 +206,7 @@ describe('KaufDA brochure scraper', () => {
     expect(calls[0]?.init?.headers).toMatchObject({
       Cookie: expect.stringContaining('zip%22%3A%2222043'),
     });
-    expect(new URL(calls[1]?.url ?? '').searchParams.get('lat')).toBe('53.5659');
+    expect(new URL(calls[1]?.url ?? '').searchParams.get('lat')).toBe('53.5683271');
   });
 
   it('fetches every shelf page before fetching all real brochure pages', async () => {

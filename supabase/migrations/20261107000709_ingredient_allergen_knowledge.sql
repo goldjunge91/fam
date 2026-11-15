@@ -1,0 +1,3 @@
+-- Migration-history placeholder for a schema previously applied to the shared
+-- remote by a superseded feature branch. This branch creates its own current
+-- allergen schema in 20261107213055_declarative_sync.sql.

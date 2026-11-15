@@ -1,6 +1,12 @@
 import { DatabaseSync } from 'node:sqlite';
 
-import { type SqlStatementDriver, serializeDatabase } from '@/lib/db/serialize';
+import {
+  isMutatingSql,
+  type SharedStoreWriterLease,
+  type SharedStoreWriterOwner,
+  type SqlStatementDriver,
+  serializeDatabase,
+} from '@/lib/db/serialize';
 import type { SqlParam } from '@/lib/db/types';
 
 /**
@@ -64,6 +70,36 @@ function createRecordingDriver() {
   return { driver, log, close: () => db.close() };
 }
 
+function createWriterOwner(events: string[] = []) {
+  const leases: Array<{
+    name: string;
+    controller: AbortController;
+    lease: SharedStoreWriterLease;
+    end: jest.Mock<void, []>;
+  }> = [];
+  const owner: SharedStoreWriterOwner = {
+    beginWriterLease: jest.fn((name: string) => {
+      events.push(`acquire:${name}`);
+      const controller = new AbortController();
+      let ended = false;
+      const end = jest.fn(() => {
+        ended = true;
+        events.push('end');
+      });
+      const lease: SharedStoreWriterLease = {
+        signal: controller.signal,
+        get ended() {
+          return ended;
+        },
+        end,
+      };
+      leases.push({ name, controller, lease, end });
+      return lease;
+    }),
+  };
+  return { owner, leases };
+}
+
 describe('serializeDatabase', () => {
   let harness: ReturnType<typeof createRecordingDriver>;
 
@@ -75,6 +111,254 @@ describe('serializeDatabase', () => {
 
   afterEach(() => {
     harness.close();
+  });
+
+  it('erwirbt die Writer-Zusicherung vor BEGIN und beendet sie nach COMMIT genau einmal', async () => {
+    const events: string[] = [];
+    const writer = createWriterOwner(events);
+    const db = serializeDatabase(harness.driver, writer.owner);
+
+    await db.withExclusiveTransactionAsync(async (txn) => {
+      await txn.runAsync('insert into t (v) values (?)', ['owned']);
+      events.push('task');
+    });
+
+    expect(events).toEqual(['acquire:sqlite.transaction', 'task', 'end']);
+    expect(harness.log).toEqual(['BEGIN IMMEDIATE', 'insert into t (v) values (?)', 'COMMIT']);
+    expect(writer.leases).toHaveLength(1);
+    expect(writer.leases[0]?.end).toHaveBeenCalledTimes(1);
+  });
+
+  it('hält eine Writer-Lease bis zum Cleanup nach Expiration', async () => {
+    const writer = createWriterOwner();
+    const db = serializeDatabase(harness.driver, writer.owner);
+    const cleanupEvents: string[] = [];
+
+    await expect(
+      db.withWriterLeaseAsync('off.patch', async ({ db: ownedDb, cleanupExecAsync }) => {
+        await ownedDb.execAsync("ATTACH DATABASE ':memory:' AS off_patch");
+        writer.leases[0]?.controller.abort('expiration');
+        cleanupEvents.push('abort');
+        await cleanupExecAsync('DETACH DATABASE off_patch');
+        cleanupEvents.push('detach');
+      }),
+    ).rejects.toThrow(/abgelaufen/);
+
+    expect(cleanupEvents).toEqual(['abort', 'detach']);
+    expect(writer.leases[0]?.end).toHaveBeenCalledTimes(1);
+    expect(harness.log).toEqual([
+      "ATTACH DATABASE ':memory:' AS off_patch",
+      'DETACH DATABASE off_patch',
+    ]);
+  });
+
+  it('beendet die Writer-Zusicherung erst nach abgeschlossenem ROLLBACK', async () => {
+    const writer = createWriterOwner();
+    const db = serializeDatabase(harness.driver, writer.owner);
+    const events: string[] = [];
+    const originalExecAsync = harness.driver.execAsync;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'ROLLBACK') events.push('rollback');
+      await originalExecAsync(source);
+    };
+
+    await expect(
+      db.withExclusiveTransactionAsync(async (txn) => {
+        await txn.runAsync('insert into t (v) values (?)', ['rollback']);
+        throw new Error('task failed');
+      }),
+    ).rejects.toThrow('task failed');
+
+    const lease = writer.leases[0];
+    expect(lease?.end).toHaveBeenCalledTimes(1);
+    expect(harness.log).toEqual(['BEGIN IMMEDIATE', 'insert into t (v) values (?)', 'ROLLBACK']);
+    expect(await db.getAllAsync('select v from t')).toHaveLength(0);
+  });
+
+  it('behält die Writer-Zusicherung nach fehlgeschlagenem ROLLBACK bis zum bestätigten Close', async () => {
+    const events: string[] = [];
+    const writer = createWriterOwner(events);
+    const originalExecAsync = harness.driver.execAsync;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'ROLLBACK') {
+        events.push('rollback-failed');
+        throw new Error('rollback failed');
+      }
+      await originalExecAsync(source);
+    };
+    const recoverAfterCleanupFailure = jest.fn(async () => {
+      events.push('recovery-failed');
+      throw new Error('raw close failed');
+    });
+    const db = serializeDatabase(harness.driver, {
+      writerOwner: writer.owner,
+      recoverAfterCleanupFailure,
+    });
+
+    await expect(
+      db.withExclusiveTransactionAsync(async (txn) => {
+        await txn.runAsync('insert into t (v) values (?)', ['unresolved']);
+        throw new Error('task failed');
+      }),
+    ).rejects.toThrow('task failed');
+
+    expect(recoverAfterCleanupFailure).toHaveBeenCalledTimes(1);
+    expect(writer.leases[0]?.end).not.toHaveBeenCalled();
+    await expect(db.runAsync('insert into t (v) values (?)', ['too late'])).rejects.toThrow(
+      /geschlossen/,
+    );
+
+    await db.closeForLifecycle(async () => {
+      events.push('raw-close-confirmed');
+      await originalExecAsync('ROLLBACK');
+    });
+
+    expect(writer.leases[0]?.end).toHaveBeenCalledTimes(1);
+    expect(events).toEqual([
+      'acquire:sqlite.transaction',
+      'rollback-failed',
+      'recovery-failed',
+      'raw-close-confirmed',
+      'end',
+    ]);
+    expect(await harness.driver.getAllAsync('select v from t')).toHaveLength(0);
+  });
+
+  it('behält die Writer-Zusicherung während einer DETACH-Recovery', async () => {
+    const events: string[] = [];
+    const writer = createWriterOwner(events);
+    const originalExecAsync = harness.driver.execAsync;
+    let detachAttempts = 0;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'DETACH DATABASE off_patch' && detachAttempts++ === 0) {
+        events.push('detach-failed');
+        throw new Error('detach failed');
+      }
+      await originalExecAsync(source);
+    };
+
+    let announceRecovery: (() => void) | undefined;
+    const recoveryStarted = new Promise<void>((resolve) => {
+      announceRecovery = resolve;
+    });
+    let releaseRecovery: (() => void) | undefined;
+    const recoveryReleased = new Promise<void>((resolve) => {
+      releaseRecovery = resolve;
+    });
+    const db = serializeDatabase(harness.driver, {
+      writerOwner: writer.owner,
+      recoverAfterCleanupFailure: async () => {
+        events.push('recovery-started');
+        announceRecovery?.();
+        await recoveryReleased;
+        await originalExecAsync('DETACH DATABASE off_patch');
+        events.push('recovery-finished');
+      },
+    });
+
+    const operation = db.withWriterLeaseAsync(
+      'off.patch',
+      async ({ db: ownedDb, cleanupExecAsync }) => {
+        await ownedDb.execAsync("ATTACH DATABASE ':memory:' AS off_patch");
+        await cleanupExecAsync('DETACH DATABASE off_patch');
+      },
+    );
+
+    await recoveryStarted;
+    expect(writer.leases[0]?.end).not.toHaveBeenCalled();
+    releaseRecovery?.();
+    await expect(operation).rejects.toThrow('detach failed');
+
+    expect(writer.leases[0]?.end).toHaveBeenCalledTimes(1);
+    expect(events).toEqual([
+      'acquire:off.patch',
+      'detach-failed',
+      'recovery-started',
+      'recovery-finished',
+      'end',
+    ]);
+  });
+
+  it('rollt nach Ablauf zurück und startet keinen COMMIT-Retry', async () => {
+    const writer = createWriterOwner();
+    const db = serializeDatabase(harness.driver, writer.owner);
+
+    await expect(
+      db.withExclusiveTransactionAsync(async (txn) => {
+        await txn.runAsync('insert into t (v) values (?)', ['expired']);
+        writer.leases[0]?.controller.abort('expiration');
+      }),
+    ).rejects.toThrow(/abgelaufen/);
+
+    expect(harness.log).toEqual(['BEGIN IMMEDIATE', 'insert into t (v) values (?)', 'ROLLBACK']);
+    expect(writer.leases[0]?.end).toHaveBeenCalledTimes(1);
+    expect(await db.getAllAsync('select v from t')).toHaveLength(0);
+  });
+
+  it('bricht einen BEGIN-Retry nach Ablauf ohne Rollback oder zweiten BEGIN ab', async () => {
+    const writer = createWriterOwner();
+    const originalExecAsync = harness.driver.execAsync;
+    let beginAttempts = 0;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'BEGIN IMMEDIATE' && beginAttempts++ === 0) {
+        writer.leases[0]?.controller.abort('expiration');
+        throw new Error('database is locked');
+      }
+      await originalExecAsync(source);
+    };
+    const db = serializeDatabase(harness.driver, writer.owner);
+
+    await expect(db.withExclusiveTransactionAsync(async () => undefined)).rejects.toThrow(
+      /abgelaufen/,
+    );
+
+    expect(beginAttempts).toBe(1);
+    expect(harness.log).toEqual([]);
+    expect(writer.leases[0]?.end).toHaveBeenCalledTimes(1);
+  });
+
+  it('schützt nur klassifizierte Mutationen, nicht Reads und read-only PRAGMAs', async () => {
+    const writer = createWriterOwner();
+    const db = serializeDatabase(harness.driver, writer.owner);
+
+    expect(isMutatingSql('select * from t')).toBe(false);
+    expect(isMutatingSql('PRAGMA journal_mode')).toBe(false);
+    expect(isMutatingSql('PRAGMA journal_mode = WAL')).toBe(true);
+    expect(isMutatingSql("ATTACH DATABASE 'file.db' AS off_dump")).toBe(true);
+
+    await db.getFirstAsync('select count(*) as count from t');
+    await db.execAsync('PRAGMA journal_mode');
+    await db.runAsync('insert into t (v) values (?)', ['classified']);
+    await db.execAsync('PRAGMA foreign_keys = ON');
+
+    expect(writer.owner.beginWriterLease).toHaveBeenCalledTimes(2);
+    expect(writer.owner.beginWriterLease).toHaveBeenNthCalledWith(
+      1,
+      'sqlite.runAsync',
+      expect.any(Object),
+    );
+    expect(writer.owner.beginWriterLease).toHaveBeenNthCalledWith(
+      2,
+      'sqlite.execAsync',
+      expect.any(Object),
+    );
+  });
+
+  it('hält lokale Entität und Outbox-Eintrag atomar', async () => {
+    const writer = createWriterOwner();
+    const db = serializeDatabase(harness.driver, writer.owner);
+    await harness.driver.execAsync('create table outbox (entity_id text not null)');
+
+    await expect(
+      db.withExclusiveTransactionAsync(async (txn) => {
+        await txn.runAsync('insert into t (v) values (?)', ['entity']);
+        await txn.runAsync('insert into outbox (entity_id) values (?)', ['entity']);
+        throw new Error('outbox cancellation');
+      }),
+    ).rejects.toThrow('outbox cancellation');
+
+    expect(await db.getAllAsync('select v from t')).toHaveLength(0);
+    expect(await db.getAllAsync('select entity_id from outbox')).toHaveLength(0);
   });
 
   it('oeffnet die Transaktion mit BEGIN IMMEDIATE, nicht mit BEGIN', async () => {
@@ -92,12 +376,8 @@ describe('serializeDatabase', () => {
   it('retryt einen kurzzeitigen Lock beim Transaktionsstart', async () => {
     const originalExecAsync = harness.driver.execAsync;
     let beginAttempts = 0;
-    let commitAttempts = 0;
     harness.driver.execAsync = async (source) => {
       if (source === 'BEGIN IMMEDIATE' && beginAttempts++ === 0) {
-        throw new Error('database is locked');
-      }
-      if (source === 'COMMIT' && commitAttempts++ === 0) {
         throw new Error('database is locked');
       }
       await originalExecAsync(source);
@@ -111,8 +391,45 @@ describe('serializeDatabase', () => {
     ).resolves.toBeUndefined();
 
     expect(beginAttempts).toBe(2);
-    expect(commitAttempts).toBe(2);
     expect(await db.getAllAsync<{ v: string }>('select v from t')).toEqual([{ v: 'after retry' }]);
+  });
+
+  it('rollt bei SQLITE_BUSY beim COMMIT sofort zurueck und gibt die Sperre frei', async () => {
+    const originalExecAsync = harness.driver.execAsync;
+    let commitAttempts = 0;
+    harness.driver.execAsync = async (source) => {
+      if (source === 'COMMIT') {
+        commitAttempts += 1;
+        harness.log.push(source);
+        throw new Error('database is locked');
+      }
+      await originalExecAsync(source);
+    };
+    const db = serializeDatabase(harness.driver);
+    const setTimeoutSpy = jest.spyOn(globalThis, 'setTimeout');
+
+    try {
+      await expect(
+        db.withExclusiveTransactionAsync(async (txn) => {
+          await txn.runAsync('insert into t (v) values (?)', ['verworfen']);
+        }),
+      ).rejects.toThrow('database is locked');
+
+      expect(commitAttempts).toBe(1);
+      expect(setTimeoutSpy).not.toHaveBeenCalled();
+      expect(harness.log).toEqual([
+        'BEGIN IMMEDIATE',
+        'insert into t (v) values (?)',
+        'COMMIT',
+        'ROLLBACK',
+      ]);
+      expect(await db.getAllAsync('select v from t')).toHaveLength(0);
+
+      await db.runAsync('insert into t (v) values (?)', ['danach']);
+      expect(await db.getAllAsync<{ v: string }>('select v from t')).toEqual([{ v: 'danach' }]);
+    } finally {
+      setTimeoutSpy.mockRestore();
+    }
   });
 
   it('verschachtelt zwei gleichzeitige Transaktionen nicht', async () => {
@@ -238,30 +555,26 @@ describe('serializeDatabase', () => {
     expect(row).toEqual({ v: 'danach' });
   });
 
-  it('wartet mit dem Close auf reservierte mehrstufige Lifecycle-Vorgänge', async () => {
+  it('stops a reserved lifecycle operation from starting a statement after close admission', async () => {
     const db = serializeDatabase(harness.driver);
-    const close = jest.fn().mockResolvedValue(undefined);
     let releaseOperation: (() => void) | undefined;
     const operationReleased = new Promise<void>((resolve) => {
       releaseOperation = resolve;
     });
 
     const operation = db.withLifecycleOperationAsync(async (operationDb) => {
-      await operationDb.runAsync('insert into t (v) values (?)', ['vor close']);
+      await operationDb.runAsync('insert into t (v) values (?)', ['before close']);
       await operationReleased;
-      await operationDb.runAsync('insert into t (v) values (?)', ['nach close']);
+      await operationDb.runAsync('insert into t (v) values (?)', ['after close']);
     });
     await Promise.resolve();
     await Promise.resolve();
-    const closing = db.closeForLifecycle(close);
+    const closing = db.closeForLifecycle(jest.fn().mockResolvedValue(undefined));
 
-    await expect(db.getAllAsync('select too late')).rejects.toThrow(/geschlossen/);
-    expect(close).not.toHaveBeenCalled();
     releaseOperation?.();
-    await expect(operation).resolves.toBeUndefined();
+    await expect(operation).rejects.toThrow(/geschlossen/);
     await expect(closing).resolves.toBeUndefined();
-    expect(close).toHaveBeenCalledTimes(1);
-    expect(harness.log).toEqual(['insert into t (v) values (?)', 'insert into t (v) values (?)']);
+    expect(harness.log).toEqual(['insert into t (v) values (?)']);
   });
 
   it('drained reservierte Abfragen und blockiert neue Zugriffe vor dem Close', async () => {

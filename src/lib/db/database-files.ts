@@ -1,3 +1,8 @@
+import {
+  type SharedStoreWriterOwner,
+  withSharedStoreWriter,
+} from '@/lib/apple/shared-store-lifecycle';
+
 export const DATABASE_FILE_NAMES = {
   main: 'fam-v2.db',
   encryptedNext: 'fam-v2.encrypted.next.db',
@@ -12,6 +17,10 @@ export type DatabaseFileOps = {
   path(fileName: string): string;
 };
 
+export type DatabaseFileOpsOptions = {
+  writerOwner?: SharedStoreWriterOwner;
+};
+
 function loadFileSystem(): typeof import('expo-file-system') {
   try {
     return require('expo-file-system') as typeof import('expo-file-system');
@@ -23,18 +32,32 @@ function loadFileSystem(): typeof import('expo-file-system') {
 }
 
 /** Dateioperationen im nativen SQLite-Verzeichnis, nicht im Dokumentenverzeichnis. */
-export function createExpoDatabaseFileOps(databaseDirectory: string): DatabaseFileOps {
+export function createExpoDatabaseFileOps(
+  databaseDirectory: string,
+  options: DatabaseFileOpsOptions = {},
+): DatabaseFileOps {
   const { File } = loadFileSystem();
   const file = (fileName: string) => new File(databaseDirectory, fileName);
+  const writerOwner = options.writerOwner;
+
+  const withFileMutation = <T>(name: string, operation: () => Promise<T> | T): Promise<T> =>
+    writerOwner
+      ? withSharedStoreWriter(writerOwner, name, operation)
+      : Promise.resolve().then(operation);
 
   return {
     exists: (fileName) => file(fileName).exists,
     async delete(fileName) {
       const target = file(fileName);
-      if (target.exists) target.delete();
+      if (!target.exists) return;
+      await withFileMutation(`db-file.delete:${fileName}`, () => {
+        if (target.exists) target.delete();
+      });
     },
     async move(fromFileName, toFileName) {
-      await file(fromFileName).move(file(toFileName));
+      await withFileMutation(`db-file.move:${fromFileName}->${toFileName}`, () =>
+        file(fromFileName).move(file(toFileName)),
+      );
     },
     path: (fileName) => {
       const uri = file(fileName).uri;

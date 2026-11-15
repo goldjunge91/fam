@@ -63,7 +63,7 @@ describe('InventoryIconButton', () => {
     );
 
     const button = screen.getByRole('button', { name: 'Artikel suchen' });
-    expect(button.parent?.parent).toHaveStyle({
+    expect(button.parent?.parent?.parent).toHaveStyle({
       backgroundColor: colorsLight.border,
     });
   });

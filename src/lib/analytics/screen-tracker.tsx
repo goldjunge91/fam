@@ -6,8 +6,31 @@ import { trackAnalyticsEvent } from '@/lib/analytics/events';
 import { addDiagnosticStep } from '@/lib/telemetry';
 import { recordSessionRoute } from '@/lib/telemetry/session-diagnostics';
 
+const SAFE_SCREEN_NAMES: Record<string, string> = {
+  '/': 'home',
+  '/index': 'home',
+  '/fridge': 'fridge',
+  '/inventory': 'inventory',
+  '/shopping-list': 'shopping_list',
+  '/recipes': 'recipes',
+  '/meal-planner': 'meal_planner',
+  '/food-search': 'food_search',
+  '/settings': 'settings',
+  '/settings/privacy': 'settings_privacy',
+  '/settings/export': 'settings_export',
+  '/settings/sync': 'settings_sync',
+};
+
+/** Reduziert Routerpfade auf eine kleine Allowlist ohne IDs oder private Screen-Namen. */
+export function sanitizeScreenName(pathname: string): string | undefined {
+  const pathWithoutQuery = pathname.split(/[?#]/, 1)[0] ?? pathname;
+  const normalizedPath = pathWithoutQuery.replace(/\/\([^/]+\)/g, '') || '/';
+  return SAFE_SCREEN_NAMES[normalizedPath];
+}
+
 export function ScreenTracker(): null {
   const pathname = usePathname();
+  const currentPathnameRef = useRef<string | null>(null);
   const currentScreenRef = useRef<string | null>(null);
   const screenStartTimeRef = useRef<number | null>(null);
 
@@ -28,9 +51,13 @@ export function ScreenTracker(): null {
     }
   }, []);
 
-  const startScreenSession = useCallback((screen: string) => {
-    currentScreenRef.current = screen;
-    screenStartTimeRef.current = Date.now();
+  const startScreenSession = useCallback((nextPathname: string) => {
+    currentPathnameRef.current = nextPathname;
+    const screen = sanitizeScreenName(nextPathname);
+    currentScreenRef.current = screen ?? null;
+    screenStartTimeRef.current = screen ? Date.now() : null;
+
+    if (!screen) return;
 
     recordSessionRoute(screen);
     addDiagnosticStep('route.changed', { route: screen, operation: 'navigation.route' });
@@ -39,12 +66,10 @@ export function ScreenTracker(): null {
 
   // Reagiert auf Pfadwechsel im Expo Router
   useEffect(() => {
-    if (!pathname) return;
+    if (!pathname || currentPathnameRef.current === pathname) return;
 
-    if (currentScreenRef.current !== pathname) {
-      endCurrentScreenSession();
-      startScreenSession(pathname);
-    }
+    endCurrentScreenSession();
+    startScreenSession(pathname);
   }, [pathname, endCurrentScreenSession, startScreenSession]);
 
   // Reagiert auf AppState (z. B. wenn App in den Hintergrund geht oder zurueckkehrt)

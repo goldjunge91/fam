@@ -371,23 +371,30 @@ export type OutboxOutcome = {
   nextAttemptAtMs: number;
 };
 
-/** Schreibt das Ergebnis eines gescheiterten Push-Versuchs auf die betroffenen Outbox-Zeilen. */
+/** Schreibt das Ergebnis eines gescheiterten Push-Versuchs atomar auf Outbox und History. */
 export async function recordOutboxOutcome(
   db: SqlDatabase,
   ids: readonly number[],
   outcome: OutboxOutcome,
+  options: { signal?: AbortSignal } = {},
 ): Promise<void> {
   if (ids.length === 0) return;
 
   const placeholders = ids.map(() => '?').join(', ');
-  await db.runAsync(
-    `update outbox set attempts = ?, last_error = ?, last_error_kind = ?, next_attempt_at = ? where id in (${placeholders})`,
-    [outcome.attempts, outcome.lastError, outcome.kind, outcome.nextAttemptAtMs, ...ids],
-  );
-  await db.runAsync(
-    `update outbox_history
-        set status = 'failed', attempts = ?, last_error = ?, last_error_kind = ?, updated_at = ?
-      where outbox_id in (${placeholders})`,
-    [outcome.attempts, outcome.lastError, outcome.kind, Date.now(), ...ids],
+  const updatedAt = Date.now();
+  await db.withExclusiveTransactionAsync(
+    async (txn) => {
+      await txn.runAsync(
+        `update outbox set attempts = ?, last_error = ?, last_error_kind = ?, next_attempt_at = ? where id in (${placeholders})`,
+        [outcome.attempts, outcome.lastError, outcome.kind, outcome.nextAttemptAtMs, ...ids],
+      );
+      await txn.runAsync(
+        `update outbox_history
+            set status = 'failed', attempts = ?, last_error = ?, last_error_kind = ?, updated_at = ?
+          where outbox_id in (${placeholders})`,
+        [outcome.attempts, outcome.lastError, outcome.kind, updatedAt, ...ids],
+      );
+    },
+    { signal: options.signal },
   );
 }

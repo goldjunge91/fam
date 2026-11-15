@@ -10,32 +10,36 @@ const FEATURE_FLAG_AUTO_RELOAD_INTERVAL_MS = 12 * 60 * 60 * 1000;
 export function PostHogIdentitySync() {
   const { session, isLoading, accountReady, error } = useSession();
   const userId = session?.user.id;
+  const email = session?.user.email;
   const posthogEnabled = useAnalyticsSettingsStore(
-    (state) => state.overrides.enabled !== false && state.overrides.providers?.posthog !== false,
+    (state) =>
+      state.posthogConsent === 'granted' &&
+      state.overrides.enabled !== false &&
+      state.overrides.providers?.posthog !== false,
   );
   const posthogClient = getPostHogClient();
 
   useEffect(() => {
-    if (isLoading || !accountReady || error) {
+    if (isLoading || !accountReady || error || !posthogEnabled) {
       setTelemetryUserId(null);
-      if (posthogEnabled && isPostHogConfigured() && posthogClient) {
+      if (isPostHogConfigured() && posthogClient) {
         posthogClient.reset();
       }
       return;
     }
 
     setTelemetryUserId(userId);
-    if (!posthogEnabled || !isPostHogConfigured() || !posthogClient) return;
+    if (!isPostHogConfigured() || !posthogClient) return;
 
     if (userId) {
-      posthogClient.identify(userId, {
-        ...(session?.user.email ? { email: session.user.email } : {}),
-        userId,
-      });
+      posthogClient.identify(userId);
+      if (email) {
+        posthogClient.setPersonPropertiesForFlags({ email });
+      }
     } else {
       posthogClient.reset();
     }
-  }, [accountReady, error, isLoading, posthogEnabled, posthogClient, userId, session?.user.email]);
+  }, [accountReady, email, error, isLoading, posthogEnabled, posthogClient, userId]);
 
   useEffect(() => {
     // Feature-Flags beim Vordergrundwechsel aktualisieren.

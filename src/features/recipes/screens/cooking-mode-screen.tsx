@@ -1,30 +1,33 @@
 import { useLocalSearchParams } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Alert } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Txt } from '@/constants/ui';
 import { celebrate } from '@/features/gamification/celebration';
 import { recordActivity } from '@/features/gamification/streak';
 import { usePremium } from '@/features/premium/premium-provider';
-import {
-  toCookingRecipeDetail,
-  useCatalogImageUrl,
-  useCatalogRecipe,
-} from '../catalog/use-recipe-catalog';
+import { toCookingRecipeDetail, useCatalogRecipe } from '../catalog/use-recipe-catalog';
 import { CookingModeFinished } from '../components/cooking-mode/cooking-mode-finished';
-import { CookingModeNoSteps } from '../components/cooking-mode/cooking-mode-no-steps';
+import { CookingModePlusFlow } from '../components/cooking-mode/cooking-mode-plus-flow';
 import { CookingModeShell } from '../components/cooking-mode/cooking-mode-shell';
-import { CookingModeStep } from '../components/cooking-mode/cooking-mode-step';
-import { getCookingTimerDurationSeconds } from '../components/cooking-mode/cooking-mode-timer';
 import { FreeCookingMode } from '../components/cooking-mode/free-cooking-mode';
 import { flattenRecipeItems } from '../domain/ingredient-mentions';
-import { useCookingTimer } from '../hooks/use-cooking-timer';
+import {
+  replaceIngredientInText,
+  replaceIngredientName,
+  type TemporaryIngredientSwap,
+} from '../domain/temporary-ingredient-swap';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
 const styles = StyleSheet.create((theme) => ({
   loading: {
     padding: theme.space.xxxl,
     textAlign: 'center',
+  },
+  context: {
+    paddingHorizontal: theme.space.xxl,
+    paddingTop: theme.space.sm,
   },
 }));
 
@@ -38,8 +41,31 @@ function CookingModeLoading() {
   );
 }
 
+function firstSearchParam(value: string | string[] | undefined): string | null {
+  const candidate = Array.isArray(value) ? value[0] : value;
+  return typeof candidate === 'string' && candidate.trim().length > 0 ? candidate.trim() : null;
+}
+
 export function CookingModeScreen() {
-  const { id, slug } = useLocalSearchParams<{ id?: string; slug?: string }>();
+  const { id, slug, swapIngredient, swapReplacement } = useLocalSearchParams<{
+    id?: string;
+    slug?: string;
+    swapIngredient?: string;
+    swapReplacement?: string;
+  }>();
+  const temporarySwap = useMemo<TemporaryIngredientSwap | null>(() => {
+    const ingredientName = firstSearchParam(swapIngredient);
+    const replacement = firstSearchParam(swapReplacement);
+    if (
+      !ingredientName ||
+      !replacement ||
+      ingredientName.length > 120 ||
+      replacement.length > 120
+    ) {
+      return null;
+    }
+    return { ingredientName, replacement };
+  }, [swapIngredient, swapReplacement]);
   const recipeQuery = useRecipeDetail(id);
   const catalogQuery = useCatalogRecipe(slug);
   const catalogData = catalogQuery.data;
@@ -47,22 +73,60 @@ export function CookingModeScreen() {
   const isCatalog = !id && Boolean(slug);
   const isLoading = isCatalog ? catalogQuery.isLoading : recipeQuery.isLoading;
   const { hasPlus } = usePremium();
-  const [stepIndex, setStepIndex] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [lastPlusStepIndex, setLastPlusStepIndex] = useState(0);
+  const [handsFreeChoice, setHandsFreeChoice] = useState<{
+    key: string;
+    enabled: boolean;
+  } | null>(null);
+  const handsFreePromptedRef = useRef<string | null>(null);
   const completedRecipeIdRef = useRef<string | null>(null);
-  const timerStep = data?.steps[Math.min(stepIndex, Math.max((data?.steps.length ?? 0) - 1, 0))];
-  const catalogStepImagePath = catalogData?.stepImages.find(
-    (image) => image.step_id === timerStep?.id,
-  )?.storage_path;
-  const { data: catalogStepImageUrl } = useCatalogImageUrl(catalogStepImagePath);
-  const durationSeconds = getCookingTimerDurationSeconds(timerStep);
-  const {
-    remainingSeconds,
-    running,
-    start: startTimer,
-    pause: pauseTimer,
-    reset: resetTimer,
-  } = useCookingTimer({ stepId: timerStep?.id, durationSeconds });
+  const handsFreePromptKey =
+    data && data.steps.length > 0
+      ? `${isCatalog ? 'catalog' : 'recipe'}:${isCatalog ? (slug ?? data.recipe.id) : data.recipe.id}`
+      : null;
+  const handsFreeEnabled = handsFreeChoice?.key === handsFreePromptKey && handsFreeChoice.enabled;
+  const displayedSteps = useMemo(
+    () =>
+      data?.steps.map((step) => ({
+        ...step,
+        text: replaceIngredientInText(step.text, temporarySwap),
+      })) ?? [],
+    [data, temporarySwap],
+  );
+  const displayedIngredients = useMemo(
+    () =>
+      data
+        ? flattenRecipeItems(data.items, data.productsById).map((ingredient) => ({
+            ...ingredient,
+            name: replaceIngredientName(ingredient.name, temporarySwap),
+          }))
+        : [],
+    [data, temporarySwap],
+  );
+  useEffect(() => {
+    if (!hasPlus || !handsFreePromptKey || handsFreePromptedRef.current === handsFreePromptKey) {
+      return;
+    }
+
+    handsFreePromptedRef.current = handsFreePromptKey;
+    setHandsFreeChoice({ key: handsFreePromptKey, enabled: false });
+    Alert.alert(
+      'Hands-free im Kochmodus?',
+      'Soll der aktuelle Schritt vorgelesen werden und danach auf einen Sprachbefehl warten?',
+      [
+        {
+          text: 'Nein',
+          style: 'cancel',
+          onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: false }),
+        },
+        {
+          text: 'Hands-free aktivieren',
+          onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: true }),
+        },
+      ],
+    );
+  }, [handsFreePromptKey, hasPlus]);
 
   useEffect(() => {
     const recipeId = data?.recipe.id;
@@ -80,7 +144,7 @@ export function CookingModeScreen() {
   }, [data?.recipe.id, finished]);
 
   if (isLoading || !data) return <CookingModeLoading />;
-  if (!hasPlus) return <FreeCookingMode data={data} />;
+  if (!hasPlus) return <FreeCookingMode data={data} temporarySwap={temporarySwap} />;
   if (finished) {
     return (
       <CookingModeFinished
@@ -91,36 +155,28 @@ export function CookingModeScreen() {
     );
   }
 
-  const currentStep = data.steps[Math.min(stepIndex, Math.max(data.steps.length - 1, 0))];
-  const mentionIngredients = flattenRecipeItems(data.items, data.productsById);
-
   return (
     <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
-      {currentStep ? (
-        <CookingModeStep
-          steps={data.steps}
-          stepIndex={stepIndex}
-          currentStep={currentStep}
-          currentStepImageUrl={catalogStepImageUrl}
-          mentionIngredients={mentionIngredients}
-          durationSeconds={durationSeconds}
-          remainingSeconds={remainingSeconds}
-          timerRunning={running}
-          onStartTimer={startTimer}
-          onPauseTimer={pauseTimer}
-          onResetTimer={resetTimer}
-          onPreviousStep={() => setStepIndex((value) => Math.max(0, value - 1))}
-          onNextStep={() => {
-            if (stepIndex >= data.steps.length - 1) {
-              setFinished(true);
-            } else {
-              setStepIndex((value) => value + 1);
-            }
-          }}
-        />
-      ) : (
-        <CookingModeNoSteps recipe={data.recipe} onFinish={() => setFinished(true)} />
-      )}
+      {temporarySwap ? (
+        <Txt variant="caption" tone="secondary" style={styles.context}>
+          Einmalig ersetzt: {temporarySwap.ingredientName} → {temporarySwap.replacement}
+        </Txt>
+      ) : null}
+      <CookingModePlusFlow
+        recipe={data.recipe}
+        steps={displayedSteps}
+        ingredients={displayedIngredients}
+        catalogStepImages={catalogData?.stepImages}
+        initialStepIndex={lastPlusStepIndex}
+        handsFreeEnabled={handsFreeEnabled}
+        onFinish={(stepIndex) => {
+          if (stepIndex !== undefined) setLastPlusStepIndex(stepIndex);
+          setHandsFreeChoice((current) =>
+            current?.key === handsFreePromptKey ? { ...current, enabled: false } : current,
+          );
+          setFinished(true);
+        }}
+      />
     </CookingModeShell>
   );
 }

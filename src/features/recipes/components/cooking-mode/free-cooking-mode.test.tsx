@@ -203,6 +203,71 @@ it('zeigt gespeicherte Gruppen, Varianten von Zutaten und Schrittbilder', async 
   });
 });
 
+it('zeigt importierte Textzeilen auch ohne Portionsgewicht mit ihren Rohwerten', async () => {
+  const base = makeData();
+  const source = {
+    source: 'import_source' as const,
+    sourceId: 'draft-1',
+    sourceUrl: null,
+    sourceVersion: '2026-11-10T00:00:00.000Z',
+    license: null,
+  };
+  const data = makeData({
+    components: [
+      ...base.components,
+      { id: 'import', recipe_id: 'recipe-1', name: 'Import', serving_grams: null },
+    ],
+    items: [
+      ...base.items,
+      {
+        id: 'import-missing',
+        component_id: 'import',
+        product_id: null,
+        sub_component_id: null,
+        ingredient_name: null,
+        grams: null,
+        quantity: null,
+        unit: null,
+        sourceText: 'Menge fehlt',
+        ingredientSource: source,
+      },
+      {
+        id: 'import-negative',
+        component_id: 'import',
+        product_id: null,
+        sub_component_id: null,
+        ingredient_name: null,
+        grams: null,
+        quantity: -2,
+        unit: 'cup',
+        sourceText: 'Mehl aus dem Video',
+        ingredientSource: source,
+      },
+      {
+        id: 'import-unit',
+        component_id: 'import',
+        product_id: null,
+        sub_component_id: null,
+        ingredient_name: null,
+        grams: null,
+        quantity: 1.25,
+        unit: 'Prise',
+        sourceText: 'Salz',
+        ingredientSource: source,
+      },
+    ],
+  });
+
+  await render(<FreeCookingMode data={data} />);
+
+  expect(screen.getByText('Import')).toBeOnTheScreen();
+  expect(screen.getByText('Menge fehlt')).toBeOnTheScreen();
+  expect(screen.getByText('Mehl aus dem Video')).toBeOnTheScreen();
+  expect(screen.getByText('Salz')).toBeOnTheScreen();
+  expect(screen.getByText('-2 cup')).toBeOnTheScreen();
+  expect(screen.getByText('1.25 Prise')).toBeOnTheScreen();
+  expect(screen.queryByText('0 g zubereitet')).not.toBeOnTheScreen();
+});
 it('verwendet alle Gruppen ohne Portionsgewichte und blendet leere Abschnitte aus', async () => {
   const data = makeData({
     recipe: { ...makeData().recipe, instructions: null },
@@ -220,6 +285,20 @@ it('verwendet alle Gruppen ohne Portionsgewichte und blendet leere Abschnitte au
   expect(screen.getAllByText('0 g zubereitet')).toHaveLength(2);
   expect(screen.queryByText('Alles in einen Topf geben.')).not.toBeOnTheScreen();
   expect(screen.queryByText('Tomaten schneiden')).not.toBeOnTheScreen();
+});
+
+it('blendet beim temporären Zutatenwechsel die Menge der Originalzutat aus', async () => {
+  await render(
+    <FreeCookingMode
+      data={makeData()}
+      temporarySwap={{ ingredientName: 'Tomate', replacement: 'Paprika' }}
+    />,
+  );
+
+  expect(screen.getByText('Paprika')).toBeOnTheScreen();
+  expect(screen.queryByText('2 Stück')).not.toBeOnTheScreen();
+  expect(screen.getByText('Zwiebel')).toBeOnTheScreen();
+  expect(screen.getByText('50 g')).toBeOnTheScreen();
 });
 
 it('blendet die Gruppendarstellung aus, wenn keine Komponenten vorhanden sind', async () => {

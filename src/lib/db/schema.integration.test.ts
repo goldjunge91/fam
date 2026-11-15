@@ -146,8 +146,96 @@ describe('lokales Schema', () => {
       ]),
     );
     expect((await columnsOf(db, 'recipe_component_items')).map(({ name }) => name)).toEqual(
-      expect.arrayContaining(['optional', 'note']),
+      expect.arrayContaining([
+        'optional',
+        'note',
+        'source_text',
+        'ingredient_source_type',
+        'ingredient_source_id',
+        'ingredient_source_url',
+        'ingredient_source_version',
+        'ingredient_source_license',
+        'ingredient_mapping',
+      ]),
     );
+  });
+
+  it('speichert importierte Rezeptpositionen mit rohen und fehlenden Werten lokal', async () => {
+    const itemColumns = await columnsOf(db, 'recipe_component_items');
+    expect(itemColumns.find((column) => column.name === 'grams')?.notnull).toBe(0);
+    expect(itemColumns.find((column) => column.name === 'unit')?.notnull).toBe(0);
+
+    await db.runAsync(
+      `insert into recipe_component_items
+         (id, component_id, recipe_id, household_id, product_id, sub_component_id,
+          grams, quantity, unit, source_text, ingredient_source_type, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        'recipe-import-raw',
+        'component-import',
+        'recipe-import',
+        'household-1',
+        null,
+        null,
+        null,
+        -2.5,
+        'Handvoll',
+        'Tomaten aus dem Video',
+        'import_source',
+        0,
+      ],
+    );
+    await db.runAsync(
+      `insert into recipe_component_items
+         (id, component_id, recipe_id, household_id, product_id, sub_component_id,
+          grams, quantity, unit, source_text, ingredient_source_type, updated_at)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        'recipe-import-missing',
+        'component-import',
+        'recipe-import',
+        'household-1',
+        null,
+        null,
+        null,
+        null,
+        null,
+        'Salz nach Geschmack',
+        'import_source',
+        0,
+      ],
+    );
+
+    const rows = await db.getAllAsync<{
+      id: string;
+      product_id: string | null;
+      grams: number | null;
+      quantity: number | null;
+      unit: string | null;
+      source_text: string | null;
+    }>(
+      `select id, product_id, grams, quantity, unit, source_text
+       from recipe_component_items where id in (?, ?) order by id`,
+      ['recipe-import-missing', 'recipe-import-raw'],
+    );
+    expect(rows).toEqual([
+      {
+        id: 'recipe-import-missing',
+        product_id: null,
+        grams: null,
+        quantity: null,
+        unit: null,
+        source_text: 'Salz nach Geschmack',
+      },
+      {
+        id: 'recipe-import-raw',
+        product_id: null,
+        grams: null,
+        quantity: -2.5,
+        unit: 'Handvoll',
+        source_text: 'Tomaten aus dem Video',
+      },
+    ]);
   });
 
   it('erzwingt die Ledger-Regeln auch lokal in SQLite', async () => {

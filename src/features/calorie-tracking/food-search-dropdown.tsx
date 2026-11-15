@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Keyboard, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -20,6 +20,8 @@ import { BarcodeScannerModal } from '@/features/inventory/barcode-scanner-modal'
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import { usePreferredProductMarketName } from '@/features/product-search/preferred-market';
 import type { CatalogProduct } from '@/features/product-search/types';
+import { trackAnalyticsEvent } from '@/lib/analytics';
+import { getResultBucket } from '@/lib/telemetry/buckets';
 
 type FoodSearchDropdownProps = {
   mealType: MealType;
@@ -122,6 +124,8 @@ export function FoodSearchDropdown({
   const [source, setSource] = useState<ItemSource>('food');
   const [showScanner, setShowScanner] = useState(false);
   const [showDropdown, setShowDropdown] = useState(true);
+  const lastReportedSearchRef = useRef<string | null>(null);
+  const lastReportedSearchFailureRef = useRef<string | null>(null);
 
   const {
     query,
@@ -130,6 +134,7 @@ export function FoodSearchDropdown({
     results,
     searching,
     searchFailed,
+    searched,
     hasMore,
     loadingMore,
     retrySearch,
@@ -139,6 +144,29 @@ export function FoodSearchDropdown({
     session?.user.id,
     mealType,
   );
+
+  useEffect(() => {
+    const normalizedQuery = query.trim();
+    if (normalizedQuery.length < 2 || searching || !searched) return;
+
+    if (searchFailed) {
+      if (lastReportedSearchFailureRef.current === normalizedQuery) return;
+      lastReportedSearchFailureRef.current = normalizedQuery;
+      trackAnalyticsEvent('search.failed', {
+        source: 'food_search',
+        reason: 'catalog_unavailable',
+      });
+      return;
+    }
+
+    if (lastReportedSearchRef.current === normalizedQuery) return;
+    lastReportedSearchRef.current = normalizedQuery;
+    lastReportedSearchFailureRef.current = null;
+    trackAnalyticsEvent('search.completed', {
+      source: 'food_search',
+      result_bucket: getResultBucket(results.length),
+    });
+  }, [query, results.length, searchFailed, searched, searching]);
 
   const historyList =
     historyTab === 'recent' ? dedupeRecentFoods(history) : rankFrequentFoods(history);

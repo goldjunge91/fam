@@ -1,5 +1,10 @@
 import { Platform } from 'react-native';
 import { FAM_APP_GROUP } from '@/lib/apple/shared-app-group';
+import {
+  type SharedStoreWriterOwner,
+  sharedStoreWriterOwner,
+  withSharedStoreWriterSync,
+} from '@/lib/apple/shared-store-lifecycle';
 import type { KeyValueStore } from '@/lib/db/local-database-encryption';
 
 const DATABASE_KEY_FILE = 'fam.database.sqlcipher-key.v1';
@@ -56,7 +61,9 @@ function writeCleanupMarker(file: SharedKeyFile, value: string): void {
 /**
  * KeyValueStore für alte Schlüsseldateien und den wiederholbaren Cleanup-Marker.
  */
-export function createSharedKeyFileStore(): KeyValueStore {
+export function createSharedKeyFileStore(
+  writerOwner: SharedStoreWriterOwner = sharedStoreWriterOwner,
+): KeyValueStore {
   return {
     async getItem(key) {
       const file = getSharedKeyFile(key);
@@ -80,7 +87,9 @@ export function createSharedKeyFileStore(): KeyValueStore {
         if (current === DATABASE_KEY_CLEANUP_MARKER_VALUE) return;
         throw new Error('Der SQLCipher-Key-Cleanup-Marker ist ungültig.');
       }
-      writeCleanupMarker(file, value);
+      withSharedStoreWriterSync(writerOwner, 'database-key.cleanup-marker.write', () => {
+        writeCleanupMarker(file, value);
+      });
     },
     async removeItem(key) {
       const file = getSharedKeyFile(key);
@@ -93,7 +102,11 @@ export function createSharedKeyFileStore(): KeyValueStore {
         }
         return;
       }
-      if (file.exists) file.delete();
+      if (file.exists) {
+        withSharedStoreWriterSync(writerOwner, 'database-key.file.delete', () => {
+          file.delete();
+        });
+      }
     },
   };
 }

@@ -100,13 +100,13 @@ jobs:
       - name: Scrape and publish one complete postal-code scope
         env:
           TARGET_ZIP: ${{ matrix.zip_code }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP"
 
   dry-run:
     name: Dry-run PLZ ${{ inputs.zip }}
-    needs: discover
     if: github.event_name == 'workflow_dispatch' && inputs.dry_run == true
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -119,7 +119,14 @@ jobs:
         with:
           bun-version: '1.4.2'
 
-      - name: Validate one postal code without database credentials
+      - name: Validate and resolve one postal code without database credentials
         env:
           TARGET_ZIP: ${{ inputs.zip }}
-        run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP" --dry-run
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$TARGET_ZIP" =~ ^[0-9]{5}$ ]]; then
+            printf '::error::A dry run requires one five-digit postal code.\n'
+            exit 1
+          fi
+          bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP" --dry-run

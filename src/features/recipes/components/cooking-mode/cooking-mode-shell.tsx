@@ -2,8 +2,10 @@ import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
+
 import { BackButton } from '@/components/layout/back-button';
 import { PageHeader } from '@/components/layout/page-header';
+import { CONTENT_MAX_WIDTH } from '@/components/theme/index';
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -13,7 +15,7 @@ const styles = StyleSheet.create((theme) => ({
   safeArea: {
     flex: 1,
     width: '100%',
-    maxWidth: 800,
+    maxWidth: CONTENT_MAX_WIDTH,
     alignSelf: 'center',
   },
 }));
@@ -28,7 +30,7 @@ type CookingModeShellProps = {
 export function CookingModeShell({ title, backLabel, onBack, children }: CookingModeShellProps) {
   return (
     <View style={styles.root}>
-      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         <PageHeader
           title={title}
           leading={<BackButton label={backLabel} variant="header" onPress={onBack} />}

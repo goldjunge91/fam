@@ -61,7 +61,6 @@ describe('web fallbacks for native integrations', () => {
     ).toBeUndefined();
 
     expect(backgroundSync.BACKGROUND_SYNC_TASK_NAME).toBe('fam-background-sync');
-    backgroundSync.setBackgroundSyncHandler(async () => undefined);
     backgroundSync.defineBackgroundSyncTask();
     await backgroundSync.registerBackgroundSync(60);
     await backgroundSync.unregisterBackgroundSync();

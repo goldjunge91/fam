@@ -1,4 +1,4 @@
-import { serializeDatabase } from '@/lib/db/serialize';
+import { type SharedStoreWriterOwner, serializeDatabase } from '@/lib/db/serialize';
 import type { SqlDatabase, SqlParam } from '@/lib/db/types';
 import {
   attachOffDump,
@@ -8,6 +8,8 @@ import {
   initOffDump,
   reinstallOffDumpBaseline,
   resetOffDumpAttachment,
+  resumeOffDumpOperations,
+  suspendOffDumpOperations,
 } from './off-dump';
 import { setOffDumpAttached } from './off-dump-state';
 import { checkForUpdate, reconcileOnStart } from './repository';
@@ -89,6 +91,7 @@ type DbOptions = {
   attachedMeta?: { schema_version: number; data_version: string } | null;
   quickCheck?: Record<string, string> | null;
   attachError?: Error;
+  detachError?: Error;
 };
 
 function createRawDb(
@@ -100,6 +103,7 @@ function createRawDb(
     execAsync: async (source) => {
       executedSql.push(source);
       if (source.startsWith('ATTACH DATABASE') && options.attachError) throw options.attachError;
+      if (source === 'DETACH DATABASE off_dump' && options.detachError) throw options.detachError;
     },
     getAllAsync: async <T>(source: string) =>
       source === 'PRAGMA database_list' ? attachedDatabases.map((name) => ({ name }) as T) : [],
@@ -139,6 +143,7 @@ beforeEach(() => {
   mockFileExists = true;
   mockFileSize = 123;
   resetOffDumpAttachment();
+  resumeOffDumpOperations();
   jest.mocked(checkForUpdate).mockReset();
   jest.mocked(reconcileOnStart).mockReset();
   mockInstallBaseline.mockReset().mockResolvedValue({ ok: false, reason: 'corrupted' });
@@ -176,6 +181,48 @@ describe('attachOffDump', () => {
       'DETACH DATABASE off_dump',
       "ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''",
     ]);
+  });
+
+  it('behält Ownership nach einem fehlgeschlagenen persistenten DETACH bis zum Raw-Close', async () => {
+    let ended = false;
+    const end = jest.fn(() => {
+      ended = true;
+    });
+    const writerOwner: SharedStoreWriterOwner = {
+      beginWriterLease: jest.fn(() => ({
+        signal: new AbortController().signal,
+        get ended() {
+          return ended;
+        },
+        end,
+      })),
+    };
+    const raw = createRawDb(['off_dump'], { detachError: new Error('detach failed') });
+    const recoverAfterCleanupFailure = jest.fn(async () => {
+      throw new Error('raw close failed');
+    });
+    const db = serializeDatabase(
+      {
+        execAsync: raw.execAsync,
+        getAllAsync: raw.getAllAsync,
+        getAllRawAsync: raw.getAllRawAsync,
+        getFirstAsync: raw.getFirstAsync,
+        runAsync: raw.runAsync,
+      },
+      { writerOwner, recoverAfterCleanupFailure },
+    );
+
+    await expect(attachOffDump(db)).rejects.toThrow('detach failed');
+
+    expect(writerOwner.beginWriterLease).toHaveBeenCalledWith(
+      'off.dump.detach',
+      expect.any(Object),
+    );
+    expect(recoverAfterCleanupFailure).toHaveBeenCalledTimes(1);
+    expect(end).not.toHaveBeenCalled();
+
+    await db.closeForLifecycle(jest.fn().mockResolvedValue(undefined));
+    expect(end).toHaveBeenCalledTimes(1);
   });
 
   it('verifiziert ein vorhandenes Attach-Flag gegen die aktuelle Connection', async () => {
@@ -228,32 +275,37 @@ describe('attachOffDump', () => {
     expect(executedSql).toEqual(["ATTACH DATABASE '/documents/off-dump-v2.db' AS off_dump KEY ''"]);
   });
 
-  it('hält den geplanten Start-Update-Check bis vor den Lifecycle-Close offen', async () => {
+  it('bricht einen laufenden Start-Update-Check für den Lifecycle-Close ab', async () => {
     let markUpdateStarted: (() => void) | undefined;
     const updateStarted = new Promise<void>((resolve) => {
       markUpdateStarted = resolve;
     });
-    let releaseUpdate: (() => void) | undefined;
-    const updateReleased = new Promise<void>((resolve) => {
-      releaseUpdate = resolve;
-    });
-    jest.mocked(checkForUpdate).mockImplementationOnce(async () => {
-      markUpdateStarted?.();
-      await updateReleased;
-      return { kind: 'up-to-date' };
-    });
+    jest.mocked(checkForUpdate).mockImplementationOnce(
+      async ({ signal }: { signal?: AbortSignal }) =>
+        new Promise((_, reject) => {
+          markUpdateStarted?.();
+          signal?.addEventListener(
+            'abort',
+            () => {
+              const error = new Error('OFF-Dump-Vorgang wurde angehalten.');
+              error.name = 'AbortError';
+              reject(error);
+            },
+            { once: true },
+          );
+        }),
+    );
     const db = createDb();
     const close = jest.fn().mockResolvedValue(undefined);
 
     await initOffDump(db);
     await updateStarted;
+    suspendOffDumpOperations();
     const closing = db.closeForLifecycle(close);
-    await Promise.resolve();
 
-    expect(close).not.toHaveBeenCalled();
-    releaseUpdate?.();
     await expect(closing).resolves.toBeUndefined();
-    expect(executedRuns.map(({ params }) => params?.[0])).toContain('off_dump_last_check_at');
+    expect(close).toHaveBeenCalledTimes(1);
+    expect(executedRuns).toEqual([]);
     expect(mockDebugWarn).not.toHaveBeenCalled();
   });
 
@@ -324,7 +376,7 @@ describe('off-dump status and integrity', () => {
     expect(mockFileOps.inspectDump).not.toHaveBeenCalled();
   });
 
-  it('liest einen vorhandenen Dump vollständig vor einem Lifecycle-Close', async () => {
+  it('hält eine laufende Dateiinspektion nicht über den Lifecycle-Close', async () => {
     let markInspectionStarted: (() => void) | undefined;
     const inspectionStarted = new Promise<void>((resolve) => {
       markInspectionStarted = resolve;
@@ -344,17 +396,11 @@ describe('off-dump status and integrity', () => {
     const status = getOffDumpStatus(db);
     await inspectionStarted;
     const closing = db.closeForLifecycle(close);
+    await Promise.resolve();
+    expect(close).toHaveBeenCalledTimes(1);
     releaseInspection?.();
 
-    await expect(status).resolves.toEqual(
-      expect.objectContaining({
-        attached: false,
-        fileExists: true,
-        fileSizeBytes: 123,
-        schemaVersion: 3,
-        dataVersion: 'v3',
-      }),
-    );
+    await expect(status).rejects.toThrow('Die lokale Datenbank wird geschlossen.');
     await expect(closing).resolves.toBeUndefined();
   });
 
@@ -436,11 +482,33 @@ describe('off-dump update operations', () => {
     const refresh = forceRefreshOffDump(db);
     await updateStarted;
     const closing = db.closeForLifecycle(close);
+    await Promise.resolve();
+
+    expect(close).toHaveBeenCalledTimes(1);
+    releaseUpdate?.();
+
+    await expect(refresh).rejects.toThrow('Die lokale Datenbank wird geschlossen.');
+    await expect(closing).resolves.toBeUndefined();
+  });
+
+  it('hält während einer langen Vorbereitungsphase keine Lifecycle-Reservierung', async () => {
+    let releaseUpdate: (() => void) | undefined;
+    const updateReleased = new Promise<void>((resolve) => {
+      releaseUpdate = resolve;
+    });
+    jest.mocked(checkForUpdate).mockImplementationOnce(async () => {
+      await updateReleased;
+      return { kind: 'up-to-date' };
+    });
+    const db = createDb();
+    const lifecycleOperation = jest.spyOn(db, 'withLifecycleOperationAsync');
+
+    const refresh = forceRefreshOffDump(db);
+    await Promise.resolve();
     releaseUpdate?.();
 
     await expect(refresh).resolves.toEqual({ kind: 'up-to-date' });
-    await expect(closing).resolves.toBeUndefined();
-    expect(close).toHaveBeenCalledTimes(1);
+    expect(lifecycleOperation).not.toHaveBeenCalled();
   });
 
   it('beendet eine laufende Baseline-Installation vor einem Lifecycle-Close', async () => {
@@ -464,11 +532,12 @@ describe('off-dump update operations', () => {
     const reinstall = reinstallOffDumpBaseline(db);
     await installStarted;
     const closing = db.closeForLifecycle(close);
+    await Promise.resolve();
+    expect(close).toHaveBeenCalledTimes(1);
     releaseInstall?.();
 
-    await expect(reinstall).resolves.toEqual({ kind: 'baseline-installed', dataVersion: 'v3' });
+    await expect(reinstall).rejects.toThrow('Die lokale Datenbank wird geschlossen.');
     await expect(closing).resolves.toBeUndefined();
-    expect(close).toHaveBeenCalledTimes(1);
   });
 
   it('beendet eine laufende Integritätsprüfung vor einem Lifecycle-Close', async () => {
@@ -493,9 +562,9 @@ describe('off-dump update operations', () => {
     const closing = db.closeForLifecycle(close);
     await Promise.resolve();
 
-    expect(close).not.toHaveBeenCalled();
+    expect(close).toHaveBeenCalledTimes(1);
     releaseInspection?.();
-    await expect(integrity).resolves.toBe(true);
+    await expect(integrity).rejects.toThrow('Die lokale Datenbank wird geschlossen.');
     await expect(closing).resolves.toBeUndefined();
   });
 

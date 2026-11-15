@@ -1,7 +1,7 @@
 import type { SqlDatabase } from '@/lib/db/types';
 import { type InstallBaselineResult, installBaseline } from './baseline-installer';
 import { reconcileBaselineState } from './baseline-reconcile';
-import type { DumpInspection, FileOps } from './file-ops';
+import { type DumpInspection, type FileOps, throwIfOffDumpAborted } from './file-ops';
 import { type DumpManifest, fetchManifest as defaultFetchManifest } from './manifest';
 import { type ApplyPatchResult, applyPatch } from './patch-applier';
 import type { PlaintextAttachmentMode } from './plaintext-attachment';
@@ -28,6 +28,7 @@ type InstallBaselineFn = (
     nextPath: string;
     recoveryPath: string;
     attachmentMode: PlaintextAttachmentMode;
+    signal?: AbortSignal;
   },
 ) => Promise<InstallBaselineResult>;
 
@@ -39,6 +40,7 @@ type ApplyPatchFn = (
     expectedSchemaVersion: number;
     toVersion: string;
     attachmentMode: PlaintextAttachmentMode;
+    signal?: AbortSignal;
   },
 ) => Promise<ApplyPatchResult>;
 
@@ -46,15 +48,22 @@ type ApplyPatchFn = (
  * Vor jedem Attach: bereinigt einen ggf. inkonsistenten Dateizustand vom
  * letzten Absturz (siehe `baseline-reconcile.ts`).
  */
-export async function reconcileOnStart(fileOps: FileOps, paths: DumpPaths): Promise<void> {
+export async function reconcileOnStart(
+  fileOps: FileOps,
+  paths: DumpPaths,
+  signal?: AbortSignal,
+): Promise<void> {
+  throwIfOffDumpAborted(signal);
   const [active, next, recovery] = await Promise.all([
     fileOps.exists(paths.activePath),
     fileOps.exists(paths.nextPath),
     fileOps.exists(paths.recoveryPath),
   ]);
 
+  throwIfOffDumpAborted(signal);
   const actions = reconcileBaselineState({ active, next, recovery });
   for (const action of actions) {
+    throwIfOffDumpAborted(signal);
     if (action.kind === 'move') {
       const from = action.from === 'next' ? paths.nextPath : paths.recoveryPath;
       await fileOps.move(from, paths.activePath);
@@ -62,6 +71,7 @@ export async function reconcileOnStart(fileOps: FileOps, paths: DumpPaths): Prom
       const file = action.file === 'next' ? paths.nextPath : paths.recoveryPath;
       await fileOps.delete(file);
     }
+    throwIfOffDumpAborted(signal);
   }
 }
 
@@ -72,9 +82,12 @@ async function applyPatchChain(
   patches: DumpManifest['patches'],
   paths: DumpPaths,
   applyPatchFn: ApplyPatchFn,
+  signal?: AbortSignal,
 ): Promise<{ ok: true } | { ok: false }> {
   for (const patch of patches) {
-    await fileOps.download(patch.url, paths.nextPath);
+    throwIfOffDumpAborted(signal);
+    await fileOps.download(patch.url, paths.nextPath, signal);
+    throwIfOffDumpAborted(signal);
     try {
       const result = await applyPatchFn(db, {
         patchDbPath: paths.nextPath,
@@ -82,6 +95,7 @@ async function applyPatchChain(
         expectedSchemaVersion: manifest.schemaVersion,
         toVersion: patch.to,
         attachmentMode: 'sqlcipher',
+        signal,
       });
       if (!result.ok) return { ok: false };
     } finally {
@@ -98,7 +112,8 @@ export async function checkForUpdate(params: {
   paths: DumpPaths;
   /** Bereits gelesener Zustand des aktiven, angehängten Dumps. */
   activeInspection?: DumpInspection | null;
-  fetchManifest?: (url: string) => Promise<DumpManifest | null>;
+  signal?: AbortSignal;
+  fetchManifest?: (url: string, signal?: AbortSignal) => Promise<DumpManifest | null>;
   installBaseline?: InstallBaselineFn;
   applyPatch?: ApplyPatchFn;
 }): Promise<UpdateOutcome> {
@@ -108,16 +123,20 @@ export async function checkForUpdate(params: {
     manifestUrl,
     paths,
     activeInspection,
+    signal,
     fetchManifest: fetchManifestFn = defaultFetchManifest,
     installBaseline: installBaselineFn = installBaseline,
     applyPatch: applyPatchFn = applyPatch,
   } = params;
 
-  const manifest = await fetchManifestFn(manifestUrl);
+  throwIfOffDumpAborted(signal);
+  const manifest = await fetchManifestFn(manifestUrl, signal);
+  throwIfOffDumpAborted(signal);
   if (!manifest) return { kind: 'manifest-unavailable' };
 
   const inspected =
     activeInspection === undefined ? await fileOps.inspectDump(paths.activePath) : activeInspection;
+  throwIfOffDumpAborted(signal);
   const plan = planUpdate(
     {
       schemaVersion: inspected?.schemaVersion ?? null,
@@ -131,6 +150,7 @@ export async function checkForUpdate(params: {
   const schemaVersion = manifest.schemaVersion;
 
   async function runBaselineInstall(): Promise<UpdateOutcome> {
+    throwIfOffDumpAborted(signal);
     const result = await installBaselineFn(db, fileOps, {
       downloadUrl: baseline.url,
       expectedChecksum: baseline.checksum,
@@ -139,6 +159,7 @@ export async function checkForUpdate(params: {
       nextPath: paths.nextPath,
       recoveryPath: paths.recoveryPath,
       attachmentMode: 'sqlcipher',
+      signal,
     });
     return result.ok
       ? { kind: 'baseline-installed', dataVersion: result.dataVersion }
@@ -155,6 +176,7 @@ export async function checkForUpdate(params: {
     plan.patches,
     paths,
     applyPatchFn,
+    signal,
   );
   if (chainResult.ok) return { kind: 'patched', dataVersion: manifest.latestVersion };
 

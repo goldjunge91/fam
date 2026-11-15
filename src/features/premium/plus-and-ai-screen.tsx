@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BackButton } from '@/components/layout/back-button';
+import { BackButton, goBackTo } from '@/components/layout/back-button';
 import { HubScreen } from '@/components/layout/hub-screen';
 import { rs, withAlpha } from '@/components/theme/index';
 import { Button, SegmentedControl, Txt } from '@/constants/ui';
@@ -18,6 +18,28 @@ const TIER_OPTIONS = [
   { value: 'plus', label: TIER_CONTENT.plus.tabLabel },
   { value: 'ai', label: TIER_CONTENT.ai.tabLabel },
 ] as const;
+
+function showConfirmedActivation(tier: PaywallTier) {
+  Alert.alert(
+    'Erfolgreich',
+    tier === 'plus'
+      ? 'Fam Plus ist jetzt für deinen Haushalt aktiv!'
+      : 'Fam KI ist jetzt für deinen Haushalt aktiv!',
+    [{ text: 'OK', onPress: () => goBackTo('/settings') }],
+  );
+}
+
+function showPendingActivation(tier: PaywallTier, onRetry: () => void) {
+  const subscription = tier === 'plus' ? 'Dein Fam-Plus-Abo' : 'Dein KI-Abo';
+  Alert.alert(
+    'Haushaltsfreigabe noch nicht aktiv',
+    `${subscription} wurde gefunden, aber die Freigabe für den Haushalt ist noch nicht aktiv. Du kannst es jetzt erneut versuchen.`,
+    [
+      { text: 'Später', style: 'cancel' },
+      { text: 'Erneut versuchen', onPress: onRetry },
+    ],
+  );
+}
 
 const styles = StyleSheet.create((theme) => ({
   scroll: {
@@ -92,12 +114,11 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
   async function handleBuy() {
     const outcome = await buySelectedPlan();
     if (outcome.kind === 'purchased') {
-      Alert.alert(
-        'Erfolgreich',
-        tier === 'plus'
-          ? 'Fam Plus ist jetzt für deinen Haushalt aktiv!'
-          : 'Fam KI ist jetzt für deinen Haushalt aktiv!',
-      );
+      if (outcome.activation.confirmed) {
+        showConfirmedActivation(tier);
+      } else {
+        showPendingActivation(tier, () => void handleRestore());
+      }
     } else if (outcome.kind === 'failed') {
       Alert.alert('Kauf fehlgeschlagen', outcome.error.message);
     } else if (outcome.kind === 'unavailable') {
@@ -128,7 +149,11 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
       );
       return;
     }
-    Alert.alert('Erfolgreich', 'Deine Käufe wurden wiederhergestellt.');
+    if (result.activation.confirmed) {
+      showConfirmedActivation(tier);
+    } else {
+      showPendingActivation(tier, () => void handleRestore());
+    }
   }
 
   const ctaLabel =
@@ -191,7 +216,19 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
                   : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
               </Txt>
             </View>
-            <Button title="Abo verwalten" onPress={handleManage} loading={managing} />
+            <Button
+              title="Abo verwalten"
+              onPress={handleManage}
+              loading={managing}
+              disabled={isRestoring}
+            />
+            <Button
+              title="Käufe wiederherstellen"
+              variant="secondary"
+              onPress={handleRestore}
+              loading={isRestoring}
+              disabled={managing}
+            />
 
             {/* Upgrade-Hinweis zum jeweils anderen Tab, solange dieser noch nicht aktiv ist */}
             {!otherOwned ? (

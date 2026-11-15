@@ -1,0 +1,10 @@
+{
+  "platforms": ["ios"],
+  "apple": {
+    "modules": ["FamSharedStoreLifecycleModule"],
+    "appDelegateSubscribers": ["FamSharedStoreLifecycleAppDelegateSubscriber"]
+  },
+  "ios": {
+    "podspecPath": "ios/FamSharedStoreLifecycle.podspec"
+  }
+}

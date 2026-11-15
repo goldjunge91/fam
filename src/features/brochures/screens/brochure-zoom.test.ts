@@ -16,6 +16,23 @@ describe('brochure zoom transforms', () => {
     expect(firstZoom.scale).toBe(81);
   });
 
+  it('resets scale and translation at the minimum before allowing a new focal zoom', () => {
+    const shiftedZoom = { scale: 2, translateX: -40, translateY: 24 };
+    const resetZoom = applyPinchZoom(shiftedZoom, 0.5, { x: 100, y: 80 });
+
+    expect(resetZoom).toEqual({ scale: 1, translateX: 0, translateY: 0 });
+    expect(applyPinchZoom(shiftedZoom, 0.25, { x: 100, y: 80 })).toEqual({
+      scale: 1,
+      translateX: 0,
+      translateY: 0,
+    });
+    expect(applyPinchZoom(resetZoom, 2, { x: 80, y: 50 })).toEqual({
+      scale: 2,
+      translateX: -80,
+      translateY: -50,
+    });
+  });
+
   it('toggles double tap between 2x at the tap point and the original size', () => {
     const zoomed = toggleDoubleTapZoom(
       { scale: 1, translateX: 0, translateY: 0 },

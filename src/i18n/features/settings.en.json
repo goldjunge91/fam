@@ -200,7 +200,11 @@
           },
           "thirdParties": {
             "title": "Third-party services",
-            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry, PostHog, and Aptabase help with error diagnosis, product improvement, and usage analytics."
+            "body": "Open Food Facts: when scanning a barcode or searching for a product, the barcode/search term is sent to the public Open Food Facts API — without account or health data. Supabase hosts the database, authentication, and realtime sync. Google AdMob serves ads for the free version. RevenueCat handles purchase and subscription status. Sentry handles full error diagnosis. PostHog is enabled only after your consent. It then receives your email address solely to evaluate user-specific feature access, as well as a technical account ID and curated technical usage data. Your email is not sent as an analytics event. Household IDs, free-form error messages, and private/dynamic screen paths are excluded."
+          },
+          "aiProcessing": {
+            "title": "AI features",
+            "body": "Assistant and recipe import features send your message or selected recipe source, along with the household context needed for the request, to an external AI provider. This may include relevant recipes, inventory, and saved allergies, intolerances, and personal food rules."
           },
           "permissions": {
             "title": "Permissions",
@@ -214,6 +218,13 @@
             "title": "Your rights",
             "body": "Access/export via Settings → Export as JSON. Deletion via Settings → Delete account — shared household data remains for the remaining members, only your private data is removed. Profile and diary data can be edited directly in the app."
           }
+        },
+        "posthogSettings": {
+          "title": "PostHog analytics and feature access",
+          "enabledDescription": "You agreed to PostHog processing. We send curated technical usage data and your technical account ID. Your email address is sent to PostHog only to evaluate user-specific feature access, not as an analytics event. You can stop sharing at any time.",
+          "disabledDescription": "PostHog is disabled. Without your consent, your email address, account ID, and PostHog events are not sent to PostHog.",
+          "allowButton": "Allow PostHog",
+          "disableButton": "Disable PostHog"
         },
         "adsSettings": {
           "title": "Ad settings",

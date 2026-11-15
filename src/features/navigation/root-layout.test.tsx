@@ -48,8 +48,11 @@ describe('root Expo layout', () => {
     });
   };
 
-  it('initializes the runtime, hooks lifecycle behavior, and renders the navigator', async () => {
+  it('initializes foreground services only when the root view mounts', async () => {
     setDevelopmentMode(false);
+
+    expect(mockInitializeAppRuntime).not.toHaveBeenCalled();
+
     await render(<RootLayout />);
 
     expect(mockInitializeAppRuntime).toHaveBeenCalledTimes(1);

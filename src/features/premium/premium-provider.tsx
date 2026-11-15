@@ -18,17 +18,18 @@ import {
   useForcePremiumOverrideStore,
 } from '@/features/premium/force-premium-override';
 import {
+  hasAIEntitlement,
   initPurchases,
   isPurchasesConfigured,
   resetPurchasesIdentity,
   setPurchasesAttributes,
-  setPurchasesEmail,
   syncPurchasesIdentity,
 } from '@/lib/backend/revenuecat';
 import { env } from '@/lib/config/env';
 import { queryClient as defaultQueryClient } from '@/lib/data/query-client';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
+import { syncRevenueCatAiEntitlement } from './revenuecat-entitlement-sync';
 
 type PremiumContextValue = {
   /** Serverautorisierter Plus-Status des aktiven Haushalts. */
@@ -78,7 +79,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const userId = session?.user.id;
-  const userEmail = session?.user.email;
   const identitySyncGenerationRef = useRef(0);
   const currentUserIdRef = useRef(userId);
   const purchasesOperationQueueRef = useRef<Promise<void>>(Promise.resolve());
@@ -200,7 +200,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
         if (userId) {
           const info = await syncPurchasesIdentity(userId, {
             household_id: activeHouseholdId ?? null,
-            $posthogUserId: userId,
           });
           if (!isCurrent()) return;
           if (info) {
@@ -208,9 +207,12 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
               info,
               userId,
             });
-          }
-          if (userEmail) {
-            await setPurchasesEmail(userEmail);
+            if (hasAIEntitlement(info) && activeHouseholdId) {
+              await syncRevenueCatAiEntitlement(activeHouseholdId, info);
+              if (isCurrent()) {
+                await triggerHouseholdsPull(userId, defaultQueryClient);
+              }
+            }
           }
         } else {
           await resetPurchasesIdentity();
@@ -223,7 +225,7 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
         if (isCurrent()) setLoading(false);
       }
     });
-  }, [userId, userEmail, activeHouseholdId, enqueuePurchasesOperation]);
+  }, [userId, activeHouseholdId, enqueuePurchasesOperation]);
 
   // Haushaltswechsel an RevenueCat Subscriber Attributes melden
   useEffect(() => {
@@ -242,7 +244,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
       try {
         await setPurchasesAttributes({
           household_id: activeHouseholdId ?? null,
-          $posthogUserId: userId,
         });
       } catch (err) {
         debugWarn('[Premium] RevenueCat-Attribute konnten nicht gesetzt werden:', err);

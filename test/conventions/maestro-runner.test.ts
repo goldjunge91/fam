@@ -3,6 +3,7 @@ import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { join } from 'node:path';
 
 const REPO_ROOT = process.cwd();
+const MAESTRO_OUTPUT_DIRECTORY = join(REPO_ROOT, '.agents', 'maestro');
 
 describe('direct Maestro runners', () => {
   let tempDir: string;
@@ -30,7 +31,48 @@ describe('direct Maestro runners', () => {
   afterEach(() => rmSync(tempDir, { recursive: true, force: true }));
 
   it('passes iOS runner arguments and authentication inputs to Maestro', () => {
-    const result = spawnSync('bun', ['.maestro/scripts/maestro.ts', '--include-tags', 'smoke'], {
+    const result = spawnSync(
+      'bun',
+      ['.maestro/scripts/maestro.ts', 'test', '.maestro/ios', '--include-tags', 'smoke'],
+      {
+        cwd: REPO_ROOT,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          MAESTRO_BIN: fakeMaestro,
+          MAESTRO_CAPTURE_ARGS: capturedArgs,
+          MAESTRO_CAPTURE_ENV: capturedEnvironment,
+          TEST_EMAIL: 'maestro@example.com',
+          TEST_PASSWORD: 'safe-test-password',
+          WRONG_EMAIL: 'wrong@example.com',
+          WRONG_PASSWORD: 'wrong-test-password',
+          METRO_MANIFEST_URL: 'http%3A%2F%2F127.0.0.1%3A8081',
+        },
+      },
+    );
+
+    expect(result.status).toBe(0);
+    expect(readFileSync(capturedArgs, 'utf8')).toBe(
+      [
+        'test',
+        `--test-output-dir=${MAESTRO_OUTPUT_DIRECTORY}`,
+        `--debug-output=${MAESTRO_OUTPUT_DIRECTORY}`,
+        '.maestro/ios',
+        '--include-tags',
+        'smoke',
+        '--exclude-tags',
+        'fixture,local-session,manual',
+        '',
+      ].join('\n'),
+    );
+    expect(readFileSync(capturedEnvironment, 'utf8')).toBe(
+      'maestro@example.com\nsafe-test-password\nwrong@example.com\nwrong-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',
+    );
+  });
+
+  it('keeps explicitly selected iOS flows outside the default suite exclusions', () => {
+    const flow = '.maestro/ios/flows/session/signed-in-dashboard.yaml';
+    const result = spawnSync('bun', ['.maestro/scripts/maestro.ts', 'test', flow], {
       cwd: REPO_ROOT,
       encoding: 'utf8',
       env: {
@@ -38,18 +80,18 @@ describe('direct Maestro runners', () => {
         MAESTRO_BIN: fakeMaestro,
         MAESTRO_CAPTURE_ARGS: capturedArgs,
         MAESTRO_CAPTURE_ENV: capturedEnvironment,
-        TEST_EMAIL: 'maestro@example.com',
-        TEST_PASSWORD: 'safe-test-password',
-        WRONG_EMAIL: 'wrong@example.com',
-        WRONG_PASSWORD: 'wrong-test-password',
-        METRO_MANIFEST_URL: 'http%3A%2F%2F127.0.0.1%3A8081',
       },
     });
 
     expect(result.status).toBe(0);
-    expect(readFileSync(capturedArgs, 'utf8')).toBe('--include-tags\nsmoke\n');
-    expect(readFileSync(capturedEnvironment, 'utf8')).toBe(
-      'maestro@example.com\nsafe-test-password\nwrong@example.com\nwrong-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',
+    expect(readFileSync(capturedArgs, 'utf8')).toBe(
+      [
+        'test',
+        `--test-output-dir=${MAESTRO_OUTPUT_DIRECTORY}`,
+        `--debug-output=${MAESTRO_OUTPUT_DIRECTORY}`,
+        flow,
+        '',
+      ].join('\n'),
     );
   });
 
@@ -83,7 +125,18 @@ describe('direct Maestro runners', () => {
 
     expect(result.status).toBe(0);
     expect(readFileSync(capturedArgs, 'utf8')).toBe(
-      'test\n--reinstall-driver\n.maestro/android/flows/session/signed-in-dashboard.yaml\n--include-tags\nsmoke\n--device\nPixel_8_API_35\n',
+      [
+        'test',
+        `--test-output-dir=${MAESTRO_OUTPUT_DIRECTORY}`,
+        `--debug-output=${MAESTRO_OUTPUT_DIRECTORY}`,
+        '--reinstall-driver',
+        '.maestro/android/flows/session/signed-in-dashboard.yaml',
+        '--include-tags',
+        'smoke',
+        '--device',
+        'Pixel_8_API_35',
+        '',
+      ].join('\n'),
     );
     expect(readFileSync(capturedEnvironment, 'utf8')).toBe(
       'maestro@example.com\nsafe-test-password\nwrong@example.com\nwrong-test-password\nhttp%3A%2F%2F127.0.0.1%3A8081\n',

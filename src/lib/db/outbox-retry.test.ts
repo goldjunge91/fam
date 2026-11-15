@@ -43,6 +43,22 @@ describe('retryFailedOutboxEntries', () => {
     );
   });
 
+  it('bricht vor dem ersten Reparatur-Write bei Lifecycle-Abbruch ab', async () => {
+    const controller = new AbortController();
+    const { db, runAsync, getAllAsync } = createDatabaseFake({
+      legacyUnitEntries: [{ id: 1, payload: '{"unit":"L"}' }],
+    });
+    getAllAsync.mockReset().mockImplementationOnce(async () => {
+      controller.abort();
+      return [{ id: 1, payload: '{"unit":"L"}' }];
+    });
+
+    await expect(retryFailedOutboxEntries(db, 1234, controller.signal)).rejects.toMatchObject({
+      name: 'AbortError',
+    });
+    expect(runAsync).not.toHaveBeenCalled();
+  });
+
   it('laesst nicht-terminale Eintraege unveraendert', async () => {
     const { db, runAsync } = createDatabaseFake();
 

@@ -3,9 +3,16 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 
+import {
+  type SharedStoreWriterOwner,
+  type SqlStatementDriver,
+  serializeDatabase,
+} from '@/lib/db/serialize';
+import type { SqlParam } from '@/lib/db/types';
 import { createNodeFileOps } from '../../../test/node-file-ops';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 import { installBaseline } from './baseline-installer';
+import type { FileOps } from './file-ops';
 import { isOffDumpAttached, resetOffDumpAttachment } from './off-dump-state';
 
 const SCHEMA_COLUMNS = ['code', 'product_name'] as const;
@@ -154,6 +161,106 @@ describe('installBaseline', () => {
     expect(await readActiveProducts()).toEqual([
       { code: '1', product_name: 'Produkt (2026-08-01T00:00:00.000Z)' },
     ]);
+  });
+
+  it('lässt die vorbereitete Datei liegen, wenn der Lifecycle vor der Aktivierung abbricht', async () => {
+    const sourcePath = join(dir, 'source-aborted.db');
+    createDumpFile(sourcePath, '2026-10-01T00:00:00.000Z');
+    fileOps.registerDownloadSource('https://example/baseline-aborted.db', sourcePath);
+    const controller = new AbortController();
+    const inspect = fileOps.inspectDump.bind(fileOps);
+    fileOps.inspectDump = async (path: string) => {
+      const result = await inspect(path);
+      controller.abort();
+      return result;
+    };
+
+    await expect(
+      installBaseline(db, fileOps, {
+        downloadUrl: 'https://example/baseline-aborted.db',
+        expectedChecksum: checksumOf(sourcePath),
+        expectedSchemaVersion: 2,
+        activePath,
+        nextPath,
+        recoveryPath,
+        attachmentMode: 'sqlite',
+        signal: controller.signal,
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    expect(await fileOps.exists(nextPath)).toBe(true);
+    expect(await fileOps.exists(activePath)).toBe(false);
+  });
+
+  it('behält die Writer-Lease, wenn der bestehende off_dump-Alias nicht gelöst werden kann', async () => {
+    let ended = false;
+    const end = jest.fn(() => {
+      ended = true;
+    });
+    const writerOwner: SharedStoreWriterOwner = {
+      beginWriterLease: jest.fn(() => ({
+        signal: new AbortController().signal,
+        get ended() {
+          return ended;
+        },
+        end,
+      })),
+    };
+    const driver: SqlStatementDriver = {
+      execAsync: jest.fn(async (source) => {
+        if (source === 'DETACH DATABASE off_dump') throw new Error('detach failed');
+      }),
+      runAsync: jest.fn(async (_source: string, _params?: readonly SqlParam[]) => ({
+        changes: 0,
+        lastInsertRowId: 0,
+      })),
+      getAllAsync: async <T>(source: string) =>
+        source === 'PRAGMA database_list' ? ([{ name: 'off_dump' }] as T[]) : [],
+      getFirstAsync: async <T>() => null as T | null,
+    };
+    const recoverAfterCleanupFailure = jest.fn(async () => {
+      throw new Error('raw close failed');
+    });
+    const serialized = serializeDatabase(driver, {
+      writerOwner,
+      recoverAfterCleanupFailure,
+    });
+    const preparedFileOps: FileOps = {
+      download: jest.fn(async () => undefined),
+      checksum: jest.fn(async () => 'expected'),
+      inspectDump: jest.fn(async () => ({
+        schemaVersion: 2,
+        dataVersion: 'v2',
+        integrityOk: true,
+      })),
+      exists: jest.fn(async () => true),
+      move: jest.fn(async () => undefined),
+      delete: jest.fn(async () => undefined),
+      size: jest.fn(async () => 1),
+    };
+
+    await expect(
+      installBaseline(serialized, preparedFileOps, {
+        downloadUrl: 'https://example/baseline.db',
+        expectedChecksum: 'expected',
+        expectedSchemaVersion: 2,
+        activePath: '/workspace/off-dump-v2.db',
+        nextPath: '/workspace/off-dump-v2.next.db',
+        recoveryPath: '/workspace/off-dump-v2.recovery.db',
+        attachmentMode: 'sqlite',
+      }),
+    ).rejects.toThrow('detach failed');
+
+    expect(writerOwner.beginWriterLease).toHaveBeenCalledWith(
+      'off.baseline.detach',
+      expect.any(Object),
+    );
+    expect(recoverAfterCleanupFailure).toHaveBeenCalledTimes(1);
+    expect(end).not.toHaveBeenCalled();
+    expect(preparedFileOps.move).not.toHaveBeenCalled();
+
+    await serialized.closeForLifecycle(jest.fn().mockResolvedValue(undefined));
+    expect(end).toHaveBeenCalledTimes(1);
   });
 
   it('lehnt eine Datei mit abweichender Schemaversion ab, löscht next, active bleibt unangetastet', async () => {

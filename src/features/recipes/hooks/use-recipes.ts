@@ -1,6 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import {
+  type IngredientMappingSourceContext,
+  normalizeIngredientMappingReview,
+} from '@/features/recipes/domain/ingredient-mapping';
+import {
   calculateServingNutrition,
   type ProductNutritionRow,
   type RecipeComponentRow,
@@ -74,10 +78,54 @@ type RecipeRow = Omit<RecipeListItem, 'dish_types' | 'dietary_tags' | 'hashtags'
   meal_prep_friendly: number | null;
 };
 
-type RecipeComponentItemDbRow = Omit<RecipeComponentItem, 'note' | 'optional'> & {
+type RecipeComponentItemDbRow = Omit<
+  RecipeComponentItem,
+  'note' | 'optional' | 'ingredientMapping' | 'sourceText' | 'ingredientSource'
+> & {
   optional: number;
   note: string | null;
+  source_text: string | null;
+  ingredient_source_type: string | null;
+  ingredient_source_id: string | null;
+  ingredient_source_url: string | null;
+  ingredient_source_version: string | null;
+  ingredient_source_license: string | null;
+  ingredient_mapping: string;
 };
+
+function readIngredientMapping(value: string): RecipeComponentItem['ingredientMapping'] {
+  try {
+    return normalizeIngredientMappingReview(JSON.parse(value) as unknown);
+  } catch {
+    return normalizeIngredientMappingReview(undefined);
+  }
+}
+
+function readIngredientSource(
+  row: Pick<
+    RecipeComponentItemDbRow,
+    | 'ingredient_source_type'
+    | 'ingredient_source_id'
+    | 'ingredient_source_url'
+    | 'ingredient_source_version'
+    | 'ingredient_source_license'
+  >,
+): IngredientMappingSourceContext | null {
+  if (
+    row.ingredient_source_type !== 'recipe_text' &&
+    row.ingredient_source_type !== 'product_label' &&
+    row.ingredient_source_type !== 'import_source'
+  )
+    return null;
+  if (!row.ingredient_source_id || !row.ingredient_source_version) return null;
+  return {
+    source: row.ingredient_source_type,
+    sourceId: row.ingredient_source_id,
+    sourceUrl: row.ingredient_source_url,
+    sourceVersion: row.ingredient_source_version,
+    license: row.ingredient_source_license,
+  };
+}
 
 function nullableBoolean(value: number | null | undefined): boolean | null {
   return value === null || value === undefined ? null : value === 1;
@@ -107,7 +155,13 @@ const RECIPE_COLUMNS = `id, household_id, title, instructions, cover_image_path,
   difficulty, dish_types, dietary_tags, hashtags, default_servings,
   created_by, created_at`;
 
-export type ProductRow = ProductNutritionRow & { name: string };
+export type ProductRow = ProductNutritionRow & {
+  name: string;
+  barcode?: string | null;
+  source?: 'off' | 'manual';
+  off_last_modified_at?: string | null;
+  updated_at?: number;
+};
 
 export type RecipeDetail = {
   recipe: RecipeListItem;
@@ -246,15 +300,28 @@ export function useRecipeDetail(recipeId: string | undefined) {
       );
 
       const itemRows = await db.getAllAsync<RecipeComponentItemDbRow>(
-        `select id, component_id, product_id, sub_component_id, grams, quantity, unit, optional, note
+        `select id, component_id, product_id, sub_component_id, grams, quantity, unit, optional, note,
+                source_text, ingredient_source_type, ingredient_source_id, ingredient_source_url,
+                ingredient_source_version, ingredient_source_license, ingredient_mapping
          from recipe_component_items
          where recipe_id = ? and deleted_at is null`,
         [recipeId],
       );
-      const items: RecipeComponentItem[] = itemRows.map((row) => ({
-        ...row,
-        optional: row.optional === 1,
-      }));
+      const items: RecipeComponentItem[] = itemRows.map(
+        ({ ingredient_mapping, source_text, ...row }) => ({
+          ...row,
+          sourceText: source_text,
+          ingredientMapping: readIngredientMapping(ingredient_mapping),
+          ingredientSource: readIngredientSource({
+            ingredient_source_type: row.ingredient_source_type,
+            ingredient_source_id: row.ingredient_source_id,
+            ingredient_source_url: row.ingredient_source_url,
+            ingredient_source_version: row.ingredient_source_version,
+            ingredient_source_license: row.ingredient_source_license,
+          }),
+          optional: row.optional === 1,
+        }),
+      );
 
       const stepRows = await db.getAllAsync<Omit<RecipeStep, 'ingredientIds'>>(
         `select id, recipe_id, position, text, image_path, timer_minutes
@@ -302,7 +369,8 @@ export function useRecipeDetail(recipeId: string | undefined) {
       if (productIds.length > 0) {
         const placeholders = productIds.map(() => '?').join(', ');
         const products = await db.getAllAsync<ProductRow>(
-          `select id, name, kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
+          `select id, name, barcode, source, off_last_modified_at, updated_at,
+                  kcal_per_100, protein_g_per_100, carbs_g_per_100, fat_g_per_100
            from products where id in (${placeholders})`,
           productIds,
         );

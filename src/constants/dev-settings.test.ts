@@ -42,6 +42,14 @@ describe('dev settings', () => {
     useDevSettingsStore.getState().setSpeechTestProvider('native');
     useDevSettingsStore.getState().setReceiptOcrTestEnabled(false);
     useDevSettingsStore.getState().setReceiptOcrProvider('apple-vision');
+    useDevSettingsStore.setState({
+      aiProvider: 'openrouter',
+      aiModel: 'z-ai/glm-5.3-flash',
+      aiModels: {
+        openrouter: 'z-ai/glm-5.3-flash',
+        groq: 'qwen/qwen3.8-27b',
+      },
+    });
   });
 
   it('persistiert Tracking-Methoden-Overrides wie die Analytics-Overrides', () => {
@@ -132,6 +140,46 @@ describe('dev settings', () => {
     expect(mockStorageData.get('dev.receipt_ocr_provider.v1')).toBe('google-mlkit');
   });
 
+  it('speichert Provider- und Modellauswahl für lokale KI-Tests', () => {
+    useDevSettingsStore.getState().setAiProvider('groq');
+    useDevSettingsStore.getState().setAiModel('openai/gpt-oss-120b');
+
+    expect(useDevSettingsStore.getState()).toMatchObject({
+      aiProvider: 'groq',
+      aiModel: 'openai/gpt-oss-120b',
+    });
+    expect(mockStorageData.get('dev.ai_provider.v1')).toBe('groq');
+    expect(mockStorageData.get('dev.ai_model.v1')).toBe('openai/gpt-oss-120b');
+  });
+
+  it('speichert die Modell-ID getrennt pro Provider und stellt sie beim Wechsel wieder her', () => {
+    useDevSettingsStore.getState().setAiModel('anthropic/claude-sonnet-4');
+    useDevSettingsStore.getState().setAiProvider('groq');
+    useDevSettingsStore.getState().setAiModel('openai/gpt-oss-120b');
+    useDevSettingsStore.getState().setAiProvider('openrouter');
+
+    expect(useDevSettingsStore.getState()).toMatchObject({
+      aiProvider: 'openrouter',
+      aiModel: 'anthropic/claude-sonnet-4',
+      aiModels: {
+        openrouter: 'anthropic/claude-sonnet-4',
+        groq: 'openai/gpt-oss-120b',
+      },
+    });
+    expect(mockStorageData.get('dev.ai_models.v1')).toBe(
+      JSON.stringify({
+        openrouter: 'anthropic/claude-sonnet-4',
+        groq: 'openai/gpt-oss-120b',
+      }),
+    );
+  });
+
+  it('setzt beim Wechsel zu einem Provider ein dazu passendes Standardmodell', () => {
+    useDevSettingsStore.getState().setAiProvider('groq');
+
+    expect(useDevSettingsStore.getState().aiModel).toBe('qwen/qwen3.8-27b');
+  });
+
   it('lädt gespeicherte gültige Overrides und ignoriert Werte außerhalb des bekannten Formats', () => {
     mockStorageData.set(
       'dev.tracking_method_overrides.v1',
@@ -142,6 +190,8 @@ describe('dev settings', () => {
     mockStorageData.set('dev.speech_test_provider.v1', 'whisper');
     mockStorageData.set('dev.receipt_ocr_test_enabled.v1', 'true');
     mockStorageData.set('dev.receipt_ocr_provider.v1', 'apple-vision');
+    mockStorageData.set('dev.ai_provider.v1', 'groq');
+    mockStorageData.set('dev.ai_model.v1', 'openai/gpt-oss-20b');
 
     const store = loadFreshDevSettingsStore();
 
@@ -152,6 +202,30 @@ describe('dev settings', () => {
       speechTestProvider: 'whisper',
       receiptOcrTestEnabled: true,
       receiptOcrProvider: 'apple-vision',
+      aiProvider: 'groq',
+      aiModel: 'openai/gpt-oss-20b',
+    });
+  });
+
+  it('lädt die pro Provider gespeicherten Modell-IDs', () => {
+    mockStorageData.set('dev.ai_provider.v1', 'groq');
+    mockStorageData.set(
+      'dev.ai_models.v1',
+      JSON.stringify({
+        openrouter: 'anthropic/claude-sonnet-4',
+        groq: 'openai/gpt-oss-120b',
+      }),
+    );
+
+    const store = loadFreshDevSettingsStore();
+
+    expect(store.getState()).toMatchObject({
+      aiProvider: 'groq',
+      aiModel: 'openai/gpt-oss-120b',
+      aiModels: {
+        openrouter: 'anthropic/claude-sonnet-4',
+        groq: 'openai/gpt-oss-120b',
+      },
     });
   });
 
@@ -162,6 +236,8 @@ describe('dev settings', () => {
     mockStorageData.set('dev.speech_test_provider.v1', 'unknown');
     mockStorageData.set('dev.receipt_ocr_test_enabled.v1', 'TRUE');
     mockStorageData.set('dev.receipt_ocr_provider.v1', 'unknown');
+    mockStorageData.set('dev.ai_provider.v1', 'unknown');
+    mockStorageData.set('dev.ai_model.v1', 'not a model id');
 
     const malformedStore = loadFreshDevSettingsStore();
     expect(malformedStore.getState()).toMatchObject({
@@ -171,6 +247,8 @@ describe('dev settings', () => {
       speechTestProvider: 'native',
       receiptOcrTestEnabled: false,
       receiptOcrProvider: 'google-mlkit',
+      aiProvider: 'openrouter',
+      aiModel: 'z-ai/glm-5.3-flash',
     });
 
     mockStorageFailures.add('read');
@@ -182,6 +260,8 @@ describe('dev settings', () => {
       speechTestProvider: 'native',
       receiptOcrTestEnabled: false,
       receiptOcrProvider: 'google-mlkit',
+      aiProvider: 'openrouter',
+      aiModel: 'z-ai/glm-5.3-flash',
     });
   });
 
@@ -195,6 +275,8 @@ describe('dev settings', () => {
     store.setSpeechTestProvider('whisper');
     store.setReceiptOcrTestEnabled(true);
     store.setReceiptOcrProvider('apple-vision');
+    store.setAiProvider('groq');
+    store.setAiModel('openai/gpt-oss-20b');
 
     expect(useDevSettingsStore.getState()).toMatchObject({
       trackingMethodOverrides: { standard: true },
@@ -203,6 +285,8 @@ describe('dev settings', () => {
       speechTestProvider: 'whisper',
       receiptOcrTestEnabled: true,
       receiptOcrProvider: 'apple-vision',
+      aiProvider: 'groq',
+      aiModel: 'openai/gpt-oss-20b',
     });
   });
 });

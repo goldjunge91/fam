@@ -1,26 +1,88 @@
 diff --git a/src/addContentChangedListener/addContentChangedListener.ts b/src/addContentChangedListener/addContentChangedListener.ts
-index 8f6317eebbb5ccc081b726d17e9238e535bcea39..8b057828fad60ad7d5bfe8c6d13fda60f0643dba 100644
 --- a/src/addContentChangedListener/addContentChangedListener.ts
 +++ b/src/addContentChangedListener/addContentChangedListener.ts
-@@ -16,7 +16,7 @@ export function addContentChangedListener(mmkv: MMKV): void {
-       'change',
-       (state: AppStateStatus) => {
-         if (state === 'active') {
+@@ -1,36 +1,59 @@
+-import { AppState } from 'react-native'
+-import type { AppStateStatus, NativeEventSubscription } from 'react-native'
+-import type { MMKV } from '../specs/MMKV.nitro'
+-
+-const registeredInstances = new WeakSet<MMKV>()
+-
+-export function addContentChangedListener(mmkv: MMKV): void {
+-  if (registeredInstances.has(mmkv)) {
+-    return
+-  }
+-  registeredInstances.add(mmkv)
+-
+-  if (global.WeakRef != null && global.FinalizationRegistry != null) {
+-    const weakMmkv = new WeakRef(mmkv)
+-    const listener = AppState.addEventListener(
+-      'change',
+-      (state: AppStateStatus) => {
+-        if (state === 'active') {
 -          weakMmkv.deref()?.checkContentChanged()
-+          checkContentChangedSafely(weakMmkv.deref())
-         }
-       }
-     )
-@@ -29,8 +29,22 @@ export function addContentChangedListener(mmkv: MMKV): void {
-   } else {
-     AppState.addEventListener('change', (state: AppStateStatus) => {
-       if (state === 'active') {
+-        }
+-      }
+-    )
+-    const finalization = new FinalizationRegistry(
+-      (l: NativeEventSubscription) => {
+-        l.remove()
+-      }
+-    )
+-    finalization.register(mmkv, listener)
+-  } else {
+-    AppState.addEventListener('change', (state: AppStateStatus) => {
+-      if (state === 'active') {
 -        mmkv.checkContentChanged()
+-      }
+-    })
+-  }
+-}
++import { AppState } from 'react-native'
++import type { AppStateStatus, NativeEventSubscription } from 'react-native'
++import type { MMKV } from '../specs/MMKV.nitro'
++
++const registeredInstances = new WeakSet<MMKV>()
++const registeredListeners = new WeakMap<MMKV, NativeEventSubscription>()
++
++export function addContentChangedListener(mmkv: MMKV): void {
++  if (registeredInstances.has(mmkv)) {
++    return
++  }
++  registeredInstances.add(mmkv)
++
++  if (global.WeakRef != null && global.FinalizationRegistry != null) {
++    const weakMmkv = new WeakRef(mmkv)
++    const listener = AppState.addEventListener(
++      'change',
++      (state: AppStateStatus) => {
++        if (state === 'active') {
++          checkContentChangedSafely(weakMmkv.deref())
++        }
++      }
++    )
++    const finalization = new FinalizationRegistry(
++      (subscription: NativeEventSubscription) => {
++        subscription.remove()
++      }
++    )
++    registeredListeners.set(mmkv, listener)
++    finalization.register(mmkv, listener)
++  } else {
++    const listener = AppState.addEventListener('change', (state: AppStateStatus) => {
++      if (state === 'active') {
 +        checkContentChangedSafely(mmkv)
-       }
-     })
-   }
- }
++      }
++    })
++    registeredListeners.set(mmkv, listener)
++  }
++}
++
++export function removeContentChangedListener(mmkv: MMKV): void {
++  const listener = registeredListeners.get(mmkv)
++  registeredListeners.delete(mmkv)
++  listener?.remove()
++}
 +
 +// `mmkv.dispose()` can be called manually (e.g. when deleting an account's
 +// storage) while this AppState listener is still registered. Without a
@@ -35,3 +97,56 @@ index 8f6317eebbb5ccc081b726d17e9238e535bcea39..8b057828fad60ad7d5bfe8c6d13fda60
 +    // Instance was disposed; nothing to check anymore.
 +  }
 +}
+diff --git a/src/index.ts b/src/index.ts
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -1,24 +1,25 @@
+-// All types
+-export type { MMKV } from './specs/MMKV.nitro'
+-export type {
+-  Configuration,
+-  Mode,
+-  RecoveryStrategy,
+-} from './specs/MMKVFactory.nitro'
+-
+-// The create function
+-export { createMMKV } from './createMMKV/createMMKV'
+-
+-// Exists + Delete
+-export { existsMMKV } from './existsMMKV/existsMMKV'
+-export { deleteMMKV } from './deleteMMKV/deleteMMKV'
+-
+-// All the hooks
+-export { useMMKV } from './hooks/useMMKV'
+-export { useMMKVBoolean } from './hooks/useMMKVBoolean'
+-export { useMMKVBuffer } from './hooks/useMMKVBuffer'
+-export { useMMKVNumber } from './hooks/useMMKVNumber'
+-export { useMMKVObject } from './hooks/useMMKVObject'
+-export { useMMKVString } from './hooks/useMMKVString'
+-export { useMMKVListener } from './hooks/useMMKVListener'
+-export { useMMKVKeys } from './hooks/useMMKVKeys'
++// All types
++export type { MMKV } from './specs/MMKV.nitro'
++export type {
++  Configuration,
++  Mode,
++  RecoveryStrategy,
++} from './specs/MMKVFactory.nitro'
++
++// The create function
++export { createMMKV } from './createMMKV/createMMKV'
++
++// Exists + Delete
++export { existsMMKV } from './existsMMKV/existsMMKV'
++export { deleteMMKV } from './deleteMMKV/deleteMMKV'
++export { removeContentChangedListener } from './addContentChangedListener/addContentChangedListener'
++
++// All the hooks
++export { useMMKV } from './hooks/useMMKV'
++export { useMMKVBoolean } from './hooks/useMMKVBoolean'
++export { useMMKVBuffer } from './hooks/useMMKVBuffer'
++export { useMMKVNumber } from './hooks/useMMKVNumber'
++export { useMMKVObject } from './hooks/useMMKVObject'
++export { useMMKVString } from './hooks/useMMKVString'
++export { useMMKVListener } from './hooks/useMMKVListener'
++export { useMMKVKeys } from './hooks/useMMKVKeys'

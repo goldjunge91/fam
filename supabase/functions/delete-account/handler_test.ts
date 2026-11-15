@@ -9,10 +9,14 @@ function setup(
   {
     userId = USER_ID,
     prepareError = null,
+    analyticsError = null,
+    includeAnalytics = false,
     deleteError = null,
   }: {
     userId?: string | null;
     prepareError?: DbError | null;
+    analyticsError?: DbError | null;
+    includeAnalytics?: boolean;
     deleteError?: DbError | null;
   } = {},
 ) {
@@ -23,6 +27,12 @@ function setup(
       calls.push('prepare');
       return Promise.resolve(prepareError);
     },
+    deleteAnalyticsData: includeAnalytics
+      ? (id: string) => {
+        calls.push(`analytics:${id}`);
+        return Promise.resolve(analyticsError);
+      }
+      : () => Promise.resolve(null),
     deleteUser: (id) => {
       calls.push(`delete:${id}`);
       return Promise.resolve(deleteError);
@@ -89,6 +99,25 @@ Deno.test('hides internal error details when the admin delete fails', async () =
   assertEquals(res.status, 500);
   assertEquals(await res.json(), { error: 'delete_failed' });
   assertEquals(calls, ['prepare', `delete:${USER_ID}`]);
+});
+
+Deno.test('deletes analytics data before deleting the authenticated user', async () => {
+  const { handler, calls } = setup({ includeAnalytics: true });
+  const res = await handler(post());
+  assertEquals(res.status, 200);
+  assertEquals(await res.json(), { success: true });
+  assertEquals(calls, ['prepare', `analytics:${USER_ID}`, `delete:${USER_ID}`]);
+});
+
+Deno.test('does not delete the account when analytics deletion fails', async () => {
+  const { handler, calls } = setup({
+    includeAnalytics: true,
+    analyticsError: { message: 'PostHog unavailable' },
+  });
+  const res = await handler(post());
+  assertEquals(res.status, 502);
+  assertEquals(await res.json(), { error: 'analytics_delete_failed' });
+  assertEquals(calls, ['prepare', `analytics:${USER_ID}`]);
 });
 
 Deno.test('deletes exactly the authenticated user after prepare succeeds', async () => {

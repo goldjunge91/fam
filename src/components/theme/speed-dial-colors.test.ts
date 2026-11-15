@@ -7,6 +7,7 @@ describe('SpeedDial theme tokens', () => {
       'speedDialShopping',
       'speedDialRecipes',
       'speedDialCalories',
+      'speedDialAssistant',
     ] satisfies readonly SpeedDialColorKey[]);
   });
 

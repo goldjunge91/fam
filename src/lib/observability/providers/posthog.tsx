@@ -1,7 +1,7 @@
 import PostHog, { PostHogProvider } from 'posthog-react-native';
 import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 
-import { useAnalyticsSettingsStore } from '@/constants/analytics';
+import { getAnalyticsSettings, useAnalyticsSettingsStore } from '@/constants/analytics';
 import { env } from '@/lib/config/env';
 import { isAnalyticsProviderEnabled } from '@/lib/telemetry/policy';
 import { debugError, debugLogEvent, debugWarn } from '../debug-log';
@@ -72,7 +72,8 @@ function FeatureFlagProvider({
 
 export function initPostHog(): void {
   if (attempted) return;
-  if (!isAnalyticsProviderEnabled('posthog')) return;
+  const analyticsSettings = getAnalyticsSettings();
+  if (!analyticsSettings.enabled || !analyticsSettings.providers.posthog) return;
   attempted = true;
 
   const apiKey = env.posthogApiKey;
@@ -91,14 +92,18 @@ export function initPostHog(): void {
   try {
     const initializedClient = new PostHog(apiKey, {
       host: env.posthogHost,
+      // Der SDK bleibt bis zur ausdrücklichen Nutzerentscheidung vollständig opt-out.
+      defaultOptIn: false,
       // Erfasst App-Lifecycle (Open, Background, Install/Update) mit IP & Gerätedaten
       captureAppLifecycleEvents: true,
       enableSessionReplay: false,
       errorTracking: {
+        // Sentry remains the error-tracking owner. PostHog receives only the
+        // explicitly sanitized telemetry events from `src/lib/telemetry`.
         autocapture: {
-          uncaughtExceptions: true,
-          unhandledRejections: true,
-          nativeCrashes: true,
+          uncaughtExceptions: false,
+          unhandledRejections: false,
+          nativeCrashes: false,
         },
       },
     });
@@ -160,14 +165,37 @@ export async function reloadPostHogFeatureFlags(): Promise<FeatureFlagValues> {
   }
 }
 
+function syncPostHogCapture(enabled: boolean): void {
+  const activeClient = getPostHogClient();
+  if (!activeClient) return;
+
+  try {
+    const operation = enabled ? activeClient.optIn() : activeClient.optOut();
+    void Promise.resolve(operation).catch((error: unknown) => {
+      debugWarn('[posthog] Einwilligungsstatus konnte nicht synchronisiert werden:', error);
+    });
+    if (!enabled) activeClient.reset();
+  } catch (error) {
+    debugWarn('[posthog] Einwilligungsstatus konnte nicht synchronisiert werden:', error);
+  }
+}
+
+export function disablePostHogCapture(): void {
+  syncPostHogCapture(false);
+}
+
 export function PostHogAppProvider({ children }: { children: ReactNode }): ReactNode {
   const posthogEnabled = useAnalyticsSettingsStore(
-    (state) => state.overrides.enabled !== false && state.overrides.providers?.posthog !== false,
+    (state) =>
+      state.posthogConsent === 'granted' &&
+      state.overrides.enabled !== false &&
+      state.overrides.providers?.posthog !== false,
   );
   const [providerClient, setProviderClient] = useState<PostHog | undefined>(() => client);
 
   useEffect(() => {
     if (posthogEnabled) initPostHog();
+    syncPostHogCapture(posthogEnabled);
     setProviderClient(posthogEnabled ? getPostHogClient() : undefined);
   }, [posthogEnabled]);
 
@@ -178,7 +206,7 @@ export function PostHogAppProvider({ children }: { children: ReactNode }): React
   return (
     <PostHogProvider
       client={activeClient}
-      autocapture={{ captureTouches: true, captureScreens: false }}>
+      autocapture={{ captureTouches: false, captureScreens: false }}>
       <FeatureFlagProvider posthog={activeClient}>{children}</FeatureFlagProvider>
     </PostHogProvider>
   );

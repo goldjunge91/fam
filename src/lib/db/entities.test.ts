@@ -129,6 +129,29 @@ describe('entities', () => {
     }
   });
 
+  it('synchronisiert das Zutatenmapping als JSONB-Objekt der Rezeptposition', () => {
+    expect(ENTITIES.recipe_component_items.columns).toContain('ingredient_mapping');
+    expect(ENTITIES.recipe_component_items.jsonObjectColumns).toEqual(['ingredient_mapping']);
+    expect(ENTITIES.recipe_component_items.columns).toEqual(
+      expect.arrayContaining([
+        'source_text',
+        'ingredient_source_type',
+        'ingredient_source_id',
+        'ingredient_source_url',
+        'ingredient_source_version',
+        'ingredient_source_license',
+      ]),
+    );
+    expect(ENTITIES.recipe_component_items.householdScoped).toBe(true);
+  });
+
+  it('synchronisiert rohe importierte Rezeptwerte ohne Einheitennormalisierung', () => {
+    expect(ENTITIES.recipe_component_items.normalizeQuantityUnits).toBeUndefined();
+    expect(ENTITIES.recipe_component_items.columns).toEqual(
+      expect.arrayContaining(['grams', 'quantity', 'unit', 'source_text']),
+    );
+  });
+
   // 'households' ist bewusst NICHT in ALL_ENTITIES (siehe Kommentar dort) —
   // deshalb hier ein eigener, expliziter Test statt eines it.each-Eintrags.
   it('households ist wie products global (kein household_id, kein Tombstone)', () => {

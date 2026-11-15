@@ -11,6 +11,8 @@ jest.doMock('react', () => cachedReact);
 const mockPostHogConstructor = jest.fn();
 const mockGetFeatureFlags = jest.fn();
 const mockReloadFeatureFlagsAsync = jest.fn();
+const mockOptIn = jest.fn(() => Promise.resolve());
+const mockOptOut = jest.fn(() => Promise.resolve());
 const mockPostHogProvider = jest.fn(({ children }) => children);
 
 jest.mock('posthog-react-native', () => ({
@@ -32,12 +34,27 @@ jest.mock('posthog-react-native', () => ({
       return mockReloadFeatureFlagsAsync();
     }
 
+    optIn() {
+      return mockOptIn();
+    }
+
+    optOut() {
+      return mockOptOut();
+    }
+
+    reset() {}
+
     onFeatureFlags() {
       return () => {};
     }
   },
   PostHogProvider: (props: { children: ReactNode; client: unknown }) => mockPostHogProvider(props),
 }));
+
+function grantPostHogConsent(): void {
+  const { useAnalyticsSettingsStore } = require('@/constants/analytics');
+  useAnalyticsSettingsStore.getState().setPostHogConsent('granted');
+}
 
 describe('initPostHog / isPostHogConfigured', () => {
   const originalKey = process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
@@ -65,6 +82,7 @@ describe('initPostHog / isPostHogConfigured', () => {
     const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 
+    grantPostHogConsent();
     initPostHog();
 
     expect(isPostHogConfigured()).toBe(false);
@@ -77,6 +95,7 @@ describe('initPostHog / isPostHogConfigured', () => {
     process.env.EXPO_PUBLIC_POSTHOG_HOST = 'https://eu.i.posthog.com';
     const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 
+    grantPostHogConsent();
     initPostHog();
 
     expect(isPostHogConfigured()).toBe(true);
@@ -84,13 +103,14 @@ describe('initPostHog / isPostHogConfigured', () => {
       'phc_testkey',
       expect.objectContaining({
         host: 'https://eu.i.posthog.com',
+        defaultOptIn: false,
         captureAppLifecycleEvents: true,
         enableSessionReplay: false,
         errorTracking: {
           autocapture: {
-            nativeCrashes: true,
-            uncaughtExceptions: true,
-            unhandledRejections: true,
+            nativeCrashes: false,
+            uncaughtExceptions: false,
+            unhandledRejections: false,
           },
         },
       }),
@@ -111,6 +131,7 @@ describe('initPostHog / isPostHogConfigured', () => {
 
     try {
       const { initPostHog } = require('@/lib/observability/providers/posthog');
+      grantPostHogConsent();
       initPostHog();
 
       const offlineError = Object.assign(new Error('Network error while fetching PostHog'), {
@@ -147,6 +168,7 @@ describe('initPostHog / isPostHogConfigured', () => {
     useAnalyticsSettingsStore.getState().setOverride('providers.posthog', false);
     const { initPostHog, isPostHogConfigured } = require('@/lib/observability/providers/posthog');
 
+    grantPostHogConsent();
     initPostHog();
 
     expect(isPostHogConfigured()).toBe(false);
@@ -185,6 +207,7 @@ describe('initPostHog / isPostHogConfigured', () => {
       reloadPostHogFeatureFlags,
     } = require('@/lib/observability/providers/posthog');
 
+    grantPostHogConsent();
     initPostHog();
 
     await expect(reloadPostHogFeatureFlags()).rejects.toThrow('Netzwerk nicht erreichbar');
@@ -210,6 +233,7 @@ describe('initPostHog / isPostHogConfigured', () => {
       reloadPostHogFeatureFlags,
     } = require('@/lib/observability/providers/posthog');
 
+    grantPostHogConsent();
     initPostHog();
 
     await expect(reloadPostHogFeatureFlags()).rejects.toThrow('Project API Key, Host und Netzwerk');
@@ -224,6 +248,7 @@ describe('initPostHog / isPostHogConfigured', () => {
         initPostHog,
         reloadPostHogFeatureFlags,
       } = require('@/lib/observability/providers/posthog');
+      grantPostHogConsent();
       initPostHog();
 
       const reload = reloadPostHogFeatureFlags();
@@ -271,6 +296,7 @@ describe('PostHogAppProvider', () => {
       initPostHog,
       getPostHogClient,
     } = require('@/lib/observability/providers/posthog');
+    grantPostHogConsent();
     initPostHog();
 
     await render(
@@ -282,9 +308,28 @@ describe('PostHogAppProvider', () => {
     expect(mockPostHogProvider).toHaveBeenCalledWith(
       expect.objectContaining({
         client: getPostHogClient(),
-        autocapture: { captureTouches: true, captureScreens: false },
+        autocapture: { captureTouches: false, captureScreens: false },
       }),
     );
+    expect(mockOptIn).toHaveBeenCalledTimes(1);
+  });
+
+  it('mountet den Provider ohne Einwilligung nicht und optet den Client aus', async () => {
+    process.env.EXPO_PUBLIC_POSTHOG_API_KEY = 'phc_testkey';
+    const { useAnalyticsSettingsStore } = require('@/constants/analytics');
+    useAnalyticsSettingsStore.getState().setPostHogConsent('pending');
+    const { PostHogAppProvider, initPostHog } = require('@/lib/observability/providers/posthog');
+    initPostHog();
+
+    await render(
+      <PostHogAppProvider>
+        <Text>Inhalt</Text>
+      </PostHogAppProvider>,
+    );
+
+    expect(screen.getByText('Inhalt')).toBeOnTheScreen();
+    expect(mockPostHogProvider).not.toHaveBeenCalled();
+    expect(mockOptOut).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -309,6 +354,7 @@ describe('useFeatureFlag', () => {
       initPostHog,
       useFeatureFlag,
     } = require('@/lib/observability/providers/posthog');
+    grantPostHogConsent();
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlag('test-feature', false), {
@@ -326,6 +372,7 @@ describe('useFeatureFlag', () => {
       initPostHog,
       useFeatureFlag,
     } = require('@/lib/observability/providers/posthog');
+    grantPostHogConsent();
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlag('test-feature', true), {
@@ -368,6 +415,7 @@ describe('useFeatureFlagState', () => {
       initPostHog,
       useFeatureFlagState,
     } = require('@/lib/observability/providers/posthog');
+    grantPostHogConsent();
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlagState('test-feature'), {
@@ -385,6 +433,7 @@ describe('useFeatureFlagState', () => {
       initPostHog,
       useFeatureFlagState,
     } = require('@/lib/observability/providers/posthog');
+    grantPostHogConsent();
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlagState('test-feature'), {
@@ -416,6 +465,7 @@ describe('useFeatureFlags', () => {
       initPostHog,
       useFeatureFlags,
     } = require('@/lib/observability/providers/posthog');
+    grantPostHogConsent();
     initPostHog();
 
     const { result } = await renderHook(() => useFeatureFlags(), {

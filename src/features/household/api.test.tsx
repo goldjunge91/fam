@@ -270,6 +270,9 @@ describe('household api', () => {
     });
     expect(triggerHouseholdsPull).toHaveBeenCalledWith('user-1', queryClient);
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.create.completed');
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('activation.household_ready.completed', {
+      path: 'created',
+    });
   });
 
   it('aktualisiert Rollen und entfernt Mitglieder mit haushaltsspezifischer Invalidierung', async () => {
@@ -363,6 +366,9 @@ describe('household api', () => {
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.leave.completed');
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.delete.completed');
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('household.join.completed');
+    expect(trackAnalyticsEvent).toHaveBeenCalledWith('activation.household_ready.completed', {
+      path: 'joined',
+    });
   });
 
   it('führt mutations ohne Nutzer-ID ohne Haushalts-Pull aus und behält UUID-Einladungen', async () => {

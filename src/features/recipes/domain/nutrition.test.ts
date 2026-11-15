@@ -72,6 +72,18 @@ describe('calculateComponentPer100g', () => {
     expect(per100.kcal).toBeCloseTo(156, 5);
   });
 
+  it('ignoriert importierte Positionen ohne positive abgeleitete Grammmenge', () => {
+    const mixedItems: RecipeComponentItemRow[] = [
+      ...items,
+      { component_id: 'sauce', product_id: null, sub_component_id: null, grams: null },
+      { component_id: 'sauce', product_id: 'tomaten', sub_component_id: null, grams: -25 },
+    ];
+
+    const per100 = calculateComponentPer100g('sauce', mixedItems, productsById);
+
+    expect(per100.kcal).toBeCloseTo(90, 5);
+  });
+
   it('gibt 0 fuer eine Komponente ohne Positionen zurueck', () => {
     const per100 = calculateComponentPer100g('leer', [], productsById);
     expect(per100).toEqual({ kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 });

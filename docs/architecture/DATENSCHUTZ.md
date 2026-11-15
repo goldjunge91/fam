@@ -1,6 +1,6 @@
 # Datenschutzerklärung
 
-> Stand: 2026-09-01. Diese Erklärung beschreibt, was in der App tatsächlich
+> Stand: 2026-11-10. Diese Erklärung beschreibt, was in der App tatsächlich
 > passiert — nicht mehr und nicht weniger. Sie ist die Quelle für die
 > App-Store-Privacy-Labels ([#99](https://github.com/goldjunge91/fam/issues/99))
 > und ersetzt die frühere, technisch nicht haltbare Zusage einer
@@ -33,7 +33,7 @@ zu verteilen — das ist mit echter E2EE nicht vereinbar. Stattdessen:
 
 | Kategorie | Beispiele | Zweck | Geteilt mit Haushalt? |
 |---|---|---|---|
-| Konto | E-Mail-Adresse, Passwort-Hash (verwaltet von Supabase Auth) | Anmeldung, Kontosicherheit | Nein |
+| Konto | E-Mail-Adresse, Passwort-Hash (verwaltet von Supabase Auth) | Anmeldung, Kontosicherheit; E-Mail zusätzlich zur nutzerbezogenen Feature-Freigabe an PostHog nach Einwilligung | Nein |
 | Profil | Anzeigename, Avatar, Geburtsdatum, biologisches Geschlecht (nur für die Kalorienformel), Größe, Aktivitätslevel | Grundumsatz-/Kalorienberechnung, Personalisierung | Nein |
 | Gesundheits-/Ernährungsdaten | Ernährungstagebuch-Einträge, Gewichtsverlauf, Kalorien-/Makroziele | Kern-Feature Kalorien- und Gewichts-Tracking | Nein — technisch über RLS getrennt |
 | Kinderprofile | Name, Geburtsdatum eines Kindes, angelegt und verwaltet durch ein Elternteil | Mahlzeiten einem Kind zuordnen können | Innerhalb des Haushalts sichtbar (kein eigener Account, keine Anmeldedaten) |
@@ -62,12 +62,33 @@ zu verteilen — das ist mit echter E2EE nicht vereinbar. Stattdessen:
   die App-Tracking-Erlaubnis ab, bevor personalisierte Werbung möglich ist.
 - **RevenueCat** (revenuecat.com): Verarbeitet den Kauf- und Abo-Status für
   Premium-Funktionen. Ad-Impression-Umsätze können zur Abo- und
-  Monetarisierungsanalyse an RevenueCat übermittelt werden.
+  Monetarisierungsanalyse an RevenueCat übermittelt werden. Die App sendet
+  keine Konto-E-Mail an RevenueCat. Für die serverseitige Haushaltszuordnung
+  wird ein `household_id`-Subscriber-Attribut verwendet;
+  eine RevenueCat-PostHog-Integration darf dieses Attribut nicht weitergeben.
 - **Sentry** (sentry.io): Empfängt Fehler-, Absturz- und technische
   Diagnosedaten zur Stabilitätsanalyse.
-- **PostHog** (posthog.com) und **Aptabase** (aptabase.com): Empfangen
-  Nutzungs- und Produktinteraktionen sowie technische Ereignisse für
-  Produktverbesserung, Feature-Flags und Fehleranalyse.
+- **PostHog** (posthog.com): Wird erst nach einer ausdrücklichen
+  Nutzerentscheidung aktiviert. Die App sendet eine technische Konto-ID,
+  kuratierte Nutzungsereignisse und bereinigte Diagnoseereignisse. Zusätzlich
+  wird die Konto-E-Mail ausschließlich zur Auswertung nutzerbezogener
+  Feature-Freigaben übermittelt. Sie wird nicht als Analyseereignis gesendet.
+  Touch-Autocapture, automatische JavaScript-/Native-Fehlererfassung,
+  Haushalts-IDs, freie Fehlermeldungen sowie dynamische oder private
+  Screenpfade werden nicht an PostHog gesendet. Die Standard-Ingestion ist auf
+  den EU-Host ausgerichtet; tatsächliche Cloud-, Retention-, IP- und
+  Zugriffseinstellungen müssen im PostHog-Projekt bestätigt werden.
+- **Aptabase** (aptabase.com): Ist im aktuellen Build standardmäßig deaktiviert
+  und bleibt technisch getrennt von der PostHog-Einwilligung.
+- **OpenRouter und Groq** über das Supabase AI-Gateway: Bei Assistant-Anfragen
+  werden die Nachricht, der dafür ausgewählte Gesprächsverlauf sowie benötigte
+  Haushaltsrezepte, Vorräte und die persönlichen Lebensmittelregeln des
+  anfragenden Accounts an den konfigurierten Modellanbieter übermittelt. Beim
+  Rezeptimport können Webseiteninhalte, eingefügter Text, Bilder, PDFs oder
+  Videoquellen verarbeitet werden. Strukturierte Rezeptdaten einer Webseite
+  werden zuerst ohne Modellaufruf gelesen; das Gateway verwendet ein Modell,
+  wenn diese Daten für den Entwurf nicht ausreichen. Die Modellanbieter
+  verarbeiten die übermittelten Inhalte nach ihren jeweiligen Bedingungen.
 
 Es findet kein Verkauf von Daten statt. Die Entscheidung über personalisierte
 Werbung wird durch Google UMP und auf iOS zusätzlich durch ATT gesteuert.
@@ -92,7 +113,9 @@ Mikrofon und Kontakte werden nicht als eigenständige Funktionen genutzt.
   (siehe [#98](https://github.com/goldjunge91/fam/issues/98)). Geteilte
   Haushaltsdaten (z. B. Kühlschrank-Bestand) bleiben für verbleibende
   Haushaltsmitglieder bestehen; ausschließlich private Daten des gelöschten
-  Accounts werden entfernt.
+  Accounts werden entfernt. Fehlen die serverseitigen PostHog-Variablen oder
+  schlägt die externe Löschung fehl, wird die Account-Löschung abgebrochen, bis
+  der Löschpfad erfolgreich ausgeführt werden kann.
 - **Berichtigung:** Profil- und Tagebuchdaten sind in der App direkt editierbar.
 
 ## Kontakt

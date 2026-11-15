@@ -200,7 +200,11 @@
           },
           "thirdParties": {
             "title": "Drittdienste",
-            "body": "Open Food Facts: Beim Barcode-Scan oder der Produktsuche wird der Barcode/Suchbegriff an die öffentliche Open-Food-Facts-API gesendet — ohne Konto- oder Gesundheitsdaten. Supabase hostet Datenbank, Authentifizierung und Realtime-Synchronisation. Google AdMob liefert Werbung für die kostenlose Version. RevenueCat verarbeitet Kauf- und Abo-Status. Sentry, PostHog und Aptabase helfen bei Fehlerdiagnose, Produktverbesserung und Nutzungsanalyse."
+            "body": "Open Food Facts: Beim Barcode-Scan oder der Produktsuche wird der Barcode/Suchbegriff an die öffentliche Open-Food-Facts-API gesendet — ohne Konto- oder Gesundheitsdaten. Supabase hostet Datenbank, Authentifizierung und Realtime-Synchronisation. Google AdMob liefert Werbung für die kostenlose Version. RevenueCat verarbeitet Kauf- und Abo-Status. Sentry hilft bei der vollständigen Fehlerdiagnose. PostHog wird erst nach deiner Zustimmung aktiviert. Dann erhält PostHog deine E-Mail-Adresse ausschließlich zur Auswertung nutzerbezogener Feature-Freigaben sowie eine technische Konto-ID und kuratierte technische Nutzungsdaten. Die E-Mail-Adresse wird nicht als Analyseereignis gesendet. Haushalts-IDs, freie Fehlermeldungen und private/dynamische Screenpfade werden ausgeschlossen."
+          },
+          "aiProcessing": {
+            "title": "KI-Funktionen",
+            "body": "Bei Assistant- und Rezeptimport-Funktionen werden deine Nachricht oder die ausgewählte Rezeptquelle sowie der jeweils benötigte Haushaltskontext an einen externen KI-Anbieter übermittelt. Dazu können passende Rezepte, Vorräte sowie hinterlegte Allergien, Unverträglichkeiten und persönliche Lebensmittelregeln gehören."
           },
           "permissions": {
             "title": "Berechtigungen",
@@ -214,6 +218,13 @@
             "title": "Deine Rechte",
             "body": "Auskunft/Export über Einstellungen → Export als JSON. Löschung über Einstellungen → Konto löschen — geteilte Haushaltsdaten bleiben für verbleibende Mitglieder bestehen, nur deine privaten Daten werden entfernt. Profil- und Tagebuchdaten sind direkt in der App editierbar."
           }
+        },
+        "posthogSettings": {
+          "title": "PostHog-Analyse und Feature-Freigaben",
+          "enabledDescription": "Du hast PostHog zugestimmt. Wir senden kuratierte technische Nutzungsdaten und deine technische Konto-ID. Deine E-Mail-Adresse wird nur zur Auswertung deiner nutzerbezogenen Feature-Freigaben an PostHog übermittelt, nicht als Analyseereignis. Du kannst die Übermittlung jederzeit beenden.",
+          "disabledDescription": "PostHog ist deaktiviert. Ohne deine Zustimmung werden weder PostHog-Ereignisse noch deine Konto-ID oder E-Mail-Adresse an PostHog übermittelt.",
+          "allowButton": "PostHog erlauben",
+          "disableButton": "PostHog deaktivieren"
         },
         "adsSettings": {
           "title": "Werbe-Einstellungen",

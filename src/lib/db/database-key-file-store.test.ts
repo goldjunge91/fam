@@ -20,6 +20,35 @@ let mockFileText = '';
 let mockFileReadFails = false;
 let mockFileWriteFails = false;
 const originalPlatformDescriptor = Object.getOwnPropertyDescriptor(Platform, 'OS');
+const mockBeginWriterLease = jest.fn();
+const mockLeaseEnd = jest.fn();
+
+function createWriterLease() {
+  return {
+    signal: new AbortController().signal,
+    ended: false,
+    end: mockLeaseEnd,
+  };
+}
+
+jest.mock('@/lib/apple/shared-store-lifecycle', () => ({
+  sharedStoreWriterOwner: {
+    beginWriterLease: (...args: unknown[]) => mockBeginWriterLease(...args),
+  },
+  withSharedStoreWriterSync: (
+    owner: { beginWriterLease: (name: string) => ReturnType<typeof createWriterLease> | null },
+    name: string,
+    operation: (lease: ReturnType<typeof createWriterLease>) => unknown,
+  ) => {
+    const lease = owner.beginWriterLease(name);
+    if (!lease) throw new Error('writer unavailable');
+    try {
+      return operation(lease);
+    } finally {
+      lease.end();
+    }
+  },
+}));
 
 jest.mock('expo-file-system', () => ({
   File: jest.fn().mockImplementation(() => {
@@ -57,6 +86,8 @@ beforeEach(() => {
   mockFileText = '';
   mockFileReadFails = false;
   mockFileWriteFails = false;
+  mockBeginWriterLease.mockReset().mockImplementation(() => createWriterLease());
+  mockLeaseEnd.mockReset();
   jest.clearAllMocks();
 });
 
@@ -140,5 +171,34 @@ describe('shared SQLCipher key file', () => {
     mockNextFileExists = false;
     await store.removeItem('key');
     expect(mockFiles.at(-1)?.delete).not.toHaveBeenCalled();
+  });
+
+  it('beendet die Marker-Zusage genau einmal auf Erfolg und Fehler', async () => {
+    setPlatform('ios');
+    const store = createSharedKeyFileStore();
+    mockNextFileExists = false;
+
+    await store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE);
+    expect(mockBeginWriterLease).toHaveBeenCalledWith('database-key.cleanup-marker.write');
+    expect(mockLeaseEnd).toHaveBeenCalledTimes(1);
+
+    mockNextFileExists = false;
+    mockFileWriteFails = true;
+    await expect(
+      store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE),
+    ).rejects.toThrow('write failed');
+    expect(mockLeaseEnd).toHaveBeenCalledTimes(2);
+  });
+
+  it('verweigert einen Cleanup-Marker-Write ohne native Zusicherung', async () => {
+    setPlatform('ios');
+    const store = createSharedKeyFileStore();
+    mockBeginWriterLease.mockReturnValueOnce(null);
+
+    await expect(
+      store.setItem(DATABASE_KEY_CLEANUP_MARKER_KEY, DATABASE_KEY_CLEANUP_MARKER_VALUE),
+    ).rejects.toThrow('writer unavailable');
+    expect(mockFiles[0]?.write).not.toHaveBeenCalled();
+    expect(mockLeaseEnd).not.toHaveBeenCalled();
   });
 });

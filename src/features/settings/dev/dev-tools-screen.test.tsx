@@ -103,6 +103,15 @@ describe('DevToolsScreen', () => {
     expect(router.push).toHaveBeenCalledWith('/settings/dev-ocr-inspector');
   });
 
+  it('öffnet die lokale Provider- und Modellauswahl', async () => {
+    await renderScreen();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'KI-Provider & Modelle' }));
+
+    expect(router.push).toHaveBeenCalledWith('/settings/dev-ai-models');
+  });
+
   it('aktiviert die OCR-Anbieterauswahl für den Kassenbon-Upload', async () => {
     await renderScreen();
     const user = userEvent.setup();

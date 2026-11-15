@@ -2,7 +2,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-
+import type { SqlDatabase } from '@/lib/db/types';
 import { createTestDatabase, type TestDatabase } from '../../../test/node-sqlite-adapter';
 import { applyPatch } from './patch-applier';
 
@@ -152,6 +152,90 @@ describe('applyPatch', () => {
       { code: '3', product_name: 'Käse' },
     ]);
     expect(await readDataVersion()).toBe('2026-08-02T00:00:00.000Z');
+  });
+
+  it('bricht vor dem Attach ab, wenn die Patch-Phase bereits abgelaufen ist', async () => {
+    const patchPath = join(dir, 'patch-aborted.db');
+    const patchDb = new DatabaseSync(patchPath);
+    seedPatchDb(patchDb, {
+      fromVersion: '2026-08-01T00:00:00.000Z',
+      toVersion: '2026-08-02T00:00:00.000Z',
+    });
+    patchDb.close();
+
+    const controller = new AbortController();
+    controller.abort();
+
+    await expect(
+      applyPatch(db, {
+        patchDbPath: patchPath,
+        expectedFromVersion: '2026-08-01T00:00:00.000Z',
+        expectedSchemaVersion: 2,
+        toVersion: '2026-08-02T00:00:00.000Z',
+        attachmentMode: 'sqlite',
+        signal: controller.signal,
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    expect(await readOffDumpProducts()).toEqual([
+      { code: '1', product_name: 'Apfel' },
+      { code: '2', product_name: 'Wein' },
+    ]);
+  });
+
+  it('detacht nach einer Abbruchmeldung auch dann über die gehaltene Cleanup-Ownership', async () => {
+    const patchPath = join(dir, 'patch-aborted-after-attach.db');
+    const patchDb = new DatabaseSync(patchPath);
+    seedPatchDb(patchDb, {
+      fromVersion: '2026-08-01T00:00:00.000Z',
+      toVersion: '2026-08-02T00:00:00.000Z',
+    });
+    patchDb.close();
+
+    const controller = new AbortController();
+    type WriterScopedTestDatabase = TestDatabase & {
+      withWriterLeaseAsync<T>(
+        name: string,
+        task: (scope: {
+          db: SqlDatabase;
+          cleanupExecAsync(source: string): Promise<void>;
+        }) => Promise<T>,
+        signal?: AbortSignal,
+      ): Promise<T>;
+    };
+    let scopedDb: WriterScopedTestDatabase;
+    scopedDb = {
+      ...db,
+      execAsync: async (source) => {
+        await db.execAsync(source);
+        if (source.startsWith('ATTACH DATABASE') && source.includes('off_patch')) {
+          controller.abort('suspended');
+        }
+        if (source.startsWith('DETACH DATABASE off_patch')) {
+          throw new Error('foreground admission closed');
+        }
+      },
+      withWriterLeaseAsync: async (_name, task) =>
+        task({
+          db: scopedDb,
+          cleanupExecAsync: (source) => db.execAsync(source),
+        }),
+    };
+
+    await expect(
+      applyPatch(scopedDb, {
+        patchDbPath: patchPath,
+        expectedFromVersion: '2026-08-01T00:00:00.000Z',
+        expectedSchemaVersion: 2,
+        toVersion: '2026-08-02T00:00:00.000Z',
+        attachmentMode: 'sqlite',
+        signal: controller.signal,
+      }),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+
+    await expect(
+      db.execAsync(`ATTACH DATABASE '${patchPath}' AS off_patch`),
+    ).resolves.toBeUndefined();
   });
 
   it('lehnt einen Patch mit falscher from_version ab, ohne etwas zu ändern', async () => {

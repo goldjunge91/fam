@@ -17,6 +17,7 @@ export type NewProduct = {
   sugar_g_per_100?: number | null;
   salt_g_per_100?: number | null;
   serving_size_g?: number | null;
+  off_last_modified_at?: string | null;
   source: 'off' | 'manual';
   created_by: string;
 };
@@ -45,6 +46,7 @@ export function useAddProductMutation() {
         sugar_g_per_100: product.sugar_g_per_100 ?? null,
         salt_g_per_100: product.salt_g_per_100 ?? null,
         serving_size_g: product.serving_size_g ?? null,
+        off_last_modified_at: product.off_last_modified_at ?? null,
         source: product.source,
         created_by: product.created_by,
       };

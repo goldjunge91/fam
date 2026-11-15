@@ -430,14 +430,44 @@ function ManageRow({
   );
 }
 
+function isImportedTextItem(item: RecipeDetail['items'][number]): boolean {
+  return (
+    item.ingredientSource?.source === 'import_source' ||
+    (item.product_id === null && (item.sourceText?.trim().length ?? 0) > 0)
+  );
+}
+
+function formatIngredientAmount(
+  item: RecipeDetail['items'][number],
+  servings: number,
+): string | null {
+  const amount =
+    item.quantity !== null
+      ? item.quantity * servings
+      : item.grams !== null
+        ? item.grams * servings
+        : null;
+  const unit = item.quantity !== null || item.grams === null ? item.unit : 'g';
+  const parts = [
+    amount === null ? null : String(Number.isInteger(amount) ? amount : Number(amount.toFixed(6))),
+    unit?.trim() || null,
+  ].filter((part): part is string => part !== null);
+  return parts.length > 0 ? parts.join(' ') : null;
+}
+
 /**
  * Zutatenliste gegliedert nach Komponenten (z.B. „Teig“, „Belag“).
  * Mengen werden mit dem Portionsfaktor multipliziert; Produkte liefern
- * den Anzeigenamen, sonst Fallback „Zutat“.
+ * den Anzeigenamen, importierte Textzeilen behalten ihren Quelltext.
  */
 function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: number }) {
   const { colors } = useTheme();
-  const groups = data.components.filter((component) => component.serving_grams !== null);
+  const importedComponentIds = new Set(
+    data.items.filter(isImportedTextItem).map((item) => item.component_id),
+  );
+  const groups = data.components.filter(
+    (component) => component.serving_grams !== null || importedComponentIds.has(component.id),
+  );
 
   if (groups.length === 0) {
     return (
@@ -447,11 +477,16 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
     );
   }
 
+  const componentNames = new Map(
+    data.components.map((component) => [component.id, component.name]),
+  );
+
   return (
     <View style={styles.ingredients}>
       {groups.map((component) => {
         const items = data.items.filter((item) => item.component_id === component.id);
-        const preparedGrams = (component.serving_grams ?? 0) * servings;
+        const preparedGrams =
+          component.serving_grams === null ? null : component.serving_grams * servings;
 
         return (
           <View key={component.id} style={styles.ingredientGroup}>
@@ -463,15 +498,35 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
               <Txt variant="heading" style={styles.ingredientName}>
                 {component.name}
               </Txt>
-              <Txt variant="caption" tone="secondary">
-                {round(preparedGrams)} g zubereitet
-              </Txt>
+              {preparedGrams !== null ? (
+                <Txt variant="caption" tone="secondary">
+                  {String(
+                    Number.isInteger(preparedGrams)
+                      ? preparedGrams
+                      : Number(preparedGrams.toFixed(6)),
+                  )}{' '}
+                  g zubereitet
+                </Txt>
+              ) : null}
             </View>
             {items.map((item, index) => {
               const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
-              const quantity =
-                item.quantity !== null ? item.quantity * servings : item.grams * servings;
-              const unit = item.quantity !== null ? item.unit : 'g';
+              const originalName =
+                product?.name ??
+                item.sourceText?.trim() ??
+                item.ingredient_name?.trim() ??
+                (item.sub_component_id ? componentNames.get(item.sub_component_id) : undefined) ??
+                'Zutat';
+              const substitution = data.recipe.substitutions?.find(
+                (candidate) =>
+                  candidate.forIngredientId === item.id ||
+                  candidate.forIngredientId.toLocaleLowerCase('de-DE') ===
+                    originalName.toLocaleLowerCase('de-DE'),
+              );
+              const name = substitution
+                ? `${substitution.swap} (statt ${originalName})`
+                : originalName;
+              const amount = formatIngredientAmount(item, servings);
               return (
                 <View
                   key={item.id}
@@ -483,11 +538,13 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                     },
                   ]}>
                   <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
-                    {product?.name ?? 'Zutat'}
+                    {name}
                   </Txt>
-                  <Txt variant="body" tone="secondary" weight="500">
-                    {round(quantity)} {unit}
-                  </Txt>
+                  {substitution || amount === null ? null : (
+                    <Txt variant="body" tone="secondary" weight="500">
+                      {amount}
+                    </Txt>
+                  )}
                 </View>
               );
             })}
@@ -519,9 +576,8 @@ export function RecipeDetailScreen() {
   const [ratingOpen, setRatingOpen] = useState(false);
   const { data, isLoading } = useRecipeDetail(id);
   const { data: coverUrl } = useRecipeCoverUrl(data?.recipe.cover_image_path);
-  const deleteMutation = useDeleteRecipeMutation();
   const { isFavorite, toggleFavorite } = useRecipeFavorites();
-  const favorite = isFavorite(`recipe:${id}`);
+  const deleteMutation = useDeleteRecipeMutation();
   const rating = useRecipeRating(id);
 
   const baseServing = useMemo(
@@ -563,6 +619,8 @@ export function RecipeDetailScreen() {
   }
 
   const { recipe } = data;
+  const favoriteKey = `recipe:${recipe.id}` as const;
+  const favorite = isFavorite(favoriteKey);
   const tags = Array.from(
     new Set([
       ...recipe.dish_types.map((tag) => DISH_TYPE_LABELS[tag]),
@@ -581,8 +639,20 @@ export function RecipeDetailScreen() {
           <>
             <HeaderIconButton
               label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
-              onPress={() => toggleFavorite(`recipe:${id}`)}>
+              onPress={() => void toggleFavorite(favoriteKey)}>
               <HeartGlyph filled={favorite} />
+            </HeaderIconButton>
+            <HeaderIconButton
+              label="Assistant mit Rezeptkontext öffnen"
+              onPress={() =>
+                router.push({
+                  pathname: '/assistant',
+                  params: { pageContextKind: 'recipe', pageContextRecipeId: recipe.id },
+                })
+              }>
+              <Txt variant="glyph" tone="accent" weight="700">
+                ✦
+              </Txt>
             </HeaderIconButton>
             <HeaderIconButton label="Rezept verwalten" onPress={() => setManageOpen(true)}>
               <MoreGlyph />
@@ -898,7 +968,13 @@ export function RecipeDetailScreen() {
                   const product = item.product_id
                     ? data.productsById.get(item.product_id)
                     : undefined;
-                  return `• ${product?.name ?? 'Zutat'}: ${Math.round(item.quantity ?? item.grams)} ${item.quantity !== null ? item.unit : 'g'}`;
+                  const ingredientName =
+                    product?.name ??
+                    item.sourceText?.trim() ??
+                    item.ingredient_name?.trim() ??
+                    'Zutat';
+                  const amount = formatIngredientAmount(item, 1);
+                  return `• ${ingredientName}${amount ? `: ${amount}` : ''}`;
                 });
                 await Share.share({
                   title: recipe.title,

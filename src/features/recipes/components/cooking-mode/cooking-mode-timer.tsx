@@ -25,8 +25,8 @@ const styles = StyleSheet.create((theme) => ({
     paddingTop: theme.space.md,
   },
   action: {
-    width: rs(34),
-    height: rs(34),
+    width: theme.controlSizes.touchTarget,
+    height: theme.controlSizes.touchTarget,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     justifyContent: 'center',

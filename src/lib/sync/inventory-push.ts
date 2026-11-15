@@ -8,6 +8,7 @@ import type { TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
 import { deleteOutboxEntries, recordOutboxOutcome } from '@/lib/db/outbox';
 import type { Entity, SqlDatabase } from '@/lib/db/types';
 import { backoffDelayMs, classifyError, MAX_ATTEMPTS } from '@/lib/sync/backoff';
+import { throwIfSyncAborted } from '@/lib/sync/cancellation';
 import type { CoalescedEntry } from '@/lib/sync/coalesce';
 import {
   parseInventoryMergeUndoPayload,
@@ -53,10 +54,25 @@ type MoveRpcResponse = {
   status: number;
 };
 
+type AbortableRemoteRequest<T> = PromiseLike<T> & {
+  abortSignal?(signal: AbortSignal): AbortableRemoteRequest<T>;
+};
+
+async function awaitRemoteRequest<T>(
+  request: AbortableRemoteRequest<T>,
+  signal?: AbortSignal,
+): Promise<T> {
+  throwIfSyncAborted(signal);
+  const abortableRequest = signal ? (request.abortSignal?.(signal) ?? request) : request;
+  const response = await abortableRequest;
+  throwIfSyncAborted(signal);
+  return response;
+}
+
 type MoveRpc = (
   functionName: 'move_fridge_item' | 'reverse_move_fridge_item',
   args: MoveRpcArgs,
-) => Promise<MoveRpcResponse>;
+) => AbortableRemoteRequest<MoveRpcResponse>;
 
 type SplitRpcArgs = {
   p_transaction_id: string;
@@ -74,11 +90,12 @@ type SplitRpcArgs = {
 type SplitRpc = (
   functionName: 'split_fridge_item_open',
   args: SplitRpcArgs,
-) => Promise<MoveRpcResponse>;
+) => AbortableRemoteRequest<MoveRpcResponse>;
 
 async function attemptInventoryMove(
   supabase: TypedSupabaseClient,
   move: ReturnType<typeof parseInventoryMovePayload>,
+  signal?: AbortSignal,
 ): Promise<AttemptResult> {
   // Supabase's generated function type currently loses nullable UUID
   // arguments, although the declarative SQL function accepts NULL for both
@@ -97,18 +114,21 @@ async function attemptInventoryMove(
     };
   }
 
-  const rpcResponse = await moveRpc(isReversal ? 'reverse_move_fridge_item' : 'move_fridge_item', {
-    p_operation_id: move.operation_id,
-    p_item_id: move.item_id,
-    p_household_id: move.household_id,
-    p_expected_location_id: move.expected_location_id,
-    p_new_location_id: move.new_location_id,
-    p_expected_quantity: move.expected_quantity,
-    p_out_transaction_id: move.out_transaction_id,
-    p_in_transaction_id: move.in_transaction_id,
-    p_created_at: move.created_at,
-    ...(isReversal ? { p_reversal_of: move.reversal_of, p_notes: move.notes } : {}),
-  });
+  const rpcResponse = await awaitRemoteRequest(
+    moveRpc(isReversal ? 'reverse_move_fridge_item' : 'move_fridge_item', {
+      p_operation_id: move.operation_id,
+      p_item_id: move.item_id,
+      p_household_id: move.household_id,
+      p_expected_location_id: move.expected_location_id,
+      p_new_location_id: move.new_location_id,
+      p_expected_quantity: move.expected_quantity,
+      p_out_transaction_id: move.out_transaction_id,
+      p_in_transaction_id: move.in_transaction_id,
+      p_created_at: move.created_at,
+      ...(isReversal ? { p_reversal_of: move.reversal_of, p_notes: move.notes } : {}),
+    }),
+    signal,
+  );
   if (rpcResponse.error) {
     return {
       data: null,
@@ -117,13 +137,18 @@ async function attemptInventoryMove(
     };
   }
 
-  // The RPC returns only the stable item id. Read the canonical row afterwards
+  // The RPC returns only the stable item id. Read the authoritative row afterwards
   // so the normal mirror-write path also receives the server updated_at.
-  const remoteResponse = await supabase
+  const remoteRequest = supabase
     .from('fridge_items')
     .select('*')
     .eq('id', move.item_id)
-    .maybeSingle();
+    .maybeSingle() as unknown as AbortableRemoteRequest<{
+    data: Record<string, unknown> | null;
+    error: { code?: string; message: string } | null;
+    status: number;
+  }>;
+  const remoteResponse = await awaitRemoteRequest(remoteRequest, signal);
   if (remoteResponse.error) {
     return {
       data: null,
@@ -147,7 +172,7 @@ type MultiRowQuery = {
     in(
       column: string,
       values: readonly unknown[],
-    ): Promise<{
+    ): AbortableRemoteRequest<{
       data: Record<string, unknown>[] | null;
       error: { code?: string; message: string } | null;
       status: number;
@@ -158,20 +183,24 @@ type MultiRowQuery = {
 async function attemptInventorySplit(
   supabase: TypedSupabaseClient,
   split: ReturnType<typeof parseInventorySplitPayload>,
+  signal?: AbortSignal,
 ): Promise<AttemptResult> {
   const splitRpc = supabase.rpc.bind(supabase) as unknown as SplitRpc;
-  const rpcResponse = await splitRpc('split_fridge_item_open', {
-    p_transaction_id: split.transaction_id,
-    p_source_item_id: split.source_item_id,
-    p_opened_item_id: split.opened_item_id,
-    p_household_id: split.household_id,
-    p_expected_source_quantity: split.expected_source_quantity,
-    p_open_quantity: split.open_quantity,
-    p_opened_at: split.opened_at,
-    p_new_expiry_date: split.new_expiry_date,
-    p_expiry_user_set: split.expiry_user_set,
-    p_created_at: split.created_at,
-  });
+  const rpcResponse = await awaitRemoteRequest(
+    splitRpc('split_fridge_item_open', {
+      p_transaction_id: split.transaction_id,
+      p_source_item_id: split.source_item_id,
+      p_opened_item_id: split.opened_item_id,
+      p_household_id: split.household_id,
+      p_expected_source_quantity: split.expected_source_quantity,
+      p_open_quantity: split.open_quantity,
+      p_opened_at: split.opened_at,
+      p_new_expiry_date: split.new_expiry_date,
+      p_expiry_user_set: split.expiry_user_set,
+      p_created_at: split.created_at,
+    }),
+    signal,
+  );
   if (rpcResponse.error) {
     return {
       data: null,
@@ -184,9 +213,10 @@ async function attemptInventorySplit(
   // veraendert Rest- und geoeffnetes Los gemeinsam — RLS blendet weich
   // geloeschte Zeilen nicht aus, also liest ein Select beide unveraendert.
   const query = supabase.from('fridge_items') as unknown as MultiRowQuery;
-  const remoteResponse = await query
-    .select('*')
-    .in('id', [split.source_item_id, split.opened_item_id]);
+  const remoteResponse = await awaitRemoteRequest(
+    query.select('*').in('id', [split.source_item_id, split.opened_item_id]),
+    signal,
+  );
   if (remoteResponse.error) {
     return {
       data: null,
@@ -211,17 +241,19 @@ async function attemptInventorySplit(
 async function attemptInventoryMergeUndo(
   supabase: TypedSupabaseClient,
   mergeUndo: ReturnType<typeof parseInventoryMergeUndoPayload>,
+  signal?: AbortSignal,
 ): Promise<AttemptResult> {
   // Anders als move_fridge_item und split_fridge_item_open hat dieser RPC
   // keine nullbaren Argumente — der generierte Vertrag passt direkt, ohne
   // die Typumgehung, die die beiden anderen weiterhin brauchen.
-  const rpcResponse = await supabase.rpc('merge_undo_fridge_item_open', {
+  const rpcRequest = supabase.rpc('merge_undo_fridge_item_open', {
     p_reversal_transaction_id: mergeUndo.reversal_transaction_id,
     p_reversal_of: mergeUndo.reversal_of,
     p_household_id: mergeUndo.household_id,
     p_created_at: mergeUndo.created_at,
     p_notes: mergeUndo.notes,
-  });
+  }) as unknown as AbortableRemoteRequest<MoveRpcResponse>;
+  const rpcResponse = await awaitRemoteRequest(rpcRequest, signal);
   if (rpcResponse.error) {
     return {
       data: null,
@@ -241,11 +273,16 @@ async function attemptInventoryMergeUndo(
   // Der Server leitet Rest- und geoeffnetes Los aus der referenzierten
   // Split-Buchung ab; die Outbox-Entity kennt bislang nur das versiegelte Los
   // (entry.entityId). Die Ledgerzeile der Gegenbuchung nennt beide Ids.
-  const ledgerResponse = await supabase
+  const ledgerRequest = supabase
     .from('transactions')
     .select('fridge_item_id')
     .eq('id', mergeUndo.reversal_transaction_id)
-    .maybeSingle();
+    .maybeSingle() as unknown as AbortableRemoteRequest<{
+    data: { fridge_item_id?: unknown } | null;
+    error: { code?: string; message: string } | null;
+    status: number;
+  }>;
+  const ledgerResponse = await awaitRemoteRequest(ledgerRequest, signal);
   if (ledgerResponse.error) {
     return {
       data: null,
@@ -263,7 +300,10 @@ async function attemptInventoryMergeUndo(
   }
 
   const query = supabase.from('fridge_items') as unknown as MultiRowQuery;
-  const remoteResponse = await query.select('*').in('id', [sealedItemId, openedItemId]);
+  const remoteResponse = await awaitRemoteRequest(
+    query.select('*').in('id', [sealedItemId, openedItemId]),
+    signal,
+  );
   if (remoteResponse.error) {
     return {
       data: null,
@@ -303,38 +343,39 @@ function parseInventoryQuantityOperation(entry: CoalescedEntry): InventoryQuanti
 async function attemptInventoryQuantity(
   supabase: TypedSupabaseClient,
   operation: InventoryQuantityOperation,
+  signal?: AbortSignal,
 ): Promise<AttemptResult> {
   // Anders als move_fridge_item haben diese drei RPCs keine nullbaren
   // Argumente — der generierte Vertrag aus database.types.ts passt hier
   // direkt, ohne die Typumgehung, die move_fridge_item weiterhin braucht.
-  const rpcResponse =
-    operation.kind === 'reversal'
-      ? await supabase.rpc('reverse_inventory_quantity_transaction', {
-          p_reversal_transaction_id: operation.payload.reversal_transaction_id,
-          p_reversal_of: operation.payload.reversal_of,
+  const rpcRequest = (operation.kind === 'reversal'
+    ? supabase.rpc('reverse_inventory_quantity_transaction', {
+        p_reversal_transaction_id: operation.payload.reversal_transaction_id,
+        p_reversal_of: operation.payload.reversal_of,
+        p_item_id: operation.payload.item_id,
+        p_household_id: operation.payload.household_id,
+        p_created_at: operation.payload.created_at,
+        p_notes: operation.payload.notes,
+      })
+    : operation.kind === 'correction'
+      ? supabase.rpc('correct_fridge_item_quantity', {
+          p_operation_id: operation.payload.operation_id,
+          p_transaction_id: operation.payload.transaction_id,
           p_item_id: operation.payload.item_id,
           p_household_id: operation.payload.household_id,
+          p_expected_quantity: operation.payload.expected_quantity,
+          p_new_quantity: operation.payload.new_quantity,
           p_created_at: operation.payload.created_at,
-          p_notes: operation.payload.notes,
         })
-      : operation.kind === 'correction'
-        ? await supabase.rpc('correct_fridge_item_quantity', {
-            p_operation_id: operation.payload.operation_id,
-            p_transaction_id: operation.payload.transaction_id,
-            p_item_id: operation.payload.item_id,
-            p_household_id: operation.payload.household_id,
-            p_expected_quantity: operation.payload.expected_quantity,
-            p_new_quantity: operation.payload.new_quantity,
-            p_created_at: operation.payload.created_at,
-          })
-        : await supabase.rpc('adjust_fridge_item_quantity', {
-            p_operation_id: operation.payload.operation_id,
-            p_transaction_id: operation.payload.transaction_id,
-            p_item_id: operation.payload.item_id,
-            p_household_id: operation.payload.household_id,
-            p_delta: operation.payload.delta,
-            p_created_at: operation.payload.created_at,
-          });
+      : supabase.rpc('adjust_fridge_item_quantity', {
+          p_operation_id: operation.payload.operation_id,
+          p_transaction_id: operation.payload.transaction_id,
+          p_item_id: operation.payload.item_id,
+          p_household_id: operation.payload.household_id,
+          p_delta: operation.payload.delta,
+          p_created_at: operation.payload.created_at,
+        })) as unknown as AbortableRemoteRequest<MoveRpcResponse>;
+  const rpcResponse = await awaitRemoteRequest(rpcRequest, signal);
   if (rpcResponse.error) {
     return {
       data: null,
@@ -343,11 +384,16 @@ async function attemptInventoryQuantity(
     };
   }
 
-  const remoteResponse = await supabase
+  const remoteRequest = supabase
     .from('fridge_items')
     .select('*')
     .eq('id', operation.payload.item_id)
-    .maybeSingle();
+    .maybeSingle() as unknown as AbortableRemoteRequest<{
+    data: Record<string, unknown> | null;
+    error: { code?: string; message: string } | null;
+    status: number;
+  }>;
+  const remoteResponse = await awaitRemoteRequest(remoteRequest, signal);
   if (remoteResponse.error) {
     return {
       data: null,
@@ -378,16 +424,26 @@ async function recordInventoryPushFailure(
   kind: 'transient' | 'permanent',
   nowMs: number,
   currentAttempts: number,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  throwIfSyncAborted(signal);
   if (kind === 'transient') {
     const nextAttempts = currentAttempts + 1;
     const terminal = nextAttempts >= MAX_ATTEMPTS;
-    await recordOutboxOutcome(db, entry.sourceIds, {
-      attempts: nextAttempts,
-      lastError: message,
-      kind: 'transient',
-      nextAttemptAtMs: terminal ? Number.MAX_SAFE_INTEGER : nowMs + backoffDelayMs(currentAttempts),
-    });
+    await recordOutboxOutcome(
+      db,
+      entry.sourceIds,
+      {
+        attempts: nextAttempts,
+        lastError: message,
+        kind: 'transient',
+        nextAttemptAtMs: terminal
+          ? Number.MAX_SAFE_INTEGER
+          : nowMs + backoffDelayMs(currentAttempts),
+      },
+      { signal },
+    );
+    throwIfSyncAborted(signal);
     return {
       outcome: {
         kind: 'failed-transient',
@@ -400,12 +456,18 @@ async function recordInventoryPushFailure(
     };
   }
 
-  await recordOutboxOutcome(db, entry.sourceIds, {
-    attempts: MAX_ATTEMPTS,
-    lastError: message,
-    kind: 'permanent',
-    nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
-  });
+  await recordOutboxOutcome(
+    db,
+    entry.sourceIds,
+    {
+      attempts: MAX_ATTEMPTS,
+      lastError: message,
+      kind: 'permanent',
+      nextAttemptAtMs: Number.MAX_SAFE_INTEGER,
+    },
+    { signal },
+  );
+  throwIfSyncAborted(signal);
   return {
     outcome: {
       kind: 'failed-permanent',
@@ -428,10 +490,20 @@ async function requireFridgeItemsEntity(
   nowMs: number,
   currentAttempts: number,
   operationLabel: string,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean } | null> {
+  throwIfSyncAborted(signal);
   if (entry.entity === 'fridge_items') return null;
   const message = `Eine ${operationLabel} ist nur fuer fridge_items zulaessig.`;
-  return recordInventoryPushFailure(db, entry, message, 'permanent', nowMs, currentAttempts);
+  return recordInventoryPushFailure(
+    db,
+    entry,
+    message,
+    'permanent',
+    nowMs,
+    currentAttempts,
+    signal,
+  );
 }
 
 /**
@@ -444,7 +516,9 @@ async function parseInventoryPushPayload<T>(
   nowMs: number,
   currentAttempts: number,
   parse: () => T,
+  signal?: AbortSignal,
 ): Promise<{ payload: T } | { failure: { outcome: PushOutcome; stop: boolean } }> {
+  throwIfSyncAborted(signal);
   try {
     return { payload: parse() };
   } catch (error) {
@@ -456,6 +530,7 @@ async function parseInventoryPushPayload<T>(
       'permanent',
       nowMs,
       currentAttempts,
+      signal,
     );
     return { failure };
   }
@@ -470,8 +545,11 @@ async function completeInventoryPush(args: {
   expectedRows: number;
   missingRowsMessage: string;
   confirm: InventoryPushConfirmation;
+  signal?: AbortSignal;
 }): Promise<{ outcome: PushOutcome; stop: boolean }> {
+  throwIfSyncAborted(args.signal);
   const response = await args.attempt();
+  throwIfSyncAborted(args.signal);
   if (response.error) {
     const status = response.status === 0 ? null : response.status;
     return recordInventoryPushFailure(
@@ -481,6 +559,7 @@ async function completeInventoryPush(args: {
       classifyError(status),
       args.nowMs,
       args.currentAttempts,
+      args.signal,
     );
   }
 
@@ -493,13 +572,21 @@ async function completeInventoryPush(args: {
       'permanent',
       args.nowMs,
       args.currentAttempts,
+      args.signal,
     );
   }
 
-  await args.db.withExclusiveTransactionAsync(async (txn) => {
-    await deleteOutboxEntries(txn, args.entry.sourceIds, 'pushed');
-    await args.confirm(txn, rows);
-  });
+  throwIfSyncAborted(args.signal);
+  await args.db.withExclusiveTransactionAsync(
+    async (txn) => {
+      throwIfSyncAborted(args.signal);
+      await deleteOutboxEntries(txn, args.entry.sourceIds, 'pushed');
+      throwIfSyncAborted(args.signal);
+      await args.confirm(txn, rows);
+      throwIfSyncAborted(args.signal);
+    },
+    { signal: args.signal },
+  );
 
   return {
     outcome: {
@@ -518,9 +605,15 @@ export async function applyInventoryQuantityPush(
   entry: CoalescedEntry,
   nowMs: number,
   currentAttempts: number,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
-  const parsed = await parseInventoryPushPayload(db, entry, nowMs, currentAttempts, () =>
-    parseInventoryQuantityOperation(entry),
+  const parsed = await parseInventoryPushPayload(
+    db,
+    entry,
+    nowMs,
+    currentAttempts,
+    () => parseInventoryQuantityOperation(entry),
+    signal,
   );
   if ('failure' in parsed) return parsed.failure;
   const operation = parsed.payload;
@@ -531,12 +624,21 @@ export async function applyInventoryQuantityPush(
     nowMs,
     currentAttempts,
     'Mengenänderung',
+    signal,
   );
   if (entityGuard) return entityGuard;
 
   if (operation.payload.item_id !== entry.entityId) {
     const message = 'Mengen-Payload und Outbox-Entity zeigen auf unterschiedliche Bestände.';
-    return recordInventoryPushFailure(db, entry, message, 'permanent', nowMs, currentAttempts);
+    return recordInventoryPushFailure(
+      db,
+      entry,
+      message,
+      'permanent',
+      nowMs,
+      currentAttempts,
+      signal,
+    );
   }
 
   return completeInventoryPush({
@@ -544,9 +646,10 @@ export async function applyInventoryQuantityPush(
     entry,
     nowMs,
     currentAttempts,
-    attempt: () => attemptInventoryQuantity(supabase, operation),
+    attempt: () => attemptInventoryQuantity(supabase, operation, signal),
     expectedRows: 1,
-    missingRowsMessage: 'Mengenänderung lieferte keine kanonische Bestandszeile.',
+    missingRowsMessage: 'Mengenänderung lieferte keine maßgebliche Bestandszeile.',
+    signal,
     confirm: async (txn, rows) => {
       // Immer durch die Reconciliation schleusen, nicht nur wenn keine weitere
       // Mengenoperation mehr offen ist: sonst geht die gerade bestaetigte
@@ -567,6 +670,7 @@ export async function applyInventoryMovePush(
   entry: CoalescedEntry,
   nowMs: number,
   currentAttempts: number,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const entityGuard = await requireFridgeItemsEntity(
     db,
@@ -574,18 +678,32 @@ export async function applyInventoryMovePush(
     nowMs,
     currentAttempts,
     'Move-Operation',
+    signal,
   );
   if (entityGuard) return entityGuard;
 
-  const parsed = await parseInventoryPushPayload(db, entry, nowMs, currentAttempts, () =>
-    parseInventoryMovePayload(entry.payload),
+  const parsed = await parseInventoryPushPayload(
+    db,
+    entry,
+    nowMs,
+    currentAttempts,
+    () => parseInventoryMovePayload(entry.payload),
+    signal,
   );
   if ('failure' in parsed) return parsed.failure;
   const move = parsed.payload;
 
   if (move.item_id !== entry.entityId) {
     const message = 'Move-Payload und Outbox-Entity zeigen auf unterschiedliche Bestände.';
-    return recordInventoryPushFailure(db, entry, message, 'permanent', nowMs, currentAttempts);
+    return recordInventoryPushFailure(
+      db,
+      entry,
+      message,
+      'permanent',
+      nowMs,
+      currentAttempts,
+      signal,
+    );
   }
 
   return completeInventoryPush({
@@ -593,9 +711,10 @@ export async function applyInventoryMovePush(
     entry,
     nowMs,
     currentAttempts,
-    attempt: () => attemptInventoryMove(supabase, move),
+    attempt: () => attemptInventoryMove(supabase, move, signal),
     expectedRows: 1,
-    missingRowsMessage: 'Move lieferte keine kanonische Bestandszeile.',
+    missingRowsMessage: 'Move lieferte keine maßgebliche Bestandszeile.',
+    signal,
     confirm: async (txn, rows) => {
       if (!(await hasPendingMutation(txn, entry.entity, entry.entityId))) {
         await upsertMirrorRow(txn, 'fridge_items', rows[0], { dirty: 0 });
@@ -614,6 +733,7 @@ export async function applyInventorySplitPush(
   entry: CoalescedEntry,
   nowMs: number,
   currentAttempts: number,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const entityGuard = await requireFridgeItemsEntity(
     db,
@@ -621,18 +741,32 @@ export async function applyInventorySplitPush(
     nowMs,
     currentAttempts,
     'Split-Operation',
+    signal,
   );
   if (entityGuard) return entityGuard;
 
-  const parsed = await parseInventoryPushPayload(db, entry, nowMs, currentAttempts, () =>
-    parseInventorySplitPayload(entry.payload),
+  const parsed = await parseInventoryPushPayload(
+    db,
+    entry,
+    nowMs,
+    currentAttempts,
+    () => parseInventorySplitPayload(entry.payload),
+    signal,
   );
   if ('failure' in parsed) return parsed.failure;
   const split = parsed.payload;
 
   if (split.source_item_id !== entry.entityId) {
     const message = 'Split-Payload und Outbox-Entity zeigen auf unterschiedliche Bestände.';
-    return recordInventoryPushFailure(db, entry, message, 'permanent', nowMs, currentAttempts);
+    return recordInventoryPushFailure(
+      db,
+      entry,
+      message,
+      'permanent',
+      nowMs,
+      currentAttempts,
+      signal,
+    );
   }
 
   return completeInventoryPush({
@@ -640,9 +774,10 @@ export async function applyInventorySplitPush(
     entry,
     nowMs,
     currentAttempts,
-    attempt: () => attemptInventorySplit(supabase, split),
+    attempt: () => attemptInventorySplit(supabase, split, signal),
     expectedRows: 2,
-    missingRowsMessage: 'Split lieferte nicht beide kanonischen Bestandszeilen.',
+    missingRowsMessage: 'Split lieferte nicht beide maßgeblichen Bestandszeilen.',
+    signal,
     confirm: async (txn, rows) => {
       await applyRemoteRow(txn, 'fridge_items', rows[0] as RemoteRow, nowMs);
       await applyRemoteRow(txn, 'fridge_items', rows[1] as RemoteRow, nowMs);
@@ -657,6 +792,7 @@ export async function applyInventoryMergeUndoPush(
   entry: CoalescedEntry,
   nowMs: number,
   currentAttempts: number,
+  signal?: AbortSignal,
 ): Promise<{ outcome: PushOutcome; stop: boolean }> {
   const entityGuard = await requireFridgeItemsEntity(
     db,
@@ -664,11 +800,17 @@ export async function applyInventoryMergeUndoPush(
     nowMs,
     currentAttempts,
     'Merge-Undo-Operation',
+    signal,
   );
   if (entityGuard) return entityGuard;
 
-  const parsed = await parseInventoryPushPayload(db, entry, nowMs, currentAttempts, () =>
-    parseInventoryMergeUndoPayload(entry.payload),
+  const parsed = await parseInventoryPushPayload(
+    db,
+    entry,
+    nowMs,
+    currentAttempts,
+    () => parseInventoryMergeUndoPayload(entry.payload),
+    signal,
   );
   if ('failure' in parsed) return parsed.failure;
   const mergeUndo = parsed.payload;
@@ -678,9 +820,10 @@ export async function applyInventoryMergeUndoPush(
     entry,
     nowMs,
     currentAttempts,
-    attempt: () => attemptInventoryMergeUndo(supabase, mergeUndo),
+    attempt: () => attemptInventoryMergeUndo(supabase, mergeUndo, signal),
     expectedRows: 2,
-    missingRowsMessage: 'Merge-Undo lieferte nicht beide kanonischen Bestandszeilen.',
+    missingRowsMessage: 'Merge-Undo lieferte nicht beide maßgeblichen Bestandszeilen.',
+    signal,
     confirm: async (txn, rows) => {
       await applyRemoteRow(txn, 'fridge_items', rows[0] as RemoteRow, nowMs);
       await applyRemoteRow(txn, 'fridge_items', rows[1] as RemoteRow, nowMs);

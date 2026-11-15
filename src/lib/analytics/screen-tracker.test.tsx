@@ -3,7 +3,7 @@ import { usePathname } from 'expo-router';
 import { AppState, type AppStateStatus, type NativeEventSubscription } from 'react-native';
 
 import { trackAnalyticsEvent } from '@/lib/analytics/events';
-import { ScreenTracker } from '@/lib/analytics/screen-tracker';
+import { ScreenTracker, sanitizeScreenName } from '@/lib/analytics/screen-tracker';
 import { addDiagnosticStep } from '@/lib/telemetry';
 import { recordSessionRoute } from '@/lib/telemetry/session-diagnostics';
 
@@ -22,6 +22,18 @@ jest.mock('@/lib/telemetry', () => ({
 jest.mock('@/lib/telemetry/session-diagnostics', () => ({
   recordSessionRoute: jest.fn(),
 }));
+
+describe('sanitizeScreenName', () => {
+  it('normalisiert sichere Routergruppen und entfernt Query-Parameter', () => {
+    expect(sanitizeScreenName('/(app)/shopping-list?source=shortcut')).toBe('shopping_list');
+  });
+
+  it('verwirft dynamische und private Routen', () => {
+    expect(sanitizeScreenName('/recipe/secret-recipe-id')).toBeUndefined();
+    expect(sanitizeScreenName('/diary')).toBeUndefined();
+    expect(sanitizeScreenName('/(app)/glp1/correlation')).toBeUndefined();
+  });
+});
 
 describe('ScreenTracker', () => {
   let appStateListener: ((state: AppStateStatus) => void) | undefined;
@@ -49,11 +61,11 @@ describe('ScreenTracker', () => {
     await render(<ScreenTracker />);
 
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
-      screen: '/(tabs)/inventory',
+      screen: 'inventory',
     });
-    expect(recordSessionRoute).toHaveBeenCalledWith('/(tabs)/inventory');
+    expect(recordSessionRoute).toHaveBeenCalledWith('inventory');
     expect(addDiagnosticStep).toHaveBeenCalledWith('route.changed', {
-      route: '/(tabs)/inventory',
+      route: 'inventory',
       operation: 'navigation.route',
     });
   });
@@ -70,11 +82,11 @@ describe('ScreenTracker', () => {
     await rerender(<ScreenTracker />);
 
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.leave.completed', {
-      screen: '/(tabs)/inventory',
+      screen: 'inventory',
       duration_seconds: 5,
     });
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
-      screen: '/(tabs)/shopping-list',
+      screen: 'shopping_list',
     });
   });
 
@@ -83,7 +95,7 @@ describe('ScreenTracker', () => {
     await render(<ScreenTracker />);
 
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
-      screen: '/(tabs)/recipes',
+      screen: 'recipes',
     });
 
     // 10 Sekunden vergehen
@@ -93,7 +105,7 @@ describe('ScreenTracker', () => {
     appStateListener?.('background');
 
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.leave.completed', {
-      screen: '/(tabs)/recipes',
+      screen: 'recipes',
       duration_seconds: 10,
     });
 
@@ -104,7 +116,7 @@ describe('ScreenTracker', () => {
     appStateListener?.('active');
 
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.view.completed', {
-      screen: '/(tabs)/recipes',
+      screen: 'recipes',
     });
   });
 
@@ -116,7 +128,7 @@ describe('ScreenTracker', () => {
     await unmount();
 
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('screen.leave.completed', {
-      screen: '/settings',
+      screen: 'settings',
       duration_seconds: 3,
     });
   });

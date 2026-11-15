@@ -28,8 +28,11 @@ describe('Requested brochure scraper workflow', () => {
     const workflow = await readFile(workflowPath, 'utf8');
 
     expect(workflow).toContain('run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP"');
-    expect(workflow).toContain('run: bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP" --dry-run');
+    expect(workflow).toContain('bun run scripts/scrapers/run-kaufda.ts --zip "$TARGET_ZIP" --dry-run');
     expect(workflow).toContain('SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}');
-    expect(workflow).toContain('Validate one postal code without database credentials');
+    expect(
+      workflow.match(/GOOGLE_PLACES_API_KEY: \$\{\{ secrets\.GOOGLE_PLACES_API_KEY \}\}/g),
+    ).toHaveLength(2);
+    expect(workflow).toContain('Validate and resolve one postal code without database credentials');
   });
 });

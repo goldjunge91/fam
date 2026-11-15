@@ -106,6 +106,7 @@ enum SiriShoppingDatabaseError: Error, CustomLocalizedStringResourceConvertible 
     case databaseUnavailable
     case databaseKeyUnavailable
     case keychain(status: OSStatus)
+    case journalModeNotWal(observed: String?)
     case missingActiveHousehold
     case invalidItem
     case invalidItemList
@@ -119,6 +120,8 @@ enum SiriShoppingDatabaseError: Error, CustomLocalizedStringResourceConvertible 
         case .databaseUnavailable: "database-unavailable"
         case .databaseKeyUnavailable: "database-key-unavailable"
         case let .keychain(status): "keychain-status-\(status)"
+        case let .journalModeNotWal(observed):
+            "journal-mode-not-wal-\(observed ?? "unknown")"
         case .missingActiveHousehold: "active-household-missing"
         case .storeNotFound: "store-not-found"
         case .ambiguousStore: "ambiguous-store"
@@ -138,6 +141,8 @@ enum SiriShoppingDatabaseError: Error, CustomLocalizedStringResourceConvertible 
             "Der Schlüssel für die lokale Einkaufsliste ist nicht verfügbar. Öffne fam einmal und versuche es erneut."
         case .keychain:
             "Der sichere Zugriff auf die Einkaufsliste ist fehlgeschlagen. Öffne fam einmal und versuche es erneut."
+        case .journalModeNotWal:
+            "Die lokale Einkaufsliste konnte nicht sicher geöffnet werden. Öffne fam einmal und versuche es erneut."
         case .missingActiveHousehold:
             "Melde dich in fam an und wähle einen aktiven Haushalt aus."
         case .storeNotFound:
@@ -366,6 +371,46 @@ final class SiriShoppingDatabase {
         }
     }
 
+    private func ensureWalJournalMode(on database: OpaquePointer, readOnly: Bool) throws {
+        let observed = try journalMode(on: database)
+        if observed == "wal" { return }
+
+        guard !readOnly else {
+            Self.logger.error(
+                "Siri database journal mode is not WAL: \(observed ?? "unknown", privacy: .public)",
+            )
+            throw SiriShoppingDatabaseError.journalModeNotWal(observed: observed)
+        }
+
+        do {
+            try execute("PRAGMA journal_mode = WAL", on: database)
+        } catch {
+            Self.logger.error(
+                "Siri database journal mode could not be set: \(String(describing: error), privacy: .public)",
+            )
+            throw SiriShoppingDatabaseError.journalModeNotWal(observed: observed)
+        }
+
+        let verified = try journalMode(on: database)
+        guard verified == "wal" else {
+            Self.logger.error(
+                "Siri database journal mode is not WAL after setting: \(verified ?? "unknown", privacy: .public)",
+            )
+            throw SiriShoppingDatabaseError.journalModeNotWal(observed: verified)
+        }
+    }
+
+    private func journalMode(on database: OpaquePointer) throws -> String? {
+        let statement = try SiriSQLiteStatement(database: database, sql: "PRAGMA journal_mode")
+        guard try statement.step() == 100 else {
+            throw SiriShoppingDatabaseError.sqlite(
+                operation: "journal-mode-read",
+                message: "PRAGMA journal_mode returned no row",
+            )
+        }
+        return statement.text(at: 0)
+    }
+
     /// Opens the shared encrypted database, applies connection settings, then closes it.
     private func withSharedDatabase<T>(
         readOnly: Bool = false,
@@ -428,6 +473,7 @@ final class SiriShoppingDatabase {
         if !readOnly {
             try execute("PRAGMA foreign_keys = ON", on: database)
         }
+        try ensureWalJournalMode(on: database, readOnly: readOnly)
         return try operation(database, householdID)
     }
 

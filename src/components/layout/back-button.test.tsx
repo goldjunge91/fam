@@ -81,4 +81,23 @@ describe('BackButton', () => {
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });
+
+  it('uses its fallback route when there is no navigation history', async () => {
+    await render(<BackButton label="Assistant" href="/(app)" variant="header" />);
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Assistant' }));
+
+    expect(mockReplace).toHaveBeenCalledWith('/(app)');
+    expect(mockBack).not.toHaveBeenCalled();
+  });
+
+  it('uses navigation history before its fallback route', async () => {
+    mockCanGoBack = true;
+    await render(<BackButton label="Assistant" href="/(app)" variant="header" />);
+
+    await fireEvent.press(screen.getByRole('button', { name: 'Assistant' }));
+
+    expect(mockBack).toHaveBeenCalledTimes(1);
+    expect(mockReplace).not.toHaveBeenCalled();
+  });
 });

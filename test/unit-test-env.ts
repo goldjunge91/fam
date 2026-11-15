@@ -3,7 +3,7 @@ export const UNIT_TEST_ENV = {
   EXPO_PUBLIC_USE_RN_FETCH: '1',
   FAM_HARNESS_UI: '0',
   EXPO_PUBLIC_SUPABASE_URL: 'http://127.0.0.1:54321',
-  EXPO_PUBLIC_SUPABASE_KEY: 'test-supabase-anon-key',
+  EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'test-supabase-publishable-key',
   EXPO_PUBLIC_FORCE_ONBOARDING: 'false',
   EXPO_PUBLIC_DEV_TOOLS: 'false',
   EXPO_PUBLIC_DEBUG_LOGS: 'false',

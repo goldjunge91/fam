@@ -1,6 +1,13 @@
 import { create } from 'zustand';
 
 import { getSettingsModules } from '@/constants/feature-registry';
+import {
+  type AiModelsByProvider,
+  type AiProvider,
+  DEFAULT_AI_MODELS,
+  isAiProvider,
+  isValidAiModelId,
+} from '@/features/ai-assistant/model-catalog';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import type { ReceiptOcrProvider } from '@/features/ocr/processing/native';
 import type { ModulePreferences } from '@/features/settings/module-preferences';
@@ -31,6 +38,9 @@ const FEATURE_FLAG_OVERRIDES_STORAGE_KEY = 'dev.feature_flag_overrides.v1';
 const SPEECH_TEST_PROVIDER_STORAGE_KEY = 'dev.speech_test_provider.v1';
 const RECEIPT_OCR_TEST_ENABLED_STORAGE_KEY = 'dev.receipt_ocr_test_enabled.v1';
 const RECEIPT_OCR_PROVIDER_STORAGE_KEY = 'dev.receipt_ocr_provider.v1';
+const AI_PROVIDER_STORAGE_KEY = 'dev.ai_provider.v1';
+const AI_MODEL_STORAGE_KEY = 'dev.ai_model.v1';
+const AI_MODELS_STORAGE_KEY = 'dev.ai_models.v1';
 const MODULE_FEATURE_KEYS = getSettingsModules().map(({ key }) => key);
 const FEATURE_FLAG_OVERRIDE_KEYS: readonly FeatureFlagKey[] = ['shopping-stt'];
 
@@ -167,6 +177,67 @@ function persistReceiptOcrProvider(provider: ReceiptOcrProvider): void {
   }
 }
 
+function readAiProvider(): AiProvider {
+  try {
+    const value = getDeviceStorage().getString(AI_PROVIDER_STORAGE_KEY);
+    return isAiProvider(value) ? value : 'openrouter';
+  } catch {
+    return 'openrouter';
+  }
+}
+
+function readAiModels(provider: AiProvider): AiModelsByProvider {
+  const models: AiModelsByProvider = { ...DEFAULT_AI_MODELS };
+  try {
+    const storage = getDeviceStorage();
+    const rawModels = storage.getString(AI_MODELS_STORAGE_KEY);
+    if (rawModels) {
+      const parsed: unknown = JSON.parse(rawModels);
+      if (isRecord(parsed)) {
+        for (const supportedProvider of Object.keys(DEFAULT_AI_MODELS) as AiProvider[]) {
+          const candidate = parsed[supportedProvider];
+          if (isValidAiModelId(candidate)) models[supportedProvider] = candidate;
+        }
+        return models;
+      }
+    }
+
+    // Migrate the original single-model setting to its provider-specific slot.
+    const legacyModel = storage.getString(AI_MODEL_STORAGE_KEY);
+    if (isValidAiModelId(legacyModel)) models[provider] = legacyModel;
+  } catch {
+    return models;
+  }
+  return models;
+}
+
+function persistAiProvider(provider: AiProvider): void {
+  try {
+    getDeviceStorage().set(AI_PROVIDER_STORAGE_KEY, provider);
+  } catch (error) {
+    debugWarn('[DevSettings] AI-Anbieter konnte nicht gespeichert werden:', error);
+  }
+}
+
+function persistAiModel(model: string): void {
+  try {
+    getDeviceStorage().set(AI_MODEL_STORAGE_KEY, model);
+  } catch (error) {
+    debugWarn('[DevSettings] AI-Modell konnte nicht gespeichert werden:', error);
+  }
+}
+
+function persistAiModels(models: AiModelsByProvider): void {
+  try {
+    getDeviceStorage().set(AI_MODELS_STORAGE_KEY, JSON.stringify(models));
+  } catch (error) {
+    debugWarn('[DevSettings] KI-Modelle konnten nicht gespeichert werden:', error);
+  }
+}
+
+const initialAiProvider = readAiProvider();
+const initialAiModels = readAiModels(initialAiProvider);
+
 function readFeatureFlagOverrides(): FeatureFlagOverrides {
   try {
     const raw = getDeviceStorage().getString(FEATURE_FLAG_OVERRIDES_STORAGE_KEY);
@@ -206,6 +277,9 @@ export type DevSettings = {
   speechTestProvider: SpeechTestProvider;
   receiptOcrTestEnabled: boolean;
   receiptOcrProvider: ReceiptOcrProvider;
+  aiProvider: AiProvider;
+  aiModel: string;
+  aiModels: AiModelsByProvider;
 };
 
 type DevSettingsStore = DevSettings & {
@@ -218,6 +292,8 @@ type DevSettingsStore = DevSettings & {
   setSpeechTestProvider: (provider: SpeechTestProvider) => void;
   setReceiptOcrTestEnabled: (enabled: boolean) => void;
   setReceiptOcrProvider: (provider: ReceiptOcrProvider) => void;
+  setAiProvider: (provider: AiProvider) => void;
+  setAiModel: (model: string) => void;
 };
 
 export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
@@ -227,6 +303,9 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
   speechTestProvider: readSpeechTestProvider(),
   receiptOcrTestEnabled: readReceiptOcrTestEnabled(),
   receiptOcrProvider: readReceiptOcrProvider(),
+  aiProvider: initialAiProvider,
+  aiModel: initialAiModels[initialAiProvider],
+  aiModels: initialAiModels,
   setTrackingMethodOverride: (method, value) =>
     set((state) => {
       const trackingMethodOverrides = { ...state.trackingMethodOverrides };
@@ -275,4 +354,17 @@ export const useDevSettingsStore = create<DevSettingsStore>((set) => ({
     persistReceiptOcrProvider(provider);
     set({ receiptOcrProvider: provider });
   },
+  setAiProvider: (provider) =>
+    set((state) => {
+      persistAiProvider(provider);
+      return { aiProvider: provider, aiModel: state.aiModels[provider] };
+    }),
+  setAiModel: (model) =>
+    set((state) => {
+      if (!isValidAiModelId(model)) return state;
+      const aiModels = { ...state.aiModels, [state.aiProvider]: model };
+      persistAiModel(model);
+      persistAiModels(aiModels);
+      return { aiModel: model, aiModels };
+    }),
 }));

@@ -31,6 +31,21 @@ describe('computeIngredientNeeds', () => {
     expect(needs.get('hack')).toBeCloseTo((300 / 350) * 200 * 2, 4);
   });
 
+  it('ignoriert importierte Positionen ohne positive abgeleitete Grammmenge', () => {
+    const need: RecipeNeedInput = {
+      recipeId: 'r1',
+      portions: 1,
+      components: [sauceComponent],
+      items: [
+        { component_id: 'sauce', product_id: 'tomaten', sub_component_id: null, grams: 100 },
+        { component_id: 'sauce', product_id: null, sub_component_id: null, grams: null },
+        { component_id: 'sauce', product_id: 'hack', sub_component_id: null, grams: -50 },
+      ],
+    };
+
+    expect(computeIngredientNeeds([need]).needs).toEqual(new Map([['tomaten', 200]]));
+  });
+
   it('summiert den Bedarf ueber mehrere Rezepte/Eintraege desselben Produkts', () => {
     const need1: RecipeNeedInput = {
       recipeId: 'r1',

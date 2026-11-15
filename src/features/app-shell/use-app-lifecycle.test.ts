@@ -1,4 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react-native';
+import { AppState, type AppStateStatus } from 'react-native';
 import type { startSessionDiagnostics } from '@/lib/telemetry/session-diagnostics';
 import { useAppLifecycle } from './use-app-lifecycle';
 
@@ -14,6 +15,13 @@ const mockMetricPerformance = jest.fn();
 const mockDebugLog = jest.fn();
 const mockDebugWarn = jest.fn();
 const mockRegisterBackgroundSync = jest.fn<Promise<void>, []>();
+const mockCloseDatabaseForLifecycle = jest.fn<Promise<void>, []>();
+const mockSuspendForegroundSync = jest.fn();
+const mockResumeForegroundSync = jest.fn();
+const mockSuspendOffDumpOperations = jest.fn();
+const mockResumeOffDumpOperations = jest.fn();
+const mockRemoveAppStateListener = jest.fn();
+let appStateListener: ((state: AppStateStatus) => void) | undefined;
 const mockAddDiagnosticStep = jest.fn();
 const mockReportError = jest.fn();
 const mockTrackEvent = jest.fn();
@@ -43,8 +51,19 @@ jest.mock('@/lib/observability/providers/sentry', () => ({
     registerNavigationContainer: (...args: unknown[]) => mockRegisterNavigationContainer(...args),
   },
 }));
+jest.mock('@/lib/db/local-client', () => ({
+  closeDatabaseForLifecycle: () => mockCloseDatabaseForLifecycle(),
+}));
+jest.mock('@/lib/off-dump/off-dump', () => ({
+  resumeOffDumpOperations: () => mockResumeOffDumpOperations(),
+  suspendOffDumpOperations: () => mockSuspendOffDumpOperations(),
+}));
 jest.mock('@/lib/sync/remote-background-sync', () => ({
   registerBackgroundSync: () => mockRegisterBackgroundSync(),
+}));
+jest.mock('@/lib/sync/sync-runner', () => ({
+  resumeForegroundSync: () => mockResumeForegroundSync(),
+  suspendForegroundSync: () => mockSuspendForegroundSync(),
 }));
 jest.mock('@/lib/telemetry', () => ({
   addDiagnosticStep: (...args: unknown[]) => mockAddDiagnosticStep(...args),
@@ -62,11 +81,50 @@ jest.mock('@/lib/telemetry/session-diagnostics', () => ({
 describe('useAppLifecycle', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    appStateListener = undefined;
+    jest.spyOn(AppState, 'addEventListener').mockImplementation((_event, listener) => {
+      appStateListener = listener;
+      return { remove: mockRemoveAppStateListener } as ReturnType<typeof AppState.addEventListener>;
+    });
+    mockCloseDatabaseForLifecycle.mockResolvedValue(undefined);
     mockStartQueryEnvironmentSync.mockReturnValue(mockStopQueryEnvironmentSync);
     mockRegisterBackgroundSync.mockReset().mockResolvedValue(undefined);
     mockStartSessionDiagnostics
       .mockReset()
       .mockImplementation((_callbacks) => Promise.resolve(mockStopSessionDiagnostics));
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('pauses writers before closing SQLite and resumes them in the foreground', async () => {
+    const order: string[] = [];
+    mockSuspendForegroundSync.mockImplementation(() => order.push('sync-suspended'));
+    mockSuspendOffDumpOperations.mockImplementation(() => order.push('dump-suspended'));
+    mockCloseDatabaseForLifecycle.mockImplementation(async () => {
+      order.push('database-closed');
+    });
+    mockResumeOffDumpOperations.mockImplementation(() => order.push('dump-resumed'));
+    mockResumeForegroundSync.mockImplementation(() => order.push('sync-resumed'));
+
+    const { unmount } = await renderHook(() => useAppLifecycle());
+
+    appStateListener?.('inactive');
+    await Promise.resolve();
+    expect(order).toEqual(['sync-suspended', 'dump-suspended', 'database-closed']);
+
+    appStateListener?.('active');
+    expect(order).toEqual([
+      'sync-suspended',
+      'dump-suspended',
+      'database-closed',
+      'dump-resumed',
+      'sync-resumed',
+    ]);
+
+    await unmount();
+    expect(mockRemoveAppStateListener).toHaveBeenCalledTimes(1);
   });
 
   it('registers startup services, records lifecycle events, and disposes them on unmount', async () => {

@@ -225,7 +225,7 @@ describe('AppLayout startup gate', () => {
 
     expect(screen.getByText('app-shell')).toBeOnTheScreen();
     expect(mockUseSyncEngine).toHaveBeenCalledWith('hh-1', expect.any(Function));
-    expect(mockUseRealtimeSync).toHaveBeenCalledWith('hh-1', expect.any(Function));
+    expect(mockUseRealtimeSync).toHaveBeenCalledWith('hh-1');
     expect(mockSubscribeHouseholdMembershipRealtime).toHaveBeenCalledWith(
       expect.anything(),
       'user-1',

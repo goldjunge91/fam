@@ -63,6 +63,10 @@ jest.mock('@/features/inventory/product-search-dropdown', () => {
   };
 });
 
+jest.mock('@/features/recipes/hooks/use-food-ingredients', () => ({
+  useFoodIngredients: () => ({ data: [], isError: false, isFetching: false }),
+}));
+
 const defaultGroup: IngredientComponentGroup = {
   id: 'group-1',
   title: 'Zutaten',

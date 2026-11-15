@@ -1,0 +1,3 @@
+-- Migration-history placeholder for a schema previously applied to the shared
+-- remote by a superseded feature branch. Its legacy assistant RPCs are removed
+-- by 20261109090000_retire_ai_cooking_schema.sql.

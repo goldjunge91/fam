@@ -1,3 +1,5 @@
+import { throwIfOffDumpAborted } from './file-ops';
+
 export type DumpManifestAsset = { url: string; size: number; checksum: string };
 
 export type DumpManifestPatchEntry = DumpManifestAsset & {
@@ -75,6 +77,7 @@ export async function fetchManifest(
     if (!res.ok) return null;
     return parseManifest(await res.json());
   } catch {
+    throwIfOffDumpAborted(signal);
     return null;
   }
 }

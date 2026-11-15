@@ -1,5 +1,3 @@
-import { initializeAppRuntime } from './initialize-app-runtime';
-
 const mockConfigureObserve = jest.fn();
 const mockPreventAutoHide = jest.fn();
 const mockConfigureReanimated = jest.fn();
@@ -12,7 +10,6 @@ const mockStartPerformanceSpan = jest.fn(
 );
 const mockInitPostHog = jest.fn();
 const mockInitSentry = jest.fn();
-const mockDefineBackgroundSyncTask = jest.fn();
 const mockShoppingListSnapshot = jest.fn();
 const mockQuickAddSnapshot = jest.fn();
 
@@ -42,9 +39,6 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
 jest.mock('@/lib/observability/providers/sentry', () => ({
   initSentry: (...args: unknown[]) => mockInitSentry(...args),
 }));
-jest.mock('@/lib/sync/remote-background-sync', () => ({
-  defineBackgroundSyncTask: (...args: unknown[]) => mockDefineBackgroundSyncTask(...args),
-}));
 jest.mock('@/widgets/quick-add-shopping-widget', () => ({
   __esModule: true,
   default: { updateSnapshot: (...args: unknown[]) => mockQuickAddSnapshot(...args) },
@@ -54,13 +48,22 @@ jest.mock('@/widgets/shopping-list-widget', () => ({
   default: { updateSnapshot: (...args: unknown[]) => mockShoppingListSnapshot(...args) },
 }));
 
+function loadInitializeAppRuntime(): () => void {
+  jest.resetModules();
+  return (require('./initialize-app-runtime') as typeof import('./initialize-app-runtime'))
+    .initializeAppRuntime;
+}
+
 describe('initializeAppRuntime', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockStartPerformanceSpan.mockReturnValue(mockFinishPerformance);
   });
 
-  it('initializes startup services before configuring Observe', () => {
+  it('initializes foreground services once', () => {
+    const initializeAppRuntime = loadInitializeAppRuntime();
+
+    initializeAppRuntime();
     initializeAppRuntime();
 
     expect(mockMarkPerformance).toHaveBeenCalledWith('app.start', { phase: 'startup' });
@@ -69,7 +72,6 @@ describe('initializeAppRuntime', () => {
     });
     expect(mockConfigureReanimated).toHaveBeenCalledWith({ strict: false });
     expect(mockPreventAutoHide).toHaveBeenCalledTimes(1);
-    expect(mockDefineBackgroundSyncTask).toHaveBeenCalledTimes(1);
     expect(mockInitSentry).toHaveBeenCalledTimes(1);
     expect(mockInitPostHog).toHaveBeenCalledTimes(1);
     expect(mockInitAptabase).toHaveBeenCalledTimes(1);
@@ -82,7 +84,8 @@ describe('initializeAppRuntime', () => {
     expect(mockFinishPerformance).toHaveBeenCalledWith('completed', { initialized: true });
   });
 
-  it('marks the initialization span failed and rethrows the first startup error', () => {
+  it('marks initialization failed, resets the guard, and allows a retry', () => {
+    const initializeAppRuntime = loadInitializeAppRuntime();
     const error = new Error('PostHog initialization failed');
     mockInitPostHog.mockImplementationOnce(() => {
       throw error;
@@ -91,5 +94,8 @@ describe('initializeAppRuntime', () => {
     expect(initializeAppRuntime).toThrow(error);
     expect(mockInitAptabase).not.toHaveBeenCalled();
     expect(mockFinishPerformance).toHaveBeenCalledWith('failed', { initialized: false });
+
+    expect(initializeAppRuntime).not.toThrow();
+    expect(mockInitPostHog).toHaveBeenCalledTimes(2);
   });
 });

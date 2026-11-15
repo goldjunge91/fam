@@ -23,7 +23,7 @@ export type RecipeComponentItemRow = {
   component_id: string;
   product_id: string | null;
   sub_component_id: string | null;
-  grams: number;
+  grams: number | null;
 };
 
 export type ProductNutritionRow = {
@@ -71,6 +71,7 @@ export function calculateComponentPer100g(
 
   for (const item of items) {
     if (item.component_id !== componentId) continue;
+    if (item.grams === null || item.grams <= 0) continue;
 
     if (item.product_id !== null) {
       const product = productsById.get(item.product_id);

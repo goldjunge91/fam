@@ -1,0 +1,3 @@
+-- Migration-history placeholder for a schema previously applied to the shared
+-- remote by a superseded feature branch. Current credit schema is defined by
+-- the current branch's existing migrations and declarative schemas.

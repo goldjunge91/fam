@@ -136,22 +136,93 @@ create table if not exists public.recipe_component_items (
   -- abgeleitet (client-seitig ueber toGramsEquivalent, kein DB-Trigger —
   -- konsistent mit dem Muster, dass Naehrwertberechnung Sache der reinen
   -- Funktionen in src/features/recipes/domain/nutrition.ts ist, nicht der DB).
-  grams numeric(8, 2) not null check (grams > 0),
+  -- Bei import_source ist die abgeleitete Menge optional, damit die rohe
+  -- Eingabe auch ohne Umrechnung erhalten bleibt.
+  grams numeric(8, 2) check (grams is null or grams > 0),
   -- Rohe Nutzereingabe (z. B. "2" + "piece"), nullable fuer Altdaten ohne
-  -- Roheingabe. Gleiche erlaubte Einheiten wie fridge_items/shopping_list
-  -- (08_inventory.sql), siehe src/lib/units.ts.
-  quantity numeric(10, 2) check (quantity > 0),
-  unit text not null default 'g'
-    check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
+  -- Roheingabe. Importpositionen behalten auch negative oder unbekannte Werte
+  -- unveraendert; normale Rezeptpositionen behalten den bisherigen Vertrag.
+  quantity numeric(10, 2),
+  unit text default 'g',
   optional boolean not null default false,
   note text,
+  source_text text,
+  ingredient_source_type text check (
+    ingredient_source_type is null or ingredient_source_type in (
+      'recipe_text', 'product_label', 'import_source'
+    )
+  ),
+  ingredient_source_id text,
+  ingredient_source_url text,
+  ingredient_source_version text,
+  ingredient_source_license text,
+  ingredient_mapping jsonb not null default
+    '{"version":1,"status":"unknown","ingredientIds":[],"complete":false}'::jsonb,
 
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   deleted_at timestamptz,
 
   constraint recipe_component_items_exactly_one_target
-    check (num_nonnulls (product_id, sub_component_id) = 1)
+    check (
+      (
+        ingredient_source_type = 'import_source'
+        and nullif(trim(source_text), '') is not null
+        and num_nonnulls(product_id, sub_component_id) = 0
+      )
+      or num_nonnulls(product_id, sub_component_id) = 1
+    ),
+  constraint recipe_component_item_raw_input check (
+    (
+      ingredient_source_type = 'import_source'
+      and nullif(trim(source_text), '') is not null
+      and (unit is null or nullif(trim(unit), '') is not null)
+    )
+    or (
+      (quantity is null or quantity > 0)
+      and unit is not null
+      and unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')
+    )
+  ),
+  constraint recipe_component_item_ingredient_mapping_shape check (
+    jsonb_typeof(ingredient_mapping) = 'object'
+    and ingredient_mapping - array[
+      'version', 'status', 'ingredientIds', 'complete', 'source', 'sourceId',
+      'sourceUrl', 'sourceVersion', 'license', 'evidenceSnapshot', 'reviewedAt',
+      'reviewedBy'
+    ]::text[] = '{}'::jsonb
+    and ingredient_mapping ->> 'version' = '1'
+    and ingredient_mapping ->> 'status' in ('unknown', 'verified')
+    and jsonb_typeof(ingredient_mapping -> 'ingredientIds') = 'array'
+    and jsonb_typeof(ingredient_mapping -> 'complete') = 'boolean'
+    and case when ingredient_mapping ->> 'status' = 'verified' then (
+        jsonb_array_length(case
+          when jsonb_typeof(ingredient_mapping -> 'ingredientIds') = 'array'
+            then ingredient_mapping -> 'ingredientIds'
+          else '[]'::jsonb
+        end) > 0
+        and ingredient_mapping ->> 'complete' = 'true'
+        and coalesce(ingredient_mapping ->> 'source', '') in (
+          'recipe_text', 'product_label', 'import_source'
+        )
+        and nullif(trim(ingredient_mapping ->> 'source'), '') is not null
+        and nullif(trim(ingredient_mapping ->> 'sourceId'), '') is not null
+        and nullif(trim(ingredient_mapping ->> 'sourceVersion'), '') is not null
+        and ingredient_source_type is not null
+        and ingredient_source_id is not null
+        and ingredient_source_version is not null
+        and ingredient_mapping ->> 'source' = ingredient_source_type
+        and ingredient_mapping ->> 'sourceId' = ingredient_source_id
+        and ingredient_mapping ->> 'sourceVersion' = ingredient_source_version
+        and ingredient_mapping ->> 'sourceUrl' is not distinct from ingredient_source_url
+        and ingredient_mapping ->> 'license' is not distinct from ingredient_source_license
+        and (ingredient_source_type <> 'product_label' or product_id is not null)
+        and nullif(trim(ingredient_mapping ->> 'evidenceSnapshot'), '') is not null
+        and nullif(trim(ingredient_mapping ->> 'reviewedAt'), '') is not null
+        and nullif(trim(ingredient_mapping ->> 'reviewedBy'), '') is not null
+        and coalesce(ingredient_mapping ->> 'reviewedBy', '') ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+    ) else true end
+  )
 );
 
 comment on table public.recipe_component_items is
@@ -170,6 +241,101 @@ create or replace trigger recipe_component_items_set_updated_at
   before update on public.recipe_component_items
   for each row
   execute function private.set_updated_at();
+
+comment on column public.recipe_component_items.ingredient_mapping is
+  'Haushaltsreview der Zutatenidentitaet einer Rezeptposition. Getrennt von global kuratierten Allergenfakten; fehlt ein aktueller vollstaendiger Review, bleibt die Position unknown.';
+
+create or replace function private.validate_recipe_component_item_ingredient_mapping()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_ingredient_ids text[];
+  v_reviewed_by text;
+begin
+  if tg_op = 'UPDATE'
+    and (
+      new.product_id is distinct from old.product_id
+      or new.sub_component_id is distinct from old.sub_component_id
+      or new.note is distinct from old.note
+      or new.source_text is distinct from old.source_text
+      or new.ingredient_source_type is distinct from old.ingredient_source_type
+      or new.ingredient_source_id is distinct from old.ingredient_source_id
+      or new.ingredient_source_url is distinct from old.ingredient_source_url
+      or new.ingredient_source_version is distinct from old.ingredient_source_version
+      or new.ingredient_source_license is distinct from old.ingredient_source_license
+    )
+    and new.ingredient_mapping is not distinct from old.ingredient_mapping
+  then
+    new.ingredient_mapping :=
+      '{"version":1,"status":"unknown","ingredientIds":[],"complete":false}'::jsonb;
+    return new;
+  end if;
+
+  if new.ingredient_mapping ->> 'status' <> 'verified' then
+    return new;
+  end if;
+
+  if exists (
+    select 1
+    from jsonb_array_elements(new.ingredient_mapping -> 'ingredientIds') as item(value)
+    where jsonb_typeof(item.value) <> 'string'
+      or item.value #>> '{}' !~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+  ) then
+    raise exception 'recipe_ingredient_mapping_invalid_ingredient_id';
+  end if;
+
+  select array_agg(value #>> '{}')
+  into v_ingredient_ids
+  from jsonb_array_elements(new.ingredient_mapping -> 'ingredientIds') as item(value);
+
+  if cardinality(v_ingredient_ids) <> (
+    select count(distinct ingredient_id)::integer
+    from unnest(v_ingredient_ids) as ids(ingredient_id)
+  ) then
+    raise exception 'recipe_ingredient_mapping_duplicate_ingredient_id';
+  end if;
+
+  begin
+    perform (new.ingredient_mapping ->> 'reviewedAt')::timestamptz;
+  exception when others then
+    raise exception 'recipe_ingredient_mapping_invalid_review_timestamp';
+  end;
+
+  if exists (
+    select 1
+    from unnest(v_ingredient_ids) as ids(ingredient_id)
+    where not exists (
+      select 1
+      from public.food_ingredients ingredient
+      where ingredient.id = ids.ingredient_id::uuid
+    )
+  ) then
+    raise exception 'recipe_ingredient_mapping_ingredient_not_found';
+  end if;
+
+  v_reviewed_by := new.ingredient_mapping ->> 'reviewedBy';
+  if coalesce(auth.role(), '') <> 'service_role'
+    and (auth.uid() is null or v_reviewed_by <> auth.uid()::text)
+  then
+    raise exception 'recipe_ingredient_mapping_reviewer_must_match_user';
+  end if;
+
+  return new;
+end;
+$$;
+
+revoke execute on function private.validate_recipe_component_item_ingredient_mapping()
+  from public, anon, authenticated, service_role;
+
+create or replace trigger recipe_component_items_validate_ingredient_mapping
+  before insert or update of ingredient_mapping, product_id, sub_component_id, note, source_text,
+    ingredient_source_type, ingredient_source_id, ingredient_source_url, ingredient_source_version,
+    ingredient_source_license
+  on public.recipe_component_items
+  for each row execute function private.validate_recipe_component_item_ingredient_mapping();
 
 -- --------------------------------------------------------- Zubereitungsschritte
 -- Vormals ein reines text[] auf `recipes` (siehe Git-Historie). Der Wizard

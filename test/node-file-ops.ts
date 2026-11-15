@@ -32,7 +32,12 @@ export function createNodeFileOps(): FileOps & {
       return statSync(path).size;
     },
 
-    async download(url: string, destPath: string): Promise<void> {
+    async download(url: string, destPath: string, signal?: AbortSignal): Promise<void> {
+      if (signal?.aborted) {
+        const error = new Error('OFF-Dump-Vorgang wurde angehalten.');
+        error.name = 'AbortError';
+        throw error;
+      }
       const source = downloadSources.get(url);
       if (!source) throw new Error(`Keine registrierte Download-Quelle für ${url}`);
       copyFileSync(source, destPath);

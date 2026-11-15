@@ -48,7 +48,7 @@ export function DevEnvironmentScreen() {
       <ContentCard title="Umgebung">
         <Zeile label="Supabase" wert={supabaseTarget.label} tone={supabaseTarget.tone} />
         <Zeile label="URL" wert={env.supabaseUrl} />
-        <Zeile label="Schlüssel" wert={maskSecret(env.supabaseKey)} />
+        <Zeile label="Schlüssel" wert={maskSecret(env.supabasePublishableKey)} />
         <Zeile label="Build" wert={__DEV__ ? 'Development' : 'Production'} />
         <Zeile
           label="App-Version"

@@ -1,4 +1,6 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
+import { requireSupabaseSecretKey } from '../_shared/env.ts';
+import { isRevenueCatSandboxAllowed } from '../_shared/revenuecat-environment.ts';
 
 import {
   activeAiAssignmentHouseholdId,
@@ -8,10 +10,13 @@ import {
 } from './handler.ts';
 import { createRevenueCatSubscriberStatusReader } from './subscriber-status.ts';
 
+const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+const allowRevenueCatSandbox = isRevenueCatSandboxAllowed(supabaseUrl);
+
 function createAdminClient() {
   return createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_SECRET_KEY')!,
+    supabaseUrl,
+    requireSupabaseSecretKey(),
   );
 }
 
@@ -105,7 +110,10 @@ Deno.serve(
     expectedSecret: Deno.env.get('REVENUECAT_WEBHOOK_SECRET'),
     readSubscriberStatus: createRevenueCatSubscriberStatusReader(
       Deno.env.get('REVENUECAT_SECRET_API_KEY'),
+      fetch,
+      { allowSandbox: allowRevenueCatSandbox },
     ),
+    allowSandbox: allowRevenueCatSandbox,
     resolveLocalProfiles: (subscriberIds) =>
       resolveLocalProfiles(createAdminClient(), subscriberIds),
     applyEntitlementEvent: async (appUserId, change, subscriberAttributes) => {

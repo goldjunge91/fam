@@ -1,5 +1,11 @@
 import { Platform } from 'react-native';
 import { FAM_KEYCHAIN_ACCESS_GROUP } from '@/lib/apple/shared-app-group';
+import {
+  requireSharedStoreWriter,
+  type SharedStoreWriterLease,
+  type SharedStoreWriterOwner,
+  sharedStoreWriterOwner,
+} from '@/lib/apple/shared-store-lifecycle';
 import type { DatabaseFileOps } from '@/lib/db/database-files';
 import {
   createSharedKeyFileStore,
@@ -136,7 +142,9 @@ export function createDatabaseKeyManager(dependencies: DatabaseKeyDependencies) 
   };
 }
 
-function loadNativeDependencies(): DatabaseKeyDependencies {
+function loadNativeDependencies(
+  writerOwner: SharedStoreWriterOwner = sharedStoreWriterOwner,
+): DatabaseKeyDependencies {
   try {
     const SecureStore = require('expo-secure-store') as typeof import('expo-secure-store');
     const Crypto = require('expo-crypto') as typeof import('expo-crypto');
@@ -196,7 +204,7 @@ function loadNativeDependencies(): DatabaseKeyDependencies {
         },
       },
       randomBytes: (byteCount) => Crypto.getRandomBytesAsync(byteCount),
-      mirror: Platform.OS === 'ios' ? createSharedKeyFileStore() : undefined,
+      mirror: Platform.OS === 'ios' ? createSharedKeyFileStore(writerOwner) : undefined,
     };
   } catch {
     throw new Error(REBUILD_HINT);
@@ -204,17 +212,25 @@ function loadNativeDependencies(): DatabaseKeyDependencies {
 }
 
 let nativeManager: ReturnType<typeof createDatabaseKeyManager> | null = null;
+let nativeManagerOwner: SharedStoreWriterOwner | null = null;
 
 /** Liefert den stabilen 256-Bit-Datenbankschlüssel, ohne ihn zu protokollieren. */
-export function getOrCreateDatabaseEncryptionKey(): Promise<string> {
-  nativeManager ??= createDatabaseKeyManager(loadNativeDependencies());
+export function getOrCreateDatabaseEncryptionKey(
+  writerOwner: SharedStoreWriterOwner = sharedStoreWriterOwner,
+): Promise<string> {
+  if (nativeManager === null || nativeManagerOwner !== writerOwner) {
+    nativeManager = createDatabaseKeyManager(loadNativeDependencies(writerOwner));
+    nativeManagerOwner = writerOwner;
+  }
   return nativeManager();
 }
 
 /** Erst nach bestätigter Löschung aller verschlüsselten DB-Dateien aufrufen. */
-export async function deleteDatabaseEncryptionKey(): Promise<void> {
+export async function deleteDatabaseEncryptionKey(
+  writerOwner: SharedStoreWriterOwner = sharedStoreWriterOwner,
+): Promise<void> {
   databaseKeyCleanupBlocked = true;
-  const { storage, mirror } = loadNativeDependencies();
+  const { storage, mirror } = loadNativeDependencies(writerOwner);
   const stores = getDatabaseKeyStores({ storage, mirror });
   const markerResults = await Promise.allSettled(
     stores.map((store) =>
@@ -226,6 +242,7 @@ export async function deleteDatabaseEncryptionKey(): Promise<void> {
   const markerFailure = markerResults.find((result) => result.status === 'rejected');
   if (markerFailure?.status === 'rejected') {
     nativeManager = null;
+    nativeManagerOwner = null;
     throw new Error(
       'Der SQLCipher-Key-Cleanup-Marker konnte nicht in allen Stores gesichert werden.',
       { cause: markerFailure.reason },
@@ -247,6 +264,7 @@ export async function deleteDatabaseEncryptionKey(): Promise<void> {
     databaseKeyCleanupBlocked = false;
   } finally {
     nativeManager = null;
+    nativeManagerOwner = null;
   }
 }
 
@@ -283,6 +301,14 @@ export type DatabaseEncryptionCutoverDependencies<
   openPlaintext(fileName: string): Promise<TDatabase>;
   /** Muss den Schlüssel direkt nach dem nativen Open setzen und verifizieren. */
   openEncrypted(fileName: string, key: string): Promise<TDatabase>;
+  /** Writer owner for App Group cutover statements and file operations. */
+  writerOwner?: SharedStoreWriterOwner;
+  /** Rejected synchronously when account ownership changes during cutover. */
+  assertCurrent?: () => void;
+  /** Closes a handle through the caller's lifecycle registry when provided. */
+  closeDatabase?(database: TDatabase): Promise<void>;
+  /** Registers a raw-close retry when an attached source cannot be released. */
+  retainUnresolvedSourceCleanup?: (database: TDatabase, retry: () => Promise<void>) => void;
 };
 
 function scalarNumber(row: Record<string, unknown> | null): number | null {
@@ -400,19 +426,83 @@ function escapeSqlPath(path: string): string {
   return path.replace(/'/g, "''");
 }
 
-async function deleteSidecars(files: DatabaseFileOps, fileName: string): Promise<void> {
+async function deleteSidecars(
+  files: DatabaseFileOps,
+  fileName: string,
+  assertCurrent?: () => void,
+): Promise<void> {
   for (const suffix of ['-wal', '-shm', '-journal']) {
+    assertCurrent?.();
     await files.delete(`${fileName}${suffix}`);
   }
 }
 
-async function closeQuietly(db: CipherDatabase | null): Promise<void> {
-  if (!db) return;
+function createGuardedCutoverFileOps(
+  files: DatabaseFileOps,
+  assertCurrent?: () => void,
+): DatabaseFileOps {
+  if (!assertCurrent) return files;
+
+  return {
+    exists: (fileName) => files.exists(fileName),
+    path: (fileName) => files.path(fileName),
+    async delete(fileName) {
+      assertCurrent();
+      await files.delete(fileName);
+      assertCurrent();
+    },
+    async move(fromFileName, toFileName) {
+      assertCurrent();
+      await files.move(fromFileName, toFileName);
+      assertCurrent();
+    },
+  };
+}
+
+function assertCutoverCurrent(assertCurrent?: () => void): void {
+  assertCurrent?.();
+}
+
+async function closeCutoverDatabase<TDatabase extends CipherDatabase>(
+  dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
+  database: TDatabase,
+): Promise<void> {
+  if (dependencies.closeDatabase) {
+    await dependencies.closeDatabase(database);
+    return;
+  }
+  await database.closeAsync();
+}
+
+async function closeQuietly<TDatabase extends CipherDatabase>(
+  dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
+  database: TDatabase | null,
+): Promise<void> {
+  if (!database) return;
   try {
-    await db.closeAsync();
+    await closeCutoverDatabase(dependencies, database);
   } catch {
     // Der ursprüngliche Fehler ist aussagekräftiger als ein Folgefehler beim Schließen.
   }
+}
+
+function assertCutoverWriterLease(lease?: SharedStoreWriterLease): void {
+  if (lease?.signal.aborted || lease?.ended) {
+    throw new Error('Die native Schreibzusicherung ist abgelaufen.');
+  }
+}
+
+async function runCutoverWriter<T>(
+  lease: SharedStoreWriterLease | undefined,
+  operation: () => Promise<T>,
+  assertCurrent?: () => void,
+): Promise<T> {
+  assertCutoverCurrent(assertCurrent);
+  assertCutoverWriterLease(lease);
+  const result = await operation();
+  assertCutoverWriterLease(lease);
+  assertCutoverCurrent(assertCurrent);
+  return result;
 }
 
 async function exportPlaintextToEncrypted(
@@ -420,51 +510,80 @@ async function exportPlaintextToEncrypted(
   targetPath: string,
   key: string,
   sourceSnapshot: DatabaseSnapshot,
+  writerLease?: SharedStoreWriterLease,
+  assertCurrent?: () => void,
 ): Promise<DatabaseSnapshot> {
   const escapedTargetPath = escapeSqlPath(targetPath);
   let attached = false;
+  let primaryError: unknown;
 
   try {
-    await source.execAsync(
-      `ATTACH DATABASE '${escapedTargetPath}' AS encrypted KEY ${toSqlCipherRawKey(key)}`,
+    await runCutoverWriter(
+      writerLease,
+      () =>
+        source.execAsync(
+          `ATTACH DATABASE '${escapedTargetPath}' AS encrypted KEY ${toSqlCipherRawKey(key)}`,
+        ),
+      assertCurrent,
     );
     attached = true;
 
     await assertCipherRuntime(source, 'encrypted');
+    assertCutoverWriterLease(writerLease);
+    assertCutoverCurrent(assertCurrent);
 
-    await source.getFirstAsync("select sqlcipher_export('encrypted') as exported", []);
+    await runCutoverWriter(
+      writerLease,
+      () => source.getFirstAsync("select sqlcipher_export('encrypted') as exported", []),
+      assertCurrent,
+    );
     // sqlcipher_export überträgt user_version laut SQLCipher-Dokumentation nicht.
-    await source.execAsync(`PRAGMA encrypted.user_version = ${sourceSnapshot.schemaVersion}`);
+    await runCutoverWriter(
+      writerLease,
+      () => source.execAsync(`PRAGMA encrypted.user_version = ${sourceSnapshot.schemaVersion}`),
+      assertCurrent,
+    );
 
     const targetSnapshot = await readSnapshot(source, 'encrypted');
+    assertCutoverWriterLease(writerLease);
+    assertCutoverCurrent(assertCurrent);
     assertSameSnapshot(sourceSnapshot, targetSnapshot);
 
     const integrity = await source.getFirstAsync<Record<string, unknown>>(
       'PRAGMA encrypted.quick_check',
       [],
     );
+    assertCutoverWriterLease(writerLease);
+    assertCutoverCurrent(assertCurrent);
     if (!integrity || !Object.values(integrity).includes('ok')) {
       throw new Error('Das temporäre SQLCipher-Ziel hat den Integritätscheck nicht bestanden.');
     }
+  } catch (error) {
+    primaryError = error;
+  }
 
-    return sourceSnapshot;
-  } finally {
-    if (attached) {
-      try {
-        await source.execAsync('DETACH DATABASE encrypted');
-      } catch {
-        // Ein Exportfehler bleibt die primäre Ursache. Die Temp-Datei wird verworfen.
-      }
+  if (attached) {
+    try {
+      // Cleanup uses the lease that admitted ATTACH. It must still run after
+      // expiration and must never request a replacement writer assertion.
+      await source.execAsync('DETACH DATABASE encrypted');
+    } catch (detachError) {
+      primaryError ??= detachError;
     }
   }
+
+  if (primaryError !== undefined) throw primaryError;
+  return sourceSnapshot;
 }
 
-async function restorePlaintextRecovery(
-  dependencies: DatabaseEncryptionCutoverDependencies,
+async function restorePlaintextRecovery<TDatabase extends CipherDatabase>(
+  dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
 ): Promise<void> {
   const { files, mainFileName, plaintextRecoveryFileName } = dependencies;
+  const assertCurrent = dependencies.assertCurrent;
+  assertCutoverCurrent(assertCurrent);
   if (files.exists(mainFileName)) await files.delete(mainFileName);
-  await deleteSidecars(files, mainFileName);
+  await deleteSidecars(files, mainFileName, assertCurrent);
   await files.move(plaintextRecoveryFileName, mainFileName);
 }
 
@@ -472,18 +591,21 @@ async function cleanupCommittedCutover(
   files: DatabaseFileOps,
   encryptedNextFileName: string,
   plaintextRecoveryFileName: string,
+  assertCurrent?: () => void,
 ): Promise<void> {
   // Ab hier ist die verschlüsselte main validiert und damit committed. Cleanup
   // darf diesen Zustand nie wieder zurückrollen. Übrig gebliebene Dateien
   // werden beim nächsten Start erneut best-effort bereinigt.
   try {
+    assertCutoverCurrent(assertCurrent);
     await files.delete(plaintextRecoveryFileName);
   } catch {
     // Recovery enthält dieselben validierten Daten und darf bis zum Restart bleiben.
   }
   try {
+    assertCutoverCurrent(assertCurrent);
     await files.delete(encryptedNextFileName);
-    await deleteSidecars(files, encryptedNextFileName);
+    await deleteSidecars(files, encryptedNextFileName, assertCurrent);
   } catch {
     // Post-Commit-Cleanup ist nicht Teil der Swap-Transaktion.
   }
@@ -493,8 +615,9 @@ export async function migratePlaintextDatabase<TDatabase extends CipherDatabase>
   dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
   key: string,
 ): Promise<TDatabase> {
+  const assertCurrent = dependencies.assertCurrent;
+  const files = createGuardedCutoverFileOps(dependencies.files, assertCurrent);
   const {
-    files,
     mainFileName,
     encryptedNextFileName,
     plaintextRecoveryFileName,
@@ -502,75 +625,152 @@ export async function migratePlaintextDatabase<TDatabase extends CipherDatabase>
     openEncrypted,
   } = dependencies;
 
+  assertCutoverCurrent(assertCurrent);
   await files.delete(encryptedNextFileName);
-  await deleteSidecars(files, encryptedNextFileName);
+  await deleteSidecars(files, encryptedNextFileName, assertCurrent);
 
   let source: TDatabase | null = null;
+  let sourceWriterLease: SharedStoreWriterLease | undefined;
   let verifiedTarget: TDatabase | null = null;
   let sourceSnapshot: DatabaseSnapshot;
 
   try {
+    assertCutoverCurrent(assertCurrent);
     source = await openPlaintext(mainFileName);
+    assertCutoverCurrent(assertCurrent);
     // Read-only Formatnachweis MUSS vor WAL-Checkpoint, ATTACH oder jeder
     // anderen Mutation liegen. Eine verschlüsselte Datei mit falschem Key
     // scheitert hier und bleibt einschließlich ihrer Sidecars unangetastet.
     sourceSnapshot = await readSnapshot(source);
+    assertCutoverCurrent(assertCurrent);
     addDiagnosticStep('db.cutover.plaintext_detected', {
       operation: 'db.cutover',
       outcome: 'detected',
       outbox_count: sourceSnapshot.outboxCount,
     });
+    sourceWriterLease = dependencies.writerOwner
+      ? requireSharedStoreWriter(dependencies.writerOwner, 'db.cutover.source')
+      : undefined;
     // Alle WAL-Seiten müssen vor dem Dateitausch in der Hauptdatei liegen.
-    await source.execAsync('PRAGMA wal_checkpoint(TRUNCATE)');
+    await runCutoverWriter(
+      sourceWriterLease,
+      () => source?.execAsync('PRAGMA wal_checkpoint(TRUNCATE)') ?? Promise.resolve(),
+      assertCurrent,
+    );
     await exportPlaintextToEncrypted(
       source,
       files.path(encryptedNextFileName),
       key,
       sourceSnapshot,
+      sourceWriterLease,
+      assertCurrent,
     );
-    await source.closeAsync();
+    assertCutoverWriterLease(sourceWriterLease);
+    assertCutoverCurrent(assertCurrent);
+    await closeCutoverDatabase(dependencies, source);
     source = null;
+    sourceWriterLease?.end();
+    sourceWriterLease = undefined;
 
+    assertCutoverCurrent(assertCurrent);
     verifiedTarget = await openEncrypted(encryptedNextFileName, key);
+    assertCutoverCurrent(assertCurrent);
     assertSameSnapshot(sourceSnapshot, await readSnapshot(verifiedTarget));
-    await verifiedTarget.closeAsync();
+    assertCutoverCurrent(assertCurrent);
+    await closeCutoverDatabase(dependencies, verifiedTarget);
     verifiedTarget = null;
   } catch (error) {
-    await closeQuietly(verifiedTarget);
-    await closeQuietly(source);
-    await files.delete(encryptedNextFileName);
-    await deleteSidecars(files, encryptedNextFileName);
+    await closeQuietly(dependencies, verifiedTarget);
+    let sourceCloseFailed = false;
+    if (source) {
+      const sourceToClose = source;
+      const leaseToEnd = sourceWriterLease;
+      try {
+        // Keep the ATTACH lease through raw close. If close also fails, the
+        // lease intentionally remains live and native admission stays closed.
+        await closeCutoverDatabase(dependencies, sourceToClose);
+        source = null;
+        leaseToEnd?.end();
+        sourceWriterLease = undefined;
+      } catch {
+        sourceCloseFailed = true;
+        let resolved = false;
+        dependencies.retainUnresolvedSourceCleanup?.(sourceToClose, async () => {
+          if (resolved) return;
+          await sourceToClose.closeAsync();
+          leaseToEnd?.end();
+          resolved = true;
+        });
+      }
+    } else if (sourceWriterLease && !sourceWriterLease.ended) {
+      sourceWriterLease.end();
+      sourceWriterLease = undefined;
+    }
+
+    if (!sourceCloseFailed) {
+      try {
+        assertCutoverCurrent(assertCurrent);
+        await files.delete(encryptedNextFileName);
+        await deleteSidecars(files, encryptedNextFileName, assertCurrent);
+      } catch {
+        // A stale account leaves the temporary file for the next safe recovery.
+      }
+    }
     throw error;
   }
 
-  await deleteSidecars(files, mainFileName);
+  assertCutoverCurrent(assertCurrent);
+  await deleteSidecars(files, mainFileName, assertCurrent);
   await files.delete(plaintextRecoveryFileName);
   await files.move(mainFileName, plaintextRecoveryFileName);
 
   try {
+    assertCutoverCurrent(assertCurrent);
     await files.move(encryptedNextFileName, mainFileName);
   } catch (error) {
     if (files.exists(plaintextRecoveryFileName)) {
-      await restorePlaintextRecovery(dependencies);
+      try {
+        await restorePlaintextRecovery({ ...dependencies, files });
+      } catch {
+        // Preserve the original activation error and leave recovery for restart.
+      }
     }
-    await files.delete(encryptedNextFileName);
-    await deleteSidecars(files, encryptedNextFileName);
+    try {
+      assertCutoverCurrent(assertCurrent);
+      await files.delete(encryptedNextFileName);
+      await deleteSidecars(files, encryptedNextFileName, assertCurrent);
+    } catch {
+      // A stale account leaves the temporary file for the next safe recovery.
+    }
     throw error;
   }
 
   let active: TDatabase | null = null;
   try {
+    assertCutoverCurrent(assertCurrent);
     active = await openEncrypted(mainFileName, key);
+    assertCutoverCurrent(assertCurrent);
     assertSameSnapshot(sourceSnapshot, await readSnapshot(active));
+    assertCutoverCurrent(assertCurrent);
   } catch (error) {
-    await closeQuietly(active);
-    await restorePlaintextRecovery(dependencies);
-    await files.delete(encryptedNextFileName);
-    await deleteSidecars(files, encryptedNextFileName);
+    await closeQuietly(dependencies, active);
+    try {
+      assertCutoverCurrent(assertCurrent);
+      await restorePlaintextRecovery({ ...dependencies, files });
+      await files.delete(encryptedNextFileName);
+      await deleteSidecars(files, encryptedNextFileName, assertCurrent);
+    } catch {
+      // Preserve the original activation error and leave recovery for restart.
+    }
     throw error;
   }
 
-  await cleanupCommittedCutover(files, encryptedNextFileName, plaintextRecoveryFileName);
+  await cleanupCommittedCutover(
+    files,
+    encryptedNextFileName,
+    plaintextRecoveryFileName,
+    assertCurrent,
+  );
   if (!active) throw new Error('Verschlüsselte Datenbank konnte nicht aktiviert werden.');
   addDiagnosticStep('db.cutover.completed', {
     operation: 'db.cutover',
@@ -584,8 +784,9 @@ async function reconcileInterruptedCutover<TDatabase extends CipherDatabase>(
   dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
   key: string,
 ): Promise<TDatabase | null> {
+  const assertCurrent = dependencies.assertCurrent;
+  const files = createGuardedCutoverFileOps(dependencies.files, assertCurrent);
   const {
-    files,
     mainFileName,
     encryptedNextFileName,
     plaintextRecoveryFileName,
@@ -593,58 +794,73 @@ async function reconcileInterruptedCutover<TDatabase extends CipherDatabase>(
     openEncrypted,
   } = dependencies;
 
+  assertCutoverCurrent(assertCurrent);
   if (!files.exists(plaintextRecoveryFileName)) {
     await files.delete(encryptedNextFileName);
-    await deleteSidecars(files, encryptedNextFileName);
+    await deleteSidecars(files, encryptedNextFileName, assertCurrent);
     return null;
   }
 
+  assertCutoverCurrent(assertCurrent);
   if (!files.exists(mainFileName)) {
     await files.move(plaintextRecoveryFileName, mainFileName);
     await files.delete(encryptedNextFileName);
-    await deleteSidecars(files, encryptedNextFileName);
+    await deleteSidecars(files, encryptedNextFileName, assertCurrent);
     return null;
   }
 
   let encrypted: TDatabase | null = null;
   try {
+    assertCutoverCurrent(assertCurrent);
     encrypted = await openEncrypted(mainFileName, key);
+    assertCutoverCurrent(assertCurrent);
   } catch (error) {
-    await closeQuietly(encrypted);
+    await closeQuietly(dependencies, encrypted);
     let plaintext: TDatabase | null = null;
     try {
       // Ein fehlgeschlagenes Löschen einer älteren Recovery kann noch vor dem
       // eigentlichen Swap abbrechen. Dann ist `main` weiterhin die eindeutige
       // Klartextquelle. Ausschließlich read-only prüfen: kein Checkpoint, kein
       // ATTACH und keine Dateibewegung, solange das Format nicht bewiesen ist.
+      assertCutoverCurrent(assertCurrent);
       plaintext = await openPlaintext(mainFileName);
+      assertCutoverCurrent(assertCurrent);
       await readSnapshot(plaintext);
+      assertCutoverCurrent(assertCurrent);
       const integrity = await plaintext.getFirstAsync<Record<string, unknown>>(
         'PRAGMA quick_check',
         [],
       );
+      assertCutoverCurrent(assertCurrent);
       if (!integrity || !Object.values(integrity).includes('ok')) {
         throw new Error('Die Klartextquelle hat den Integritätscheck nicht bestanden.');
       }
-      await plaintext.closeAsync();
+      await closeCutoverDatabase(dependencies, plaintext);
       plaintext = null;
 
       // `main` bleibt autoritativ. Stale Hilfsdateien sind entbehrlich; ein
       // erneuter Cleanup-Fehler darf die Quelle aber weiterhin nicht berühren.
       try {
+        assertCutoverCurrent(assertCurrent);
         await files.delete(plaintextRecoveryFileName);
       } catch {
         // Der folgende normale Cutover versucht die Löschung erneut.
       }
       try {
+        assertCutoverCurrent(assertCurrent);
         await files.delete(encryptedNextFileName);
-        await deleteSidecars(files, encryptedNextFileName);
+        await deleteSidecars(files, encryptedNextFileName, assertCurrent);
       } catch {
         // migratePlaintextDatabase bereinigt das Temp-Ziel vor dem Export erneut.
       }
       return null;
     } catch (plaintextError) {
-      await closeQuietly(plaintext);
+      await closeQuietly(dependencies, plaintext);
+      try {
+        assertCutoverCurrent(assertCurrent);
+      } catch {
+        throw plaintextError;
+      }
       // Weder keyed noch als Klartext eindeutig lesbar. In diesem Zustand ist
       // kein Sieger beweisbar; beide Dateien bleiben unverändert erhalten.
       throw new Error(
@@ -657,7 +873,12 @@ async function reconcileInterruptedCutover<TDatabase extends CipherDatabase>(
   // Eine keyed lesbare main ist bereits das vor dem atomaren Swap unabhängig
   // validierte Ziel und damit committed. Recovery darf inzwischen veraltet
   // sein, weil die App main nach einem fehlgeschlagenen Cleanup weiter nutzt.
-  await cleanupCommittedCutover(files, encryptedNextFileName, plaintextRecoveryFileName);
+  await cleanupCommittedCutover(
+    files,
+    encryptedNextFileName,
+    plaintextRecoveryFileName,
+    assertCurrent,
+  );
   return encrypted;
 }
 
@@ -666,6 +887,8 @@ export async function openEncryptedDatabaseWithCutover<TDatabase extends CipherD
   dependencies: DatabaseEncryptionCutoverDependencies<TDatabase>,
   key: string,
 ): Promise<TDatabase> {
+  const assertCurrent = dependencies.assertCurrent;
+  assertCutoverCurrent(assertCurrent);
   if (dependencies.files.exists(dependencies.plaintextRecoveryFileName)) {
     addDiagnosticStep('db.cutover.recovery_started', {
       operation: 'db.cutover.recovery',
@@ -673,6 +896,7 @@ export async function openEncryptedDatabaseWithCutover<TDatabase extends CipherD
     });
   }
   const recovered = await reconcileInterruptedCutover(dependencies, key);
+  assertCutoverCurrent(assertCurrent);
   if (recovered) {
     addDiagnosticStep('db.cutover.recovery_completed', {
       operation: 'db.cutover.recovery',
@@ -681,16 +905,23 @@ export async function openEncryptedDatabaseWithCutover<TDatabase extends CipherD
     return recovered;
   }
 
+  assertCutoverCurrent(assertCurrent);
   if (!dependencies.files.exists(dependencies.mainFileName)) {
-    return dependencies.openEncrypted(dependencies.mainFileName, key);
+    const opened = await dependencies.openEncrypted(dependencies.mainFileName, key);
+    assertCutoverCurrent(assertCurrent);
+    return opened;
   }
 
   try {
-    return await dependencies.openEncrypted(dependencies.mainFileName, key);
+    assertCutoverCurrent(assertCurrent);
+    const opened = await dependencies.openEncrypted(dependencies.mainFileName, key);
+    assertCutoverCurrent(assertCurrent);
+    return opened;
   } catch {
     // Entweder eine alte Klartextdatei oder eine verschlüsselte Datei mit
     // verlorenem/falschem Key. Nur ein erfolgreicher Klartext-Read darf den
     // Export starten; andernfalls bleiben Datei und Recovery unangetastet.
+    assertCutoverCurrent(assertCurrent);
     return migratePlaintextDatabase(dependencies, key);
   }
 }

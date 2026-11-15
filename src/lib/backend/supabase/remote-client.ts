@@ -67,7 +67,7 @@ export const serverClock = createServerClock(
 export function getSupabase(): TypedSupabaseClient {
   if (client) return client;
 
-  client = createClient<Database>(env.supabaseUrl, env.supabaseKey, {
+  client = createClient<Database>(env.supabaseUrl, env.supabasePublishableKey, {
     global: { fetch: serverClock.fetch },
     auth: {
       // Im Browser gibt es kein SecureStore; dort nutzt supabase-js localStorage.
@@ -89,7 +89,7 @@ export function getSupabase(): TypedSupabaseClient {
  * has been changed. This avoids booting account storage for a recovered user.
  */
 export function createPasswordRecoveryClient(): TypedSupabaseClient {
-  return createClient<Database>(env.supabaseUrl, env.supabaseKey, {
+  return createClient<Database>(env.supabaseUrl, env.supabasePublishableKey, {
     global: { fetch: serverClock.fetch },
     auth: {
       autoRefreshToken: false,

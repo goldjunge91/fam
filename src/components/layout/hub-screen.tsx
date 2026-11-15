@@ -13,6 +13,7 @@ import { useProfileAvatar } from '@/features/navigation/use-profile-initials';
 type HubScreenProps = {
   header: React.ComponentProps<typeof PageHeader>;
   children: ReactNode;
+  showProfile?: boolean;
 };
 
 const styles = StyleSheet.create((theme) => ({
@@ -28,7 +29,7 @@ const styles = StyleSheet.create((theme) => ({
   },
 }));
 
-export function HubScreen({ header, children }: HubScreenProps) {
+export function HubScreen({ header, children, showProfile = true }: HubScreenProps) {
   const { openProfile } = useNavigationChrome();
   const { initials, avatarUrl } = useProfileAvatar();
   // Der sichtbare Sync-Banner übernimmt die obere Safe Area selbst.
@@ -43,7 +44,9 @@ export function HubScreen({ header, children }: HubScreenProps) {
           trailing={
             <>
               {header.trailing}
-              <ProfileButton initials={initials} avatarUrl={avatarUrl} onPress={openProfile} />
+              {showProfile ? (
+                <ProfileButton initials={initials} avatarUrl={avatarUrl} onPress={openProfile} />
+              ) : null}
             </>
           }
         />

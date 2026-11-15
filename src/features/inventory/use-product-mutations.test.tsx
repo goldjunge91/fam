@@ -66,6 +66,7 @@ describe('useAddProductMutation', () => {
       sugar_g_per_100: null,
       salt_g_per_100: null,
       serving_size_g: null,
+      off_last_modified_at: null,
       source: 'manual',
       created_by: 'actor-1',
     });

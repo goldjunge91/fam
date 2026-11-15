@@ -2,9 +2,9 @@ export interface MentionableIngredient {
   /** `IngredientItem.id` im Wizard bzw. `recipe_component_items.id` nach dem Speichern. */
   itemId: string;
   name: string;
-  unit: string;
+  unit: string | null;
   /** Eingetragene Gesamtmenge dieser Zutat, Nenner für den Verbrauchsfortschritt. */
-  quantity: number;
+  quantity: number | null;
 }
 
 function escapeRegExp(value: string): string {
@@ -22,7 +22,9 @@ export function flattenRecipeItems(
     id: string;
     product_id: string | null;
     ingredient_name?: string | null;
-    unit: string;
+    source_text?: string | null;
+    sourceText?: string | null;
+    unit: string | null;
     quantity: number | null;
   }[],
   productsById: ReadonlyMap<string, { name: string }>,
@@ -30,13 +32,17 @@ export function flattenRecipeItems(
   const result: MentionableIngredient[] = [];
   for (const item of items) {
     const product = item.product_id ? productsById.get(item.product_id) : undefined;
-    const name = product?.name ?? item.ingredient_name?.trim();
+    const name =
+      product?.name ??
+      item.source_text?.trim() ??
+      item.sourceText?.trim() ??
+      item.ingredient_name?.trim();
     if (!name) continue;
     result.push({
       itemId: item.id,
       name,
-      unit: item.unit,
-      quantity: item.quantity ?? 0,
+      unit: item.unit ?? null,
+      quantity: item.quantity,
     });
   }
   return result;
@@ -48,6 +54,26 @@ export function findMentionableIngredient(
 ): MentionableIngredient | undefined {
   const lower = name.toLowerCase();
   return ingredients.find((i) => i.name.toLowerCase() === lower);
+}
+
+/** Resolves the explicit ingredient links of one step without inventing matches. */
+export function resolveStepIngredients(
+  ingredientIds: readonly string[],
+  ingredients: readonly MentionableIngredient[],
+): MentionableIngredient[] {
+  const ingredientsById = new Map(ingredients.map((ingredient) => [ingredient.itemId, ingredient]));
+  const resolved: MentionableIngredient[] = [];
+  const seenIds = new Set<string>();
+
+  for (const ingredientId of ingredientIds) {
+    if (seenIds.has(ingredientId)) continue;
+    const ingredient = ingredientsById.get(ingredientId);
+    if (!ingredient) continue;
+    seenIds.add(ingredientId);
+    resolved.push(ingredient);
+  }
+
+  return resolved;
 }
 
 export type MentionSegmentKind = 'text' | 'resolved' | 'unresolved';
@@ -74,7 +100,9 @@ export function splitStepMentions(
     }
     const ingredient = findMentionableIngredient(ingredients, match[1]);
     if (ingredient) {
-      const label = match[2] ? `${match[2]}${ingredient.unit} ${ingredient.name}` : ingredient.name;
+      const label = match[2]
+        ? `${match[2]}${ingredient.unit ? ingredient.unit : ''} ${ingredient.name}`
+        : ingredient.name;
       segments.push({ key: `m${key++}`, kind: 'resolved', text: label });
     } else {
       segments.push({ key: `m${key++}`, kind: 'unresolved', text: match[0] });
@@ -105,7 +133,7 @@ export function computeMentionUsage(
     for (const match of text.matchAll(pattern)) {
       if (!match[2]) continue;
       const ingredient = findMentionableIngredient(ingredients, match[1]);
-      if (!ingredient) continue;
+      if (!ingredient || ingredient.quantity === null || ingredient.quantity <= 0) continue;
       const current = used.get(ingredient.itemId) ?? 0;
       used.set(ingredient.itemId, Math.min(ingredient.quantity, current + Number(match[2])));
     }

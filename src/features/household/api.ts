@@ -74,6 +74,7 @@ export function useCreateHouseholdMutation() {
         await triggerHouseholdsPull(userId, queryClient);
       }
       trackAnalyticsEvent('household.create.completed');
+      trackAnalyticsEvent('activation.household_ready.completed', { path: 'created' });
     },
   });
 }
@@ -302,6 +303,7 @@ export function useRedeemInviteMutation() {
         await triggerHouseholdsPull(userId, queryClient);
       }
       trackAnalyticsEvent('household.join.completed');
+      trackAnalyticsEvent('activation.household_ready.completed', { path: 'joined' });
     },
   });
 }

@@ -4,8 +4,8 @@ import type { ScrapedBrochure, ScrapeOptions } from '../../scripts/scrapers/kauf
 const location = {
   zipCode: '22043',
   city: 'Hamburg',
-  latitude: 53.5659,
-  longitude: 10.0254,
+  latitude: 53.5683271,
+  longitude: 10.100758599999999,
 };
 
 function brochure(
