@@ -1,0 +1,131 @@
+name: Import German recipe catalog
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Draft release tag containing catalog.de.json.gz
+        required: true
+        type: string
+      sha256:
+        description: SHA-256 checksum of catalog.de.json.gz
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: recipe-catalog-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    name: Validate and import catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
+      - name: Download and verify catalog asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          IMPORT_TAG: ${{ inputs.release_tag }}
+          IMPORT_SHA256: ${{ inputs.sha256 }}
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$IMPORT_TAG" =~ ^recipe-catalog-import-[0-9]{8}$ ]]; then
+            echo "Invalid import release tag." >&2
+            exit 1
+          fi
+          if [[ ! "$IMPORT_SHA256" =~ ^[[:xdigit:]]{64}$ ]]; then
+            echo "SHA-256 must contain exactly 64 hexadecimal characters." >&2
+            exit 1
+          fi
+
+          gh release download "$IMPORT_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern catalog.de.json.gz \
+            --dir "$RUNNER_TEMP"
+          gzip --decompress --stdout "$RUNNER_TEMP/catalog.de.json.gz" \
+            > "$RUNNER_TEMP/catalog.de.json"
+          printf '%s  %s\n' "$IMPORT_SHA256" "$RUNNER_TEMP/catalog.de.json.gz" \
+            | sha256sum --check --status
+          jq -e '.recipes | length == 7641' "$RUNNER_TEMP/catalog.de.json" >/dev/null
+
+      - name: Install importer dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Validate and import all recipes
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.EXPO_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$SUPABASE_URL" || -z "$SUPABASE_SECRET_KEY" ]]; then
+            echo "Supabase runner credentials are missing." >&2
+            exit 1
+          fi
+
+          bun tools/batch-import/server.ts > "$RUNNER_TEMP/recipe-import-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true; wait "$server_pid" 2>/dev/null || true' EXIT
+
+          ready=false
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:8787/ >/dev/null; then
+              ready=true
+              break
+            fi
+            sleep 1
+          done
+          if [[ "$ready" != true ]]; then
+            cat "$RUNNER_TEMP/recipe-import-server.log" >&2
+            echo "Batch-import server did not start." >&2
+            exit 1
+          fi
+
+          validation=$(curl --fail --silent --show-error \
+            -H 'Content-Type: application/json' \
+            --data-binary @"$RUNNER_TEMP/catalog.de.json" \
+            http://127.0.0.1:8787/api/validate)
+          echo "$validation" | jq .
+          echo "$validation" | jq -e '.valid == true and .recipes == 7641' >/dev/null
+
+          started=$(curl --fail --silent --show-error \
+            -H 'Content-Type: application/json' \
+            --data-binary @"$RUNNER_TEMP/catalog.de.json" \
+            http://127.0.0.1:8787/api/import)
+          job_id=$(echo "$started" | jq -er '.jobId')
+          echo "Import job started: $job_id"
+
+          while true; do
+            job=$(curl --fail --silent --show-error \
+              "http://127.0.0.1:8787/api/import/$job_id")
+            status=$(echo "$job" | jq -er '.status')
+            completed=$(echo "$job" | jq -r '.completed')
+            total=$(echo "$job" | jq -r '.total')
+            echo "Recipe import progress: $completed/$total ($status)"
+
+            if [[ "$status" == completed ]]; then
+              echo "$job" | jq -e \
+                '.completed == 7641 and .total == 7641 and (.result | length == 7641)' \
+                >/dev/null
+              echo "All 7,641 catalog recipes imported successfully."
+              break
+            fi
+            if [[ "$status" == failed ]]; then
+              echo "$job" | jq -r '.error // "Import failed without an error message."' >&2
+              cat "$RUNNER_TEMP/recipe-import-server.log" >&2
+              exit 1
+            fi
+            sleep 15
+          done
