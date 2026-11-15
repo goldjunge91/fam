@@ -230,6 +230,45 @@ describe('recipe component mutations', () => {
     expect(mockApplyLocalMirrorWrite).toHaveBeenCalledTimes(2);
   });
 
+  it('preserves an imported text item with explicit nulls and raw values', async () => {
+    const { result } = await renderHook(() => useAddItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        component_id: 'component-1',
+        recipe_id: 'recipe-1',
+        household_id: 'household-1',
+        product_id: null,
+        grams: null,
+        quantity: -2.5,
+        unit: null,
+        source_text: 'Tomaten aus dem Video',
+      });
+    });
+
+    const { input, txn } = await applyQueuedMutation();
+    expect(input.payload).toMatchObject({
+      product_id: null,
+      sub_component_id: null,
+      grams: null,
+      quantity: -2.5,
+      unit: null,
+      source_text: 'Tomaten aus dem Video',
+    });
+    expect(mockApplyLocalMirrorWrite).toHaveBeenCalledWith(
+      txn,
+      'recipe_component_items',
+      'insert',
+      expect.objectContaining({
+        grams: null,
+        quantity: -2.5,
+        unit: null,
+        source_text: 'Tomaten aus dem Video',
+      }),
+      expect.any(Number),
+    );
+  });
+
   it('updates item fields and omits optional properties when they were not supplied', async () => {
     const { result } = await renderHook(() => useUpdateItemMutation(), { wrapper });
 
@@ -267,6 +306,42 @@ describe('recipe component mutations', () => {
     await applyQueuedMutation(0);
     await applyQueuedMutation(1);
     expect(mockApplyLocalMirrorWrite).toHaveBeenCalledTimes(2);
+  });
+
+  it('updates an imported text item without defaulting explicit nulls', async () => {
+    const { result } = await renderHook(() => useUpdateItemMutation(), { wrapper });
+
+    await act(async () => {
+      await result.current.mutateAsync({
+        id: 'item-imported',
+        recipe_id: 'recipe-1',
+        household_id: 'household-1',
+        grams: null,
+        quantity: -1,
+        unit: null,
+        source_text: 'Salz nach Geschmack',
+      });
+    });
+
+    const { input, txn } = await applyQueuedMutation();
+    expect(input.payload).toMatchObject({
+      grams: null,
+      quantity: -1,
+      unit: null,
+      source_text: 'Salz nach Geschmack',
+    });
+    expect(mockApplyLocalMirrorWrite).toHaveBeenCalledWith(
+      txn,
+      'recipe_component_items',
+      'update',
+      expect.objectContaining({
+        grams: null,
+        quantity: -1,
+        unit: null,
+        source_text: 'Salz nach Geschmack',
+      }),
+      expect.any(Number),
+    );
   });
 
   it('soft-deletes an item', async () => {

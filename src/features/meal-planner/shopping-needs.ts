@@ -29,6 +29,7 @@ function flattenComponentGramsPer100g(
 
   for (const item of items) {
     if (item.component_id !== componentId) continue;
+    if (item.grams === null || item.grams <= 0) continue;
     totalGrams += item.grams;
 
     if (item.product_id !== null) {

@@ -496,6 +496,74 @@ describe('pushOutbox — Rezeptzutatenmapping', () => {
       db.close();
     }
   });
+  it('sendet rohe importierte Menge und Einheit ohne Ersetzung an Supabase', async () => {
+    const db = createTestDatabase();
+    await applyLocalSchema(db);
+    const ingredientMapping = {
+      version: 1,
+      status: 'unknown',
+      ingredientIds: [],
+      complete: false,
+    };
+    const remoteRow = {
+      id: 'recipe-item-raw',
+      component_id: 'component-1',
+      recipe_id: 'recipe-1',
+      household_id: 'hh-1',
+      product_id: null,
+      sub_component_id: null,
+      grams: null,
+      quantity: -2.5,
+      unit: 'Handvoll',
+      optional: false,
+      note: null,
+      source_text: 'Tomaten aus dem Video',
+      ingredient_source_type: 'import_source',
+      ingredient_source_id: null,
+      ingredient_source_url: null,
+      ingredient_source_version: null,
+      ingredient_source_license: null,
+      ingredient_mapping: ingredientMapping,
+      created_at: '2026-11-08T00:00:00.000Z',
+      updated_at: '2026-11-08T00:00:01.000Z',
+      deleted_at: null,
+    };
+    const select = jest.fn().mockResolvedValue({ data: [remoteRow], error: null, status: 201 });
+    const insert = jest.fn().mockReturnValue({ select });
+    const client = {
+      from: jest.fn().mockReturnValue({ insert }),
+    } as unknown as TypedSupabaseClient;
+
+    try {
+      await enqueueMutation(db, {
+        entity: 'recipe_component_items',
+        entityId: remoteRow.id,
+        op: 'insert',
+        payload: { ...remoteRow, ingredient_mapping: JSON.stringify(ingredientMapping) },
+        now: 1,
+        applyLocally: (txn) =>
+          applyLocalMirrorWrite(txn, 'recipe_component_items', 'insert', remoteRow, 1),
+      });
+
+      const result = await pushOutbox({ db, supabase: client, now: () => 2 });
+
+      expect(result.outcomes[0]).toMatchObject({
+        kind: 'pushed',
+        entity: 'recipe_component_items',
+      });
+      expect(insert).toHaveBeenCalledWith(
+        expect.objectContaining({
+          product_id: null,
+          grams: null,
+          quantity: -2.5,
+          unit: 'Handvoll',
+          source_text: 'Tomaten aus dem Video',
+        }),
+      );
+    } finally {
+      db.close();
+    }
+  });
 });
 
 describe('pushOutbox — append-only Ledger', () => {

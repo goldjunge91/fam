@@ -145,6 +145,13 @@ describe('entities', () => {
     expect(ENTITIES.recipe_component_items.householdScoped).toBe(true);
   });
 
+  it('synchronisiert rohe importierte Rezeptwerte ohne Einheitennormalisierung', () => {
+    expect(ENTITIES.recipe_component_items.normalizeQuantityUnits).toBeUndefined();
+    expect(ENTITIES.recipe_component_items.columns).toEqual(
+      expect.arrayContaining(['grams', 'quantity', 'unit', 'source_text']),
+    );
+  });
+
   // 'households' ist bewusst NICHT in ALL_ENTITIES (siehe Kommentar dort) —
   // deshalb hier ein eigener, expliziter Test statt eines it.each-Eintrags.
   it('households ist wie products global (kein household_id, kein Tombstone)', () => {

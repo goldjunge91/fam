@@ -97,9 +97,10 @@ function ingredientSpeechText(ingredients: readonly MentionableIngredient[]): st
   return `Zutaten für diesen Schritt: ${ingredients
     .map((ingredient) => {
       const quantity = Number.isFinite(ingredient.quantity) && ingredient.quantity > 0;
-      return quantity
+      if (!quantity) return ingredient.name;
+      return ingredient.unit
         ? `${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`
-        : ingredient.name;
+        : `${ingredient.quantity} ${ingredient.name}`;
     })
     .join(', ')}.`;
 }

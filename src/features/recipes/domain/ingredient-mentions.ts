@@ -2,7 +2,7 @@ export interface MentionableIngredient {
   /** `IngredientItem.id` im Wizard bzw. `recipe_component_items.id` nach dem Speichern. */
   itemId: string;
   name: string;
-  unit: string;
+  unit: string | null;
   /** Eingetragene Gesamtmenge dieser Zutat, Nenner für den Verbrauchsfortschritt. */
   quantity: number;
 }
@@ -22,7 +22,9 @@ export function flattenRecipeItems(
     id: string;
     product_id: string | null;
     ingredient_name?: string | null;
-    unit: string;
+    source_text?: string | null;
+    sourceText?: string | null;
+    unit: string | null;
     quantity: number | null;
   }[],
   productsById: ReadonlyMap<string, { name: string }>,
@@ -30,12 +32,16 @@ export function flattenRecipeItems(
   const result: MentionableIngredient[] = [];
   for (const item of items) {
     const product = item.product_id ? productsById.get(item.product_id) : undefined;
-    const name = product?.name ?? item.ingredient_name?.trim();
+    const name =
+      product?.name ??
+      item.source_text?.trim() ??
+      item.sourceText?.trim() ??
+      item.ingredient_name?.trim();
     if (!name) continue;
     result.push({
       itemId: item.id,
       name,
-      unit: item.unit,
+      unit: item.unit ?? null,
       quantity: item.quantity ?? 0,
     });
   }
@@ -94,7 +100,9 @@ export function splitStepMentions(
     }
     const ingredient = findMentionableIngredient(ingredients, match[1]);
     if (ingredient) {
-      const label = match[2] ? `${match[2]}${ingredient.unit} ${ingredient.name}` : ingredient.name;
+      const label = match[2]
+        ? `${match[2]}${ingredient.unit ? ingredient.unit : ''} ${ingredient.name}`
+        : ingredient.name;
       segments.push({ key: `m${key++}`, kind: 'resolved', text: label });
     } else {
       segments.push({ key: `m${key++}`, kind: 'unresolved', text: match[0] });

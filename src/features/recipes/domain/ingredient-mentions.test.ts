@@ -36,6 +36,26 @@ describe('flattenRecipeItems', () => {
       { itemId: 'stored', name: 'Möhren', unit: 'Stück', quantity: 0 },
     ]);
   });
+
+  it('verwendet source_text als Namen fuer eine importierte Position ohne Produkt', () => {
+    const items = flattenRecipeItems(
+      [
+        {
+          id: 'imported',
+          product_id: null,
+          ingredient_name: null,
+          source_text: '  Tomaten aus dem Video  ',
+          unit: null,
+          quantity: null,
+        },
+      ],
+      new Map(),
+    );
+
+    expect(items).toEqual([
+      { itemId: 'imported', name: 'Tomaten aus dem Video', unit: null, quantity: 0 },
+    ]);
+  });
 });
 
 describe('splitStepMentions', () => {

@@ -316,7 +316,6 @@ export const ENTITIES: Readonly<Record<Entity, EntityMeta>> = {
     table: 'recipe_component_items',
     hasServerTombstone: true,
     householdScoped: true,
-    normalizeQuantityUnits: true,
     jsonObjectColumns: ['ingredient_mapping'],
     columns: [
       'id',

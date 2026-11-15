@@ -234,7 +234,7 @@ function IngredientGroups({
                   <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
                     {name}
                   </Txt>
-                  {name === originalName ? (
+                  {name === originalName && quantity !== null ? (
                     <Txt variant="body" tone="secondary" weight="500">
                       {round(quantity)} {unit}
                     </Txt>

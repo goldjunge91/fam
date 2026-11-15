@@ -341,6 +341,83 @@ describe('use-recipes mutations', () => {
     expect(missing.result.current.data).toBeNull();
   });
 
+  it('hydratiert rohe importierte Rezeptpositionen mit sourceText und nullbaren Werten', async () => {
+    const row = {
+      id: 'recipe-import',
+      household_id: 'hh-1',
+      title: 'Importiertes Rezept',
+      instructions: null,
+      cover_image_path: null,
+      prep_time_minutes: null,
+      cook_time_minutes: null,
+      storage_instructions: null,
+      reheating_instructions: null,
+      cheap_tips: '[]',
+      substitutions: '[]',
+      crispiness_level: null,
+      air_fryer_time_minutes: null,
+      air_fryer_temperature_f: null,
+      variant_group: null,
+      variant_type: null,
+      dorm_friendly: null,
+      meal_prep_friendly: null,
+      why_cheap: null,
+      healthier_tips: '[]',
+      batch_prep_tips: '[]',
+      optional_add_ins: '[]',
+      difficulty: null,
+      dish_types: '[]',
+      dietary_tags: '[]',
+      hashtags: '[]',
+      default_servings: 1,
+      created_by: 'user-1',
+      created_at: '2026-11-08T12:00:00.000Z',
+    };
+    mockDbGetFirstAsync.mockResolvedValueOnce(row);
+    mockDbGetAllAsync
+      .mockResolvedValueOnce([
+        { id: 'component-import', recipe_id: 'recipe-import', name: 'Zutaten', serving_grams: 100 },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'item-import',
+          component_id: 'component-import',
+          product_id: null,
+          sub_component_id: null,
+          grams: null,
+          quantity: -2.5,
+          unit: 'Handvoll',
+          optional: 0,
+          note: null,
+          source_text: 'Tomaten aus dem Video',
+          ingredient_source_type: 'import_source',
+          ingredient_source_id: null,
+          ingredient_source_url: null,
+          ingredient_source_version: null,
+          ingredient_source_license: null,
+          ingredient_mapping:
+            '{"version":1,"status":"unknown","ingredientIds":[],"complete":false}',
+        },
+      ])
+      .mockResolvedValueOnce([])
+      .mockResolvedValueOnce([])
+      .mockResolvedValueOnce([]);
+
+    const { result } = await renderHook(() => useRecipeDetail('recipe-import'), { wrapper });
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.items).toEqual([
+      expect.objectContaining({
+        id: 'item-import',
+        product_id: null,
+        grams: null,
+        quantity: -2.5,
+        unit: 'Handvoll',
+        sourceText: 'Tomaten aus dem Video',
+      }),
+    ]);
+  });
+
   it('reiht Rezeptänderungen samt Metadaten in die Outbox ein', async () => {
     const { result } = await renderHook(() => useUpdateRecipeMutation(), { wrapper });
 

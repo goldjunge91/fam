@@ -296,7 +296,7 @@ export function RecipeCreateScreen() {
             product: null,
             productQuery: product?.name ?? '',
             quantity: item.quantity !== null ? String(item.quantity) : String(item.grams),
-            unit: item.unit,
+            unit: item.unit ?? '',
             notConvertible: false,
             existingItemId: item.id,
             existingProductId: item.product_id,

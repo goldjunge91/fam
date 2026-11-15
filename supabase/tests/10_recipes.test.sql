@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(21);
+select plan(27);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -136,6 +136,53 @@ select throws_ok(
 
 -- --------------------------------------------------------- Check-Constraint
 select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+
+insert into public.recipe_component_items
+  (component_id, recipe_id, household_id, grams, quantity, unit, source_text, ingredient_source_type)
+values
+  (:'sauce_id', :'recipe_id', :'hid', null, -2.5, 'Handvoll', 'Tomaten aus dem Video', 'import_source')
+returning id as imported_raw_item_id \gset
+
+select ok(
+  (select product_id is null and sub_component_id is null
+   from public.recipe_component_items where id = :'imported_raw_item_id'),
+  'eine importierte Textposition darf ohne Produkt und Unterkomponente gespeichert werden'
+);
+
+select ok(
+  (select grams is null from public.recipe_component_items where id = :'imported_raw_item_id'),
+  'eine importierte Textposition darf ohne abgeleitete Grammmenge gespeichert werden'
+);
+
+select is(
+  (select quantity from public.recipe_component_items where id = :'imported_raw_item_id'),
+  -2.5,
+  'eine importierte Textposition behaelt eine negative Rohmenge'
+);
+
+select is(
+  (select unit from public.recipe_component_items where id = :'imported_raw_item_id'),
+  'Handvoll',
+  'eine importierte Textposition behaelt eine unbekannte Einheit'
+);
+
+select is(
+  (select source_text from public.recipe_component_items where id = :'imported_raw_item_id'),
+  'Tomaten aus dem Video',
+  'eine importierte Textposition behaelt den exakten Quelltext'
+);
+
+insert into public.recipe_component_items
+  (component_id, recipe_id, household_id, grams, quantity, unit, source_text, ingredient_source_type)
+values
+  (:'sauce_id', :'recipe_id', :'hid', null, null, null, 'Salz nach Geschmack', 'import_source')
+returning id as imported_missing_item_id \gset
+
+select ok(
+  (select grams is null and quantity is null and unit is null
+   from public.recipe_component_items where id = :'imported_missing_item_id'),
+  'fehlende Menge und Einheit bleiben bei einer importierten Textposition null'
+);
 
 -- component_id/sub_component_id absichtlich so gewaehlt, dass die Kombination
 -- keinen Zykel ergibt (noodle_base_id -> sauce_id existiert schon als echte

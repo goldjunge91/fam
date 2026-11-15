@@ -20,7 +20,7 @@ export type RecipeComponentItem = RecipeComponentItemRow & {
   /** Nur bei Katalogzutaten ohne verknüpftes Produkt gesetzt. */
   ingredient_name?: string | null;
   quantity: number | null;
-  unit: string;
+  unit: string | null;
   optional?: boolean;
   note?: string | null;
   sourceText?: string | null;
@@ -224,10 +224,10 @@ export function useAddItemMutation() {
       household_id: string;
       product_id?: string | null;
       sub_component_id?: string | null;
-      grams: number;
+      grams: number | null;
       /** Rohe Nutzereingabe, siehe Kommentar auf recipe_component_items.quantity. */
       quantity?: number | null;
-      unit?: string;
+      unit?: string | null;
       optional?: boolean;
       note?: string | null;
       source_text?: string | null;
@@ -240,7 +240,7 @@ export function useAddItemMutation() {
       const productId = input.product_id ?? null;
       const subComponentId = input.sub_component_id ?? null;
       const quantity = input.quantity ?? null;
-      const unit = input.unit ?? 'g';
+      const unit = input.unit === undefined ? 'g' : input.unit;
       const optional = input.optional ?? false;
       const note = input.note ?? null;
       const sourceText = input.source_text ?? null;
@@ -322,9 +322,9 @@ export function useUpdateItemMutation() {
       id: string;
       recipe_id: string;
       household_id: string;
-      grams: number;
+      grams: number | null;
       quantity?: number | null;
-      unit?: string;
+      unit?: string | null;
       optional?: boolean;
       note?: string | null;
       source_text?: string | null;
@@ -335,7 +335,7 @@ export function useUpdateItemMutation() {
       const db = await getDatabase();
       const { iso, ms } = nowStamp();
       const quantity = input.quantity ?? null;
-      const unit = input.unit ?? 'g';
+      const unit = input.unit === undefined ? 'g' : input.unit;
       const ingredientSource = input.ingredientSource;
       const ingredientMapping = mappingForSource(input.ingredientMapping, ingredientSource);
       const patch = {

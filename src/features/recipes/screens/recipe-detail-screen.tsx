@@ -480,8 +480,12 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                 ? `${substitution.swap} (statt ${originalName})`
                 : originalName;
               const quantity =
-                item.quantity !== null ? item.quantity * servings : item.grams * servings;
-              const unit = item.quantity !== null ? item.unit : 'g';
+                item.quantity !== null
+                  ? item.quantity * servings
+                  : item.grams !== null
+                    ? item.grams * servings
+                    : null;
+              const unit = item.quantity !== null ? item.unit : item.grams !== null ? 'g' : null;
               return (
                 <View
                   key={item.id}
@@ -495,7 +499,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                   <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
                     {name}
                   </Txt>
-                  {substitution ? null : (
+                  {substitution || quantity === null ? null : (
                     <Txt variant="body" tone="secondary" weight="500">
                       {round(quantity)} {unit}
                     </Txt>
@@ -923,7 +927,13 @@ export function RecipeDetailScreen() {
                   const product = item.product_id
                     ? data.productsById.get(item.product_id)
                     : undefined;
-                  return `• ${product?.name ?? 'Zutat'}: ${Math.round(item.quantity ?? item.grams)} ${item.quantity !== null ? item.unit : 'g'}`;
+                  const amount =
+                    item.quantity !== null
+                      ? `${Math.round(item.quantity)} ${item.unit ?? ''}`.trim()
+                      : item.grams !== null
+                        ? `${Math.round(item.grams)} g`
+                        : '';
+                  return `• ${product?.name ?? 'Zutat'}${amount ? `: ${amount}` : ''}`;
                 });
                 await Share.share({
                   title: recipe.title,

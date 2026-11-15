@@ -136,13 +136,14 @@ create table if not exists public.recipe_component_items (
   -- abgeleitet (client-seitig ueber toGramsEquivalent, kein DB-Trigger —
   -- konsistent mit dem Muster, dass Naehrwertberechnung Sache der reinen
   -- Funktionen in src/features/recipes/domain/nutrition.ts ist, nicht der DB).
-  grams numeric(8, 2) not null check (grams > 0),
+  -- Bei import_source ist die abgeleitete Menge optional, damit die rohe
+  -- Eingabe auch ohne Umrechnung erhalten bleibt.
+  grams numeric(8, 2) check (grams is null or grams > 0),
   -- Rohe Nutzereingabe (z. B. "2" + "piece"), nullable fuer Altdaten ohne
-  -- Roheingabe. Gleiche erlaubte Einheiten wie fridge_items/shopping_list
-  -- (08_inventory.sql), siehe src/lib/units.ts.
-  quantity numeric(10, 2) check (quantity > 0),
-  unit text not null default 'g'
-    check (unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')),
+  -- Roheingabe. Importpositionen behalten auch negative oder unbekannte Werte
+  -- unveraendert; normale Rezeptpositionen behalten den bisherigen Vertrag.
+  quantity numeric(10, 2),
+  unit text default 'g',
   optional boolean not null default false,
   note text,
   source_text text,
@@ -163,7 +164,26 @@ create table if not exists public.recipe_component_items (
   deleted_at timestamptz,
 
   constraint recipe_component_items_exactly_one_target
-    check (num_nonnulls (product_id, sub_component_id) = 1),
+    check (
+      (
+        ingredient_source_type = 'import_source'
+        and nullif(trim(source_text), '') is not null
+        and num_nonnulls(product_id, sub_component_id) = 0
+      )
+      or num_nonnulls(product_id, sub_component_id) = 1
+    ),
+  constraint recipe_component_item_raw_input check (
+    (
+      ingredient_source_type = 'import_source'
+      and nullif(trim(source_text), '') is not null
+      and (unit is null or nullif(trim(unit), '') is not null)
+    )
+    or (
+      (quantity is null or quantity > 0)
+      and unit is not null
+      and unit in ('g', 'kg', 'ml', 'l', 'piece', 'package', 'portion')
+    )
+  ),
   constraint recipe_component_item_ingredient_mapping_shape check (
     jsonb_typeof(ingredient_mapping) = 'object'
     and ingredient_mapping - array[
