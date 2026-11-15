@@ -219,6 +219,36 @@ describe('RecipeCreateScreen', () => {
     expect(screen.getByDisplayValue('150')).toBeOnTheScreen();
   });
 
+  it('hält lange Importhinweise im scrollbaren Prüfbereich und erreicht die unteren Aktionen', async () => {
+    const longNotes = 'Das Dressing kann am Vortag vorbereitet werden. '.repeat(80).trim();
+    const longWarning = 'Die Kräutermenge ist im Video nicht eindeutig. '.repeat(80).trim();
+    mockParams = { importDraftId: importedDraft.id };
+    mockLoadRecipeImportDrafts.mockResolvedValueOnce([
+      {
+        ...importedDraft,
+        draft: {
+          ...importedDraft.draft,
+          notes: longNotes,
+          warnings: [longWarning],
+        },
+      },
+    ]);
+
+    await renderScreen();
+
+    const scrollView = screen.getByTestId('recipe-create-step-scroll');
+    expect(scrollView).toContainElement(screen.getByDisplayValue(longNotes));
+    expect(scrollView).toContainElement(screen.getByText(longWarning));
+    expect(scrollView).toContainElement(screen.getByLabelText('Hashtags'));
+    expect(scrollView).toContainElement(
+      screen.getByRole('button', { name: 'Weiter zu den Zutaten' }),
+    );
+
+    const user = userEvent.setup();
+    await user.scrollTo(scrollView, { y: 1200 });
+    expect(screen.getByRole('button', { name: 'Weiter zu den Zutaten' })).toBeOnTheScreen();
+  });
+
   it('lässt unklare Importmengen leer statt sie in Mengen- oder Einheitsfelder zu schreiben', async () => {
     mockParams = { importDraftId: 'draft-unclear' };
     mockLoadRecipeImportDrafts.mockResolvedValueOnce([

@@ -6,6 +6,7 @@ export type ProviderCompletionInput = {
   messages: ProviderMessage[];
   tools?: ProviderTool[];
   responseFormat?: 'json_object' | null;
+  hideReasoning?: boolean;
   maxTokens?: number;
 };
 
@@ -160,6 +161,11 @@ export function createProviderCompleter(
       if (config.openRouterSiteUrl) headers['HTTP-Referer'] = config.openRouterSiteUrl;
       if (config.openRouterSiteName) headers['X-Title'] = config.openRouterSiteName;
     }
+    const groqQwenJsonCompletion = input.hideReasoning === true &&
+      provider === 'groq' &&
+      input.model === 'qwen/qwen3.8-27b' &&
+      input.responseFormat !== null &&
+      !input.tools?.length;
     const body = {
       model: input.model,
       messages: input.messages,
@@ -169,6 +175,7 @@ export function createProviderCompleter(
       ...((input.responseFormat === null || input.tools?.length)
         ? {}
         : { response_format: { type: input.responseFormat ?? 'json_object' } }),
+      ...(groqQwenJsonCompletion ? { reasoning_format: 'hidden', reasoning_effort: 'none' } : {}),
       ...(input.tools ? { tools: input.tools, tool_choice: 'auto' } : {}),
       ...(provider === 'openrouter' ? { usage: { include: true } } : {}),
       ...(provider === 'openrouter' && input.model === 'ibm-granite/granite-4.2-8b'

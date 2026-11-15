@@ -174,7 +174,6 @@ const styles = StyleSheet.create((theme) => ({
   },
   importInfo: {
     gap: theme.space.sm,
-    paddingHorizontal: theme.space.lg,
     paddingTop: theme.space.xs,
     paddingBottom: theme.space.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -1019,58 +1018,6 @@ export function RecipeCreateScreen() {
             />
           ))}
         </View>
-        {importedDraft ? (
-          <View style={styles.importInfo}>
-            <Txt variant="caption" weight="700">
-              {importedDraft.sourceLabel}
-            </Txt>
-            <Txt variant="caption" tone="secondary">
-              Ordne jede Zutat einem Produkt zu und ergänze eine gültige Grammmenge. Gespeichert
-              wird erst nach deiner Bestätigung.
-            </Txt>
-            {importedDraft.mediaUris[0] ? (
-              <Image
-                source={{ uri: importedDraft.mediaUris[0] }}
-                contentFit="cover"
-                style={styles.importSourceImage}
-              />
-            ) : null}
-            {importedDraft.draft.warnings.map((warning, index) =>
-              index < 3 ? (
-                <Txt key={String(index)} variant="caption" tone="secondary">
-                  {warning}
-                </Txt>
-              ) : null,
-            )}
-            {importedDraft.draft.ingredients.some(
-              (ingredient) => ingredient.confidence !== 'high',
-            ) ? (
-              <Txt variant="caption" tone="secondary">
-                Bitte prüfe die erkannten Zutaten:{' '}
-                {importedDraft.draft.ingredients
-                  .filter((ingredient) => ingredient.confidence !== 'high')
-                  .map((ingredient) => ingredient.name)
-                  .join(' · ')}
-              </Txt>
-            ) : null}
-            {importedDraft.originalText ? (
-              <>
-                <Press
-                  accessibilityRole="button"
-                  onPress={() => setShowOriginalText((visible) => !visible)}>
-                  <Txt variant="caption" weight="700">
-                    {showOriginalText ? 'Originaltext ausblenden' : 'Originaltext anzeigen'}
-                  </Txt>
-                </Press>
-                {showOriginalText ? (
-                  <Txt variant="caption" tone="secondary" numberOfLines={8}>
-                    {importedDraft.originalText.slice(0, 1_200)}
-                  </Txt>
-                ) : null}
-              </>
-            ) : null}
-          </View>
-        ) : null}
 
         <KeyboardAvoidingView
           style={styles.keyboard}
@@ -1082,7 +1029,60 @@ export function RecipeCreateScreen() {
               style={styles.scroll}
               contentContainerStyle={styles.scrollContent}
               showsVerticalScrollIndicator={false}
-              keyboardShouldPersistTaps="handled">
+              keyboardShouldPersistTaps="handled"
+              testID="recipe-create-step-scroll">
+              {importedDraft ? (
+                <View style={styles.importInfo}>
+                  <Txt variant="caption" weight="700">
+                    {importedDraft.sourceLabel}
+                  </Txt>
+                  <Txt variant="caption" tone="secondary">
+                    Ordne jede Zutat einem Produkt zu und ergänze eine gültige Grammmenge.
+                    Gespeichert wird erst nach deiner Bestätigung.
+                  </Txt>
+                  {importedDraft.mediaUris[0] ? (
+                    <Image
+                      source={{ uri: importedDraft.mediaUris[0] }}
+                      contentFit="cover"
+                      style={styles.importSourceImage}
+                    />
+                  ) : null}
+                  {importedDraft.draft.warnings.map((warning, index) =>
+                    index < 3 ? (
+                      <Txt key={String(index)} variant="caption" tone="secondary">
+                        {warning}
+                      </Txt>
+                    ) : null,
+                  )}
+                  {importedDraft.draft.ingredients.some(
+                    (ingredient) => ingredient.confidence !== 'high',
+                  ) ? (
+                    <Txt variant="caption" tone="secondary">
+                      Bitte prüfe die erkannten Zutaten:{' '}
+                      {importedDraft.draft.ingredients
+                        .filter((ingredient) => ingredient.confidence !== 'high')
+                        .map((ingredient) => ingredient.name)
+                        .join(' · ')}
+                    </Txt>
+                  ) : null}
+                  {importedDraft.originalText ? (
+                    <>
+                      <Press
+                        accessibilityRole="button"
+                        onPress={() => setShowOriginalText((visible) => !visible)}>
+                        <Txt variant="caption" weight="700">
+                          {showOriginalText ? 'Originaltext ausblenden' : 'Originaltext anzeigen'}
+                        </Txt>
+                      </Press>
+                      {showOriginalText ? (
+                        <Txt variant="caption" tone="secondary" numberOfLines={8}>
+                          {importedDraft.originalText.slice(0, 1_200)}
+                        </Txt>
+                      ) : null}
+                    </>
+                  ) : null}
+                </View>
+              ) : null}
               <RecipeWizardStepBasics
                 mode="details"
                 control={control}

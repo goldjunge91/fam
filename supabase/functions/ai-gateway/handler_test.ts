@@ -119,6 +119,7 @@ function setup(
     model: string;
     provider: GatewayProvider | undefined;
     responseFormat: 'json_object' | null | undefined;
+    hideReasoning: boolean | undefined;
     system: string;
     user: string;
     transcript: string;
@@ -230,7 +231,7 @@ function setup(
     ...(options.publicUrlAllowed === undefined
       ? {}
       : { validatePublicUrl: () => Promise.resolve(options.publicUrlAllowed!) }),
-    complete: ({ provider, model, messages, responseFormat }) => {
+    complete: ({ provider, model, messages, responseFormat, hideReasoning }) => {
       const contentAsText = (content: unknown) =>
         typeof content === 'string' ? content : JSON.stringify(content ?? '');
       const callIndex = calls.length;
@@ -238,6 +239,7 @@ function setup(
         model,
         provider,
         responseFormat,
+        hideReasoning,
         system: contentAsText(messages[0]?.content),
         user: contentAsText(messages[1]?.content),
         transcript: messages.map((message) => contentAsText(message.content)).join('\n'),
@@ -563,7 +565,27 @@ Deno.test('accepts recipe request boundaries and keeps invalid provider drafts r
     { ...RECIPE_IMPORT_RESULT, ingredients: [] },
     {
       ...RECIPE_IMPORT_RESULT,
-      ingredients: [{ text: '200 g Linsen', confidence: 'high' }],
+      ingredients: [{ text: 200, confidence: 'high' }],
+    },
+    {
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ name: 'Linsen', quantity: 0, unit: 'g', confidence: 'high' }],
+    },
+    {
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ name: 'Linsen', quantity: 200, unit: 'cup', confidence: 'high' }],
+    },
+    {
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ text: '1 cup flour', confidence: 'high' }],
+    },
+    {
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ text: '-1 g lentils', confidence: 'high' }],
+    },
+    {
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ text: '200 g', confidence: 'high' }],
     },
     { ...RECIPE_IMPORT_RESULT, steps: [] },
     { ...RECIPE_IMPORT_RESULT, servings: 0 },
@@ -645,6 +667,7 @@ Deno.test('imports recipe text and sends a source-grounded recipe prompt', async
   const body = await response.json();
   assertEquals(body.source, 'ai');
   assertEquals(body.result, RECIPE_IMPORT_RESULT);
+  assertEquals(calls[0]?.hideReasoning, true);
   assertEquals(bookings[0]?.action, 'recipe');
   assertStringIncludes(calls[0]?.system ?? '', 'Erfinde keine Mengen');
   assertStringIncludes(calls[0]?.user ?? '', 'Linsen weich kochen.');
@@ -781,8 +804,150 @@ Deno.test('prioritizes exact Instagram caption facts and adds Whisper preparatio
   );
   assertStringIncludes(
     calls[0]?.system ?? '',
-    'warnings ausschließlich ungelöste Unsicherheiten; notes enthalten ausschließlich echte Rezeptnotizen.',
+    'warnings enthält ausschließlich kurze, aus der Quelle belegte ungelöste Unsicherheiten.',
   );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'notes enthält ausschließlich echte, aus der Quelle belegte Rezeptnotizen wie Hinweise zum Servieren oder Aufbewahren.',
+  );
+  assertStringIncludes(
+    calls[0]?.system ?? '',
+    'notes und warnings enthalten niemals Überlegungen, Prüfungen, Schema-, Feld- oder Einheitenkommentare.',
+  );
+});
+
+Deno.test('preserves genuine recipe notes and unresolved source warnings', async () => {
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    notes: 'Das Dressing kann am Vortag vorbereitet werden.',
+    warnings: ['Die Caption nennt keine Menge für die Kräuter.'],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'Rezepttext',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, result);
+});
+
+Deno.test('preserves first-person recipe notes verbatim', async () => {
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    notes: 'Ich serviere den Salat gut gekühlt. I serve this cold.',
+    warnings: ['Die Kräutermenge ist im Video nicht eindeutig.'],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'Rezepttext',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, result);
+});
+
+Deno.test('removes raw protocol commentary from a mixed recipe warning', async () => {
+  const warning =
+    "Menge für Senf ist im Transkript unbestimmt ('ein bisschen'), im Caption als '1 TL' angegeben; Caption wird bevorzugt, aber 1 TL ist keine Standard-Einheit in der Liste, daher null gesetzt.";
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    warnings: [warning],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'Rezepttext',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result.warnings, [
+    "Menge für Senf ist im Transkript unbestimmt ('ein bisschen'), im Caption als '1 TL' angegeben",
+  ]);
+});
+
+Deno.test('does not return protocol-only recipe narrative fields', async () => {
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    notes: '{"quantity":null,"unit":null,"confidence":"low"}',
+    warnings: ['{"kind":"recipe_import_draft.v1","warnings":[]}'],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'Rezepttext',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, {
+    ...RECIPE_IMPORT_RESULT,
+    notes: null,
+    warnings: [],
+  });
+});
+
+Deno.test('normalizes legacy Instagram ingredients without changing caption and Whisper inputs', async () => {
+  const mediaUrl = 'https://scontent.cdninstagram.com/legacy-recipe.mp4?token=signed';
+  const caption = 'Linsensuppe mit 200 g Linsen.';
+  const transcript = 'Linsen weich kochen.';
+  const legacyResult = {
+    ...RECIPE_IMPORT_RESULT,
+    ingredients: [{ text: '200 g Linsen', confidence: 'high' }],
+  };
+  const { handler, calls, transcriptionUrls } = setup({
+    publicUrlAllowed: true,
+    recipePage: {
+      ok: true,
+      text: 'Instagram',
+      draft: null,
+      videoUrl: mediaUrl,
+      instagramCaption: caption,
+    },
+    transcriptionText: transcript,
+    providerContent: JSON.stringify(legacyResult),
+  });
+
+  const response = await handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/legacy123/',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, RECIPE_IMPORT_RESULT);
+  assertEquals(transcriptionUrls, [mediaUrl]);
+  assertStringIncludes(calls[0]?.user ?? '', caption);
+  assertStringIncludes(calls[0]?.user ?? '', transcript);
+});
+
+Deno.test('accepts unquantified legacy ingredients without inventing amounts', async () => {
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    ingredients: [{ text: 'Eine Gurke', confidence: 'medium' }],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'eine Gurke vermengen.',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, {
+    ...RECIPE_IMPORT_RESULT,
+    ingredients: [{ name: 'Eine Gurke', quantity: null, unit: null, confidence: 'medium' }],
+  });
 });
 
 Deno.test('keeps missing and unclear ingredient amounts empty instead of combining fields', async () => {

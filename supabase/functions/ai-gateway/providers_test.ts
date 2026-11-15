@@ -130,6 +130,62 @@ Deno.test('sends OpenRouter requests with existing JSON mode and attribution hea
   }
 });
 
+Deno.test('hides Groq Qwen reasoning for opted-in JSON completions and keeps dedicated reasoning out of content', async () => {
+  let requestBody = '';
+  const complete = createProviderCompleter({
+    defaultProvider: 'groq',
+    groqKey: 'groq-test-key',
+  }, (_url, init) => {
+    requestBody = String(init?.body);
+    return Promise.resolve(okResponse({
+      choices: [{
+        message: {
+          content: '{"kind":"recipe_import_draft.v1"}',
+          reasoning: 'private schema deliberation',
+        },
+      }],
+    }));
+  });
+
+  const result = await complete({
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+    messages: [{ role: 'user', content: 'Extrahiere das Rezept.' }],
+    hideReasoning: true,
+  });
+
+  const body = JSON.parse(requestBody) as Record<string, unknown>;
+  assertEquals(body.response_format, { type: 'json_object' });
+  assertEquals(body?.reasoning_format, 'hidden');
+  assertEquals(body?.reasoning_effort, 'none');
+  assertEquals(result.ok, true);
+  if (result.ok) {
+    assertEquals(result.content, '{"kind":"recipe_import_draft.v1"}');
+  }
+});
+
+Deno.test('keeps Groq Qwen reasoning controls off for ordinary JSON completions', async () => {
+  let requestBody = '';
+  const complete = createProviderCompleter({
+    defaultProvider: 'groq',
+    groqKey: 'groq-test-key',
+  }, (_url, init) => {
+    requestBody = String(init?.body);
+    return Promise.resolve(okResponse());
+  });
+
+  await complete({
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+    messages: [{ role: 'user', content: 'Was ist noch im Vorrat?' }],
+  });
+
+  const body = JSON.parse(requestBody) as Record<string, unknown>;
+  assertEquals(body.response_format, { type: 'json_object' });
+  assertEquals('reasoning_format' in body, false);
+  assertEquals('reasoning_effort' in body, false);
+});
+
 Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and token parameter', async () => {
   let url = '';
   let init: RequestInit | undefined;
@@ -173,6 +229,8 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
   assertEquals(body.model, 'qwen/qwen3.8-27b');
   assertEquals(body.max_completion_tokens, 1536);
   assertEquals('response_format' in body, false);
+  assertEquals('reasoning_format' in body, false);
+  assertEquals('reasoning_effort' in body, false);
   assertEquals(body.tools[0].function.name, 'get_inventory');
   assertEquals(body.tool_choice, 'auto');
   assertEquals(result.ok, true);
@@ -199,6 +257,8 @@ Deno.test('omits JSON mode for plain text model tests and reports a missing prov
   });
   assertEquals(result.ok, true);
   assertEquals('response_format' in JSON.parse(String(init?.body)), false);
+  assertEquals('reasoning_format' in JSON.parse(String(init?.body)), false);
+  assertEquals('reasoning_effort' in JSON.parse(String(init?.body)), false);
   assertEquals(JSON.parse(String(init?.body)).max_completion_tokens, 1024);
 
   let called = false;

@@ -473,6 +473,7 @@ type Dependencies = {
     messages: ProviderMessage[];
     tools?: ProviderTool[];
     responseFormat?: 'json_object' | null;
+    hideReasoning?: boolean;
     maxTokens?: number;
   }) => Promise<ProviderResult>;
   isRateLimited?: () => boolean;
@@ -957,6 +958,9 @@ function buildSystemPrompt(
       'Lasse Mengen und Portionen null, wenn die Quelle sie nicht nennt. Rate keine üblichen Standardmengen.',
       'Jede Zutat bleibt in der ursprünglichen Reihenfolge erhalten. Das Feld name enthält nur den Produkt- oder Zutatennamen; quantity und unit stehen immer getrennt und niemals als kombinierter Text darin. Fasse Zutaten nicht zusammen und ordne sie nicht um. Unklare, abgeschnittene oder fehlende Angaben gehören in warnings.',
       'Wenn mehrere Rezepte sichtbar sind, extrahiere nur das vom Nutzer angefragte Rezept; wenn unklar, nimm das erste vollständige und erkläre die Auswahl in warnings.',
+      'notes enthält ausschließlich echte, aus der Quelle belegte Rezeptnotizen wie Hinweise zum Servieren oder Aufbewahren.',
+      'warnings enthält ausschließlich kurze, aus der Quelle belegte ungelöste Unsicherheiten.',
+      'notes und warnings enthalten niemals Überlegungen, Prüfungen, Schema-, Feld- oder Einheitenkommentare.',
       ...(isInstagramImport
         ? [
           'Bei Instagram sind Whisper-Transkript und öffentliche Caption getrennte Quellen. Ein Rezept darf aus einer oder aus beiden Quellen stammen. Verbinde keine inhaltlich unabhängigen Fragmente zu einem erfundenen Rezept.',
@@ -964,7 +968,6 @@ function buildSystemPrompt(
           'Whisper ergänzt fehlende Zutaten und vor allem Zubereitungsdetails wie Reihenfolge, Zusammenführen, Rühren, Kochen, Backen und Zeiten.',
           'Führe Caption und Whisper zu einem Rezept zusammen, ohne doppelte Zutaten oder Schritte zu erzeugen.',
           'Wenn die Caption eine Whisper-Angabe präzisiert, übernimm die Caption-Angabe ohne Warnung und ohne Meta-Erklärung in notes.',
-          'Bei Instagram enthalten warnings ausschließlich ungelöste Unsicherheiten; notes enthalten ausschließlich echte Rezeptnotizen.',
         ]
         : ['Nutze alle bereitgestellten Quellteile gemeinsam.']),
       isInstagramImport
@@ -1924,6 +1927,84 @@ function runAssistantTool(
   return { result: { error: 'unknown_tool' } };
 }
 
+const RECIPE_IMPORT_LEGACY_UNIT_ALIASES: Record<string, string> = {
+  g: 'g',
+  gram: 'g',
+  gramm: 'g',
+  kg: 'kg',
+  kilo: 'kg',
+  kilogramm: 'kg',
+  l: 'l',
+  liter: 'l',
+  litre: 'l',
+  ml: 'ml',
+  milliliter: 'ml',
+  millilitre: 'ml',
+  package: 'package',
+  packung: 'package',
+  pkg: 'package',
+  piece: 'piece',
+  stk: 'piece',
+  'stk.': 'piece',
+  stück: 'piece',
+  stueck: 'piece',
+  portion: 'portion',
+  portionen: 'portion',
+};
+
+function normalizeRecipeImportIngredient(value: unknown): JsonRecord | null {
+  if (!isRecord(value)) return null;
+  const ingredientKeys = Object.keys(value);
+  const requiredIngredientKeys = new Set(['name', 'quantity', 'unit', 'confidence']);
+  if (
+    ingredientKeys.length === 4 &&
+    ingredientKeys.every((key) => requiredIngredientKeys.has(key))
+  ) return value;
+  if (
+    ingredientKeys.length !== 2 ||
+    ingredientKeys.some((key) => key !== 'text' && key !== 'confidence') ||
+    !nonEmptyString(value.text) ||
+    value.text.length > 300 ||
+    !['high', 'medium', 'low'].includes(String(value.confidence))
+  ) return null;
+
+  const text = value.text.trim();
+  const match = text.match(
+    /^(\d+(?:[.,]\d+)?)\s*(kg|g|ml|l|gramm|gram|kilo|kilogramm|liter|litre|milliliter|millilitre|package|packung|pkg|piece|stk\.?|stück|stueck|portionen?)\s+(.+)$/iu,
+  );
+  if (!match && /^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)/u.test(text)) return null;
+  if (!match) {
+    return {
+      name: text,
+      quantity: null,
+      unit: null,
+      confidence: value.confidence,
+    };
+  }
+
+  const quantity = Number((match[1] ?? '').replace(',', '.'));
+  const unit = RECIPE_IMPORT_LEGACY_UNIT_ALIASES[(match[2] ?? '').toLowerCase()];
+  const name = match[3]?.trim() ?? '';
+  if (!Number.isFinite(quantity) || quantity <= 0 || !unit || !name) return null;
+  return { name, quantity, unit, confidence: value.confidence };
+}
+
+const RECIPE_IMPORT_PROTOCOL_MARKER_PATTERN =
+  /(?:\b(?:json|schema)\b|\b(?:null|quantity|unit|confidence|recipe_import_draft(?:\.v\d+)?)\b|(?:^|[,{\[]\s*)["'][^"'\\]+["']\s*:)/iu;
+
+function sanitizeRecipeImportNarrative(value: string): string | null {
+  if (!RECIPE_IMPORT_PROTOCOL_MARKER_PATTERN.test(value)) return value;
+
+  const fragments = value
+    .split(/(?:\r?\n)+|;\s*|(?<=[.!?])\s+/u)
+    .map((fragment) => fragment.trim())
+    .filter((fragment) => fragment.length > 0);
+  const safeFragments = fragments.filter((fragment) =>
+    !RECIPE_IMPORT_PROTOCOL_MARKER_PATTERN.test(fragment)
+  );
+  return safeFragments.length > 0 ? safeFragments.join(' ') : null;
+}
+
 function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
   const allowedKeys = new Set([
     'kind',
@@ -1935,6 +2016,9 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
     'warnings',
   ]);
   const allowedIngredientUnits = new Set(['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion']);
+  const normalizedIngredients = Array.isArray(result.ingredients)
+    ? result.ingredients.map(normalizeRecipeImportIngredient)
+    : [];
   if (
     Object.keys(result).some((key) => !allowedKeys.has(key)) ||
     Object.keys(result).length !== allowedKeys.size ||
@@ -1948,8 +2032,8 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
     !Array.isArray(result.ingredients) ||
     result.ingredients.length === 0 ||
     result.ingredients.length > 60 ||
-    !result.ingredients.every((ingredient) => {
-      if (!isRecord(ingredient)) return false;
+    !normalizedIngredients.every((ingredient) => {
+      if (!ingredient) return false;
       const ingredientKeys = Object.keys(ingredient);
       const hasValidQuantity = ingredient.quantity === null ||
         (typeof ingredient.quantity === 'number' &&
@@ -1980,7 +2064,16 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
     result.warnings.length > 20
   ) return null;
 
-  return result as RecipeImportDraft;
+  return {
+    ...result,
+    ingredients: normalizedIngredients,
+    notes: typeof result.notes === 'string'
+      ? sanitizeRecipeImportNarrative(result.notes)
+      : result.notes,
+    warnings: result.warnings
+      .map((warning) => sanitizeRecipeImportNarrative(warning))
+      .filter((warning): warning is string => warning !== null),
+  } as RecipeImportDraft;
 }
 
 function isRecipeImportUnavailable(result: JsonRecord): boolean {
@@ -2666,6 +2759,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           model,
           messages: providerMessages,
           ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS, responseFormat } : {}),
+          ...(parsedRequest.skill === 'fam-recipe-import' ? { hideReasoning: true } : {}),
         });
       } catch {
         return await refundAndRespond({ error: 'provider_unavailable' }, 502);
@@ -2758,12 +2852,15 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       normalizeAssistantProviderResult(parsedResult);
     }
 
+    const recipeImportDraft = parsedRequest.skill === 'fam-recipe-import'
+      ? parseRecipeImportDraft(parsedResult)
+      : null;
     const validationError = parsedRequest.skill === 'fam-inventory-capture'
       ? validateCaptureResult(parsedResult, parsedRequest)
       : parsedRequest.skill === 'fam-assistant'
       ? (isValidAssistantResult(parsedResult) ? null : 'invalid_assistant_reply')
       : parsedRequest.skill === 'fam-recipe-import'
-      ? (parseRecipeImportDraft(parsedResult) ? null : 'invalid_recipe_import_draft')
+      ? (recipeImportDraft ? null : 'invalid_recipe_import_draft')
       : validateCookingResult(parsedResult, preparedContext, parsedRequest);
     if (validationError) {
       if (validationError === 'invalid_assistant_reply') {
@@ -2811,7 +2908,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           recipeReferences: [...assistantRecipeReferences.values()].slice(0, 8),
           toolTrace: [...toolTrace],
         }
-        : parsedResult,
+        : recipeImportDraft ?? parsedResult,
       generatedAt: now(),
     });
   };
