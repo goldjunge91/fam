@@ -106,7 +106,8 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 function formatIngredientLabel(ingredient: MentionableIngredient): string {
-  const hasQuantity = Number.isFinite(ingredient.quantity) && ingredient.quantity > 0;
+  const hasQuantity =
+    ingredient.quantity !== null && Number.isFinite(ingredient.quantity) && ingredient.quantity > 0;
   if (!hasQuantity) return ingredient.name;
   return ingredient.unit
     ? `${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`

@@ -85,9 +85,9 @@ type ResolvedIngredient = {
   existingItemId: string | null;
   productId: string | null;
   product: CatalogProduct | null;
-  grams: number;
-  quantity: number;
-  unit: string;
+  grams: number | null;
+  quantity: number | null;
+  unit: string | null;
   sourceText: string | null;
   ingredientSource: IngredientMappingSourceContext | null;
   ingredientMapping: IngredientMappingReview;
@@ -280,7 +280,13 @@ export function RecipeCreateScreen() {
       title: component.name,
       existingComponentId: component.id,
       items: data.items
-        .filter((item) => item.component_id === component.id && item.product_id !== null)
+        .filter(
+          (item) =>
+            item.component_id === component.id &&
+            (item.product_id !== null ||
+              item.ingredientSource?.source === 'import_source' ||
+              (item.sourceText?.trim().length ?? 0) > 0),
+        )
         .map((item) => {
           const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
           const savedMapping = item.ingredientMapping ?? { ...UNKNOWN_INGREDIENT_MAPPING };
@@ -291,11 +297,19 @@ export function RecipeCreateScreen() {
           )
             ? savedMapping
             : { ...UNKNOWN_INGREDIENT_MAPPING };
+          const isImportSource =
+            item.ingredientSource?.source === 'import_source' ||
+            (item.product_id === null && (item.sourceText?.trim().length ?? 0) > 0);
           return {
             id: item.id,
             product: null,
-            productQuery: product?.name ?? '',
-            quantity: item.quantity !== null ? String(item.quantity) : String(item.grams),
+            productQuery: product?.name ?? item.sourceText ?? '',
+            quantity:
+              item.quantity !== null
+                ? String(item.quantity)
+                : isImportSource
+                  ? ''
+                  : String(item.grams),
             unit: item.unit ?? '',
             notConvertible: false,
             existingItemId: item.id,
@@ -459,7 +473,11 @@ export function RecipeCreateScreen() {
                       ? item.mappingEvidenceSnapshot
                       : '',
                   mappingSource:
-                    item.mappingSource?.source === 'import_source' ? item.mappingSource : null,
+                    item.mappingSource?.source === 'import_source'
+                      ? item.mappingSource
+                      : importedDraft
+                        ? importSourceContext(importedDraft)
+                        : null,
                 }
               : item,
           ),
@@ -597,10 +615,61 @@ export function RecipeCreateScreen() {
         const validatedItems = [];
 
         for (const item of comp.items) {
+          const isImport = importedDraft !== null;
           const hasProduct = !!(item.product || item.existingProductId);
-          const hasInput = hasProduct || !!item.productQuery.trim() || !!item.quantity.trim();
+          const hasImportSourceText = !!item.sourceText?.trim();
+          const hasInput =
+            hasProduct ||
+            !!item.productQuery.trim() ||
+            !!item.quantity.trim() ||
+            hasImportSourceText;
           if (!hasInput) {
             validatedItems.push(item);
+            continue;
+          }
+
+          if (isImport) {
+            const parsedQuantity =
+              item.quantity.trim() === '' ? null : Number.parseFloat(item.quantity);
+            const quantity =
+              parsedQuantity === null || !Number.isFinite(parsedQuantity) ? null : parsedQuantity;
+            const unit = item.unit.trim() || null;
+            const sourceText = hasProduct
+              ? item.sourceText?.trim() || null
+              : item.productQuery.trim() || item.sourceText?.trim() || null;
+
+            if (!hasProduct && !sourceText) {
+              validatedItems.push({ ...item, notConvertible: false });
+              continue;
+            }
+
+            let grams: number | null = null;
+            if (quantity !== null && quantity > 0 && unit !== null) {
+              const productRow = item.existingProductId
+                ? await db.getFirstAsync<{ serving_size_g: number | null }>(
+                    'select serving_size_g from products where id = ?',
+                    [item.existingProductId],
+                  )
+                : null;
+              const conversion = toGramsEquivalent(quantity, unit, {
+                servingWeightG: productRow?.serving_size_g ?? undefined,
+              });
+              grams = conversion.convertible && conversion.grams > 0 ? conversion.grams : null;
+            }
+
+            validatedItems.push({ ...item, notConvertible: false });
+            resolvedItems.push({
+              sourceItemId: item.id,
+              existingItemId: item.product ? null : item.existingItemId,
+              productId: item.product ? null : item.existingProductId,
+              product: item.product,
+              grams,
+              quantity,
+              unit,
+              sourceText,
+              ingredientSource: item.mappingSource ?? null,
+              ingredientMapping: mappingForRecipeItem(item),
+            });
             continue;
           }
 
@@ -708,7 +777,13 @@ export function RecipeCreateScreen() {
         const originalItemByComponent = new Map<string, string>();
         if (data) {
           for (const item of data.items) {
-            if (item.product_id !== null) originalItemByComponent.set(item.id, item.component_id);
+            if (
+              item.product_id !== null ||
+              item.ingredientSource?.source === 'import_source' ||
+              (item.sourceText?.trim().length ?? 0) > 0
+            ) {
+              originalItemByComponent.set(item.id, item.component_id);
+            }
           }
         }
         const keptComponentIds = new Set<string>();
@@ -736,7 +811,7 @@ export function RecipeCreateScreen() {
             continue;
           }
 
-          const totalGrams = resolvedItems.reduce((sum, r) => sum + r.grams, 0);
+          const totalGrams = resolvedItems.reduce((sum, r) => sum + (r.grams ?? 0), 0);
 
           let realComponentId: string;
           if (comp.existingComponentId) {
@@ -767,8 +842,6 @@ export function RecipeCreateScreen() {
               (resolved.product
                 ? await persistOffProductIfNeeded(resolved.product, userId, addProduct)
                 : null);
-            if (!productId)
-              throw new Error('Die ausgewählte Zutat konnte nicht gespeichert werden.');
 
             if (resolved.existingItemId) {
               keptItemIds.add(resolved.existingItemId);
@@ -1037,8 +1110,7 @@ export function RecipeCreateScreen() {
                     {importedDraft.sourceLabel}
                   </Txt>
                   <Txt variant="caption" tone="secondary">
-                    Ordne jede Zutat einem Produkt zu und ergänze eine gültige Grammmenge.
-                    Gespeichert wird erst nach deiner Bestätigung.
+                    Prüfe die erkannten Zutaten und ergänze fehlende Angaben.
                   </Txt>
                   {importedDraft.mediaUris[0] ? (
                     <Image

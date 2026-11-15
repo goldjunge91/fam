@@ -4,7 +4,7 @@ export interface MentionableIngredient {
   name: string;
   unit: string | null;
   /** Eingetragene Gesamtmenge dieser Zutat, Nenner für den Verbrauchsfortschritt. */
-  quantity: number;
+  quantity: number | null;
 }
 
 function escapeRegExp(value: string): string {
@@ -42,7 +42,7 @@ export function flattenRecipeItems(
       itemId: item.id,
       name,
       unit: item.unit ?? null,
-      quantity: item.quantity ?? 0,
+      quantity: item.quantity,
     });
   }
   return result;
@@ -133,7 +133,7 @@ export function computeMentionUsage(
     for (const match of text.matchAll(pattern)) {
       if (!match[2]) continue;
       const ingredient = findMentionableIngredient(ingredients, match[1]);
-      if (!ingredient) continue;
+      if (!ingredient || ingredient.quantity === null || ingredient.quantity <= 0) continue;
       const current = used.get(ingredient.itemId) ?? 0;
       used.set(ingredient.itemId, Math.min(ingredient.quantity, current + Number(match[2])));
     }

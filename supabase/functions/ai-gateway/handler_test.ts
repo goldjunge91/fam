@@ -569,19 +569,19 @@ Deno.test('accepts recipe request boundaries and keeps invalid provider drafts r
     },
     {
       ...RECIPE_IMPORT_RESULT,
-      ingredients: [{ name: 'Linsen', quantity: 0, unit: 'g', confidence: 'high' }],
+      ingredients: [{ name: 'Linsen', quantity: '200', unit: 'g', confidence: 'high' }],
     },
     {
       ...RECIPE_IMPORT_RESULT,
-      ingredients: [{ name: 'Linsen', quantity: 200, unit: 'cup', confidence: 'high' }],
+      ingredients: [{ name: 'Linsen', quantity: 200, unit: 42, confidence: 'high' }],
     },
     {
       ...RECIPE_IMPORT_RESULT,
-      ingredients: [{ text: '1 cup flour', confidence: 'high' }],
+      ingredients: [{ name: 'Linsen', quantity: 200, unit: '', confidence: 'high' }],
     },
     {
       ...RECIPE_IMPORT_RESULT,
-      ingredients: [{ text: '-1 g lentils', confidence: 'high' }],
+      ingredients: [{ name: '', quantity: 200, unit: 'g', confidence: 'high' }],
     },
     {
       ...RECIPE_IMPORT_RESULT,
@@ -930,6 +930,58 @@ Deno.test('normalizes legacy Instagram ingredients without changing caption and 
   assertStringIncludes(calls[0]?.user ?? '', transcript);
 });
 
+Deno.test('accepts raw import values without mapping or quantity gates', async () => {
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    ingredients: [
+      { name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' },
+      { name: 'Mehl', quantity: -2, unit: 'cup', confidence: 'low' },
+      { name: 'Wasser', quantity: 3, confidence: 'medium' },
+      { name: 'Salz', unit: 'Prise', confidence: 'low' },
+      { name: 'Pfeffer', quantity: null, unit: null, confidence: 'low' },
+    ],
+  };
+  const configured = setup({ providerContent: JSON.stringify(result) });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'Freie Mengen aus dem Rezept.',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, {
+    ...result,
+    ingredients: [
+      { name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' },
+      { name: 'Mehl', quantity: -2, unit: 'cup', confidence: 'low' },
+      { name: 'Wasser', quantity: 3, unit: null, confidence: 'medium' },
+      { name: 'Salz', quantity: null, unit: 'Prise', confidence: 'low' },
+      { name: 'Pfeffer', quantity: null, unit: null, confidence: 'low' },
+    ],
+  });
+  assertStringIncludes(configured.calls[0]?.system ?? '', 'endliche Zahl oder null');
+  assertStringIncludes(configured.calls[0]?.system ?? '', 'unbekannte Einheiten als Text');
+});
+Deno.test('keeps signed quantities and unknown units in legacy import lines', async () => {
+  const configured = setup({
+    providerContent: JSON.stringify({
+      ...RECIPE_IMPORT_RESULT,
+      ingredients: [{ text: '-2 cup Mehl', confidence: 'low' }],
+    }),
+  });
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'text',
+    sourceText: 'Mehl verwenden.',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result.ingredients, [
+    { name: 'Mehl', quantity: -2, unit: 'cup', confidence: 'low' },
+  ]);
+});
 Deno.test('accepts unquantified legacy ingredients without inventing amounts', async () => {
   const result = {
     ...RECIPE_IMPORT_RESULT,

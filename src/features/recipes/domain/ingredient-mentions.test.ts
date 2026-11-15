@@ -33,7 +33,7 @@ describe('flattenRecipeItems', () => {
 
     expect(items).toEqual([
       { itemId: 'product', name: 'Karotte', unit: 'g', quantity: 25 },
-      { itemId: 'stored', name: 'Möhren', unit: 'Stück', quantity: 0 },
+      { itemId: 'stored', name: 'Möhren', unit: 'Stück', quantity: null },
     ]);
   });
 
@@ -53,12 +53,26 @@ describe('flattenRecipeItems', () => {
     );
 
     expect(items).toEqual([
-      { itemId: 'imported', name: 'Tomaten aus dem Video', unit: null, quantity: 0 },
+      { itemId: 'imported', name: 'Tomaten aus dem Video', unit: null, quantity: null },
     ]);
   });
-});
+  it('preserves raw negative quantities and unknown units for imported mentions', () => {
+    expect(
+      flattenRecipeItems(
+        [
+          {
+            id: 'imported',
+            product_id: null,
+            source_text: 'Mehl',
+            unit: 'cup',
+            quantity: -2,
+          },
+        ],
+        new Map(),
+      ),
+    ).toEqual([{ itemId: 'imported', name: 'Mehl', unit: 'cup', quantity: -2 }]);
+  });
 
-describe('splitStepMentions', () => {
   it('löst eine Erwähnung mit Menge zu Klartext mit Zutaten-Einheit auf', () => {
     const segments = splitStepMentions('@Wurst50 in Scheiben schneiden.', INGREDIENTS);
     expect(segments[0]).toMatchObject({ kind: 'resolved', text: '50g Wurst' });

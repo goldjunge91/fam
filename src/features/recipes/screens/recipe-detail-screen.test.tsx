@@ -307,6 +307,79 @@ describe('RecipeDetailScreen', () => {
     });
   });
 
+  it('zeigt importierte Textzeilen mit fehlenden, negativen und unbekannten Rohwerten', async () => {
+    mockCurrentDetail = {
+      ...mockDetail,
+      components: [
+        ...mockDetail.components,
+        { id: 'import-component', recipe_id: 'recipe-1', name: 'Import', serving_grams: null },
+      ],
+      items: [
+        ...mockDetail.items,
+        {
+          id: 'import-missing',
+          component_id: 'import-component',
+          product_id: null,
+          sub_component_id: null,
+          grams: null,
+          quantity: null,
+          unit: null,
+          sourceText: 'Menge fehlt',
+          ingredientSource: {
+            source: 'import_source',
+            sourceId: 'draft-1',
+            sourceUrl: null,
+            sourceVersion: '2026-11-10T00:00:00.000Z',
+            license: null,
+          },
+        },
+        {
+          id: 'import-negative',
+          component_id: 'import-component',
+          product_id: null,
+          sub_component_id: null,
+          grams: null,
+          quantity: -2,
+          unit: 'cup',
+          sourceText: 'Mehl aus dem Video',
+          ingredientSource: {
+            source: 'import_source',
+            sourceId: 'draft-1',
+            sourceUrl: null,
+            sourceVersion: '2026-11-10T00:00:00.000Z',
+            license: null,
+          },
+        },
+        {
+          id: 'import-unknown-unit',
+          component_id: 'import-component',
+          product_id: null,
+          sub_component_id: null,
+          grams: null,
+          quantity: 1.25,
+          unit: 'Prise',
+          sourceText: 'Salz',
+          ingredientSource: {
+            source: 'import_source',
+            sourceId: 'draft-1',
+            sourceUrl: null,
+            sourceVersion: '2026-11-10T00:00:00.000Z',
+            license: null,
+          },
+        },
+      ],
+    };
+
+    await renderScreen();
+
+    expect(screen.getByText('Menge fehlt')).toBeOnTheScreen();
+    expect(screen.getByText('Mehl aus dem Video')).toBeOnTheScreen();
+    expect(screen.getByText('Salz')).toBeOnTheScreen();
+    expect(screen.getByText('-2 cup')).toBeOnTheScreen();
+    expect(screen.getByText('1.25 Prise')).toBeOnTheScreen();
+    expect(screen.queryByText('Zutat')).not.toBeOnTheScreen();
+    expect(screen.queryByText('0 g zubereitet')).not.toBeOnTheScreen();
+  });
   it('zeigt bei einer Rezeptalternative nicht die Menge der Originalzutat', async () => {
     const originalItem = mockDetail.items[0];
     if (!originalItem) throw new Error('Das Testrezept hat keine Zutat.');

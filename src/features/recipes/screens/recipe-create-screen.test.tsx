@@ -219,6 +219,77 @@ describe('RecipeCreateScreen', () => {
     expect(screen.getByDisplayValue('150')).toBeOnTheScreen();
   });
 
+
+  it('speichert jede importierte Zeile mit ihren Rohwerten ohne Mapping-Bestätigung', async () => {
+    mockParams = { importDraftId: importedDraft.id };
+    mockLoadRecipeImportDrafts.mockResolvedValueOnce([
+      {
+        ...importedDraft,
+        draft: {
+          ...importedDraft.draft,
+          ingredients: [
+            { name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' },
+            { name: 'Mehl', quantity: null, unit: null, confidence: 'low' },
+            { name: 'Wasser', quantity: -2, unit: 'cup', confidence: 'medium' },
+            { name: 'Salz', quantity: null, unit: 'Prise', confidence: 'low' },
+          ],
+        },
+      },
+    ]);
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+
+    try {
+      await renderScreen();
+      const user = userEvent.setup();
+      await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
+      const firstIngredient = screen.getAllByLabelText('Zutat')[0];
+      await user.clear(firstIngredient);
+      await user.type(firstIngredient, 'Gurke angepasst');
+      expect(screen.queryByText('Zutatenzuordnung prüfen')).not.toBeOnTheScreen();
+      await user.press(screen.getByRole('button', { name: 'Weiter zu den Schritten' }));
+      await user.press(screen.getByRole('button', { name: 'Weiter' }));
+      expect(screen.getByText(/Gurke angepasst.*150 g/)).toBeOnTheScreen();
+      expect(screen.getByText(/Mehl/)).toBeOnTheScreen();
+      await user.press(screen.getByRole('button', { name: 'Speichern' }));
+
+      await waitFor(() => expect(mockAddItemMutateAsync).toHaveBeenCalledTimes(4));
+      expect(alert).not.toHaveBeenCalled();
+      expect(mockAddItemMutateAsync.mock.calls.map(([payload]) => payload)).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            product_id: null,
+            grams: 150,
+            quantity: 150,
+            unit: 'g',
+            source_text: 'Gurke angepasst',
+          }),
+          expect.objectContaining({
+            product_id: null,
+            grams: null,
+            quantity: null,
+            unit: null,
+            source_text: 'Mehl',
+          }),
+          expect.objectContaining({
+            product_id: null,
+            grams: null,
+            quantity: -2,
+            unit: 'cup',
+            source_text: 'Wasser',
+          }),
+          expect.objectContaining({
+            product_id: null,
+            grams: null,
+            quantity: null,
+            unit: 'Prise',
+            source_text: 'Salz',
+          }),
+        ]),
+      );
+    } finally {
+      alert.mockRestore();
+    }
+  });
   it('hält lange Importhinweise im scrollbaren Prüfbereich und erreicht die unteren Aktionen', async () => {
     const longNotes = 'Das Dressing kann am Vortag vorbereitet werden. '.repeat(80).trim();
     const longWarning = 'Die Kräutermenge ist im Video nicht eindeutig. '.repeat(80).trim();
@@ -611,7 +682,6 @@ describe('RecipeCreateScreen', () => {
       productsById: new Map([['product-1', { id: 'product-1', name: 'Mehl' }]]),
       steps: [],
     };
-    mockParams = { importDraftId: 'draft-1' };
     await renderScreen();
 
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));

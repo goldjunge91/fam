@@ -106,6 +106,7 @@ describe('recipe import account storage', () => {
       { ...draft, steps: [] },
       { ...draft, ingredients: 'lentils' },
       { ...draft, ingredients: [{ text: 'x', confidence: 'certain' }] },
+      { ...draft, ingredients: [{ text: '200 g', confidence: 'high' }] },
       { ...draft, steps: ['Cook', 2] },
       { ...draft, notes: 42 },
       { ...draft, warnings: [null] },
@@ -153,6 +154,36 @@ describe('recipe import account storage', () => {
     ]);
   });
 
+  it('restores missing, negative, and unknown raw values without filtering rows', async () => {
+    values.set(
+      'recipe-import.drafts.v1',
+      JSON.stringify([
+        {
+          ...record(),
+          draft: {
+            ...draft,
+            ingredients: [
+              { name: 'Gurke', quantity: -2, unit: 'cup', confidence: 'low' },
+              { name: 'Wasser', quantity: 3, confidence: 'medium' },
+              { name: 'Salz', unit: 'Prise', confidence: 'low' },
+              { name: 'Pfeffer', quantity: null, unit: null, confidence: 'low' },
+            ],
+          },
+        },
+      ]),
+    );
+
+    const loaded = await loadRecipeImportDrafts('user-1');
+
+    expect(
+      loaded[0]?.draft.ingredients.map(({ name, quantity, unit }) => ({ name, quantity, unit })),
+    ).toEqual([
+      { name: 'Gurke', quantity: -2, unit: 'cup' },
+      { name: 'Wasser', quantity: 3, unit: null },
+      { name: 'Salz', quantity: null, unit: 'Prise' },
+      { name: 'Pfeffer', quantity: null, unit: null },
+    ]);
+  });
   it('sorts and limits drafts, then replaces records with the same id', async () => {
     const drafts = Array.from({ length: 34 }, (_, index) =>
       record({

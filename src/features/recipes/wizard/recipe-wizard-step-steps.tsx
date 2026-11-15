@@ -204,16 +204,17 @@ function flattenIngredients(components: IngredientComponentGroup[]): Mentionable
     for (const item of comp.items) {
       // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
       // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
-      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
-      // Hydration) — ohne diesen Fallback wuerden sie hier fehlen.
-      const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
+      // productQuery/sourceText is the fallback for imported and hydrated rows
+      // without a freshly selected product.
+      const name =
+        item.product?.name ?? (item.productQuery.trim() || item.sourceText?.trim() || null);
       if (!name) continue;
-      const quantity = Number.parseFloat(item.quantity);
+      const quantity = item.quantity.trim() === '' ? null : Number.parseFloat(item.quantity);
       result.push({
         itemId: item.id,
         name,
-        unit: item.unit,
-        quantity: Number.isNaN(quantity) ? 0 : quantity,
+        unit: item.unit.trim() || null,
+        quantity: quantity !== null && Number.isFinite(quantity) ? quantity : null,
       });
     }
   }
@@ -243,7 +244,9 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
   const [expanded, setExpanded] = useState(true);
   if (ingredients.length === 0) return null;
 
-  const doneCount = ingredients.filter((i) => (used.get(i.itemId) ?? 0) >= i.quantity).length;
+  const doneCount = ingredients.filter(
+    (i) => i.quantity !== null && i.quantity > 0 && (used.get(i.itemId) ?? 0) >= i.quantity,
+  ).length;
 
   return (
     <View style={[styles.ledger, { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
@@ -271,10 +274,16 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
         <View style={styles.ledgerBody}>
           {ingredients.map((ing) => {
             const usedAmount = used.get(ing.itemId) ?? 0;
+            const usableQuantity = ing.quantity !== null && ing.quantity > 0 ? ing.quantity : null;
             const pct =
-              ing.quantity > 0 ? Math.min(100, Math.round((usedAmount / ing.quantity) * 100)) : 0;
-            const full = ing.quantity > 0 && usedAmount >= ing.quantity;
-            const remaining = Math.max(0, ing.quantity - usedAmount);
+              usableQuantity !== null
+                ? Math.min(100, Math.round((usedAmount / usableQuantity) * 100))
+                : 0;
+            const full = usableQuantity !== null && usedAmount >= usableQuantity;
+            const remaining =
+              usableQuantity === null ? null : Math.max(0, usableQuantity - usedAmount);
+            const rawAmount =
+              ing.quantity === null ? ing.unit : `${ing.quantity}${ing.unit ? ` ${ing.unit}` : ''}`;
             return (
               <View key={ing.itemId}>
                 <View style={styles.ledgerRow}>
@@ -292,7 +301,11 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
                     variant="caption"
                     tone={full ? 'success' : 'secondary'}
                     weight={full ? '600' : undefined}>
-                    {full ? 'aufgebraucht' : `${remaining}${ing.unit} übrig`}
+                    {full
+                      ? 'aufgebraucht'
+                      : remaining !== null
+                        ? `${remaining}${ing.unit ?? ''} übrig`
+                        : rawAmount}
                   </Txt>
                 </View>
                 <View style={[styles.progress, { backgroundColor: colors.border }]}>

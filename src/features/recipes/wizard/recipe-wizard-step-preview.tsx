@@ -7,13 +7,8 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { StepRichContent } from '@/features/recipes/components/step-rich-content';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
-import { UNIT_OPTIONS } from '@/lib/units';
 import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
-
-function unitLabel(unit: string): string {
-  return UNIT_OPTIONS.find((o) => o.value === unit)?.label ?? unit;
-}
 
 function labelFor<T extends string>(
   options: readonly { value: T; label: string }[],
@@ -225,10 +220,10 @@ export function RecipeWizardStepPreview({
     for (const item of comp.items) {
       // item.product ist nur bei einer frisch abgeschlossenen OFF-Suche
       // gesetzt. Beim Bearbeiten geladene Zutaten haben stattdessen
-      // productQuery/existingProductId (siehe recipe-create-screen.tsx-
-      // Hydration) — ohne diesen Fallback fehlten sie hier komplett bzw.
-      // zeigten nur ihre rohe ID.
-      const name = item.product?.name ?? (item.existingProductId ? item.productQuery : null);
+      // productQuery/sourceText is the fallback for imported and hydrated rows
+      // without a freshly selected product.
+      const name =
+        item.product?.name ?? (item.productQuery.trim() || item.sourceText?.trim() || null);
       if (name) {
         ingredientLabelById.set(item.id, `${name} (${comp.title})`);
       }
@@ -351,13 +346,26 @@ export function RecipeWizardStepPreview({
                 {comp.title}
               </Txt>
               {comp.items
-                .filter((item) => item.product || item.existingProductId)
-                .map((item) => (
-                  <Txt key={item.id} variant="body">
-                    • {item.product?.name ?? item.productQuery} — {item.quantity}{' '}
-                    {unitLabel(item.unit)}
-                  </Txt>
-                ))}
+                .filter(
+                  (item) =>
+                    !!item.product ||
+                    item.productQuery.trim().length > 0 ||
+                    (item.sourceText?.trim().length ?? 0) > 0,
+                )
+                .map((item) => {
+                  const name =
+                    item.product?.name ??
+                    (item.productQuery.trim() || item.sourceText?.trim() || 'Zutat');
+                  const amount = item.quantity.trim();
+                  const unit = item.unit.trim();
+                  const amountLabel = [amount, unit].filter(Boolean).join(' ');
+                  return (
+                    <Txt key={item.id} variant="body">
+                      • {name}
+                      {amountLabel ? ` · ${amountLabel}` : ''}
+                    </Txt>
+                  );
+                })}
             </View>
           ))}
         </View>

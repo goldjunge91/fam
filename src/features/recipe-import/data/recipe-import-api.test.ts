@@ -137,6 +137,71 @@ describe('recipe import API', () => {
     ]);
   });
 
+  it('preserves finite, missing, and unknown ingredient values in their original order', async () => {
+    mockInvoke.mockResolvedValue({
+      data: {
+        source: 'ai',
+        result: {
+          kind: 'recipe_import_draft.v1',
+          title: 'Freie Mengen',
+          servings: 2,
+          ingredients: [
+            { name: 'Gurke', quantity: 150, unit: 'g', confidence: 'high' },
+            { name: 'Mehl', quantity: -2, unit: 'cup', confidence: 'low' },
+            { name: 'Wasser', quantity: 3, confidence: 'medium' },
+            { name: 'Salz', unit: 'Prise', confidence: 'low' },
+            { name: 'Pfeffer', quantity: null, unit: null, confidence: 'low' },
+          ],
+          steps: ['Alles vermengen.'],
+          notes: null,
+          warnings: [],
+        },
+      },
+      error: null,
+    });
+
+    const imported = await importRecipeSource({
+      householdId: 'household-1',
+      sourceType: 'video',
+      sourceUrl: 'https://www.instagram.com/reel/lossless/',
+    });
+
+    expect(
+      imported.draft.ingredients.map(({ name, quantity, unit }) => ({ name, quantity, unit })),
+    ).toEqual([
+      { name: 'Gurke', quantity: 150, unit: 'g' },
+      { name: 'Mehl', quantity: -2, unit: 'cup' },
+      { name: 'Wasser', quantity: 3, unit: null },
+      { name: 'Salz', quantity: null, unit: 'Prise' },
+      { name: 'Pfeffer', quantity: null, unit: null },
+    ]);
+  });
+
+  it('keeps signed and unknown units when normalizing legacy ingredient text', async () => {
+    mockInvoke.mockResolvedValue({
+      data: {
+        source: 'structured',
+        result: {
+          kind: 'recipe_import_draft.v1',
+          title: 'Legacy',
+          servings: null,
+          ingredients: [{ text: '-2 cup Mehl', confidence: 'low' }],
+          steps: ['Backen.'],
+          notes: null,
+          warnings: [],
+        },
+      },
+      error: null,
+    });
+
+    const imported = await importRecipeSource({ householdId: 'household-1', sourceType: 'url' });
+
+    expect(imported.draft.ingredients[0]).toMatchObject({
+      name: 'Mehl',
+      quantity: -2,
+      unit: 'cup',
+    });
+  });
   it('rejects malformed model output instead of saving a partial import draft', async () => {
     mockInvoke.mockResolvedValue({
       data: {

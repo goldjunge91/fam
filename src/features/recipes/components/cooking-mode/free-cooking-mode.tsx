@@ -174,6 +174,23 @@ function round(value: number): number {
   return Math.round(value);
 }
 
+function isImportedTextItem(item: RecipeDetail['items'][number]): boolean {
+  return (
+    item.ingredientSource?.source === 'import_source' ||
+    (item.product_id === null && (item.sourceText?.trim().length ?? 0) > 0)
+  );
+}
+
+function formatIngredientAmount(item: RecipeDetail['items'][number]): string | null {
+  const amount = item.quantity !== null ? item.quantity : item.grams;
+  const unit = item.quantity !== null || item.grams === null ? item.unit : 'g';
+  const parts = [
+    amount === null ? null : String(Number.isInteger(amount) ? amount : Number(amount.toFixed(6))),
+    unit?.trim() || null,
+  ].filter((part): part is string => part !== null);
+  return parts.length > 0 ? parts.join(' ') : null;
+}
+
 function IngredientGroups({
   data,
   temporarySwap,
@@ -185,9 +202,17 @@ function IngredientGroups({
   const groupsWithServingWeight = data.components.filter(
     (component) => component.serving_grams !== null,
   );
+  const importedComponentIds = new Set(
+    data.items.filter(isImportedTextItem).map((item) => item.component_id),
+  );
   // Katalogrezepte haben teilweise keine zubereiteten Gruppen-Gewichte.
   // In diesem Fall sind trotzdem alle vorhandenen Komponenten echte Gruppen.
-  const groups = groupsWithServingWeight.length > 0 ? groupsWithServingWeight : data.components;
+  const groups =
+    groupsWithServingWeight.length > 0
+      ? data.components.filter(
+          (component) => component.serving_grams !== null || importedComponentIds.has(component.id),
+        )
+      : data.components;
   const componentNames = new Map(
     data.components.map((component) => [component.id, component.name]),
   );
@@ -200,6 +225,7 @@ function IngredientGroups({
     <View style={[styles.groups, { backgroundColor: colors.backgroundElement }]}>
       {groups.map((component) => {
         const items = data.items.filter((item) => item.component_id === component.id);
+        const hasImportedItems = items.some(isImportedTextItem);
 
         return (
           <View key={component.id}>
@@ -207,20 +233,22 @@ function IngredientGroups({
               <Txt variant="heading" style={styles.groupTitle}>
                 {component.name}
               </Txt>
-              <Txt variant="caption" tone="secondary">
-                {round(component.serving_grams ?? 0)} g zubereitet
-              </Txt>
+              {component.serving_grams !== null || !hasImportedItems ? (
+                <Txt variant="caption" tone="secondary">
+                  {round(component.serving_grams ?? 0)} g zubereitet
+                </Txt>
+              ) : null}
             </View>
             {items.map((item, index) => {
               const product = item.product_id ? data.productsById.get(item.product_id) : undefined;
               const originalName =
                 product?.name ??
+                item.sourceText?.trim() ??
                 item.ingredient_name ??
                 (item.sub_component_id ? componentNames.get(item.sub_component_id) : undefined) ??
                 'Zutat';
               const name = replaceIngredientName(originalName, temporarySwap);
-              const quantity = item.quantity !== null ? item.quantity : item.grams;
-              const unit = item.quantity !== null ? item.unit : 'g';
+              const amount = formatIngredientAmount(item);
 
               return (
                 <View
@@ -234,9 +262,9 @@ function IngredientGroups({
                   <Txt variant="body" weight="500" style={styles.ingredientName} numberOfLines={1}>
                     {name}
                   </Txt>
-                  {name === originalName && quantity !== null ? (
+                  {name === originalName && amount !== null ? (
                     <Txt variant="body" tone="secondary" weight="500">
-                      {round(quantity)} {unit}
+                      {amount}
                     </Txt>
                   ) : null}
                 </View>

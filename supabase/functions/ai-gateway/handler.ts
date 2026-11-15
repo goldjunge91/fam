@@ -974,7 +974,7 @@ function buildSystemPrompt(
         ? 'Wenn weder Transkript noch Caption ein verwertbares Rezept mit Zutaten und Zubereitung enthalten, gib ausschließlich {"kind":"recipe_import_unavailable.v1","reason":"no_recipe_in_audio_or_caption"} zurück. Andernfalls gib gültiges Rezept-JSON mit genau kind, title, servings, ingredients, steps, notes und warnings zurück.'
         : 'Gib ausschließlich gültiges JSON mit genau kind, title, servings, ingredients, steps, notes und warnings zurück.',
       'kind ist recipe_import_draft.v1. ingredients enthält Objekte mit genau name, quantity, unit und confidence (high, medium oder low).',
-      'quantity ist eine positive Zahl oder null. unit ist eine der Einheiten g, kg, ml, l, piece, package oder portion oder null. Wenn eine Menge unklar oder nur ungefähr ist, setze quantity und unit beide auf null.',
+      'quantity ist eine endliche Zahl oder null. unit ist eine nicht-leere Zeichenfolge oder null. Beide Felder dürfen unabhängig voneinander null sein. Bewahre unbekannte Einheiten als Text und ohne Ersetzung auf.',
       'Beispiele: "150 g Gurke" wird zu name "Gurke", quantity 150, unit "g"; "50 ml Creme mit 7 % Fett" wird zu name "Creme mit 7 % Fett", quantity 50, unit "ml"; "eine Gurke" wird zu name "Gurke", quantity null, unit null.',
       'servings ist eine positive ganze Zahl oder null. notes ist eine Zeichenfolge oder null.',
       'ingredients ist ein Array, steps ist ein Array mit einer Zeichenfolge pro Schritt. Warnings nennt Unklarheiten und Transkriptionsunsicherheit.',
@@ -1955,11 +1955,20 @@ const RECIPE_IMPORT_LEGACY_UNIT_ALIASES: Record<string, string> = {
 function normalizeRecipeImportIngredient(value: unknown): JsonRecord | null {
   if (!isRecord(value)) return null;
   const ingredientKeys = Object.keys(value);
-  const requiredIngredientKeys = new Set(['name', 'quantity', 'unit', 'confidence']);
+  const structuredIngredientKeys = new Set(['name', 'quantity', 'unit', 'confidence']);
   if (
-    ingredientKeys.length === 4 &&
-    ingredientKeys.every((key) => requiredIngredientKeys.has(key))
-  ) return value;
+    ingredientKeys.length >= 2 &&
+    ingredientKeys.every((key) => structuredIngredientKeys.has(key)) &&
+    typeof value.name === 'string' &&
+    ['high', 'medium', 'low'].includes(String(value.confidence))
+  ) {
+    return {
+      name: value.name,
+      quantity: Object.hasOwn(value, 'quantity') ? value.quantity : null,
+      unit: Object.hasOwn(value, 'unit') ? value.unit : null,
+      confidence: value.confidence,
+    };
+  }
   if (
     ingredientKeys.length !== 2 ||
     ingredientKeys.some((key) => key !== 'text' && key !== 'confidence') ||
@@ -1970,7 +1979,7 @@ function normalizeRecipeImportIngredient(value: unknown): JsonRecord | null {
 
   const text = value.text.trim();
   const match = text.match(
-    /^(\d+(?:[.,]\d+)?)\s*(kg|g|ml|l|gramm|gram|kilo|kilogramm|liter|litre|milliliter|millilitre|package|packung|pkg|piece|stk\.?|stück|stueck|portionen?)\s+(.+)$/iu,
+    /^([+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+))\s*([^\d\s]\S*)\s+(.+)$/u,
   );
   if (!match && /^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)/u.test(text)) return null;
   if (!match) {
@@ -1983,9 +1992,10 @@ function normalizeRecipeImportIngredient(value: unknown): JsonRecord | null {
   }
 
   const quantity = Number((match[1] ?? '').replace(',', '.'));
-  const unit = RECIPE_IMPORT_LEGACY_UNIT_ALIASES[(match[2] ?? '').toLowerCase()];
+  const rawUnit = match[2]?.trim() ?? '';
+  const unit = RECIPE_IMPORT_LEGACY_UNIT_ALIASES[rawUnit.toLowerCase()] ?? rawUnit;
   const name = match[3]?.trim() ?? '';
-  if (!Number.isFinite(quantity) || quantity <= 0 || !unit || !name) return null;
+  if (!Number.isFinite(quantity) || !unit || !name) return null;
   return { name, quantity, unit, confidence: value.confidence };
 }
 
@@ -2015,7 +2025,6 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
     'notes',
     'warnings',
   ]);
-  const allowedIngredientUnits = new Set(['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion']);
   const normalizedIngredients = Array.isArray(result.ingredients)
     ? result.ingredients.map(normalizeRecipeImportIngredient)
     : [];
@@ -2036,13 +2045,9 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
       if (!ingredient) return false;
       const ingredientKeys = Object.keys(ingredient);
       const hasValidQuantity = ingredient.quantity === null ||
-        (typeof ingredient.quantity === 'number' &&
-          Number.isFinite(ingredient.quantity) &&
-          ingredient.quantity > 0);
+        (typeof ingredient.quantity === 'number' && Number.isFinite(ingredient.quantity));
       const hasValidUnit = ingredient.unit === null ||
-        (nonEmptyString(ingredient.unit) &&
-          ingredient.unit.length <= 20 &&
-          allowedIngredientUnits.has(ingredient.unit));
+        (nonEmptyString(ingredient.unit) && ingredient.unit.length <= 20);
       return ingredientKeys.length === 4 &&
         ingredientKeys.every((key) =>
           key === 'name' || key === 'quantity' || key === 'unit' || key === 'confidence'
@@ -2051,7 +2056,6 @@ function parseRecipeImportDraft(result: JsonRecord): RecipeImportDraft | null {
         ingredient.name.length <= 300 &&
         hasValidQuantity &&
         hasValidUnit &&
-        (ingredient.quantity === null) === (ingredient.unit === null) &&
         ['high', 'medium', 'low'].includes(String(ingredient.confidence));
     }) ||
     !Array.isArray(result.steps) ||

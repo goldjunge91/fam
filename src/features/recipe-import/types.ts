@@ -43,15 +43,19 @@ function parseLegacyIngredientText(text: string): {
   unit: string | null;
 } {
   const trimmed = text.trim();
-  const match = trimmed.match(
-    /^(\d+(?:[.,]\d+)?)\s*(kg|g|ml|l|gramm|gram|kilo|kilogramm|liter|litre|milliliter|millilitre|package|packung|pkg|piece|stk\.?|stück|stueck|portionen?)\s+(.+)$/iu,
-  );
-  if (!match) return { name: trimmed, quantity: null, unit: null };
+  const match = trimmed.match(/^([+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+))\s*([^\d\s]\S*)\s+(.+)$/u);
+  if (!match) {
+    if (/^[+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+)/u.test(trimmed)) {
+      return { name: '', quantity: null, unit: null };
+    }
+    return { name: trimmed, quantity: null, unit: null };
+  }
 
   const quantity = Number((match[1] ?? '').replace(',', '.'));
-  const unit = IMPORT_UNIT_ALIASES[(match[2] ?? '').toLowerCase()] ?? null;
+  const rawUnit = match[2]?.trim() ?? '';
+  const unit = IMPORT_UNIT_ALIASES[rawUnit.toLowerCase()] ?? rawUnit;
   const name = match[3]?.trim() ?? '';
-  if (!Number.isFinite(quantity) || quantity <= 0 || !unit || !name) {
+  if (!Number.isFinite(quantity) || !unit || !name) {
     return { name: trimmed, quantity: null, unit: null };
   }
   return { name, quantity, unit };
@@ -64,26 +68,25 @@ export function normalizeRecipeImportIngredient(
   const record = value as Record<string, unknown>;
   const isLegacy = typeof record.text === 'string' && typeof record.name !== 'string';
   if (
-    (!isLegacy &&
-      (typeof record.name !== 'string' ||
-        !Object.hasOwn(record, 'quantity') ||
-        !Object.hasOwn(record, 'unit'))) ||
+    (!isLegacy && typeof record.name !== 'string') ||
     !['high', 'medium', 'low'].includes(String(record.confidence))
   )
     return null;
 
   const legacy = isLegacy ? parseLegacyIngredientText(record.text as string) : null;
   const name = legacy ? legacy.name : (record.name as string).trim();
-  const quantity = legacy ? legacy.quantity : (record.quantity as number | null);
-  const unit = legacy ? legacy.unit : (record.unit as string | null);
+  const rawQuantity = Object.hasOwn(record, 'quantity') ? record.quantity : null;
+  const rawUnit = Object.hasOwn(record, 'unit') ? record.unit : null;
+  const quantity = legacy ? legacy.quantity : rawQuantity === null ? null : (rawQuantity as number);
+  const unit = legacy ? legacy.unit : rawUnit === null ? null : (rawUnit as string);
   if (
     !name ||
+    name.length > 300 ||
+    !(quantity === null || (typeof quantity === 'number' && Number.isFinite(quantity))) ||
     !(
-      quantity === null ||
-      (typeof quantity === 'number' && Number.isFinite(quantity) && quantity > 0)
-    ) ||
-    !(unit === null || (typeof unit === 'string' && unit.trim().length > 0)) ||
-    (quantity === null) !== (unit === null)
+      unit === null ||
+      (typeof unit === 'string' && unit.trim().length > 0 && unit.trim().length <= 20)
+    )
   )
     return null;
 
