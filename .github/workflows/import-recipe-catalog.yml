@@ -60,6 +60,18 @@ jobs:
           printf '%s  %s\n' "$IMPORT_SHA256" "$RUNNER_TEMP/catalog.de.json.gz" \
             | sha256sum --check --status
           jq -e '.recipes | length == 7641' "$RUNNER_TEMP/catalog.de.json" >/dev/null
+          jq -e '
+            all(.recipes[];
+              all((.dishTypes // [])[];
+                . == "breakfast" or . == "lunch" or . == "dinner" or
+                . == "snack" or . == "dessert" or . == "appetizer" or . == "brunch")
+              and
+              all((.dietaryTags // [])[];
+                . == "vegetarian" or . == "vegan" or . == "high_fat" or
+                . == "low_fat" or . == "lactose_free" or . == "sugar_free" or
+                . == "gluten_free")
+            )
+          ' "$RUNNER_TEMP/catalog.de.json" >/dev/null
 
       - name: Install importer dependencies
         run: bun install --frozen-lockfile
