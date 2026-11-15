@@ -273,17 +273,16 @@ describe('Siri extension intent convention', () => {
     }
   });
 
-  it('keeps the Siri extension identity in target configuration', () => {
+  it('uses the generated Famm display name without duplicating app-level Siri names', () => {
     const targetConfig = fs.readFileSync(SIRI_TARGET_CONFIG_PATH, 'utf8');
     const extensionInfo = fs.readFileSync(SIRI_INFO_PLIST_PATH, 'utf8');
 
-    expect(targetConfig).toContain('type: "app-intent"');
-    expect(targetConfig).toContain('displayName: "Famm"');
+    expect(targetConfig).toMatch(/type:\s*"app-intent"[\s\S]*displayName:\s*"Famm"/u);
+    expect(targetConfig).not.toContain('displayName: "siri"');
     expect(extensionInfo).toContain('<key>EXAppExtensionAttributes</key>');
-    expect(extensionInfo).not.toContain('CFBundleDisplayName');
-    expect(extensionInfo).not.toContain('CFBundleSpokenName');
-    expect(extensionInfo).not.toContain('INAlternativeAppNames');
-    expect(extensionInfo).not.toContain('INAlternativeAppName');
+    expect(extensionInfo).not.toMatch(
+      /<key>(?:CFBundleDisplayName|CFBundleSpokenName|INAlternativeAppNames|INAlternativeAppName)<\/key>/u,
+    );
   });
 
   it('keeps the extension entry point separate from the shopping intent', () => {
