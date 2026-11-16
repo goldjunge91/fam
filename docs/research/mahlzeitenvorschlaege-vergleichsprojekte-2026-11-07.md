@@ -1,0 +1,20 @@
+# Mahlzeitenvorschläge: Vergleich mit anderen Projekten
+
+**Stand:** 2026-11-07  
+**Methode:** Öffentliche Dokumentation und Repository-Texte der jeweiligen Projekte. Die beschriebenen Produktabläufe sind belegt; ihre interne Zuverlässigkeit wurde nicht durch Ausführen der Projekte geprüft.
+
+| Projekt | Dokumentierte Umsetzung | Für fam interessant |
+| --- | --- | --- |
+| [Grocy](https://github.com/grocy/grocy-docs/blob/master/tutorials/cooking.md) | Rezepte zeigen vorhandene und fehlende Zutaten. Das Hinzufügen fehlender Produkte zur Einkaufsliste und das [Verbrauchen einer Rezeptmenge](https://github.com/grocy/grocy-docs/blob/master/tutorials/food.md) sind getrennte Aktionen. Bei Verbrauch lassen sich Menge, Lagerort und ein konkreter Bestandseintrag wählen; verdorbene Ware ist eine eigene Buchung. | Ein Vorschlag kann sofort lesbar sein, während die Bestandsbuchung eine spätere bewusste Aktion bleibt. Produktbezogene Einheitenumrechnungen sind für Mengenvergleiche nötig. |
+| [Mealie](https://mealie.io/documentation/getting-started/features/) | Rezepte und Wochenplan werden mit Portionen verknüpft. Beim Übernehmen in die Einkaufsliste folgen die Zutatenmengen den geplanten Portionen. Bereits vorhandene Listeneinträge sind sichtbar und bearbeitbar. | Portionszahl gehört vor die Berechnung des Einkaufsbedarfs. Rezeptzutaten und Einkaufsbedarf brauchen strukturierte Mengen und Einheiten. |
+| [Merran](https://merran.app/docs/use/assistant/) | Die optionale KI macht Vorschläge für Rezepte, Mahlzeiten und Einkaufsartikel. Eine [Vorschlagskarte](https://merran.app/docs/use/assistant/) muss geprüft und angewendet werden, bevor sie Küchenzustand ändert. Für geplante Mahlzeiten gibt es [Bestandsabzüge beim Markieren als gekocht](https://merran.app/docs/project/roadmap/); außerhalb des Plans bedeutet „gekocht“ nicht zwingend einen Abzug. Die [Einkaufsliste berücksichtigt Bestand](https://merran.app/docs/use/shopping-and-pantry/) auch ohne KI. | Modellantwort und Mutation getrennt halten. Die Grenze zwischen „gekocht“ und tatsächlich abgebuchter Menge muss in fam deutlicher sein; die eigene Spezifikation fordert ein korrigierbares Bestandsreview. Merran befindet sich noch in einer Alpha-Phase. |
+| [openCook](https://github.com/oliexdev/openCook) | Rezepte, Wochenplan und geteilte Einkaufsliste funktionieren laut Projektbeschreibung offline ohne Server. Vorschläge sollen Wiederholungen vermeiden, Zutaten über Tage wiederverwenden und Gründe für die Auswahl zeigen. Die Liste berücksichtigt Vorrat und lässt Alltagszutaten aus. | Ein begründeter, deterministischer Vorschlagspfad kann auch ohne Modell nützlich sein. Welche Zutaten pauschal gelten, muss fam enger und ausdrücklich festlegen. Die README beschreibt die Funktion; ihr Algorithmus wurde hier nicht geprüft. |
+
+## Übertragbare Muster
+
+1. **Rezeptauswahl zuerst:** Grocy, Mealie und Merran nutzen vorhandene Rezepte und strukturierte Zutaten als Grundlage. Für fam passt dazu die deterministische Suche in globalem Katalog und Haushaltsrezepten vor dem begrenzten Modell-Fallback.
+2. **Mengen vor Einkauf und Verbrauch:** Mealie skaliert auf geplante Portionen; Grocy verlangt passende Einheiten und lässt beim Verbrauch einen konkreten Bestandslos-Bezug zu. fam muss dieselben Mengen- und Einheitenfragen vor einem Einkaufs- oder Bestandsvorschlag klären.
+3. **Explizite Zustandsänderung:** Grocy trennt Ansehen, Einkaufen und Verbrauchen. Merran zeigt bei KI-Vorschlägen einen eigenen Freigabeschritt. fams „Gekocht“-Review kann diesen Schritt um korrigierbare Mengen ergänzen.
+4. **KI-unabhängiger Kern:** openCook beschreibt einen offline nutzbaren Kern; Merran kann die Grundabläufe ohne KI ausführen. fams erster Vorschlagspfad sollte aus autorisierten lokalen oder serverseitigen Rezeptdaten funktionieren, sofern diese verfügbar und sicher auswertbar sind.
+
+Diese Beispiele belegen keine bestimmte Modellwahl und keine Latenz- oder Kosteneinsparung für fam. Die Anforderungen der [fachlich abgestimmten Spezifikation](../specs/food-waste-meal-suggestions/food-waste-meal-suggestions.md) bleiben maßgeblich.

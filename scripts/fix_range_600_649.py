@@ -1,0 +1,20 @@
+import json
+from pathlib import Path
+base=Path('docs/recipe-extraction/translation-work/agent-root_recipe_translation/current/manual-blocks')
+fix={
+'Esslöffel, zu thicken the glaze bei the end':'Esslöffel zum Schluss zum Andicken der Glasur','1 Teelöffel ground':'1 Teelöffel gemahlen','Teelöffel, ground':'Teelöffel gemahlen','zu garnish':'zum Garnieren',
+'etwa 3 Tassen zu cook the rice':'etwa 3 Tassen zum Kochen des Reises','2 Esslöffel, whisked mit broth zu thicken into roux-style sauce':'2 Esslöffel, mit Brühe verquirlt, um eine Mehlschwitze-Sauce anzudicken','geröstet, zu garnish':'geröstet zum Garnieren','1 sheet, snipped into strips':'1 Blatt, in Streifen geschnitten','1 klein, gehackt, für heat':'1 kleine Chili, gehackt, für mehr Schärfe','1 Esslöffel, zu thicken the sauce':'1 Esslöffel zum Andicken der Sauce',
+'Frank\'s-style buffalo wing sauce':'Buffalo-Wing-Sauce nach Frank\'s Art','Tassen, zu cook the rice':'Tassen zum Kochen des Reises','a Prise für heat':'eine Prise für mehr Schärfe','ground, etwa 1.5 Teelöffel':'gemahlen, etwa 1.5 Teelöffel','used as the cooking liquid in place of water':'als Kochflüssigkeit anstelle von Wasser verwendet','in Scheiben geschnitten, zu garnish':'in Scheiben geschnitten zum Garnieren',
+'Rundkorn-; rinse until water runs clear':'Rundkornreis; abspülen, bis das Wasser klar bleibt','in Scheiben geschnitten paper-thin against the Korn; freeze 20 min first für easy slicing':'quer zur Faser hauchdünn aufschneiden; für leichteres Schneiden zuerst 20 min einfrieren','zu toss the beef':'zum Vermengen mit dem Rindfleisch','ground ginger; oder verwende a few frisch Scheiben if you have them':'gemahlener Ingwer; oder verwende einige Scheiben frischen Ingwer, falls vorhanden','abgespült until the water runs mostly clear':'abspülen, bis das Wasser weitgehend klar bleibt','cut into klein bite-size pieces so they cook through':'in kleine mundgerechte Stücke schneiden und vollständig garen','beaten just until streaky, not fully blended':'schlagen, bis noch Schlieren zu sehen sind; nicht vollständig vermengen',
+'spoon over bei the end für heat und crunch':'am Ende darüberlöffeln für Schärfe und Knusprigkeit','toss in für a heartier bowl':'für eine gehaltvollere Schüssel dazugeben','rinse until water runs clear, then soak 15 min':'abspülen, bis das Wasser klar bleibt, danach 15 min einweichen','adds depth; skip if you do not have it':'sorgt für mehr Tiefe; weglassen, falls nicht vorhanden','adds depth; skip if you don’t have it':'sorgt für mehr Tiefe; weglassen, falls nicht vorhanden','crack auf top during the last 8-10 min of the active cook cycle so the live steam sets them':'während der letzten 8-10 min des Garzyklus obenauf aufschlagen, damit sie im Dampf stocken','garnish':'Garnitur','adds the classic glossy sweetness':'sorgt für die typische glänzende Süße','balances the pork seasoning':'gleicht die Würzung des Schweinefleischs aus','classic Cantonese pepperiness':'typische kantonesische Pfefferschärfe','gedämpft firm during a cook cycle für safety':'aus Sicherheitsgründen während eines Garzyklus fest durchdämpfen','abgespült once oder twice until the water runs less cloudy':'ein- oder zweimal abspülen, bis das Wasser weniger trüb ist','ground, oder verwende a thumb of frischer Ingwer in Scheiben geschnitten into coins':'gemahlen oder ein daumengroßes Stück frischen Ingwer in Scheiben schneiden','drizzle bei the end, do not cook it in':'am Ende darüberträufeln, nicht mitkochen','stirred into the hot congee until gekocht, für zusätzlich richness':'in den heißen Reisbrei rühren, bis es gar ist, für zusätzliche Cremigkeit'
+}
+for d in ['0600-0609','0610-0619','0620-0629','0630-0639','0640-0649']:
+ folder=base/f'block-{d}'; rep=json.loads((folder/'validation-report.json').read_text()); out=Path(rep['outputPath']); data=json.loads(out.read_text())
+ def walk(v):
+  if isinstance(v,dict):
+   for k,x in v.items():
+    if k=='source_note' and isinstance(x,str): v[k]=fix.get(x,x)
+    else: walk(x)
+  elif isinstance(v,list):
+   for x in v: walk(x)
+ walk(data); out.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')

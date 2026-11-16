@@ -92,6 +92,10 @@ _Of note: Most developer contributions are often controlled remotely. This means
 
 ## Ways to Hurt Yourself (Safety Guardrails)
 
+- **Verbindlicher Supabase-Secret-Key-Vertrag:**
+  1. **Projektregel:** `SUPABASE_SERVICE_ROLE_KEY` wird im Projekt nicht mehr verwendet. Privilegierte Zugriffe nutzen Secret API Keys (`sb_secret_...`).
+  2. **Edge Functions:** Gehostete Supabase Edge Functions erhalten Secret API Keys im automatisch injizierten JSON-Binding `SUPABASE_SECRET_KEYS`. Der passende Eintrag wird über seinen Namen gelesen, üblicherweise `default`.
+  3. **Secret API Keys:** Sie umgehen RLS und gehören ausschließlich in kontrollierte Serverumgebungen. Client-Code verwendet Publishable API Keys (`sb_publishable_...`). Fehlende erwartete Konfiguration muss explizit fehlschlagen; echte Secret-Key-Werte dürfen nie geloggt, eingecheckt oder an Client-Code ausgegeben werden.
 - **Dateisystemgrenze:** Lege niemals Dateien oder Arbeitsartefakte außerhalb von /Volumes/Programme an. Das gilt auch für temporäre Skripte, Logs, Dumps, Modulcaches, Compiler-Caches und Testartefakte sowie für von Tools automatisch erzeugte Ausgaben. Setze temporäre und Cache-Pfade explizit auf einen geeigneten Ort ohne andere Agent arbeiten zu überschreiben; verwende insbesondere niemals: `/tmp`, `/private/tmp`, `/var/folders`, `Home-Verzeichnisse` oder globale Standard-Caches.
 - **Längere Terminal- und Python-Aktionen:** Führe längere Shell- oder Python-Blöcke niemals direkt über das Terminal-Tool aus. Lege den vollständigen Ablauf zuerst als Skriptdatei im Workspace oder in einem dafür vorgesehenen, von Git ignorierten Arbeitsordner an und starte sie anschließend mit einem kurzen Ausführungsbefehl, zum Beispiel `fish path/to/script.fish` oder `python path/to/script.py`. Das gilt insbesondere für mehrzeilige Befehle, Heredocs, Schleifen, Bedingungen, Pipelines, verkettete Befehle, eingebettete Skripte sowie Aktionen, die voraussichtlich wiederholt oder angepasst werden müssen. Einzelne kurze und klar begrenzte Befehle bleiben direkt im Terminal erlaubt, etwa ein einzelner Datei-, Status- oder Testaufruf. Erzeuge solche Skripte und Arbeitsartefakte ausschließlich innerhalb der erlaubten Workspace-Grenze und niemals in globalen oder systemweiten temporären Verzeichnissen.
 - **Niemals Migrationen von Hand schreiben oder editieren:** Ändere stets `supabase/schemas/*.sql`, erzeuge die Migration mit `bun run db:diff` und wende sie mit `bun run db:reset` an.
@@ -117,6 +121,15 @@ _Of note: Most developer contributions are often controlled remotely. This means
 - **Paketmanager:** `bun` für alle Paketoperationen und Skripte (`bun run <cmd>`).
 - **Linter & Formatter:** Biome (`bun run check` zum Prüfen, `bun run check:fix` zum Beheben). Kein ESLint / Prettier. `bun run check` prüft den TypeScript-/TSX-Quellbestand mit Biome.
 - **Typecheck:** `bun run typecheck` (`tsc --noEmit`).
+
+## Abschlussprüfung und Fehlerbehebung
+
+- Nach jedem fertiggestellten Task wird das Produkt vor dem finalen Check-Lauf noch einmal gezielt geprüft. Verwende dafür genau diesen Prüfauftrag: "I'm going over the product once more before the final check run, looking for anything a strict evaluator would catch."
+- Wird dabei oder während der Arbeit ein Fehler gefunden, gilt dieser vierstufige Ablauf:
+  1. **Reparatur:** Fehler beheben.
+  2. **Test:** Einen gezielten Test für den Fehler schreiben und ausführen. Der Test muss mit der Reparatur grün sein.
+  3. **Rückbau:** Die Reparatur vorübergehend auskommentieren oder zurücknehmen und den Test erneut ausführen. Er muss den Fehler nun erkennen und rot werden.
+  4. **Wiedereinbau:** Die Reparatur wieder aktivieren und den Test erneut ausführen. Er muss wieder grün sein.
 
 ## Coding preferences - general
 

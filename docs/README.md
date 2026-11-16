@@ -22,6 +22,8 @@ aktuellen technischen Zustand.
 - [Produktvision](features/VISION.md) – Produktgrenzen, Datenschutzprinzipien
   und langfristige Module.
 - [Roadmap](features/ROADMAP.md) – abgeschlossener MVP und geplante Epics.
+- [AI und Assistant für fam](features/ai-und-assistant-produktziel.md) – bestätigter Produktumfang nach Merran als Referenz, mit fam-spezifischen Daten- und Architekturgrenzen.
+- [Rezeptimport für fam](features/rezeptimport-produktziel.md) – eigener Importablauf für Webseiten, Text und Medien mit Prüfung vor dem Speichern.
 - [RevenueCat Monetarisierung](specs/revenuecat-plus-ai/SPEC.md) – Spec für die
   Entitlements Plus und AI.
 - [Supermarkt-Laufstrecke](features/Supermarkt%20Laufstrecke%20-%20Einkaufslisten%20Sortierung.md)
