@@ -157,7 +157,19 @@ const imageContentType = (imagePath: string) => {
 };
 
 type ImportProgress = { completed: number; total: number; current: string };
-const IMPORT_CONCURRENCY = 8;
+const IMPORT_CONCURRENCY = 2;
+const fetchWithRetry: typeof fetch = async (input, init) => {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      return await fetch(input, { ...init, signal: AbortSignal.timeout(30_000) });
+    } catch (error) {
+      lastError = error;
+      if (attempt < 2) await Bun.sleep(500 * (attempt + 1));
+    }
+  }
+  throw lastError;
+};
 
 async function importBatch(
   batch: Batch,
@@ -167,7 +179,7 @@ async function importBatch(
   const db = createClient(
     required('SUPABASE_URL', 'EXPO_PUBLIC_SUPABASE_URL'),
     required('SUPABASE_SECRET_KEY'),
-    { auth: { autoRefreshToken: false, persistSession: false } },
+    { auth: { autoRefreshToken: false, persistSession: false }, global: { fetch: fetchWithRetry } },
   );
   const report = [];
   onProgress?.({ completed: 0, total: batch.recipes.length, current: '' });
