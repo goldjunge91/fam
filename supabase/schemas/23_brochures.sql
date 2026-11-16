@@ -1654,9 +1654,28 @@ begin
     v_needs_enqueue := (
       v_scan.last_error is null
       and v_scan.last_successful_at is not null
-      and v_scan.last_successful_at < pg_catalog.clock_timestamp() - interval '5 days'
       and v_scan.requested_at <= v_scan.last_successful_at
       and v_scan.next_attempt_at <= pg_catalog.clock_timestamp()
+      and (
+        v_scan.last_successful_at < pg_catalog.clock_timestamp() - interval '5 days'
+        or (
+          v_scan.last_successful_at < pg_catalog.clock_timestamp() - interval '1 day'
+          and (
+            not exists (
+              select 1
+              from public.brochures as brochure
+              where brochure.source_zip_code = p_zip_code
+            )
+            or exists (
+              select 1
+              from public.brochures as brochure
+              where brochure.source_zip_code = p_zip_code
+              group by brochure.store_id
+              having max(brochure.valid_until) < pg_catalog.clock_timestamp()
+            )
+          )
+        )
+      )
     ) or (
       v_scan.last_error is not null
       and v_scan.attempt_count >= 4
@@ -1688,9 +1707,28 @@ begin
     v_needs_enqueue := (
       v_scan.last_error is null
       and v_scan.last_successful_at is not null
-      and v_scan.last_successful_at < pg_catalog.clock_timestamp() - interval '5 days'
       and v_scan.requested_at <= v_scan.last_successful_at
       and v_scan.next_attempt_at <= pg_catalog.clock_timestamp()
+      and (
+        v_scan.last_successful_at < pg_catalog.clock_timestamp() - interval '5 days'
+        or (
+          v_scan.last_successful_at < pg_catalog.clock_timestamp() - interval '1 day'
+          and (
+            not exists (
+              select 1
+              from public.brochures as brochure
+              where brochure.source_zip_code = p_zip_code
+            )
+            or exists (
+              select 1
+              from public.brochures as brochure
+              where brochure.source_zip_code = p_zip_code
+              group by brochure.store_id
+              having max(brochure.valid_until) < pg_catalog.clock_timestamp()
+            )
+          )
+        )
+      )
     ) or (
       v_scan.last_error is not null
       and v_scan.attempt_count >= 4

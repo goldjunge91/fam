@@ -184,7 +184,7 @@ select lives_ok(
       "store_name":"Publisher One",
       "title":"October offers Berlin",
       "valid_from":"2026-10-01T22:01:00Z",
-      "valid_until":"2026-10-30T21:59:00Z",
+      "valid_until":"2099-10-30T21:59:00Z",
       "cover_image":"https://content-media.bonial.biz/10115/page-1.jpg",
       "page_count":1,
       "pages":[{"page_number":1,"image_url":"https://content-media.bonial.biz/10115/page-1.jpg","hotspots":[]}],
@@ -208,7 +208,36 @@ select results_eq(
   $$select requested_at = last_successful_at
     from public.request_brochure_zip_scan('10115')$$,
   $$values (true)$$,
-  'a successful scan remains fresh for five days'
+  'a recent successful scan stays fresh while every publisher has active or upcoming brochures'
+);
+reset role;
+update public.brochures
+set valid_until = now() - interval '1 hour'
+where source_zip_code = '10115';
+update public.brochure_zip_scans
+set requested_at = now() - interval '12 hours',
+    last_successful_at = now() - interval '12 hours',
+    next_attempt_at = now() - interval '12 hours'
+where zip_code = '10115';
+select tests.authenticate_as('90909090-9090-4090-8090-909090909090');
+select results_eq(
+  $$select requested_at = last_successful_at
+    from public.request_brochure_zip_scan('10115')$$,
+  $$values (true)$$,
+  'expired publisher coverage cannot repeat a scan within one day'
+);
+reset role;
+update public.brochure_zip_scans
+set requested_at = now() - interval '2 days',
+    last_successful_at = now() - interval '2 days',
+    next_attempt_at = now() - interval '2 days'
+where zip_code = '10115';
+select tests.authenticate_as('90909090-9090-4090-8090-909090909090');
+select results_eq(
+  $$select requested_at > last_successful_at
+    from public.request_brochure_zip_scan('10115')$$,
+  $$values (true)$$,
+  'a publisher without an active or upcoming brochure renews the PLZ before five days'
 );
 reset role;
 update public.brochure_zip_scans
